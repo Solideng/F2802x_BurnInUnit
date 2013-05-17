@@ -1,0 +1,154 @@
+\hypertarget{_pwm_8h}{\section{Pwm.\-h File Reference}
+\label{_pwm_8h}\index{Pwm.\-h@{Pwm.\-h}}
+}
+
+
+P\-W\-M and related functions.  
+
+
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{_pwm_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_pwm_8h_acf4f0b0797f3141ed767a8384edbef4a}{prd}~600
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_pwm_8h_aced17503c602f9e71a2d101e956cce23}{pwm\-Tz\-Configure} (void)
+\item 
+void \hyperlink{_pwm_8h_a94a47896496e094f8ab54c1cb46da2e1}{pwm\-Rst\-Tz} (void)
+\item 
+void \hyperlink{_pwm_8h_acc68120fcdfa36145370c31a61eb23a7}{pwm\-Macro\-Configure} (void)
+\item 
+void \hyperlink{_pwm_8h_a358d8706acd0faf4e1cc705129be6548}{pwm\-Soc\-Configure} (void)
+\item 
+void \hyperlink{_pwm_8h_adfbaf2bb56a0c9fe6f54826499cb57de}{pwm\-D\-P\-L\-Trig\-Init} (void)
+\item 
+Uint16 \hyperlink{_pwm_8h_aac96cde993e92779e895170e72332528}{pwm\-Set\-Freq} (Uint16 frq)
+\item 
+Uint16 \hyperlink{_pwm_8h_a8624136d66212f9b1773741a6356e5d7}{pwm\-Get\-Freq} (Uint16 $\ast$frq\-Dest)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile int32 $\ast$ \hyperlink{_pwm_8h_a8a02650c6afb411447157faf0e90a7b2}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}
+\item 
+volatile int32 $\ast$ \hyperlink{_pwm_8h_a23767edc2ebfabc9336684185a4f2d84}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}
+\item 
+volatile int32 $\ast$ \hyperlink{_pwm_8h_acc76d5ffc745e63de05baa242bb3d16f}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}
+\item 
+volatile int32 $\ast$ \hyperlink{_pwm_8h_a3215b15b28994e0840d64200f09cbfb0}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}
+\item 
+volatile int32 $\ast$ \hyperlink{_pwm_8h_a86962b3c7a5a851d9ddce3301a9db727}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}
+\item 
+volatile int32 $\ast$ \hyperlink{_pwm_8h_a9550c95286e784256c9f12906ff5a407}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\-W\-M and related functions. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_pwm_8h_acf4f0b0797f3141ed767a8384edbef4a}{\index{Pwm.\-h@{Pwm.\-h}!prd@{prd}}
+\index{prd@{prd}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{prd}]{\setlength{\rightskip}{0pt plus 5cm}\#define prd~600}}\label{_pwm_8h_acf4f0b0797f3141ed767a8384edbef4a}
+Defines the initial P\-W\-M period setting = 60\-M\-Hz / 600 = 100. 
+
+\subsection{Function Documentation}
+\hypertarget{_pwm_8h_adfbaf2bb56a0c9fe6f54826499cb57de}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-D\-P\-L\-Trig\-Init@{pwm\-D\-P\-L\-Trig\-Init}}
+\index{pwm\-D\-P\-L\-Trig\-Init@{pwm\-D\-P\-L\-Trig\-Init}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-D\-P\-L\-Trig\-Init}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-D\-P\-L\-Trig\-Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_pwm_8h_adfbaf2bb56a0c9fe6f54826499cb57de}
+Initialises and enables P\-W\-M1 (master) to trigger the D\-P\-L I\-S\-R. \hypertarget{_pwm_8h_a8624136d66212f9b1773741a6356e5d7}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Get\-Freq@{pwm\-Get\-Freq}}
+\index{pwm\-Get\-Freq@{pwm\-Get\-Freq}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Get\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 pwm\-Get\-Freq (
+\begin{DoxyParamCaption}
+\item[{Uint16 $\ast$}]{frq\-Dest}
+\end{DoxyParamCaption}
+)}}\label{_pwm_8h_a8624136d66212f9b1773741a6356e5d7}
+Queries the current P\-W\-M frequency setting. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em frq\-Dest} & Address of the memory location at which to place the query result (hertz). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{_pwm_8h_acc68120fcdfa36145370c31a61eb23a7}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Macro\-Configure@{pwm\-Macro\-Configure}}
+\index{pwm\-Macro\-Configure@{pwm\-Macro\-Configure}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Macro\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Macro\-Configure (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_pwm_8h_acc68120fcdfa36145370c31a61eb23a7}
+Configures each of the P\-W\-M macros for use. \hypertarget{_pwm_8h_a94a47896496e094f8ab54c1cb46da2e1}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Rst\-Tz@{pwm\-Rst\-Tz}}
+\index{pwm\-Rst\-Tz@{pwm\-Rst\-Tz}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Rst\-Tz}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Rst\-Tz (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_pwm_8h_a94a47896496e094f8ab54c1cb46da2e1}
+Resets the trip zone after a comparator event. \hypertarget{_pwm_8h_aac96cde993e92779e895170e72332528}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Set\-Freq@{pwm\-Set\-Freq}}
+\index{pwm\-Set\-Freq@{pwm\-Set\-Freq}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Set\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 pwm\-Set\-Freq (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{frq}
+\end{DoxyParamCaption}
+)}}\label{_pwm_8h_aac96cde993e92779e895170e72332528}
+Sets the frequency of the P\-W\-Ms. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em frq} & Specifies the required frequency (hertz). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{_pwm_8h_a358d8706acd0faf4e1cc705129be6548}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Soc\-Configure@{pwm\-Soc\-Configure}}
+\index{pwm\-Soc\-Configure@{pwm\-Soc\-Configure}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Soc\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Soc\-Configure (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_pwm_8h_a358d8706acd0faf4e1cc705129be6548}
+Configures P\-W\-M1 (master) to generate A\-D\-C S\-O\-C start for A\-D\-C macro -\/ configure before initialisation. \hypertarget{_pwm_8h_aced17503c602f9e71a2d101e956cce23}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Tz\-Configure@{pwm\-Tz\-Configure}}
+\index{pwm\-Tz\-Configure@{pwm\-Tz\-Configure}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Tz\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Tz\-Configure (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_pwm_8h_aced17503c602f9e71a2d101e956cce23}
+Configures P\-W\-M trip zones for use. Requires the comparator and D\-A\-C to be configured \begin{DoxySeeAlso}{See Also}
+\hyperlink{_adc_8h}{adc.\-h} 
+\end{DoxySeeAlso}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_pwm_8h_a8a02650c6afb411447157faf0e90a7b2}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}}\label{_pwm_8h_a8a02650c6afb411447157faf0e90a7b2}
+Channel 0 P\-W\-M terminal pointer. \hypertarget{_pwm_8h_a23767edc2ebfabc9336684185a4f2d84}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}}\label{_pwm_8h_a23767edc2ebfabc9336684185a4f2d84}
+Channel 1 P\-W\-M terminal pointers. \hypertarget{_pwm_8h_acc76d5ffc745e63de05baa242bb3d16f}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}}\label{_pwm_8h_acc76d5ffc745e63de05baa242bb3d16f}
+Channel 2 P\-W\-M terminal pointer. \hypertarget{_pwm_8h_a3215b15b28994e0840d64200f09cbfb0}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}}\label{_pwm_8h_a3215b15b28994e0840d64200f09cbfb0}
+Channel 3 P\-W\-M terminal pointer. \hypertarget{_pwm_8h_a86962b3c7a5a851d9ddce3301a9db727}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}}\label{_pwm_8h_a86962b3c7a5a851d9ddce3301a9db727}
+Interboost P\-W\-M terminal pointer. \hypertarget{_pwm_8h_a9550c95286e784256c9f12906ff5a407}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}}\label{_pwm_8h_a9550c95286e784256c9f12906ff5a407}
+A\-C stage P\-W\-M terminal pointer. 

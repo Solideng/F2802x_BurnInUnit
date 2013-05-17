@@ -1,0 +1,5 @@
+CONTROLSUITE_ROOT = c:\TI\controlSUITE
+CONTROLSUITE_DEVKITS_ROOT = c:\TI\controlSUITE\development_kits
+CONTROLSUITE_DEVICE_SUPPORT_ROOT = c:\TI\controlSUITE\device_support
+CONTROLSUITE_APPLIBS_ROOT = c:\TI\controlSUITE\libs\app_libs
+CONTROLSUITE_IQMATH_ROOT = c:\TI\controlSUITE\libs\math\IQmath\v15c\

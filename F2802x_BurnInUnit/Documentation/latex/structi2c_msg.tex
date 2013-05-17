@@ -1,0 +1,56 @@
+\hypertarget{structi2c_msg}{\section{i2c\-Msg Struct Reference}
+\label{structi2c_msg}\index{i2c\-Msg@{i2c\-Msg}}
+}
+
+
+{\ttfamily \#include $<$I2c.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+volatile Uint16 \hyperlink{structi2c_msg_aaf82cb35284e62dcfea972e7c320917a}{msg\-Status}
+\item 
+Uint16 \hyperlink{structi2c_msg_a971e2b542d6947e6f047591a4eb4886c}{slave\-Address}
+\item 
+Uint16 \hyperlink{structi2c_msg_a3f10764462075eb1d9bdb1bf9f65e752}{num\-Of\-Bytes}
+\item 
+Uint16 \hyperlink{structi2c_msg_af19843f447431559239db792b5166cc0}{num\-Slave\-Ptr\-Bytes}
+\item 
+Uint16 \hyperlink{structi2c_msg_a9769c9a3e4db1eb01cfe7e5566647c04}{slave\-Ptr\-Addr\-High}
+\item 
+Uint16 \hyperlink{structi2c_msg_a18a2503e16f41da3481d2dd6530327ff}{slave\-Ptr\-Addr\-Low}
+\item 
+Uint16 \hyperlink{structi2c_msg_ab84c3b898d635ae3698728f948dce69e}{msg\-Buffer} \mbox{[}\hyperlink{_i2c_8h_a0889ccb6e4a98d6d8a0bf7c009c818e2}{I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The structure used to contain all settings and values relevant to a particular I2\-C message. 
+
+\subsection{Field Documentation}
+\hypertarget{structi2c_msg_ab84c3b898d635ae3698728f948dce69e}{\index{i2c\-Msg@{i2c\-Msg}!msg\-Buffer@{msg\-Buffer}}
+\index{msg\-Buffer@{msg\-Buffer}!i2cMsg@{i2c\-Msg}}
+\subsubsection[{msg\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::msg\-Buffer\mbox{[}{\bf I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}\mbox{]}}}\label{structi2c_msg_ab84c3b898d635ae3698728f948dce69e}
+A buffer array for message data. The maximum buffer size, M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E, is 4 due to the F\-I\-F\-O's size. \hypertarget{structi2c_msg_aaf82cb35284e62dcfea972e7c320917a}{\index{i2c\-Msg@{i2c\-Msg}!msg\-Status@{msg\-Status}}
+\index{msg\-Status@{msg\-Status}!i2cMsg@{i2c\-Msg}}
+\subsubsection[{msg\-Status}]{\setlength{\rightskip}{0pt plus 5cm}volatile Uint16 i2c\-Msg\-::msg\-Status}}\label{structi2c_msg_aaf82cb35284e62dcfea972e7c320917a}
+Indicates which state the message is in. \hypertarget{structi2c_msg_a3f10764462075eb1d9bdb1bf9f65e752}{\index{i2c\-Msg@{i2c\-Msg}!num\-Of\-Bytes@{num\-Of\-Bytes}}
+\index{num\-Of\-Bytes@{num\-Of\-Bytes}!i2cMsg@{i2c\-Msg}}
+\subsubsection[{num\-Of\-Bytes}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::num\-Of\-Bytes}}\label{structi2c_msg_a3f10764462075eb1d9bdb1bf9f65e752}
+The number of valid bytes in (or to be put in msg\-Buffer). \hypertarget{structi2c_msg_af19843f447431559239db792b5166cc0}{\index{i2c\-Msg@{i2c\-Msg}!num\-Slave\-Ptr\-Bytes@{num\-Slave\-Ptr\-Bytes}}
+\index{num\-Slave\-Ptr\-Bytes@{num\-Slave\-Ptr\-Bytes}!i2cMsg@{i2c\-Msg}}
+\subsubsection[{num\-Slave\-Ptr\-Bytes}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::num\-Slave\-Ptr\-Bytes}}\label{structi2c_msg_af19843f447431559239db792b5166cc0}
+The number of slave register pointer address bytes. \hypertarget{structi2c_msg_a971e2b542d6947e6f047591a4eb4886c}{\index{i2c\-Msg@{i2c\-Msg}!slave\-Address@{slave\-Address}}
+\index{slave\-Address@{slave\-Address}!i2cMsg@{i2c\-Msg}}
+\subsubsection[{slave\-Address}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::slave\-Address}}\label{structi2c_msg_a971e2b542d6947e6f047591a4eb4886c}
+The slave device I2\-C address this message is intended for. \hypertarget{structi2c_msg_a9769c9a3e4db1eb01cfe7e5566647c04}{\index{i2c\-Msg@{i2c\-Msg}!slave\-Ptr\-Addr\-High@{slave\-Ptr\-Addr\-High}}
+\index{slave\-Ptr\-Addr\-High@{slave\-Ptr\-Addr\-High}!i2cMsg@{i2c\-Msg}}
+\subsubsection[{slave\-Ptr\-Addr\-High}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::slave\-Ptr\-Addr\-High}}\label{structi2c_msg_a9769c9a3e4db1eb01cfe7e5566647c04}
+The slave register pointer high byte. \hypertarget{structi2c_msg_a18a2503e16f41da3481d2dd6530327ff}{\index{i2c\-Msg@{i2c\-Msg}!slave\-Ptr\-Addr\-Low@{slave\-Ptr\-Addr\-Low}}
+\index{slave\-Ptr\-Addr\-Low@{slave\-Ptr\-Addr\-Low}!i2cMsg@{i2c\-Msg}}
+\subsubsection[{slave\-Ptr\-Addr\-Low}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::slave\-Ptr\-Addr\-Low}}\label{structi2c_msg_a18a2503e16f41da3481d2dd6530327ff}
+The slave register pointer low byte. 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_i2c_8h}{I2c.\-h}\end{DoxyCompactItemize}
