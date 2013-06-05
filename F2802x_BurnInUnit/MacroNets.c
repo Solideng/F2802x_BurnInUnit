@@ -10,6 +10,7 @@
 Uint16	stopAll = 0;
 Uint16	enableAll = 0;
 
+// TODO WHY IS IT +2?
 #ifndef DUAL_CNTL_AC
 	channelParameters channel[NUM_CHNLS + 1];	/* +1 is for VMid parameters which don't have a channel */
 #else
@@ -29,7 +30,7 @@ void mnSetupChannels (void) {
 	/* Initialise all channel structures with default values */
 	Uint16 i = 0;
 	for (i = 0; i< (NUM_CHNLS + 2); i++) {
-		channel[i].refNet = 0;		/* Q24 (IQ24: +127 - -128) */
+		channel[i].refNet = 0;		/* Q24 (IQ24: -128 - +128) */
 		channel[i].iFdbkNet = 0;	/* Q24 */
 		channel[i].vFdbkNet = 0;	/* Q24 */
 		channel[i].outNet = 0;		/* Q24 */ //<< IS IT BECAUSE OF THIS?? //TODO

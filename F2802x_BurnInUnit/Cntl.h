@@ -15,7 +15,7 @@
 	#define DGAIN_MAX 	1000
 	#define DGAIN_MIN 	0
 
-	/* PID settings arrays for use during debug - preloaded with initial values  */
+	/* PID settings arrays for use during debug - pre-loaded with initial values  */
 	extern int16 pGain[NUM_CHNLS];
 	extern int16 iGain[NUM_CHNLS];
 	extern int16 dGain[NUM_CHNLS];

@@ -78,10 +78,10 @@ struct channelParameters {
 	int16	pGain; 		/**< CNTL P Gain (SQ8). */ /* these will need to be changed to b3-b0 & a3-a1. Maybe with a compile switch? */
 	int16	iGain;		/**< CNTL I Gain (SQ8). */ /* also will need to be changed to floats, with conversion to IQ in assignment function. */
 	int16	dGain;		/**< CNTL D Gain (SQ8). */
-	opType	opMode;		/**< Output mode setting [dc | ac). */
-	ctlType	ctlMode;	/**< Control mode setting [iCtrl | vCtrl). */
+	opType	opMode;		/**< Output mode setting {dc, ac}. */
+	ctlType	ctlMode;	/**< Control mode setting {iCtrl, vCtrl}. */
 	Uint16	acFrequency;/**< Sine signal generator frequency setting (Hz). */
-	Uint16	chEnable;	/**< Channel enable status [FALSE | TRUE). */
+	Uint16	chEnable;	/**< Channel enable status {FALSE, TRUE}. */
 };
 typedef struct channelParameters channelParameters;
 
@@ -89,8 +89,8 @@ typedef struct channelParameters channelParameters;
 	extern channelParameters channel[NUM_CHNLS + 1];	/**< A collection of the individual channel structures. */
 	/* +1 is for VMid parameters which isn't a full channel. */
 #else
-	extern channelParameters channel[NUM_CHNLS + 1];	/**< A collection of the individual channel structures. */
-	/* +1 is for VMid parameters which isn't a full channel. */
+	extern channelParameters channel[NUM_CHNLS + 2];	/**< A collection of the individual channel structures. */
+	/* +2 is for VMid and AC 2nd stage parameters which dont have a channel */
 #endif
 
 extern Uint16 stopAll;		/**< Stop-all condition flag that allows status communication between the state machine tasks. */

@@ -5,6 +5,7 @@
  *
  */
 
+// TODO add adcGetLevel() for MEASure V & I
 #ifndef ADC_H_
 #define ADC_H_
 
