@@ -159,7 +159,7 @@ all: F2802x_BurnInUnit.out
 F2802x_BurnInUnit.out: $(OBJS) $(CMD_SRCS) $(CMD_UPPER_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C2000 Linker'
-	"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/bin/cl2000" -v28 -ml -mt -O3 -g --define="_DEBUG" --define="LARGE_MODEL" --define="FLASH" --diag_warning=225 -z --stack_size=0x380 -m"F2802x_BurnInUnit.map" --warn_sections -i"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/lib" -i"{SGEN_LIB_VER_ROOT}/lib" -i"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include" -i"C:/Users/Toby/git/F2802x BurnInUnit/F2802x_BurnInUnit" --reread_libs --rom_model -o "F2802x_BurnInUnit.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/bin/cl2000" -v28 -ml -mt -O3 -g --define="_DEBUG" --define="LARGE_MODEL" --define="FLASH" --diag_warning=225 -z --stack_size=0x380 -m"F2802x_BurnInUnit.map" --warn_sections -i"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/lib" -i"{SGEN_LIB_VER_ROOT}/lib" -i"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include" -i"C:/Users/Toby/.git/F2802x_BurnInUnit/F2802x_BurnInUnit" --reread_libs --rom_model -o "F2802x_BurnInUnit.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
