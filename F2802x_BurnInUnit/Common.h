@@ -14,11 +14,9 @@
 #include "Settings.h"
 #include "PeripheralHeaderIncludes.h"
 #include "DSP2802x_EPWM_defines.h"
-#include "ProcessorDependent.h"
 /* Additional function libraries */
 #include "IQMathLib.h"
 #include "SQMath.h"
-#include "commros_user_regular.h"
 #include "DPlib.h"
 #include "sgen.h"
 /* Application includes */

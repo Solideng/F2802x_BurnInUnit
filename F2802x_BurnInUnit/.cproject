@@ -8,8 +8,8 @@
 				<macros>
 					<stringMacro name="CONTROLSUITE_DEVICE_SUPPORT_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE/device_support"/>
 					<stringMacro name="SGEN_LIB_VER_ROOT" type="VALUE_PATH_DIR" value="c:/ti/controlSUITE/libs/dsp/SGEN/v101"/>
-					<stringMacro name="CONTROLSUITE_APPLIBS_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE/libs/app_libs"/>
 					<stringMacro name="CONTROLSUITE_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE"/>
+					<stringMacro name="CONTROLSUITE_APPLIBS_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE/libs/app_libs"/>
 					<stringMacro name="CONTROLSUITE_DEVKITS_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE/development_kits"/>
 					<stringMacro name="CONTROLSUITE_IQMATH_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE/libs/math/IQmath/v15c"/>
 				</macros>
@@ -57,7 +57,6 @@
 									<listOptionValue builtIn="false" value="&quot;${SGEN_LIB_VER_ROOT}/source/C28x_SGEN_LIB&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${SGEN_LIB_VER_ROOT}/include&quot;"/>
 									<listOptionValue builtIn="false" value="C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include"/>
-									<listOptionValue builtIn="false" value="C:/Users/Toby/git/F2802x BurnInUnit/F2802x_BurnInUnit/Crosshairs"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_6.1.compilerID.DEFINE.1575431912" name="Pre-define NAME (--define, -D)" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.1.compilerID.DEFINE" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="&quot;_DEBUG&quot;"/>

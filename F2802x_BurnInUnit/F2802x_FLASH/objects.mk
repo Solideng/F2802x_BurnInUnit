@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := $(GEN_CMDS__FLAG) -l"C:/ti/controlSUITE/libs/dsp/SGEN/v101/lib/C28x_SGEN_Lib_fixed.lib" -l"libc.a"
+LIBS := -l"C:/ti/controlSUITE/libs/dsp/SGEN/v101/lib/C28x_SGEN_Lib_fixed.lib" -l"libc.a"
 
