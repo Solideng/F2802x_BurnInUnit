@@ -184,7 +184,7 @@ Uint16 sourVoltProt (double * parameters, bool isQuery) {
 	float32 buf = 0;
 
 	if (isQuery) {
-		err += adcGetOvp(nSel &buf);
+		err += adcGetOvp(nSel, &buf);
 		err += respond(&buf, Double, true);
 	} else {
 		err += adcSetOvp(nSel, *parameters);

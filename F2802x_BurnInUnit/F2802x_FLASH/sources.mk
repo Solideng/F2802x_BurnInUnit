@@ -7,6 +7,7 @@ CPP_SRCS :=
 K_SRCS := 
 LD_SRCS := 
 S67_SRCS := 
+LDS_SRCS := 
 CMD_SRCS := 
 CXX_SRCS := 
 CMD_UPPER_SRCS := 
@@ -18,6 +19,7 @@ S_UPPER_SRCS :=
 A_SRCS := 
 C55_SRCS := 
 SA_SRCS := 
+LDS_UPPER_SRCS := 
 C_UPPER_SRCS := 
 OBJ_SRCS := 
 S62_SRCS := 
@@ -97,5 +99,4 @@ S64_DEPS__QUOTED :=
 SUBDIRS := \
 . \
 scpi \
-Crosshairs \
 
