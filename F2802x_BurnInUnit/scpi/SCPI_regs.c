@@ -1,6 +1,6 @@
 #include "scpi.h"
 
-Uint16 MSS;
+static Uint16 MSS;
 //Uint16 GET;
 //Uint16 DAB;
 //Uint16 END;

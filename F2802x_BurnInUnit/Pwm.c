@@ -10,7 +10,7 @@ Uint16 comp1Trig = FALSE;	/* TODO Replace these with SCPI register bits when ava
 Uint16 comp2Trig = FALSE;
 
 /*================= LOCAL VARS ================*/
-Uint16 period = PERIOD;		/* Initially 600 - with a SysClk of 60MHz the freq = 60MHz/600 = 100kHz */
+static Uint16 period = PERIOD;		/* Initially 600 - with a SysClk of 60MHz the freq = 60MHz/600 = 100kHz */
 
 /*============== LOCAL FUNCTIONS ==============*/
 static interrupt void pwmTz_ISR (void);

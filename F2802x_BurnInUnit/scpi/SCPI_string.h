@@ -20,9 +20,6 @@
 	extern "C" {
 #endif
 
-#define isnan(x) ((x) != (x))				/**< Check if x is NaN. */
-#define isinf(x) (!isnan(x) && isnan(x - x))/**< Check if x is Infinite. */
-
 /** Converts n to a string, places the result in s and returns s.
  * @param[in]	n	Value to be converted.
  * @param[out]	s	String that converted value is to be placed in.

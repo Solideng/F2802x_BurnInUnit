@@ -25,8 +25,14 @@
 #ifndef OQUEUE_LENGTH	/* Ensures user has set the output queue length define in scpi.h */
 	#error "The response output queue length 'OQUEUE_LENGTH' has not been defined (should be in scpi.h)"
 #endif
-// TODO document below
-extern Uint16 setTxOQueue (Uint16 (*IOTx)(char data));
+
+/** Sets the callback function handle used by the output queue to initiate the transmission.
+ * @param[in] txHandle	Handle of the device specific transmit function.
+ * @return				Error status.
+ */
+extern Uint16 setTxOQueue (Uint16 (*txHandle)(char data));
+
+/** Resets the output queue. */
 extern void resetOQueue (void);
 
 /** Clears the output program queue of any data from the point indicated, onwards to the end
@@ -48,7 +54,6 @@ extern Uint16 pushOQueue (char * src);
 /** Pops a response off of the output queue
  * This would normally be called by the application's outgoing communications
  * handling functions and is the main data output point for the SCPI parser
- * //@param[out]  dest	Location for the popped data to be written to
  * @return				Error status
  */
 extern Uint16 popOQueue (void);

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['pgain',['pGain',['../structchannel_parameters.html#a2d6c1295ab4c4182bf3f713c283aa37e',1,'channelParameters']]],
   ['phase_5fctrl_5fin',['PHASE_CTRL_In',['../_phase_ctrl_8h.html#ac286d0874ebba5141e36971f4a7f106e',1,'PhaseCtrl.c']]],
   ['pwmdrv_5f2ch_5fupcnt_5fduty1a',['PWMDRV_2ch_UpCnt_Duty1A',['../_pwm_8h.html#a8a02650c6afb411447157faf0e90a7b2',1,'Pwm.h']]],
   ['pwmdrv_5f2ch_5fupcnt_5fduty1b',['PWMDRV_2ch_UpCnt_Duty1B',['../_pwm_8h.html#a23767edc2ebfabc9336684185a4f2d84',1,'Pwm.h']]],

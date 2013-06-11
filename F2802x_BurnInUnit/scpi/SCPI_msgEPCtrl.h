@@ -63,7 +63,7 @@ extern void scpi (void);
  *					 The MEC remains in the READ state when bav, get, eom, or ib-blocked occurs.
  *					 The MEC enters the QUERY state when query occurs.
  *
- *  - QUERY			In the QUERY state the Parser has recognized a valid query within a <PROGRAM MESSAGE>. The I/O
+ *  - QUERY			In the QUERY state the Parser has recognised a valid query within a <PROGRAM MESSAGE>. The I/O
  *					 Control Emulator continues reading data bytes and GET messages from the interface and placing them in the
  *					 Input Buffer.
  *					 The MEC remains in the QUERY state when bav, get, query, or ib-blocked occurs.
@@ -130,14 +130,6 @@ extern void scpi (void);
  *					 The MEC enters the READ state when eom occurs.
  *					 The MEC enters the READ state when either dcas or pon occurs. The device performs the INITIALIZE
  *					 action, described in 6.3.5.2.
- *
- * MESSAGE EXCHANGE PROTOCOL ACTIONS
- *  - Normal
- *  - INITIALIZE
- *  - INTERRUPTED
- *  - UNTERMINATED
- *  - DEADLOCK
- *  - Query after indefinite response
  *
  */
 

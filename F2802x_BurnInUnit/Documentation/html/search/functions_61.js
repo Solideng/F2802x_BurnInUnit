@@ -3,6 +3,7 @@ var searchData=
   ['adccheckocp',['adcCheckOcp',['../_adc_8h.html#a7dfbe5e2625efeeb0768d42d83a71c04',1,'Adc.c']]],
   ['adccheckovp',['adcCheckOvp',['../_adc_8h.html#a0ad871be22e7987be07a0f4534ef231b',1,'Adc.c']]],
   ['adccompconfigure',['adcCompConfigure',['../_adc_8h.html#a646e6cc4558594a6fbaa10c767cc4fec',1,'Adc.c']]],
+  ['adcgetdac',['adcGetDac',['../_adc_8h.html#a51b43d0fbadcb3b231f4fceb4c7b9d12',1,'Adc.c']]],
   ['adcgetiscale',['adcGetIScale',['../_adc_8h.html#acbf7c83ae3b6df7b0812ef1aed2b9c96',1,'Adc.c']]],
   ['adcgetocp',['adcGetOcp',['../_adc_8h.html#a8e08c745a25782602c5d337d5eb7b03c',1,'Adc.c']]],
   ['adcgetovp',['adcGetOvp',['../_adc_8h.html#a1536739f53a776036e1b9c92990a102a',1,'Adc.c']]],

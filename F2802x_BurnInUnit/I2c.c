@@ -13,10 +13,10 @@
 static interrupt void i2c_isr(void);
 
 /*================ LOCAL VARS ================*/
-i2cMsg *currentMsgPtr;               /* Used in interrupts */
-Uint16 PassCount;
-Uint16 FailCount;
-Uint16 i2cIsrErr = 0;
+static i2cMsg *currentMsgPtr;               /* Used in interrupts */
+//Uint16 PassCount;
+//Uint16 FailCount;
+Uint16 i2cIsrErr = 0;						// TODO nothing is done with this, check PSU_Control implementation
 
 /*=============== GLOBAL VARS =================*/
 i2cMsg i2cMsgBlank = {	I2C_MSGSTAT_INACTIVE, 	/* Message status */

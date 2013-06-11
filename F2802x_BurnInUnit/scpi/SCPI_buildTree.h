@@ -19,8 +19,6 @@
 	#error "The command tree size 'TREE_CHILD_LIMIT' has not been defined (should be in scpi.h)"
 #endif
 
-#define SHORTNAME_LIMIT 5 			/* The standard defines 4 characters (+ the string terminator) */
-
 typedef enum pType {				/* Basic parameter specification type. */
 	pNone = 0,
 	pBool = 1,
@@ -28,11 +26,6 @@ typedef enum pType {				/* Basic parameter specification type. */
 	pBaud = 3,
 	pQuery = 4
 }pType;
-
-typedef double tBool;				/* Bool is double because it is a parameter type. */
-extern tBool tTrue;					/* Allowable boolean values: true (1.0), false (0.0) & Not-A-Boolean (10.0). */
-extern tBool tFalse;				/*  NOTE that this is different to normal C boolean where any non-zero value is true. */
-extern tBool tNAB;
 
 typedef enum uType {				/* Parameter units type */
 	unitDefault = 0,
@@ -45,21 +38,21 @@ typedef enum uType {				/* Parameter units type */
 	unitCel
 }uType;
 
-typedef enum mType {				/* Parameter unit multipliers type */
-	multDefault = 0,
-	multEx = 18,
-	multPe = 15,
-	multT = 12,
-	multG = 9,
-	multMa = 6,						/* NOTE with Hz this is M and M for milli is disallowed */
-	multK = 3,
-	multM = -3,
-	multU = -6,
-	multN = -9,
-	multP = -12,
-	multF = -15,
-	multA = -18
-}mType;
+//typedef enum mType {				/* Parameter unit multipliers type */
+//	multDefault = 0,
+//	multEx = 18,
+//	multPe = 15,
+//	multT = 12,
+//	multG = 9,
+//	multMa = 6,						/* NOTE with Hz this is M and M for milli is disallowed */
+//	multK = 3,
+//	multM = -3,
+//	multU = -6,
+//	multN = -9,
+//	multP = -12,
+//	multF = -15,
+//	multA = -18
+//}mType;
 									/* Application callback function pointer type */
 typedef Uint16 (*deviceFuncPtr)(double * parameters, bool isQuery);
 
@@ -73,7 +66,7 @@ typedef struct treeNode { 			/* Structure that makes a tree node - 28 byte total
 	deviceFuncPtr handler;	/* 2 bytes. */
 }treeNode;
 
-extern treeNode treeChild[TREE_CHILD_LIMIT]; /* Command mnemonic tree: array of tree node structures each of 28 bytes. */
+extern treeNode tree[TREE_CHILD_LIMIT]; /* Command mnemonic tree: array of tree node structures each of 28 bytes. */
 
 extern Uint16 buildSCPITree (void); /* Creates the tree by registering root and then calling all included child node registrations. */
 

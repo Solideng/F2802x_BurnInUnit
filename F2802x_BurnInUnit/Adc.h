@@ -10,9 +10,6 @@
 #define ADC_H_
 
 /*============= GLOBAL FUNCTIONS ==============*/
-#ifdef DEBUG_ADC
-	extern void adcGUI (void);
-#endif
 
 extern void adcSocCnf (void);
 
@@ -126,11 +123,6 @@ extern volatile int32 *ADCDRV_1ch_Rlt10;/**< Channel 3 voltage sense ADC termina
 extern volatile int32 *ADCDRV_1ch_Rlt11;/**< Interboost voltage sense ADC terminal pointer. */
 extern volatile int32 *ADCDRV_1ch_Rlt12;/**< AC stage voltage sense ADC terminal pointer. */
 extern volatile int32 *ADCDRV_1ch_Rlt13;/**< VMid voltage sense ADC terminal pointer. */
-
-#ifdef DEBUG_ADC
-	extern volatile float32 guiIRead[NUM_CHNLS + 1];
-	extern volatile float32 guiVRead[NUM_CHNLS + 1];
-#endif
 
 /*========= SYMBOLS DEFINED BY DP LIB =========*/
 extern void ADC_SOC_CNF(int16 ChSel[], int16 Trigsel[], int16 ACQPS[], int16 IntChSel, int16 mode);

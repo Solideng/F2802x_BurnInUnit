@@ -51,7 +51,6 @@ typedef struct lexedItem { 	/* Storage for lex'd tokens and other message inform
 	msgType type;				/* Found message type */
 	pType parameterType;		/* Found parameter type */
 }lexedItem;
-extern lexedItem lRes;
 
 /* Resets the lexer */
 extern void resetLexer (void);

@@ -26,6 +26,7 @@ var searchData=
   ['adcdrv_5f1ch_5frlt7',['ADCDRV_1ch_Rlt7',['../_adc_8h.html#a4fa6265d0bf9b69d560d8f9f488b98c1',1,'Adc.h']]],
   ['adcdrv_5f1ch_5frlt8',['ADCDRV_1ch_Rlt8',['../_adc_8h.html#a0415309d16a115f0116a26aeda91aabd',1,'Adc.h']]],
   ['adcdrv_5f1ch_5frlt9',['ADCDRV_1ch_Rlt9',['../_adc_8h.html#adea6b0b8533e0d56a5c6cbac1c1e705f',1,'Adc.h']]],
+  ['adcgetdac',['adcGetDac',['../_adc_8h.html#a51b43d0fbadcb3b231f4fceb4c7b9d12',1,'Adc.c']]],
   ['adcgetiscale',['adcGetIScale',['../_adc_8h.html#acbf7c83ae3b6df7b0812ef1aed2b9c96',1,'Adc.c']]],
   ['adcgetocp',['adcGetOcp',['../_adc_8h.html#a8e08c745a25782602c5d337d5eb7b03c',1,'Adc.c']]],
   ['adcgetovp',['adcGetOvp',['../_adc_8h.html#a1536739f53a776036e1b9c92990a102a',1,'Adc.c']]],

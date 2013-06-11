@@ -6,7 +6,8 @@
 Real and virtual timer functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,18 +17,7 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{_timers_8h_a0a2d06085a127591efdccbedc7b5c4e0}{timers\-Setup\-Virtual} (void)
-\item 
 void \hyperlink{_timers_8h_a366f5c2927c6a77c9704bee58468a042}{timers\-Setup\-Real} (void)
-\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-int16 \hyperlink{_timers_8h_ade3020803ed700fa7b59b55ca96f2afc}{V\-Timer0} \mbox{[}4\mbox{]}
-\item 
-int16 \hyperlink{_timers_8h_a2ed6cc170ce3607cf0b5ef1030f11609}{V\-Timer1} \mbox{[}4\mbox{]}
-\item 
-int16 \hyperlink{_timers_8h_a5e759d74d2b7c1553ba8b2a88122e3a1}{V\-Timer2} \mbox{[}4\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -50,26 +40,3 @@ Real and virtual timer functions. These functions should be run as part of the s
 Sets up the real timers that run the state machine This should be called as part of the state machine initialisation. \begin{DoxySeeAlso}{See Also}
 \hyperlink{_state_machine_8h_a8c307b607d4931ec1214de3592c93df4}{sm\-Init()} 
 \end{DoxySeeAlso}
-\hypertarget{_timers_8h_a0a2d06085a127591efdccbedc7b5c4e0}{\index{Timers.\-h@{Timers.\-h}!timers\-Setup\-Virtual@{timers\-Setup\-Virtual}}
-\index{timers\-Setup\-Virtual@{timers\-Setup\-Virtual}!Timers.h@{Timers.\-h}}
-\subsubsection[{timers\-Setup\-Virtual}]{\setlength{\rightskip}{0pt plus 5cm}void timers\-Setup\-Virtual (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}}\label{_timers_8h_a0a2d06085a127591efdccbedc7b5c4e0}
-Sets up the virtual timers for use in the state machine. This should be called as part of the state machine initialisation and before the real timers are setup. \begin{DoxySeeAlso}{See Also}
-\hyperlink{_state_machine_8h_a8c307b607d4931ec1214de3592c93df4}{sm\-Init()} 
-\end{DoxySeeAlso}
-
-
-\subsection{Variable Documentation}
-\hypertarget{_timers_8h_ade3020803ed700fa7b59b55ca96f2afc}{\index{Timers.\-h@{Timers.\-h}!V\-Timer0@{V\-Timer0}}
-\index{V\-Timer0@{V\-Timer0}!Timers.h@{Timers.\-h}}
-\subsubsection[{V\-Timer0}]{\setlength{\rightskip}{0pt plus 5cm}int16 V\-Timer0\mbox{[}4\mbox{]}}}\label{_timers_8h_ade3020803ed700fa7b59b55ca96f2afc}
-First set of virtual timers. \hypertarget{_timers_8h_a2ed6cc170ce3607cf0b5ef1030f11609}{\index{Timers.\-h@{Timers.\-h}!V\-Timer1@{V\-Timer1}}
-\index{V\-Timer1@{V\-Timer1}!Timers.h@{Timers.\-h}}
-\subsubsection[{V\-Timer1}]{\setlength{\rightskip}{0pt plus 5cm}int16 V\-Timer1\mbox{[}4\mbox{]}}}\label{_timers_8h_a2ed6cc170ce3607cf0b5ef1030f11609}
-Second set of virtual timers. \hypertarget{_timers_8h_a5e759d74d2b7c1553ba8b2a88122e3a1}{\index{Timers.\-h@{Timers.\-h}!V\-Timer2@{V\-Timer2}}
-\index{V\-Timer2@{V\-Timer2}!Timers.h@{Timers.\-h}}
-\subsubsection[{V\-Timer2}]{\setlength{\rightskip}{0pt plus 5cm}int16 V\-Timer2\mbox{[}4\mbox{]}}}\label{_timers_8h_a5e759d74d2b7c1553ba8b2a88122e3a1}
-Third set of virtual timers. 

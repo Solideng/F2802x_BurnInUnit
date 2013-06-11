@@ -1,6 +1,5 @@
 #include "scpi.h"
 
-
 Uint16 registerCommonCommands (void) {
 	/* Registers the 10 IEEE 488.2 required common commands on the command tree.
 	 * String literals MUST be all upper case.

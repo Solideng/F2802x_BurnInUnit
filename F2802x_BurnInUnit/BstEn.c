@@ -6,7 +6,10 @@
  */
 #include "Common.h"
 
-static i2cMsg i2cMsgOutBst = {	I2C_MSGSTAT_INACTIVE, 		/* Message status */
+static Uint16 crntState;	/* Keeps track of the current state of the I/O Ex GPIO otherwise
+ 	 	 	 	 	 	 	 * we would need to read it before every write to the GPIO_ADDR.
+ 	 	 	 	 	 	 	 */
+static i2cMsg i2cMsgOutBst = { I2C_MSGSTAT_INACTIVE, 		/* Message status */
 								IOE_I2C_ADDR,				/* Slave device I2C address (ADC) */
 								1,							/* Number of data bytes to be sent */
 								1,							/* Slave uses one command byte */
@@ -17,12 +20,9 @@ static i2cMsg i2cMsgOutBst = {	I2C_MSGSTAT_INACTIVE, 		/* Message status */
 								0x00						/* Data byte 3 */
 							};
 
-static Uint16 crntState;
-
 Uint16 bcInit (void) {
 	Uint16 err = 0;
-
-	crntState = 0;
+	crntState = 0;							/* Reset current state. */
 
 	i2cPopMsg(&i2cMsgOutBst, I2C_MSGSTAT_SEND_WITHSTOP, IOE_I2C_ADDR, 1, 1, 0, IOE_IOCON_ADDR);
 	i2cMsgOutBst.msgBuffer[0] = 0x24;		/* IOCON: SEQOP off, DISSLW on, HAEN x, ODR on, INTPOL x */
@@ -59,6 +59,7 @@ Uint16 bcInit (void) {
 
 Uint16 bcEnable(Uint16 chnl) {
 	Uint16 err = 0, msk = 1;
+	i2cMsg i2cMsgOutBst;
 						/* Ensure channel is valid */
 	if (chnl > IOE_NUM_CHNL)
 		return CHANNEL_OOB;
@@ -76,6 +77,7 @@ Uint16 bcEnable(Uint16 chnl) {
 
 Uint16 bcDisable (Uint16 chnl) {
 	Uint16 err = 0, msk = 1;
+	i2cMsg i2cMsgOutBst;
 						/* Ensure channel is valid */
 	if (chnl > IOE_NUM_CHNL)
 			return CHANNEL_OOB;
@@ -90,8 +92,3 @@ Uint16 bcDisable (Uint16 chnl) {
 	crntState = msk;	/* Update the current output control state record */
 	return 0;
 }
-
-
-
-
-

@@ -103,8 +103,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:acf4f0b0797f3141ed767a8384edbef4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pwm_8h.html#acf4f0b0797f3141ed767a8384edbef4a">prd</a>&#160;&#160;&#160;600</td></tr>
-<tr class="separator:acf4f0b0797f3141ed767a8384edbef4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af281425e62298bac2df0fbe8690a4844"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pwm_8h.html#af281425e62298bac2df0fbe8690a4844">PERIOD</a>&#160;&#160;&#160;600</td></tr>
+<tr class="separator:af281425e62298bac2df0fbe8690a4844"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -118,10 +118,10 @@ Functions</h2></td></tr>
 <tr class="separator:a358d8706acd0faf4e1cc705129be6548"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfbaf2bb56a0c9fe6f54826499cb57de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pwm_8h.html#adfbaf2bb56a0c9fe6f54826499cb57de">pwmDPLTrigInit</a> (void)</td></tr>
 <tr class="separator:adfbaf2bb56a0c9fe6f54826499cb57de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac96cde993e92779e895170e72332528"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pwm_8h.html#aac96cde993e92779e895170e72332528">pwmSetFreq</a> (Uint16 frq)</td></tr>
-<tr class="separator:aac96cde993e92779e895170e72332528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8624136d66212f9b1773741a6356e5d7"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pwm_8h.html#a8624136d66212f9b1773741a6356e5d7">pwmGetFreq</a> (Uint16 *frqDest)</td></tr>
-<tr class="separator:a8624136d66212f9b1773741a6356e5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af82e2c1ff72afc3de42eb172ca925956"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pwm_8h.html#af82e2c1ff72afc3de42eb172ca925956">pwmSetFreq</a> (Uint32 frq)</td></tr>
+<tr class="separator:af82e2c1ff72afc3de42eb172ca925956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79f203a5167440096f2ba270813b6db2"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_pwm_8h.html#a79f203a5167440096f2ba270813b6db2">pwmGetFreq</a> (Uint32 *frqDest)</td></tr>
+<tr class="separator:a79f203a5167440096f2ba270813b6db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -141,12 +141,12 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>PWM and related functions. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="acf4f0b0797f3141ed767a8384edbef4a"></a>
+<a class="anchor" id="af281425e62298bac2df0fbe8690a4844"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define prd&#160;&#160;&#160;600</td>
+          <td class="memname">#define PERIOD&#160;&#160;&#160;600</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -172,14 +172,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8624136d66212f9b1773741a6356e5d7"></a>
+<a class="anchor" id="a79f203a5167440096f2ba270813b6db2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Uint16 pwmGetFreq </td>
           <td>(</td>
-          <td class="paramtype">Uint16 *&#160;</td>
+          <td class="paramtype">Uint32 *&#160;</td>
           <td class="paramname"><em>frqDest</em></td><td>)</td>
           <td></td>
         </tr>
@@ -230,14 +230,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aac96cde993e92779e895170e72332528"></a>
+<a class="anchor" id="af82e2c1ff72afc3de42eb172ca925956"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Uint16 pwmSetFreq </td>
           <td>(</td>
-          <td class="paramtype">Uint16&#160;</td>
+          <td class="paramtype">Uint32&#160;</td>
           <td class="paramname"><em>frq</em></td><td>)</td>
           <td></td>
         </tr>
@@ -370,7 +370,7 @@ Variables</h2></td></tr>
 </div>
 </div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Fri May 10 2013
+Mon Jun 10 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

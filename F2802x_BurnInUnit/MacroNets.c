@@ -7,14 +7,13 @@
 #include "Common.h"
 
 /*============= GLOBAL VARIABLES ==============*/
-Uint16	stopAll = 0;
+Uint16	stopAll = 0;	// TODO May be moved to SCPI device specific regs
 Uint16	enableAll = 0;
 
-// TODO WHY IS IT +2?
-#ifndef DUAL_CNTL_AC
+#ifndef DUAL_CNTL_AC	// TODO WHY IS IT +2?
 	channelParameters channel[NUM_CHNLS + 1];	/* +1 is for VMid parameters which don't have a channel */
 #else
-	channelParameters channel[NUM_CHNLS + 2];	/* +2 is for VMid and AC 2nd stage parameters which dont have a channel */
+	channelParameters channel[NUM_CHNLS + 2];	/* +2 is for VMid and AC 2nd stage parameters which don't have a channel */
 #endif
 
 #if (INCR_BUILD == 1)
@@ -22,7 +21,7 @@ Uint16	enableAll = 0;
 #endif
 
 /*============== LOCAL VARIABLES ==============*/
-volatile int32 sgenSignNet = 0;		/* Net for sine generator sign output */
+static volatile int32 sgenSignNet = 0;		/* Net for sine generator sign output */
 
 
 void mnSetupChannels (void) {
@@ -39,8 +38,6 @@ void mnSetupChannels (void) {
 		channel[i].target = 0;		/* Q24 */
 		channel[i].slewRate = _IQ24(0.001);	/* Q24 */
 		channel[i].otp = 19200;		/* 150 degree C OTP limit Q7 */
-//		channel[i].sMax = _SQ14(satMax[i]);	/* Q14 SQ14 */
-//		channel[i].sMin = 0;		/* Q15 */
 		channel[i].iMaxRms = 15360;	/* 15 amps (RMS) Q10 SQ10 */
 		channel[i].iMinRms = 0;		/* 0 amps (RMS) Q10 */
 		channel[i].vMaxRms = 15360;	/* 15 volts (RMS) Q10 */ //TODO Test setting << need actual
@@ -48,9 +45,6 @@ void mnSetupChannels (void) {
 		channel[i].iScale = 2048;	/* 0.125f amps-per-volt Q14 */
 		channel[i].vScale = 32767;	/* 1.0f volts-per-volt Q14 */
 		channel[i].vGainLmt = 16384;/* 1.0f gain Q14 */
-		channel[i].pGain = pGain[i];/* Q14 */
-		channel[i].iGain = iGain[i];/* Q14 */
-		channel[i].dGain = dGain[i];/* Q14 */
 		channel[i].opMode = dc;		/* dc | ac */
 		channel[i].ctlMode = iCtrl; /* iCtrl | vCtrl */
 		channel[i].chEnable = FALSE;/* FALSE | TRUE */
@@ -164,17 +158,10 @@ void mnConnectNets (void) {
 		ADCDRV_1ch_Rlt5 = &channel[DC_STAGE].iFdbkNet;	/* DC Mid I Sns */
 		ADCDRV_1ch_Rlt11 = &channel[DC_STAGE].vFdbkNet;	/* DC HV V sns */
 		ADCDRV_1ch_Rlt13 = &channel[V_MID_CH].vFdbkNet;	/* DC Mid V sns */
-		#ifdef USE_PID
-			CNTL_2P2Z_Ref5 = &channel[DC_STAGE].refNet;		/* CNTL reference */
-			CNTL_2P2Z_Fdbk5 = &channel[DC_STAGE].vFdbkNet;	/* CNTL feedback */
-			CNTL_2P2Z_Coef5 = &coefs2[DC_STAGE].b2;			/* CNTL coefficients */
-			CNTL_2P2Z_Out5 = &channel[DC_STAGE].outNet;		/* CNTL out */
-		#else
-			CNTL_3P3Z_Ref1 = &channel[DC_STAGE].refNet;					/* CNTL reference */
-			CNTL_3P3Z_Fdbk1 = &channel[DC_STAGE].vFdbkNet;				/* CNTL feedback */
-			CNTL_3P3Z_Coef1 = &coefs3[DC_STAGE - NUM_ICTRL_CHNLS].b3;	/* CNTL coefficients */
-			CNTL_3P3Z_Out1 = &channel[DC_STAGE].outNet;					/* CNTL out */
-		#endif
+		CNTL_3P3Z_Ref1 = &channel[DC_STAGE].refNet;					/* CNTL reference */
+		CNTL_3P3Z_Fdbk1 = &channel[DC_STAGE].vFdbkNet;				/* CNTL feedback */
+		CNTL_3P3Z_Coef1 = &coefs3[DC_STAGE - NUM_ICTRL_CHNLS].b3;	/* CNTL coefficients */
+		CNTL_3P3Z_Out1 = &channel[DC_STAGE].outNet;					/* CNTL out */
 		PWMDRV_2ch_UpCnt_Duty3A = &channel[DC_STAGE].outNet;/* Intbst PWM */
 
 		/*============================ AC STAGE =====================================*/
@@ -183,17 +170,10 @@ void mnConnectNets (void) {
 			ADCDRV_1ch_Rlt12 = &channel[AC_STAGE].vFdbkNet;	/* AC V Sns */
 			SGENTI_1ch_VOut = &channel[AC_STAGE].refNet;	/* Rectified sine gen out */
 			SGENTI_1ch_Sign = &sgenSignNet;					/* Sine sign */
-			#ifdef USE_PID
-				CNTL_2P2Z_Ref6 = &channel[AC_STAGE].refNet;		/* CNTL reference */
-				CNTL_2P2Z_Fdbk6 = &channel[AC_STAGE].vFdbkNet;	/* CNTL feedback */
-				CNTL_2P2Z_Coef6 = &coefs2[AC_STAGE].b2;			/* CNTL coefficients */
-				CNTL_2P2Z_Out6 = &channel[AC_STAGE].outNet;		/* CNTL out */
-			#else
-				CNTL_3P3Z_Ref2 = &channel[AC_STAGE].refNet;					/* CNTL reference */
-				CNTL_3P3Z_Fdbk2 = &channel[AC_STAGE].vFdbkNet;				/* CNTL feedback */
-				CNTL_3P3Z_Coef2 = &coefs3[AC_STAGE - NUM_ICTRL_CHNLS].b3;	/* CNTL coefficients */
-				CNTL_3P3Z_Out2 = &channel[AC_STAGE].outNet;					/* CNTL out */
-			#endif
+			CNTL_3P3Z_Ref2 = &channel[AC_STAGE].refNet;		/* CNTL reference */
+			CNTL_3P3Z_Fdbk2 = &channel[AC_STAGE].vFdbkNet;	/* CNTL feedback */
+			CNTL_3P3Z_Coef2 = &coefs3[AC_STAGE - NUM_ICTRL_CHNLS].b3;	/* CNTL coefficients */
+			CNTL_3P3Z_Out2 = &channel[AC_STAGE].outNet;		/* CNTL out */
 			PHASE_CTRL_In = &sgenSignNet;					/* AC F B Phase */
 			#ifndef AC_STAGE_OPEN
 				PWMDRV_2ch_UpCnt_Duty3B = &channel[AC_STAGE].outNet;/* AC F B PWM */
@@ -211,10 +191,10 @@ void mnConnectNets (void) {
 			CNTL_3P3Z_Coef2 = &coefs3[AC_STAGE - NUM_ICTRL_CHNLS].b3;	/* CNTL coefficients */
 			CNTL_3P3Z_Out2 = &channel[AC_I_CNTL].refNet;	/* CNTL out */
 
-			CNTL_2P2Z_Ref6 = &channel[AC_I_CNTL].refNet;	/* CNTL reference */
-			CNTL_2P2Z_Fdbk6 = &channel[AC_I_CNTL].iFdbkNet;	/* CNTL feedback */
-			CNTL_2P2Z_Coef6 = &coefs2[AC_I_CNTL].b2;			/* CNTL coefficients */
-			CNTL_2P2Z_Out6 = &channel[AC_I_CNTL].outNet;		/* CNTL out */
+			CNTL_2P2Z_Ref5 = &channel[AC_I_CNTL].refNet;	/* CNTL reference */
+			CNTL_2P2Z_Fdbk5 = &channel[AC_I_CNTL].iFdbkNet;	/* CNTL feedback */
+			CNTL_2P2Z_Coef5 = &coefs2[AC_I_CNTL].b2;		/* CNTL coefficients */
+			CNTL_2P2Z_Out5 = &channel[AC_I_CNTL].outNet;	/* CNTL out */
 
 			PWMDRV_2ch_UpCnt_Duty3B = &channel[AC_I_CNTL].outNet;/* AC F B PWM */
 			PHASE_CTRL_In = &sgenSignNet;					/* AC F B Phase */

@@ -1,9 +1,11 @@
 #include "scpi.h"
 #include "math.h"
 
-static double PRECISION = 0.00000000000001;
+#define isnan(x) ((x) != (x))				/* Check if x is NaN. */
+#define isinf(x) (!isnan(x) && isnan(x - x))/* Check if x is Infinite. */
 
 char * dtoa(double n, char *s) {
+	double precision = 0.00000000000001;
     if (isnan(n)) {			/* Handle special cases. */
         strcpy(s, "nan");	/* NaN. */
     } else if (isinf(n)) {
@@ -30,7 +32,7 @@ char * dtoa(double n, char *s) {
         if (m < 1.0) {
             m = 0;
         }
-        while (n > PRECISION || m >= 0) {	/* Convert the number. */
+        while (n > precision || m >= 0) {	/* Convert the number. */
             double weight = pow(10.0, m);
             if (weight > 0 && !isinf(weight)) {
                 digit = floor(n / weight);

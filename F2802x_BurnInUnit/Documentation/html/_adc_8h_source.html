@@ -85,69 +85,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="_adc_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef ADC_H_</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ADC_H_</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="comment">//TODO create + test adcGetDAC()</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*============= GLOBAL FUNCTIONS ==============*/</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifdef DEBUG_ADC</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span>    <span class="keyword">extern</span> <span class="keywordtype">void</span> adcGUI (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> adcSocCnf (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> adcMacroConfigure (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> adcCompConfigure (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">extern</span> Uint16 adcCheckOcp (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">extern</span> Uint16 adcCheckOvp (<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">extern</span> Uint16 adcSetDac (Uint16 chnl, float32 dacLvl);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">extern</span> Uint16 adcSetIScale (Uint16 chnl, float32 scaleSetting);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">extern</span> Uint16 adcSetVScale (Uint16 chnl, float32 scaleSetting);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">extern</span> Uint16 adcSetOcp (Uint16 chnl, float32 ocpSetting);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">extern</span> Uint16 adcSetOvp (Uint16 chnl, float32 ovpSetting);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">extern</span> Uint16 adcGetIScale (Uint16 chnl, float32 * sclDest);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">extern</span> Uint16 adcGetVScale (Uint16 chnl, float32 * sclDest);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keyword">extern</span> Uint16 adcGetOcp (Uint16 chnl, float32 * ocpDest);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">extern</span> Uint16 adcGetOvp (Uint16 chnl, float32 * ovpDest);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">/*================ GLOBAL VARS ================*/</span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">/*============= TERMINAL POINTERS =============*/</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a42ca9720519e1d0cb7ded4f56da083ba">ADCDRV_1ch_Rlt1</a>; </div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a1ca55c7841c3e4bc154789647a068810">ADCDRV_1ch_Rlt2</a>; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a1704632b071d0fff6bdc9629549c5d08">ADCDRV_1ch_Rlt3</a>; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ac181cb2fb372cceb0f55844ed941c5d0">ADCDRV_1ch_Rlt4</a>; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a7b586f409f6daf8232917fbd976532a4">ADCDRV_1ch_Rlt5</a>; </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ae8182c9b35af2d72b1c18ea41ccece2d">ADCDRV_1ch_Rlt6</a>; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a4fa6265d0bf9b69d560d8f9f488b98c1">ADCDRV_1ch_Rlt7</a>; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a0415309d16a115f0116a26aeda91aabd">ADCDRV_1ch_Rlt8</a>; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#adea6b0b8533e0d56a5c6cbac1c1e705f">ADCDRV_1ch_Rlt9</a>; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ad1b851523cd317f0910f2db4220f32da">ADCDRV_1ch_Rlt10</a>;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ad4435404e2f432a8c3a449dd23cda8f0">ADCDRV_1ch_Rlt11</a>;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ac3656f047361723ec883e6ebfe3f026a">ADCDRV_1ch_Rlt12</a>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ad7ef0544a173d3c7883f0e739b7d2096">ADCDRV_1ch_Rlt13</a>;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#ifdef DEBUG_ADC</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor"></span>    <span class="keyword">extern</span> <span class="keyword">volatile</span> float32 guiIRead[<a class="code" href="_settings_8h.html#afe433b138bb71d8d26b6e0907e656d1b">NUM_CHNLS</a> + 1];</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">extern</span> <span class="keyword">volatile</span> float32 guiVRead[<a class="code" href="_settings_8h.html#afe433b138bb71d8d26b6e0907e656d1b">NUM_CHNLS</a> + 1];</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// TODO add adcGetLevel() for MEASure V &amp; I</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef ADC_H_</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define ADC_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/*============= GLOBAL FUNCTIONS ==============*/</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> adcSocCnf (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> adcMacroConfigure (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> adcCompConfigure (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">extern</span> Uint16 adcCheckOcp (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">extern</span> Uint16 adcCheckOvp (<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">extern</span> Uint16 adcSetDac (Uint16 chnl, float32 dacLvl);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">extern</span> Uint16 adcSetIScale (Uint16 chnl, float32 scaleSetting);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">extern</span> Uint16 adcSetVScale (Uint16 chnl, float32 scaleSetting);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">extern</span> Uint16 adcSetOcp (Uint16 chnl, float32 ocpSetting);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">extern</span> Uint16 adcSetOvp (Uint16 chnl, float32 ovpSetting);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">extern</span> Uint16 adcGetDac (Uint16 chnl, float32 *dacDest);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">extern</span> Uint16 adcGetIScale (Uint16 chnl, float32 * sclDest);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">extern</span> Uint16 adcGetVScale (Uint16 chnl, float32 * sclDest);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword">extern</span> Uint16 adcGetOcp (Uint16 chnl, float32 * ocpDest);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">extern</span> Uint16 adcGetOvp (Uint16 chnl, float32 * ovpDest);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">/*================ GLOBAL VARS ================*/</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">/*============= TERMINAL POINTERS =============*/</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a42ca9720519e1d0cb7ded4f56da083ba">ADCDRV_1ch_Rlt1</a>; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a1ca55c7841c3e4bc154789647a068810">ADCDRV_1ch_Rlt2</a>; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a1704632b071d0fff6bdc9629549c5d08">ADCDRV_1ch_Rlt3</a>; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ac181cb2fb372cceb0f55844ed941c5d0">ADCDRV_1ch_Rlt4</a>; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a7b586f409f6daf8232917fbd976532a4">ADCDRV_1ch_Rlt5</a>; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ae8182c9b35af2d72b1c18ea41ccece2d">ADCDRV_1ch_Rlt6</a>; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a4fa6265d0bf9b69d560d8f9f488b98c1">ADCDRV_1ch_Rlt7</a>; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#a0415309d16a115f0116a26aeda91aabd">ADCDRV_1ch_Rlt8</a>; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#adea6b0b8533e0d56a5c6cbac1c1e705f">ADCDRV_1ch_Rlt9</a>; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ad1b851523cd317f0910f2db4220f32da">ADCDRV_1ch_Rlt10</a>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ad4435404e2f432a8c3a449dd23cda8f0">ADCDRV_1ch_Rlt11</a>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ac3656f047361723ec883e6ebfe3f026a">ADCDRV_1ch_Rlt12</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="keyword">extern</span> <span class="keyword">volatile</span> int32 *<a class="code" href="_adc_8h.html#ad7ef0544a173d3c7883f0e739b7d2096">ADCDRV_1ch_Rlt13</a>;</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">/*========= SYMBOLS DEFINED BY DP LIB =========*/</span></div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> ADC_SOC_CNF(int16 ChSel[], int16 Trigsel[], int16 ACQPS[], int16 IntChSel, int16 mode);</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ADC_H_ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Fri May 10 2013
+Mon Jun 10 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

@@ -19,8 +19,8 @@
 #ifndef SCPI_RESPFMTR_H_
 #define SCPI_RESPFMTR_H_
 
-#define MAX_NUM_RDATA			4
-#define MAX_RDATA_STRING_SIZE	10
+#define MAX_NUM_RDATA			4	/**< The maximum number of <RESPONSE DATA> elements per response message. */
+#define MAX_RDATA_STRING_SIZE	10	/**< The maximum length of <RESPONSE DATA> element of string type including the string terminator. */
 
 enum rspnsType {
 	typeNotSet = 0,
@@ -28,19 +28,7 @@ enum rspnsType {
 	Double,
 	String
 };
-typedef enum rspnsType rtype;
-
-struct rspnsStruct {
-	rtype rspnsType;
-	Uint16 dataSize;
-	union {
-		int16 	intRData;
-		double	dbleRData;
-		char 	strRData[MAX_RDATA_STRING_SIZE];
-	} rUnit[MAX_NUM_RDATA];
-};
-
-extern struct rspnsStruct rMsg;
+typedef enum rspnsType rtype;		/**< A type used to indicate the type of <RESPONSE DATA>. */
 
 extern void resetRespFmtr (void);
 

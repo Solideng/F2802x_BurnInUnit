@@ -22,10 +22,13 @@ static void smB2(void);	/* State B2 */
 static void smC1(void);	/* State C1 */
 static void smC2(void);	/* State C2 */
 
+/*============== GLOABL FUNCTIONS =============*/
 void (*Alpha_State_Ptr)(void);
 
 void smInit (void) {
-	timersSetupVirtual();		/* Setup (clear) virtual timer arrays */
+	#ifdef VTIMERS
+		timersSetupVirtual();		/* Setup (clear) virtual timer arrays */
+	#endif
 	timersSetupReal();			/* Timing sync for background loops */
 
 	Alpha_State_Ptr = &smA0;	/* Set state machine alpha task, i.e., first task for next machine iteration */
@@ -35,11 +38,13 @@ void smInit (void) {
 }
 
 void smA0(void) {
-	/* loop rate synchronizer for A-tasks */
+	/* loop rate synchroniser for A-tasks */
 	if(CpuTimer0Regs.TCR.bit.TIF == 1) {
 		CpuTimer0Regs.TCR.bit.TIF = 1;	/* clear flag */
 		(*A_Task_Ptr)();		/* jump to an A Task (A1,A2,A3,...) */
-		VTimer0[0]++;			/* virtual timer 0, instance 0 (spare) */
+		#ifdef VTIMERS
+			VTimer0[0]++;			/* virtual timer 0, instance 0 (spare) */
+		#endif
 	}
 	Alpha_State_Ptr = &smB0;	/* Comment out to allow only A tasks */
 }
@@ -73,7 +78,9 @@ void smB0(void) {
 	if(CpuTimer1Regs.TCR.bit.TIF == 1) {
 		CpuTimer1Regs.TCR.bit.TIF = 1;	/* clear flag */
 		(*B_Task_Ptr)();		/* jump to a B Task (B1,B2,B3,...) */
-		VTimer1[0]++;			/* virtual timer 1, instance 0 (used to control SPI LEDs) */
+		#ifdef VTIMERS
+			VTimer1[0]++;			/* virtual timer 1, instance 0 (used to control SPI LEDs) */
+		#endif
 	}
 	Alpha_State_Ptr = &smC0;
 }
@@ -96,7 +103,9 @@ void smC0(void) {
 	if(CpuTimer2Regs.TCR.bit.TIF == 1) {
 		CpuTimer2Regs.TCR.bit.TIF = 1;	/* clear flag */
 		(*C_Task_Ptr)();		/* jump to a C Task (C1,C2,C3,...) */
-		VTimer2[0]++;			/* virtual timer 2, instance 0 (spare) */
+		#ifdef VTIMERS
+			VTimer2[0]++;			/* virtual timer 2, instance 0 (spare) */
+		#endif
 	}
 	Alpha_State_Ptr = &smA0;	/* Back to State A0 */
 }

@@ -119,6 +119,7 @@ void scpi (void) {
 			mecState = read; 		/* If data is available, move to read state */
 		} else if (msgs.brq && !msgs.bav && !msgs.get && msgs.ibEmpty) {
 			unterminatedAction();	/* Asked to talk with nothing to say. */
+			operationComplete();
 			mecState = idle;
 		}
 
@@ -209,6 +210,7 @@ void scpi (void) {
 		if (msgs.eom && !msgs.query) {				/* End of message detected. */
 			msgs.eom = false;
 			mecState = idle;
+			operationComplete();
 		} else if (msgs.query) {					/* Query detected. */
 			mecState = query;
 		} else if (msgs.brq && !msgs.bav && !msgs.get && msgs.ibEmpty) {
@@ -237,6 +239,7 @@ void scpi (void) {
 		if (msgs.eom) {								/* End of message detected. */
 			msgs.brq = false;
 			mecState = idle;
+			operationComplete();
 		}
 
 	} else if (mecState == send) {
@@ -249,6 +252,7 @@ void scpi (void) {
 			mecState = read;
 		} else if (!msgs.eom && !msgs.bav && !msgs.get && msgs.ibEmpty) {
 			unterminatedAction();					/* Addressed to talk with nothing to say. */
+			operationComplete();
 			mecState = idle;
 		}
 
@@ -263,6 +267,7 @@ void scpi (void) {
 		}
 
 	} else if (mecState == done) {
+		operationComplete();
 		if (msgs.bav || msgs.get) {
 			msgs.brq = false;
 			mecState = read;

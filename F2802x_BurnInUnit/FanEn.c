@@ -8,6 +8,7 @@
 #include"Common.h"
 
 #ifndef BSTEN_H_
+	static Uint16 crntState;
 	static i2cMsg i2cMsgOutFan = {	I2C_MSGSTAT_INACTIVE, 		/* Message status */
 									IOE_I2C_ADDR,				/* Slave device I2C address (ADC) */
 									1,							/* Number of data bytes to be sent */
@@ -18,14 +19,13 @@
 									0x00,						/* Data byte 2 */
 									0x00						/* Data byte 3 */
 								};
-
-	static Uint16 crntState;
 #endif
 
 Uint16 fcInit (void) {
-	#ifndef BSTEN_H_
+	#ifdef BSTEN_H_
+		return bcInit();
+	#else
 		Uint16 err = 0;
-
 		crntState = 0;
 
 		i2cPopMsg(&i2cMsgOutFan, I2C_MSGSTAT_SEND_WITHSTOP, IOE_I2C_ADDR, 1, 1, 0, IOE_IOCON_ADDR);
@@ -57,15 +57,16 @@ Uint16 fcInit (void) {
 		err = i2cWrite(&i2cMsgOutFan);
 		if (err)
 			return err;
-
 		return 0;
 	#endif
-	return bcInit();
 }
 
 Uint16 fcEnable(Uint16 chnl) {
-	#ifndef BSTEN_H_
+	#ifdef BSTEN_H_
+		return bcEnable(chnl + FAN_CHNL_OFST);
+	#else
 		Uint16 err = 0, msk = 1;
+		i2cMsg i2cMsgOutFan;
 							/* Ensure channel is valid */
 		if (chnl > FAN_NUM_CHNL)
 			return CHANNEL_OOB;
@@ -79,13 +80,13 @@ Uint16 fcEnable(Uint16 chnl) {
 			return err;
 		crntState = msk;	/* Update the current output control state record */
 		return 0;
-	#else
-		return bcEnable(chnl + FAN_CHNL_OFST);
 	#endif
 }
 
 Uint16 fcDisable (Uint16 chnl) {
-	#ifndef BSTEN_H_
+	#ifdef BSTEN_H_
+		return bcDisable(chnl + FAN_CHNL_OFST);
+	#else
 		Uint16 err = 0, msk = 1;
 							/* Ensure channel is valid */
 		if (chnl > FAN_NUM_CHNL)
@@ -100,7 +101,5 @@ Uint16 fcDisable (Uint16 chnl) {
 			return err;
 		crntState = msk;	/* Update the current output control state record */
 		return 0;
-	#else
-		return bcDisable(chnl + FAN_CHNL_OFST);
 	#endif
 }

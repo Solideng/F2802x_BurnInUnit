@@ -120,6 +120,8 @@ Functions</h2></td></tr>
 <tr class="separator:ac5c13a2ef6c3a9f9da7bf437e0213da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03e263230a1a25337050bfde1172d1a1"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adc_8h.html#a03e263230a1a25337050bfde1172d1a1">adcSetOvp</a> (Uint16 chnl, float32 ovpSetting)</td></tr>
 <tr class="separator:a03e263230a1a25337050bfde1172d1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51b43d0fbadcb3b231f4fceb4c7b9d12"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adc_8h.html#a51b43d0fbadcb3b231f4fceb4c7b9d12">adcGetDac</a> (Uint16 chnl, float32 *dacDest)</td></tr>
+<tr class="separator:a51b43d0fbadcb3b231f4fceb4c7b9d12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbf7c83ae3b6df7b0812ef1aed2b9c96"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adc_8h.html#acbf7c83ae3b6df7b0812ef1aed2b9c96">adcGetIScale</a> (Uint16 chnl, float32 *sclDest)</td></tr>
 <tr class="separator:acbf7c83ae3b6df7b0812ef1aed2b9c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a478f6261679944822575231af3eb229c"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_adc_8h.html#a478f6261679944822575231af3eb229c">adcGetVScale</a> (Uint16 chnl, float32 *sclDest)</td></tr>
@@ -216,6 +218,41 @@ Variables</h2></td></tr>
 <li>SHOULD be called BEFORE PWMS (SYNC) are started.</li>
 <li>SHOULD be called BEFORE pwmTZConfigure(). </li>
 </ul>
+
+</div>
+</div>
+<a class="anchor" id="a51b43d0fbadcb3b231f4fceb4c7b9d12"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 adcGetDac </td>
+          <td>(</td>
+          <td class="paramtype">Uint16&#160;</td>
+          <td class="paramname"><em>chnl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>dacDest</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the output level setting of the DAC on the inverting input of the comparators. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">chnl</td><td>Specifies the channel number on which the setting is to be queried. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dacDest</td><td>Address of the memory location at which to place the query result (volts or amps). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
 
 </div>
 </div>
@@ -727,7 +764,7 @@ Variables</h2></td></tr>
 </div>
 </div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Fri May 10 2013
+Mon Jun 10 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

@@ -1,7 +1,5 @@
 #include "scpi.h"
 
-// TODO: Calling function should call operationComplete() when execCtrl() has finished all commands
-
 void resetExecCtrl(void) {
 	msgs.pBlocked = false;	/* 6.1.6.2.5 the parser shall set p-blocked FALSE at all other times */
 	msgs.ecIdle = true;		/* 6.1.1.7.2.2 */

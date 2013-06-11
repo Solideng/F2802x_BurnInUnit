@@ -7,8 +7,17 @@
 
 #include "scpi.h"
 
-struct rspnsStruct rMsg;
+struct rspnsStruct {
+	rtype rspnsType;
+	Uint16 dataSize;
+	union {
+		int16 	intRData;
+		double	dbleRData;
+		char 	strRData[MAX_RDATA_STRING_SIZE];
+	} rUnit[MAX_NUM_RDATA];
+};
 
+static struct rspnsStruct rMsg;
 static bool rstFlg = false;
 
 void resetRespFmtr (void) {

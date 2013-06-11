@@ -13,8 +13,5 @@ var searchData=
   ['vmid_5fr2',['VMID_R2',['../_settings_8h.html#a86d7f47e3c125143c21e1ca2836eb4ab',1,'Settings.h']]],
   ['vminrms',['vMinRms',['../structchannel_parameters.html#af6a4d30899a436a77b24b99baa2852f6',1,'channelParameters']]],
   ['vscale',['vScale',['../structchannel_parameters.html#a7bdcae99eedfaaa8bfda6088cec1c08d',1,'channelParameters']]],
-  ['vssa',['VSSA',['../_settings_8h.html#a3c2e957a61cfa19e31e8477fe3aacab8',1,'Settings.h']]],
-  ['vtimer0',['VTimer0',['../_timers_8h.html#ade3020803ed700fa7b59b55ca96f2afc',1,'Timers.c']]],
-  ['vtimer1',['VTimer1',['../_timers_8h.html#a2ed6cc170ce3607cf0b5ef1030f11609',1,'Timers.c']]],
-  ['vtimer2',['VTimer2',['../_timers_8h.html#a5e759d74d2b7c1553ba8b2a88122e3a1',1,'Timers.c']]]
+  ['vssa',['VSSA',['../_settings_8h.html#a3c2e957a61cfa19e31e8477fe3aacab8',1,'Settings.h']]]
 ];

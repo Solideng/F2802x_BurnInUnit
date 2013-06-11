@@ -6,7 +6,8 @@
 P\-W\-M and related functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,7 +17,7 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{_pwm_8h_acf4f0b0797f3141ed767a8384edbef4a}{prd}~600
+\#define \hyperlink{_pwm_8h_af281425e62298bac2df0fbe8690a4844}{P\-E\-R\-I\-O\-D}~600
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -31,9 +32,9 @@ void \hyperlink{_pwm_8h_a358d8706acd0faf4e1cc705129be6548}{pwm\-Soc\-Configure} 
 \item 
 void \hyperlink{_pwm_8h_adfbaf2bb56a0c9fe6f54826499cb57de}{pwm\-D\-P\-L\-Trig\-Init} (void)
 \item 
-Uint16 \hyperlink{_pwm_8h_aac96cde993e92779e895170e72332528}{pwm\-Set\-Freq} (Uint16 frq)
+Uint16 \hyperlink{_pwm_8h_af82e2c1ff72afc3de42eb172ca925956}{pwm\-Set\-Freq} (Uint32 frq)
 \item 
-Uint16 \hyperlink{_pwm_8h_a8624136d66212f9b1773741a6356e5d7}{pwm\-Get\-Freq} (Uint16 $\ast$frq\-Dest)
+Uint16 \hyperlink{_pwm_8h_a79f203a5167440096f2ba270813b6db2}{pwm\-Get\-Freq} (Uint32 $\ast$frq\-Dest)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -56,9 +57,9 @@ volatile int32 $\ast$ \hyperlink{_pwm_8h_a9550c95286e784256c9f12906ff5a407}{P\-W
 P\-W\-M and related functions. 
 
 \subsection{Macro Definition Documentation}
-\hypertarget{_pwm_8h_acf4f0b0797f3141ed767a8384edbef4a}{\index{Pwm.\-h@{Pwm.\-h}!prd@{prd}}
-\index{prd@{prd}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{prd}]{\setlength{\rightskip}{0pt plus 5cm}\#define prd~600}}\label{_pwm_8h_acf4f0b0797f3141ed767a8384edbef4a}
+\hypertarget{_pwm_8h_af281425e62298bac2df0fbe8690a4844}{\index{Pwm.\-h@{Pwm.\-h}!P\-E\-R\-I\-O\-D@{P\-E\-R\-I\-O\-D}}
+\index{P\-E\-R\-I\-O\-D@{P\-E\-R\-I\-O\-D}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-E\-R\-I\-O\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-E\-R\-I\-O\-D~600}}\label{_pwm_8h_af281425e62298bac2df0fbe8690a4844}
 Defines the initial P\-W\-M period setting = 60\-M\-Hz / 600 = 100. 
 
 \subsection{Function Documentation}
@@ -69,13 +70,13 @@ Defines the initial P\-W\-M period setting = 60\-M\-Hz / 600 = 100.
 \item[{void}]{}
 \end{DoxyParamCaption}
 )}}\label{_pwm_8h_adfbaf2bb56a0c9fe6f54826499cb57de}
-Initialises and enables P\-W\-M1 (master) to trigger the D\-P\-L I\-S\-R. \hypertarget{_pwm_8h_a8624136d66212f9b1773741a6356e5d7}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Get\-Freq@{pwm\-Get\-Freq}}
+Initialises and enables P\-W\-M1 (master) to trigger the D\-P\-L I\-S\-R. \hypertarget{_pwm_8h_a79f203a5167440096f2ba270813b6db2}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Get\-Freq@{pwm\-Get\-Freq}}
 \index{pwm\-Get\-Freq@{pwm\-Get\-Freq}!Pwm.h@{Pwm.\-h}}
 \subsubsection[{pwm\-Get\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 pwm\-Get\-Freq (
 \begin{DoxyParamCaption}
-\item[{Uint16 $\ast$}]{frq\-Dest}
+\item[{Uint32 $\ast$}]{frq\-Dest}
 \end{DoxyParamCaption}
-)}}\label{_pwm_8h_a8624136d66212f9b1773741a6356e5d7}
+)}}\label{_pwm_8h_a79f203a5167440096f2ba270813b6db2}
 Queries the current P\-W\-M frequency setting. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt out}  & {\em frq\-Dest} & Address of the memory location at which to place the query result (hertz). \\
@@ -98,13 +99,13 @@ Configures each of the P\-W\-M macros for use. \hypertarget{_pwm_8h_a94a47896496
 \item[{void}]{}
 \end{DoxyParamCaption}
 )}}\label{_pwm_8h_a94a47896496e094f8ab54c1cb46da2e1}
-Resets the trip zone after a comparator event. \hypertarget{_pwm_8h_aac96cde993e92779e895170e72332528}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Set\-Freq@{pwm\-Set\-Freq}}
+Resets the trip zone after a comparator event. \hypertarget{_pwm_8h_af82e2c1ff72afc3de42eb172ca925956}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Set\-Freq@{pwm\-Set\-Freq}}
 \index{pwm\-Set\-Freq@{pwm\-Set\-Freq}!Pwm.h@{Pwm.\-h}}
 \subsubsection[{pwm\-Set\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 pwm\-Set\-Freq (
 \begin{DoxyParamCaption}
-\item[{Uint16}]{frq}
+\item[{Uint32}]{frq}
 \end{DoxyParamCaption}
-)}}\label{_pwm_8h_aac96cde993e92779e895170e72332528}
+)}}\label{_pwm_8h_af82e2c1ff72afc3de42eb172ca925956}
 Sets the frequency of the P\-W\-Ms. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em frq} & Specifies the required frequency (hertz). \\

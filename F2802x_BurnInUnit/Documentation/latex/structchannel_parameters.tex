@@ -16,8 +16,6 @@ volatile int32 \hyperlink{structchannel_parameters_a5b3f0afc0e3ef0bc0726ee695570
 \item 
 volatile int32 \hyperlink{structchannel_parameters_ae9a6e93b8f7d8554dd06269339167215}{out\-Net}
 \item 
-float32 \hyperlink{structchannel_parameters_a458c22593d95ea92268aeabe975f6f66}{otp}
-\item 
 int32 \hyperlink{structchannel_parameters_a95bd86963045f10f75c656956a09858c}{ocp}
 \item 
 int32 \hyperlink{structchannel_parameters_aefb9a7e765e361d08e0ae0bbc352e244}{ovp}
@@ -25,6 +23,8 @@ int32 \hyperlink{structchannel_parameters_aefb9a7e765e361d08e0ae0bbc352e244}{ovp
 int32 \hyperlink{structchannel_parameters_a2d9b0f07810affea40c8502613b8984e}{target}
 \item 
 int32 \hyperlink{structchannel_parameters_a09eb121ecb75a652f7689869d1685a30}{slew\-Rate}
+\item 
+int16 \hyperlink{structchannel_parameters_a9df39dee6c165c882bb04e26b17e3e25}{otp}
 \item 
 int16 \hyperlink{structchannel_parameters_ab4b8dda9d3ab4395a3fde8bc0e403212}{i\-Max\-Rms}
 \item 
@@ -39,12 +39,6 @@ int16 \hyperlink{structchannel_parameters_a022031c9e8a34b37c6cd05d8d7934a13}{i\-
 int16 \hyperlink{structchannel_parameters_a7bdcae99eedfaaa8bfda6088cec1c08d}{v\-Scale}
 \item 
 int16 \hyperlink{structchannel_parameters_a7dd5ddd959b3f3344721e729e51f0db5}{v\-Gain\-Lmt}
-\item 
-int16 \hyperlink{structchannel_parameters_a2d6c1295ab4c4182bf3f713c283aa37e}{p\-Gain}
-\item 
-int16 \hyperlink{structchannel_parameters_aafa118e723af6d1ec3cb8dd28fd5e4ef}{i\-Gain}
-\item 
-int16 \hyperlink{structchannel_parameters_a3fe483bd1d92d76223cbc97d9f32a3de}{d\-Gain}
 \item 
 \hyperlink{_macro_nets_8h_acd90d47e6937efc4183ab0d18f787575}{op\-Type} \hyperlink{structchannel_parameters_a25d490fa4d7487c8e2e21c1400a6b99b}{op\-Mode}
 \item 
@@ -66,19 +60,13 @@ A structure used to represent the collection of settings pertaining to a particu
 Sine signal generator frequency setting (Hz). \hypertarget{structchannel_parameters_af99576e00746544eab1d4e88d12f39b4}{\index{channel\-Parameters@{channel\-Parameters}!ch\-Enable@{ch\-Enable}}
 \index{ch\-Enable@{ch\-Enable}!channelParameters@{channel\-Parameters}}
 \subsubsection[{ch\-Enable}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 channel\-Parameters\-::ch\-Enable}}\label{structchannel_parameters_af99576e00746544eab1d4e88d12f39b4}
-Channel enable status \mbox{[}F\-A\-L\-S\-E $|$ T\-R\-U\-E). \hypertarget{structchannel_parameters_ab31dab8e873272dd15641943b20e56a5}{\index{channel\-Parameters@{channel\-Parameters}!ctl\-Mode@{ctl\-Mode}}
+Channel enable status \{F\-A\-L\-S\-E, T\-R\-U\-E\}. \hypertarget{structchannel_parameters_ab31dab8e873272dd15641943b20e56a5}{\index{channel\-Parameters@{channel\-Parameters}!ctl\-Mode@{ctl\-Mode}}
 \index{ctl\-Mode@{ctl\-Mode}!channelParameters@{channel\-Parameters}}
 \subsubsection[{ctl\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ctl\-Type} channel\-Parameters\-::ctl\-Mode}}\label{structchannel_parameters_ab31dab8e873272dd15641943b20e56a5}
-Control mode setting \mbox{[}i\-Ctrl $|$ v\-Ctrl). \hypertarget{structchannel_parameters_a3fe483bd1d92d76223cbc97d9f32a3de}{\index{channel\-Parameters@{channel\-Parameters}!d\-Gain@{d\-Gain}}
-\index{d\-Gain@{d\-Gain}!channelParameters@{channel\-Parameters}}
-\subsubsection[{d\-Gain}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::d\-Gain}}\label{structchannel_parameters_a3fe483bd1d92d76223cbc97d9f32a3de}
-C\-N\-T\-L D Gain (S\-Q8). \hypertarget{structchannel_parameters_ad4f53b220d97af172b01f1a6d57a9635}{\index{channel\-Parameters@{channel\-Parameters}!i\-Fdbk\-Net@{i\-Fdbk\-Net}}
+Control mode setting \{i\-Ctrl, v\-Ctrl\}. \hypertarget{structchannel_parameters_ad4f53b220d97af172b01f1a6d57a9635}{\index{channel\-Parameters@{channel\-Parameters}!i\-Fdbk\-Net@{i\-Fdbk\-Net}}
 \index{i\-Fdbk\-Net@{i\-Fdbk\-Net}!channelParameters@{channel\-Parameters}}
 \subsubsection[{i\-Fdbk\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 channel\-Parameters\-::i\-Fdbk\-Net}}\label{structchannel_parameters_ad4f53b220d97af172b01f1a6d57a9635}
-Current feednack net (I\-Q24). \hypertarget{structchannel_parameters_aafa118e723af6d1ec3cb8dd28fd5e4ef}{\index{channel\-Parameters@{channel\-Parameters}!i\-Gain@{i\-Gain}}
-\index{i\-Gain@{i\-Gain}!channelParameters@{channel\-Parameters}}
-\subsubsection[{i\-Gain}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::i\-Gain}}\label{structchannel_parameters_aafa118e723af6d1ec3cb8dd28fd5e4ef}
-C\-N\-T\-L I Gain (S\-Q8). \hypertarget{structchannel_parameters_ab4b8dda9d3ab4395a3fde8bc0e403212}{\index{channel\-Parameters@{channel\-Parameters}!i\-Max\-Rms@{i\-Max\-Rms}}
+Current feednack net (I\-Q24). \hypertarget{structchannel_parameters_ab4b8dda9d3ab4395a3fde8bc0e403212}{\index{channel\-Parameters@{channel\-Parameters}!i\-Max\-Rms@{i\-Max\-Rms}}
 \index{i\-Max\-Rms@{i\-Max\-Rms}!channelParameters@{channel\-Parameters}}
 \subsubsection[{i\-Max\-Rms}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::i\-Max\-Rms}}\label{structchannel_parameters_ab4b8dda9d3ab4395a3fde8bc0e403212}
 Maximum R\-M\-S current setting limit (S\-Q10). \hypertarget{structchannel_parameters_a12f6946f5b0ee1235d7edcb6a22a4518}{\index{channel\-Parameters@{channel\-Parameters}!i\-Min\-Rms@{i\-Min\-Rms}}
@@ -93,19 +81,16 @@ Current scaling setting in volts-\/per-\/amp for scaling between a voltage level
 Normalised O\-C\-P limit (I\-Q24). \hypertarget{structchannel_parameters_a25d490fa4d7487c8e2e21c1400a6b99b}{\index{channel\-Parameters@{channel\-Parameters}!op\-Mode@{op\-Mode}}
 \index{op\-Mode@{op\-Mode}!channelParameters@{channel\-Parameters}}
 \subsubsection[{op\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf op\-Type} channel\-Parameters\-::op\-Mode}}\label{structchannel_parameters_a25d490fa4d7487c8e2e21c1400a6b99b}
-Output mode setting \mbox{[}dc $|$ ac). \hypertarget{structchannel_parameters_a458c22593d95ea92268aeabe975f6f66}{\index{channel\-Parameters@{channel\-Parameters}!otp@{otp}}
+Output mode setting \{dc, ac\}. \hypertarget{structchannel_parameters_a9df39dee6c165c882bb04e26b17e3e25}{\index{channel\-Parameters@{channel\-Parameters}!otp@{otp}}
 \index{otp@{otp}!channelParameters@{channel\-Parameters}}
-\subsubsection[{otp}]{\setlength{\rightskip}{0pt plus 5cm}float32 channel\-Parameters\-::otp}}\label{structchannel_parameters_a458c22593d95ea92268aeabe975f6f66}
-? deg C? 8-\/bit adc. \hypertarget{structchannel_parameters_ae9a6e93b8f7d8554dd06269339167215}{\index{channel\-Parameters@{channel\-Parameters}!out\-Net@{out\-Net}}
+\subsubsection[{otp}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::otp}}\label{structchannel_parameters_a9df39dee6c165c882bb04e26b17e3e25}
+O\-T\-P limit in $ ^\circ$ C (S\-Q7). \hypertarget{structchannel_parameters_ae9a6e93b8f7d8554dd06269339167215}{\index{channel\-Parameters@{channel\-Parameters}!out\-Net@{out\-Net}}
 \index{out\-Net@{out\-Net}!channelParameters@{channel\-Parameters}}
 \subsubsection[{out\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 channel\-Parameters\-::out\-Net}}\label{structchannel_parameters_ae9a6e93b8f7d8554dd06269339167215}
 I\-I\-R filter control law output net (I\-Q24). \hypertarget{structchannel_parameters_aefb9a7e765e361d08e0ae0bbc352e244}{\index{channel\-Parameters@{channel\-Parameters}!ovp@{ovp}}
 \index{ovp@{ovp}!channelParameters@{channel\-Parameters}}
 \subsubsection[{ovp}]{\setlength{\rightskip}{0pt plus 5cm}int32 channel\-Parameters\-::ovp}}\label{structchannel_parameters_aefb9a7e765e361d08e0ae0bbc352e244}
-Normalised O\-V\-P limit (I\-Q24). \hypertarget{structchannel_parameters_a2d6c1295ab4c4182bf3f713c283aa37e}{\index{channel\-Parameters@{channel\-Parameters}!p\-Gain@{p\-Gain}}
-\index{p\-Gain@{p\-Gain}!channelParameters@{channel\-Parameters}}
-\subsubsection[{p\-Gain}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::p\-Gain}}\label{structchannel_parameters_a2d6c1295ab4c4182bf3f713c283aa37e}
-C\-N\-T\-L P Gain (S\-Q8). \hypertarget{structchannel_parameters_a8e3dbb10da7b72b7b4fe6c200fbb495c}{\index{channel\-Parameters@{channel\-Parameters}!ref\-Net@{ref\-Net}}
+Normalised O\-V\-P limit (I\-Q24). \hypertarget{structchannel_parameters_a8e3dbb10da7b72b7b4fe6c200fbb495c}{\index{channel\-Parameters@{channel\-Parameters}!ref\-Net@{ref\-Net}}
 \index{ref\-Net@{ref\-Net}!channelParameters@{channel\-Parameters}}
 \subsubsection[{ref\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 channel\-Parameters\-::ref\-Net}}\label{structchannel_parameters_a8e3dbb10da7b72b7b4fe6c200fbb495c}
 Net for C\-N\-T\-L reference (I\-Q24). \hypertarget{structchannel_parameters_a09eb121ecb75a652f7689869d1685a30}{\index{channel\-Parameters@{channel\-Parameters}!slew\-Rate@{slew\-Rate}}

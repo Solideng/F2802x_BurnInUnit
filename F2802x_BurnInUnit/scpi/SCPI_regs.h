@@ -22,8 +22,6 @@
 	extern "C" {
 #endif
 
-extern Uint16 MSS;
-
 struct STB_BITS {
 	Uint16 	usrb1:1;	/* Available to designer */
 	Uint16 	usrb2:1;	/* Available to designer */

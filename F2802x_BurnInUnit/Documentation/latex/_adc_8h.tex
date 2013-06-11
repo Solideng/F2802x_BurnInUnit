@@ -6,7 +6,8 @@
 A\-D\-C, D\-A\-C, comparator and related functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -33,6 +34,8 @@ Uint16 \hyperlink{_adc_8h_a9c87603c2aabc17d784a9149563e71e5}{adc\-Set\-V\-Scale}
 Uint16 \hyperlink{_adc_8h_ac5c13a2ef6c3a9f9da7bf437e0213da2}{adc\-Set\-Ocp} (Uint16 chnl, float32 ocp\-Setting)
 \item 
 Uint16 \hyperlink{_adc_8h_a03e263230a1a25337050bfde1172d1a1}{adc\-Set\-Ovp} (Uint16 chnl, float32 ovp\-Setting)
+\item 
+Uint16 \hyperlink{_adc_8h_a51b43d0fbadcb3b231f4fceb4c7b9d12}{adc\-Get\-Dac} (Uint16 chnl, float32 $\ast$dac\-Dest)
 \item 
 Uint16 \hyperlink{_adc_8h_acbf7c83ae3b6df7b0812ef1aed2b9c96}{adc\-Get\-I\-Scale} (Uint16 chnl, float32 $\ast$scl\-Dest)
 \item 
@@ -109,7 +112,25 @@ Configures the C\-O\-M\-P 1 \& 2 comparators using the internal D\-A\-Cs at inve
 \item S\-H\-O\-U\-L\-D be called A\-F\-T\-E\-R adc\-Soc\-Cnf().
 \item S\-H\-O\-U\-L\-D be called B\-E\-F\-O\-R\-E P\-W\-M\-S (S\-Y\-N\-C) are started.
 \item S\-H\-O\-U\-L\-D be called B\-E\-F\-O\-R\-E pwm\-T\-Z\-Configure(). 
-\end{DoxyItemize}\hypertarget{_adc_8h_acbf7c83ae3b6df7b0812ef1aed2b9c96}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-I\-Scale@{adc\-Get\-I\-Scale}}
+\end{DoxyItemize}\hypertarget{_adc_8h_a51b43d0fbadcb3b231f4fceb4c7b9d12}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-Dac@{adc\-Get\-Dac}}
+\index{adc\-Get\-Dac@{adc\-Get\-Dac}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Get\-Dac}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-Dac (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{dac\-Dest}
+\end{DoxyParamCaption}
+)}}\label{_adc_8h_a51b43d0fbadcb3b231f4fceb4c7b9d12}
+Queries the output level setting of the D\-A\-C on the inverting input of the comparators. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the setting is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em dac\-Dest} & Address of the memory location at which to place the query result (volts or amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{_adc_8h_acbf7c83ae3b6df7b0812ef1aed2b9c96}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-I\-Scale@{adc\-Get\-I\-Scale}}
 \index{adc\-Get\-I\-Scale@{adc\-Get\-I\-Scale}!Adc.h@{Adc.\-h}}
 \subsubsection[{adc\-Get\-I\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-I\-Scale (
 \begin{DoxyParamCaption}

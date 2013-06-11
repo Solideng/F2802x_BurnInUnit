@@ -3,7 +3,7 @@
 static char outputQueue[OQUEUE_LENGTH] = {0};
 static int pushQP = 0;
 static int popQP = 0;
-Uint16 (*IOTxCallback)(char data);
+static Uint16 (*IOTxCallback)(char data);
 
 void resetOQueue (void) {
 	popQP = 0;
@@ -11,10 +11,10 @@ void resetOQueue (void) {
 	clearOQueue(0);
 }
 
-Uint16 setTxOQueue (Uint16 (*IOTx)(char data)) {
+Uint16 setTxOQueue (Uint16 (*txHandle)(char data)) {
 	if (IOTx == NULL)
 		return 1;
-	IOTxCallback = IOTx;
+	IOTxCallback = txHandle;
 	return 0;
 }
 

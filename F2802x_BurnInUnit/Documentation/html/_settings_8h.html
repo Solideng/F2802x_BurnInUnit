@@ -105,10 +105,8 @@ Macros</h2></td></tr>
 <tr class="separator:abf493281a7e64fe88660c38753e18d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_settings_8h.html#ad72dbcf6d0153db1b8d8a58001feed83">DEBUG</a></td></tr>
 <tr class="separator:ad72dbcf6d0153db1b8d8a58001feed83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67e401b420276bcc62502f8f81a4bfcb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_settings_8h.html#a67e401b420276bcc62502f8f81a4bfcb">USE_PID</a></td></tr>
-<tr class="separator:a67e401b420276bcc62502f8f81a4bfcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1381ac724d85872e7c3e388fd817b624"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_settings_8h.html#a1381ac724d85872e7c3e388fd817b624">TEST_TZ</a></td></tr>
-<tr class="separator:a1381ac724d85872e7c3e388fd817b624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600b96e7a1d3cd28e228833bb61f8074"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_settings_8h.html#a600b96e7a1d3cd28e228833bb61f8074">DUAL_CNTL_AC</a></td></tr>
+<tr class="separator:a600b96e7a1d3cd28e228833bb61f8074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c2e957a61cfa19e31e8477fe3aacab8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_settings_8h.html#a3c2e957a61cfa19e31e8477fe3aacab8">VSSA</a>&#160;&#160;&#160;0l</td></tr>
 <tr class="separator:a3c2e957a61cfa19e31e8477fe3aacab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a511faa1530ba984d340a884a97e6a80a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_settings_8h.html#a511faa1530ba984d340a884a97e6a80a">VMID_R1</a>&#160;&#160;&#160;540.0</td></tr>
@@ -184,6 +182,19 @@ When changes are made to this file please use rebuild all. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Includes and makes functions and variables public that are used only for debugging purposes. </p>
+
+</div>
+</div>
+<a class="anchor" id="a600b96e7a1d3cd28e228833bb61f8074"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DUAL_CNTL_AC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Uses the dual CNTL AC control instead of single VCtrl. Cannot be used if PID is still in use. </p>
 
 </div>
 </div>
@@ -369,32 +380,6 @@ When changes are made to this file please use rebuild all. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a1381ac724d85872e7c3e388fd817b624"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TEST_TZ</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Enables trip zone testing code. </p>
-
-</div>
-</div>
-<a class="anchor" id="a67e401b420276bcc62502f8f81a4bfcb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define USE_PID</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Uses PID gain arrays to set IIR filter control law coefficients instead of the coefficient arrays/ If un-defined 3P3Z's will need to be used in asm files, where relevant/ </p>
-
-</div>
-</div>
 <a class="anchor" id="aa010c11f88da0f9a48a7dfd810412d5d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -501,7 +486,7 @@ When changes are made to this file please use rebuild all. </dd></dl>
 </div>
 </div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Fri May 10 2013
+Mon Jun 10 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

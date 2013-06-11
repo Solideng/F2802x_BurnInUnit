@@ -63,8 +63,6 @@
 	extern "C" {
 #endif
 
-//#define NUM_CHNLS	7	//TODO will need to remove to link up with device
-
 extern Uint16 registerSpecificCommands (void);
 extern Uint16 calAll (double * parameters, bool isQuery);
 

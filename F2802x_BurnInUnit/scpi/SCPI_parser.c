@@ -31,7 +31,7 @@ treeNode * (parseMsgUnit) (lexedItem * msgUnit) {
 	} else {
 		return NULL;				/* Unknown message type. */
 	}
-	return &treeChild[leaf];		/* Return the tree leaf node found by parse() if it returned successfully. */
+	return &tree[leaf];				/* Return the tree leaf node found by parse() if it returned successfully. */
 }
 
 static Uint16 parse(char ** hToks, Uint16 relLevel) {
@@ -42,22 +42,22 @@ static Uint16 parse(char ** hToks, Uint16 relLevel) {
 	char parent[5] = {0};
 	Uint16 node = 0, i = 0;
 							/* Setup the child at the same starting level as the first parent. */
-	strcpy(parent, treeChild[relLevel].shortParent);
+	strcpy(parent, tree[relLevel].shortParent);
 	while (*hToks != 0) {	/* Step through each <program mnemonic> token. */
 		nodeFound = false;
 							/* Check all tree nodes at the current level to see if any compare to the current token. */
 							/* Scan the command tree until either the correct node is found or the end is reached */
 		while ((i < TREE_CHILD_LIMIT) && (nodeFound == false)) {
 							/* Check if the long and short names of this node match the current token */
-			if((strcmp(*hToks, treeChild[i].longName) == 0) || (strcmp(*hToks, treeChild[i].shortName) == 0)) {
+			if((strcmp(*hToks, tree[i].longName) == 0) || (strcmp(*hToks, tree[i].shortName) == 0)) {
 							/* If node matches, use it to move to the next level until the final child node that
 							 * matches the final, trailing <program mnemonic>, token is found.
 							 */
 							/* Check if the previous <program mnemonic> matches the the current node's parent name. */
-				if (strcmp(parent, treeChild[i].shortParent) == 0) {
+				if (strcmp(parent, tree[i].shortParent) == 0) {
 					node = i;			/* Save the tree array index of this node. */
 					nodeFound = true;	/* Let the outer loop know that a node was found. */
-					strcpy(parent, treeChild[i].shortName);	/* Save this node's name as the parent name for the next level. */
+					strcpy(parent, tree[i].shortName);	/* Save this node's name as the parent name for the next level. */
 				} else {
 					nodeFound = false;	/* This node did not match. */
 				}

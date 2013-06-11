@@ -6,42 +6,6 @@
  */
 #include "Common.h"
 
-/*================ GLOBAL VARS ================*/
-#ifdef DEBUG_ADC
-	volatile float32 guiIRead[NUM_CHNLS + 1];
-	volatile float32 guiVRead[NUM_CHNLS + 1];
-#endif
-
-/*============== LOCAL FUNCTIONS ==============*/
-//static void adcSocCnf (void);
-
-/*================ LOCAL VARS =================*/
-static int16	ChSel[16]={1,1,3,6,7,2,12,9,11,14,15,0,10,4,0,0};	/* ADC channel selections */
-static int16	TrigSel[16]={5,5,5,5,5,5,5,5,5,5,5,5,5,0,0};		/* ADC trigger selections */
-static int16	ACQPS[16]={6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6};		/* ADC qualification window sizes */
-
-/*================ GUI SECTION ================*/
-#ifdef DEBUG_ADC
-	void adcGUI (void) {
-		float32 max = 0;
-		Uint16 i = 0;
-		for (i = 0; i < (NUM_CHNLS + 1); i++) {
-			if (channel[i].iScale != 0) {
-				max = ((VDDA - VSSA) / 1000.0) / channel[i].iScale;/* Calculate maximum I */
-				guiIRead[i] = _IQ24toF(channel[i].iFdbkNet) * max;	/* De-nomralise */
-			} else {
-				guiIRead[i] = 0;									/* Zero if scale zero */
-			}
-			if (channel[i].vScale != 0) {
-				max = ((VDDA - VSSA) / 1000.0) / channel[i].vScale;/* Calculate maximum V */
-				guiVRead[i] = _IQ24toF(channel[i].vFdbkNet) * max;	/* De-nomralise */
-			} else {
-				guiVRead[i] = 0;									/* Zero if scale zero */
-			}
-		}
-	}
-#endif
-
 /*============= COMP/DAC SECTION ==============*/
 void adcCompConfigure (void) {
 	/* Sets up the COMP 1 & 2 comparators using the internal DACs at inverting inputs
@@ -139,6 +103,9 @@ void adcSocCnf(void) {
 	/* Configures ADC SOC for ADC macro
 	 *  - SHOULD BE RUN BEFORE DPL_INIT() -
 	 */
+	int16 ChSel[16]={1,1,3,6,7,2,12,9,11,14,15,0,10,4,0,0};	/* ADC channel selections */
+	int16 TrigSel[16]={5,5,5,5,5,5,5,5,5,5,5,5,5,0,0};		/* ADC trigger selections */
+	int16 ACQPS[16]={6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6};		/* ADC qualification window sizes */
 	ADC_SOC_CNF(ChSel, TrigSel, ACQPS, 16, 0);
 }
 
@@ -174,7 +141,7 @@ Uint16 adcSetIScale (Uint16 chnl, float32 scaleSetting) {
 	/* Sets iScale value for the specified channel
 	 *  scaleSetting is expected in amps-per-volt
 	 */
-	volatile float32 iMaxRms  = 0;
+	volatile float32 iMaxRms  = 0;		// TODO check is volatile needed here?
 	if (chnl > NUM_CHNLS)							/* Check channel is valid */
 		return CHANNEL_OOB;
 	if ((scaleSetting <= 0) || (scaleSetting > 1))  /* Check scale is within normal limits */
@@ -211,7 +178,7 @@ Uint16 adcSetOcp (Uint16 chnl, float32 ocpSetting) {
 	 *  ocpSetting is expected in amps
 	 *  - iScale SHOULD BE SET BEFORE OCP -
 	 */
-	float32 iMax = 0, iSc = 0;
+	float32 iMax = 0;
 	int32 iStRms = 0;
 
 	if (chnl > NUM_CHNLS)					/* Check channel is valid */
@@ -219,16 +186,15 @@ Uint16 adcSetOcp (Uint16 chnl, float32 ocpSetting) {
 	if (channel[chnl].iScale == 0)			/* Check iScale is set, to avoid div-by-0 exception */
 			return VALUE_OOB;
 
-	iSc = _IQ14toF((int32)channel[chnl].iScale);	/* Convert scale from SQ to float */
+	iMax = _IQ14toF((int32)channel[chnl].iScale);	/* Convert scale from SQ to float */
 
-	iMax = ((VDDA - VSSA) * 0.001) * (1.0 / iSc); 	/* Calculate maximum I */
+	iMax = ((VDDA - VSSA) * 0.001) * (1.0 / iMax); 	/* Calculate maximum I */
 
 	iStRms = _IQ10(ocpSetting * RECP_SQRT_2);		/* Convert setting to RMS Q10 and compare check result is in range */
 	if ((iStRms <= channel[chnl].iMinRms) && (iStRms > channel[chnl].iMaxRms))
 		return VALUE_OOB;
 											/* Apply gain and normalise */
 	channel[chnl].ocp = _IQ24(ocpSetting / iMax);
-//	channel[chnl].fOcp = ocpSetting;		/* Save as real-world value */
 	return 0;
 }
 
@@ -237,7 +203,7 @@ Uint16 adcSetOvp (Uint16 chnl, float32 ovpSetting) {
 	 *  ovpSetting is expected in volts
 	 *  - vScale SHOULD BE SET BEFORE OVP -
 	 */
-	float32 vMax = 0, vSc = 0, vGn = 0;
+	float32 vMax = 0, vGn = 0;
 	int32 vStRms = 0;
 
 	if (chnl > (NUM_CHNLS + 1))				/* Check channel is valid */
@@ -245,17 +211,16 @@ Uint16 adcSetOvp (Uint16 chnl, float32 ovpSetting) {
 	if (channel[chnl].vScale == 0)			/* Check vScale is set, to avoid div-by-0 exception */
 		return VALUE_OOB;
 
-	vSc = _IQ14toF((int32)channel[chnl].vScale);	/* Convert scale and gain from SQ to float */
+	vMax = _IQ14toF((int32)channel[chnl].vScale);	/* Convert scale and gain from SQ to float */
 	vGn = _IQ14toF((int32)channel[chnl].vGainLmt);
 
-	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vSc);	/* Calculate maximum V */
+	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);	/* Calculate maximum V */
 
 	vStRms = _IQ10(ovpSetting * RECP_SQRT_2);		/* Convert setting to Q10 and compare check result is in range */
 	if ((vStRms <= channel[chnl].vMinRms) && (vStRms > channel[chnl].vMaxRms))
 		return VALUE_OOB;
 											/* Apply gain and normalise */
 	channel[chnl].ovp = _IQ24((ovpSetting * vGn) / vMax);
-//	channel[chnl].fOvp = ovpSetting;		/* Save as real-world value */
 	return 0;
 }
 

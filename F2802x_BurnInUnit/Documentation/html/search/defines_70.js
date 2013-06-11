@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['prd',['prd',['../_pwm_8h.html#acf4f0b0797f3141ed767a8384edbef4a',1,'Pwm.h']]]
+  ['period',['PERIOD',['../_pwm_8h.html#af281425e62298bac2df0fbe8690a4844',1,'Pwm.h']]]
 ];

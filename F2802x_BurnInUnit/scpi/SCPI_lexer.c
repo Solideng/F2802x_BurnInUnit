@@ -1,13 +1,13 @@
 #include "scpi.h"
 
-lexedItem lRes = {0};
+static lexedItem lRes = {0};
 
 //static lexedItem clearResults = {0};
 static lexedItem * resPtr = &lRes;
 
 static void cleanPrg (char * msg);
 static msgType getMsgType (char * msgUnit);
-static tBool btof (char * boolStr);
+static double btof (char * boolStr);
 static Uint16 lexPNums (char ** src, double * dest);
 static bool isBaud(long number);
 static clearResults (lexedItem * item);
@@ -207,16 +207,16 @@ static msgType getMsgType (char * msgUnit) {
 	}
 }
 
-static tBool btof (char * boolStr) {
+static double btof (char * boolStr) {
 	/* Check for "ON" or "OFF" and convert to boolean double values.
 	 * Strings are expected to be all upper-case.
 	 */
 	if (strcmp(boolStr, "ON") == 0) {
-		return tTrue;	/* True. */
+		return 1.0;		/* True. */
 	} else if (strcmp(boolStr, "OFF") == 0) {
-		return tFalse;	/* False. */
+		return 0.0;		/* False. */
 	} else {
-		return tNAB;	/* Not a boolean. */
+		return 10.0;	/* Not a boolean. */
 	}
 }
 
@@ -239,7 +239,7 @@ static Uint16 lexPNums (char ** src, double * dest) {
 		remWhitSpace(*src);		/* Remove all white space. */
 		if (**src == 0x4F) {	/* If parameter starts with 'O' read as boolean. */
 			*dest = btof(*src);	/*  so attempt to convert to true or false. */
-			if (*dest == tNAB) {/* Bad parameter - Not a Boolean value. */
+			if (*dest == 10.0) {/* Bad parameter - Not a Boolean value. */
 				return 1;
 			} else {
 								/* Set the result parameter type to boolean. */

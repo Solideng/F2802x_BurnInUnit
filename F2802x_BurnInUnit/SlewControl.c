@@ -36,18 +36,18 @@ Uint16 scSetTarget (Uint16 chnl, float32 trgt) {
 	/* Changes an enabled channel's target value
 	 * scTarget is expected in amps or volts
 	 */
-	float32 scale = 0.0, gain = 1.0, max = 0.0;
+	float32 gain = 1.0, max = 0.0;
 
 	if ((chnl > (NUM_CHNLS - 1)) && (chnl != AC_I_CNTL))
 		return CHANNEL_OOB;					/* Check channel is valid, -1 as the last is sin slew and handled by sgSetGainTarget() */
 
 	if (channel[chnl].ctlMode == iCtrl) { 	/* Select which scaling to use, V or I */
-		scale = _IQ14toF((int32)channel[chnl].iScale);
+		max = _IQ14toF((int32)channel[chnl].iScale);
 	} else {
-		scale = _IQ14toF((int32)channel[chnl].vScale);
+		max = _IQ14toF((int32)channel[chnl].vScale);
 	}
 
-	max = ((VDDA - VSSA) / 1000.0) / scale;	/* Calculate the target maximum with the current scaling */
+	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the target maximum with the current scaling */
 	if (trgt > max)							/* Check target is valid */
 		return VALUE_OOB;
 											/* For current controlled channels this is 1 by default anyway (and should never be changed) */
@@ -61,19 +61,19 @@ Uint16 scSetStep (Uint16 chnl, float32 stp) {
 	/* Changes a channels slew step value
 	 * scStep is expected in amps or volts
 	 */
-	float32 scale = 0.0, max = 0.0;
+	float32 max = 0.0;
 	int32 qStp = 0;
 
 	if ((chnl > NUM_CHNLS) && (chnl != AC_I_CNTL))
 		return CHANNEL_OOB;					/* Check channel is valid */
 
 	if (channel[chnl].ctlMode == iCtrl) { 	/* Select which scaling to use, V or I*/
-		scale = _IQ14toF((int32)channel[chnl].iScale);
+		max = _IQ14toF((int32)channel[chnl].iScale);
 	} else {
-		scale = _IQ14toF((int32)channel[chnl].vScale);
+		max = _IQ14toF((int32)channel[chnl].vScale);
 	}
 
-	max = ((VDDA - VSSA) / 1000.0) / scale;	/* Calculate the step maximum with the current scaling */
+	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the step maximum with the current scaling */
 	if (stp > max)							/* Check step smaller than scale maximum */
 		return VALUE_OOB;
 
@@ -129,38 +129,38 @@ Uint16 scSetStateAll (Uint16 stt) {
 }
 
 Uint16 scGetTarget (Uint16 chnl, float32 * trgtDest) {
-	float32 gain = 1.0, max = 0.0, scale = 0.0;
+	float32 gain = 1.0, max = 0.0;
 
 	if ((chnl > (NUM_CHNLS - 1)) && (chnl != AC_I_CNTL))
 		return CHANNEL_OOB;					/* Check channel is valid. -1 ad the last is sin slew and handled by sgGetGainTarget() */
 
 	if (channel[chnl].ctlMode == iCtrl) { 	/* Select which scaling to use, V or I */
-		scale = _IQ14toF((int32)channel[chnl].iScale);
+		max = _IQ14toF((int32)channel[chnl].iScale);
 	} else {
-		scale = _IQ14toF((int32)channel[chnl].vScale);
+		max = _IQ14toF((int32)channel[chnl].vScale);
 	}
 											/* For current controlled channels this is 1 by default anyway (and should never be changed) */
 	gain = _IQ14toF((int32)channel[chnl].vGainLmt);
 
-	max = ((VDDA - VSSA) / 1000.0) / scale;	/* Calculate the target maximum with the current scaling */
+	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the target maximum with the current scaling */
 											/* Convert from IQ24, de-gain and de-normalise */
 	*trgtDest = (_IQ24toF(channel[chnl].target)) * (1.0 / gain) * max;
 	return 0;
 }
 
 Uint16 scGetStep (Uint16 chnl, float32 * stpDest) {
-	float32 scale = 0.0, max = 0.0;
+	float32 max = 0.0;
 
 	if ((chnl > NUM_CHNLS) && (chnl != AC_I_CNTL))
 		return CHANNEL_OOB;						/* Check channel is valid */
 
 	if (channel[chnl].ctlMode == iCtrl) { 	/* Select which scaling to use, V or I */
-		scale = _IQ14toF((int32)channel[chnl].iScale);
+		max = _IQ14toF((int32)channel[chnl].iScale);
 	} else {
-		scale = _IQ14toF((int32)channel[chnl].vScale);
+		max = _IQ14toF((int32)channel[chnl].vScale);
 	}
 
-	max = ((VDDA - VSSA) / 1000.0) / scale;	/* Calculate the step maximum with the current scaling */
+	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the step maximum with the current scaling */
 											/* Convert from IQ24 and de-normalise */
 	*stpDest = (_IQ24toF(channel[chnl].slewRate)) * max;
 	return 0;

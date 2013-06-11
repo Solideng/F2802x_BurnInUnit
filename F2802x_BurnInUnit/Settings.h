@@ -26,23 +26,17 @@
 
 #define DEBUG			/**< Includes and makes functions and variables public that are used only for debugging purposes. */
 
-#define TEST_SETGET		/**< REMOVE FOR RELEASE */
-
-#define USE_PID			/**< Uses PID gain arrays to set IIR filter control law coefficients instead of the coefficient arrays/
-						 * If un-defined 3P3Z's will need to be used in asm files, where relevant/
-						 */
-
-#define TEST_TZ			/**< Enables trip zone testing code. */
-
 //#define LOG_SIN		/**< Logs the sine wave VOut and SignOut data into data-log buffers for debug graphing. */
 
-//#define DUAL_CNTL_AC	/**< Uses the dual CNTL AC control instead of single VCtrl. Cannot be used if PID is still in use. */
+//#define VTIMERS		/**< Enables virtul timer code for use */
+
+#define DUAL_CNTL_AC	/**< Uses the dual CNTL AC control instead of single VCtrl. Cannot be used if PID is still in use. */
 
 /*==============================================================
  * System Settings
  *============================================================*/
 
-#define VSSA 0l		/**< System VLOWREF (millivolts). */
+#define VSSA 		0l		/**< System VLOWREF (millivolts). */
 
 #define VMID_R1		540.0	/**< Scaling voltage divider R1 resistor value for VMID ADC. */
 #define VMID_R2		4.3		/**< Scaling voltage divider R2 resistor value for VMID ADC. */

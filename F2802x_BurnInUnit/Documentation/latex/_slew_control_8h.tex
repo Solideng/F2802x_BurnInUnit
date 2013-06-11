@@ -6,7 +6,8 @@
 Slew control functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -28,7 +29,7 @@ Uint16 \hyperlink{_slew_control_8h_a1e7d07e1a6d9b1e40b1b39d97df638b9}{sc\-Set\-T
 \item 
 Uint16 \hyperlink{_slew_control_8h_a2dbe145695a65570ebc1ff5588e08a18}{sc\-Set\-Step\-All} (float32 stp)
 \item 
-void \hyperlink{_slew_control_8h_ae909cc7b84746fc5d77dc59d0f7d4610}{sc\-Set\-State\-All} (Uint16 stt)
+Uint16 \hyperlink{_slew_control_8h_af4b016a1a10639dfeca7af4f750d8c75}{sc\-Set\-State\-All} (Uint16 stt)
 \item 
 Uint16 \hyperlink{_slew_control_8h_ab83b8f320a4bf9e8ea1a251fec458032}{sc\-Get\-Target} (Uint16 chnl, float32 $\ast$trgt\-Dest)
 \item 
@@ -114,18 +115,21 @@ Sets the reference net enable state for the specified channel.
 \begin{DoxyReturn}{Returns}
 Error Status. 
 \end{DoxyReturn}
-\hypertarget{_slew_control_8h_ae909cc7b84746fc5d77dc59d0f7d4610}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-State\-All@{sc\-Set\-State\-All}}
+\hypertarget{_slew_control_8h_af4b016a1a10639dfeca7af4f750d8c75}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-State\-All@{sc\-Set\-State\-All}}
 \index{sc\-Set\-State\-All@{sc\-Set\-State\-All}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Set\-State\-All}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-Set\-State\-All (
+\subsubsection[{sc\-Set\-State\-All}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-State\-All (
 \begin{DoxyParamCaption}
 \item[{Uint16}]{stt}
 \end{DoxyParamCaption}
-)}}\label{_slew_control_8h_ae909cc7b84746fc5d77dc59d0f7d4610}
+)}}\label{_slew_control_8h_af4b016a1a10639dfeca7af4f750d8c75}
 Sets all channels' reference net enable state. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em stt} & Specifies the refernce net state to be applied (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
 \hypertarget{_slew_control_8h_a91e197a77f8f6c05dc478431164114a4}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Step@{sc\-Set\-Step}}
 \index{sc\-Set\-Step@{sc\-Set\-Step}!SlewControl.h@{Slew\-Control.\-h}}
 \subsubsection[{sc\-Set\-Step}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-Step (

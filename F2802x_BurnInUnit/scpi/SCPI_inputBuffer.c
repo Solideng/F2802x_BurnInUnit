@@ -3,7 +3,6 @@
 static char inputBuffer[INBUFF_LENGTH] = {0}; /* Input buffer string */
 static int pushPos = 0;	/* Current push position on buffer */
 static int popPos = 0;	/* Current pop position on buffer */
-static char newMFlg = true;
 
 void resetIBuff (void) {
 	popPos = 0;
@@ -28,6 +27,8 @@ Uint16 pushIBuff (char * src) {
 	 * queue is full
 	 */
 	Uint16 programStart = pushPos;
+	static char nwMsgFlg = true;
+
 	msgs.bav = true;
 			/* 6.1.4.1.2 When bav is TRUE and ib-full is FALSE, the I/O control shall set bav FALSE and then
 			 * place the associated DAB and any accompanying END message into the the input buffer.
@@ -38,18 +39,18 @@ Uint16 pushIBuff (char * src) {
 								 */
 		while ((pushPos < INBUFF_LENGTH) && (*src != 0)) {
 			if ((*src != NL_MSG_TERM) && (*src != END_MSG_TERM)) {
-				newMFlg = true;
+				nwMsgFlg = true;
 				inputBuffer[pushPos++] = *src++;	/* While there is unread data at src and space in the buffer,
 													 * push data onto queue
 													 */
-			} else if (newMFlg && ((*src == NL_MSG_TERM) || (*src == END_MSG_TERM))) {
+			} else if (nwMsgFlg && ((*src == NL_MSG_TERM) || (*src == END_MSG_TERM))) {
 													/* If a 'LF' or 'EOT' is recognised, make sure it is placed
 													 *  as 'LF'
 													 */
 				inputBuffer[pushPos++] = NL_MSG_TERM;
 				src++;
 				msgs.ibEom = true;
-				newMFlg = false;
+				nwMsgFlg = false;
 			} else {
 				src++;				// I/O probably pushed more <PROGRAM MESSAGE TERMINATOR> characters after the ibEom was already set
 				return 0;

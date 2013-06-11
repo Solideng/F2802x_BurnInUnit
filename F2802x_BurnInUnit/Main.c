@@ -25,11 +25,6 @@
 #include "Common.h"
 #include "DPlibEx.h"
 
-float32 f32Tst;
-Uint16 u16Tst, errTst;
-Uint32 u32Tst;
-cfType enTst;
-
 /* FUNCTION PROTOTYPES */
 void DeviceInit(void);
 void MemCopy();
@@ -39,14 +34,12 @@ void InitCommros();
 #endif
 
 /* VARIABLE DECLARATIONS */
-extern struct Commros commros;	/* Commros */
 extern Uint16 *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart; /* Used for running BackGround in flash, and ISR in RAM */
 /*============================ MAIN CODE - starts here ===========================*/
 void main(void)
 {
 	/* INITIALISATION - General */
 	DeviceInit();			/* Device Life support & GPIO */
-	//InitCommros();			/* Init Commros lib */
 
 	#ifdef FLASH
 		MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
@@ -82,105 +75,6 @@ void main(void)
 	bcInit();				/* Initialise the external boost converter enable control */
 
 	//scSetStepAll(0.01);		/* Setup initial values */
-	#ifdef TEST_SETGET
-		// ------------ TEST ITEMS ------------
-		// --- ADC Test Section ---
-		f32Tst = 0.125;
-		errTst = adcSetIScale(LOAD_0, f32Tst);
-		f32Tst = 0;
-		errTst = adcGetIScale(LOAD_0, &f32Tst);
-		f32Tst = 1.0;
-		errTst = adcSetVScale(LOAD_0, f32Tst);
-		f32Tst = 0;
-		errTst = adcGetVScale(LOAD_0, &f32Tst);
-		f32Tst = 2.0;
-		errTst = adcSetOcp(LOAD_0, f32Tst);
-		f32Tst = 0;
-		errTst = adcGetOcp(LOAD_0, &f32Tst);
-		f32Tst = 2.0;
-		errTst = adcSetOvp(LOAD_0, f32Tst);
-		f32Tst = 0;
-		errTst = adcGetOcp(LOAD_0, &f32Tst);
-		f32Tst = 2.5;
-		errTst = adcSetDac(DC_STAGE, f32Tst);
-		f32Tst = 0;
-		errTst = adcGetDac(DC_STAGE, &f32Tst);
-
-		// --- CNTL TEST SECTION ---
-		for (enTst = firstCoef; enTst < numCoefs; enTst++) {
-			f32Tst = 1.0;
-			errTst = cntlSetCoef(LOAD_0, enTst, f32Tst);
-			f32Tst = 0;
-			errTst = cntlGetCoef(LOAD_0, enTst, &f32Tst);
-		}
-
-		// --- PWM TEST SECTION ---
-		u32Tst = 120000;
-		errTst = pwmSetFreq(u32Tst);
-		u32Tst = 0;
-		errTst = pwmGetFreq(&u32Tst);
-		u32Tst = u32Tst;
-
-		// --- SIG GEN TEST SECTION ---
-		errTst = sgSetState(TRUE);
-		u16Tst = 0;
-		errTst = sgGetState(&u16Tst);
-		errTst = sgSetState(FALSE);
-		u16Tst = 0;
-		errTst = sgGetState(&u16Tst);
-		errTst = sgSetRectify(TRUE);
-		errTst = sgGetRectify(&u16Tst);
-		f32Tst = 0.25;
-		errTst = sgSetOffset(f32Tst);
-		f32Tst = 0;
-		errTst = sgGetOffset(&f32Tst);
-		f32Tst = 180;
-		errTst = sgSetInitialPhase(f32Tst);
-		f32Tst = 0.5;
-		errTst = sgSetGainTarget(f32Tst);
-		f32Tst = 0;
-		errTst = sgGetGainTarget(&f32Tst);
-		u16Tst = 50;
-		errTst = sgSetFreq(u16Tst);
-		u16Tst = 0;
-		errTst = sgGetFreq(&u16Tst);
-		u16Tst = 1000;
-		errTst = sgSetFMax(u16Tst);
-		u16Tst = 0;
-		errTst = sgGetFMax(&u16Tst);
-		u16Tst = 3971;
-		errTst = sgSetStepMax(u16Tst);
-		u16Tst = 0;
-		errTst = sgGetStepMax(&u16Tst);
-		f32Tst = 0;
-		errTst = sgGetResolution(&f32Tst);
-
-		// --- SLEW CTRL TEST SECTION ---
-		f32Tst = 1.0;
-		errTst = scSetTarget(LOAD_0, f32Tst);
-		f32Tst = 0;
-		errTst = scGetTarget(LOAD_0, &f32Tst);
-		f32Tst = 0.1;
-		errTst = scSetStep(LOAD_0, f32Tst);
-		f32Tst = 0;
-		errTst = scGetStep(LOAD_0, &f32Tst);
-		errTst = scSetState(LOAD_0, TRUE);
-		u16Tst = 0;
-		errTst = scGetState(LOAD_0, &u16Tst);
-		errTst = scSetState(LOAD_0, FALSE);
-		errTst = scSetStateAll(TRUE);
-		errTst = scSetStateAll(FALSE);
-
-		// --- TMP TEST SECTION ---
-		f32Tst = 100;
-		errTst = tmpSetOtp(LOAD_0, f32Tst);
-		f32Tst = 0;
-		errTst = tmpGetOtp(LOAD_0, &f32Tst);
-
-		if (errTst)
-			while (1) {}
-		//----------- END TEST ITEMS ----------
-	#endif
 
 	for(;;)					/* BACKGROUND (BG) LOOP */
 	{

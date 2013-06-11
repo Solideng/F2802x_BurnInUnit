@@ -29,7 +29,6 @@ var searchData=
   ['i2cwrite',['i2cWrite',['../_i2c_8h.html#a3813bb8cae6159f7df2672a55be4014b',1,'I2c.c']]],
   ['ictrl',['iCtrl',['../_macro_nets_8h.html#a717a050513c9f1668fa40e08c4d5e78fad6554a2c0fc85e1b2dd381d6802c9052',1,'MacroNets.h']]],
   ['ifdbknet',['iFdbkNet',['../structchannel_parameters.html#ad4f53b220d97af172b01f1a6d57a9635',1,'channelParameters']]],
-  ['igain',['iGain',['../structchannel_parameters.html#aafa118e723af6d1ec3cb8dd28fd5e4ef',1,'channelParameters']]],
   ['imaxrms',['iMaxRms',['../structchannel_parameters.html#ab4b8dda9d3ab4395a3fde8bc0e403212',1,'channelParameters']]],
   ['iminrms',['iMinRms',['../structchannel_parameters.html#a12f6946f5b0ee1235d7edcb6a22a4518',1,'channelParameters']]],
   ['incr_5fbuild',['INCR_BUILD',['../_settings_8h.html#abf493281a7e64fe88660c38753e18d56',1,'Settings.h']]],
