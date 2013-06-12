@@ -10,6 +10,8 @@
 #ifndef COMMON_H_
 #define COMMON_H_
 
+
+
 /* Core device definitions and functions */
 #include "Settings.h"
 #include "PeripheralHeaderIncludes.h"
@@ -36,6 +38,9 @@
 #include "tmp.h"
 #include "FanEn.h"
 #include "BstEn.h"
+
+#include "../../SCPI_Build/SCPI_Build/scpi/scpi.h"
+#include "SCPI_specificCmds.h"
 
 #define	FALSE	0
 #define	TRUE	1

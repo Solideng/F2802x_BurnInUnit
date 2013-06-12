@@ -81,7 +81,7 @@ SECTIONS
 	/* Allocate program areas: */
 	.cinit 						: > FLASHA, 			PAGE = 0
 	.pinit 						: > FLASHA, 			PAGE = 0
-	.text 						: >> FLASHC | FLASHD, 	PAGE = 0
+	.text 						: >> FLASHC | FLASHD,	PAGE = 0
 
 	codestart 					: > BEGIN 				PAGE = 0
 	ramfuncs 					: LOAD = FLASHD,
@@ -96,14 +96,13 @@ SECTIONS
 
 	/* Allocate uninitalized data sections: */
 	.stack 						: > RAMM0, 				PAGE = 1
-	.ebss 						: > dataRAM, 			PAGE = 1
+	.ebss 						: >> dataRAM | RAMM1, 	PAGE = 1
 	.esysmem 					: > dataRAM, 			PAGE = 1
 
 	/* Initalized sections go in Flash */
 	/* For SDFlash to program these, they must be allocated to page 0 */
 	.econst 					: > FLASHA 				PAGE = 0
 	.switch 					: > FLASHA 				PAGE = 0
-
 	/* Allocate IQ math areas: */
 	IQmath 						: > FLASHA 				PAGE = 0					/* Math Code */
 	IQmathTables 				: > IQTABLES 			PAGE = 0, TYPE = NOLOAD		/* Math Tables In ROM */

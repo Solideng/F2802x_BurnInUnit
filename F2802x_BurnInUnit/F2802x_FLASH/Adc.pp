@@ -38,6 +38,27 @@ Adc.obj: ../PhaseCtrl.h
 Adc.obj: ../tmp.h
 Adc.obj: ../FanEn.h
 Adc.obj: ../BstEn.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
+Adc.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdlib.h
+Adc.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/linkage.h
+Adc.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdlibf.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_bool.h
+Adc.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_Device.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_regs.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_specificRegs.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_string.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_buildTree.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_commonCmds.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_requiredCmds.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_serialEmulation.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_inputBuffer.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_outputQueue.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_lexer.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_parser.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_execCtrl.h
+Adc.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_respFmtr.h
+Adc.obj: ../SCPI_specificCmds.h
 
 ../Adc.c: 
 ../Common.h: 
@@ -77,3 +98,24 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../tmp.h: 
 ../FanEn.h: 
 ../BstEn.h: 
+../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
+C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdlib.h: 
+C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/linkage.h: 
+C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdlibf.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_bool.h: 
+C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_Device.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_regs.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_specificRegs.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_string.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_buildTree.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_commonCmds.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_requiredCmds.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_serialEmulation.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_inputBuffer.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_outputQueue.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_lexer.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_parser.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_execCtrl.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_respFmtr.h: 
+../SCPI_specificCmds.h: 

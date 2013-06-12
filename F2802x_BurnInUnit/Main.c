@@ -28,10 +28,11 @@
 /* FUNCTION PROTOTYPES */
 void DeviceInit(void);
 void MemCopy();
-void InitCommros();
 #ifdef FLASH		
 	void InitFlash();
 #endif
+// TODO PWM Current isolation circuit may require a calibration functionality - dependent upon circuit design
+Uint16 dummy (char data) {return 0;}	// TODO need REAL SCI Tx & Rx functions
 
 /* VARIABLE DECLARATIONS */
 extern Uint16 *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart; /* Used for running BackGround in flash, and ISR in RAM */
@@ -40,7 +41,7 @@ void main(void)
 {
 	/* INITIALISATION - General */
 	DeviceInit();			/* Device Life support & GPIO */
-
+	scpiInit(&registerDeviceCommands, &dummy);		/* Initialise SCPI (with dummy Tx handler for now) */ //TODO  pass correct handler
 	#ifdef FLASH
 		MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 							/* Copy time critical code and Flash setup code to RAM */

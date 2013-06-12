@@ -31,6 +31,7 @@ C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/source/DSP2802x_G
 C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/C/PWM_2ch_UpCnt_Cnf.c \
 ../PhaseCtrl.c \
 ../Pwm.c \
+../SCPI_specificCmds.c \
 ../SineGen.c \
 ../SlewControl.c \
 ../StateMachine.c \
@@ -54,6 +55,7 @@ OBJS += \
 ./PWM_2ch_UpCnt_Cnf.obj \
 ./PhaseCtrl.obj \
 ./Pwm.obj \
+./SCPI_specificCmds.obj \
 ./SineGen.obj \
 ./SlewControl.obj \
 ./StateMachine.obj \
@@ -79,6 +81,7 @@ C_DEPS += \
 ./PWM_2ch_UpCnt_Cnf.pp \
 ./PhaseCtrl.pp \
 ./Pwm.pp \
+./SCPI_specificCmds.pp \
 ./SineGen.pp \
 ./SlewControl.pp \
 ./StateMachine.pp \
@@ -99,6 +102,7 @@ C_DEPS__QUOTED += \
 "PWM_2ch_UpCnt_Cnf.pp" \
 "PhaseCtrl.pp" \
 "Pwm.pp" \
+"SCPI_specificCmds.pp" \
 "SineGen.pp" \
 "SlewControl.pp" \
 "StateMachine.pp" \
@@ -122,6 +126,7 @@ OBJS__QUOTED += \
 "PWM_2ch_UpCnt_Cnf.obj" \
 "PhaseCtrl.obj" \
 "Pwm.obj" \
+"SCPI_specificCmds.obj" \
 "SineGen.obj" \
 "SlewControl.obj" \
 "StateMachine.obj" \
@@ -147,6 +152,7 @@ C_SRCS__QUOTED += \
 "C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/C/PWM_2ch_UpCnt_Cnf.c" \
 "../PhaseCtrl.c" \
 "../Pwm.c" \
+"../SCPI_specificCmds.c" \
 "../SineGen.c" \
 "../SlewControl.c" \
 "../StateMachine.c" \

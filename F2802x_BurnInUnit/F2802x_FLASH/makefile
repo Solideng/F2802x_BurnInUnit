@@ -10,7 +10,6 @@ ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
 "./scpi/SCPI_string.obj" \
 "./scpi/SCPI_specificRegs.obj" \
-"./scpi/SCPI_specificCmds.obj" \
 "./scpi/SCPI_serialEmulation.obj" \
 "./scpi/SCPI_respFmtr.obj" \
 "./scpi/SCPI_requiredCmds.obj" \
@@ -28,6 +27,7 @@ $(GEN_CMDS__FLAG) \
 "./StateMachine.obj" \
 "./SlewControl.obj" \
 "./SineGen.obj" \
+"./SCPI_specificCmds.obj" \
 "./Pwm.obj" \
 "./PhaseCtrl.obj" \
 "./PWM_2ch_UpCnt_Cnf.obj" \
@@ -155,15 +155,15 @@ all: F2802x_BurnInUnit.out
 F2802x_BurnInUnit.out: $(OBJS) $(CMD_SRCS) $(CMD_UPPER_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C2000 Linker'
-	"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/bin/cl2000" -v28 -ml -mt -O3 -g --define="_DEBUG" --define="LARGE_MODEL" --define="FLASH" --diag_warning=225 -z --stack_size=0x380 -m"F2802x_BurnInUnit.map" --warn_sections -i"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/lib" -i"{SGEN_LIB_VER_ROOT}/lib" -i"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include" -i"C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit" --reread_libs --rom_model -o "F2802x_BurnInUnit.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/bin/cl2000" -v28 -ml -mt -O3 -g --define="_DEBUG" --define="LARGE_MODEL" --define="FLASH" --diag_warning=225 -z --stack_size=0x380 -m"F2802x_BurnInUnit.map" --warn_sections -i"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/lib" -i"{SGEN_LIB_VER_ROOT}/lib" -i"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include" -i"C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit" --reread_libs --xml_link_info="F2802x_BurnInUnit_linkInfo.xml" --rom_model -o "F2802x_BurnInUnit.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
 	-$(RM) $(C2000_EXECUTABLE_OUTPUTS__QUOTED) "F2802x_BurnInUnit.out"
-	-$(RM) "ADC_SOC_Cnf.pp" "Adc.pp" "BstEn.pp" "Cntl.pp" "DSP2802x_GlobalVariableDefs.pp" "DevInit_F2802x.pp" "FanEn.pp" "I2c.pp" "MacroNets.pp" "Main.pp" "PWM_2ch_UpCnt_Cnf.pp" "PhaseCtrl.pp" "Pwm.pp" "SineGen.pp" "SlewControl.pp" "StateMachine.pp" "Timers.pp" "Tmp.pp" "scpi\SCPI_buildTree.pp" "scpi\SCPI_commonCmds.pp" "scpi\SCPI_execCtrl.pp" "scpi\SCPI_inputBuffer.pp" "scpi\SCPI_lexer.pp" "scpi\SCPI_msgEPCtrl.pp" "scpi\SCPI_outputQueue.pp" "scpi\SCPI_parser.pp" "scpi\SCPI_regs.pp" "scpi\SCPI_requiredCmds.pp" "scpi\SCPI_respFmtr.pp" "scpi\SCPI_serialEmulation.pp" "scpi\SCPI_specificCmds.pp" "scpi\SCPI_specificRegs.pp" "scpi\SCPI_string.pp" 
-	-$(RM) "ADC_SOC_Cnf.obj" "Adc.obj" "BstEn.obj" "BurnInUnit_ISR.obj" "Cntl.obj" "DSP2802x_CodeStartBranch.obj" "DSP2802x_GlobalVariableDefs.obj" "DSP2802x_usDelay.obj" "DevInit_F2802x.obj" "FanEn.obj" "I2c.obj" "MacroNets.obj" "Main.obj" "PWM_2ch_UpCnt_Cnf.obj" "PhaseCtrl.obj" "Pwm.obj" "SineGen.obj" "SlewControl.obj" "StateMachine.obj" "Timers.obj" "Tmp.obj" "scpi\SCPI_buildTree.obj" "scpi\SCPI_commonCmds.obj" "scpi\SCPI_execCtrl.obj" "scpi\SCPI_inputBuffer.obj" "scpi\SCPI_lexer.obj" "scpi\SCPI_msgEPCtrl.obj" "scpi\SCPI_outputQueue.obj" "scpi\SCPI_parser.obj" "scpi\SCPI_regs.obj" "scpi\SCPI_requiredCmds.obj" "scpi\SCPI_respFmtr.obj" "scpi\SCPI_serialEmulation.obj" "scpi\SCPI_specificCmds.obj" "scpi\SCPI_specificRegs.obj" "scpi\SCPI_string.obj" 
+	-$(RM) "ADC_SOC_Cnf.pp" "Adc.pp" "BstEn.pp" "Cntl.pp" "DSP2802x_GlobalVariableDefs.pp" "DevInit_F2802x.pp" "FanEn.pp" "I2c.pp" "MacroNets.pp" "Main.pp" "PWM_2ch_UpCnt_Cnf.pp" "PhaseCtrl.pp" "Pwm.pp" "SCPI_specificCmds.pp" "SineGen.pp" "SlewControl.pp" "StateMachine.pp" "Timers.pp" "Tmp.pp" "scpi\SCPI_buildTree.pp" "scpi\SCPI_commonCmds.pp" "scpi\SCPI_execCtrl.pp" "scpi\SCPI_inputBuffer.pp" "scpi\SCPI_lexer.pp" "scpi\SCPI_msgEPCtrl.pp" "scpi\SCPI_outputQueue.pp" "scpi\SCPI_parser.pp" "scpi\SCPI_regs.pp" "scpi\SCPI_requiredCmds.pp" "scpi\SCPI_respFmtr.pp" "scpi\SCPI_serialEmulation.pp" "scpi\SCPI_specificRegs.pp" "scpi\SCPI_string.pp" 
+	-$(RM) "ADC_SOC_Cnf.obj" "Adc.obj" "BstEn.obj" "BurnInUnit_ISR.obj" "Cntl.obj" "DSP2802x_CodeStartBranch.obj" "DSP2802x_GlobalVariableDefs.obj" "DSP2802x_usDelay.obj" "DevInit_F2802x.obj" "FanEn.obj" "I2c.obj" "MacroNets.obj" "Main.obj" "PWM_2ch_UpCnt_Cnf.obj" "PhaseCtrl.obj" "Pwm.obj" "SCPI_specificCmds.obj" "SineGen.obj" "SlewControl.obj" "StateMachine.obj" "Timers.obj" "Tmp.obj" "scpi\SCPI_buildTree.obj" "scpi\SCPI_commonCmds.obj" "scpi\SCPI_execCtrl.obj" "scpi\SCPI_inputBuffer.obj" "scpi\SCPI_lexer.obj" "scpi\SCPI_msgEPCtrl.obj" "scpi\SCPI_outputQueue.obj" "scpi\SCPI_parser.obj" "scpi\SCPI_regs.obj" "scpi\SCPI_requiredCmds.obj" "scpi\SCPI_respFmtr.obj" "scpi\SCPI_serialEmulation.obj" "scpi\SCPI_specificRegs.obj" "scpi\SCPI_string.obj" 
 	-$(RM) "BurnInUnit_ISR.pp" "DSP2802x_CodeStartBranch.pp" "DSP2802x_usDelay.pp" 
 	-@echo 'Finished clean'
 	-@echo ' '

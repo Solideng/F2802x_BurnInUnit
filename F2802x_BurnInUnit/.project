@@ -60,6 +60,11 @@
 			<type>1</type>
 			<locationURI>CONTROLSUITE_APPLIBS_ROOT/digital_power/f2802x_v3.1/C/PWM_2ch_UpCnt_Cnf.c</locationURI>
 		</link>
+		<link>
+			<name>scpi</name>
+			<type>2</type>
+			<locationURI>GIT_ROOT/SCPI_Build/SCPI_Build/scpi</locationURI>
+		</link>
 	</linkedResources>
 	<variableList>
 		<variable>
@@ -81,6 +86,10 @@
 		<variable>
 			<name>CONTROLSUITE_ROOT</name>
 			<value>file:/c:/TI/controlSUITE</value>
+		</variable>
+		<variable>
+			<name>GIT_ROOT</name>
+			<value>file:/C:/Users/Toby/git</value>
 		</variable>
 		<variable>
 			<name>SGEN_LIB_VER_ROOT</name>

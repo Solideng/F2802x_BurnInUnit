@@ -4,21 +4,20 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../scpi/SCPI_buildTree.c \
-../scpi/SCPI_commonCmds.c \
-../scpi/SCPI_execCtrl.c \
-../scpi/SCPI_inputBuffer.c \
-../scpi/SCPI_lexer.c \
-../scpi/SCPI_msgEPCtrl.c \
-../scpi/SCPI_outputQueue.c \
-../scpi/SCPI_parser.c \
-../scpi/SCPI_regs.c \
-../scpi/SCPI_requiredCmds.c \
-../scpi/SCPI_respFmtr.c \
-../scpi/SCPI_serialEmulation.c \
-../scpi/SCPI_specificCmds.c \
-../scpi/SCPI_specificRegs.c \
-../scpi/SCPI_string.c 
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_buildTree.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_commonCmds.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_execCtrl.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_inputBuffer.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_lexer.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_outputQueue.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_parser.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_regs.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_requiredCmds.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_respFmtr.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_serialEmulation.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_specificRegs.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_string.c 
 
 OBJS += \
 ./scpi/SCPI_buildTree.obj \
@@ -33,7 +32,6 @@ OBJS += \
 ./scpi/SCPI_requiredCmds.obj \
 ./scpi/SCPI_respFmtr.obj \
 ./scpi/SCPI_serialEmulation.obj \
-./scpi/SCPI_specificCmds.obj \
 ./scpi/SCPI_specificRegs.obj \
 ./scpi/SCPI_string.obj 
 
@@ -50,7 +48,6 @@ C_DEPS += \
 ./scpi/SCPI_requiredCmds.pp \
 ./scpi/SCPI_respFmtr.pp \
 ./scpi/SCPI_serialEmulation.pp \
-./scpi/SCPI_specificCmds.pp \
 ./scpi/SCPI_specificRegs.pp \
 ./scpi/SCPI_string.pp 
 
@@ -67,7 +64,6 @@ C_DEPS__QUOTED += \
 "scpi\SCPI_requiredCmds.pp" \
 "scpi\SCPI_respFmtr.pp" \
 "scpi\SCPI_serialEmulation.pp" \
-"scpi\SCPI_specificCmds.pp" \
 "scpi\SCPI_specificRegs.pp" \
 "scpi\SCPI_string.pp" 
 
@@ -84,25 +80,23 @@ OBJS__QUOTED += \
 "scpi\SCPI_requiredCmds.obj" \
 "scpi\SCPI_respFmtr.obj" \
 "scpi\SCPI_serialEmulation.obj" \
-"scpi\SCPI_specificCmds.obj" \
 "scpi\SCPI_specificRegs.obj" \
 "scpi\SCPI_string.obj" 
 
 C_SRCS__QUOTED += \
-"../scpi/SCPI_buildTree.c" \
-"../scpi/SCPI_commonCmds.c" \
-"../scpi/SCPI_execCtrl.c" \
-"../scpi/SCPI_inputBuffer.c" \
-"../scpi/SCPI_lexer.c" \
-"../scpi/SCPI_msgEPCtrl.c" \
-"../scpi/SCPI_outputQueue.c" \
-"../scpi/SCPI_parser.c" \
-"../scpi/SCPI_regs.c" \
-"../scpi/SCPI_requiredCmds.c" \
-"../scpi/SCPI_respFmtr.c" \
-"../scpi/SCPI_serialEmulation.c" \
-"../scpi/SCPI_specificCmds.c" \
-"../scpi/SCPI_specificRegs.c" \
-"../scpi/SCPI_string.c" 
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_buildTree.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_commonCmds.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_execCtrl.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_inputBuffer.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_lexer.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_outputQueue.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_parser.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_regs.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_requiredCmds.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_respFmtr.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_serialEmulation.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_specificRegs.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_string.c" 
 
 

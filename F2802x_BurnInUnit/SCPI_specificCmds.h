@@ -63,7 +63,7 @@
 	extern "C" {
 #endif
 
-extern Uint16 registerSpecificCommands (void);
+extern Uint16 registerDeviceCommands (void);
 extern Uint16 calAll (double * parameters, bool isQuery);
 
 extern Uint16 contIdleInit (double * parameters, bool isQuery);
