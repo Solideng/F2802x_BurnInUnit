@@ -8,8 +8,8 @@
 				<macros>
 					<stringMacro name="CONTROLSUITE_DEVICE_SUPPORT_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE/device_support"/>
 					<stringMacro name="SGEN_LIB_VER_ROOT" type="VALUE_PATH_DIR" value="c:/ti/controlSUITE/libs/dsp/SGEN/v101"/>
-					<stringMacro name="CONTROLSUITE_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE"/>
 					<stringMacro name="CONTROLSUITE_APPLIBS_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE/libs/app_libs"/>
+					<stringMacro name="CONTROLSUITE_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE"/>
 					<stringMacro name="CONTROLSUITE_DEVKITS_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE/development_kits"/>
 					<stringMacro name="GIT_ROOT" type="VALUE_PATH_DIR" value="c:/Users/Toby/git"/>
 					<stringMacro name="CONTROLSUITE_IQMATH_ROOT" type="VALUE_PATH_DIR" value="c:/TI/controlSUITE/libs/math/IQmath/v15c"/>
@@ -87,6 +87,9 @@
 									<listOptionValue builtIn="false" value="&quot;libc.a&quot;"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_6.1.linkerID.XML_LINK_INFO.2120794322" name="Detailed link information data-base into &lt;file&gt; (--xml_link_info, -xml_link_info)" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.1.linkerID.XML_LINK_INFO" value="&quot;F2802x_BurnInUnit_linkInfo.xml&quot;" valueType="string"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C2000_6.1.linkerID.DIAG_SUPPRESS.1432356676" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.1.linkerID.DIAG_SUPPRESS" valueType="stringList">
+									<listOptionValue builtIn="false" value="--diag_suppress=16002"/>
+								</option>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_6.1.exeLinker.inputType__CMD_SRCS.2038664038" name="Linker Command Files" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.1.exeLinker.inputType__CMD_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_6.1.exeLinker.inputType__CMD2_SRCS.138134544" name="Linker Command Files" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.1.exeLinker.inputType__CMD2_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_6.1.exeLinker.inputType__GEN_CMDS.1155987515" name="Generated Linker Command Files" superClass="com.ti.ccstudio.buildDefinitions.C2000_6.1.exeLinker.inputType__GEN_CMDS"/>

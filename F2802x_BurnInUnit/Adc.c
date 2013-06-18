@@ -141,7 +141,7 @@ Uint16 adcSetIScale (Uint16 chnl, float32 scaleSetting) {
 	/* Sets iScale value for the specified channel
 	 *  scaleSetting is expected in amps-per-volt
 	 */
-	volatile float32 iMaxRms  = 0;		// TODO check is volatile needed here?
+	float32 iMaxRms  = 0;
 	if (chnl > NUM_CHNLS)							/* Check channel is valid */
 		return CHANNEL_OOB;
 	if ((scaleSetting <= 0) || (scaleSetting > 1))  /* Check scale is within normal limits */
@@ -237,6 +237,26 @@ Uint16 adcGetVScale (Uint16 chnl, float32 * sclDest) {
 	if (chnl > (NUM_CHNLS + 1))
 		return CHANNEL_OOB;
 	*sclDest = _IQ14toF((int32)channel[chnl].vScale);
+	return 0;
+}
+
+Uint16 adcGetVoltage (Uint16 chnl, float32 * vDest) {
+	/* Reads the Voltage ADC reading. */
+	float32 vltg = 0;
+	if (chnl > NUM_CHNLS)
+		return CHANNEL_OOB;
+	vltg = _IQ24toF(channel[chnl].vFdbkNet);				/* Get the most recent reading. */
+	*vDest = vltg * _IQ14toF((int32)channel[chnl].vScale);	/* Multiply reading by scaling factor */
+	return 0;
+}
+
+Uint16 adcGetCurrent (Uint16 chnl, float32 * iDest) {
+	/* Reads the Current ADC reading. */
+	float32 curr = 0;
+	if (chnl > NUM_CHNLS)
+		return CHANNEL_OOB;
+	curr = _IQ24toF(channel[chnl].iFdbkNet);				/* Get the most recent reading. */
+	*iDest = curr * _IQ14toF((int32)channel[chnl].iScale);	/* Multiply reading by scaling factor */
 	return 0;
 }
 

@@ -94,6 +94,20 @@ extern Uint16 adcGetIScale (Uint16 chnl, float32 * sclDest);
  */
 extern Uint16 adcGetVScale (Uint16 chnl, float32 * sclDest);
 
+/** Queries the most recent voltage reading from the specified channel's associated ADC.
+ * @param[in]	chnl	Specifies the channel number on which the reading is to be queried.
+ * @param[out]	vDest	Address of the memory location at which to place the query result (volts).
+ * @return				Error status.
+ */
+extern Uint16 adcGetVoltage (Uint16 chnl, float32 * vDest);
+
+/** Queries the most recent current reading from the specified channel's associated ADC.
+ * @param[in]	chnl	Specifies the channel number on which the reading is to be queried.
+ * @param[out]	iDest	Address of the memory location at which to place the query result (amps).
+ * @return				Error status.
+ */
+extern Uint16 adcGetCurrent (Uint16 chnl, float32 * iDest);
+
 /** Queries the over current protection setting for the specified channel.
  * @param[in]	chnl	Specifies the channel number on which the setting is to be queried.
  * @param[out]	ocpDest	Address of the memory location at which to place the query result (amps).

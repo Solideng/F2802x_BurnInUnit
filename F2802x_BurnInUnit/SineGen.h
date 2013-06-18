@@ -74,19 +74,19 @@ extern void sgUpdate (void);
 extern void sgGainUpdate (void);
 
 /** Enables or disables the output of the generator onto the connected net
- * @param[in]	stt	Output enable state (1:ON | 0:OFF).
+ * @param[in]	stt	Output enable state {1:ON | 0:OFF}.
  * @return			Error status.
  */
 extern Uint16 sgSetState (Uint16 stt);
 
 /** Enables or disables the rectification of the generator output
- * @param[in]	rfy	Rectification enable state (1:ON | 0:OFF).
+ * @param[in]	rfy	Rectification enable state {1:ON | 0:OFF}.
  * @return			Error status.
  */
 extern Uint16 sgSetRectify (Uint16 rfy);
 
 /** Sets the signal DC offset
- * @param[in]	ofst	DC offset value [-0.5, +0.5).
+ * @param[in]	ofst	DC offset value [-0.5, +0.5].
  * @return				Error status.
  */
 extern Uint16 sgSetOffset (float32 ofst);
@@ -104,13 +104,13 @@ extern Uint16 sgSetInitialPhase (float32 phs);
 extern Uint16 sgSetGainTarget (float32 gnt);
 
 /** Sets the signal frequency.
- * @param[in]	frq	Frequency value [0, @f$ f_{max}@f$) (hertz).
+ * @param[in]	frq	Frequency value [0, @f$ f_{max}@f$] (hertz).
  * @return			Error status.
  */
 extern Uint16 sgSetFreq (Uint16 frq);
 
 /** Sets the signal generator maximum frequency setting value, @f$ f_{max}@f$ .
- * @param[in]	frq	Frequency value [0, @f$ f_{sample}@f$) (hertz).
+ * @param[in]	frq	Frequency value [0, @f$ f_{sample}@f$] (hertz).
  * @return			Error status.
  */
 extern Uint16 sgSetFMax (Uint16 frq);
@@ -122,13 +122,13 @@ extern Uint16 sgSetFMax (Uint16 frq);
 extern Uint16 sgSetStepMax (Uint16 sMx);
 
 /** Queries the current state of the generator output.
- * @param[out]	sttDest	Address of the memory location at which to place the query result  (1:ON | 0:OFF).
+ * @param[out]	sttDest	Address of the memory location at which to place the query result  {1:ON | 0:OFF}.
  * @return				Error status.
  */
 extern Uint16 sgGetState (Uint16 *sttDest);
 
 /** Queries the current state of the signal generator rectification enable.
- * @param[out]	rfyDest	Address of the memory location at which to place the query result  (1:ON | 0:OFF).
+ * @param[out]	rfyDest	Address of the memory location at which to place the query result  {1:ON | 0:OF}.
  * @return				Error status.
  */
 extern Uint16 sgGetRectify (Uint16 *rfyDest);

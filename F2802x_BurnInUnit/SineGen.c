@@ -45,7 +45,7 @@ void sgInit (void) {
 	sigGen.step_max = (Uint16)(((fMax * 65536.0) / SIN_F_SPL) + 0.5);
 										/* Step_max = (f_max x 2^16) / f_sampling
 										 *  		= (1kHz x 65,536) / 16.5kHz = 3971.9
-										 * Frequency resolution = f_max/step_max,m
+										 * Frequency resolution = f_max/step_max,
 										 * hence step_max should be above 100 for good resolution
 										 * Uint16 Q0
 										 */
@@ -181,23 +181,42 @@ Uint16 sgSetFreq (Uint16 frq) {
 	return 0;
 }
 
+Uint16 sgSetResolution (float32 rsl) {
+//	Uint16 currentFreq;
+//	float32 newFMax;
+
+//	if (rsl <= 0)
+//		return VALUE_OOB;
+//
+//	newFMax = rsl * sigGen.step_max;
+//	sgGetFreq(&currentFreq);
+//
+//	if ((newFMax > SIN_F_SPL) || (currentFreq < newFMax))
+//		return VALUE_OOB;
+//
+//	fMax = newFMax;
+//	sgSetFreq(currentFreq);
+//
+	return 0;
+}
+
 Uint16 sgSetFMax (Uint16 frq) {
 	/* Sets fMax (instead of using sgSetStepMax())
 	 * also affects f, step max and resolution
 	 * 0 - Sampling frequency (SIN_F_SPL)
 	 */
-	Uint16 fOld = 0, err = 0;
-	(sgGetFreq(&fOld));		/* Calculate the current frequency value using the current fMax */
-
-	if ((frq <= 0) || (frq > SIN_F_SPL) || (frq < fOld))
-		return VALUE_OOB;	/* Check the new fMax value is within allowable ranges */
-
-	fMax = frq;				/* Update fMax with new value */
-	err = sgSetFreq(fOld);	/* Update freq with new fMax */
-	if (err != 0)
-		return VALUE_OOB;
-							/* Update step_max with new fMax */
-	sigGen.step_max = (Uint16)(((fMax * 65536.0) / SIN_F_SPL) + 0.5);
+//	Uint16 fOld = 0, err = 0;
+//	(sgGetFreq(&fOld));		/* Calculate the current frequency value using the current fMax */
+//
+//	if ((frq <= 0) || (frq > SIN_F_SPL) || (frq < fOld))
+//		return VALUE_OOB;	/* Check the new fMax value is within allowable ranges */
+//
+//	fMax = frq;				/* Update fMax with new value */
+//	err = sgSetFreq(fOld);	/* Update freq with new fMax */
+//	if (err != 0)
+//		return VALUE_OOB;
+//							/* Update step_max with new fMax */
+//	sigGen.step_max = (Uint16)(((fMax * 65536.0) / SIN_F_SPL) + 0.5);
 	return 0;
 }
 
@@ -206,20 +225,20 @@ Uint16 sgSetStepMax (Uint16 sMx) {
 	 * also affects fMax and resolution
 	 * 0 - 7FFF
 	 */
-	float32 fmNew = 0, freqInHz = 0;
-	Uint16 err = 0;
-	fmNew = sMx * (SIN_F_SPL / 65536.0);	/* Calculate the new f_max with the new step_max*/
-	freqInHz = _IQ15toF((int32)sigGen.freq) * fMax;/* Calculate the current f_req setting */
-
-	if (freqInHz > fmNew)					/* f_req should be less than the new f_max */
-		return VALUE_OOB;
-
-	fMax = (Uint16) (fmNew + 0.5);			/* Update fMax */
-	err = sgSetFreq (freqInHz);				/* Update freq with the new fMax */
-	if (err != 0)
-		return VALUE_OOB;
-											/* Update step_max */
-	sigGen.step_max = sMx;
+//	float32 fmNew = 0, freqInHz = 0;
+//	Uint16 err = 0;
+//	fmNew = sMx * (SIN_F_SPL / 65536.0);	/* Calculate the new f_max with the new step_max*/
+//	freqInHz = _IQ15toF((int32)sigGen.freq) * fMax;/* Calculate the current f_req setting */
+//
+//	if (freqInHz > fmNew)					/* f_req should be less than the new f_max */
+//		return VALUE_OOB;
+//
+//	fMax = (Uint16) (fmNew + 0.5);			/* Update fMax */
+//	err = sgSetFreq (freqInHz);				/* Update freq with the new fMax */
+//	if (err != 0)
+//		return VALUE_OOB;
+//											/* Update step_max */
+//	sigGen.step_max = sMx;
 	return 0;
 }
 
@@ -249,12 +268,12 @@ Uint16 sgGetFreq (Uint16 *frqDest) {
 }
 
 Uint16 sgGetFMax (Uint16 *frqDest) {
-	*frqDest = fMax;
+//	*frqDest = fMax;
 	return 0;
 }
 
 Uint16 sgGetStepMax (Uint16 *sMxDest) {
-	*sMxDest = sigGen.step_max;
+//	*sMxDest = sigGen.step_max;
 	return 0;
 }
 

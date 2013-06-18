@@ -32,7 +32,7 @@ void mnSetupChannels (void) {
 		channel[i].refNet = 0;		/* Q24 (IQ24: -128 - +128) */
 		channel[i].iFdbkNet = 0;	/* Q24 */
 		channel[i].vFdbkNet = 0;	/* Q24 */
-		channel[i].outNet = 0;		/* Q24 */ //<< IS IT BECAUSE OF THIS?? //TODO
+		channel[i].outNet = 0;		/* Q24 */ //<< TODO IS IT BECAUSE OF THIS??
 		channel[i].ocp = 16777216;	/* maximum Q24 */
 		channel[i].ovp = 16777216;	/* maximum Q24 */
 		channel[i].target = 0;		/* Q24 */
