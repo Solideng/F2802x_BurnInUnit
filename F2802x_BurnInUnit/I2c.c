@@ -16,7 +16,7 @@ static interrupt void i2c_isr(void);
 static i2cMsg *currentMsgPtr;               /* Used in interrupts */
 //Uint16 PassCount;
 //Uint16 FailCount;
-Uint16 i2cIsrErr = 0;						// TODO nothing is done with this, check PSU_Control implementation
+Uint16 i2cIsrErr = 0;						// TODO Make SCPI reg status bit - nothing else done with it
 
 /*=============== GLOBAL VARS =================*/
 i2cMsg i2cMsgBlank = {	I2C_MSGSTAT_INACTIVE, 	/* Message status */
@@ -166,7 +166,7 @@ static interrupt void i2c_isr (void) {
 																	/* If a write portion of a read has failed with a NACK,
 																	 *  the code below commands a STP so that the code here
 																	 *  can set the message to try again*/
-				i2cRead(currentMsgPtr);								//TODO May want to limit the number of retries???
+				i2cRead(currentMsgPtr);
 			} else if (currentMsgPtr->msgStatus == I2C_MSGSTAT_READ_BUSY) {	/* Read finished */
 				for (i = 0; i < currentMsgPtr->numOfBytes; i++) 	/* Copy data to message data buffer */
 					currentMsgPtr->msgBuffer[i] = I2caRegs.I2CDRR;
