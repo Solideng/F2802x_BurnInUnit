@@ -27,6 +27,7 @@ SlewControl.obj: C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/incl
 SlewControl.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 SlewControl.obj: ../StateMachine.h
 SlewControl.obj: ../I2c.h
+SlewControl.obj: ../Sci.h
 SlewControl.obj: ../MacroNets.h
 SlewControl.obj: ../Timers.h
 SlewControl.obj: ../Adc.h
@@ -87,6 +88,7 @@ C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include/DPlib.h:
 c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h: 
 ../StateMachine.h: 
 ../I2c.h: 
+../Sci.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

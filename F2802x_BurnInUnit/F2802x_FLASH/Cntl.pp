@@ -27,6 +27,7 @@ Cntl.obj: C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include/DPl
 Cntl.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 Cntl.obj: ../StateMachine.h
 Cntl.obj: ../I2c.h
+Cntl.obj: ../Sci.h
 Cntl.obj: ../MacroNets.h
 Cntl.obj: ../Timers.h
 Cntl.obj: ../Adc.h
@@ -87,6 +88,7 @@ C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include/DPlib.h:
 c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h: 
 ../StateMachine.h: 
 ../I2c.h: 
+../Sci.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

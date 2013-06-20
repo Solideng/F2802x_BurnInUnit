@@ -32,6 +32,7 @@ C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/C/PWM_2ch_UpCnt_Cnf.c
 ../PhaseCtrl.c \
 ../Pwm.c \
 ../SCPI_specificCmds.c \
+../Sci.c \
 ../SineGen.c \
 ../SlewControl.c \
 ../StateMachine.c \
@@ -56,6 +57,7 @@ OBJS += \
 ./PhaseCtrl.obj \
 ./Pwm.obj \
 ./SCPI_specificCmds.obj \
+./Sci.obj \
 ./SineGen.obj \
 ./SlewControl.obj \
 ./StateMachine.obj \
@@ -82,6 +84,7 @@ C_DEPS += \
 ./PhaseCtrl.pp \
 ./Pwm.pp \
 ./SCPI_specificCmds.pp \
+./Sci.pp \
 ./SineGen.pp \
 ./SlewControl.pp \
 ./StateMachine.pp \
@@ -103,6 +106,7 @@ C_DEPS__QUOTED += \
 "PhaseCtrl.pp" \
 "Pwm.pp" \
 "SCPI_specificCmds.pp" \
+"Sci.pp" \
 "SineGen.pp" \
 "SlewControl.pp" \
 "StateMachine.pp" \
@@ -127,6 +131,7 @@ OBJS__QUOTED += \
 "PhaseCtrl.obj" \
 "Pwm.obj" \
 "SCPI_specificCmds.obj" \
+"Sci.obj" \
 "SineGen.obj" \
 "SlewControl.obj" \
 "StateMachine.obj" \
@@ -153,6 +158,7 @@ C_SRCS__QUOTED += \
 "../PhaseCtrl.c" \
 "../Pwm.c" \
 "../SCPI_specificCmds.c" \
+"../Sci.c" \
 "../SineGen.c" \
 "../SlewControl.c" \
 "../StateMachine.c" \

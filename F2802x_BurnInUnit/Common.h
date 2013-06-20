@@ -24,7 +24,9 @@
 /* Application includes */
 /* State machine */
 #include "StateMachine.h"
+/* Communications */
 #include "I2c.h"
+#include "Sci.h"
 /* Macro connection */
 #include "MacroNets.h"
 /* Macro terminals & function control */

@@ -27,6 +27,7 @@ PhaseCtrl.obj: C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/includ
 PhaseCtrl.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 PhaseCtrl.obj: ../StateMachine.h
 PhaseCtrl.obj: ../I2c.h
+PhaseCtrl.obj: ../Sci.h
 PhaseCtrl.obj: ../MacroNets.h
 PhaseCtrl.obj: ../Timers.h
 PhaseCtrl.obj: ../Adc.h
@@ -87,6 +88,7 @@ C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include/DPlib.h:
 c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h: 
 ../StateMachine.h: 
 ../I2c.h: 
+../Sci.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

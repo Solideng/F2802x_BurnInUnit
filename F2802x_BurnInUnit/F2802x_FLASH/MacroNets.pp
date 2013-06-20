@@ -27,6 +27,7 @@ MacroNets.obj: C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/includ
 MacroNets.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 MacroNets.obj: ../StateMachine.h
 MacroNets.obj: ../I2c.h
+MacroNets.obj: ../Sci.h
 MacroNets.obj: ../MacroNets.h
 MacroNets.obj: ../Timers.h
 MacroNets.obj: ../Adc.h
@@ -87,6 +88,7 @@ C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include/DPlib.h:
 c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h: 
 ../StateMachine.h: 
 ../I2c.h: 
+../Sci.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

@@ -32,7 +32,6 @@ void MemCopy();
 	void InitFlash();
 #endif
 // TODO PWM Current isolation circuit may require a calibration functionality - dependent upon circuit design
-Uint16 dummy (char data) {return 0;} // TODO Replace with real SCI functions
 
 /* VARIABLE DECLARATIONS */
 extern Uint16 *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart; /* Used for running BackGround in flash, and ISR in RAM */
@@ -41,14 +40,16 @@ void main(void)
 {
 	/* INITIALISATION - General */
 	DeviceInit();			/* Device Life support & GPIO */
-	scpiInit(&registerDeviceCommands, &dummy);		/* Initialise SCPI (with dummy Tx handler for now) */
+	sciInit(9600);			/* Initialise SCI with 9600 Baud setting. */
+	scpiInit(&registerDeviceCommands, &sciTx);		/* Initialise SCPI. */
+
 	#ifdef FLASH
 		MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 							/* Copy time critical code and Flash setup code to RAM */
 		InitFlash();		/* Call the flash wrapper init function */
 	#endif
 
-	smInit();				/* Setup state machine */
+	smInit();				/* Setup device state machine */
 
 	adcSocCnf();			/* Configure Macro ADCs SOCs */
 	pwmMacroConfigure();	/* Configure Macro PWMs */
@@ -82,6 +83,6 @@ void main(void)
 		/*=========== State machine entry & exit point ============*/
 		(*Alpha_State_Ptr)();	/* jump to an Alpha state (A0,B0,...) */
 		/*=========================================================*/
-		//ServiceRoutine(&commros);	/* Service the Commros lib */
+		scpi();	/* Service the SCPI parser */
 	}
 }
