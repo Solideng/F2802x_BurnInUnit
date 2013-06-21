@@ -16,7 +16,6 @@ C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_regs.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_requiredCmds.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_respFmtr.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_serialEmulation.c \
-C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_specificRegs.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_string.c 
 
 OBJS += \
@@ -32,7 +31,6 @@ OBJS += \
 ./scpi/SCPI_requiredCmds.obj \
 ./scpi/SCPI_respFmtr.obj \
 ./scpi/SCPI_serialEmulation.obj \
-./scpi/SCPI_specificRegs.obj \
 ./scpi/SCPI_string.obj 
 
 C_DEPS += \
@@ -48,7 +46,6 @@ C_DEPS += \
 ./scpi/SCPI_requiredCmds.pp \
 ./scpi/SCPI_respFmtr.pp \
 ./scpi/SCPI_serialEmulation.pp \
-./scpi/SCPI_specificRegs.pp \
 ./scpi/SCPI_string.pp 
 
 C_DEPS__QUOTED += \
@@ -64,7 +61,6 @@ C_DEPS__QUOTED += \
 "scpi\SCPI_requiredCmds.pp" \
 "scpi\SCPI_respFmtr.pp" \
 "scpi\SCPI_serialEmulation.pp" \
-"scpi\SCPI_specificRegs.pp" \
 "scpi\SCPI_string.pp" 
 
 OBJS__QUOTED += \
@@ -80,7 +76,6 @@ OBJS__QUOTED += \
 "scpi\SCPI_requiredCmds.obj" \
 "scpi\SCPI_respFmtr.obj" \
 "scpi\SCPI_serialEmulation.obj" \
-"scpi\SCPI_specificRegs.obj" \
 "scpi\SCPI_string.obj" 
 
 C_SRCS__QUOTED += \
@@ -96,7 +91,6 @@ C_SRCS__QUOTED += \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_requiredCmds.c" \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_respFmtr.c" \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_serialEmulation.c" \
-"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_specificRegs.c" \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_string.c" 
 
 

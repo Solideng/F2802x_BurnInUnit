@@ -25,7 +25,6 @@ scpi/SCPI_respFmtr.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_h
 scpi/SCPI_respFmtr.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_XIntrupt.h
 scpi/SCPI_respFmtr.obj: C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.h
 scpi/SCPI_respFmtr.obj: C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_regs.h
-scpi/SCPI_respFmtr.obj: C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_specificRegs.h
 scpi/SCPI_respFmtr.obj: C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_string.h
 scpi/SCPI_respFmtr.obj: C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_buildTree.h
 scpi/SCPI_respFmtr.obj: C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_commonCmds.h
@@ -63,7 +62,6 @@ C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_
 C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_XIntrupt.h: 
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.h: 
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_regs.h: 
-C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_specificRegs.h: 
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_string.h: 
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_buildTree.h: 
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_commonCmds.h: 

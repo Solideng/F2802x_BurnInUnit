@@ -47,7 +47,6 @@ Main.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_bool.h
 Main.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_Device.h
 Main.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.h
 Main.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_regs.h
-Main.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_specificRegs.h
 Main.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_string.h
 Main.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_buildTree.h
 Main.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_commonCmds.h
@@ -109,7 +108,6 @@ C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdlibf.h:
 C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_Device.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_regs.h: 
-../../../SCPI_Build/SCPI_Build/scpi/SCPI_specificRegs.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_string.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_buildTree.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_commonCmds.h: 
