@@ -1,0 +1,122 @@
+\hypertarget{scpi_8h}{\section{scpi/scpi.h File Reference}
+\label{scpi_8h}\index{scpi/scpi.\-h@{scpi/scpi.\-h}}
+}
+{\ttfamily \#include \char`\"{}../\-Common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}stdlib.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\-S\-P2802x\-\_\-\-Device.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-msg\-E\-P\-Ctrl.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-regs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-specific\-Regs.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-string.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-build\-Tree.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-common\-Cmds.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-required\-Cmds.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-specific\-Cmds.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-serial\-Emulation.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-input\-Buffer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-output\-Queue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-lexer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-parser.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-exec\-Ctrl.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-resp\-Fmtr.\-h\char`\"{}}\\*
+Include dependency graph for scpi.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{scpi_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{scpi_8h_a6265d80022d2b4c110f10c6c6de8aa0e}{M\-A\-N\-U\-F}~\char`\"{}V\-O\-X\-P\-O\-W\char`\"{}
+\item 
+\#define \hyperlink{scpi_8h_a7c60e913478d07a44ac15c6fb2c5937f}{M\-O\-D\-E\-L}~\char`\"{}M003\char`\"{}
+\item 
+\#define \hyperlink{scpi_8h_aae3f0b4211ba45d265973d40ccbb5fd1}{S\-E\-R\-I\-A\-L}~\char`\"{}S001\char`\"{}
+\item 
+\#define \hyperlink{scpi_8h_a17eb16c34e28a72d4ed52caecbe3d16b}{F\-I\-R\-M\-W}~\char`\"{}F003\char`\"{}
+\item 
+\#define \hyperlink{scpi_8h_a0f1c2a9bed8655374cea33281baafd0e}{I\-N\-B\-U\-F\-F\-\_\-\-L\-E\-N\-G\-T\-H}~100
+\item 
+\#define \hyperlink{scpi_8h_affcba652760077c3a763202721f6201c}{O\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N\-G\-T\-H}~100
+\item 
+\#define \hyperlink{scpi_8h_abbe522a53a412561dcbf3cbf0c92b9a4}{T\-R\-E\-E\-\_\-\-C\-H\-I\-L\-D\-\_\-\-L\-I\-M\-I\-T}~102
+\item 
+\#define \hyperlink{scpi_8h_acf41b787f2d159d07fe8b0146c49ce6f}{G\-P\-I\-B\-\_\-\-E\-M\-U\-L\-A\-T\-I\-O\-N}~1
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{scpi_8h_af6a258d8f3ee5206d682d799316314b1}{bool} \hyperlink{scpi_8h_a29544bcea16f4ea891a9323c4dbdc2e2}{bool}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{scpi_8h_af6a258d8f3ee5206d682d799316314b1}{bool} \{ \hyperlink{scpi_8h_af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c}{false} = 0, 
+\hyperlink{scpi_8h_af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b}{true}
+ \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Include this header in your project to add the S\-C\-P\-I parser
+
+This file includes all other necessary files.
+
+In this file you should edit the lines marked as user editable before compilation 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{scpi_8h_a17eb16c34e28a72d4ed52caecbe3d16b}{\index{scpi.\-h@{scpi.\-h}!F\-I\-R\-M\-W@{F\-I\-R\-M\-W}}
+\index{F\-I\-R\-M\-W@{F\-I\-R\-M\-W}!scpi.h@{scpi.\-h}}
+\subsubsection[{F\-I\-R\-M\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-I\-R\-M\-W~\char`\"{}F003\char`\"{}}}\label{scpi_8h_a17eb16c34e28a72d4ed52caecbe3d16b}
+Firmware level or equivalent for $\ast$\-I\-D\-N command field 4, A\-S\-C\-I\-I character 0 if not available. Should contain information about all separately revisable subsystems. This information can be contained in single or multiple revision codes. User editable. Maximum length of 18 characters. \hypertarget{scpi_8h_acf41b787f2d159d07fe8b0146c49ce6f}{\index{scpi.\-h@{scpi.\-h}!G\-P\-I\-B\-\_\-\-E\-M\-U\-L\-A\-T\-I\-O\-N@{G\-P\-I\-B\-\_\-\-E\-M\-U\-L\-A\-T\-I\-O\-N}}
+\index{G\-P\-I\-B\-\_\-\-E\-M\-U\-L\-A\-T\-I\-O\-N@{G\-P\-I\-B\-\_\-\-E\-M\-U\-L\-A\-T\-I\-O\-N}!scpi.h@{scpi.\-h}}
+\subsubsection[{G\-P\-I\-B\-\_\-\-E\-M\-U\-L\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-P\-I\-B\-\_\-\-E\-M\-U\-L\-A\-T\-I\-O\-N~1}}\label{scpi_8h_acf41b787f2d159d07fe8b0146c49ce6f}
+Used to select G\-P\-I\-B emulation mode. User editable.
+\begin{DoxyItemize}
+\item 0\-: No emulation
+\item 1\-: Serial emulation according to I\-E\-E\-E 1174-\/2000\begin{DoxySeeAlso}{See Also}
+\hyperlink{_s_c_p_i__serial_emulation_8h}{S\-C\-P\-I\-\_\-serial\-Emulation.\-h}
+\end{DoxySeeAlso}
+
+\item 2+\-: Not yet implemented\-Add access to device specific functions. User editable. 
+\end{DoxyItemize}\hypertarget{scpi_8h_a0f1c2a9bed8655374cea33281baafd0e}{\index{scpi.\-h@{scpi.\-h}!I\-N\-B\-U\-F\-F\-\_\-\-L\-E\-N\-G\-T\-H@{I\-N\-B\-U\-F\-F\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{I\-N\-B\-U\-F\-F\-\_\-\-L\-E\-N\-G\-T\-H@{I\-N\-B\-U\-F\-F\-\_\-\-L\-E\-N\-G\-T\-H}!scpi.h@{scpi.\-h}}
+\subsubsection[{I\-N\-B\-U\-F\-F\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-B\-U\-F\-F\-\_\-\-L\-E\-N\-G\-T\-H~100}}\label{scpi_8h_a0f1c2a9bed8655374cea33281baafd0e}
+Length of the input buffer in bytes where one byte is equal to one A\-S\-C\-I\-I character. User editable. \hypertarget{scpi_8h_a6265d80022d2b4c110f10c6c6de8aa0e}{\index{scpi.\-h@{scpi.\-h}!M\-A\-N\-U\-F@{M\-A\-N\-U\-F}}
+\index{M\-A\-N\-U\-F@{M\-A\-N\-U\-F}!scpi.h@{scpi.\-h}}
+\subsubsection[{M\-A\-N\-U\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-N\-U\-F~\char`\"{}V\-O\-X\-P\-O\-W\char`\"{}}}\label{scpi_8h_a6265d80022d2b4c110f10c6c6de8aa0e}
+Manufacturer for $\ast$\-I\-D\-N? response field 1, required. Should be identical for all devices produced by a single company. User editable. Maximum length of 18 characters. \hypertarget{scpi_8h_a7c60e913478d07a44ac15c6fb2c5937f}{\index{scpi.\-h@{scpi.\-h}!M\-O\-D\-E\-L@{M\-O\-D\-E\-L}}
+\index{M\-O\-D\-E\-L@{M\-O\-D\-E\-L}!scpi.h@{scpi.\-h}}
+\subsubsection[{M\-O\-D\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-D\-E\-L~\char`\"{}M003\char`\"{}}}\label{scpi_8h_a7c60e913478d07a44ac15c6fb2c5937f}
+Model for $\ast$\-I\-D\-N? response field 2, required. Should N\-O\-T contain the word \char`\"{}\-M\-O\-D\-E\-L\char`\"{}. User editable. Maximum length of 18 characters. \hypertarget{scpi_8h_affcba652760077c3a763202721f6201c}{\index{scpi.\-h@{scpi.\-h}!O\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N\-G\-T\-H@{O\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{O\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N\-G\-T\-H@{O\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N\-G\-T\-H}!scpi.h@{scpi.\-h}}
+\subsubsection[{O\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-Q\-U\-E\-U\-E\-\_\-\-L\-E\-N\-G\-T\-H~100}}\label{scpi_8h_affcba652760077c3a763202721f6201c}
+Length of the response output queue in bytes where one byte is equal to one A\-S\-C\-I\-I character. User editable. \hypertarget{scpi_8h_aae3f0b4211ba45d265973d40ccbb5fd1}{\index{scpi.\-h@{scpi.\-h}!S\-E\-R\-I\-A\-L@{S\-E\-R\-I\-A\-L}}
+\index{S\-E\-R\-I\-A\-L@{S\-E\-R\-I\-A\-L}!scpi.h@{scpi.\-h}}
+\subsubsection[{S\-E\-R\-I\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-R\-I\-A\-L~\char`\"{}S001\char`\"{}}}\label{scpi_8h_aae3f0b4211ba45d265973d40ccbb5fd1}
+Serial number for $\ast$\-I\-D\-N? response field 3, A\-S\-C\-I\-I character 0 if not available, if unique serial numbers are used, then A\-S\-C\-I\-I character 0 shall N\-O\-T be used. User editable. Maximum length of 18 characters. \hypertarget{scpi_8h_abbe522a53a412561dcbf3cbf0c92b9a4}{\index{scpi.\-h@{scpi.\-h}!T\-R\-E\-E\-\_\-\-C\-H\-I\-L\-D\-\_\-\-L\-I\-M\-I\-T@{T\-R\-E\-E\-\_\-\-C\-H\-I\-L\-D\-\_\-\-L\-I\-M\-I\-T}}
+\index{T\-R\-E\-E\-\_\-\-C\-H\-I\-L\-D\-\_\-\-L\-I\-M\-I\-T@{T\-R\-E\-E\-\_\-\-C\-H\-I\-L\-D\-\_\-\-L\-I\-M\-I\-T}!scpi.h@{scpi.\-h}}
+\subsubsection[{T\-R\-E\-E\-\_\-\-C\-H\-I\-L\-D\-\_\-\-L\-I\-M\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-E\-E\-\_\-\-C\-H\-I\-L\-D\-\_\-\-L\-I\-M\-I\-T~102}}\label{scpi_8h_abbe522a53a412561dcbf3cbf0c92b9a4}
+Used to limit the command tree size. User editable. Each tree item consumes 28 bytes. Therefore the total memory required for the tree can be calculated to be equal to T\-R\-E\-E\-\_\-\-C\-H\-I\-L\-D\-\_\-\-L\-I\-M\-I\-T x 28 bytes E.\-G. 102 items x 28 bytes = 2.\-856 k\-B N\-O\-T\-E\-: T\-M\-S320\-C28x byte is 16 bits. 
+
+\subsection{Typedef Documentation}
+\hypertarget{scpi_8h_a29544bcea16f4ea891a9323c4dbdc2e2}{\index{scpi.\-h@{scpi.\-h}!bool@{bool}}
+\index{bool@{bool}!scpi.h@{scpi.\-h}}
+\subsubsection[{bool}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf bool}  {\bf bool}}}\label{scpi_8h_a29544bcea16f4ea891a9323c4dbdc2e2}
+Defines a boolean type and its possible values 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{scpi_8h_af6a258d8f3ee5206d682d799316314b1}{\index{scpi.\-h@{scpi.\-h}!bool@{bool}}
+\index{bool@{bool}!scpi.h@{scpi.\-h}}
+\subsubsection[{bool}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf bool}}}\label{scpi_8h_af6a258d8f3ee5206d682d799316314b1}
+Defines a boolean type and its possible values \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{false@{false}!scpi.\-h@{scpi.\-h}}\index{scpi.\-h@{scpi.\-h}!false@{false}}\item[{\em 
+\hypertarget{scpi_8h_af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c}{false}\label{scpi_8h_af6a258d8f3ee5206d682d799316314b1ae9de385ef6fe9bf3360d1038396b884c}
+}]false (0) \index{true@{true}!scpi.\-h@{scpi.\-h}}\index{scpi.\-h@{scpi.\-h}!true@{true}}\item[{\em 
+\hypertarget{scpi_8h_af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b}{true}\label{scpi_8h_af6a258d8f3ee5206d682d799316314b1a08f175a5505a10b9ed657defeb050e4b}
+}]true (1 or not-\/zero) \end{description}
+\end{Desc}

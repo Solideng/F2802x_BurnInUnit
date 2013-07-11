@@ -1,0 +1,53 @@
+\hypertarget{_s_c_p_i__exec_ctrl_8h}{\section{scpi/\-S\-C\-P\-I\-\_\-exec\-Ctrl.h File Reference}
+\label{_s_c_p_i__exec_ctrl_8h}\index{scpi/\-S\-C\-P\-I\-\_\-exec\-Ctrl.\-h@{scpi/\-S\-C\-P\-I\-\_\-exec\-Ctrl.\-h}}
+}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{_s_c_p_i__exec_ctrl_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_s_c_p_i__exec_ctrl_8h_a6888e91e71d9fa51ad6e53604d2e6251}{reset\-Exec\-Ctrl} (void)
+\item 
+Uint16 \hyperlink{_s_c_p_i__exec_ctrl_8h_addbde078f73d385a37fbb92fb3054e4d}{exec\-Ctrl} (tree\-Node $\ast$fnd, lexed\-Item $\ast$reqstd)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+T\-O\-D\-O\-: Currently the calling function should call operation\-Complete() when \hyperlink{_s_c_p_i__exec_ctrl_8h_addbde078f73d385a37fbb92fb3054e4d}{exec\-Ctrl()} has finished all commands.
+
+The execution control block deals with coupled parameters and queries that require a device action before they can generate a $ \langle$ R\-E\-S\-P\-O\-N\-S\-E M\-E\-S\-S\-A\-G\-E $ \rangle$ . The execution control determines when the device has gathered enough information to execute a command. When the execution control has gathered enough information to initiate a device action, it sends an executable message element to the device functions. The execution control will wait for the resulting device actions to complete (sequential command). A $ \langle$ P\-R\-O\-G\-R\-M M\-E\-S\-S\-A\-G\-E U\-N\-I\-T $ \rangle$ is considered executed when it has been parsed and all corresponding device operations have been either completed or initiated.
+
+This file should not need to be edited by the user. 
+
+\subsection{Function Documentation}
+\hypertarget{_s_c_p_i__exec_ctrl_8h_addbde078f73d385a37fbb92fb3054e4d}{\index{S\-C\-P\-I\-\_\-exec\-Ctrl.\-h@{S\-C\-P\-I\-\_\-exec\-Ctrl.\-h}!exec\-Ctrl@{exec\-Ctrl}}
+\index{exec\-Ctrl@{exec\-Ctrl}!SCPI_execCtrl.h@{S\-C\-P\-I\-\_\-exec\-Ctrl.\-h}}
+\subsubsection[{exec\-Ctrl}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 exec\-Ctrl (
+\begin{DoxyParamCaption}
+\item[{tree\-Node $\ast$}]{fnd, }
+\item[{lexed\-Item $\ast$}]{reqstd}
+\end{DoxyParamCaption}
+)}}\label{_s_c_p_i__exec_ctrl_8h_addbde078f73d385a37fbb92fb3054e4d}
+Handles the calling of device specific functions 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em fnd} & The S\-C\-P\-I command tree node found by the parser \\
+\hline
+\mbox{\tt in}  & {\em reqstd} & The lex'd and parsed components of the program message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{_s_c_p_i__exec_ctrl_8h_a6888e91e71d9fa51ad6e53604d2e6251}{\index{S\-C\-P\-I\-\_\-exec\-Ctrl.\-h@{S\-C\-P\-I\-\_\-exec\-Ctrl.\-h}!reset\-Exec\-Ctrl@{reset\-Exec\-Ctrl}}
+\index{reset\-Exec\-Ctrl@{reset\-Exec\-Ctrl}!SCPI_execCtrl.h@{S\-C\-P\-I\-\_\-exec\-Ctrl.\-h}}
+\subsubsection[{reset\-Exec\-Ctrl}]{\setlength{\rightskip}{0pt plus 5cm}void reset\-Exec\-Ctrl (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_s_c_p_i__exec_ctrl_8h_a6888e91e71d9fa51ad6e53604d2e6251}
+Resets the execution controller. 
