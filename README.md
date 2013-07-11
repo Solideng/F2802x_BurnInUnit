@@ -3,7 +3,7 @@ F2802x_BurnInUnit
 
 All code, files and any other content contained that forms, or is included in, this repository, in source, binary, or any other form is copyright (c) 2013 Vox Power.
 
-Redistribution in any form, modfied or unmodified, except directly by github.com as previously authorised is not permitted.
+Redistribution in any form, modfied or unmodified, except directly by github.com as previously authorised, is not permitted.
 
 This notice must not be removed.
 
