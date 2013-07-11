@@ -22,6 +22,30 @@
  *  these options are selected in file "ProjectSettings.h".
  * Note: "Rebuild All" compile must be used if this file is modified.
  *============================================================================*/
+
+/*
+ * Control LaunchPad XL boot mode using switch 1 (S1):
+ *
+ * Position the three switches so that all of them are on,
+ * then connect USB and use CCS IDE to load the program.
+ * When the program is loaded, stop the emulator and
+ * disconnect the USB. Then turn switch 3 to the off
+ * position. Ensure the terminal emulator is in
+ * disconnected mode, then reconnect the USB. Change the
+ * terminal emulator mode to connected and press the reset
+ * button on the PCB. The program should now be running and
+ * the terminal emulator should be able to show received
+ * data.
+ *
+ * | Switch	| Function	|
+ * |:------:|:----------|
+ * | 1		| GPIO34	|
+ * | 2		| GPIO37	|
+ * | 3		| TRSTn		|
+ *
+ * Lantronix XPort Pro static raw IP: 169.254.11.150:10001
+ *
+ */
 #include "Common.h"
 #include "DPlibEx.h"
 

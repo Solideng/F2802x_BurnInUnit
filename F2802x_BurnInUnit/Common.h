@@ -41,7 +41,7 @@
 #include "FanEn.h"
 #include "BstEn.h"
 
-#include "../../SCPI_Build/SCPI_Build/scpi/scpi.h"
+#include "scpi/scpi.h"
 #include "SCPI_specificCmds.h"
 
 #define	FALSE	0

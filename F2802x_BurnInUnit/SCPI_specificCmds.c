@@ -1,5 +1,4 @@
 #include "Common.h"
-// TODO: Don't think <coefSpecifier> parameter will work
 
 Uint16 nSel = 0;
 
@@ -13,37 +12,37 @@ Uint16 registerDeviceCommands (void) {
 	err += registerChild ("IDLE", "CONT", false, false, pNone, &contIdleInit);			/* Header with optional child. */
 	err += registerChild ("INITIATE", "IDLE", false, false, pNone, &contIdleInit);		/* Optional child. */
 	
-	err += registerChild ("INSTRUMENT", "ROOT", false, false, pNumber, &instNsel);		/* Header with optional child. */
+	err += registerChild ("INSTRUMENT", "ROOT", false, true, pNumber, &instNsel);		/* Header with optional child. */
 	err += registerChild ("CATALOG", "INST", true, true, pNone, &instCat);				/* Child, query only */
 	err += registerChild ("NSELECT", "INST", false, true, pNumber, &instNsel);			/* Optional child. */
 	err += registerChild ("STATE", "INST", false, true, pBool, &instStat);				/* child. */
 
-	err += registerChild ("OUTPUT", "ROOT", false, false, pBool, &outpStat);			/* Header with optional child. */
+	err += registerChild ("OUTPUT", "ROOT", false, true, pBool, &outpStat);				/* Header with optional child. */
 	err += registerChild ("STATE", "OUTP", false, true, pBool, &outpStat);				/* Optional child. */
 	
-	err += registerChild ("INPUT", "ROOT", false, false, pBool, &inpStat);				/* Header with optional child. */
+	err += registerChild ("INPUT", "ROOT", false, true, pBool, &inpStat);				/* Header with optional child. */
 	err += registerChild ("STATE", "INP", false, true, pBool, &inpStat);				/* Optional child. */
 
 	err += registerChild ("SOURCE", "ROOT", true, false, pNone, NULL);					/* Header only. */
-	err += registerChild ("VOLTAGE", "SOUR", false, false, pNone, &sourVoltLev);		/* Header with optional child. */
+	err += registerChild ("VOLTAGE", "SOUR", false, true, pNone, &sourVoltLev);			/* Header with optional child. */
 	err += registerChild ("LEVEL", "VOLT", false, true, pNumber, &sourVoltLev);			/* Optional child. */
 	err += registerChild ("LIMIT", "VOLT", true, true, pNone, &sourVoltLim);			/* Child, query only. */
 	err += registerChild ("PROTECT", "VOLT", false, true, pNumber, &sourVoltProt);		/* Child. */
 	err += registerChild ("RANGE", "VOLT", false, true, pNumber, &sourVoltRang);		/* Child. */
 	err += registerChild ("SLEW", "VOLT", false, true, pNumber, &sourVoltSlew);			/* Child. */
 	err += registerChild ("COEFFICIENT", "VOLT", false, true, pNumber, &sourVoltCoef); 	/* Child. */
-	err += registerChild ("CURRENT", "SOUR", false, false, pNumber, &sourCurrLev);		/* Header with optional child. */
+	err += registerChild ("CURRENT", "SOUR", false, true, pNumber, &sourCurrLev);		/* Header with optional child. */
 	err += registerChild ("LEVEL", "CURR", false, true, pNumber, &sourCurrLev);			/* Optional child. */
 	err += registerChild ("LIMIT", "CURR", true, true, pNone, &sourCurrLim);			/* Child, query only. */
 	err += registerChild ("PROTECT", "CURR", false, true, pNumber, &sourCurrProt);		/* Child. */
 	err += registerChild ("RANGE", "CURR", false, true, pNumber, &sourCurrRang);		/* Child. */
 	err += registerChild ("SLEW", "CURR", false, true, pNumber, &sourCurrSlew);			/* Child. */
 	err += registerChild ("COEFFICIENT", "CURR", false, true, pNumber, &sourCurrCoef);	/* Child. */
-	err += registerChild ("FREQUENCY", "SOUR", false, false, pNumber, &sourFreqFix);	/* Header with optional child. */
+	err += registerChild ("FREQUENCY", "SOUR", false, true, pNumber, &sourFreqFix);		/* Header with optional child. */
 	err += registerChild ("FIXED", "FREQ", false, true, pNumber, &sourFreqFix);			/* Optional child. */
 	err += registerChild ("GAIN", "FREQ", false, true, pNumber, &sourFreqGain);			/* Child. */
 	err += registerChild ("OFFSET", "FREQ", false, true, pNumber, &sourFreqOffs);		/* Child. */
-	err += registerChild ("TEMPERATURE", "SOUR", false, false, pNone, &sourTempProt);	/* Header with optional child. */
+	err += registerChild ("TEMPERATURE", "SOUR", false, true, pNone, &sourTempProt);	/* Header with optional child. */
 	err += registerChild ("PROTECT", "TEMP", false, true, pNumber, &sourTempProt);		/* Optional child. */
 	
 	err += registerChild ("MEASURE", "ROOT", true, false, pNone, NULL);					/* Header only. */
@@ -103,12 +102,8 @@ Uint16 instCat (double * parameters, bool isQuery) {
 	/* Child. Queries the available selection of logical instruments. */
 	Uint16 err = 0;
 	Uint16 i = 0;
-
-	if (!isQuery)
-		return 1; /* Query only */
-
-	for (i = 0; i <= NUM_CHNLS; i++) {
-		 if (i != NUM_CHNLS)
+	for (i = 0; i < NUM_CHNLS; i++) {
+		 if (i != (NUM_CHNLS - 1))
 			 err += respond(&i, Integer, false);
 		 else
 			 err += respond(&i, Integer, true);
@@ -122,10 +117,11 @@ Uint16 instNsel (double * parameters, bool isQuery) {
 		return respond (&nSel, Integer, true);
 	}
 
-	if ((*parameters < 0) || (*parameters >= NUM_CHNLS+1)) 	/* +1 accounts for the case where the parameter may be a double that is in range but has a trailing mantissa. */
-		return 1;
-	nSel = *parameters;
-	return 0;
+	if ((*parameters > 0) && (*parameters < NUM_CHNLS)) {
+		nSel = *parameters;
+		return 0;
+	}
+	return 1;
 }
 
 Uint16 instStat (double * parameters, bool isQuery) {
@@ -137,7 +133,7 @@ Uint16 instStat (double * parameters, bool isQuery) {
 
 Uint16 outpStat (double * parameters, bool isQuery) {
 	// Optional child
-	// TODO write cmd
+	// TODO write cmd - outpStat
 	// Turns the output of the selected logical instrument on or off.
 	Uint16 err = 0;
 	if (isQuery) {
@@ -150,7 +146,7 @@ Uint16 outpStat (double * parameters, bool isQuery) {
 
 Uint16 inpStat (double * parameters, bool isQuery) {
 	// Optional child
-	// TODO write cmd
+	// TODO write cmd - inpStat
 	// Turns the input of the selected logical instrument on or off.
 	return 0;
 }
@@ -171,11 +167,8 @@ Uint16 sourVoltLev (double * parameters, bool isQuery) {
 }
 
 Uint16 sourVoltLim (double * parameters, bool isQuery) {
-	/* Child. Queries the voltage setting limit, response is RMS. */
+	/* Child, query only. Queries the voltage setting limit, response is RMS. */
 	float32 buf = 0;
-
-	if (!isQuery)
-		return 1;	/* Query only. */
 					/* Convert value from SQ10 format to double. */
 	buf = _IQ10toF((int32)channel[nSel].vMaxRms);
 	return respond(&buf, Double, true);
@@ -185,7 +178,6 @@ Uint16 sourVoltProt (double * parameters, bool isQuery) {
 	/* Child. Sets or queries the voltage protection level. */
 	Uint16 err = 0;
 	float32 buf = 0;
-
 	if (isQuery) {
 		err += adcGetOvp(nSel, &buf);
 		err += respond(&buf, Double, true);
@@ -260,11 +252,8 @@ Uint16 sourCurrLev (double * parameters, bool isQuery) {
 }
 
 Uint16 sourCurrLim (double * parameters, bool isQuery) {
-	/* Child. Queries the current setting limit. Response is RMS. */
+	/* Child, query only. Queries the current setting limit. Response is RMS. */
 	float32 buf = 0;
-
-	if (!isQuery)
-		return 1;	/* Query only. */
 					/* Convert value from SQ10 format to double. */
 	buf = _IQ10toF((int32)channel[nSel].iMaxRms);
 	return respond(&buf, Double, true);
@@ -340,7 +329,7 @@ Uint16 sourFreqFix (double * parameters, bool isQuery) {
 		err += sgGetFreq(&buf);
 		err += respond(&buf, Integer, true);
 	} else {
-		buf = (Uint16) *parameters;
+		buf = (Uint16) (*parameters);
 		err += sgSetFreq(buf);
 	}
 	return err;
@@ -391,11 +380,9 @@ Uint16 sourTempProt (double * parameters, bool isQuery) {
 }
 
 Uint16 measVolt (double * parameters, bool isQuery) {
-	/* Child. Measures the voltage of the selected channel */
+	/* Child, query only. Measures the voltage of the selected channel */
 	Uint16 err = 0;
 	float32 buf = 0;
-	if (!isQuery)
-		return 1;	/* Query only. */
 	err += adcGetVoltage(nSel, &buf);
 	err += respond(&buf, Double, true);
 	return err;
@@ -405,8 +392,6 @@ Uint16 measCurr (double * parameters, bool isQuery) {
 	/* Child. Measures the current of the selected channel */
 	Uint16 err = 0;
 	float32 buf = 0;
-	if (!isQuery)
-		return 1;	/* Query only. */
 	err += adcGetCurrent(nSel, &buf);
 	err += respond(&buf, Double, true);
 	return err;
@@ -416,8 +401,6 @@ Uint16 measTemp (double * parameters, bool isQuery) {
 	/* Child. Measures the temperature of the selected input channel. */
 	Uint16 err = 0;
 	float32 buf= 0;
-	if (!isQuery)
-		return 1;
 	err += tmpRead(nSel, &buf);
 	err += respond(&buf, Double, true);
 	return err;
@@ -425,6 +408,7 @@ Uint16 measTemp (double * parameters, bool isQuery) {
 
 Uint16 statQuesVoltEven (double * parameters, bool isQuery) {
 	// Optional child
+	// TODO CMDS FOR ALL SPECIFIC STATUS QUERY
 	return 0;
 }
 

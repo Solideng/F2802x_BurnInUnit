@@ -3,6 +3,13 @@
  *
  * @brief SCI communications functions.
  *
+ * @par
+ * On the TI C2000 LaunchPad XL:
+ * |Function| GPIO 	|PCB Pin|
+ * |:------:|:-----:|:-----:|
+ * | SCI_RX	| GPIO28| J1-3	|
+ * | SCI_TX	| GPIO29| J1-4	|
+ *
  */
 
 #ifndef SCI_H_

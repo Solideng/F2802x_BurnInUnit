@@ -57,10 +57,12 @@ typedef enum iOrVCtl ctlType;
  * manner in memory.
  */
 struct channelParameters {
+	/* Nets. */
 	volatile int32 refNet;	/**< Net for CNTL reference (IQ24). */
 	volatile int32 iFdbkNet;/**< Current feednack net (IQ24). */
 	volatile int32 vFdbkNet;/**< Voltage feedback net (IQ24). */
 	volatile int32 outNet;	/**< IIR filter control law output net (IQ24). */
+	/* Levels. */
 	int32	ocp;		/**< Normalised OCP limit (IQ24). */
 	int32	ovp;		/**< Normalised OVP limit (IQ24). */
 	int32	target;		/**< IIR filter control law reference slew target (IQ24). */
