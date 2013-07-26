@@ -26,10 +26,12 @@ var searchData=
   ['adcdrv_5f1ch_5frlt7',['ADCDRV_1ch_Rlt7',['../_adc_8h.html#a4fa6265d0bf9b69d560d8f9f488b98c1',1,'Adc.h']]],
   ['adcdrv_5f1ch_5frlt8',['ADCDRV_1ch_Rlt8',['../_adc_8h.html#a0415309d16a115f0116a26aeda91aabd',1,'Adc.h']]],
   ['adcdrv_5f1ch_5frlt9',['ADCDRV_1ch_Rlt9',['../_adc_8h.html#adea6b0b8533e0d56a5c6cbac1c1e705f',1,'Adc.h']]],
+  ['adcgetcurrent',['adcGetCurrent',['../_adc_8h.html#a2cda2df7670a029f25848b9fe6f37bf8',1,'Adc.c']]],
   ['adcgetdac',['adcGetDac',['../_adc_8h.html#a51b43d0fbadcb3b231f4fceb4c7b9d12',1,'Adc.c']]],
   ['adcgetiscale',['adcGetIScale',['../_adc_8h.html#acbf7c83ae3b6df7b0812ef1aed2b9c96',1,'Adc.c']]],
   ['adcgetocp',['adcGetOcp',['../_adc_8h.html#a8e08c745a25782602c5d337d5eb7b03c',1,'Adc.c']]],
   ['adcgetovp',['adcGetOvp',['../_adc_8h.html#a1536739f53a776036e1b9c92990a102a',1,'Adc.c']]],
+  ['adcgetvoltage',['adcGetVoltage',['../_adc_8h.html#a47082a746494c4221df1cb453fa746f7',1,'Adc.c']]],
   ['adcgetvscale',['adcGetVScale',['../_adc_8h.html#a478f6261679944822575231af3eb229c',1,'Adc.c']]],
   ['adcmacroconfigure',['adcMacroConfigure',['../_adc_8h.html#a3c614312b1f0ce65b46c4d93051de836',1,'Adc.c']]],
   ['adcsetdac',['adcSetDac',['../_adc_8h.html#aca1e33ca1b293964f5ce58d430e684f0',1,'Adc.c']]],
@@ -37,5 +39,6 @@ var searchData=
   ['adcsetocp',['adcSetOcp',['../_adc_8h.html#ac5c13a2ef6c3a9f9da7bf437e0213da2',1,'Adc.c']]],
   ['adcsetovp',['adcSetOvp',['../_adc_8h.html#a03e263230a1a25337050bfde1172d1a1',1,'Adc.c']]],
   ['adcsetvscale',['adcSetVScale',['../_adc_8h.html#a9c87603c2aabc17d784a9149563e71e5',1,'Adc.c']]],
+  ['adcsoccnf',['adcSocCnf',['../_adc_8h.html#af77988a3ac7a924b75e6213631b04d46',1,'Adc.c']]],
   ['alpha_5fstate_5fptr',['Alpha_State_Ptr',['../_state_machine_8h.html#af1d16f7a57d6ced065765dcbb355fcde',1,'StateMachine.c']]]
 ];

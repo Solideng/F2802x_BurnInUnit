@@ -6,8 +6,7 @@
 A\-D\-C, D\-A\-C, comparator and related functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,6 +15,8 @@ This graph shows which files directly or indirectly include this file\-:
 \end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_adc_8h_af77988a3ac7a924b75e6213631b04d46}{adc\-Soc\-Cnf} (void)
 \item 
 void \hyperlink{_adc_8h_a3c614312b1f0ce65b46c4d93051de836}{adc\-Macro\-Configure} (void)
 \item 
@@ -40,6 +41,10 @@ Uint16 \hyperlink{_adc_8h_a51b43d0fbadcb3b231f4fceb4c7b9d12}{adc\-Get\-Dac} (Uin
 Uint16 \hyperlink{_adc_8h_acbf7c83ae3b6df7b0812ef1aed2b9c96}{adc\-Get\-I\-Scale} (Uint16 chnl, float32 $\ast$scl\-Dest)
 \item 
 Uint16 \hyperlink{_adc_8h_a478f6261679944822575231af3eb229c}{adc\-Get\-V\-Scale} (Uint16 chnl, float32 $\ast$scl\-Dest)
+\item 
+Uint16 \hyperlink{_adc_8h_a47082a746494c4221df1cb453fa746f7}{adc\-Get\-Voltage} (Uint16 chnl, float32 $\ast$v\-Dest)
+\item 
+Uint16 \hyperlink{_adc_8h_a2cda2df7670a029f25848b9fe6f37bf8}{adc\-Get\-Current} (Uint16 chnl, float32 $\ast$i\-Dest)
 \item 
 Uint16 \hyperlink{_adc_8h_a8e08c745a25782602c5d337d5eb7b03c}{adc\-Get\-Ocp} (Uint16 chnl, float32 $\ast$ocp\-Dest)
 \item 
@@ -77,7 +82,7 @@ volatile int32 $\ast$ \hyperlink{_adc_8h_ad7ef0544a173d3c7883f0e739b7d2096}{A\-D
 
 
 \subsection{Detailed Description}
-A\-D\-C, D\-A\-C, comparator and related functions. 
+A\-D\-C, D\-A\-C, comparator and related functions. Requires the modification of the C\-O\-M\-P\-\_\-\-R\-E\-G\-S struct of the D\-S\-P2802x\-\_\-\-Global\-Variable\-Defs in the file D\-S\-P2802x\-\_\-\-Comp.\-h, to allow use of the D\-A\-C\-C\-T\-L and ramp-\/related register unions. Use the equivalent file from the f2903x includes for reference. 
 
 \subsection{Function Documentation}
 \hypertarget{_adc_8h_a7dfbe5e2625efeeb0768d42d83a71c04}{\index{Adc.\-h@{Adc.\-h}!adc\-Check\-Ocp@{adc\-Check\-Ocp}}
@@ -109,10 +114,28 @@ Error status
 )}}\label{_adc_8h_a646e6cc4558594a6fbaa10c767cc4fec}
 Configures the C\-O\-M\-P 1 \& 2 comparators using the internal D\-A\-Cs at inverting inputs.
 \begin{DoxyItemize}
-\item S\-H\-O\-U\-L\-D be called A\-F\-T\-E\-R adc\-Soc\-Cnf().
+\item S\-H\-O\-U\-L\-D be called A\-F\-T\-E\-R \hyperlink{_adc_8h_af77988a3ac7a924b75e6213631b04d46}{adc\-Soc\-Cnf()}.
 \item S\-H\-O\-U\-L\-D be called B\-E\-F\-O\-R\-E P\-W\-M\-S (S\-Y\-N\-C) are started.
 \item S\-H\-O\-U\-L\-D be called B\-E\-F\-O\-R\-E pwm\-T\-Z\-Configure(). 
-\end{DoxyItemize}\hypertarget{_adc_8h_a51b43d0fbadcb3b231f4fceb4c7b9d12}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-Dac@{adc\-Get\-Dac}}
+\end{DoxyItemize}\hypertarget{_adc_8h_a2cda2df7670a029f25848b9fe6f37bf8}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-Current@{adc\-Get\-Current}}
+\index{adc\-Get\-Current@{adc\-Get\-Current}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Get\-Current}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-Current (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{i\-Dest}
+\end{DoxyParamCaption}
+)}}\label{_adc_8h_a2cda2df7670a029f25848b9fe6f37bf8}
+Queries the most recent current reading from the specified channel's associated A\-D\-C. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the reading is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em i\-Dest} & Address of the memory location at which to place the query result (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{_adc_8h_a51b43d0fbadcb3b231f4fceb4c7b9d12}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-Dac@{adc\-Get\-Dac}}
 \index{adc\-Get\-Dac@{adc\-Get\-Dac}!Adc.h@{Adc.\-h}}
 \subsubsection[{adc\-Get\-Dac}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-Dac (
 \begin{DoxyParamCaption}
@@ -179,6 +202,24 @@ Queries the over current protection setting for the specified channel.
 \mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the setting is to be queried. \\
 \hline
 \mbox{\tt out}  & {\em ovp\-Dest} & Address of the memory location at which to place the query result (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{_adc_8h_a47082a746494c4221df1cb453fa746f7}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-Voltage@{adc\-Get\-Voltage}}
+\index{adc\-Get\-Voltage@{adc\-Get\-Voltage}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Get\-Voltage}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-Voltage (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{v\-Dest}
+\end{DoxyParamCaption}
+)}}\label{_adc_8h_a47082a746494c4221df1cb453fa746f7}
+Queries the most recent voltage reading from the specified channel's associated A\-D\-C. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the reading is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em v\-Dest} & Address of the memory location at which to place the query result (volts). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -303,7 +344,14 @@ Sets the voltage scaling for the specified channel.
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-
+\hypertarget{_adc_8h_af77988a3ac7a924b75e6213631b04d46}{\index{Adc.\-h@{Adc.\-h}!adc\-Soc\-Cnf@{adc\-Soc\-Cnf}}
+\index{adc\-Soc\-Cnf@{adc\-Soc\-Cnf}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Soc\-Cnf}]{\setlength{\rightskip}{0pt plus 5cm}void adc\-Soc\-Cnf (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_adc_8h_af77988a3ac7a924b75e6213631b04d46}
+Configures A\-D\-C S\-O\-C for A\-D\-C macro 
 
 \subsection{Variable Documentation}
 \hypertarget{_adc_8h_a42ca9720519e1d0cb7ded4f56da083ba}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}}

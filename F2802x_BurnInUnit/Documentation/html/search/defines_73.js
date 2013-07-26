@@ -1,6 +1,10 @@
 var searchData=
 [
   ['satmax_5fmax',['SATMAX_MAX',['../_cntl_8h.html#a64fd24fd8ffc66895ab057370d1c10f9',1,'Cntl.h']]],
+  ['scibaud_5fmin',['SCIBAUD_MIN',['../_sci_8h.html#a0e4c420431b12616b61e9f3a28f07e4d',1,'Sci.h']]],
+  ['sciffrx_5fint_5flvl',['SCIFFRX_INT_LVL',['../_sci_8h.html#a5733933fffc18dbcb8bc9404e80bc493',1,'Sci.h']]],
+  ['scifftx_5ffill_5flvl',['SCIFFTX_FILL_LVL',['../_sci_8h.html#af0368b1c16e194a32bf4ce09eb937930',1,'Sci.h']]],
+  ['scifftx_5fint_5flvl',['SCIFFTX_INT_LVL',['../_sci_8h.html#a5340c9de55b8e5c65ef801d2dcabffd7',1,'Sci.h']]],
   ['sin_5fchannel',['SIN_CHANNEL',['../_sine_gen_8h.html#a71b6211a4d077af219d7e503f17114d1',1,'SineGen.h']]],
   ['sin_5fdflt_5ff',['SIN_DFLT_F',['../_sine_gen_8h.html#aa1d98c477c6de604fc6ca986f2d83238',1,'SineGen.h']]],
   ['sin_5fdflt_5ff_5fmax',['SIN_DFLT_F_MAX',['../_sine_gen_8h.html#a1640e33dcd5a970b4a9731ec68125bd6',1,'SineGen.h']]],

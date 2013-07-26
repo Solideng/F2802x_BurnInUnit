@@ -6,8 +6,7 @@
 I2\-C communication functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -81,6 +80,24 @@ Uint16 \hyperlink{_i2c_8h_aa681ec1b6413dd7009a6aaf0df2cbac1}{i2c\-Read} (\hyperl
 
 \subsection{Detailed Description}
 I2\-C communication functions. \begin{DoxyWarning}{Warning}
+The following bridge tracks should be cut on the T\-I C2000 Launch\-Pad X\-L P\-C\-B before I2\-C (or S\-P\-I) may be used\-: \begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf Bridge to Cut }&\PBS\centering {\bf G\-P\-I\-O }&\PBS\centering {\bf P\-C\-B Pin  }\\\cline{1-3}
+\PBS\centering J\-P5 &\PBS\centering G\-P\-I\-O32&\PBS\centering J2-\/6 \\\cline{1-3}
+\PBS\centering J\-P7 &\PBS\centering G\-P\-I\-O33&\PBS\centering J2-\/7 \\\cline{1-3}
+\PBS\centering J\-P8 &\PBS\centering G\-P\-I\-O16&\PBS\centering J6-\/7 \\\cline{1-3}
+\PBS\centering J\-P10 &\PBS\centering G\-P\-I\-O17&\PBS\centering J6-\/8 \\\cline{1-3}
+\end{TabularC}
+This should result in the following functionality\-: \begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf Function }&\PBS\centering {\bf G\-P\-I\-O }&\PBS\centering {\bf P\-C\-B Pin  }\\\cline{1-3}
+\PBS\centering I2\-C\-\_\-\-S\-D\-A\-A &\PBS\centering G\-P\-I\-O32&\PBS\centering J6-\/7 \\\cline{1-3}
+\PBS\centering I2\-C\-\_\-\-S\-C\-L\-A &\PBS\centering G\-P\-I\-O33&\PBS\centering J6-\/8 \\\cline{1-3}
+\PBS\centering S\-P\-I\-\_\-\-M\-O\-S\-I &\PBS\centering G\-P\-I\-O16&\PBS\centering J2-\/6 \\\cline{1-3}
+\PBS\centering S\-P\-I\-\_\-\-M\-I\-S\-O &\PBS\centering G\-P\-I\-O17&\PBS\centering J2-\/7 \\\cline{1-3}
+\end{TabularC}
+
+
 The function \hyperlink{_i2c_8h_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()} M\-U\-S\-T be called before any other public I2\-C function is used. This will clear any values already in the I2\-C registers.
 
 Interrupts M\-U\-S\-T be globally enabled for the functions \hyperlink{_i2c_8h_a3813bb8cae6159f7df2672a55be4014b}{i2c\-Write()} and \hyperlink{_i2c_8h_aa681ec1b6413dd7009a6aaf0df2cbac1}{i2c\-Read()} to operate correctly.
@@ -190,7 +207,7 @@ This function can be used to validate and populate the specified settings and va
 \item[{{\bf i2c\-Msg} $\ast$}]{msg}
 \end{DoxyParamCaption}
 )}}\label{_i2c_8h_aa681ec1b6413dd7009a6aaf0df2cbac1}
-Starts an I2\-C-\/\-Aread using the settings specified. Read bytes are saved to the buffer msg.\-msg\-Buffer\mbox{[}\mbox{]}. 
+Starts an I2\-C-\/\-A read using the settings specified. Read bytes are saved to the buffer msg.\-msg\-Buffer\mbox{[}\mbox{]}. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em msg} & The I2\-C message struct. \\
 \hline

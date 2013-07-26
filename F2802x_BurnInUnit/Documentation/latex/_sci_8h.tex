@@ -1,0 +1,94 @@
+\hypertarget{_sci_8h}{\section{Sci.\-h File Reference}
+\label{_sci_8h}\index{Sci.\-h@{Sci.\-h}}
+}
+
+
+S\-C\-I communications functions.  
+
+
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{_sci_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_sci_8h_a0e4c420431b12616b61e9f3a28f07e4d}{S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N}~29
+\item 
+\#define \hyperlink{_sci_8h_a5733933fffc18dbcb8bc9404e80bc493}{S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}~1
+\item 
+\#define \hyperlink{_sci_8h_a5340c9de55b8e5c65ef801d2dcabffd7}{S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}~0
+\item 
+\#define \hyperlink{_sci_8h_af0368b1c16e194a32bf4ce09eb937930}{S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L}~4
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \hyperlink{_sci_8h_a1f05b9c5226c73b67c1d6c3bf7f80b52}{sci\-Init} (Uint32 baud)
+\item 
+void \hyperlink{_sci_8h_a941bdbf3e64ac5f4492a7f7c5936b445}{sci\-Tx} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+S\-C\-I communications functions. \begin{DoxyParagraph}{}
+On the T\-I C2000 Launch\-Pad X\-L\-: \begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf Function}&\PBS\centering {\bf G\-P\-I\-O }&\PBS\centering {\bf P\-C\-B Pin  }\\\cline{1-3}
+\PBS\centering S\-C\-I\-\_\-\-R\-X &\PBS\centering G\-P\-I\-O28&\PBS\centering J1-\/3 \\\cline{1-3}
+\PBS\centering S\-C\-I\-\_\-\-T\-X &\PBS\centering G\-P\-I\-O29&\PBS\centering J1-\/4 \\\cline{1-3}
+\end{TabularC}
+
+\end{DoxyParagraph}
+\begin{DoxyWarning}{Warning}
+On the T\-I C2000 Launch\-Pad X\-L the switch 4 (S4) should be in the O\-F\-F position to communicate with devices other than the on-\/board U\-S\-B controller. 
+\end{DoxyWarning}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_sci_8h_a0e4c420431b12616b61e9f3a28f07e4d}{\index{Sci.\-h@{Sci.\-h}!S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N@{S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N}}
+\index{S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N@{S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N}!Sci.h@{Sci.\-h}}
+\subsubsection[{S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N~29}}\label{_sci_8h_a0e4c420431b12616b61e9f3a28f07e4d}
+Minimum allowable value of S\-C\-I Baud. \hypertarget{_sci_8h_a5733933fffc18dbcb8bc9404e80bc493}{\index{Sci.\-h@{Sci.\-h}!S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}}
+\index{S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}!Sci.h@{Sci.\-h}}
+\subsubsection[{S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L~1}}\label{_sci_8h_a5733933fffc18dbcb8bc9404e80bc493}
+Interrupt level for receiving F\-I\-F\-O. \hypertarget{_sci_8h_af0368b1c16e194a32bf4ce09eb937930}{\index{Sci.\-h@{Sci.\-h}!S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L}}
+\index{S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L}!Sci.h@{Sci.\-h}}
+\subsubsection[{S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L~4}}\label{_sci_8h_af0368b1c16e194a32bf4ce09eb937930}
+Fill level for transmission F\-I\-F\-O. \hypertarget{_sci_8h_a5340c9de55b8e5c65ef801d2dcabffd7}{\index{Sci.\-h@{Sci.\-h}!S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}}
+\index{S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}!Sci.h@{Sci.\-h}}
+\subsubsection[{S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L~0}}\label{_sci_8h_a5340c9de55b8e5c65ef801d2dcabffd7}
+Interrupt level for transmission F\-I\-F\-O. 
+
+\subsection{Function Documentation}
+\hypertarget{_sci_8h_a1f05b9c5226c73b67c1d6c3bf7f80b52}{\index{Sci.\-h@{Sci.\-h}!sci\-Init@{sci\-Init}}
+\index{sci\-Init@{sci\-Init}!Sci.h@{Sci.\-h}}
+\subsubsection[{sci\-Init}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sci\-Init (
+\begin{DoxyParamCaption}
+\item[{Uint32}]{baud}
+\end{DoxyParamCaption}
+)}}\label{_sci_8h_a1f05b9c5226c73b67c1d6c3bf7f80b52}
+Initialises the S\-C\-I(\-A) peripheral and relate interrupts. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em baud} & The baud rate that the S\-C\-I should use minimum value is set by S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+This function M\-U\-S\-T be called before any other S\-C\-I(\-A) function. 
+
+This function will clear any values placed in the associated S\-C\-I(\-A) registers prior to calling. 
+\end{DoxyWarning}
+\hypertarget{_sci_8h_a941bdbf3e64ac5f4492a7f7c5936b445}{\index{Sci.\-h@{Sci.\-h}!sci\-Tx@{sci\-Tx}}
+\index{sci\-Tx@{sci\-Tx}!Sci.h@{Sci.\-h}}
+\subsubsection[{sci\-Tx}]{\setlength{\rightskip}{0pt plus 5cm}void sci\-Tx (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_sci_8h_a941bdbf3e64ac5f4492a7f7c5936b445}
+Transmits whatever data is on the S\-C\-P\-I output queue. 

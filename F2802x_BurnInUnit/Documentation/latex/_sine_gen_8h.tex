@@ -6,8 +6,7 @@
 Signal generator functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -54,10 +53,6 @@ Uint16 \hyperlink{_sine_gen_8h_a1352efb3adb6289a295afa3961d4a352}{sg\-Set\-Gain\
 \item 
 Uint16 \hyperlink{_sine_gen_8h_a3be6fb433900f4d91074b337ea3dba58}{sg\-Set\-Freq} (Uint16 frq)
 \item 
-Uint16 \hyperlink{_sine_gen_8h_a42044b7a7555c9bf2a1927f11762a340}{sg\-Set\-F\-Max} (Uint16 frq)
-\item 
-Uint16 \hyperlink{_sine_gen_8h_a65e0faae0e2f43f55395dc7b310d3702}{sg\-Set\-Step\-Max} (Uint16 s\-Mx)
-\item 
 Uint16 \hyperlink{_sine_gen_8h_ab720e3168a284abe388edf230705e4b4}{sg\-Get\-State} (Uint16 $\ast$stt\-Dest)
 \item 
 Uint16 \hyperlink{_sine_gen_8h_a2257f55d8be03a940f80091c77b70b59}{sg\-Get\-Rectify} (Uint16 $\ast$rfy\-Dest)
@@ -67,10 +62,6 @@ Uint16 \hyperlink{_sine_gen_8h_a56832d4be61bfbb6263eef6100515365}{sg\-Get\-Offse
 Uint16 \hyperlink{_sine_gen_8h_aaf39e7e31c43b94af71863a1ca3c5704}{sg\-Get\-Gain\-Target} (float32 $\ast$gnt\-Dest)
 \item 
 Uint16 \hyperlink{_sine_gen_8h_a927bad9dd75bf9372d0becfe714a66c7}{sg\-Get\-Freq} (Uint16 $\ast$frq\-Dest)
-\item 
-Uint16 \hyperlink{_sine_gen_8h_a455fbafea83fb0add030a099ed30613f}{sg\-Get\-F\-Max} (Uint16 $\ast$frq\-Dest)
-\item 
-Uint16 \hyperlink{_sine_gen_8h_a3b21cabaadf0129ad90fdc9a8d6f4746}{sg\-Get\-Step\-Max} (Uint16 $\ast$s\-Mx\-Dest)
 \item 
 Uint16 \hyperlink{_sine_gen_8h_ad625f20b4e4f394215e615071b9217b0}{sg\-Get\-Resolution} (float32 $\ast$rsl\-Dest)
 \end{DoxyCompactItemize}
@@ -129,21 +120,6 @@ Signal sampling frequency, i.\-e. the frequency that sgen.\-calc() is called at.
 Updates the gain value to create a slow-\/start ramp. This should be called at the same time and similarly to the D\-C slew update. \begin{DoxySeeAlso}{See Also}
 \hyperlink{_slew_control_8h_a8f8f2b1ef59b7fa90122e5609e24cd06}{sc\-Slew\-Update()} 
 \end{DoxySeeAlso}
-\hypertarget{_sine_gen_8h_a455fbafea83fb0add030a099ed30613f}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!sg\-Get\-F\-Max@{sg\-Get\-F\-Max}}
-\index{sg\-Get\-F\-Max@{sg\-Get\-F\-Max}!SineGen.h@{Sine\-Gen.\-h}}
-\subsubsection[{sg\-Get\-F\-Max}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sg\-Get\-F\-Max (
-\begin{DoxyParamCaption}
-\item[{Uint16 $\ast$}]{frq\-Dest}
-\end{DoxyParamCaption}
-)}}\label{_sine_gen_8h_a455fbafea83fb0add030a099ed30613f}
-Queries the current maximum frequecny setting. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em frq\-Dest} & Address of the memory location at which to place the query result (hertz). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error ststus. 
-\end{DoxyReturn}
 \hypertarget{_sine_gen_8h_a927bad9dd75bf9372d0becfe714a66c7}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!sg\-Get\-Freq@{sg\-Get\-Freq}}
 \index{sg\-Get\-Freq@{sg\-Get\-Freq}!SineGen.h@{Sine\-Gen.\-h}}
 \subsubsection[{sg\-Get\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sg\-Get\-Freq (
@@ -198,7 +174,7 @@ Error status.
 )}}\label{_sine_gen_8h_a2257f55d8be03a940f80091c77b70b59}
 Queries the current state of the signal generator rectification enable. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em rfy\-Dest} & Address of the memory location at which to place the query result (1\-:O\-N $|$ 0\-:O\-F\-F). \\
+\mbox{\tt out}  & {\em rfy\-Dest} & Address of the memory location at which to place the query result \{1\-:O\-N $|$ 0\-:O\-F\}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -228,22 +204,7 @@ Error status.
 )}}\label{_sine_gen_8h_ab720e3168a284abe388edf230705e4b4}
 Queries the current state of the generator output. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em stt\-Dest} & Address of the memory location at which to place the query result (1\-:O\-N $|$ 0\-:O\-F\-F). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{_sine_gen_8h_a3b21cabaadf0129ad90fdc9a8d6f4746}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!sg\-Get\-Step\-Max@{sg\-Get\-Step\-Max}}
-\index{sg\-Get\-Step\-Max@{sg\-Get\-Step\-Max}!SineGen.h@{Sine\-Gen.\-h}}
-\subsubsection[{sg\-Get\-Step\-Max}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sg\-Get\-Step\-Max (
-\begin{DoxyParamCaption}
-\item[{Uint16 $\ast$}]{s\-Mx\-Dest}
-\end{DoxyParamCaption}
-)}}\label{_sine_gen_8h_a3b21cabaadf0129ad90fdc9a8d6f4746}
-Queries the current step\-\_\-max setting. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em s\-Mx\-Dest} & Address of the memory location at which to place the query result. \\
+\mbox{\tt out}  & {\em stt\-Dest} & Address of the memory location at which to place the query result \{1\-:O\-N $|$ 0\-:O\-F\-F\}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -256,22 +217,7 @@ Error status.
 \item[{void}]{}
 \end{DoxyParamCaption}
 )}}\label{_sine_gen_8h_a41e810f7181a4ecaa5bc5f0713c6db89}
-Sets the initial generator values and disables the output. This function M\-U\-S\-T be called before any other signal generator function. \hypertarget{_sine_gen_8h_a42044b7a7555c9bf2a1927f11762a340}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!sg\-Set\-F\-Max@{sg\-Set\-F\-Max}}
-\index{sg\-Set\-F\-Max@{sg\-Set\-F\-Max}!SineGen.h@{Sine\-Gen.\-h}}
-\subsubsection[{sg\-Set\-F\-Max}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sg\-Set\-F\-Max (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{frq}
-\end{DoxyParamCaption}
-)}}\label{_sine_gen_8h_a42044b7a7555c9bf2a1927f11762a340}
-Sets the signal generator maximum frequency setting value, $ f_{max}$ . 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em frq} & Frequency value \mbox{[}0, $ f_{sample}$) (hertz). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{_sine_gen_8h_a3be6fb433900f4d91074b337ea3dba58}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!sg\-Set\-Freq@{sg\-Set\-Freq}}
+Sets the initial generator values and disables the output. This function M\-U\-S\-T be called before any other signal generator function. \hypertarget{_sine_gen_8h_a3be6fb433900f4d91074b337ea3dba58}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!sg\-Set\-Freq@{sg\-Set\-Freq}}
 \index{sg\-Set\-Freq@{sg\-Set\-Freq}!SineGen.h@{Sine\-Gen.\-h}}
 \subsubsection[{sg\-Set\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sg\-Set\-Freq (
 \begin{DoxyParamCaption}
@@ -280,7 +226,7 @@ Error status.
 )}}\label{_sine_gen_8h_a3be6fb433900f4d91074b337ea3dba58}
 Sets the signal frequency. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em frq} & Frequency value \mbox{[}0, $ f_{max}$) (hertz). \\
+\mbox{\tt in}  & {\em frq} & Frequency value \mbox{[}0, $ f_{max}$\mbox{]} (hertz). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -325,7 +271,7 @@ Error status
 )}}\label{_sine_gen_8h_ac4fa27b2a1e42815c53a9c41aea39dae}
 Sets the signal D\-C offset 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em ofst} & D\-C offset value \mbox{[}-\/0.\-5, +0.5). \\
+\mbox{\tt in}  & {\em ofst} & D\-C offset value \mbox{[}-\/0.\-5, +0.5\mbox{]}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -340,7 +286,7 @@ Error status.
 )}}\label{_sine_gen_8h_a663b333309e306b76cc538d8b057ca7d}
 Enables or disables the rectification of the generator output 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em rfy} & Rectification enable state (1\-:O\-N $|$ 0\-:O\-F\-F). \\
+\mbox{\tt in}  & {\em rfy} & Rectification enable state \{1\-:O\-N $|$ 0\-:O\-F\-F\}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -355,22 +301,7 @@ Error status.
 )}}\label{_sine_gen_8h_a4da3578fed6e04e782a037a270ebde65}
 Enables or disables the output of the generator onto the connected net 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em stt} & Output enable state (1\-:O\-N $|$ 0\-:O\-F\-F). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{_sine_gen_8h_a65e0faae0e2f43f55395dc7b310d3702}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!sg\-Set\-Step\-Max@{sg\-Set\-Step\-Max}}
-\index{sg\-Set\-Step\-Max@{sg\-Set\-Step\-Max}!SineGen.h@{Sine\-Gen.\-h}}
-\subsubsection[{sg\-Set\-Step\-Max}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sg\-Set\-Step\-Max (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{s\-Mx}
-\end{DoxyParamCaption}
-)}}\label{_sine_gen_8h_a65e0faae0e2f43f55395dc7b310d3702}
-Sets the signal generator step max setting value. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em s\-Mx} & Step\-\_\-max value \mbox{[}0, 32767). \\
+\mbox{\tt in}  & {\em stt} & Output enable state \{1\-:O\-N $|$ 0\-:O\-F\-F\}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
