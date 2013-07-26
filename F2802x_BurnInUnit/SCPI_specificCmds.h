@@ -63,19 +63,21 @@
 	extern "C" {
 #endif
 
+/*============= GLOBAL FUNCTIONS ==============*/
 extern Uint16 registerDeviceCommands (void);
+/*=========== CALIBRATION SUBSYSTEM ===========*/
 extern Uint16 calAll (double * parameters, bool isQuery);
-
+/*============= CONTROL SUBSYSTEM =============*/
 extern Uint16 contIdleInit (double * parameters, bool isQuery);
-
+/*=========== INSTRUMENT SUBSYSTEM ============*/
 extern Uint16 instCat (double * parameters, bool isQuery);
 extern Uint16 instNsel (double * parameters, bool isQuery);
 extern Uint16 instStat (double * parameters, bool isQuery);
-
+/*============== INPUT SUBSYSTEM ==============*/
 extern Uint16 outpStat (double * parameters, bool isQuery);
-
+/*============= OUTPUT SUBSYSTEM ==============*/
 extern Uint16 inpStat (double * parameters, bool isQuery);
-
+/*============= SOURCE SUBSYSTEM ==============*/
 extern Uint16 sourVoltLev (double * parameters, bool isQuery);
 extern Uint16 sourVoltLim (double * parameters, bool isQuery);
 extern Uint16 sourVoltProt (double * parameters, bool isQuery);
@@ -93,11 +95,11 @@ extern Uint16 sourFreqGain (double * parameters, bool isQuery);
 extern Uint16 sourFreqOffs (double * parameters, bool isQuery);
 extern Uint16 sourFreqRes (double * parameters, bool isQuery);
 extern Uint16 sourTempProt (double * parameters, bool isQuery);
-
+/*============= MEASURE SUBSYSTEM =============*/
 extern Uint16 measVolt (double * parameters, bool isQuery);
 extern Uint16 measCurr (double * parameters, bool isQuery);
 extern Uint16 measTemp (double * parameters, bool isQuery);
-
+/*============= STATUS SUBSYSTEM ==============*/
 extern Uint16 statQuesVoltEven (double * parameters, bool isQuery);
 extern Uint16 statQuesVoltCond (double * parameters, bool isQuery);
 extern Uint16 statQuesVoltEnab (double * parameters, bool isQuery);
@@ -116,7 +118,7 @@ extern Uint16 statQuesScinEnab (double * parameters, bool isQuery);
 extern Uint16 statQuesIicbEven (double * parameters, bool isQuery);
 extern Uint16 statQuesIicbCond (double * parameters, bool isQuery);
 extern Uint16 statQuesIicbEnab (double * parameters, bool isQuery);
-
+/*============= SYSTEM SUBSYSTEM ==============*/
 extern Uint16 systCommScinSbit (double * parameters, bool isQuery);
 extern Uint16 systCommScinPar (double * parameters, bool isQuery);
 extern Uint16 systCommScinDbit (double * parameters, bool isQuery);

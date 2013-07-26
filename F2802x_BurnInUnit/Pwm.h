@@ -8,10 +8,19 @@
 #ifndef PWM_H_
 #define PWM_H_
 
-extern Uint16 comp1Trig;	/* Replace these with SCPI register bits when available. */
-extern Uint16 comp2Trig;
-
+/*================== MACROS ===================*/
 #define PERIOD 600		/**< Defines the initial PWM period setting = 60MHz / 600 = 100. */
+
+/*================ GLOBAL VARS ================*/
+extern Uint16 comp1Trig;	// TODO: Replace these with SCPI register bits when available.
+extern Uint16 comp2Trig;
+/*============= TERMINAL POINTERS =============*/
+extern volatile int32 *PWMDRV_2ch_UpCnt_Duty1A;	/**< Channel 0 PWM terminal pointer. */
+extern volatile int32 *PWMDRV_2ch_UpCnt_Duty1B;	/**< Channel 1 PWM terminal pointers. */
+extern volatile int32 *PWMDRV_2ch_UpCnt_Duty2A;	/**< Channel 2 PWM terminal pointer. */
+extern volatile int32 *PWMDRV_2ch_UpCnt_Duty2B;	/**< Channel 3 PWM terminal pointer. */
+extern volatile int32 *PWMDRV_2ch_UpCnt_Duty3A;	/**< Interboost PWM terminal pointer. */
+extern volatile int32 *PWMDRV_2ch_UpCnt_Duty3B;	/**< AC stage PWM terminal pointer. */
 
 /*============= GLOBAL FUNCTIONS ==============*/
 /** Configures PWM trip zones for use.
@@ -43,15 +52,6 @@ extern Uint16 pwmSetFreq (Uint32 frq);
  * @return 				Error status.
  */
 extern Uint16 pwmGetFreq (Uint32 *frqDest);
-
-/*================ GLOBAL VARS ================*/
-/*============= TERMINAL POINTERS =============*/
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty1A;	/**< Channel 0 PWM terminal pointer. */
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty1B;	/**< Channel 1 PWM terminal pointers. */
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty2A;	/**< Channel 2 PWM terminal pointer. */
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty2B;	/**< Channel 3 PWM terminal pointer. */
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty3A;	/**< Interboost PWM terminal pointer. */
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty3B;	/**< AC stage PWM terminal pointer. */
 
 /*========= SYMBOLS DEFINED BY DP LIB =========*/
 extern volatile struct EPWM_REGS *ePWM[];

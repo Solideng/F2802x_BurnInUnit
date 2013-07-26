@@ -11,7 +11,7 @@
 volatile int32 *SGENTI_1ch_VOut = 0;
 volatile int32 *SGENTI_1ch_Sign = 0;
 #ifdef DEBUG
-	SGENTI_1 sigGen = SGENTI_1_DEFAULTS;	// can be private when testing finished
+	SGENTI_1 sigGen = SGENTI_1_DEFAULTS;	// TODO: can be private when testing finished
 	#pragma DATA_SECTION (sigGen, "SGENTI_1ch_Struct")
 #endif
 #ifdef LOG_SIN
@@ -76,7 +76,7 @@ void sgGainUpdate (void) {
 	else											/* Else error is less than or equal to step so set ref = targetPoint */
 		ref = targetPoint;
 
-	sigGen.gain = (Uint16)(ref >> 9);					/* Convert tot unsigned Q15 */
+	sigGen.gain = (Uint16)(ref >> 9);				/* Convert to unsigned Q15 */
 }
 
 void sgUpdate (void) {
@@ -90,7 +90,7 @@ void sgUpdate (void) {
 		*SGENTI_1ch_VOut = 0;
 		return;
 	}
-	sigGen.calc(&sigGen);								/* Call the sine lib function, passing the settings struct */
+	sigGen.calc(&sigGen);							/* Call the sine lib function, passing the settings struct */
 
 	#ifdef LOG_SIN
 		if (i >= LOG_SIZE)
@@ -107,7 +107,7 @@ void sgUpdate (void) {
 	if (rectify) {									/* Load the absolute result to the net connected to the VOut module terminal */
 		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out * ((sigGen.out > 0) - (sigGen.out < 0)));
 	} else {
-		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out);		/* Load the result to the net connected to the VOut module terminal */
+		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out);	/* Load the result to the net connected to the VOut module terminal */
 	}
 
 	#ifdef LOG_SIN
@@ -181,66 +181,66 @@ Uint16 sgSetFreq (Uint16 frq) {
 	return 0;
 }
 
-Uint16 sgSetResolution (float32 rsl) {
-//	Uint16 currentFreq;
-//	float32 newFMax;
+//Uint16 sgSetResolution (float32 rsl) {
+////	Uint16 currentFreq;
+////	float32 newFMax;
+//
+////	if (rsl <= 0)
+////		return VALUE_OOB;
+////
+////	newFMax = rsl * sigGen.step_max;
+////	sgGetFreq(&currentFreq);
+////
+////	if ((newFMax > SIN_F_SPL) || (currentFreq < newFMax))
+////		return VALUE_OOB;
+////
+////	fMax = newFMax;
+////	sgSetFreq(currentFreq);
+////
+//	return 0;
+//}
 
-//	if (rsl <= 0)
-//		return VALUE_OOB;
-//
-//	newFMax = rsl * sigGen.step_max;
-//	sgGetFreq(&currentFreq);
-//
-//	if ((newFMax > SIN_F_SPL) || (currentFreq < newFMax))
-//		return VALUE_OOB;
-//
-//	fMax = newFMax;
-//	sgSetFreq(currentFreq);
-//
-	return 0;
-}
+//Uint16 sgSetFMax (Uint16 frq) {
+//	/* Sets fMax (instead of using sgSetStepMax())
+//	 * also affects f, step max and resolution
+//	 * 0 - Sampling frequency (SIN_F_SPL)
+//	 */
+////	Uint16 fOld = 0, err = 0;
+////	(sgGetFreq(&fOld));		/* Calculate the current frequency value using the current fMax */
+////
+////	if ((frq <= 0) || (frq > SIN_F_SPL) || (frq < fOld))
+////		return VALUE_OOB;	/* Check the new fMax value is within allowable ranges */
+////
+////	fMax = frq;				/* Update fMax with new value */
+////	err = sgSetFreq(fOld);	/* Update freq with new fMax */
+////	if (err != 0)
+////		return VALUE_OOB;
+////							/* Update step_max with new fMax */
+////	sigGen.step_max = (Uint16)(((fMax * 65536.0) / SIN_F_SPL) + 0.5);
+//	return 0;
+//}
 
-Uint16 sgSetFMax (Uint16 frq) {
-	/* Sets fMax (instead of using sgSetStepMax())
-	 * also affects f, step max and resolution
-	 * 0 - Sampling frequency (SIN_F_SPL)
-	 */
-//	Uint16 fOld = 0, err = 0;
-//	(sgGetFreq(&fOld));		/* Calculate the current frequency value using the current fMax */
-//
-//	if ((frq <= 0) || (frq > SIN_F_SPL) || (frq < fOld))
-//		return VALUE_OOB;	/* Check the new fMax value is within allowable ranges */
-//
-//	fMax = frq;				/* Update fMax with new value */
-//	err = sgSetFreq(fOld);	/* Update freq with new fMax */
-//	if (err != 0)
-//		return VALUE_OOB;
-//							/* Update step_max with new fMax */
-//	sigGen.step_max = (Uint16)(((fMax * 65536.0) / SIN_F_SPL) + 0.5);
-	return 0;
-}
-
-Uint16 sgSetStepMax (Uint16 sMx) {
-	/* Sets the step_max
-	 * also affects fMax and resolution
-	 * 0 - 7FFF
-	 */
-//	float32 fmNew = 0, freqInHz = 0;
-//	Uint16 err = 0;
-//	fmNew = sMx * (SIN_F_SPL / 65536.0);	/* Calculate the new f_max with the new step_max*/
-//	freqInHz = _IQ15toF((int32)sigGen.freq) * fMax;/* Calculate the current f_req setting */
-//
-//	if (freqInHz > fmNew)					/* f_req should be less than the new f_max */
-//		return VALUE_OOB;
-//
-//	fMax = (Uint16) (fmNew + 0.5);			/* Update fMax */
-//	err = sgSetFreq (freqInHz);				/* Update freq with the new fMax */
-//	if (err != 0)
-//		return VALUE_OOB;
-//											/* Update step_max */
-//	sigGen.step_max = sMx;
-	return 0;
-}
+//Uint16 sgSetStepMax (Uint16 sMx) {
+//	/* Sets the step_max
+//	 * also affects fMax and resolution
+//	 * 0 - 7FFF
+//	 */
+////	float32 fmNew = 0, freqInHz = 0;
+////	Uint16 err = 0;
+////	fmNew = sMx * (SIN_F_SPL / 65536.0);	/* Calculate the new f_max with the new step_max*/
+////	freqInHz = _IQ15toF((int32)sigGen.freq) * fMax;/* Calculate the current f_req setting */
+////
+////	if (freqInHz > fmNew)					/* f_req should be less than the new f_max */
+////		return VALUE_OOB;
+////
+////	fMax = (Uint16) (fmNew + 0.5);			/* Update fMax */
+////	err = sgSetFreq (freqInHz);				/* Update freq with the new fMax */
+////	if (err != 0)
+////		return VALUE_OOB;
+////											/* Update step_max */
+////	sigGen.step_max = sMx;
+//	return 0;
+//}
 
 Uint16 sgGetState (Uint16 *sttDest) {
 	*sttDest = (channel[SIN_CHANNEL].chEnable > 0);
@@ -267,15 +267,15 @@ Uint16 sgGetFreq (Uint16 *frqDest) {
 	return 0;
 }
 
-Uint16 sgGetFMax (Uint16 *frqDest) {
-//	*frqDest = fMax;
-	return 0;
-}
-
-Uint16 sgGetStepMax (Uint16 *sMxDest) {
-//	*sMxDest = sigGen.step_max;
-	return 0;
-}
+//Uint16 sgGetFMax (Uint16 *frqDest) {
+////	*frqDest = fMax;
+//	return 0;
+//}
+//
+//Uint16 sgGetStepMax (Uint16 *sMxDest) {
+////	*sMxDest = sigGen.step_max;
+//	return 0;
+//}
 
 Uint16 sgGetResolution (float32 *rslDest) {
 	if (sigGen.step_max == 0)

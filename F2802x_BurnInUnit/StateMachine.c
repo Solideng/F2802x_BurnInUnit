@@ -22,12 +22,12 @@ static void smB2(void);	/* State B2 */
 static void smC1(void);	/* State C1 */
 static void smC2(void);	/* State C2 */
 
-/*============== GLOABL FUNCTIONS =============*/
+/*============== GLOBAL FUNCTIONS =============*/
 void (*Alpha_State_Ptr)(void);
 
 void smInit (void) {
 	#ifdef VTIMERS
-		timersSetupVirtual();		/* Setup (clear) virtual timer arrays */
+		timersSetupVirtual();	/* Setup (clear) virtual timer arrays */
 	#endif
 	timersSetupReal();			/* Timing sync for background loops */
 
@@ -43,7 +43,7 @@ void smA0(void) {
 		CpuTimer0Regs.TCR.bit.TIF = 1;	/* clear flag */
 		(*A_Task_Ptr)();		/* jump to an A Task (A1,A2,A3,...) */
 		#ifdef VTIMERS
-			VTimer0[0]++;			/* virtual timer 0, instance 0 (spare) */
+			VTimer0[0]++;		/* virtual timer 0, instance 0 (spare) */
 		#endif
 	}
 	Alpha_State_Ptr = &smB0;	/* Comment out to allow only A tasks */
@@ -64,7 +64,6 @@ void smA1(void) {
 
 void smA2(void) /* SCI GUI, Slew control, LED current control */
 {
-	//	SerialHostComms();	//found in SciCommsGui.c
 //	scSetTarget(DC_STAGE, vMidOut);
 //	scSetTarget(AC_STAGE, vMidOut);
 	scSlewUpdate();			/* Step the slew values for load channels */
@@ -79,7 +78,7 @@ void smB0(void) {
 		CpuTimer1Regs.TCR.bit.TIF = 1;	/* clear flag */
 		(*B_Task_Ptr)();		/* jump to a B Task (B1,B2,B3,...) */
 		#ifdef VTIMERS
-			VTimer1[0]++;			/* virtual timer 1, instance 0 (used to control SPI LEDs) */
+			VTimer1[0]++;		/* virtual timer 1, instance 0 (used to control SPI LEDs) */
 		#endif
 	}
 	Alpha_State_Ptr = &smC0;
@@ -104,7 +103,7 @@ void smC0(void) {
 		CpuTimer2Regs.TCR.bit.TIF = 1;	/* clear flag */
 		(*C_Task_Ptr)();		/* jump to a C Task (C1,C2,C3,...) */
 		#ifdef VTIMERS
-			VTimer2[0]++;			/* virtual timer 2, instance 0 (spare) */
+			VTimer2[0]++;		/* virtual timer 2, instance 0 (spare) */
 		#endif
 	}
 	Alpha_State_Ptr = &smA0;	/* Back to State A0 */

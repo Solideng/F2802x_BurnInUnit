@@ -18,6 +18,7 @@
 #ifndef SINEGEN_H_
 #define SINEGEN_H_
 
+/*================== MACROS ===================*/
 /*======== INITIAL SIN PARAMETER VALUES =======*/
 #define SIN_DFLT_RCTFY	TRUE	/**< Initial rectification setting [TRUE | FALSE). */
 #define SIN_DFLT_OFST	0		/**< Initial offset setting [-0.5, +0.5], IQ15. */
@@ -109,17 +110,17 @@ extern Uint16 sgSetGainTarget (float32 gnt);
  */
 extern Uint16 sgSetFreq (Uint16 frq);
 
-/** Sets the signal generator maximum frequency setting value, @f$ f_{max}@f$ .
+/* Sets the signal generator maximum frequency setting value, @f$ f_{max}@f$ .
  * @param[in]	frq	Frequency value [0, @f$ f_{sample}@f$] (hertz).
  * @return			Error status.
  */
-extern Uint16 sgSetFMax (Uint16 frq);
+//extern Uint16 sgSetFMax (Uint16 frq);
 
-/**Sets the signal generator step max setting value.
+/*Sets the signal generator step max setting value.
  * @param[in]	sMx	Step_max value [0, 32767).
  * @return			Error status.
  */
-extern Uint16 sgSetStepMax (Uint16 sMx);
+//extern Uint16 sgSetStepMax (Uint16 sMx);
 
 /** Queries the current state of the generator output.
  * @param[out]	sttDest	Address of the memory location at which to place the query result  {1:ON | 0:OFF}.
@@ -151,17 +152,17 @@ extern Uint16 sgGetGainTarget (float32 *gntDest);
  */
 extern Uint16 sgGetFreq (Uint16 *frqDest);
 
-/** Queries the current maximum frequecny setting.
+/* Queries the current maximum frequecny setting.
  * @param[out]	frqDest	Address of the memory location at which to place the query result (hertz).
  * @return				Error ststus.
  */
-extern Uint16 sgGetFMax (Uint16 *frqDest);
+//extern Uint16 sgGetFMax (Uint16 *frqDest);
 
-/** Queries the current step_max setting.
+/* Queries the current step_max setting.
  * @param[out]	sMxDest	Address of the memory location at which to place the query result.
  * @return				Error status.
  */
-extern Uint16 sgGetStepMax (Uint16 *sMxDest);
+//extern Uint16 sgGetStepMax (Uint16 *sMxDest);
 
 /** Queries the current frequency resolution.
  * This is equal to @f$ f_{max}@f$ / step_max.

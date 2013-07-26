@@ -3,14 +3,19 @@
  *
  * @brief ADC, DAC, comparator and related functions.
  *
+ * Requires the modification of the COMP_REGS struct of the
+ * DSP2802x_GlobalVariableDefs in the file DSP2802x_Comp.h,
+ * to allow use of the DACCTL and ramp-related register
+ * unions. Use the equivalent file from the f2903x includes
+ * for reference.
+ *
  */
 
-// TODO add adcGetLevel() for MEASure V & I
 #ifndef ADC_H_
 #define ADC_H_
 
 /*============= GLOBAL FUNCTIONS ==============*/
-
+/** Configures ADC SOC for ADC macro */
 extern void adcSocCnf (void);
 
 /** Configures the ADC's SOCs then calls pwmSocConfigure().

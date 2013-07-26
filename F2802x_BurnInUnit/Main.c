@@ -24,8 +24,14 @@
  *============================================================================*/
 
 /*
- * Control LaunchPad XL boot mode using switch 1 (S1):
+ * If the TI C2000 LaunchPad is to be powered by an source
+ * other than the USB connection the jumpers JP1, JP2 and
+ * JP3 should be removed.
  *
+ * Lantronix XPort Pro static raw IP: 169.254.11.150:10001
+ *
+ * Control the TI C2000 LaunchPad XL boot mode using
+ * switch 1 (S1):
  * Position the three switches so that all of them are on,
  * then connect USB and use CCS IDE to load the program.
  * When the program is loaded, stop the emulator and
@@ -36,14 +42,16 @@
  * button on the PCB. The program should now be running and
  * the terminal emulator should be able to show received
  * data.
- *
  * | Switch	| Function	|
- * |:------:|:----------|
+ * |:------:|:---------:|
  * | 1		| GPIO34	|
  * | 2		| GPIO37	|
  * | 3		| TRSTn		|
  *
- * Lantronix XPort Pro static raw IP: 169.254.11.150:10001
+ * Project requires modification of the included file
+ * DPlib.h, of the digital power application library, by
+ * moving *ePwm[] and DLOG_BuffInit() into an external file
+ * named DPlibEx.h at the same path location as DPlib.h.
  *
  */
 #include "Common.h"

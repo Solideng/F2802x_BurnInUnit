@@ -7,10 +7,10 @@
 #ifndef CNTL_H_
 #define CNTL_H_
 
+/*================== MACROS ===================*/
 #define SATMAX_MAX 0.9f	/**< The maximum allowable value for the IIR filter control law's maximum saturation. */
 
 /*================ GLOBAL VARS ================*/
-
 /** CNTL Coefficient references */
 enum coefNum {
 	firstCoef = 0,

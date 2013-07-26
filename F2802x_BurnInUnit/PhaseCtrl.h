@@ -11,12 +11,14 @@
 #ifndef PHASECTRL_H_
 #define PHASECTRL_H_
 
+/*=============== GLOBAL VARS =================*/
+extern volatile int32 *PHASE_CTRL_In; /**< Phase control module signal input terminal. */
+
+/*============= GLOBAL FUNCTIONS ==============*/
 /** Updates GPIO19 based on state of *PHASE_CTRL_In terminal.
  * Expects 0 (GPIO19 set) or non-zero (GPIO19 cleared).
  * This is generally called by the DPL_ISR.asm
  */
 extern void pcUpdate (void);
-
-extern volatile int32 *PHASE_CTRL_In; /**< Phase control module signal input terminal. */
 
 #endif /* PHASECTRL_H_ */

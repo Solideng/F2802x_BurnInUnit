@@ -8,6 +8,7 @@
 #ifndef F2802X_BURNINUNIT_STATEMACHINE_H_
 #define F2802X_BURNINUNIT_STATEMACHINE_H_
 
+/*============= GLOBAL FUNCTIONS ==============*/
 /** Sets up the state machine (incl. timers) ready for use. */
 extern void smInit (void);
 

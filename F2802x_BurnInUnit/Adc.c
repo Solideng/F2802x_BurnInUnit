@@ -18,9 +18,7 @@ void adcCompConfigure (void) {
 	Comp1Regs.DACVAL.bit.DACVAL = 0x3FF;	/* Set the DAC Value to the maximum value to begin with */
 	Comp1Regs.COMPCTL.bit.COMPSOURCE = 0;	/* COMP1 inverting i/p is connected to internal DAC */
 	Comp1Regs.COMPCTL.bit.CMPINV = 0; 		/* COMP1 o/p is not inverted */
-	//Comp1Regs.COMPCTL.bit.QUALSEL = 0;		/* COMP1 o/p has no qualification window length */
 	Comp1Regs.COMPCTL.bit.QUALSEL = 3;		/* COMP1 o/p has no qualification window length */
-	//Comp1Regs.COMPCTL.bit.SYNCSEL = 0;		/* COMP1 o/p is not synchronised to the SysClk */
 	Comp1Regs.COMPCTL.bit.SYNCSEL = 1;		/* COMP1 o/p is not synchronised to the SysClk */
 	Comp1Regs.DACCTL.bit.DACSOURCE = 0;		/* Set DACVAL as DAC control source */
 

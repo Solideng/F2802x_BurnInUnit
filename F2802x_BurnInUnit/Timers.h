@@ -12,6 +12,7 @@
 #ifndef TIMERS_H_
 #define TIMERS_H_
 
+/*============= GLOBAL FUNCTIONS ==============*/
 #ifdef VTIMERS
 	extern int16 VTimer0[4];	/**< First set of virtual timers. */
 	extern int16 VTimer1[4];	/**< Second set of virtual timers. */

@@ -24,6 +24,7 @@
 #ifndef BSTEN_H_
 #define BSTEN_H_
 
+/*================== MACROS ===================*/
 #ifndef I2C_H_
 	#error "The fan control interface requires the file I2c.h to be included"
 #endif
@@ -50,6 +51,7 @@
 	#define IOE_NUM_CHNL BST_NUM_CHNL	/**< Total number of MCP I/O expander channels. */
 #endif
 
+/*============= GLOBAL FUNCTIONS ==============*/
 /** Initialises the boost converter enable control interface.
  * The I2C peripheral MUST be initialised before this function is used.
  * @sa i2cInit()

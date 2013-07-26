@@ -45,6 +45,7 @@
 #define TMP_EC1			1E-3	/**< First order MCP9701 temperature error coefficient (@f$ ^\circ@f$ C/@f$ ^\circ C^2@f$), calculated as shown in Microchip AN1001. */ /* degree C / degree C^2 */
 #define TMP_EC2			-200E-6	/**< Second order MCP9701 temperature error coefficient (@f$ ^\circ@f$ C/@f$ ^\circ C^2@f$), calculated as shown in Microchip AN1001. */ /* degree C / degree C^2 */
 
+/*============= GLOBAL FUNCTIONS ==============*/
 /** Initialises the system for temperature readings.
  * The I2C peripheral must be initialised before this function is used
  * @sa i2cInit().
@@ -83,7 +84,7 @@ extern Uint16 tmpCheckOtp (void);
 extern Uint16 tmpRead (Uint16 chnl, float32 *tmpDest);
 
 /* The above functions use only on-board temperature sensors, the following
- * functions will need to be implemented to allow of-board sensors to be added
+ * functions will need to be implemented to allow off-board sensors to be added
  */
 /* extern Uint16 tmpSetExtOtp (Uint16 chnl, float32 tmp); */
 /* extern Uint16 tmpGetExtOtp (Uint16 chnl, float32 *tmpDest); */

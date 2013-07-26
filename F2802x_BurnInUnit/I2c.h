@@ -4,9 +4,27 @@
  * @brief I2C communication functions.
  *
  * @warning
- * The function i2cInit() MUST be called before any other public I2C
- * function is used. This will clear any values already in the I2C
- * registers.
+ * The following bridge tracks should be cut on the TI
+ * C2000 LaunchPad XL PCB before I2C (or SPI) may be used:
+ * |Bridge to Cut	| GPIO 	|PCB Pin|
+ * |:--------------:|:-----:|:-----:|
+ * | JP5			| GPIO32| J2-6	|
+ * | JP7			| GPIO33| J2-7	|
+ * | JP8			| GPIO16| J6-7	|
+ * | JP10			| GPIO17| J6-8	|
+ *
+ * This should result in the following functionality:
+ * |Function	| GPIO 	|PCB Pin|
+ * |:----------:|:-----:|:-----:|
+ * | I2C_SDAA	| GPIO32| J6-7	|
+ * | I2C_SCLA	| GPIO33| J6-8	|
+ * | SPI_MOSI	| GPIO16| J2-6	|
+ * | SPI_MISO	| GPIO17| J2-7	|
+ *
+ * @warning
+ * The function i2cInit() MUST be called before any other
+ * public I2C function is used. This will clear any values
+ * already in the I2C registers.
  *
  * @warning
  * Interrupts MUST be globally enabled for the functions i2cWrite()
@@ -21,6 +39,7 @@
 #ifndef I2C_H_
 #define I2C_H_
 
+/*================== MACROS ===================*/
 #define I2C_MAX_BUFFER_SIZE		0x04	/**< Maximum I2C message buffer size in bytes, including slave register pointer bytes. */
 #define I2C_MAX_PTR_SIZE 		0x02	/**< Maximum number of slave register pointer bytes. */
 
@@ -62,26 +81,28 @@ typedef struct {
 	Uint16 numSlavePtrBytes;		/**< The number of slave register pointer address bytes. */
 	Uint16 slavePtrAddrHigh;		/**< The slave register pointer high byte. */
 	Uint16 slavePtrAddrLow;			/**< The slave register pointer low byte. */
-	Uint16 msgBuffer[I2C_MAX_BUFFER_SIZE];	/**< A buffer array for message data. The maximum buffer
-											 * size, MAX_BUFFER_SIZE, is 4 due to the FIFO's size. */
+	Uint16 msgBuffer[I2C_MAX_BUFFER_SIZE];	/**< A buffer array for message data. The maximum buffer size, MAX_BUFFER_SIZE, is 4 due to the FIFO's size. */
 } i2cMsg;
 
 /*============= GLOBAL FUNCTIONS ==============*/
-
 /** Initialises the I2C-A peripheral and relevant interrupts.
  * This function will clear any values already in the I2C peripheral registers.
  * This function MUST be called before any other public I2C function.
  */
 extern void i2cInit (void);
 
-/** This function can be used to validate and populate the specified settings and values into the specified I2C message structure.
+/** This function can be used to validate and populate the specified settings and values into the specified I2C
+ * message structure.
  * @param[out]	msg					The I2C message structure.
  * @param[in]	msgStatus			The initial I2C message status.
  * @param[in]	slaveAddr			The slave address.
- * @param[in]	numDataBytes		The number, if any, of data bytes, above any slave register pointer bytes, in the message.
+ * @param[in]	numDataBytes		The number, if any, of data bytes, above any slave register pointer bytes, in
+ * 									the message.
  * @param[in]	numSlavePtrBytes	The number, if any, of slave register pointer bytes.
- * @param[in]	slavePtrAddrHi		The slave register pointer high byte. If only one byte, or none, (as indicated by numSlavePtrbytes) is to be used leave this at zero.
- * @param[in]	slavePtrAddrLo		The slave register pointer low byte. If no pointer bytes (as indicated by numSlavePtrbytes) are used leave this at zero.
+ * @param[in]	slavePtrAddrHi		The slave register pointer high byte. If only one byte, or none, (as
+ * 									indicated by numSlavePtrbytes) is to be used leave this at zero.
+ * @param[in]	slavePtrAddrLo		The slave register pointer low byte. If no pointer bytes (as indicated by
+ * 									numSlavePtrbytes) are used leave this at zero.
  */
 extern void i2cPopMsg (i2cMsg *msg, Uint16 msgStatus, Uint16 slaveAddr, Uint16 numDataBytes, Uint16 numSlavePtrBytes, Uint16 slavePtrAddrHi, Uint16 slavePtrAddrLo);
 
@@ -91,7 +112,7 @@ extern void i2cPopMsg (i2cMsg *msg, Uint16 msgStatus, Uint16 slaveAddr, Uint16 n
  */
 extern Uint16 i2cWrite (i2cMsg *msg);
 
-/** Starts an I2C-Aread using the settings specified.
+/** Starts an I2C-A read using the settings specified.
  * Read bytes are saved to the buffer msg.msgBuffer[].
  * @param[in]	msg	The I2C message struct.
  * @return			Error status.

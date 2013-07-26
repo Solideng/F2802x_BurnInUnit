@@ -6,16 +6,13 @@
  */
 
 #include "Common.h"
-Uint16 dbgCnt = 0;	// TODO: Remove after debug finish.
+
 static interrupt void sciRxIsr(void);
 static interrupt void sciTxIsr(void);
 
 // TODO change sciEchoEnable to be a SCPI register bit
 static Uint16 sciEchoEnable = 0;		/* Sets the SCI to echo any input instead of doing anything else with it. */
-//static Uint16 sciSetupTxInt = 0;		/* Indicates if a transmit interrupt is an initial one caused by
-//										 * SCI setup or is an actual valid transmit interrupt associated
-//										 * with a current transmission.
-//										 */
+
 Uint16 sciInit (Uint32 baud) {
 	/* Initialise the SCI-A module for using FIFOs. */
 	double brr = 0;
@@ -50,9 +47,7 @@ Uint16 sciInit (Uint32 baud) {
 										 */
 	SciaRegs.SCIFFRX.all = 0x4060 | SCIFFRX_INT_LVL;
 	SciaRegs.SCIFFCT.all = 0x00;		/* Disable auto-baud feature and set transmit delay to 0. */
-//	sciSetupTxInt = FALSE;				/* Clear this so that the transmit ISR doesn't run immediately because of
-//										 * the transmit FIFO being empty.
-//										 */
+
 	SciaRegs.SCICTL1.bit.SWRESET = 1;	/* Relinquish SCI and FIFOs from Reset. */
 	SciaRegs.SCICTL1.all = 0x0023;
 	SciaRegs.SCIFFTX.bit.TXFIFOXRESET = 1;
@@ -65,30 +60,24 @@ Uint16 sciInit (Uint32 baud) {
 	return 0;
 }
 
-
 void sciTx (void) {
-	/* Start a transmission. */
+	/* Pop data from the SCPI output queue and start transmitting it. */
 	Uint16 popResult = 0;
 	char dataByte = 0;
 										/* Fill the FIFO until it is full or the SCPI output queue is empty. */
 	while ((SciaRegs.SCIFFTX.bit.TXFFST < SCIFFTX_FILL_LVL) && (popResult == 0)) {
-		msgs.flag.brq = 1;					/* Make sure brq is set, as if the FIFO takes more than 1 byte the
-											 * pop is called without first running the response state code.
-											 */
+		msgs.flag.brq = 1;				/* Make sure brq is set, as if the FIFO takes more than 1 byte the
+										 * pop is called without first running the response state code.
+										 */
 		popResult = popOQueue(&dataByte);
-		dbgCnt++;
 		if (popResult == 0)
 			SciaRegs.SCITXBUF = (Uint16) dataByte;
 	}
-
-//	sciSetupTxInt = TRUE;				/* Allow transmit interrupt. */
 	SciaRegs.SCIFFTX.bit.TXFFINTCLR = 1;/* Clear SCIA FIFO transmit interrupt flag. */
 }
 
 static interrupt void sciTxIsr(void) {
 	/* SCI interrupt (SCITXINTA) indicating the SCI is ready to accept more data. */
-//	if(sciSetupTxInt != FALSE)				/* Check setup interrupt flag is true. */
-//		SciaRegs.SCIFFTX.bit.TXFFINTCLR = 1;/* Clear SCIA FIFO transmit interrupt flag. */
 	PieCtrlRegs.PIEACK.bit.ACK9 = 1;		/* Acknowledge interrupt in PIE. */
 }
 

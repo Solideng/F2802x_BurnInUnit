@@ -24,6 +24,7 @@
 #ifndef FANEN_H_
 #define FANEN_H_
 
+/*================== MACROS ===================*/
 #ifndef I2C_H_
 	#error "The fan control interface requires the file I2c.h to be included"
 #endif
@@ -47,6 +48,7 @@
 #define FAN_NUM_CHNL			0x04	/**< Number of fan channels */
 #define FAN_CHNL_OFST			0x04	/**< Fan channel numbering offset */
 
+/*============= GLOBAL FUNCTIONS ==============*/
 /** Initialises the fan enable control interface.
  * The I2C peripheral must be initialised before this function is used.
  * @sa i2cInit()

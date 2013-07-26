@@ -7,6 +7,7 @@
 #ifndef MACRONETS_H_
 #define MACRONETS_H_
 
+/*================== MACROS ===================*/
 /*============= CHANNEL NUMBERING =============*/
 #define LOAD_0		0	/**< The index position for Load 0 settings. */
 #define LOAD_1		1	/**< The index position for Load 1 settings. */

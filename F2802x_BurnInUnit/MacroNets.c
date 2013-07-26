@@ -111,8 +111,8 @@ void mnConnectNets (void) {
 		ADCDRV_1ch_Rlt13 = &channel[V_MID_CH].vFdbkNet;
 		PWMDRV_2ch_UpCnt_Duty3A = &duty[DC_STAGE];
 
-		ADCDRV_1ch_Rlt6 = &channel[AC_STAGE].iFdbkNet;/* AC stage connections */ //??
-		ADCDRV_1ch_Rlt12 = &channel[AC_STAGE].vFdbkNet; //??
+		ADCDRV_1ch_Rlt6 = &channel[AC_STAGE].iFdbkNet;/* AC stage connections */
+		ADCDRV_1ch_Rlt12 = &channel[AC_STAGE].vFdbkNet;
 		PWMDRV_2ch_UpCnt_Duty3B = &duty[AC_STAGE];
 	#endif
 
