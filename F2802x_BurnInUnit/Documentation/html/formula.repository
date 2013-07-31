@@ -6,3 +6,5 @@
 \form#5:$ f_{sample}$
 \form#6:$ \langle$
 \form#7:$ \rangle$
+\form#8:\[ f_in= \frac{1}{T_in*n} \]
+\form#9:\[ f_{in}= \frac{1}{T_{in}*n} \]

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>F2802x Burn In Unit: Main Page</title>
+<title>F2802x Burn In Unit: Introduction</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,12 @@
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -64,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -75,12 +81,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div class="header">
   <div class="headertitle">
-<div class="title">F2802x Burn In Unit Documentation</div>  </div>
+<div class="title">Introduction </div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><p>This document forms the reference manual for the Burn In Unit based on the Texas Instruments F2802x.</p>
+<p>This system has been implemented using several Texas Instruments libraries; digital power v3.1, SGen V1.01, IQMath v1.5c and SQMath. Please refer to the TI documentation pertaining to those libraries and to the C28x device to understand their operation.</p>
+<p>This system also uses the System for Standard Commands for Programmable Instruments for C28x, again, refer to the documentation pertaining to that system to understand its use.</p>
+<h4>General Operation</h4>
+<p>This system operates using the concept of a state machine with multiplexed threading. This allows important tasks, such as signal generation and the monitoring of critical parameters to take precedence while still allowing other less critical tasks to run with acceptable frequency. This is allowed by creating several threads DPL, A, B and C and iterating them at different interval periods, such that every time the thread is iterated the next single task in that thread is run.</p>
+<h5>Fast (DPL) Thread</h5>
+<p>The DPL thread is the fastest thread, is coded in assembly and consists of only two tasks. It is the only thread that uses an interrupt to iterate. Thus the tasks are formed by an interrupt service routine (ISR). This allows the DPL thread to interrupt the ongoing action of any of the other threads. This means that as long as the length of time each of the tasks take to execute is less than the interval time, then the threads operation will be deterministic. It is within this thread's two tasks that the critical and time-sensitive actions of the program are carried out. The thread ISR is triggered by a start of conversion (SOC) signal from the master enhanced pulse width modulation (ePWM) peripheral. This occurs at a frequency of 33 kHz. As there are two tasks on the thread, the frequency of each task is 16.5 kHz resulting in a period of 60us.</p>
+<h5>Sequential Iteration Threads</h5>
+<p>The remaining threads (A, B, C) iterate by checking the rollover state of different CPU timers. Their operation and iteration is sequential and so less deterministic. The outline of the handling sequential iteration threads by the state machine is illustrated by the flow diagram below, where N and n rollover to A and 0, respectively whenever they reach their maximum value.</p>
+<div class="image">
+<img src="state_machine_loop.png" alt="state_machine_loop.png"/>
+</div>
+<p>The frequency of tasks can be determined from the period of the interval timers using the following equation, where <em>n</em> is the number of tasks in the thread and <em>T<sub>in</sub></em> is the interval timer period. </p>
+<p class="formulaDsp">
+\[ f_{ta}= \frac{1}{T_{in} \times n} \]
+</p>
+<p> With interval periods such that <em>T<sub>A</sub></em> <code>&lt;</code> <em>T<sub>B</sub></em> <code>&lt;</code> <em>T<sub>A</sub></em> this results in the flow of execution illustrated by the following diagram.</p>
+<div class="image">
+<img src="seq_state_machine_task_itr.png" alt="seq_state_machine_task_itr.png"/>
+</div>
+<h4>Digital Power Control</h4>
+<p>The control of the power, voltage and current is managed using control loop logic, normally one loop for each stage (Transformer, AC, each of the four loads). These control loops are formed from a set of macros and helper functions.</p>
+<p>Each of these macros acts as a block of functionality, much like a black-box electronic component, allowing their terminals to be wired together in the required order with nets. Once initialised and configured, or connected, correctly the macro blocks are executed, sequentially, by calling the appropriate code from an assembly ISR. In this case, this is what forms the DPL ISR tasks. Each block performs a precisely defined computation and delivers the result to the appropriate net-list variables. Each control loop's net vairables and operation parameter variables are grouped together and stored in a structure (<a class="el" href="structchannel_parameters.html">channelParameters</a>), with one such structure for each control loop.</p>
+<p>The basic use of macros that are available within the program can be broken down into three parts:</p>
+<ol type="1">
+<li>Initialisation: the macro blocks are initialised from the program by using a C callable function, DPL_Init(), which is contained within the assembly file DPL_ISR.asm.</li>
+<li>Configuration: C pointers of the macro block terminals are assigned to net nodes to form the desired control structure, i.e., the control loop.</li>
+<li>Execution: Macro block code is executed in the assembly ISR, <a class="el" href="_pwm_8h.html#a5532a53363218854b0e4b15049d773f7">DPL_ISR()</a>.</li>
+</ol>
+<h5>Boost Load Control</h5>
+<p>The figure below shows a diagram that illustrates the macro and net view of the control loop for one of the load boost converter stages. The loop depicted is current controlled. It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the level of the current at the low side of the load input, CHANn I<sub>SNS</sub>. This value is used as the feedback into a 2-pole 2-zero filter macro where it is compared to the reference value and the output value is varied up or down, using the filter coefficients, as necessary. This output value is then used by another macro to set the duty of the ePWM peripheral that controls the switching of the converter, CHANn PWM.</p>
+<p>Another macro retrieves a value from a second ADC that represents the voltage level across the load input, CHANn V<sub>SNS</sub>. A task in one of the sequential iteration threads compares this value to the user-set allowable voltage limit, the OVP limit. If the value is above this limit the control loop output is disabled and an over-current protection alert is raised.</p>
+<div class="image">
+<img src="boost_load_loop.png" alt="boost_load_loop.png"/>
+</div>
+<h5>Inter-Boost Control</h5>
+<p>The figure below shows a diagram that illustrates the macro and net view of the control loop for the inter-boost, or "middle", boost converter stage. The loop depicted is voltage controlled. It uses a macro to retrieve a reading from an ADC peripheral a value that indicates the level of the voltage across the stage output, DC HV V<sub>SNS</sub>. This value is used as the feedback into a 3-pole 3-zero filter macro where it is compared to the reference value and the output value is varied up or down, using the filter coefficents, as necessary. This output value is then used by another macro to set the duty of the ePWM peripheral that controls the switching of the converter, INTBST PWM.</p>
+<p>Another macro retrieves a value from a second ADC that represents the current level at the low side of the input, DC MID I<sub>SNS</sub>. An on-board analogue comparator compares this value against the user-set allowable current limit, the OCP limit. If the value is above this limit the comparator output sets the related trip-zone, quickly disabling the control loop output in software and hardware, HV EN.</p>
+<div class="image">
+<img src="boost_xfmr_loop.png" alt="boost_xfmr_loop.png"/>
+</div>
+ </div></div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Fri Jul 26 2013
+Wed Jul 31 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

@@ -34,6 +34,8 @@ void \hyperlink{_pwm_8h_adfbaf2bb56a0c9fe6f54826499cb57de}{pwm\-D\-P\-L\-Trig\-I
 Uint16 \hyperlink{_pwm_8h_af82e2c1ff72afc3de42eb172ca925956}{pwm\-Set\-Freq} (Uint32 frq)
 \item 
 Uint16 \hyperlink{_pwm_8h_a79f203a5167440096f2ba270813b6db2}{pwm\-Get\-Freq} (Uint32 $\ast$frq\-Dest)
+\item 
+interrupt void \hyperlink{_pwm_8h_a5532a53363218854b0e4b15049d773f7}{D\-P\-L\-\_\-\-I\-S\-R} (void)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -62,7 +64,14 @@ P\-W\-M and related functions.
 Defines the initial P\-W\-M period setting = 60\-M\-Hz / 600 = 100. 
 
 \subsection{Function Documentation}
-\hypertarget{_pwm_8h_adfbaf2bb56a0c9fe6f54826499cb57de}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-D\-P\-L\-Trig\-Init@{pwm\-D\-P\-L\-Trig\-Init}}
+\hypertarget{_pwm_8h_a5532a53363218854b0e4b15049d773f7}{\index{Pwm.\-h@{Pwm.\-h}!D\-P\-L\-\_\-\-I\-S\-R@{D\-P\-L\-\_\-\-I\-S\-R}}
+\index{D\-P\-L\-\_\-\-I\-S\-R@{D\-P\-L\-\_\-\-I\-S\-R}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{D\-P\-L\-\_\-\-I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}interrupt void D\-P\-L\-\_\-\-I\-S\-R (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{_pwm_8h_a5532a53363218854b0e4b15049d773f7}
+Digital power control loop interrupt service routine Located in the assembly file Burn\-In\-Unit\-\_\-\-I\-S\-R.\-asm \hypertarget{_pwm_8h_adfbaf2bb56a0c9fe6f54826499cb57de}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-D\-P\-L\-Trig\-Init@{pwm\-D\-P\-L\-Trig\-Init}}
 \index{pwm\-D\-P\-L\-Trig\-Init@{pwm\-D\-P\-L\-Trig\-Init}!Pwm.h@{Pwm.\-h}}
 \subsubsection[{pwm\-D\-P\-L\-Trig\-Init}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-D\-P\-L\-Trig\-Init (
 \begin{DoxyParamCaption}

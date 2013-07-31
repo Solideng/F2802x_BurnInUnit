@@ -32,6 +32,7 @@ var searchData=
   ['imaxrms',['iMaxRms',['../structchannel_parameters.html#ab4b8dda9d3ab4395a3fde8bc0e403212',1,'channelParameters']]],
   ['iminrms',['iMinRms',['../structchannel_parameters.html#a12f6946f5b0ee1235d7edcb6a22a4518',1,'channelParameters']]],
   ['incr_5fbuild',['INCR_BUILD',['../_settings_8h.html#abf493281a7e64fe88660c38753e18d56',1,'Settings.h']]],
+  ['introduction',['Introduction',['../index.html',1,'']]],
   ['ioe_5fdefval_5faddr',['IOE_DEFVAL_ADDR',['../_bst_en_8h.html#a687e15212e8d4b49c12159dce73eeeab',1,'IOE_DEFVAL_ADDR():&#160;BstEn.h'],['../_fan_en_8h.html#a687e15212e8d4b49c12159dce73eeeab',1,'IOE_DEFVAL_ADDR():&#160;FanEn.h']]],
   ['ioe_5fgpinten_5faddr',['IOE_GPINTEN_ADDR',['../_bst_en_8h.html#aa68be5a6ed28fb146600b4fd2d11fafd',1,'IOE_GPINTEN_ADDR():&#160;BstEn.h'],['../_fan_en_8h.html#aa68be5a6ed28fb146600b4fd2d11fafd',1,'IOE_GPINTEN_ADDR():&#160;FanEn.h']]],
   ['ioe_5fgpio_5faddr',['IOE_GPIO_ADDR',['../_bst_en_8h.html#af2d85152c5775a221f107d6de547bca1',1,'IOE_GPIO_ADDR():&#160;BstEn.h'],['../_fan_en_8h.html#af2d85152c5775a221f107d6de547bca1',1,'IOE_GPIO_ADDR():&#160;FanEn.h']]],
