@@ -40,23 +40,15 @@ PhaseCtrl.obj: ../tmp.h
 PhaseCtrl.obj: ../FanEn.h
 PhaseCtrl.obj: ../BstEn.h
 PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
-PhaseCtrl.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdlib.h
-PhaseCtrl.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/linkage.h
-PhaseCtrl.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdlibf.h
+PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h
+PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h
 PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_bool.h
 PhaseCtrl.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_Device.h
-PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.h
-PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_regs.h
-PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_string.h
+PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_status.h
 PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_buildTree.h
-PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_commonCmds.h
-PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_requiredCmds.h
-PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_serialEmulation.h
+PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.h
 PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_inputBuffer.h
 PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_outputQueue.h
-PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_lexer.h
-PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_parser.h
-PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_execCtrl.h
 PhaseCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_respFmtr.h
 PhaseCtrl.obj: ../SCPI_specificCmds.h
 
@@ -100,22 +92,14 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../FanEn.h: 
 ../BstEn.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
-C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdlib.h: 
-C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/linkage.h: 
-C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdlibf.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_bool.h: 
 C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_Device.h: 
-../../../SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.h: 
-../../../SCPI_Build/SCPI_Build/scpi/SCPI_regs.h: 
-../../../SCPI_Build/SCPI_Build/scpi/SCPI_string.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_status.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_buildTree.h: 
-../../../SCPI_Build/SCPI_Build/scpi/SCPI_commonCmds.h: 
-../../../SCPI_Build/SCPI_Build/scpi/SCPI_requiredCmds.h: 
-../../../SCPI_Build/SCPI_Build/scpi/SCPI_serialEmulation.h: 
+../../../SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_inputBuffer.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_outputQueue.h: 
-../../../SCPI_Build/SCPI_Build/scpi/SCPI_lexer.h: 
-../../../SCPI_Build/SCPI_Build/scpi/SCPI_parser.h: 
-../../../SCPI_Build/SCPI_Build/scpi/SCPI_execCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_respFmtr.h: 
 ../SCPI_specificCmds.h: 

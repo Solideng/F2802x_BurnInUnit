@@ -12,10 +12,10 @@ C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_lexer.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_outputQueue.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_parser.c \
-C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_regs.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_requiredCmds.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_respFmtr.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_serialEmulation.c \
+C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_status.c \
 C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_string.c 
 
 OBJS += \
@@ -27,10 +27,10 @@ OBJS += \
 ./scpi/SCPI_msgEPCtrl.obj \
 ./scpi/SCPI_outputQueue.obj \
 ./scpi/SCPI_parser.obj \
-./scpi/SCPI_regs.obj \
 ./scpi/SCPI_requiredCmds.obj \
 ./scpi/SCPI_respFmtr.obj \
 ./scpi/SCPI_serialEmulation.obj \
+./scpi/SCPI_status.obj \
 ./scpi/SCPI_string.obj 
 
 C_DEPS += \
@@ -42,10 +42,10 @@ C_DEPS += \
 ./scpi/SCPI_msgEPCtrl.pp \
 ./scpi/SCPI_outputQueue.pp \
 ./scpi/SCPI_parser.pp \
-./scpi/SCPI_regs.pp \
 ./scpi/SCPI_requiredCmds.pp \
 ./scpi/SCPI_respFmtr.pp \
 ./scpi/SCPI_serialEmulation.pp \
+./scpi/SCPI_status.pp \
 ./scpi/SCPI_string.pp 
 
 C_DEPS__QUOTED += \
@@ -57,10 +57,10 @@ C_DEPS__QUOTED += \
 "scpi\SCPI_msgEPCtrl.pp" \
 "scpi\SCPI_outputQueue.pp" \
 "scpi\SCPI_parser.pp" \
-"scpi\SCPI_regs.pp" \
 "scpi\SCPI_requiredCmds.pp" \
 "scpi\SCPI_respFmtr.pp" \
 "scpi\SCPI_serialEmulation.pp" \
+"scpi\SCPI_status.pp" \
 "scpi\SCPI_string.pp" 
 
 OBJS__QUOTED += \
@@ -72,10 +72,10 @@ OBJS__QUOTED += \
 "scpi\SCPI_msgEPCtrl.obj" \
 "scpi\SCPI_outputQueue.obj" \
 "scpi\SCPI_parser.obj" \
-"scpi\SCPI_regs.obj" \
 "scpi\SCPI_requiredCmds.obj" \
 "scpi\SCPI_respFmtr.obj" \
 "scpi\SCPI_serialEmulation.obj" \
+"scpi\SCPI_status.obj" \
 "scpi\SCPI_string.obj" 
 
 C_SRCS__QUOTED += \
@@ -87,10 +87,10 @@ C_SRCS__QUOTED += \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_msgEPCtrl.c" \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_outputQueue.c" \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_parser.c" \
-"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_regs.c" \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_requiredCmds.c" \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_respFmtr.c" \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_serialEmulation.c" \
+"C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_status.c" \
 "C:/Users/Toby/git/SCPI_Build/SCPI_Build/scpi/SCPI_string.c" 
 
 

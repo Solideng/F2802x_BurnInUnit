@@ -72,14 +72,15 @@ void main(void)
 {
 	/* INITIALISATION - General */
 	DeviceInit();			/* Device Life support & GPIO */
-	sciInit(9600);			/* Initialise SCI with 9600 Baud setting. */
-	scpiInit(&registerDeviceCommands, &sciTx);		/* Initialise SCPI. */
 
 	#ifdef FLASH
 		MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 							/* Copy time critical code and Flash setup code to RAM */
 		InitFlash();		/* Call the flash wrapper init function */
 	#endif
+
+	sciInit(9600);			/* Initialise SCI with 9600 Baud setting. */
+	scpiInit(&registerDeviceCommands, &sciTx);		/* Initialise SCPI. */
 
 	smInit();				/* Setup device state machine */
 

@@ -56,6 +56,10 @@ extern Uint16 pwmGetFreq (Uint32 *frqDest);
 /*========= SYMBOLS DEFINED BY DP LIB =========*/
 extern volatile struct EPWM_REGS *ePWM[];
 extern void PWM_2ch_UpCnt_CNF(int16 n, int16 period, int16 mode, int16 phase);
+
+/** Digital power control loop interrupt service routine
+ * Located in the assembly file BurnInUnit_ISR.asm
+ */
 extern interrupt void DPL_ISR(void);
 
 #endif /* PWM_H_ */

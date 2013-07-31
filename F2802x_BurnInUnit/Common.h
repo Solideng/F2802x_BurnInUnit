@@ -39,7 +39,7 @@
 #include "FanEn.h"
 #include "BstEn.h"
 
-#include "scpi/scpi.h"
+#include "../../SCPI_Build/SCPI_Build/scpi/scpi.h"
 #include "SCPI_specificCmds.h"
 
 /*================== MACROS ===================*/
