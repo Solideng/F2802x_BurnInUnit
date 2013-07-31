@@ -33,13 +33,12 @@ As there are two tasks on the thread, the frequency of each task is 16.5 kHz res
 ##### Sequential Iteration Threads
 The remaining threads (A, B, C) iterate by checking the rollover state of different CPU timers. 
 Their operation and iteration is sequential and so less deterministic.
-The outline of the handling sequential iteration threads by the state machine is illustrated by the flow diagram below, 
+The outline of the handling sequential iteration threads by the state machine is illustrated by the following flow diagram, 
 where N and n rollover to A and 0, respectively whenever they reach their maximum value. 
 
-@image html state_machine_loop.png
-<!---
-@image latex state_machine_loop.eps "Sequential iteration thread state machine" width=\textwidth
---->
+@image html state_machine_loop.png "Sequential iteration thread state machine"
+@image latex state_machine_loop.eps "Sequential iteration thread state machine" width=5cm
+
 
 The frequency of tasks can be determined from the period of the interval timers using the following equation, 
 where *n* is the number of tasks in the thread and *T<sub>in</sub>* is the interval timer period.
@@ -48,12 +47,10 @@ where *n* is the number of tasks in the thread and *T<sub>in</sub>* is the inter
 	\frac{1}{T_{in} \times n}
 @f]
 With interval periods such that *T<sub>A</sub>* `<` *T<sub>B</sub>* `<` *T<sub>A</sub>* this results in the flow of execution 
-illustrated by the following diagram.
+illustrated by the following figure.
 
-@image html seq_state_machine_task_itr.png
-<!---
-@image latex seq_state_machine_task_itr.eps "Sequence of thread tasks" width=\textwidth
---->
+@image html seq_state_machine_task_itr.png "Sequence of thread tasks"
+@image latex seq_state_machine_task_itr.eps "Sequence of thread tasks" width=8cm
 
 #### Digital Power Control
 The control of the power, voltage and current is managed using control loop logic, normally one loop for each stage (Transformer, 
@@ -77,13 +74,13 @@ The basic use of macros that are available within the program can be broken down
 3.	Execution: Macro block code is executed in the assembly ISR, DPL_ISR().
 
 ##### Boost Load Control
-The figure below shows a diagram that illustrates the macro and net view of the control loop for one of the load boost converter 
-stages.
+The following figure shows a diagram that illustrates the macro and net view of the control loop for one of the load boost 
+converter stages.
 The loop depicted is current controlled. 
 It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the level of the current at the low 
 side of the load input, CHANn I<sub>SNS</sub>.
-This value is used as the feedback into a 2-pole 2-zero filter macro where it is compared to the reference value and the output 
-value is varied up or down, using the filter coefficients, as necessary. 
+This value is used as the feedback into a 2-pole 2-zero filter macro where it is compared to the user-set reference value and 
+the output value is varied up or down, using the filter coefficients, as needed to move it towards matching the reference. 
 This output value is then used by another macro to set the duty of the ePWM peripheral that controls the switching of the 
 converter, CHANn PWM.
 
@@ -91,19 +88,17 @@ Another macro retrieves a value from a second ADC that represents the voltage le
 A task in one of the sequential iteration threads compares this value to the user-set allowable voltage limit, the OVP limit. 
 If the value is above this limit the control loop output is disabled and an over-current protection alert is raised.
   
-@image html boost_load_loop.png
-<!---
-@image latex boost_load_loop.eps "Macro view of control loop for single boost load loop" width=\textwidth
---->
+@image html boost_load_loop.png "Macro view of control loop for single boost load"
+@image latex boost_load_loop.eps "Macro view of control loop for single boost load" width=10cm
 
 ##### Inter-Boost Control
-The figure below shows a diagram that illustrates the macro and net view of the control loop for the inter-boost, or "middle",
+The following figure shows a diagram that illustrates the macro and net view of the control loop for the inter-boost, or "middle",
 boost converter stage.
 The loop depicted is voltage controlled. 
-It uses a macro to retrieve a reading from an ADC peripheral a value that indicates the level of the voltage across the stage 
-output, DC HV V<sub>SNS</sub>.
-This value is used as the feedback into a 3-pole 3-zero filter macro where it is compared to the reference value and the output 
-value is varied up or down, using the filter coefficents, as necessary.
+It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the level of the voltage across 
+the stage output, DC HV V<sub>SNS</sub>.
+This value is used as the feedback into a 3-pole 3-zero filter macro where it is compared to the user-set reference value and 
+the output value is varied up or down, using the filter coefficents, as needed to move towards matching the reference.
 This output value is then used by another macro to set the duty of the ePWM peripheral that controls the switching of the 
 converter, INTBST PWM.
 
@@ -113,9 +108,29 @@ An on-board analogue comparator compares this value against the user-set allowab
 If the value is above this limit the comparator output sets the related trip-zone, quickly disabling the control loop output in 
 software and hardware, HV EN.
 
-@image html boost_xfmr_loop.png
-<!---
-@image latex boost_xfmr_loop.eps "Macro view of control loop for inter-boost loop" width=\textwidth
---->
+@image html boost_xfmr_loop.png "Macro view of control loop for inter-boost"
+@image latex boost_xfmr_loop.eps "Macro view of control loop for inter-boost" width=10cm
+
+##### AC Bridge Control
+The following figure shows a diagram that illustrates he macro and a net view of the control loop for the AC bridge converter 
+stage.
+The loop depicted is both voltage *and* current controlled.
+It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the voltage level across the stage 
+output, AC V<sub>SNS</sub>.
+This value is used as the feedback into a 3-pole 3-zero filter macro where it is compared to the generated sine wave reference and
+the output value is varied up or down, using the filter coefficients, as needed to move towards matching the reference.
+
+Another macro retrieves a value from a second ADC that represents the current level at the low side of the stage input,  
+AC I<sub>SNS</sub>.
+This value is used as the feedback into a 2-pole 2-zero filter macro where it is compared to the output of the 3-pole 3-zero 
+filter macro and the output is varied up or down, using the filter coefficents, as needed to move towards matching the reference.
+
+An on board analogue comparator also compares this AC I<sub>SNS</sub> vlaueagainst the user-set allowable current limit, 
+the OCP limit.
+If the value is above the limit tha comparator output sets the relted trip zone, quickly disabling the control loop output and 
+all other stages output, STOP ALL.
+
+@image html ac_bridge_loop.png "Macro view of control loop for AC bridge"
+@image latex ac_bridge_loop.eps "Macro view of control loop for AC bridge" width=10cm
 
 */

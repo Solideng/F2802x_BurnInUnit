@@ -21,8 +21,10 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{index}{{1}{1}{Introduction}{chapter.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Sequential iteration thread state machine}}{2}{figure.1.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Sequence of thread tasks}}{3}{figure.1.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Macro view of control loop for single buck loop}}{4}{figure.1.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Sequence of thread tasks}}{2}{figure.1.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Macro view of control loop for single boost load}}{3}{figure.1.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Macro view of control loop for inter-\/boost}}{4}{figure.1.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces Macro view of control loop for A\discretionary {-}{}{}C bridge}}{4}{figure.1.5}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Data Structure Documentation}{5}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -462,23 +464,25 @@
 \gdef \PWST@xxiv{1}
 \gdef \PWST@xxv{1}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.9.3}Function Documentation}{38}{subsection.3.9.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.1}pwm\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}Trig\discretionary {-}{}{}Init}{38}{subsubsection.3.9.3.1}}
-\newlabel{_pwm_8h_adfbaf2bb56a0c9fe6f54826499cb57de}{{3.9.3.1}{38}{pwm\-D\-P\-L\-Trig\-Init}{subsubsection.3.9.3.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.2}pwm\discretionary {-}{}{}Get\discretionary {-}{}{}Freq}{38}{subsubsection.3.9.3.2}}
-\newlabel{_pwm_8h_a79f203a5167440096f2ba270813b6db2}{{3.9.3.2}{38}{pwm\-Get\-Freq}{subsubsection.3.9.3.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.3}pwm\discretionary {-}{}{}Macro\discretionary {-}{}{}Configure}{38}{subsubsection.3.9.3.3}}
-\newlabel{_pwm_8h_acc68120fcdfa36145370c31a61eb23a7}{{3.9.3.3}{38}{pwm\-Macro\-Configure}{subsubsection.3.9.3.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.4}pwm\discretionary {-}{}{}Rst\discretionary {-}{}{}Tz}{38}{subsubsection.3.9.3.4}}
-\newlabel{_pwm_8h_a94a47896496e094f8ab54c1cb46da2e1}{{3.9.3.4}{38}{pwm\-Rst\-Tz}{subsubsection.3.9.3.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.5}pwm\discretionary {-}{}{}Set\discretionary {-}{}{}Freq}{38}{subsubsection.3.9.3.5}}
-\newlabel{_pwm_8h_af82e2c1ff72afc3de42eb172ca925956}{{3.9.3.5}{38}{pwm\-Set\-Freq}{subsubsection.3.9.3.5}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.6}pwm\discretionary {-}{}{}Soc\discretionary {-}{}{}Configure}{38}{subsubsection.3.9.3.6}}
-\newlabel{_pwm_8h_a358d8706acd0faf4e1cc705129be6548}{{3.9.3.6}{38}{pwm\-Soc\-Configure}{subsubsection.3.9.3.6}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.7}pwm\discretionary {-}{}{}Tz\discretionary {-}{}{}Configure}{38}{subsubsection.3.9.3.7}}
-\newlabel{_pwm_8h_aced17503c602f9e71a2d101e956cce23}{{3.9.3.7}{38}{pwm\-Tz\-Configure}{subsubsection.3.9.3.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.4}Variable Documentation}{38}{subsection.3.9.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.4.1}P\discretionary {-}{}{}W\discretionary {-}{}{}M\discretionary {-}{}{}D\discretionary {-}{}{}R\discretionary {-}{}{}V\discretionary {-}{}{}\_\discretionary {-}{}{}2ch\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Up\discretionary {-}{}{}Cnt\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Duty1\discretionary {-}{}{}A}{38}{subsubsection.3.9.4.1}}
-\newlabel{_pwm_8h_a8a02650c6afb411447157faf0e90a7b2}{{3.9.4.1}{38}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}{subsubsection.3.9.4.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.1}D\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}R}{38}{subsubsection.3.9.3.1}}
+\newlabel{_pwm_8h_a5532a53363218854b0e4b15049d773f7}{{3.9.3.1}{38}{D\-P\-L\-\_\-\-I\-S\-R}{subsubsection.3.9.3.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.2}pwm\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}Trig\discretionary {-}{}{}Init}{38}{subsubsection.3.9.3.2}}
+\newlabel{_pwm_8h_adfbaf2bb56a0c9fe6f54826499cb57de}{{3.9.3.2}{38}{pwm\-D\-P\-L\-Trig\-Init}{subsubsection.3.9.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.3}pwm\discretionary {-}{}{}Get\discretionary {-}{}{}Freq}{38}{subsubsection.3.9.3.3}}
+\newlabel{_pwm_8h_a79f203a5167440096f2ba270813b6db2}{{3.9.3.3}{38}{pwm\-Get\-Freq}{subsubsection.3.9.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.4}pwm\discretionary {-}{}{}Macro\discretionary {-}{}{}Configure}{38}{subsubsection.3.9.3.4}}
+\newlabel{_pwm_8h_acc68120fcdfa36145370c31a61eb23a7}{{3.9.3.4}{38}{pwm\-Macro\-Configure}{subsubsection.3.9.3.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.5}pwm\discretionary {-}{}{}Rst\discretionary {-}{}{}Tz}{38}{subsubsection.3.9.3.5}}
+\newlabel{_pwm_8h_a94a47896496e094f8ab54c1cb46da2e1}{{3.9.3.5}{38}{pwm\-Rst\-Tz}{subsubsection.3.9.3.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.6}pwm\discretionary {-}{}{}Set\discretionary {-}{}{}Freq}{38}{subsubsection.3.9.3.6}}
+\newlabel{_pwm_8h_af82e2c1ff72afc3de42eb172ca925956}{{3.9.3.6}{38}{pwm\-Set\-Freq}{subsubsection.3.9.3.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.7}pwm\discretionary {-}{}{}Soc\discretionary {-}{}{}Configure}{38}{subsubsection.3.9.3.7}}
+\newlabel{_pwm_8h_a358d8706acd0faf4e1cc705129be6548}{{3.9.3.7}{38}{pwm\-Soc\-Configure}{subsubsection.3.9.3.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.3.8}pwm\discretionary {-}{}{}Tz\discretionary {-}{}{}Configure}{38}{subsubsection.3.9.3.8}}
+\newlabel{_pwm_8h_aced17503c602f9e71a2d101e956cce23}{{3.9.3.8}{38}{pwm\-Tz\-Configure}{subsubsection.3.9.3.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.4}Variable Documentation}{39}{subsection.3.9.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.4.1}P\discretionary {-}{}{}W\discretionary {-}{}{}M\discretionary {-}{}{}D\discretionary {-}{}{}R\discretionary {-}{}{}V\discretionary {-}{}{}\_\discretionary {-}{}{}2ch\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Up\discretionary {-}{}{}Cnt\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Duty1\discretionary {-}{}{}A}{39}{subsubsection.3.9.4.1}}
+\newlabel{_pwm_8h_a8a02650c6afb411447157faf0e90a7b2}{{3.9.4.1}{39}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}{subsubsection.3.9.4.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.4.2}P\discretionary {-}{}{}W\discretionary {-}{}{}M\discretionary {-}{}{}D\discretionary {-}{}{}R\discretionary {-}{}{}V\discretionary {-}{}{}\_\discretionary {-}{}{}2ch\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Up\discretionary {-}{}{}Cnt\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Duty1\discretionary {-}{}{}B}{39}{subsubsection.3.9.4.2}}
 \newlabel{_pwm_8h_a23767edc2ebfabc9336684185a4f2d84}{{3.9.4.2}{39}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}{subsubsection.3.9.4.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.9.4.3}P\discretionary {-}{}{}W\discretionary {-}{}{}M\discretionary {-}{}{}D\discretionary {-}{}{}R\discretionary {-}{}{}V\discretionary {-}{}{}\_\discretionary {-}{}{}2ch\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Up\discretionary {-}{}{}Cnt\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Duty2\discretionary {-}{}{}A}{39}{subsubsection.3.9.4.3}}
@@ -513,7 +517,7 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.11.1}Detailed Description}{41}{subsection.3.11.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.12}Settings.\discretionary {-}{}{}h File Reference}{42}{section.3.12}}
 \newlabel{_settings_8h}{{3.12}{42}{Settings.\-h File Reference}{section.3.12}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.12.1}Detailed Description}{42}{subsection.3.12.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.12.1}Detailed Description}{43}{subsection.3.12.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.12.2}Macro Definition Documentation}{43}{subsection.3.12.2}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.1}C\discretionary {-}{}{}H\discretionary {-}{}{}A\discretionary {-}{}{}N\discretionary {-}{}{}N\discretionary {-}{}{}E\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}O\discretionary {-}{}{}O\discretionary {-}{}{}B}{43}{subsubsection.3.12.2.1}}
 \newlabel{_settings_8h_a5f4c019658ca5a8eff4bfc3d96d489a0}{{3.12.2.1}{43}{C\-H\-A\-N\-N\-E\-L\-\_\-\-O\-O\-B}{subsubsection.3.12.2.1}{}}
@@ -535,8 +539,8 @@
 \newlabel{_settings_8h_abf493281a7e64fe88660c38753e18d56}{{3.12.2.9}{43}{I\-N\-C\-R\-\_\-\-B\-U\-I\-L\-D}{subsubsection.3.12.2.9}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.10}N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}C\discretionary {-}{}{}H\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}S}{43}{subsubsection.3.12.2.10}}
 \newlabel{_settings_8h_afe433b138bb71d8d26b6e0907e656d1b}{{3.12.2.10}{43}{N\-U\-M\-\_\-\-C\-H\-N\-L\-S}{subsubsection.3.12.2.10}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.11}N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}R\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}C\discretionary {-}{}{}H\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}S}{43}{subsubsection.3.12.2.11}}
-\newlabel{_settings_8h_a69b2e41c3deaae85991311202c4a1a14}{{3.12.2.11}{43}{N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}{subsubsection.3.12.2.11}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.11}N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}I\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}R\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}C\discretionary {-}{}{}H\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}S}{44}{subsubsection.3.12.2.11}}
+\newlabel{_settings_8h_a69b2e41c3deaae85991311202c4a1a14}{{3.12.2.11}{44}{N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}{subsubsection.3.12.2.11}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.12}N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}V\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}R\discretionary {-}{}{}L\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}C\discretionary {-}{}{}H\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}S}{44}{subsubsection.3.12.2.12}}
 \newlabel{_settings_8h_a42a316162edffd07a32e68a889760c06}{{3.12.2.12}{44}{N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}{subsubsection.3.12.2.12}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.13}O\discretionary {-}{}{}C\discretionary {-}{}{}P\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}R\discretionary {-}{}{}I\discretionary {-}{}{}P}{44}{subsubsection.3.12.2.13}}
@@ -559,8 +563,8 @@
 \newlabel{_settings_8h_a055087c0064c322a05e443b47479bfe1}{{3.12.2.21}{44}{V\-A\-L\-U\-E\-\_\-\-O\-O\-B}{subsubsection.3.12.2.21}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.22}V\discretionary {-}{}{}D\discretionary {-}{}{}D\discretionary {-}{}{}A}{44}{subsubsection.3.12.2.22}}
 \newlabel{_settings_8h_a2d52976aedaedf74a90019a689170620}{{3.12.2.22}{44}{V\-D\-D\-A}{subsubsection.3.12.2.22}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.23}V\discretionary {-}{}{}M\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}R1}{44}{subsubsection.3.12.2.23}}
-\newlabel{_settings_8h_a511faa1530ba984d340a884a97e6a80a}{{3.12.2.23}{44}{V\-M\-I\-D\-\_\-\-R1}{subsubsection.3.12.2.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.23}V\discretionary {-}{}{}M\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}R1}{45}{subsubsection.3.12.2.23}}
+\newlabel{_settings_8h_a511faa1530ba984d340a884a97e6a80a}{{3.12.2.23}{45}{V\-M\-I\-D\-\_\-\-R1}{subsubsection.3.12.2.23}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.24}V\discretionary {-}{}{}M\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}R2}{45}{subsubsection.3.12.2.24}}
 \newlabel{_settings_8h_a86d7f47e3c125143c21e1ca2836eb4ab}{{3.12.2.24}{45}{V\-M\-I\-D\-\_\-\-R2}{subsubsection.3.12.2.24}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.12.2.25}V\discretionary {-}{}{}S\discretionary {-}{}{}S\discretionary {-}{}{}A}{45}{subsubsection.3.12.2.25}}
@@ -581,11 +585,10 @@
 \newlabel{_sine_gen_8h_a9c042423a04dc371b1c79ecc1f16e813}{{3.13.2.5}{46}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-O\-F\-S\-T}{subsubsection.3.13.2.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.2.6}S\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}F\discretionary {-}{}{}L\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}H\discretionary {-}{}{}S\discretionary {-}{}{}E}{46}{subsubsection.3.13.2.6}}
 \newlabel{_sine_gen_8h_ae88ab3e38bc960b4c0e15f9712d25f72}{{3.13.2.6}{46}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-P\-H\-S\-E}{subsubsection.3.13.2.6}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.2.7}S\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}F\discretionary {-}{}{}L\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}R\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}F\discretionary {-}{}{}Y}{46}{subsubsection.3.13.2.7}}
-\newlabel{_sine_gen_8h_afc105af9d8f851266d0b8e8ffe57931a}{{3.13.2.7}{46}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y}{subsubsection.3.13.2.7}{}}
 \gdef \PWST@xxviii{1}
 \gdef \PWST@xxix{1}
-\gdef \PWST@xxx{1}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.2.7}S\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}D\discretionary {-}{}{}F\discretionary {-}{}{}L\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}R\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}F\discretionary {-}{}{}Y}{47}{subsubsection.3.13.2.7}}
+\newlabel{_sine_gen_8h_afc105af9d8f851266d0b8e8ffe57931a}{{3.13.2.7}{47}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y}{subsubsection.3.13.2.7}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.2.8}S\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}L}{47}{subsubsection.3.13.2.8}}
 \newlabel{_sine_gen_8h_a8d1689d7437a3410059f1f377ec63ebd}{{3.13.2.8}{47}{S\-I\-N\-\_\-\-F\-\_\-\-S\-P\-L}{subsubsection.3.13.2.8}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.13.3}Function Documentation}{47}{subsection.3.13.3}}
@@ -597,12 +600,12 @@
 \newlabel{_sine_gen_8h_aaf39e7e31c43b94af71863a1ca3c5704}{{3.13.3.3}{47}{sg\-Get\-Gain\-Target}{subsubsection.3.13.3.3}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.4}sg\discretionary {-}{}{}Get\discretionary {-}{}{}Offset}{47}{subsubsection.3.13.3.4}}
 \newlabel{_sine_gen_8h_a56832d4be61bfbb6263eef6100515365}{{3.13.3.4}{47}{sg\-Get\-Offset}{subsubsection.3.13.3.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.5}sg\discretionary {-}{}{}Get\discretionary {-}{}{}Rectify}{47}{subsubsection.3.13.3.5}}
-\newlabel{_sine_gen_8h_a2257f55d8be03a940f80091c77b70b59}{{3.13.3.5}{47}{sg\-Get\-Rectify}{subsubsection.3.13.3.5}{}}
+\gdef \PWST@xxx{2}
 \gdef \PWST@xxxi{1}
 \gdef \PWST@xxxii{1}
 \gdef \PWST@xxxiii{1}
-\gdef \PWST@xxxiv{1}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.5}sg\discretionary {-}{}{}Get\discretionary {-}{}{}Rectify}{48}{subsubsection.3.13.3.5}}
+\newlabel{_sine_gen_8h_a2257f55d8be03a940f80091c77b70b59}{{3.13.3.5}{48}{sg\-Get\-Rectify}{subsubsection.3.13.3.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.6}sg\discretionary {-}{}{}Get\discretionary {-}{}{}Resolution}{48}{subsubsection.3.13.3.6}}
 \newlabel{_sine_gen_8h_ad625f20b4e4f394215e615071b9217b0}{{3.13.3.6}{48}{sg\-Get\-Resolution}{subsubsection.3.13.3.6}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.7}sg\discretionary {-}{}{}Get\discretionary {-}{}{}State}{48}{subsubsection.3.13.3.7}}
@@ -611,67 +614,68 @@
 \newlabel{_sine_gen_8h_a41e810f7181a4ecaa5bc5f0713c6db89}{{3.13.3.8}{48}{sg\-Init}{subsubsection.3.13.3.8}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.9}sg\discretionary {-}{}{}Set\discretionary {-}{}{}Freq}{48}{subsubsection.3.13.3.9}}
 \newlabel{_sine_gen_8h_a3be6fb433900f4d91074b337ea3dba58}{{3.13.3.9}{48}{sg\-Set\-Freq}{subsubsection.3.13.3.9}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.10}sg\discretionary {-}{}{}Set\discretionary {-}{}{}Gain\discretionary {-}{}{}Target}{48}{subsubsection.3.13.3.10}}
-\newlabel{_sine_gen_8h_a1352efb3adb6289a295afa3961d4a352}{{3.13.3.10}{48}{sg\-Set\-Gain\-Target}{subsubsection.3.13.3.10}{}}
+\gdef \PWST@xxxiv{1}
 \gdef \PWST@xxxv{1}
 \gdef \PWST@xxxvi{1}
 \gdef \PWST@xxxvii{1}
 \gdef \PWST@xxxviii{1}
-\gdef \PWST@xxxix{1}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.10}sg\discretionary {-}{}{}Set\discretionary {-}{}{}Gain\discretionary {-}{}{}Target}{49}{subsubsection.3.13.3.10}}
+\newlabel{_sine_gen_8h_a1352efb3adb6289a295afa3961d4a352}{{3.13.3.10}{49}{sg\-Set\-Gain\-Target}{subsubsection.3.13.3.10}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.11}sg\discretionary {-}{}{}Set\discretionary {-}{}{}Initial\discretionary {-}{}{}Phase}{49}{subsubsection.3.13.3.11}}
 \newlabel{_sine_gen_8h_ac0b4e573457d4a6e3102c17ec9c3281a}{{3.13.3.11}{49}{sg\-Set\-Initial\-Phase}{subsubsection.3.13.3.11}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.12}sg\discretionary {-}{}{}Set\discretionary {-}{}{}Offset}{49}{subsubsection.3.13.3.12}}
 \newlabel{_sine_gen_8h_ac4fa27b2a1e42815c53a9c41aea39dae}{{3.13.3.12}{49}{sg\-Set\-Offset}{subsubsection.3.13.3.12}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.13}sg\discretionary {-}{}{}Set\discretionary {-}{}{}Rectify}{49}{subsubsection.3.13.3.13}}
 \newlabel{_sine_gen_8h_a663b333309e306b76cc538d8b057ca7d}{{3.13.3.13}{49}{sg\-Set\-Rectify}{subsubsection.3.13.3.13}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.14}sg\discretionary {-}{}{}Set\discretionary {-}{}{}State}{49}{subsubsection.3.13.3.14}}
-\newlabel{_sine_gen_8h_a4da3578fed6e04e782a037a270ebde65}{{3.13.3.14}{49}{sg\-Set\-State}{subsubsection.3.13.3.14}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.15}sg\discretionary {-}{}{}Update}{50}{subsubsection.3.13.3.15}}
-\newlabel{_sine_gen_8h_a4ad7c6eca0c2bcdadaa81dd3fbb9df4b}{{3.13.3.15}{50}{sg\-Update}{subsubsection.3.13.3.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.13.4}Variable Documentation}{50}{subsection.3.13.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.4.1}S\discretionary {-}{}{}G\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}\_\discretionary {-}{}{}1ch\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sign}{50}{subsubsection.3.13.4.1}}
-\newlabel{_sine_gen_8h_a5369a96cf47ea2fbd84a92ed4091b48b}{{3.13.4.1}{50}{S\-G\-E\-N\-T\-I\-\_\-1ch\-\_\-\-Sign}{subsubsection.3.13.4.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.4.2}S\discretionary {-}{}{}G\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}\_\discretionary {-}{}{}1ch\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}V\discretionary {-}{}{}Out}{50}{subsubsection.3.13.4.2}}
-\newlabel{_sine_gen_8h_a5dba1fe543c9e62ef6cc8cf4179de951}{{3.13.4.2}{50}{S\-G\-E\-N\-T\-I\-\_\-1ch\-\_\-\-V\-Out}{subsubsection.3.13.4.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.14}Slew\discretionary {-}{}{}Control.\discretionary {-}{}{}h File Reference}{50}{section.3.14}}
-\newlabel{_slew_control_8h}{{3.14}{50}{Slew\-Control.\-h File Reference}{section.3.14}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.14.1}Detailed Description}{50}{subsection.3.14.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.14}sg\discretionary {-}{}{}Set\discretionary {-}{}{}State}{50}{subsubsection.3.13.3.14}}
+\newlabel{_sine_gen_8h_a4da3578fed6e04e782a037a270ebde65}{{3.13.3.14}{50}{sg\-Set\-State}{subsubsection.3.13.3.14}{}}
+\gdef \PWST@xxxix{1}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.3.15}sg\discretionary {-}{}{}Update}{51}{subsubsection.3.13.3.15}}
+\newlabel{_sine_gen_8h_a4ad7c6eca0c2bcdadaa81dd3fbb9df4b}{{3.13.3.15}{51}{sg\-Update}{subsubsection.3.13.3.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.13.4}Variable Documentation}{51}{subsection.3.13.4}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.4.1}S\discretionary {-}{}{}G\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}\_\discretionary {-}{}{}1ch\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Sign}{51}{subsubsection.3.13.4.1}}
+\newlabel{_sine_gen_8h_a5369a96cf47ea2fbd84a92ed4091b48b}{{3.13.4.1}{51}{S\-G\-E\-N\-T\-I\-\_\-1ch\-\_\-\-Sign}{subsubsection.3.13.4.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.13.4.2}S\discretionary {-}{}{}G\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}\_\discretionary {-}{}{}1ch\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}V\discretionary {-}{}{}Out}{51}{subsubsection.3.13.4.2}}
+\newlabel{_sine_gen_8h_a5dba1fe543c9e62ef6cc8cf4179de951}{{3.13.4.2}{51}{S\-G\-E\-N\-T\-I\-\_\-1ch\-\_\-\-V\-Out}{subsubsection.3.13.4.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.14}Slew\discretionary {-}{}{}Control.\discretionary {-}{}{}h File Reference}{51}{section.3.14}}
+\newlabel{_slew_control_8h}{{3.14}{51}{Slew\-Control.\-h File Reference}{section.3.14}{}}
 \gdef \PWST@xl{1}
 \gdef \PWST@xli{1}
 \gdef \PWST@xlii{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.14.1}Detailed Description}{52}{subsection.3.14.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.14.2}Function Documentation}{52}{subsection.3.14.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.1}sc\discretionary {-}{}{}Get\discretionary {-}{}{}State}{52}{subsubsection.3.14.2.1}}
+\newlabel{_slew_control_8h_a77a235d70df3aff6a742ff375bd45119}{{3.14.2.1}{52}{sc\-Get\-State}{subsubsection.3.14.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.2}sc\discretionary {-}{}{}Get\discretionary {-}{}{}Step}{52}{subsubsection.3.14.2.2}}
+\newlabel{_slew_control_8h_adac64f58de9a029d849e0df2962bad16}{{3.14.2.2}{52}{sc\-Get\-Step}{subsubsection.3.14.2.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.3}sc\discretionary {-}{}{}Get\discretionary {-}{}{}Target}{52}{subsubsection.3.14.2.3}}
+\newlabel{_slew_control_8h_ab83b8f320a4bf9e8ea1a251fec458032}{{3.14.2.3}{52}{sc\-Get\-Target}{subsubsection.3.14.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.4}sc\discretionary {-}{}{}Set\discretionary {-}{}{}State}{52}{subsubsection.3.14.2.4}}
+\newlabel{_slew_control_8h_a92578a062af02eb967ca2dfbd68b00cf}{{3.14.2.4}{52}{sc\-Set\-State}{subsubsection.3.14.2.4}{}}
 \gdef \PWST@xliii{1}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.14.2}Function Documentation}{51}{subsection.3.14.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.1}sc\discretionary {-}{}{}Get\discretionary {-}{}{}State}{51}{subsubsection.3.14.2.1}}
-\newlabel{_slew_control_8h_a77a235d70df3aff6a742ff375bd45119}{{3.14.2.1}{51}{sc\-Get\-State}{subsubsection.3.14.2.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.2}sc\discretionary {-}{}{}Get\discretionary {-}{}{}Step}{51}{subsubsection.3.14.2.2}}
-\newlabel{_slew_control_8h_adac64f58de9a029d849e0df2962bad16}{{3.14.2.2}{51}{sc\-Get\-Step}{subsubsection.3.14.2.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.3}sc\discretionary {-}{}{}Get\discretionary {-}{}{}Target}{51}{subsubsection.3.14.2.3}}
-\newlabel{_slew_control_8h_ab83b8f320a4bf9e8ea1a251fec458032}{{3.14.2.3}{51}{sc\-Get\-Target}{subsubsection.3.14.2.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.4}sc\discretionary {-}{}{}Set\discretionary {-}{}{}State}{51}{subsubsection.3.14.2.4}}
-\newlabel{_slew_control_8h_a92578a062af02eb967ca2dfbd68b00cf}{{3.14.2.4}{51}{sc\-Set\-State}{subsubsection.3.14.2.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.5}sc\discretionary {-}{}{}Set\discretionary {-}{}{}State\discretionary {-}{}{}All}{52}{subsubsection.3.14.2.5}}
-\newlabel{_slew_control_8h_af4b016a1a10639dfeca7af4f750d8c75}{{3.14.2.5}{52}{sc\-Set\-State\-All}{subsubsection.3.14.2.5}{}}
 \gdef \PWST@xliv{1}
 \gdef \PWST@xlv{1}
 \gdef \PWST@xlvi{1}
-\gdef \PWST@xlvii{1}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.5}sc\discretionary {-}{}{}Set\discretionary {-}{}{}State\discretionary {-}{}{}All}{53}{subsubsection.3.14.2.5}}
+\newlabel{_slew_control_8h_af4b016a1a10639dfeca7af4f750d8c75}{{3.14.2.5}{53}{sc\-Set\-State\-All}{subsubsection.3.14.2.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.6}sc\discretionary {-}{}{}Set\discretionary {-}{}{}Step}{53}{subsubsection.3.14.2.6}}
 \newlabel{_slew_control_8h_a91e197a77f8f6c05dc478431164114a4}{{3.14.2.6}{53}{sc\-Set\-Step}{subsubsection.3.14.2.6}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.7}sc\discretionary {-}{}{}Set\discretionary {-}{}{}Step\discretionary {-}{}{}All}{53}{subsubsection.3.14.2.7}}
 \newlabel{_slew_control_8h_a2dbe145695a65570ebc1ff5588e08a18}{{3.14.2.7}{53}{sc\-Set\-Step\-All}{subsubsection.3.14.2.7}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.8}sc\discretionary {-}{}{}Set\discretionary {-}{}{}Target}{53}{subsubsection.3.14.2.8}}
 \newlabel{_slew_control_8h_acd4f1d77c353f333438ae688a9bcc8fe}{{3.14.2.8}{53}{sc\-Set\-Target}{subsubsection.3.14.2.8}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.9}sc\discretionary {-}{}{}Set\discretionary {-}{}{}Target\discretionary {-}{}{}All}{53}{subsubsection.3.14.2.9}}
-\newlabel{_slew_control_8h_a1e7d07e1a6d9b1e40b1b39d97df638b9}{{3.14.2.9}{53}{sc\-Set\-Target\-All}{subsubsection.3.14.2.9}{}}
-\gdef \PWST@xlviii{2}
+\gdef \PWST@xlvii{2}
+\gdef \PWST@xlviii{1}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.9}sc\discretionary {-}{}{}Set\discretionary {-}{}{}Target\discretionary {-}{}{}All}{54}{subsubsection.3.14.2.9}}
+\newlabel{_slew_control_8h_a1e7d07e1a6d9b1e40b1b39d97df638b9}{{3.14.2.9}{54}{sc\-Set\-Target\-All}{subsubsection.3.14.2.9}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.14.2.10}sc\discretionary {-}{}{}Slew\discretionary {-}{}{}Update}{54}{subsubsection.3.14.2.10}}
 \newlabel{_slew_control_8h_a8f8f2b1ef59b7fa90122e5609e24cd06}{{3.14.2.10}{54}{sc\-Slew\-Update}{subsubsection.3.14.2.10}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.15}State\discretionary {-}{}{}Machine.\discretionary {-}{}{}h File Reference}{54}{section.3.15}}
 \newlabel{_state_machine_8h}{{3.15}{54}{State\-Machine.\-h File Reference}{section.3.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.15.1}Detailed Description}{54}{subsection.3.15.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.15.2}Function Documentation}{54}{subsection.3.15.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.15.2.1}sm\discretionary {-}{}{}Init}{54}{subsubsection.3.15.2.1}}
-\newlabel{_state_machine_8h_a8c307b607d4931ec1214de3592c93df4}{{3.15.2.1}{54}{sm\-Init}{subsubsection.3.15.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.15.1}Detailed Description}{55}{subsection.3.15.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.15.2}Function Documentation}{55}{subsection.3.15.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.15.2.1}sm\discretionary {-}{}{}Init}{55}{subsubsection.3.15.2.1}}
+\newlabel{_state_machine_8h_a8c307b607d4931ec1214de3592c93df4}{{3.15.2.1}{55}{sm\-Init}{subsubsection.3.15.2.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.15.3}Variable Documentation}{55}{subsection.3.15.3}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.15.3.1}Alpha\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}State\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Ptr}{55}{subsubsection.3.15.3.1}}
 \newlabel{_state_machine_8h_af1d16f7a57d6ced065765dcbb355fcde}{{3.15.3.1}{55}{Alpha\-\_\-\-State\-\_\-\-Ptr}{subsubsection.3.15.3.1}{}}
@@ -679,15 +683,14 @@
 \newlabel{_timers_8h}{{3.16}{55}{Timers.\-h File Reference}{section.3.16}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.16.1}Detailed Description}{55}{subsection.3.16.1}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.16.2}Function Documentation}{55}{subsection.3.16.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.16.2.1}timers\discretionary {-}{}{}Setup\discretionary {-}{}{}Real}{55}{subsubsection.3.16.2.1}}
-\newlabel{_timers_8h_a366f5c2927c6a77c9704bee58468a042}{{3.16.2.1}{55}{timers\-Setup\-Real}{subsubsection.3.16.2.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.17}Tmp.\discretionary {-}{}{}h File Reference}{55}{section.3.17}}
-\newlabel{_tmp_8h}{{3.17}{55}{Tmp.\-h File Reference}{section.3.17}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.16.2.1}timers\discretionary {-}{}{}Setup\discretionary {-}{}{}Real}{56}{subsubsection.3.16.2.1}}
+\newlabel{_timers_8h_a366f5c2927c6a77c9704bee58468a042}{{3.16.2.1}{56}{timers\-Setup\-Real}{subsubsection.3.16.2.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.17}Tmp.\discretionary {-}{}{}h File Reference}{56}{section.3.17}}
+\newlabel{_tmp_8h}{{3.17}{56}{Tmp.\-h File Reference}{section.3.17}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.17.1}Detailed Description}{56}{subsection.3.17.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.17.2}Macro Definition Documentation}{56}{subsection.3.17.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.2.1}A\discretionary {-}{}{}D\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}I2\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}D\discretionary {-}{}{}D\discretionary {-}{}{}R}{56}{subsubsection.3.17.2.1}}
-\newlabel{_tmp_8h_a5fd3aabe18504a5314a5d0e71e3bc495}{{3.17.2.1}{56}{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}{subsubsection.3.17.2.1}{}}
-\gdef \PWST@xlix{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.17.2}Macro Definition Documentation}{57}{subsection.3.17.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.2.1}A\discretionary {-}{}{}D\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}I2\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}D\discretionary {-}{}{}D\discretionary {-}{}{}R}{57}{subsubsection.3.17.2.1}}
+\newlabel{_tmp_8h_a5fd3aabe18504a5314a5d0e71e3bc495}{{3.17.2.1}{57}{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}{subsubsection.3.17.2.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.2.2}A\discretionary {-}{}{}D\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}N\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}C\discretionary {-}{}{}H\discretionary {-}{}{}N\discretionary {-}{}{}L}{57}{subsubsection.3.17.2.2}}
 \newlabel{_tmp_8h_a448e8a52be570dfe9fdddb2045039534}{{3.17.2.2}{57}{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}{subsubsection.3.17.2.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.2.3}A\discretionary {-}{}{}D\discretionary {-}{}{}C\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}P\discretionary {-}{}{}S}{57}{subsubsection.3.17.2.3}}
@@ -703,14 +706,15 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.17.3}Function Documentation}{57}{subsection.3.17.3}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.3.1}tmp\discretionary {-}{}{}Check\discretionary {-}{}{}Otp}{57}{subsubsection.3.17.3.1}}
 \newlabel{_tmp_8h_adf839085f18308f90ee198a96bbac364}{{3.17.3.1}{57}{tmp\-Check\-Otp}{subsubsection.3.17.3.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.3.2}tmp\discretionary {-}{}{}Get\discretionary {-}{}{}Otp}{57}{subsubsection.3.17.3.2}}
-\newlabel{_tmp_8h_a9aedec904a421fed1823a16846b7841d}{{3.17.3.2}{57}{tmp\-Get\-Otp}{subsubsection.3.17.3.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.3.2}tmp\discretionary {-}{}{}Get\discretionary {-}{}{}Otp}{58}{subsubsection.3.17.3.2}}
+\newlabel{_tmp_8h_a9aedec904a421fed1823a16846b7841d}{{3.17.3.2}{58}{tmp\-Get\-Otp}{subsubsection.3.17.3.2}{}}
+\gdef \PWST@xlix{1}
 \gdef \PWST@l{1}
 \gdef \PWST@li{1}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.3.3}tmp\discretionary {-}{}{}Init}{58}{subsubsection.3.17.3.3}}
-\newlabel{_tmp_8h_a4f10186d5fb8a3069cc30c9d0c7e716f}{{3.17.3.3}{58}{tmp\-Init}{subsubsection.3.17.3.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.3.4}tmp\discretionary {-}{}{}Read}{58}{subsubsection.3.17.3.4}}
-\newlabel{_tmp_8h_a3f542f4bc433dfd2c1073a5e8308f99f}{{3.17.3.4}{58}{tmp\-Read}{subsubsection.3.17.3.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.3.5}tmp\discretionary {-}{}{}Set\discretionary {-}{}{}Otp}{58}{subsubsection.3.17.3.5}}
-\newlabel{_tmp_8h_a10e85d2f2d7cce42822ea65e69601dfa}{{3.17.3.5}{58}{tmp\-Set\-Otp}{subsubsection.3.17.3.5}{}}
-\@writefile{toc}{\contentsline {part}{Index}{59}{section*.46}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.3.3}tmp\discretionary {-}{}{}Init}{59}{subsubsection.3.17.3.3}}
+\newlabel{_tmp_8h_a4f10186d5fb8a3069cc30c9d0c7e716f}{{3.17.3.3}{59}{tmp\-Init}{subsubsection.3.17.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.3.4}tmp\discretionary {-}{}{}Read}{59}{subsubsection.3.17.3.4}}
+\newlabel{_tmp_8h_a3f542f4bc433dfd2c1073a5e8308f99f}{{3.17.3.4}{59}{tmp\-Read}{subsubsection.3.17.3.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.17.3.5}tmp\discretionary {-}{}{}Set\discretionary {-}{}{}Otp}{59}{subsubsection.3.17.3.5}}
+\newlabel{_tmp_8h_a10e85d2f2d7cce42822ea65e69601dfa}{{3.17.3.5}{59}{tmp\-Set\-Otp}{subsubsection.3.17.3.5}{}}
+\@writefile{toc}{\contentsline {part}{Index}{60}{section*.48}}

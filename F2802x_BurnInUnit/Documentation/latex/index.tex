@@ -14,12 +14,22 @@ The D\-P\-L thread is the fastest thread, is coded in assembly and consists of o
 
 \subparagraph*{Sequential Iteration Threads}
 
-The remaining threads (A, B, C) iterate by checking the rollover state of different C\-P\-U timers. Their operation and iteration is sequential and so less deterministic. The outline of the handling sequential iteration threads by the state machine is illustrated by the flow diagram below, where N and n rollover to A and 0, respectively whenever they reach their maximum value.
+The remaining threads (A, B, C) iterate by checking the rollover state of different C\-P\-U timers. Their operation and iteration is sequential and so less deterministic. The outline of the handling sequential iteration threads by the state machine is illustrated by the following flow diagram, where N and n rollover to A and 0, respectively whenever they reach their maximum value.
 
 
+\begin{DoxyImage}
+\includegraphics[width=5cm]{state_machine_loop}
+\caption{Sequential iteration thread state machine}
+\end{DoxyImage}
 
-The frequency of tasks can be determined from the period of the interval timers using the following equation, where {\itshape n} is the number of tasks in the thread and {\itshape T$_{\mbox{in}}$ } is the interval timer period. \[ f_{ta}= \frac{1}{T_{in} \times n} \] With interval periods such that {\itshape T$_{\mbox{A}}$ } {\ttfamily $<$} {\itshape T$_{\mbox{B}}$ } {\ttfamily $<$} {\itshape T$_{\mbox{A}}$ } this results in the flow of execution illustrated by the following diagram.
 
+The frequency of tasks can be determined from the period of the interval timers using the following equation, where {\itshape n} is the number of tasks in the thread and {\itshape T$_{\mbox{in}}$ } is the interval timer period. \[ f_{ta}= \frac{1}{T_{in} \times n} \] With interval periods such that {\itshape T$_{\mbox{A}}$ } {\ttfamily $<$} {\itshape T$_{\mbox{B}}$ } {\ttfamily $<$} {\itshape T$_{\mbox{A}}$ } this results in the flow of execution illustrated by the following figure.
+
+
+\begin{DoxyImage}
+\includegraphics[width=8cm]{seq_state_machine_task_itr}
+\caption{Sequence of thread tasks}
+\end{DoxyImage}
 
 
 \paragraph*{Digital Power Control}
@@ -37,16 +47,41 @@ The basic use of macros that are available within the program can be broken down
 
 \subparagraph*{Boost Load Control}
 
-The figure below shows a diagram that illustrates the macro and net view of the control loop for one of the load boost converter stages. The loop depicted is current controlled. It uses a macro to retrieve a reading from an A\-D\-C peripheral to obtain a value that indicates the level of the current at the low side of the load input, C\-H\-A\-Nn I$_{\mbox{S\-N\-S}}$ . This value is used as the feedback into a 2-\/pole 2-\/zero filter macro where it is compared to the reference value and the output value is varied up or down, using the filter coefficients, as necessary. This output value is then used by another macro to set the duty of the e\-P\-W\-M peripheral that controls the switching of the converter, C\-H\-A\-Nn P\-W\-M.
+The following figure shows a diagram that illustrates the macro and net view of the control loop for one of the load boost converter stages. The loop depicted is current controlled. It uses a macro to retrieve a reading from an A\-D\-C peripheral to obtain a value that indicates the level of the current at the low side of the load input, C\-H\-A\-Nn I$_{\mbox{S\-N\-S}}$ . This value is used as the feedback into a 2-\/pole 2-\/zero filter macro where it is compared to the user-\/set reference value and the output value is varied up or down, using the filter coefficients, as needed to move it towards matching the reference. This output value is then used by another macro to set the duty of the e\-P\-W\-M peripheral that controls the switching of the converter, C\-H\-A\-Nn P\-W\-M.
 
 Another macro retrieves a value from a second A\-D\-C that represents the voltage level across the load input, C\-H\-A\-Nn V$_{\mbox{S\-N\-S}}$ . A task in one of the sequential iteration threads compares this value to the user-\/set allowable voltage limit, the O\-V\-P limit. If the value is above this limit the control loop output is disabled and an over-\/current protection alert is raised.
 
 
+\begin{DoxyImage}
+\includegraphics[width=10cm]{boost_load_loop}
+\caption{Macro view of control loop for single boost load}
+\end{DoxyImage}
+
 
 \subparagraph*{Inter-\/\-Boost Control}
 
-The figure below shows a diagram that illustrates the macro and net view of the control loop for the inter-\/boost, or \char`\"{}middle\char`\"{}, boost converter stage. The loop depicted is voltage controlled. It uses a macro to retrieve a reading from an A\-D\-C peripheral a value that indicates the level of the voltage across the stage output, D\-C H\-V V$_{\mbox{S\-N\-S}}$ . This value is used as the feedback into a 3-\/pole 3-\/zero filter macro where it is compared to the reference value and the output value is varied up or down, using the filter coefficents, as necessary. This output value is then used by another macro to set the duty of the e\-P\-W\-M peripheral that controls the switching of the converter, I\-N\-T\-B\-S\-T P\-W\-M.
+The following figure shows a diagram that illustrates the macro and net view of the control loop for the inter-\/boost, or \char`\"{}middle\char`\"{}, boost converter stage. The loop depicted is voltage controlled. It uses a macro to retrieve a reading from an A\-D\-C peripheral to obtain a value that indicates the level of the voltage across the stage output, D\-C H\-V V$_{\mbox{S\-N\-S}}$ . This value is used as the feedback into a 3-\/pole 3-\/zero filter macro where it is compared to the user-\/set reference value and the output value is varied up or down, using the filter coefficents, as needed to move towards matching the reference. This output value is then used by another macro to set the duty of the e\-P\-W\-M peripheral that controls the switching of the converter, I\-N\-T\-B\-S\-T P\-W\-M.
 
 Another macro retrieves a value from a second A\-D\-C that represents the current level at the low side of the input, D\-C M\-I\-D I$_{\mbox{S\-N\-S}}$ . An on-\/board analogue comparator compares this value against the user-\/set allowable current limit, the O\-C\-P limit. If the value is above this limit the comparator output sets the related trip-\/zone, quickly disabling the control loop output in software and hardware, H\-V E\-N.
 
+
+\begin{DoxyImage}
+\includegraphics[width=10cm]{boost_xfmr_loop}
+\caption{Macro view of control loop for inter-\/boost}
+\end{DoxyImage}
+
+
+\subparagraph*{A\-C Bridge Control}
+
+The following figure shows a diagram that illustrates he macro and a net view of the control loop for the A\-C bridge converter stage. The loop depicted is both voltage {\itshape and} current controlled. It uses a macro to retrieve a reading from an A\-D\-C peripheral to obtain a value that indicates the voltage level across the stage output, A\-C V$_{\mbox{S\-N\-S}}$ . This value is used as the feedback into a 3-\/pole 3-\/zero filter macro where it is compared to the generated sine wave reference and the output value is varied up or down, using the filter coefficients, as needed to move towards matching the reference.
+
+Another macro retrieves a value from a second A\-D\-C that represents the current level at the low side of the stage input, A\-C I$_{\mbox{S\-N\-S}}$ . This value is used as the feedback into a 2-\/pole 2-\/zero filter macro where it is compared to the output of the 3-\/pole 3-\/zero filter macro and the output is varied up or down, using the filter coefficents, as needed to move towards matching the reference.
+
+An on board analogue comparator also compares this A\-C I$_{\mbox{S\-N\-S}}$  vlaueagainst the user-\/set allowable current limit, the O\-C\-P limit. If the value is above the limit tha comparator output sets the relted trip zone, quickly disabling the control loop output and all other stages output, S\-T\-O\-P A\-L\-L.
+
+
+\begin{DoxyImage}
+\includegraphics[width=10cm]{ac_bridge_loop}
+\caption{Macro view of control loop for A\-C bridge}
+\end{DoxyImage}
  
