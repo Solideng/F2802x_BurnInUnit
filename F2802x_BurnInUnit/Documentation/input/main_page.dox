@@ -10,14 +10,14 @@ Please refer to the TI documentation pertaining to those libraries and to the C2
 This system also uses the System for Standard Commands for Programmable Instruments for C28x, again, 
 refer to the documentation pertaining to that system to understand its use.
 
-#### General Operation
+\section genop General Operation
 This system operates using the concept of a state machine with multiplexed threading. This allows important tasks, 
 such as signal generation and the monitoring of critical parameters to take precedence
 while still allowing other less critical tasks to run with acceptable frequency.
 This is allowed by creating several threads DPL, A, B and C and iterating them at different interval periods, 
 such that every time the thread is iterated the next single task in that thread is run.
 
-##### Fast (DPL) Thread
+\subsection fdplthread Fast (DPL) Thread
 The DPL thread is the fastest thread, is coded in assembly and consists of only two tasks. 
 It is the only thread that uses an interrupt to iterate. 
 Thus the tasks are formed by an interrupt service routine (ISR).
@@ -30,7 +30,7 @@ peripheral.
 This occurs at a frequency of 33 kHz.
 As there are two tasks on the thread, the frequency of each task is 16.5 kHz resulting in a period of 60us.   
 
-##### Sequential Iteration Threads
+\subsection sidplthread Sequential Iteration Threads
 The remaining threads (A, B, C) iterate by checking the rollover state of different CPU timers. 
 Their operation and iteration is sequential and so less deterministic.
 The outline of the handling sequential iteration threads by the state machine is illustrated by the following flow diagram, 
@@ -52,7 +52,7 @@ illustrated by the following figure.
 @image html seq_state_machine_task_itr.png "Sequence of thread tasks"
 @image latex seq_state_machine_task_itr.eps "Sequence of thread tasks" width=8cm
 
-#### Digital Power Control
+\section dpctrl Digital Power Control
 The control of the power, voltage and current is managed using control loop logic, normally one loop for each stage (Transformer, 
 AC, each of the four loads).
 These control loops are formed from a set of macros and helper functions.
@@ -73,7 +73,7 @@ The basic use of macros that are available within the program can be broken down
      i.e., the control loop.
 3.	Execution: Macro block code is executed in the assembly ISR, DPL_ISR().
 
-##### Boost Load Control
+\subsection blctrl Boost Load Control
 The following figure shows a diagram that illustrates the macro and net view of the control loop for one of the load boost 
 converter stages.
 The loop depicted is current controlled. 
@@ -91,7 +91,7 @@ If the value is above this limit the control loop output is disabled and an over
 @image html boost_load_loop.png "Macro view of control loop for single boost load"
 @image latex boost_load_loop.eps "Macro view of control loop for single boost load" width=10cm
 
-##### Inter-Boost Control
+\subsection ibctrl Inter-Boost Control
 The following figure shows a diagram that illustrates the macro and net view of the control loop for the inter-boost, or "middle",
 boost converter stage.
 The loop depicted is voltage controlled. 
@@ -111,7 +111,7 @@ software and hardware, HV EN.
 @image html boost_xfmr_loop.png "Macro view of control loop for inter-boost"
 @image latex boost_xfmr_loop.eps "Macro view of control loop for inter-boost" width=10cm
 
-##### AC Bridge Control
+\subsection acbctrl AC Bridge Control
 The following figure shows a diagram that illustrates he macro and a net view of the control loop for the AC bridge converter 
 stage.
 The loop depicted is both voltage *and* current controlled.

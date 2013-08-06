@@ -1,4 +1,11 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}General Operation}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Fast (\discretionary {-}{}{}D\discretionary {-}{}{}P\discretionary {-}{}{}L) Thread}{1}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Sequential Iteration Threads}{1}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Digital Power Control}{2}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Boost Load Control}{3}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Inter-\/\discretionary {-}{}{}Boost Control}{3}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}A\discretionary {-}{}{}C Bridge Control}{4}{subsection.1.2.3}
 \contentsline {chapter}{\numberline {2}Data Structure Documentation}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}channel\discretionary {-}{}{}Parameters Struct Reference}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Detailed Description}{5}{subsection.2.1.1}
@@ -340,4 +347,4 @@
 \contentsline {subsubsection}{\numberline {3.17.3.3}tmp\discretionary {-}{}{}Init}{59}{subsubsection.3.17.3.3}
 \contentsline {subsubsection}{\numberline {3.17.3.4}tmp\discretionary {-}{}{}Read}{59}{subsubsection.3.17.3.4}
 \contentsline {subsubsection}{\numberline {3.17.3.5}tmp\discretionary {-}{}{}Set\discretionary {-}{}{}Otp}{59}{subsubsection.3.17.3.5}
-\contentsline {part}{Index}{60}{section*.48}
+\contentsline {part}{Index}{60}{section*.41}
