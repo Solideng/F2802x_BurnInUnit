@@ -1,0 +1,16 @@
+/** 
+@page cmdref Command Reference 
+
+\section cal CALibration Subsystem
+
+
+\subsection calall ALL
+
+
+\section ctrl CONTrol Subsystem
+
+\subsection ctrlidle IDLE
+
+\subsubsection ctrlidleinit INITiate
+
+*/
