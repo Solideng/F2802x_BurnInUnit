@@ -1,0 +1,396 @@
+\hypertarget{a00005}{\section{Adc.\-h File Reference}
+\label{a00005}\index{Adc.\-h@{Adc.\-h}}
+}
+
+
+A\-D\-C, D\-A\-C, comparator and related functions.  
+
+
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{a00041}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{a00005_af77988a3ac7a924b75e6213631b04d46}{adc\-Soc\-Cnf} (void)
+\item 
+void \hyperlink{a00005_a3c614312b1f0ce65b46c4d93051de836}{adc\-Macro\-Configure} (void)
+\item 
+void \hyperlink{a00005_a646e6cc4558594a6fbaa10c767cc4fec}{adc\-Comp\-Configure} (void)
+\item 
+Uint16 \hyperlink{a00005_a7dfbe5e2625efeeb0768d42d83a71c04}{adc\-Check\-Ocp} (void)
+\item 
+Uint16 \hyperlink{a00005_a0ad871be22e7987be07a0f4534ef231b}{adc\-Check\-Ovp} (void)
+\item 
+Uint16 \hyperlink{a00005_aca1e33ca1b293964f5ce58d430e684f0}{adc\-Set\-Dac} (Uint16 chnl, float32 dac\-Lvl)
+\item 
+Uint16 \hyperlink{a00005_a2dcc5ee51599a4026fc672072a3f8232}{adc\-Set\-I\-Scale} (Uint16 chnl, float32 scale\-Setting)
+\item 
+Uint16 \hyperlink{a00005_a9c87603c2aabc17d784a9149563e71e5}{adc\-Set\-V\-Scale} (Uint16 chnl, float32 scale\-Setting)
+\item 
+Uint16 \hyperlink{a00005_ac5c13a2ef6c3a9f9da7bf437e0213da2}{adc\-Set\-Ocp} (Uint16 chnl, float32 ocp\-Setting)
+\item 
+Uint16 \hyperlink{a00005_a03e263230a1a25337050bfde1172d1a1}{adc\-Set\-Ovp} (Uint16 chnl, float32 ovp\-Setting)
+\item 
+Uint16 \hyperlink{a00005_a51b43d0fbadcb3b231f4fceb4c7b9d12}{adc\-Get\-Dac} (Uint16 chnl, float32 $\ast$dac\-Dest)
+\item 
+Uint16 \hyperlink{a00005_acbf7c83ae3b6df7b0812ef1aed2b9c96}{adc\-Get\-I\-Scale} (Uint16 chnl, float32 $\ast$scl\-Dest)
+\item 
+Uint16 \hyperlink{a00005_a478f6261679944822575231af3eb229c}{adc\-Get\-V\-Scale} (Uint16 chnl, float32 $\ast$scl\-Dest)
+\item 
+Uint16 \hyperlink{a00005_a47082a746494c4221df1cb453fa746f7}{adc\-Get\-Voltage} (Uint16 chnl, float32 $\ast$v\-Dest)
+\item 
+Uint16 \hyperlink{a00005_a2cda2df7670a029f25848b9fe6f37bf8}{adc\-Get\-Current} (Uint16 chnl, float32 $\ast$i\-Dest)
+\item 
+Uint16 \hyperlink{a00005_a8e08c745a25782602c5d337d5eb7b03c}{adc\-Get\-Ocp} (Uint16 chnl, float32 $\ast$ocp\-Dest)
+\item 
+Uint16 \hyperlink{a00005_a1536739f53a776036e1b9c92990a102a}{adc\-Get\-Ovp} (Uint16 chnl, float32 $\ast$ovp\-Dest)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_a42ca9720519e1d0cb7ded4f56da083ba}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_a1ca55c7841c3e4bc154789647a068810}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_a1704632b071d0fff6bdc9629549c5d08}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_ac181cb2fb372cceb0f55844ed941c5d0}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_a7b586f409f6daf8232917fbd976532a4}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_ae8182c9b35af2d72b1c18ea41ccece2d}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_a4fa6265d0bf9b69d560d8f9f488b98c1}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_a0415309d16a115f0116a26aeda91aabd}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_adea6b0b8533e0d56a5c6cbac1c1e705f}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_ad1b851523cd317f0910f2db4220f32da}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_ad4435404e2f432a8c3a449dd23cda8f0}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_ac3656f047361723ec883e6ebfe3f026a}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12}
+\item 
+volatile int32 $\ast$ \hyperlink{a00005_ad7ef0544a173d3c7883f0e739b7d2096}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A\-D\-C, D\-A\-C, comparator and related functions. Requires the modification of the C\-O\-M\-P\-\_\-\-R\-E\-G\-S struct of the D\-S\-P2802x\-\_\-\-Global\-Variable\-Defs in the file D\-S\-P2802x\-\_\-\-Comp.\-h, to allow use of the D\-A\-C\-C\-T\-L and ramp-\/related register unions. Use the equivalent file from the f2903x includes for reference. 
+
+\subsection{Function Documentation}
+\hypertarget{a00005_a7dfbe5e2625efeeb0768d42d83a71c04}{\index{Adc.\-h@{Adc.\-h}!adc\-Check\-Ocp@{adc\-Check\-Ocp}}
+\index{adc\-Check\-Ocp@{adc\-Check\-Ocp}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Check\-Ocp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Check\-Ocp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00005_a7dfbe5e2625efeeb0768d42d83a71c04}
+Checks the current current sense A\-D\-C readings against the O\-C\-P limits. \begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00005_a0ad871be22e7987be07a0f4534ef231b}{\index{Adc.\-h@{Adc.\-h}!adc\-Check\-Ovp@{adc\-Check\-Ovp}}
+\index{adc\-Check\-Ovp@{adc\-Check\-Ovp}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Check\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Check\-Ovp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00005_a0ad871be22e7987be07a0f4534ef231b}
+Checks the current voltage sense A\-D\-C readings against the O\-V\-P limits. \begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00005_a646e6cc4558594a6fbaa10c767cc4fec}{\index{Adc.\-h@{Adc.\-h}!adc\-Comp\-Configure@{adc\-Comp\-Configure}}
+\index{adc\-Comp\-Configure@{adc\-Comp\-Configure}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Comp\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void adc\-Comp\-Configure (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00005_a646e6cc4558594a6fbaa10c767cc4fec}
+Configures the C\-O\-M\-P 1 \& 2 comparators using the internal D\-A\-Cs at inverting inputs.
+\begin{DoxyItemize}
+\item S\-H\-O\-U\-L\-D be called A\-F\-T\-E\-R \hyperlink{a00005_af77988a3ac7a924b75e6213631b04d46}{adc\-Soc\-Cnf()}.
+\item S\-H\-O\-U\-L\-D be called B\-E\-F\-O\-R\-E P\-W\-M\-S (S\-Y\-N\-C) are started.
+\item S\-H\-O\-U\-L\-D be called B\-E\-F\-O\-R\-E pwm\-T\-Z\-Configure(). 
+\end{DoxyItemize}\hypertarget{a00005_a2cda2df7670a029f25848b9fe6f37bf8}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-Current@{adc\-Get\-Current}}
+\index{adc\-Get\-Current@{adc\-Get\-Current}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Get\-Current}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-Current (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{i\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00005_a2cda2df7670a029f25848b9fe6f37bf8}
+Queries the most recent current reading from the specified channel's associated A\-D\-C. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the reading is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em i\-Dest} & Address of the memory location at which to place the query result (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_a51b43d0fbadcb3b231f4fceb4c7b9d12}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-Dac@{adc\-Get\-Dac}}
+\index{adc\-Get\-Dac@{adc\-Get\-Dac}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Get\-Dac}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-Dac (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{dac\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00005_a51b43d0fbadcb3b231f4fceb4c7b9d12}
+Queries the output level setting of the D\-A\-C on the inverting input of the comparators. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the setting is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em dac\-Dest} & Address of the memory location at which to place the query result (volts or amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_acbf7c83ae3b6df7b0812ef1aed2b9c96}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-I\-Scale@{adc\-Get\-I\-Scale}}
+\index{adc\-Get\-I\-Scale@{adc\-Get\-I\-Scale}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Get\-I\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-I\-Scale (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{scl\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00005_acbf7c83ae3b6df7b0812ef1aed2b9c96}
+Queries the current current scaling setting of the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the setting is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em scl\-Dest} & Address of the memory location at which to place the query result (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_a8e08c745a25782602c5d337d5eb7b03c}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-Ocp@{adc\-Get\-Ocp}}
+\index{adc\-Get\-Ocp@{adc\-Get\-Ocp}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Get\-Ocp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-Ocp (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{ocp\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00005_a8e08c745a25782602c5d337d5eb7b03c}
+Queries the over current protection setting for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the setting is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em ocp\-Dest} & Address of the memory location at which to place the query result (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_a1536739f53a776036e1b9c92990a102a}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-Ovp@{adc\-Get\-Ovp}}
+\index{adc\-Get\-Ovp@{adc\-Get\-Ovp}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Get\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-Ovp (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{ovp\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00005_a1536739f53a776036e1b9c92990a102a}
+Queries the over current protection setting for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the setting is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em ovp\-Dest} & Address of the memory location at which to place the query result (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_a47082a746494c4221df1cb453fa746f7}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-Voltage@{adc\-Get\-Voltage}}
+\index{adc\-Get\-Voltage@{adc\-Get\-Voltage}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Get\-Voltage}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-Voltage (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{v\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00005_a47082a746494c4221df1cb453fa746f7}
+Queries the most recent voltage reading from the specified channel's associated A\-D\-C. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the reading is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em v\-Dest} & Address of the memory location at which to place the query result (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_a478f6261679944822575231af3eb229c}{\index{Adc.\-h@{Adc.\-h}!adc\-Get\-V\-Scale@{adc\-Get\-V\-Scale}}
+\index{adc\-Get\-V\-Scale@{adc\-Get\-V\-Scale}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Get\-V\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Get\-V\-Scale (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{scl\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00005_a478f6261679944822575231af3eb229c}
+Queries the current voltage scaling setting of the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the setting is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em scl\-Dest} & Address of the memory location at which to place the query result (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_a3c614312b1f0ce65b46c4d93051de836}{\index{Adc.\-h@{Adc.\-h}!adc\-Macro\-Configure@{adc\-Macro\-Configure}}
+\index{adc\-Macro\-Configure@{adc\-Macro\-Configure}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Macro\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void adc\-Macro\-Configure (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00005_a3c614312b1f0ce65b46c4d93051de836}
+Configures the A\-D\-C's S\-O\-Cs then calls \hyperlink{a00024_a358d8706acd0faf4e1cc705129be6548}{pwm\-Soc\-Configure()}.
+\begin{DoxyItemize}
+\item S\-H\-O\-U\-L\-D be run after \hyperlink{a00024_acc68120fcdfa36145370c31a61eb23a7}{pwm\-Macro\-Configure()}.
+\item S\-H\-O\-U\-L\-D be run before D\-P\-L\-\_\-\-I\-N\-I\-T(). 
+\end{DoxyItemize}\hypertarget{a00005_aca1e33ca1b293964f5ce58d430e684f0}{\index{Adc.\-h@{Adc.\-h}!adc\-Set\-Dac@{adc\-Set\-Dac}}
+\index{adc\-Set\-Dac@{adc\-Set\-Dac}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Set\-Dac}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Set\-Dac (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32}]{dac\-Lvl}
+\end{DoxyParamCaption}
+)}}\label{a00005_aca1e33ca1b293964f5ce58d430e684f0}
+Sets the output levels of the D\-A\-Cs on the inverting input of the comparators. The function will determine the scaling to be applied by testing the ctrl\-Mode setting of the channel specified. The respective channel's current or voltage M\-U\-S\-T be set previously. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em dac\-Lvl} & Specifies the value of the level setting to be applied (volts or amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_a2dcc5ee51599a4026fc672072a3f8232}{\index{Adc.\-h@{Adc.\-h}!adc\-Set\-I\-Scale@{adc\-Set\-I\-Scale}}
+\index{adc\-Set\-I\-Scale@{adc\-Set\-I\-Scale}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Set\-I\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Set\-I\-Scale (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32}]{scale\-Setting}
+\end{DoxyParamCaption}
+)}}\label{a00005_a2dcc5ee51599a4026fc672072a3f8232}
+Sets the current scaling for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em scale\-Setting} & Specifies the value of the scaling setting to be applied (amps/volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_ac5c13a2ef6c3a9f9da7bf437e0213da2}{\index{Adc.\-h@{Adc.\-h}!adc\-Set\-Ocp@{adc\-Set\-Ocp}}
+\index{adc\-Set\-Ocp@{adc\-Set\-Ocp}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Set\-Ocp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Set\-Ocp (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32}]{ocp\-Setting}
+\end{DoxyParamCaption}
+)}}\label{a00005_ac5c13a2ef6c3a9f9da7bf437e0213da2}
+Sets the over current protection limit for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em ocp\-Setting} & Specifies the value of the limit to be applied (Amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_a03e263230a1a25337050bfde1172d1a1}{\index{Adc.\-h@{Adc.\-h}!adc\-Set\-Ovp@{adc\-Set\-Ovp}}
+\index{adc\-Set\-Ovp@{adc\-Set\-Ovp}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Set\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Set\-Ovp (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32}]{ovp\-Setting}
+\end{DoxyParamCaption}
+)}}\label{a00005_a03e263230a1a25337050bfde1172d1a1}
+Sets the over voltage protection limit for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em ovp\-Setting} & Specifies the value of the limit to be applied (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_a9c87603c2aabc17d784a9149563e71e5}{\index{Adc.\-h@{Adc.\-h}!adc\-Set\-V\-Scale@{adc\-Set\-V\-Scale}}
+\index{adc\-Set\-V\-Scale@{adc\-Set\-V\-Scale}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Set\-V\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 adc\-Set\-V\-Scale (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32}]{scale\-Setting}
+\end{DoxyParamCaption}
+)}}\label{a00005_a9c87603c2aabc17d784a9149563e71e5}
+Sets the voltage scaling for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em scale\-Setting} & Specifies the value of the scaling setting to be applied (volts/volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00005_af77988a3ac7a924b75e6213631b04d46}{\index{Adc.\-h@{Adc.\-h}!adc\-Soc\-Cnf@{adc\-Soc\-Cnf}}
+\index{adc\-Soc\-Cnf@{adc\-Soc\-Cnf}!Adc.h@{Adc.\-h}}
+\subsubsection[{adc\-Soc\-Cnf}]{\setlength{\rightskip}{0pt plus 5cm}void adc\-Soc\-Cnf (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00005_af77988a3ac7a924b75e6213631b04d46}
+Configures A\-D\-C S\-O\-C for A\-D\-C macro 
+
+\subsection{Variable Documentation}
+\hypertarget{a00005_a42ca9720519e1d0cb7ded4f56da083ba}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}}\label{a00005_a42ca9720519e1d0cb7ded4f56da083ba}
+Channel 0 current sense A\-D\-C terminal pointer. \hypertarget{a00005_ad1b851523cd317f0910f2db4220f32da}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10}}\label{a00005_ad1b851523cd317f0910f2db4220f32da}
+Channel 3 voltage sense A\-D\-C terminal pointer. \hypertarget{a00005_ad4435404e2f432a8c3a449dd23cda8f0}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11}}\label{a00005_ad4435404e2f432a8c3a449dd23cda8f0}
+Interboost voltage sense A\-D\-C terminal pointer. \hypertarget{a00005_ac3656f047361723ec883e6ebfe3f026a}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12}}\label{a00005_ac3656f047361723ec883e6ebfe3f026a}
+A\-C stage voltage sense A\-D\-C terminal pointer. \hypertarget{a00005_ad7ef0544a173d3c7883f0e739b7d2096}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13}}\label{a00005_ad7ef0544a173d3c7883f0e739b7d2096}
+V\-Mid voltage sense A\-D\-C terminal pointer. \hypertarget{a00005_a1ca55c7841c3e4bc154789647a068810}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2}}\label{a00005_a1ca55c7841c3e4bc154789647a068810}
+Channel 1 current sense A\-D\-C terminal pointer. \hypertarget{a00005_a1704632b071d0fff6bdc9629549c5d08}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3}}\label{a00005_a1704632b071d0fff6bdc9629549c5d08}
+Channel 2 current sense A\-D\-C terminal pointer. \hypertarget{a00005_ac181cb2fb372cceb0f55844ed941c5d0}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4}}\label{a00005_ac181cb2fb372cceb0f55844ed941c5d0}
+Channel 3 current sense A\-D\-C terminal pointer. \hypertarget{a00005_a7b586f409f6daf8232917fbd976532a4}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5}}\label{a00005_a7b586f409f6daf8232917fbd976532a4}
+Interboost current sense A\-D\-C terminal pointer. \hypertarget{a00005_ae8182c9b35af2d72b1c18ea41ccece2d}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6}}\label{a00005_ae8182c9b35af2d72b1c18ea41ccece2d}
+A\-C stage current sense A\-D\-C terminal pointer. \hypertarget{a00005_a4fa6265d0bf9b69d560d8f9f488b98c1}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7}}\label{a00005_a4fa6265d0bf9b69d560d8f9f488b98c1}
+Channel 0 voltage sense A\-D\-C terminal pointer. \hypertarget{a00005_a0415309d16a115f0116a26aeda91aabd}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8}}\label{a00005_a0415309d16a115f0116a26aeda91aabd}
+Channel 1 voltage sense A\-D\-C terminal pointer. \hypertarget{a00005_adea6b0b8533e0d56a5c6cbac1c1e705f}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9}}\label{a00005_adea6b0b8533e0d56a5c6cbac1c1e705f}
+Channel 2 voltage sense A\-D\-C terminal pointer. 

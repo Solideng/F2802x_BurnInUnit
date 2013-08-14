@@ -1,0 +1,307 @@
+\hypertarget{a00009}{\section{Cntl.\-h File Reference}
+\label{a00009}\index{Cntl.\-h@{Cntl.\-h}}
+}
+
+
+D\-P\-Lib C\-N\-T\-L Macro related helper functions.  
+
+
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{a00044}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00009_a64fd24fd8ffc66895ab057370d1c10f9}{S\-A\-T\-M\-A\-X\-\_\-\-M\-A\-X}~0.\-9f
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1}{coef\-Num} \hyperlink{a00009_ac340fbbc5919954c173757935549588f}{cf\-Type}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1}{coef\-Num} \{ , \\*
+\hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1ad15b967851188a21b2d4fd326304bf83}{c\-Min} = first\-Coef, 
+\hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1a3576a9eb4b8f9d1ca3d31a0f9b889299}{c\-Max}, 
+\hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1a3dec162fc3f68f49f43775eba612e110}{c\-B0}, 
+\hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1a43986b141584b760c8c8c9fc29304de2}{c\-B1}, 
+\\*
+\hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1aac28a7344b33c5e968a79fc27078da99}{c\-A1}, 
+\hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1a5229cb73bab727c5aeaae425a4fd2472}{c\-B2}, 
+\hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1a80d8d6d72b42fa8603b71cba71e13ef2}{c\-A2}, 
+\hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1aaf02fe4d8a1a90d96d8ceb29c6face14}{c\-B3}, 
+\\*
+\hyperlink{a00009_a4b8f446b389413b175ff4d4dbcd18da1a23a7967c17fd0f99330009d84750ff62}{c\-A3}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{a00009_ac82b19f3b880ae3bbed395b3194d709e}{cntl\-Update\-Coefs} (void)
+\item 
+Uint16 \hyperlink{a00009_abc7c9f468b60d7348e835e6473a34b23}{cntl\-Get\-Coef} (Uint16 chnl, \hyperlink{a00009_ac340fbbc5919954c173757935549588f}{cf\-Type} coef, float32 $\ast$val\-Dest)
+\item 
+Uint16 \hyperlink{a00009_a1b0f822cb4344a66c433d36c8eee2be3}{cntl\-Set\-Coef} (Uint16 chnl, \hyperlink{a00009_ac340fbbc5919954c173757935549588f}{cf\-Type} coef, float32 val)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a047c759a71b80d8cfd5e6f52b1b021b9}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef1}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_abdc599cbabc62898c49926678c3327e6}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef2}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a1e357d296e76299ea04d7a63e4c46d1b}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef3}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_afe468cb1e995b267671e88b8d292aef6}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef4}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a5fe3f4dd6aac27512c9e0b6fc843b0b6}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef5}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a9c0418a780375035750c3d4dc16f3ae4}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk1}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a6092ef1c1c54802bb5e11564f782390d}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk2}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a939782d23ddbf7f45e5e393a65bafcff}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk3}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a6937e965f3ae840ea6ee43cce410680f}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk4}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_af5cbb635f31bbebd041e8543deb40dee}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk5}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a84d7c096ca668d1edc5e4fa54abe5d98}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out1}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_ae6679b66ffeca93742f973a2c947855f}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out2}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a11dcb9f6b6d03fe960ddf790e1ad5ed2}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out3}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a253e4070b19470606e0566ff25fc911f}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out4}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a3b336a91d25a7feb9f8927b32b800d0d}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out5}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a98527ce76f5175fa2933d46f324d85fb}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref1}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a9bf1756a901a3a74d9f43a51f85cede4}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref2}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a859e9bbd5bc82f1b42863a93e4f992af}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref3}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_af54c55f228deb8189c44282a94a870c1}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref4}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_abd3b240e2d3f7d3f4f717066ee8efd3e}{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref5}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a41005c53e7c439f0af28e140f7d3d0ed}{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef1}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a7a74642d86ae9a823f58f49db57f8bc8}{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef2}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a361372a23d9146cd2d077e6c843ec47e}{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk1}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a4676fa58f77cab7e1c4e86255049dfe7}{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk2}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_acb0edbb1cfd2fb0e63ac2eb233dcd577}{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out1}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a92dd8eabeed10eaaaf60887d9bcbd76d}{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out2}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a6ebe91dab023eff56cade0eddcd3e96d}{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref1}
+\item 
+volatile int32 $\ast$ \hyperlink{a00009_a589e93bad0b8ba223e32ce590bba816b}{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref2}
+\item 
+struct C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef\-Struct \hyperlink{a00009_a0e862b208ff3b2bb45fcfce1ccd74cd2}{coefs2} \mbox{[}\hyperlink{a00029_a69b2e41c3deaae85991311202c4a1a14}{N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}\mbox{]}
+\item 
+struct C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef\-Struct \hyperlink{a00009_a84b8a9f9bc8749e7ad42eea593f858c4}{coefs3} \mbox{[}\hyperlink{a00029_a42a316162edffd07a32e68a889760c06}{N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+D\-P\-Lib C\-N\-T\-L Macro related helper functions. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{a00009_a64fd24fd8ffc66895ab057370d1c10f9}{\index{Cntl.\-h@{Cntl.\-h}!S\-A\-T\-M\-A\-X\-\_\-\-M\-A\-X@{S\-A\-T\-M\-A\-X\-\_\-\-M\-A\-X}}
+\index{S\-A\-T\-M\-A\-X\-\_\-\-M\-A\-X@{S\-A\-T\-M\-A\-X\-\_\-\-M\-A\-X}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{S\-A\-T\-M\-A\-X\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-T\-M\-A\-X\-\_\-\-M\-A\-X~0.\-9f}}\label{a00009_a64fd24fd8ffc66895ab057370d1c10f9}
+The maximum allowable value for the I\-I\-R filter control law's maximum saturation. 
+
+\subsection{Typedef Documentation}
+\hypertarget{a00009_ac340fbbc5919954c173757935549588f}{\index{Cntl.\-h@{Cntl.\-h}!cf\-Type@{cf\-Type}}
+\index{cf\-Type@{cf\-Type}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{cf\-Type}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf coef\-Num} {\bf cf\-Type}}}\label{a00009_ac340fbbc5919954c173757935549588f}
+A type that allows a reference to a C\-N\-T\-L coefficient. 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{a00009_a4b8f446b389413b175ff4d4dbcd18da1}{\index{Cntl.\-h@{Cntl.\-h}!coef\-Num@{coef\-Num}}
+\index{coef\-Num@{coef\-Num}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{coef\-Num}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf coef\-Num}}}\label{a00009_a4b8f446b389413b175ff4d4dbcd18da1}
+C\-N\-T\-L Coefficient references \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{c\-Min@{c\-Min}!Cntl.\-h@{Cntl.\-h}}\index{Cntl.\-h@{Cntl.\-h}!c\-Min@{c\-Min}}\item[{\em 
+\hypertarget{a00009_a4b8f446b389413b175ff4d4dbcd18da1ad15b967851188a21b2d4fd326304bf83}{c\-Min}\label{a00009_a4b8f446b389413b175ff4d4dbcd18da1ad15b967851188a21b2d4fd326304bf83}
+}]Saturation minimum reference. \index{c\-Max@{c\-Max}!Cntl.\-h@{Cntl.\-h}}\index{Cntl.\-h@{Cntl.\-h}!c\-Max@{c\-Max}}\item[{\em 
+\hypertarget{a00009_a4b8f446b389413b175ff4d4dbcd18da1a3576a9eb4b8f9d1ca3d31a0f9b889299}{c\-Max}\label{a00009_a4b8f446b389413b175ff4d4dbcd18da1a3576a9eb4b8f9d1ca3d31a0f9b889299}
+}]Saturation maximum reference. \index{c\-B0@{c\-B0}!Cntl.\-h@{Cntl.\-h}}\index{Cntl.\-h@{Cntl.\-h}!c\-B0@{c\-B0}}\item[{\em 
+\hypertarget{a00009_a4b8f446b389413b175ff4d4dbcd18da1a3dec162fc3f68f49f43775eba612e110}{c\-B0}\label{a00009_a4b8f446b389413b175ff4d4dbcd18da1a3dec162fc3f68f49f43775eba612e110}
+}]B0 coefficient reference. \index{c\-B1@{c\-B1}!Cntl.\-h@{Cntl.\-h}}\index{Cntl.\-h@{Cntl.\-h}!c\-B1@{c\-B1}}\item[{\em 
+\hypertarget{a00009_a4b8f446b389413b175ff4d4dbcd18da1a43986b141584b760c8c8c9fc29304de2}{c\-B1}\label{a00009_a4b8f446b389413b175ff4d4dbcd18da1a43986b141584b760c8c8c9fc29304de2}
+}]B1 coefficient reference. \index{c\-A1@{c\-A1}!Cntl.\-h@{Cntl.\-h}}\index{Cntl.\-h@{Cntl.\-h}!c\-A1@{c\-A1}}\item[{\em 
+\hypertarget{a00009_a4b8f446b389413b175ff4d4dbcd18da1aac28a7344b33c5e968a79fc27078da99}{c\-A1}\label{a00009_a4b8f446b389413b175ff4d4dbcd18da1aac28a7344b33c5e968a79fc27078da99}
+}]A1 coefficient reference. \index{c\-B2@{c\-B2}!Cntl.\-h@{Cntl.\-h}}\index{Cntl.\-h@{Cntl.\-h}!c\-B2@{c\-B2}}\item[{\em 
+\hypertarget{a00009_a4b8f446b389413b175ff4d4dbcd18da1a5229cb73bab727c5aeaae425a4fd2472}{c\-B2}\label{a00009_a4b8f446b389413b175ff4d4dbcd18da1a5229cb73bab727c5aeaae425a4fd2472}
+}]B2 coefficient reference. \index{c\-A2@{c\-A2}!Cntl.\-h@{Cntl.\-h}}\index{Cntl.\-h@{Cntl.\-h}!c\-A2@{c\-A2}}\item[{\em 
+\hypertarget{a00009_a4b8f446b389413b175ff4d4dbcd18da1a80d8d6d72b42fa8603b71cba71e13ef2}{c\-A2}\label{a00009_a4b8f446b389413b175ff4d4dbcd18da1a80d8d6d72b42fa8603b71cba71e13ef2}
+}]A2 coefficient reference. \index{c\-B3@{c\-B3}!Cntl.\-h@{Cntl.\-h}}\index{Cntl.\-h@{Cntl.\-h}!c\-B3@{c\-B3}}\item[{\em 
+\hypertarget{a00009_a4b8f446b389413b175ff4d4dbcd18da1aaf02fe4d8a1a90d96d8ceb29c6face14}{c\-B3}\label{a00009_a4b8f446b389413b175ff4d4dbcd18da1aaf02fe4d8a1a90d96d8ceb29c6face14}
+}]B3 coefficient reference. \index{c\-A3@{c\-A3}!Cntl.\-h@{Cntl.\-h}}\index{Cntl.\-h@{Cntl.\-h}!c\-A3@{c\-A3}}\item[{\em 
+\hypertarget{a00009_a4b8f446b389413b175ff4d4dbcd18da1a23a7967c17fd0f99330009d84750ff62}{c\-A3}\label{a00009_a4b8f446b389413b175ff4d4dbcd18da1a23a7967c17fd0f99330009d84750ff62}
+}]A3 coefficient reference. \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{a00009_abc7c9f468b60d7348e835e6473a34b23}{\index{Cntl.\-h@{Cntl.\-h}!cntl\-Get\-Coef@{cntl\-Get\-Coef}}
+\index{cntl\-Get\-Coef@{cntl\-Get\-Coef}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{cntl\-Get\-Coef}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 cntl\-Get\-Coef (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{{\bf cf\-Type}}]{coef, }
+\item[{float32 $\ast$}]{val\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00009_abc7c9f468b60d7348e835e6473a34b23}
+Queries the specified I\-I\-R filter control law coefficient for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number on which the setting is to be queried. \\
+\hline
+\mbox{\tt in}  & {\em coef} & Specifies the coefficient to be queried. \\
+\hline
+\mbox{\tt out}  & {\em val\-Dest} & Address of the memory location at which to place the query result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00009_a1b0f822cb4344a66c433d36c8eee2be3}{\index{Cntl.\-h@{Cntl.\-h}!cntl\-Set\-Coef@{cntl\-Set\-Coef}}
+\index{cntl\-Set\-Coef@{cntl\-Set\-Coef}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{cntl\-Set\-Coef}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 cntl\-Set\-Coef (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{{\bf cf\-Type}}]{coef, }
+\item[{float32}]{val}
+\end{DoxyParamCaption}
+)}}\label{a00009_a1b0f822cb4344a66c433d36c8eee2be3}
+Sets the specified I\-I\-R filter control law coefficient for the specified channel.
+\begin{DoxyItemize}
+\item The actual setting in use is not updated until A\-F\-T\-E\-R \hyperlink{a00009_ac82b19f3b880ae3bbed395b3194d709e}{cntl\-Update\-Coefs()} has been called. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel number the setting is to be applied to \mbox{[}0, N\-U\-M\-\_\-\-C\-H\-N\-L\-S). \\
+\hline
+\mbox{\tt in}  & {\em coef} & Specifies the coefficient to be set \mbox{[}c\-Min, c\-A3). \\
+\hline
+\mbox{\tt in}  & {\em val} & Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cf\-Lmts\mbox{[}coef\mbox{]} and cf\-Lmts\mbox{[}coef + c\-A3\mbox{]}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\hypertarget{a00009_ac82b19f3b880ae3bbed395b3194d709e}{\index{Cntl.\-h@{Cntl.\-h}!cntl\-Update\-Coefs@{cntl\-Update\-Coefs}}
+\index{cntl\-Update\-Coefs@{cntl\-Update\-Coefs}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{cntl\-Update\-Coefs}]{\setlength{\rightskip}{0pt plus 5cm}void cntl\-Update\-Coefs (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00009_ac82b19f3b880ae3bbed395b3194d709e}
+Updates the I\-I\-R filter control law's coefficients that are being used to those values set by the use of the other functions within this file. 
+
+\subsection{Variable Documentation}
+\hypertarget{a00009_a047c759a71b80d8cfd5e6f52b1b021b9}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef1@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef1}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef1@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef1}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef1}}\label{a00009_a047c759a71b80d8cfd5e6f52b1b021b9}
+Channel 0 I\-I\-R filter control law coefficient terminal pointer. \hypertarget{a00009_abdc599cbabc62898c49926678c3327e6}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef2@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef2}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef2@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef2}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef2}}\label{a00009_abdc599cbabc62898c49926678c3327e6}
+Channel 1 I\-I\-R filter control law coefficient terminal pointer. \hypertarget{a00009_a1e357d296e76299ea04d7a63e4c46d1b}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef3@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef3}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef3@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef3}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef3}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef3}}\label{a00009_a1e357d296e76299ea04d7a63e4c46d1b}
+Channel 2 I\-I\-R filter control law coefficient terminal pointer. \hypertarget{a00009_afe468cb1e995b267671e88b8d292aef6}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef4@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef4}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef4@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef4}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef4}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef4}}\label{a00009_afe468cb1e995b267671e88b8d292aef6}
+Channel 3 I\-I\-R filter control law coefficient terminal pointer. \hypertarget{a00009_a5fe3f4dd6aac27512c9e0b6fc843b0b6}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef5@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef5}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef5@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef5}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef5}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef5}}\label{a00009_a5fe3f4dd6aac27512c9e0b6fc843b0b6}
+Channel 4 I\-I\-R filter control law coefficient terminal pointer. \hypertarget{a00009_a9c0418a780375035750c3d4dc16f3ae4}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk1@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk1}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk1@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk1}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk1}}\label{a00009_a9c0418a780375035750c3d4dc16f3ae4}
+Channel 0 I\-I\-R filter control law feedback terminal pointer. \hypertarget{a00009_a6092ef1c1c54802bb5e11564f782390d}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk2@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk2}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk2@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk2}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk2}}\label{a00009_a6092ef1c1c54802bb5e11564f782390d}
+Channel 1 I\-I\-R filter control law feedback terminal pointer. \hypertarget{a00009_a939782d23ddbf7f45e5e393a65bafcff}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk3@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk3}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk3@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk3}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk3}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk3}}\label{a00009_a939782d23ddbf7f45e5e393a65bafcff}
+Channel 2 I\-I\-R filter control law feedback terminal pointer. \hypertarget{a00009_a6937e965f3ae840ea6ee43cce410680f}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk4@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk4}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk4@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk4}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk4}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk4}}\label{a00009_a6937e965f3ae840ea6ee43cce410680f}
+Channel 3 I\-I\-R filter control law feedback terminal pointer. \hypertarget{a00009_af5cbb635f31bbebd041e8543deb40dee}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk5@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk5}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk5@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk5}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk5}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Fdbk5}}\label{a00009_af5cbb635f31bbebd041e8543deb40dee}
+Channel 4 I\-I\-R filter control law feedback terminal pointer. \hypertarget{a00009_a84d7c096ca668d1edc5e4fa54abe5d98}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out1@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out1}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out1@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out1}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out1}}\label{a00009_a84d7c096ca668d1edc5e4fa54abe5d98}
+Channel 0 I\-I\-R filter control law output terminal pointer. \hypertarget{a00009_ae6679b66ffeca93742f973a2c947855f}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out2@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out2}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out2@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out2}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out2}}\label{a00009_ae6679b66ffeca93742f973a2c947855f}
+Channel 1 I\-I\-R filter control law output terminal pointer. \hypertarget{a00009_a11dcb9f6b6d03fe960ddf790e1ad5ed2}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out3@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out3}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out3@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out3}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out3}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out3}}\label{a00009_a11dcb9f6b6d03fe960ddf790e1ad5ed2}
+Channel 2 I\-I\-R filter control law output terminal pointer. \hypertarget{a00009_a253e4070b19470606e0566ff25fc911f}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out4@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out4}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out4@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out4}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out4}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out4}}\label{a00009_a253e4070b19470606e0566ff25fc911f}
+Channel 3 I\-I\-R filter control law output terminal pointer. \hypertarget{a00009_a3b336a91d25a7feb9f8927b32b800d0d}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out5@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out5}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out5@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out5}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out5}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Out5}}\label{a00009_a3b336a91d25a7feb9f8927b32b800d0d}
+Channel 4 I\-I\-R filter control law output terminal pointer. \hypertarget{a00009_a98527ce76f5175fa2933d46f324d85fb}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref1@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref1}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref1@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref1}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref1}}\label{a00009_a98527ce76f5175fa2933d46f324d85fb}
+Channel 0 I\-I\-R filter control law reference terminal pointer. \hypertarget{a00009_a9bf1756a901a3a74d9f43a51f85cede4}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref2@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref2}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref2@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref2}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref2}}\label{a00009_a9bf1756a901a3a74d9f43a51f85cede4}
+Channel 1 I\-I\-R filter control law reference terminal pointer. \hypertarget{a00009_a859e9bbd5bc82f1b42863a93e4f992af}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref3@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref3}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref3@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref3}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref3}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref3}}\label{a00009_a859e9bbd5bc82f1b42863a93e4f992af}
+Channel 2 I\-I\-R filter control law reference terminal pointer. \hypertarget{a00009_af54c55f228deb8189c44282a94a870c1}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref4@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref4}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref4@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref4}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref4}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref4}}\label{a00009_af54c55f228deb8189c44282a94a870c1}
+Channel 3 I\-I\-R filter control law reference terminal pointer. \hypertarget{a00009_abd3b240e2d3f7d3f4f717066ee8efd3e}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref5@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref5}}
+\index{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref5@{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref5}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref5}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Ref5}}\label{a00009_abd3b240e2d3f7d3f4f717066ee8efd3e}
+Channel 4 I\-I\-R filter control law reference terminal pointer. \hypertarget{a00009_a41005c53e7c439f0af28e140f7d3d0ed}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef1@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef1}}
+\index{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef1@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef1}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef1}}\label{a00009_a41005c53e7c439f0af28e140f7d3d0ed}
+Interboost I\-I\-R filter control law coefficient terminal pointer. \hypertarget{a00009_a7a74642d86ae9a823f58f49db57f8bc8}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef2@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef2}}
+\index{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef2@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef2}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef2}}\label{a00009_a7a74642d86ae9a823f58f49db57f8bc8}
+A\-C stage I\-I\-R filter control law coefficient terminal pointer. \hypertarget{a00009_a361372a23d9146cd2d077e6c843ec47e}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk1@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk1}}
+\index{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk1@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk1}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk1}}\label{a00009_a361372a23d9146cd2d077e6c843ec47e}
+Interboost I\-I\-R filter control law feedback terminal pointer. \hypertarget{a00009_a4676fa58f77cab7e1c4e86255049dfe7}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk2@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk2}}
+\index{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk2@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk2}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Fdbk2}}\label{a00009_a4676fa58f77cab7e1c4e86255049dfe7}
+A\-C stage I\-I\-R filter control law feedback terminal pointer. \hypertarget{a00009_acb0edbb1cfd2fb0e63ac2eb233dcd577}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out1@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out1}}
+\index{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out1@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out1}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out1}}\label{a00009_acb0edbb1cfd2fb0e63ac2eb233dcd577}
+Interboost I\-I\-R filter control law output terminal pointer. \hypertarget{a00009_a92dd8eabeed10eaaaf60887d9bcbd76d}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out2@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out2}}
+\index{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out2@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out2}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Out2}}\label{a00009_a92dd8eabeed10eaaaf60887d9bcbd76d}
+A\-C stage I\-I\-R filter control law output terminal pointer. \hypertarget{a00009_a6ebe91dab023eff56cade0eddcd3e96d}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref1@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref1}}
+\index{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref1@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref1}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref1}}\label{a00009_a6ebe91dab023eff56cade0eddcd3e96d}
+Interboost I\-I\-R filter control law reference terminal pointer. \hypertarget{a00009_a589e93bad0b8ba223e32ce590bba816b}{\index{Cntl.\-h@{Cntl.\-h}!C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref2@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref2}}
+\index{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref2@{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref2}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Ref2}}\label{a00009_a589e93bad0b8ba223e32ce590bba816b}
+A\-C stage I\-I\-R filter control law reference terminal pointer. \hypertarget{a00009_a0e862b208ff3b2bb45fcfce1ccd74cd2}{\index{Cntl.\-h@{Cntl.\-h}!coefs2@{coefs2}}
+\index{coefs2@{coefs2}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{coefs2}]{\setlength{\rightskip}{0pt plus 5cm}struct C\-N\-T\-L\-\_\-2\-P2\-Z\-\_\-\-Coef\-Struct coefs2\mbox{[}{\bf N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}\mbox{]}}}\label{a00009_a0e862b208ff3b2bb45fcfce1ccd74cd2}
+Array of structures that hold the 2-\/pole 2-\/zero I\-I\-R filter control law coefficient currently in use. \hypertarget{a00009_a84b8a9f9bc8749e7ad42eea593f858c4}{\index{Cntl.\-h@{Cntl.\-h}!coefs3@{coefs3}}
+\index{coefs3@{coefs3}!Cntl.h@{Cntl.\-h}}
+\subsubsection[{coefs3}]{\setlength{\rightskip}{0pt plus 5cm}struct C\-N\-T\-L\-\_\-3\-P3\-Z\-\_\-\-Coef\-Struct coefs3\mbox{[}{\bf N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}\mbox{]}}}\label{a00009_a84b8a9f9bc8749e7ad42eea593f858c4}
+Array of structures that hold the 3-\/pole 3-\/zero I\-I\-R filter control law coefficient currently in use. 

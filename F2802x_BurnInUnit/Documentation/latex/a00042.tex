@@ -1,0 +1,161 @@
+\hypertarget{a00042}{\section{Tmp.\-h File Reference}
+\label{a00042}\index{Tmp.\-h@{Tmp.\-h}}
+}
+
+
+Temperature sensor functions.  
+
+
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{a00060}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00042_a5fd3aabe18504a5314a5d0e71e3bc495}{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}~0x48
+\item 
+\#define \hyperlink{a00042_a448e8a52be570dfe9fdddb2045039534}{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}~0x08
+\item 
+\#define \hyperlink{a00042_a5a03d0b939a8dda552c9fe3319a82485}{A\-D\-C\-\_\-\-V\-R\-E\-F}~5.\-0
+\item 
+\#define \hyperlink{a00042_a9be6401f8c9339711816bec5ca55dd88}{A\-D\-C\-\_\-\-S\-T\-P\-S}~256
+\item 
+\#define \hyperlink{a00042_a6d41a70e126c748f2c99c3ff8228eb1b}{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T}~0.\-4
+\item 
+\#define \hyperlink{a00042_a0f910bb108922c8686a139977510af53}{T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T}~\hyperlink{a00042_a6d41a70e126c748f2c99c3ff8228eb1b}{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T} $\ast$ \hyperlink{a00042_a9be6401f8c9339711816bec5ca55dd88}{A\-D\-C\-\_\-\-S\-T\-P\-S} / \hyperlink{a00042_a5a03d0b939a8dda552c9fe3319a82485}{A\-D\-C\-\_\-\-V\-R\-E\-F}
+\item 
+\#define \hyperlink{a00042_acc66f9f90ea4746679f5d26c834ddea5}{T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D}~1.\-5
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \hyperlink{a00042_a4f10186d5fb8a3069cc30c9d0c7e716f}{tmp\-Init} (void)
+\item 
+Uint16 \hyperlink{a00042_a10e85d2f2d7cce42822ea65e69601dfa}{tmp\-Set\-Otp} (Uint16 chnl, float32 tmp)
+\item 
+Uint16 \hyperlink{a00042_a9aedec904a421fed1823a16846b7841d}{tmp\-Get\-Otp} (Uint16 chnl, float32 $\ast$tmp\-Dest)
+\item 
+Uint16 \hyperlink{a00042_adf839085f18308f90ee198a96bbac364}{tmp\-Check\-Otp} (void)
+\item 
+Uint16 \hyperlink{a00042_a3f542f4bc433dfd2c1073a5e8308f99f}{tmp\-Read} (Uint16 chnl, float32 $\ast$tmp\-Dest)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Temperature sensor functions. The temperature sensor (M\-C\-P9701) output is read via an external A\-D\-C (A\-D\-S7830) that is connected to the I2\-C bus at address 10010xx where 'xx' is dependent upon the configuration of resistors R75 -\/ R78. All temperatures are in degrees Celcius.
+
+\begin{DoxyWarning}{Warning}
+Before any temperature functions can be used the I2\-C peripheral M\-U\-S\-T be initialised and \hyperlink{a00042_a4f10186d5fb8a3069cc30c9d0c7e716f}{tmp\-Init()} must be run -\/ \hyperlink{a00042_a4f10186d5fb8a3069cc30c9d0c7e716f}{tmp\-Init()} will require the interrupts to be enabled globally.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{a00019_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()} 
+\end{DoxySeeAlso}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{a00042_a5fd3aabe18504a5314a5d0e71e3bc495}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R@{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}}
+\index{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R@{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R~0x48}}\label{a00042_a5fd3aabe18504a5314a5d0e71e3bc495}
+Slave I2\-C address (A\-D\-S7830 8-\/channel A\-D\-C -\/ A0 = 0, A1 = 0). \hypertarget{a00042_a448e8a52be570dfe9fdddb2045039534}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L@{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}}
+\index{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L@{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L~0x08}}\label{a00042_a448e8a52be570dfe9fdddb2045039534}
+Number of temperature channels. The program expects a 50/50 split with first half for the on-\/board temperature channels. \hypertarget{a00042_a9be6401f8c9339711816bec5ca55dd88}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-S\-T\-P\-S@{A\-D\-C\-\_\-\-S\-T\-P\-S}}
+\index{A\-D\-C\-\_\-\-S\-T\-P\-S@{A\-D\-C\-\_\-\-S\-T\-P\-S}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-S\-T\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-S\-T\-P\-S~256}}\label{a00042_a9be6401f8c9339711816bec5ca55dd88}
+Number of A\-D\-S7830 A\-D\-C steps. \hypertarget{a00042_a5a03d0b939a8dda552c9fe3319a82485}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-V\-R\-E\-F@{A\-D\-C\-\_\-\-V\-R\-E\-F}}
+\index{A\-D\-C\-\_\-\-V\-R\-E\-F@{A\-D\-C\-\_\-\-V\-R\-E\-F}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-V\-R\-E\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-V\-R\-E\-F~5.\-0}}\label{a00042_a5a03d0b939a8dda552c9fe3319a82485}
+A\-D\-S7830 A\-D\-C reference voltage (volts). \hypertarget{a00042_acc66f9f90ea4746679f5d26c834ddea5}{\index{Tmp.\-h@{Tmp.\-h}!T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D@{T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D}}
+\index{T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D@{T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D~1.\-5}}\label{a00042_acc66f9f90ea4746679f5d26c834ddea5}
+M\-C\-P9701 Error at lowest operating temperature ( $ ^\circ$ C), calculated as shown in Microchip A\-N1001. \hypertarget{a00042_a0f910bb108922c8686a139977510af53}{\index{Tmp.\-h@{Tmp.\-h}!T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T@{T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T}}
+\index{T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T@{T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T~{\bf T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T} $\ast$ {\bf A\-D\-C\-\_\-\-S\-T\-P\-S} / {\bf A\-D\-C\-\_\-\-V\-R\-E\-F}}}\label{a00042_a0f910bb108922c8686a139977510af53}
+Scaled temperature offset. \hypertarget{a00042_a6d41a70e126c748f2c99c3ff8228eb1b}{\index{Tmp.\-h@{Tmp.\-h}!T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T@{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T}}
+\index{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T@{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T~0.\-4}}\label{a00042_a6d41a70e126c748f2c99c3ff8228eb1b}
+M\-C\-P9701 Temperature sensor $ V_{0{^\circ}C}$ (volts). 
+
+\subsection{Function Documentation}
+\hypertarget{a00042_adf839085f18308f90ee198a96bbac364}{\index{Tmp.\-h@{Tmp.\-h}!tmp\-Check\-Otp@{tmp\-Check\-Otp}}
+\index{tmp\-Check\-Otp@{tmp\-Check\-Otp}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{tmp\-Check\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 tmp\-Check\-Otp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00042_adf839085f18308f90ee198a96bbac364}
+Tests the current on-\/board temperature sensor readings against the O\-T\-P limits. \begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00042_a9aedec904a421fed1823a16846b7841d}{\index{Tmp.\-h@{Tmp.\-h}!tmp\-Get\-Otp@{tmp\-Get\-Otp}}
+\index{tmp\-Get\-Otp@{tmp\-Get\-Otp}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{tmp\-Get\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 tmp\-Get\-Otp (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{tmp\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00042_a9aedec904a421fed1823a16846b7841d}
+Queries the on-\/board over temperature limit for the specified channel. The I2\-C peripheral and temperature reading interface M\-U\-S\-T be initialised before this function is used. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be read from. \\
+\hline
+\mbox{\tt out}  & {\em tmp\-Dest} & Address of the memory location at which to place the query result ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00042_a4f10186d5fb8a3069cc30c9d0c7e716f}{\index{Tmp.\-h@{Tmp.\-h}!tmp\-Init@{tmp\-Init}}
+\index{tmp\-Init@{tmp\-Init}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{tmp\-Init}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 tmp\-Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00042_a4f10186d5fb8a3069cc30c9d0c7e716f}
+Initialises the system for temperature readings. The I2\-C peripheral must be initialised before this function is used \begin{DoxySeeAlso}{See Also}
+\hyperlink{a00019_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()}. 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00042_a3f542f4bc433dfd2c1073a5e8308f99f}{\index{Tmp.\-h@{Tmp.\-h}!tmp\-Read@{tmp\-Read}}
+\index{tmp\-Read@{tmp\-Read}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{tmp\-Read}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 tmp\-Read (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{tmp\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00042_a3f542f4bc433dfd2c1073a5e8308f99f}
+Queries the current on-\/board temperature of the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel the temperature is to be read from. \\
+\hline
+\mbox{\tt out}  & {\em tmp\-Dest} & Address of the memory location at which to place the query result ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00042_a10e85d2f2d7cce42822ea65e69601dfa}{\index{Tmp.\-h@{Tmp.\-h}!tmp\-Set\-Otp@{tmp\-Set\-Otp}}
+\index{tmp\-Set\-Otp@{tmp\-Set\-Otp}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{tmp\-Set\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 tmp\-Set\-Otp (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32}]{tmp}
+\end{DoxyParamCaption}
+)}}\label{a00042_a10e85d2f2d7cce42822ea65e69601dfa}
+Sets the on-\/board over temperature limit for the specified channel. The I2\-C peripheral and temperature reading interface M\-U\-S\-T be initialised before this function is used. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em tmp} & Specifies the value of the limit to be applied ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}

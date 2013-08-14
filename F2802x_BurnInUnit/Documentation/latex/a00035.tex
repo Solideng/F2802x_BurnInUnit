@@ -1,0 +1,206 @@
+\hypertarget{a00035}{\section{Slew\-Control.\-h File Reference}
+\label{a00035}\index{Slew\-Control.\-h@{Slew\-Control.\-h}}
+}
+
+
+Slew control functions.  
+
+
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{a00057}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{a00035_a8f8f2b1ef59b7fa90122e5609e24cd06}{sc\-Slew\-Update} (void)
+\item 
+Uint16 \hyperlink{a00035_acd4f1d77c353f333438ae688a9bcc8fe}{sc\-Set\-Target} (Uint16 chnl, float32 trgt)
+\item 
+Uint16 \hyperlink{a00035_a91e197a77f8f6c05dc478431164114a4}{sc\-Set\-Step} (Uint16 chnl, float32 stp)
+\item 
+Uint16 \hyperlink{a00035_a92578a062af02eb967ca2dfbd68b00cf}{sc\-Set\-State} (Uint16 chnl, Uint16 stt)
+\item 
+Uint16 \hyperlink{a00035_a1e7d07e1a6d9b1e40b1b39d97df638b9}{sc\-Set\-Target\-All} (float32 trgt)
+\item 
+Uint16 \hyperlink{a00035_a2dbe145695a65570ebc1ff5588e08a18}{sc\-Set\-Step\-All} (float32 stp)
+\item 
+Uint16 \hyperlink{a00035_af4b016a1a10639dfeca7af4f750d8c75}{sc\-Set\-State\-All} (Uint16 stt)
+\item 
+Uint16 \hyperlink{a00035_ab83b8f320a4bf9e8ea1a251fec458032}{sc\-Get\-Target} (Uint16 chnl, float32 $\ast$trgt\-Dest)
+\item 
+Uint16 \hyperlink{a00035_adac64f58de9a029d849e0df2962bad16}{sc\-Get\-Step} (Uint16 chnl, float32 $\ast$stp\-Dest)
+\item 
+Uint16 \hyperlink{a00035_a77a235d70df3aff6a742ff375bd45119}{sc\-Get\-State} (Uint16 chnl, Uint16 $\ast$stt\-Dest)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Slew control functions. 
+
+\subsection{Function Documentation}
+\hypertarget{a00035_a77a235d70df3aff6a742ff375bd45119}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Get\-State@{sc\-Get\-State}}
+\index{sc\-Get\-State@{sc\-Get\-State}!SlewControl.h@{Slew\-Control.\-h}}
+\subsubsection[{sc\-Get\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Get\-State (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{Uint16 $\ast$}]{stt\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00035_a77a235d70df3aff6a742ff375bd45119}
+Queries the current reference net enable state for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be read from. \\
+\hline
+\mbox{\tt out}  & {\em stt\-Dest} & Address of the memory location at which to place the query result (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00035_adac64f58de9a029d849e0df2962bad16}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Get\-Step@{sc\-Get\-Step}}
+\index{sc\-Get\-Step@{sc\-Get\-Step}!SlewControl.h@{Slew\-Control.\-h}}
+\subsubsection[{sc\-Get\-Step}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Get\-Step (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{stp\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00035_adac64f58de9a029d849e0df2962bad16}
+Queries the current slew step size of the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be read from. \\
+\hline
+\mbox{\tt out}  & {\em stp\-Dest} & Address of the memory location at which to place the query result (amps or volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00035_ab83b8f320a4bf9e8ea1a251fec458032}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Get\-Target@{sc\-Get\-Target}}
+\index{sc\-Get\-Target@{sc\-Get\-Target}!SlewControl.h@{Slew\-Control.\-h}}
+\subsubsection[{sc\-Get\-Target}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Get\-Target (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{trgt\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00035_ab83b8f320a4bf9e8ea1a251fec458032}
+Queries the current slew target setting for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be read from. \\
+\hline
+\mbox{\tt out}  & {\em trgt\-Dest} & Address of the memory location at which to place the query result (amps or volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00035_a92578a062af02eb967ca2dfbd68b00cf}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-State@{sc\-Set\-State}}
+\index{sc\-Set\-State@{sc\-Set\-State}!SlewControl.h@{Slew\-Control.\-h}}
+\subsubsection[{sc\-Set\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-State (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{Uint16}]{stt}
+\end{DoxyParamCaption}
+)}}\label{a00035_a92578a062af02eb967ca2dfbd68b00cf}
+Sets the reference net enable state for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em stt} & Specifies the reference net state to be applied (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error Status. 
+\end{DoxyReturn}
+\hypertarget{a00035_af4b016a1a10639dfeca7af4f750d8c75}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-State\-All@{sc\-Set\-State\-All}}
+\index{sc\-Set\-State\-All@{sc\-Set\-State\-All}!SlewControl.h@{Slew\-Control.\-h}}
+\subsubsection[{sc\-Set\-State\-All}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-State\-All (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{stt}
+\end{DoxyParamCaption}
+)}}\label{a00035_af4b016a1a10639dfeca7af4f750d8c75}
+Sets all channels' reference net enable state. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stt} & Specifies the refernce net state to be applied (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00035_a91e197a77f8f6c05dc478431164114a4}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Step@{sc\-Set\-Step}}
+\index{sc\-Set\-Step@{sc\-Set\-Step}!SlewControl.h@{Slew\-Control.\-h}}
+\subsubsection[{sc\-Set\-Step}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-Step (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32}]{stp}
+\end{DoxyParamCaption}
+)}}\label{a00035_a91e197a77f8f6c05dc478431164114a4}
+Sets the slew step size for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em stp} & Specifies the value of the slew step size to be applied (amps or volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00035_a2dbe145695a65570ebc1ff5588e08a18}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Step\-All@{sc\-Set\-Step\-All}}
+\index{sc\-Set\-Step\-All@{sc\-Set\-Step\-All}!SlewControl.h@{Slew\-Control.\-h}}
+\subsubsection[{sc\-Set\-Step\-All}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-Step\-All (
+\begin{DoxyParamCaption}
+\item[{float32}]{stp}
+\end{DoxyParamCaption}
+)}}\label{a00035_a2dbe145695a65570ebc1ff5588e08a18}
+Sets all channels' slew step size. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stp} & Specifies the value of the slew step size to be applied (amps or volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00035_acd4f1d77c353f333438ae688a9bcc8fe}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Target@{sc\-Set\-Target}}
+\index{sc\-Set\-Target@{sc\-Set\-Target}!SlewControl.h@{Slew\-Control.\-h}}
+\subsubsection[{sc\-Set\-Target}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-Target (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32}]{trgt}
+\end{DoxyParamCaption}
+)}}\label{a00035_acd4f1d77c353f333438ae688a9bcc8fe}
+Sets the slew target for the specified channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em trgt} & Specifies the value of the slew target to be applied (amps or volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00035_a1e7d07e1a6d9b1e40b1b39d97df638b9}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Target\-All@{sc\-Set\-Target\-All}}
+\index{sc\-Set\-Target\-All@{sc\-Set\-Target\-All}!SlewControl.h@{Slew\-Control.\-h}}
+\subsubsection[{sc\-Set\-Target\-All}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-Target\-All (
+\begin{DoxyParamCaption}
+\item[{float32}]{trgt}
+\end{DoxyParamCaption}
+)}}\label{a00035_a1e7d07e1a6d9b1e40b1b39d97df638b9}
+Sets all channels' slew target 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em trgt} & Specifies the value of the slew target to be applied (amps or volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00035_a8f8f2b1ef59b7fa90122e5609e24cd06}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Slew\-Update@{sc\-Slew\-Update}}
+\index{sc\-Slew\-Update@{sc\-Slew\-Update}!SlewControl.h@{Slew\-Control.\-h}}
+\subsubsection[{sc\-Slew\-Update}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-Slew\-Update (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00035_a8f8f2b1ef59b7fa90122e5609e24cd06}
+Advances the slew ramps for all relevant channels. Does not apply to channels that use sine references 
