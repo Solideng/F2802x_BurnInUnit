@@ -1,0 +1,97 @@
+ 
+graph Example {
+    size="5,10"
+    graph [rankdir=LR, splines=ortho, fontsize=8];
+    node [shape=box];
+    ranksep=0.5;
+    nodesep=0.5;
+    node0 [label=":"];
+    node1 [label="CALibration"];
+        node11 [label="[ALL]"];
+    node2 [label="CONTrol"];
+        node21 [label="IDLE"];
+            node211 [label="INITiate"];
+    node3 [label="INSTrument"]
+        node31 [label="CATalog?"]
+        node32 [label="[NSELECT]"]
+        node33 [label="STATe"]
+    node4 [label="OUTPut"];
+        node41 [label="STATe"];
+    node5 [label="INPut"];
+        node51 [label="STATe"];
+    node6 [label="SOURce"];
+        node61 [label="VOLTage"];
+            node611 [label="[LEVel]"];
+            node612 [label="LIMit?"];
+            node613 [label="PROTect"];
+            node614 [label="RANGe"];
+            node615 [label="SLEW"];
+            node616 [label="COEFficient"];
+        node62 [label="CURRent"];
+            node621 [label="[LEVel]"];
+            node622 [label="LIMit?"];
+            node623 [label="PROTect"];
+            node624 [label="RANGe"];
+            node625 [label="SLEW"];
+            node626 [label="COEFficient"];
+        node63 [label="FREQuency"];
+            node631 [label="[FIXed]"];
+            node632 [label="GAIN"];
+            node633 [label="OFFSet"];
+            node634 [label="RESolution"];
+        node64 [label="TEMPerature"];
+            node641 [label="[PROTect]"];
+    node7 [label="MEASure"];
+        node71 [label="VOLTage?"];
+        node72 [label="CURRent?"];
+        node73 [label="TEMPerature?"];
+    node8 [label="STATus"];
+        node81 [label="OPERation"];
+            node811 [label="[EVENt]?"];
+            node812 [label="CONDition?"];
+            node813 [label="ENABle"];
+            node814 [label="INSTrument"];
+                node8141 [label="CONDition?"];
+                node8142 [label="ISUMmary?"];
+                    node81421 [label="[EVENt]?"];
+                    node81422 [label="CONDition?"];
+        node82 [label="PRESet"];
+        node83 [label="QUEStionable"];
+            node831 [label="[EVENt]?"];
+            node832 [label="CONDition?"];
+            node833 [label="ENABle"];
+            node834 [label="INSTrument"];
+                node8341 [label="CONDition?"];
+                node8342 [label="ISUMmary?"];
+                    node83421 [label="[EVENt]?"];
+                    node83422 [label="CONDition?"];
+    node9 [label="SYSTem"];
+        node91 [label="COMMs"];
+            node911 [label="SCINterface"];
+                node9111 [label="SBITs"];
+                node9112 [label="PARity"];
+                node9113 [label="DBITs"];
+                node9114 [label="BAUD"];
+                node9115 [label="ECHO"];
+    
+    node0 -- {node1 node2 node3 node4 node5 node6 node7 node8 node9}; 
+    node1 -- node11;
+    node2 -- node21 -- node211;
+    node3 -- {node31 node32 node33};
+    node4 -- node41;
+    node5 -- node51;
+    node6 -- {node61 node62 node63 node64};
+        node61 -- {node611 node612 node613 node614 node615 node616};
+        node62 -- {node621 node622 node623 node624 node625 node626};
+        node63 -- {node631 node632 node633 node634};
+        node64 -- node641;
+    node7 -- {node71 node72 node73};
+    node8 -- {node81 node82 node83};
+        node81 -- {node811 node812 node813 node814};
+            node814 -- {node8141 node8142};
+                node8142 -- {node81421 node81422};
+        node83 -- {node831 node832 node833 node834};
+            node834 -- {node8341 node8342};
+                node8342 -- {node83421 node83422};
+    node9 -- node91 -- node911 -- {node9111 node9112 node9113 node9114 node9115};
+}

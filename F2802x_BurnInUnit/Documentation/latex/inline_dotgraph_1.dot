@@ -1,0 +1,11 @@
+ 
+graph Example {
+    size="0.5,0.5"
+    graph [rankdir=LR, splines=ortho, fontsize=5];
+    node [shape=box];
+    ranksep=0.5
+    nodesep=0.5
+    ":" -- {AAA BBB};
+    AAA -- {CCC};
+    BBB -- {DDD EEE};
+}
