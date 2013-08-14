@@ -1,0 +1,70 @@
+/** 
+@page cmdref Command Reference 
+
+\section cal CALibration Subsystem
+
+\subsection calall ALL
+
+
+\section ctrl CONTrol Subsystem
+
+\subsection ctrlidle IDLE
+
+\subsubsection ctrlidleinit INITiate
+
+
+\section inst INSTrument Subsystem
+
+\subsection instcat CATalog?
+
+\subsection instnsel NSELect
+
+\subsection inststat STATe
+ 
+
+\section outp OUTPut Subsystem
+
+\subsection outpstat STATe
+
+
+\section inp INPut Subsystem
+
+\subsection inpstat STATe
+
+
+
+\section sour SOURce Subsystem
+
+\subsection sourvolt VOLTage
+
+\subsection sourcurr CURRent
+
+\subsection sourfreq FREQuency
+
+\subsection sourtemp TEMPerature
+
+
+\section meas MEASure Subsystem
+
+\subsection measvolt VOLTage?
+
+\subsection meascurr CURRent?
+
+\subsection meastemp TEMPerature?
+
+
+\section stat STATus Subsystem
+
+\subsection statoper OPERation
+
+\subsection statpres PRESet
+
+\subsection statques QUEStionable
+
+
+\section syst SYSTem
+
+\subsection systcomm COMMs
+
+
+*/
