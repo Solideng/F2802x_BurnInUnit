@@ -147,7 +147,7 @@ STRIP_FROM_INC_PATH =
 # (but less readable) file names. This can be useful if your file system
 # doesn't support long names like on DOS, Mac, or CD-ROM.
 
-SHORT_NAMES = NO
+SHORT_NAMES = YES
 
 # If the JAVADOC_AUTOBRIEF tag is set to YES then Doxygen
 # will interpret the first line (until the first dot) of a JavaDoc-style
@@ -197,7 +197,9 @@ TAB_SIZE = 4
 # will result in a user-defined paragraph with heading "Side Effects:".
 # You can put \n's in the value part of an alias to insert newlines.
 
-ALIASES = 
+ALIASES = zerolist="\latexonly\begin{enumerate}\setcounter{enumi}{-1}\endlatexonly\htmlonly<ol start=\"0\">\endhtmlonly" \
+         zeroitem{1}="\latexonly\item \1\endlatexonly\htmlonly<li>\1</li>\endhtmlonly" \
+         endzerolist="\latexonly\end{enumerate}\endlatexonly\htmlonly</ol>\endhtmlonly"
 
 # This tag can be used to specify a number of word-keyword mappings (TCL only).
 # A mapping has the form "name=value". For example adding
@@ -654,7 +656,9 @@ WARN_LOGFILE =
 # directories like "/usr/src/myproject". Separate the files or directories
 # with spaces.
 
-INPUT = . Documentation\input
+INPUT = . Documentation\images Documentation\pages\main_page.dox \ 
+		Documentation\pages\unit_programming.dox \ 
+		Documentation\pages\command_reference.dox 
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is
@@ -734,7 +738,7 @@ EXAMPLE_RECURSIVE = NO
 # directories that contain image that are included in the documentation (see
 # the \image command).
 
-IMAGE_PATH = Documentation\input 
+IMAGE_PATH = Documentation\images
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program
@@ -1901,4 +1905,4 @@ GENERATE_LEGEND = YES
 # remove the intermediate dot files that are used to generate
 # the various graphs.
 
-DOT_CLEANUP = YES
+DOT_CLEANUP = NO
