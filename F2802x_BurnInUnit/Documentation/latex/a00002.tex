@@ -1,109 +1,133 @@
-\hypertarget{a00002_lang}{}\section{Language}\label{a00002_lang}
-For remote programmming operations the burn in unit uses commands that follow the S\-C\-P\-I syntax as outlined in the System for Standard Commands for Programmable Instruments for C28x Code Reference Manual, where in the standard programmming commands that are included by this system are also outlined. Please refer to that document and, where necessray, any further referenced documents, for inforrmation on the syntax of the programming commands.
+This section outlines the operation of each command and node on the command tree. All commands, unless otherwise specified, also have an equivalent query form that returns the value that the command is currently set to. For example, querying S\-O\-U\-Rce\-:\-V\-O\-L\-Tage\-:P\-R\-O\-Tect? will return the current voltage protection level setting.
 
-This unit programming chapter will focus on the function of the commands specific to the burn in unit\hypertarget{a00002_format}{}\subsection{Format}\label{a00002_format}
-The burn in unit uses a standard raw T\-C\-P/\-I\-P Ethernet connection to communicate with a controlling system. Once the user's control system has established a valid raw T\-C\-P/\-I\-P connection with the burn in unit commands should be sent and received as A\-S\-C\-I\-I character byte string data, with the most significant byte first.
+Some commands have a query form {\itshape only}, that is they have no none-\/query form. these commands are identified by the presence of the query terminator character, '?'.
 
-Thus the data sent that would correspond to the {\ttfamily $<$}C\-O\-M\-M\-O\-N Q\-U\-E\-R\-Y P\-R\-O\-G\-R\-A\-M H\-E\-A\-D\-E\-R{\ttfamily $>$} {\ttfamily $\ast$\-I\-D\-N}?; in transmission order would be (including the '$^\wedge$\-N\-L' {\ttfamily $<$}P\-R\-O\-G\-R\-A\-M M\-E\-S\-S\-A\-G\-E T\-E\-R\-M\-I\-N\-A\-T\-O\-R{\ttfamily $>$}) \begin{quotation}
-{\ttfamily 0x2\-A 0x49 0x44 0x4\-E 0x3\-F 0x3\-B 0x0\-A}
+Some of the commands are optional, or default. Such optionality is represented by the presence of square brackets enclosing the command, '\mbox{[}' and '\mbox{]}'. Where commands are optional, it is possible to use the parent node alone instead of needing to append the optional child command. For example, as the \-:N\-S\-E\-Lect command from the I\-N\-S\-Trument subsystem is marked as optional, the command to select an instrument can be either\-: \begin{quotation}
+{\ttfamily I\-N\-S\-Trument\-:N\-S\-E\-Lect {\ttfamily $<$}numeric\-\_\-value{\ttfamily $>$};}
 
 \end{quotation}
-\hypertarget{a00002_progcreation}{}\subsection{Program Message Unit Creation}\label{a00002_progcreation}
-The user may create a {\ttfamily $<$}P\-R\-O\-G\-R\-A\-M M\-E\-S\-S\-A\-G\-E U\-N\-I\-T{\ttfamily $>$} by traversing the command tree from the root towards the desired function and concatenating the {\ttfamily $<$}program mnemonic{\ttfamily $>$}s and {\ttfamily $<$}C\-O\-M\-M\-A\-N\-D P\-R\-O\-G\-R\-A\-M H\-E\-A\-D\-E\-R{\ttfamily $>$} or {\ttfamily $<$}Q\-U\-E\-R\-Y P\-R\-O\-G\-R\-A\-M H\-E\-A\-D\-E\-R{\ttfamily $>$} stepped through to reach that destination.
-
-For example, using the hypothetical command tree shown in the following figure, the {\ttfamily $<$}P\-R\-O\-G\-R\-A\-M M\-E\-S\-S\-A\-G\-E U\-N\-I\-T{\ttfamily $>$} required to run the function 'E\-E\-E' would be\-: \begin{quotation}
-{\ttfamily B\-B\-B\-:E\-E\-E;}
+or \begin{quotation}
+{\ttfamily I\-N\-S\-Trument {\ttfamily $<$}numeric\-\_\-value{\ttfamily $>$};}
 
 \end{quotation}
+\hypertarget{a00002_cal}{}\section{C\-A\-Libration Subsystem}\label{a00002_cal}
+This subsystem has the function of performing system calibration. Currently the subsystem has only one function, the default command A\-L\-L and it's complementing query.\hypertarget{a00002_calall}{}\subsection{\mbox{[}\-:\-A\-L\-L\mbox{]}}\label{a00002_calall}
+{\ttfamily C\-A\-Libration\-:A\-L\-L}\par
+ The C\-A\-Libration\-:A\-L\-L command performs the same function as the C\-A\-Libration\-:A\-L\-L? command except there is no response. Calibration errors are reported through the status-\/reporting mechanism. While this command is executing the C\-A\-Librating bit of the Operation Status Condition register will be set.\hypertarget{a00002_callallq}{}\subsection{\mbox{[}\-:\-A\-L\-L\mbox{]}?}\label{a00002_callallq}
+{\ttfamily Calibration\-:A\-L\-L?}\par
+ The A\-L\-L? query performs a full calibration of the instrument and responds with a {\ttfamily $<$}numeric\-\_\-value{\ttfamily $>$} indicating the success of the calibration. A zero will be returned if calibration is completed successfully; otherwise a nonzero value which represents the appropriate error number shall be returned. An instrument will still report calibration errors through the status-\/reporting mechanism, even though an error is reported by the value of the query response.\hypertarget{a00002_ctrl}{}\section{C\-O\-N\-Trol Subsystem}\label{a00002_ctrl}
+The C\-O\-N\-Trol subsystem is used to turn on and off or control the state of the entire device.\hypertarget{a00002_ctrlidle}{}\subsection{\-:\-I\-D\-L\-E}\label{a00002_ctrlidle}
+{\ttfamily C\-O\-N\-Trol\-:I\-D\-L\-E}\par
+ This node contains commands that control the I\-D\-L\-E state of the device.\hypertarget{a00002_ctrlidleinit}{}\subsubsection{\-:\-I\-N\-I\-Tiate}\label{a00002_ctrlidleinit}
+{\ttfamily C\-O\-N\-Trol\-:\-I\-D\-L\-E\-:I\-N\-I\-Tiate}\par
+ Returns the device to the idle state. This command is an event and has no associated $\ast$\-R\-S\-T condition or query command.\hypertarget{a00002_inst}{}\section{I\-N\-S\-Trument Subsystem}\label{a00002_inst}
+This device uses multiple logical instruments (as described in \hyperlink{a00001_device}{Instrument Selection}), this subsystem provides the mechanism to identify and select logical instruments by number.\hypertarget{a00002_instcat}{}\subsection{\-:\-C\-A\-Talog?}\label{a00002_instcat}
+{\ttfamily I\-N\-S\-Trument\-:C\-A\-Talog?}\par
+ The C\-A\-Talog query returns a comma-\/separated list of the numbers of all logical instruments.\hypertarget{a00002_instnsel}{}\subsection{\-:\-N\-S\-E\-Lect $<$numeric\-\_\-value$>$}\label{a00002_instnsel}
+{\ttfamily I\-N\-S\-Trument\-:N\-S\-E\-Lect}\par
+ This command selects an instrument according to the numeric value parameter. When a logical instrument is selected, all other logical instruments or groups are unavailable for programming until selected. When queried it shall return the selected logical instrument number.
 
+Note that the numbering used for logical instruments directly corresponds to the numbers used in status reporting for the multiple instruments; specifically the S\-T\-A\-Tus\-:\-Q\-U\-E\-Stionable\-:I\-N\-S\-Trument and S\-T\-A\-Tus\-:\-O\-P\-E\-Ration\-:I\-N\-S\-Trument commands.
 
-\begin{center}
+At $\ast$\-R\-S\-T, instrument 0 is selected.\hypertarget{a00002_inststat}{}\subsection{\-:\-S\-T\-A\-Te $<$\-Boolean$>$}\label{a00002_inststat}
+{\ttfamily I\-N\-S\-Trument\-:S\-T\-A\-Te}\par
+ Turns the selected logical instrument O\-N or O\-F\-F. A logical instrument does not have to be turned O\-F\-F before another logical instrument is selected. That is, several logical instruments may be active, while only one may be selected. When an instrument is active, measurements occur and signals are generated. When inactive, measurements do not occur and signals are not generated. When a logical instrument is selected, yet is inactive, all commands shall be processed so that the logical instrument shall reflect the state changes requested when the logical instrument is turned on.
 
-\begin{DoxyImageNoCaption}
-  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_1}}
-\end{DoxyImageNoCaption}
-\end{center}
-\hypertarget{a00002_queries}{}\subsection{Queries and Responses}\label{a00002_queries}
-Each {\ttfamily $<$}P\-R\-O\-G\-R\-A\-M M\-E\-S\-S\-A\-G\-E{\ttfamily $>$} may contain only one {\ttfamily $<$}Q\-U\-E\-R\-Y P\-R\-O\-G\-R\-A\-M H\-E\-A\-D\-E\-R{\ttfamily $>$} which, if used, should be the last header in the message. If a {\ttfamily $<$}Q\-U\-E\-R\-Y P\-R\-O\-G\-R\-A\-M H\-E\-A\-D\-E\-R{\ttfamily $>$} is used the next operation should be to read the response generated by the query, before any further {\ttfamily $<$}P\-R\-O\-G\-R\-A\-M M\-E\-S\-S\-A\-G\-E{\ttfamily $>$} elements are sent to the unit.\hypertarget{a00002_device}{}\section{Instrument Selection}\label{a00002_device}
-Each burn in unit is split into several logical instruments that corresponds to the functional sections of the burn in unit. The instruement selection is controlled using the {\ttfamily I\-N\-S\-Trument} subssytem These instruments are numbered according to the unit channel numbering shown in the following list. These numbers can be obtained by using the {\ttfamily C\-A\-Talog}? query from the {\ttfamily I\-N\-S\-Trument} subsystem\-: \begin{quotation}
-{\ttfamily I\-N\-S\-Trument\-:C\-A\-Talog?;}.
+At $\ast$\-R\-S\-T, this value is O\-F\-F.\hypertarget{a00002_outp}{}\section{O\-U\-T\-Put Subsystem}\label{a00002_outp}
+The O\-U\-T\-Put subsystem controls the characteristics of the selected instrument's output port.\hypertarget{a00002_outpstat}{}\subsection{\mbox{[}\-:\-S\-T\-A\-Te\mbox{]} $<$\-Boolean$>$}\label{a00002_outpstat}
+{\ttfamily O\-U\-T\-Put\-:S\-T\-A\-Te}\par
+ Selects the state of the output. When S\-T\-A\-Te is O\-N the signal generated by the source is emitted from the output port of the selected instrument.\hypertarget{a00002_inp}{}\section{I\-N\-Put Subsystem}\label{a00002_inp}
+The I\-N\-Put subsystem controls the characteristics of the selected instrument's input port.\hypertarget{a00002_inpstat}{}\subsection{\-:\-S\-T\-A\-Te $<$\-Boolean$>$}\label{a00002_inpstat}
+{\ttfamily I\-N\-Put\-:S\-T\-A\-Te}\par
+ Selects the state of the input. When S\-T\-A\-Te is O\-N the signal generated by the source is emitted from the output port of the selected instrument.\hypertarget{a00002_sour}{}\section{S\-O\-U\-Rce Subsystem}\label{a00002_sour}
+The S\-O\-U\-Rce setup commands are divided into several sections. Each section or subsystem deals with controls that directly affect device-\/specific settings of the selected instrument.\hypertarget{a00002_sourvolt}{}\subsection{\-:\-V\-O\-L\-Tage}\label{a00002_sourvolt}
+This subsection controls the signal voltage characteristics of the source.\hypertarget{a00002_sourvoltlev}{}\subsubsection{\mbox{[}\-:\-L\-E\-Vel\mbox{]} $<$numeric\-\_\-value$>$}\label{a00002_sourvoltlev}
+{\ttfamily S\-O\-U\-Rce\-:\-V\-O\-L\-Tage\-:L\-E\-Vel}\par
+ This command sets the target voltage level of a voltage controlled instrument. The numeric value parameter is the level to be set in volts, between 0 and the voltage limit returned in response the L\-I\-Mit? query.\hypertarget{a00002_sourvoltlim}{}\subsubsection{\-:\-L\-I\-Mit?}\label{a00002_sourvoltlim}
+{\ttfamily S\-O\-U\-Rce\-:\-V\-O\-L\-Tage\-:L\-E\-Vel}\par
+ This command has a query form only. This is because the voltage limit value is fixed. The query response is a single numeric value in volts representing this fixed limit.\hypertarget{a00002_sourvoltprot}{}\subsubsection{\-:\-P\-R\-O\-Tect $<$numeric\-\_\-value$>$}\label{a00002_sourvoltprot}
+{\ttfamily S\-O\-U\-Rce\-:\-V\-O\-L\-Tage\-:P\-R\-O\-Tect}\par
+ This command sets the voltage protection level. This is the level at which the over-\/voltage protection is triggered if the voltage rises above it The numeric value parameter is the level to be set in volts, between 0 and the voltage limit returned in response to the L\-I\-Mit? query.\hypertarget{a00002_sourvoltrang}{}\subsubsection{\-:\-R\-A\-N\-Ge $<$numeric\-\_\-value$>$}\label{a00002_sourvoltrang}
+{\ttfamily S\-O\-U\-Rce\-:\-V\-O\-L\-Tage\-:R\-A\-N\-Ge}\par
+ This command sets the voltage range. The numeric value parameter is the voltage scaling value in volts-\/per-\/volt from 0 to 1.\hypertarget{a00002_sourvoltslew}{}\subsubsection{\-:\-S\-L\-E\-W $<$numeric\-\_\-value$>$}\label{a00002_sourvoltslew}
+{\ttfamily S\-O\-U\-Rce\-:\-V\-O\-L\-Tage\-:S\-L\-E\-W}\par
+ This command sets the voltage slew for a voltage controlled instrument. The numeric value parameter is the voltage slew rate value in volts-\/per-\/microseconds from 0 to 1.\hypertarget{a00002_sourvoltcoef}{}\subsubsection{\-:\-C\-O\-E\-Fficient $<$numeric\-\_\-value$>$, $<$numeric value$>$}\label{a00002_sourvoltcoef}
+{\ttfamily S\-O\-U\-Rce\-:\-V\-O\-L\-Tage\-:C\-O\-E\-Fficient}\par
+ This command is used to specify the voltage control coefficients, of a voltage controlled instrument. The first numeric value parameter specifies the coefficient to be changed, according to the following list, while the second numeric value parameter specifies the level the selected coefficient is to be changed to.
+
+\begin{enumerate}\setcounter{enumi}{-1} \item Saturation Minimum \item Saturation Maximum \item B0 \item B1 \item A1 \item B2 \item A2 \item B3 \item A3 \end{enumerate}
+
+When queried, the response is a list of comma separated numeric values in the following order\-: \begin{quotation}
+Saturation-\/\-Minimum-\/value, Saturation-\/\-Maximum-\/value, B0-\/value, B1-\/value, A1-\/value, B2-\/value, A2-\/value, B3-\/value, A3-\/value
 
 \end{quotation}
+\hypertarget{a00002_sourcurr}{}\subsection{\-:\-C\-U\-R\-Rent}\label{a00002_sourcurr}
+{\ttfamily S\-O\-U\-Rce\-:C\-U\-R\-Rent}\par
+ This subsection controls the signal current characteristics of the source.\hypertarget{a00002_sourcurrlev}{}\subsubsection{\mbox{[}\-:\-L\-E\-Vel\mbox{]} $<$numeric\-\_\-value$>$}\label{a00002_sourcurrlev}
+{\ttfamily S\-O\-U\-Rce\-:\-C\-U\-R\-Rent\-:L\-E\-Vel}\par
+ This command sets the target current level of a current controlled instrument. The numeric value parameter is the level to be set in amps, between 0 and the current limit returned in response the L\-I\-Mit? query.\hypertarget{a00002_sourcurrlim}{}\subsubsection{\-:\-L\-I\-Mit?}\label{a00002_sourcurrlim}
+{\ttfamily S\-O\-U\-Rce\-:\-C\-U\-R\-Rent\-:L\-E\-Vel}\par
+ This command has a query form only. This is because the current limit value is fixed. The query response is a single numeric value in amps representing this fixed limit.\hypertarget{a00002_sourcurrprot}{}\subsubsection{\-:\-P\-R\-O\-Tect $<$numeric\-\_\-value$>$}\label{a00002_sourcurrprot}
+{\ttfamily S\-O\-U\-Rce\-:\-V\-O\-L\-Tage\-:P\-R\-O\-Tect}\par
+ This command sets the current protection level. This is the level at which the over-\/current protection is triggered if the current rises above it The numeric value parameter is the level to be set in amps, between 0 and the current limit returned in response to the L\-I\-Mit? query.\hypertarget{a00002_sourcurrrang}{}\subsubsection{\-:\-R\-A\-N\-Ge $<$numeric\-\_\-value$>$}\label{a00002_sourcurrrang}
+{\ttfamily S\-O\-U\-Rce\-:\-C\-U\-R\-Rent\-:R\-A\-N\-Ge}\par
+ This command sets the current range. The numeric value parameter is the current scaling value in amps-\/per-\/volt from 0 to 1. {\bfseries $<$-\/-\/---!!!-\/-\/---}\hypertarget{a00002_sourcurrslew}{}\subsubsection{\-:\-S\-L\-E\-W $<$numeric\-\_\-value$>$}\label{a00002_sourcurrslew}
+{\ttfamily S\-O\-U\-Rce\-:\-C\-U\-R\-Rent\-:S\-L\-E\-W}\par
+ This command sets the current slew for a current controlled instrument. The numeric value parameter is the current slew rate value in amps-\/per-\/microseconds from 0 to 1.\hypertarget{a00002_sourcurrcoef}{}\subsubsection{\-:\-C\-O\-E\-Fficient $<$numeric\-\_\-value$>$, $<$numeric\-\_\-value$>$}\label{a00002_sourcurrcoef}
+{\ttfamily S\-O\-U\-Rce\-:\-C\-U\-R\-Rent\-:C\-O\-E\-Fficient}\par
+ This command is used to specify the current control coefficients, of a current controlled instrument. The first numeric value parameter specifies the coefficient to be changed, according to the following list, while the second numeric value parameter specifies the level the selected coefficient is to be changed to.
 
+\begin{enumerate}\setcounter{enumi}{-1} \item Saturation Minimum \item Saturation Maximum \item B0 \item B1 \item A1 \item B2 \item A2 \end{enumerate}
 
-\begin{enumerate}\setcounter{enumi}{-1} \item Load 0 \item Load 1 \item Load 2 \item Load 3 \item AC Current Control \item DC Stage \item AC Stage \end{enumerate}
-
-This means that before setting any of the instruments' settings, the relevant instrument number must first be selected. This is done using the {\ttfamily N\-S\-E\-Lect} command from the {\ttfamily I\-N\-S\-Trument} subsystem. The default instrument selection is 0 Thus, for example, the {\ttfamily $<$}P\-R\-O\-G\-R\-A\-M M\-E\-S\-S\-A\-G\-E{\ttfamily $>$} required to set the voltage level D\-C stage to 10 volts would be as follows\-: \begin{quotation}
-{\ttfamily I\-N\-S\-Trument\-:N\-S\-E\-Lect 5;\-:S\-O\-U\-Rce\-:\-V\-O\-L\-Tage\-:L\-E\-Vel 10;}
+When queried, the response is a list of comma separated numeric values in the following order\-: \begin{quotation}
+Saturation-\/\-Minimum-\/value, Saturation-\/\-Maximum-\/value, B0-\/value, B1-\/value, A1-\/value, B2-\/value, A2-\/value
 
 \end{quotation}
-\hypertarget{a00002_tree}{}\section{The Command Tree}\label{a00002_tree}
-The command tree provides the structure of the subsystems and their commands. As shown however the diagram does not illustrate that some of the commands have no meaning to some instruments. For example, attempting to set the voltage coefficients of a current controlled instrument will result in an error.
+\hypertarget{a00002_sourfreq}{}\subsection{\-:\-F\-R\-E\-Quency}\label{a00002_sourfreq}
+{\ttfamily S\-O\-U\-Rce\-:F\-R\-E\-Quency}\par
+ The F\-R\-E\-Quency subsystem controls the frequency characteristics of an instrument source that produces a periodic signal -\/ such as the sine wave produced by the A\-C stage.\hypertarget{a00002_sourfreqfix}{}\subsubsection{\mbox{[}\-:\-F\-I\-Xed\mbox{]} $<$numeric\-\_\-value$>$}\label{a00002_sourfreqfix}
+{\ttfamily S\-O\-U\-Rce\-:\-F\-R\-E\-Quency\-:F\-I\-Xed}\par
+ This command is used to set the source frequency. The numeric value parameter should be the required frequency in hertz, from 0 to 1000.\hypertarget{a00002_sourfreqgain}{}\subsubsection{\-:\-G\-A\-I\-N $<$numeric\-\_\-value$>$}\label{a00002_sourfreqgain}
+{\ttfamily S\-O\-U\-Rce\-:\-F\-R\-E\-Quency\-:G\-A\-I\-N}\par
+ This command is used to set the frequency gain. The numeric value parameter should vary from 0 to 1\hypertarget{a00002_sourfreqoffs}{}\subsubsection{\-:\-O\-F\-F\-Set $<$numeric\-\_\-value$>$}\label{a00002_sourfreqoffs}
+{\ttfamily S\-O\-U\-Rce\-:\-F\-R\-E\-Quency\-:O\-F\-F\-Set}\par
+ This command sets the frequency offset. The numeric value parameter should vary between -\/0.\-5 and +0.5\hypertarget{a00002_sourtemp}{}\subsection{\-:\-T\-E\-M\-Perature}\label{a00002_sourtemp}
+{\ttfamily S\-O\-U\-Rce\-:T\-E\-M\-Perature}\par
+ The temperature subsystem controls the temperature of the selected logical instrument. Note that not all instruments have temperature control functionality.\hypertarget{a00002_sourtempprot}{}\subsubsection{\mbox{[}\-:\-P\-R\-O\-Tect\mbox{]} $<$numeric\-\_\-value$>$}\label{a00002_sourtempprot}
+{\ttfamily S\-O\-U\-Rce\-:\-T\-E\-M\-Perature\-:P\-R\-O\-Tect}\par
+ This command sets the temperature protection level. This is the level at which the over-\/temperature protection is triggered if the temperature rises above it The numeric value parameter is the level to be set in degrees Celsius, between 0 and 150 $^{\mbox{o}}$ C.\hypertarget{a00002_meas}{}\section{M\-E\-A\-Sure Subsystem}\label{a00002_meas}
+The M\-E\-A\-Sure susbsytem allows the user to take measurements of certain aspects of the selected instruments operation.\hypertarget{a00002_measvolt}{}\subsection{\-:\-V\-O\-L\-Tage?}\label{a00002_measvolt}
+{\ttfamily M\-E\-A\-Sure\-:V\-O\-L\-Tage?} This query responds with a numeric value of the current voltage reading from the selected instrument in volts.\hypertarget{a00002_meascurr}{}\subsection{\-:\-C\-U\-R\-Rent?}\label{a00002_meascurr}
+{\ttfamily M\-E\-A\-Sure\-:C\-U\-R\-Rent?} This query responds with a numeric value of the current electrical current reading from the selected instrument in amps.\hypertarget{a00002_meastemp}{}\subsection{\-:\-T\-E\-M\-Perature?}\label{a00002_meastemp}
+{\ttfamily M\-E\-A\-Sure\-:T\-E\-M\-Perature?} This query responds with a numeric value of the current temperature reading from the selected instrument in degrees Celsius.\hypertarget{a00002_stat}{}\section{S\-T\-A\-Tus Subsystem}\label{a00002_stat}
+\hypertarget{a00002_statoper}{}\subsection{\-:\-O\-P\-E\-Ration}\label{a00002_statoper}
+\hypertarget{a00002_statpres}{}\subsection{\-:\-P\-R\-E\-Set}\label{a00002_statpres}
+\hypertarget{a00002_statques}{}\subsection{\-:\-Q\-U\-E\-Stionable}\label{a00002_statques}
+\hypertarget{a00002_syst}{}\section{S\-Y\-S\-Tem}\label{a00002_syst}
+The S\-Y\-S\-Tem subsystem collects the functions that are not related to instrument performance.\hypertarget{a00002_systcomm}{}\subsection{\-:\-C\-O\-M\-Ms}\label{a00002_systcomm}
+{\ttfamily S\-Y\-S\-Tem\-:C\-O\-M\-Ms}\par
+ This subsystem controls some aspects of the serial communications (S\-C\-I) interface.\hypertarget{a00002_systcommsbit}{}\subsubsection{\-:\-S\-B\-I\-Ts $<$numeric\-\_\-value$>$}\label{a00002_systcommsbit}
+{\ttfamily S\-Y\-S\-Tem\-:\-C\-O\-M\-Ms\-:S\-B\-I\-Ts}\par
+ This command sets the number of stop bits used in the S\-C\-I frame. The numeric value parameter sets the number of stop bits and may be either 1 or 2. The default value is 1.\hypertarget{a00002_systcommpar}{}\subsubsection{\-:\-P\-A\-Rity $<$numeric\-\_\-value$>$}\label{a00002_systcommpar}
+{\ttfamily S\-Y\-S\-Tem\-:\-C\-O\-M\-Ms\-:P\-A\-Rity}\par
+ This command sets what parity is used in the S\-C\-I frames. The defualt selection is for no parity. The numeric value parameter sets the parity in use and corresponds to parity settings as described by the following list\-:
 
-Again, the commands shown here are in addition to those that are implemented as standard by the System for Standard Commands for Programmable Instruments for C28x.
+\begin{enumerate}\setcounter{enumi}{-1} \item No parity \item Odd parity \item Even parity \end{enumerate}\hypertarget{a00002_systcommdbit}{}\subsubsection{\-:\-D\-B\-I\-Ts $<$numeric\-\_\-value$>$}\label{a00002_systcommdbit}
+{\ttfamily S\-Y\-S\-Tem\-:\-C\-O\-M\-Ms\-:D\-B\-I\-Ts}\par
+ This command sets how many data bits are in the S\-C\-I frame. The numeric value perameter sets the number of data bits and may vary from 1 to 8.\hypertarget{a00002_systcommbaud}{}\subsubsection{\-:\-B\-A\-U\-D $<$numeric\-\_\-value$>$}\label{a00002_systcommbaud}
+{\ttfamily S\-Y\-S\-Tem\-:\-C\-O\-M\-Ms\-:B\-A\-U\-D}\par
+ This command sets the baud rate used by the S\-C\-I interface. The numeric value parameter sets the baud rate. The allowed parameters are any of the standard baud rates which are listed in the table below. Acceptance of a baud rate does not indicate that the device is capable of use such a baud rate. The default baud rate is 9600.
 
-The diagram is followed by a listing of each command. The next section, \hyperlink{a00001}{Command Reference} explains the operation and details of each command.
-
-\begin{center}
-
-\begin{DoxyImageNoCaption}
-  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_2}}
-\end{DoxyImageNoCaption}
-\end{center}
-
-
-
-\begin{DoxyPre}
-{\bfseries CALibration}
-    ALL
-{\bfseries CONTrol}
-    IDLE
-        INITiate
-{\bfseries INSTrument}
-    CATalog?
-    NSELect
-    STATe
-{\bfseries OUTPut}
-    STATe
-{\bfseries INPut}
-    STATe
-{\bfseries SOURce}
-    VOLTage
-        LEVel
-        LIMit?
-        PROTect
-        RANGe
-        SLEW
-        COEFficient
-    CURRent
-        LEVel
-        LIMit?
-        PROTect
-        RANGe
-        SLEW
-        COEFficient
-    FREQuency
-        FIXed
-        GAIN
-        OFFSet
-        RESolution
-    TEMPerature
-        PROTect
-{\bfseries MEASure}
-    VOLTage?
-    CURRent?
-    TEMPerature?
-{\bfseries STATus}
-    OPERation
-    PRESet
-    QUEStionable
-{\bfseries SYSTem}
-    COMMs
-        SCINterface
-            SBITs
-            PARity
-            DBITs
-            BAUD
-            ECHO
-\end{DoxyPre}
- 
+\begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf Accepted Baud Rates }&\PBS\centering {\bf Accepted Baud Rates }&\PBS\centering {\bf Accepted Baud Rates  }\\\cline{1-3}
+\PBS\centering 110 &\PBS\centering 9600 &\PBS\centering 57600 \\\cline{1-3}
+\PBS\centering 300 &\PBS\centering 14400 &\PBS\centering 115200 \\\cline{1-3}
+\PBS\centering 600 &\PBS\centering 19200 &\PBS\centering 230400 \\\cline{1-3}
+\PBS\centering 1200 &\PBS\centering 28800 &\PBS\centering 460800 \\\cline{1-3}
+\PBS\centering 2400 &\PBS\centering 38400 &\PBS\centering 921600 \\\cline{1-3}
+\PBS\centering 4800 &\PBS\centering 56000 &\PBS\centering \\\cline{1-3}
+\end{TabularC}
+\hypertarget{a00002_systcommecho}{}\subsubsection{\-:\-E\-C\-H\-O $<$\-Boolean$>$}\label{a00002_systcommecho}
+{\ttfamily S\-Y\-S\-Tem\-:\-C\-O\-M\-Ms\-:E\-C\-H\-O}\par
+ This command enables or disables the echo functionality of the S\-C\-I interface. If the boolean parameter is O\-N the interface echos any data it receives without passing that data on to any other part of the device. The default setting is O\-F\-F. 

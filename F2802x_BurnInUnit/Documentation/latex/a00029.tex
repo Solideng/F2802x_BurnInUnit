@@ -1,159 +1,37 @@
-\hypertarget{a00029}{\section{Settings.\-h File Reference}
-\label{a00029}\index{Settings.\-h@{Settings.\-h}}
+\hypertarget{a00029}{\section{S\-C\-P\-I\-\_\-specific\-Cmds.\-h File Reference}
+\label{a00029}\index{S\-C\-P\-I\-\_\-specific\-Cmds.\-h@{S\-C\-P\-I\-\_\-specific\-Cmds.\-h}}
 }
-
-
-Major build definitions and settings for the project.  
-
-
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=144pt]{a00053}
+\includegraphics[width=190pt]{a00053}
 \end{center}
 \end{figure}
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{a00029_abf493281a7e64fe88660c38753e18d56}{I\-N\-C\-R\-\_\-\-B\-U\-I\-L\-D}~2
-\item 
-\#define \hyperlink{a00029_ad72dbcf6d0153db1b8d8a58001feed83}{D\-E\-B\-U\-G}
-\item 
-\#define \hyperlink{a00029_a600b96e7a1d3cd28e228833bb61f8074}{D\-U\-A\-L\-\_\-\-C\-N\-T\-L\-\_\-\-A\-C}
-\item 
-\#define \hyperlink{a00029_a3c2e957a61cfa19e31e8477fe3aacab8}{V\-S\-S\-A}~0l
-\item 
-\#define \hyperlink{a00029_a511faa1530ba984d340a884a97e6a80a}{V\-M\-I\-D\-\_\-\-R1}~540.\-0
-\item 
-\#define \hyperlink{a00029_a86d7f47e3c125143c21e1ca2836eb4ab}{V\-M\-I\-D\-\_\-\-R2}~4.\-3
-\item 
-\#define \hyperlink{a00029_a67fad1f78c49251e39fa6f1d5ff43e9e}{V\-A\-C\-\_\-\-R1}~540.\-0
-\item 
-\#define \hyperlink{a00029_a087778c4195e73f588e5c3cf7d9e9206}{V\-A\-C\-\_\-\-R2}~4.\-3
-\item 
-\#define \hyperlink{a00029_a69b2e41c3deaae85991311202c4a1a14}{N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}~5
-\item 
-\#define \hyperlink{a00029_a42a316162edffd07a32e68a889760c06}{N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}~2
-\item 
-\#define \hyperlink{a00029_afe433b138bb71d8d26b6e0907e656d1b}{N\-U\-M\-\_\-\-C\-H\-N\-L\-S}~\hyperlink{a00029_a69b2e41c3deaae85991311202c4a1a14}{N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S} + \hyperlink{a00029_a42a316162edffd07a32e68a889760c06}{N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}
-\item 
-\#define \hyperlink{a00029_abc63ab2a8e7782de38a5dbdfc33da717}{S\-Q\-R\-T\-\_\-2}~1.\-41429
-\item 
-\#define \hyperlink{a00029_ae468f418f2e6410dfcfeb58bcbbde516}{R\-E\-C\-P\-\_\-\-S\-Q\-R\-T\-\_\-2}~0.\-70711
-\item 
-\#define \hyperlink{a00029_a2d52976aedaedf74a90019a689170620}{V\-D\-D\-A}~3300l
-\item 
-\#define \hyperlink{a00029_aa010c11f88da0f9a48a7dfd810412d5d}{u\-Sec100}~6000
-\end{DoxyCompactItemize}
-{\bf }\par
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{a00029_a5f4c019658ca5a8eff4bfc3d96d489a0}{C\-H\-A\-N\-N\-E\-L\-\_\-\-O\-O\-B}~0x10
-\item 
-\#define \hyperlink{a00029_a055087c0064c322a05e443b47479bfe1}{V\-A\-L\-U\-E\-\_\-\-O\-O\-B}~0x11
-\item 
-\#define \hyperlink{a00029_a42d97deed6614a0b5b0aee655055b43a}{O\-C\-P\-\_\-\-T\-R\-I\-P}~0x12
-\item 
-\#define \hyperlink{a00029_ac330c784fd08c389f8649ac8e34d29e8}{O\-V\-P\-\_\-\-T\-R\-I\-P}~0x13
-\item 
-\#define \hyperlink{a00029_a5815c03ac63c324e326a148e247f24a1}{O\-T\-P\-\_\-\-T\-R\-I\-P}~0x14
-\item 
-\#define \hyperlink{a00029_aec1cab1af7dceb601fa90842135a4f65}{I2\-C\-\_\-\-R\-E\-A\-D\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G}~0x20
-\item 
-\#define \hyperlink{a00029_ac6997f1781d1d9047bd556dd5152795b}{I2\-C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G}~0x21
-\item 
-\#define \hyperlink{a00029_af623f6210c2ce545f939ec061fc533b0}{I2\-C\-\_\-\-S\-T\-P\-\_\-\-N\-O\-T\-\_\-\-R\-E\-A\-D\-Y}~0x22
-\item 
-\#define \hyperlink{a00029_ad3082827214b064d5b8289acaeb9ad20}{I2\-C\-\_\-\-B\-U\-S\-\_\-\-B\-U\-S\-Y}~0x23
-\item 
-\#define \hyperlink{a00029_a8e605ae1b9fc359d203b90cb9f8a090e}{I2\-C\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-S\-R\-C}~0x24
-\end{DoxyCompactItemize}
-
 
 
 \subsection{Detailed Description}
-Major build definitions and settings for the project. \begin{DoxyWarning}{Warning}
-This file is included and referenced by I\-S\-R.\-asm, main() and \hyperlink{a00019_a06d36d85b8d9d27cfc6674244ef1e603}{mn\-Connect\-Nets()}.
+This file includes the functions for registering the application specific commands and the related callback functions
 
-When changes are made to this file please use rebuild all. 
-\end{DoxyWarning}
+These commands and their associated callback functions can be edited to suit the application in use, though they should follow the guidelines and conventions laid out in I\-E\-E\-E 488.\-2-\/1992 and S\-C\-P\-I-\/1999
 
+Please follow the information in the parser documentation and the file S\-C\-P\-I\-\_\-specific\-Cmds.\-c on how to add or change message headers, commands and parameters
 
-\subsection{Macro Definition Documentation}
-\hypertarget{a00029_a5f4c019658ca5a8eff4bfc3d96d489a0}{\index{Settings.\-h@{Settings.\-h}!C\-H\-A\-N\-N\-E\-L\-\_\-\-O\-O\-B@{C\-H\-A\-N\-N\-E\-L\-\_\-\-O\-O\-B}}
-\index{C\-H\-A\-N\-N\-E\-L\-\_\-\-O\-O\-B@{C\-H\-A\-N\-N\-E\-L\-\_\-\-O\-O\-B}!Settings.h@{Settings.\-h}}
-\subsubsection[{C\-H\-A\-N\-N\-E\-L\-\_\-\-O\-O\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-A\-N\-N\-E\-L\-\_\-\-O\-O\-B~0x10}}\label{a00029_a5f4c019658ca5a8eff4bfc3d96d489a0}
-Channel out of bounds error code. \hypertarget{a00029_ad72dbcf6d0153db1b8d8a58001feed83}{\index{Settings.\-h@{Settings.\-h}!D\-E\-B\-U\-G@{D\-E\-B\-U\-G}}
-\index{D\-E\-B\-U\-G@{D\-E\-B\-U\-G}!Settings.h@{Settings.\-h}}
-\subsubsection[{D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G}}\label{a00029_ad72dbcf6d0153db1b8d8a58001feed83}
-Includes and makes functions and variables public that are used only for debugging purposes. \hypertarget{a00029_a600b96e7a1d3cd28e228833bb61f8074}{\index{Settings.\-h@{Settings.\-h}!D\-U\-A\-L\-\_\-\-C\-N\-T\-L\-\_\-\-A\-C@{D\-U\-A\-L\-\_\-\-C\-N\-T\-L\-\_\-\-A\-C}}
-\index{D\-U\-A\-L\-\_\-\-C\-N\-T\-L\-\_\-\-A\-C@{D\-U\-A\-L\-\_\-\-C\-N\-T\-L\-\_\-\-A\-C}!Settings.h@{Settings.\-h}}
-\subsubsection[{D\-U\-A\-L\-\_\-\-C\-N\-T\-L\-\_\-\-A\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-U\-A\-L\-\_\-\-C\-N\-T\-L\-\_\-\-A\-C}}\label{a00029_a600b96e7a1d3cd28e228833bb61f8074}
-Uses the dual C\-N\-T\-L A\-C control instead of single V\-Ctrl. Cannot be used if P\-I\-D is still in use. \hypertarget{a00029_ad3082827214b064d5b8289acaeb9ad20}{\index{Settings.\-h@{Settings.\-h}!I2\-C\-\_\-\-B\-U\-S\-\_\-\-B\-U\-S\-Y@{I2\-C\-\_\-\-B\-U\-S\-\_\-\-B\-U\-S\-Y}}
-\index{I2\-C\-\_\-\-B\-U\-S\-\_\-\-B\-U\-S\-Y@{I2\-C\-\_\-\-B\-U\-S\-\_\-\-B\-U\-S\-Y}!Settings.h@{Settings.\-h}}
-\subsubsection[{I2\-C\-\_\-\-B\-U\-S\-\_\-\-B\-U\-S\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-B\-U\-S\-\_\-\-B\-U\-S\-Y~0x23}}\label{a00029_ad3082827214b064d5b8289acaeb9ad20}
-I2\-C bus already busy error code. \hypertarget{a00029_a8e605ae1b9fc359d203b90cb9f8a090e}{\index{Settings.\-h@{Settings.\-h}!I2\-C\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-S\-R\-C@{I2\-C\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-S\-R\-C}}
-\index{I2\-C\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-S\-R\-C@{I2\-C\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-S\-R\-C}!Settings.h@{Settings.\-h}}
-\subsubsection[{I2\-C\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-S\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-I\-N\-V\-A\-L\-I\-D\-\_\-\-I\-S\-R\-C~0x24}}\label{a00029_a8e605ae1b9fc359d203b90cb9f8a090e}
-Invalid I2\-C interrupt source error code. \hypertarget{a00029_aec1cab1af7dceb601fa90842135a4f65}{\index{Settings.\-h@{Settings.\-h}!I2\-C\-\_\-\-R\-E\-A\-D\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G@{I2\-C\-\_\-\-R\-E\-A\-D\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G}}
-\index{I2\-C\-\_\-\-R\-E\-A\-D\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G@{I2\-C\-\_\-\-R\-E\-A\-D\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G}!Settings.h@{Settings.\-h}}
-\subsubsection[{I2\-C\-\_\-\-R\-E\-A\-D\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-R\-E\-A\-D\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G~0x20}}\label{a00029_aec1cab1af7dceb601fa90842135a4f65}
-Incorrect type I2\-C message read error code. \hypertarget{a00029_af623f6210c2ce545f939ec061fc533b0}{\index{Settings.\-h@{Settings.\-h}!I2\-C\-\_\-\-S\-T\-P\-\_\-\-N\-O\-T\-\_\-\-R\-E\-A\-D\-Y@{I2\-C\-\_\-\-S\-T\-P\-\_\-\-N\-O\-T\-\_\-\-R\-E\-A\-D\-Y}}
-\index{I2\-C\-\_\-\-S\-T\-P\-\_\-\-N\-O\-T\-\_\-\-R\-E\-A\-D\-Y@{I2\-C\-\_\-\-S\-T\-P\-\_\-\-N\-O\-T\-\_\-\-R\-E\-A\-D\-Y}!Settings.h@{Settings.\-h}}
-\subsubsection[{I2\-C\-\_\-\-S\-T\-P\-\_\-\-N\-O\-T\-\_\-\-R\-E\-A\-D\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-T\-P\-\_\-\-N\-O\-T\-\_\-\-R\-E\-A\-D\-Y~0x22}}\label{a00029_af623f6210c2ce545f939ec061fc533b0}
-I2\-C stop bit was not yet received error code. \hypertarget{a00029_ac6997f1781d1d9047bd556dd5152795b}{\index{Settings.\-h@{Settings.\-h}!I2\-C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G@{I2\-C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G}}
-\index{I2\-C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G@{I2\-C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G}!Settings.h@{Settings.\-h}}
-\subsubsection[{I2\-C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-W\-R\-O\-N\-G\-\_\-\-M\-S\-G~0x21}}\label{a00029_ac6997f1781d1d9047bd556dd5152795b}
-Incorrect type I2\-C write message error code. \hypertarget{a00029_abf493281a7e64fe88660c38753e18d56}{\index{Settings.\-h@{Settings.\-h}!I\-N\-C\-R\-\_\-\-B\-U\-I\-L\-D@{I\-N\-C\-R\-\_\-\-B\-U\-I\-L\-D}}
-\index{I\-N\-C\-R\-\_\-\-B\-U\-I\-L\-D@{I\-N\-C\-R\-\_\-\-B\-U\-I\-L\-D}!Settings.h@{Settings.\-h}}
-\subsubsection[{I\-N\-C\-R\-\_\-\-B\-U\-I\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-C\-R\-\_\-\-B\-U\-I\-L\-D~2}}\label{a00029_abf493281a7e64fe88660c38753e18d56}
-Alters the digital power control loop between closed or open. Open-\/\-Loop\-: 1. Closed-\/loop\-: 2. \hypertarget{a00029_afe433b138bb71d8d26b6e0907e656d1b}{\index{Settings.\-h@{Settings.\-h}!N\-U\-M\-\_\-\-C\-H\-N\-L\-S@{N\-U\-M\-\_\-\-C\-H\-N\-L\-S}}
-\index{N\-U\-M\-\_\-\-C\-H\-N\-L\-S@{N\-U\-M\-\_\-\-C\-H\-N\-L\-S}!Settings.h@{Settings.\-h}}
-\subsubsection[{N\-U\-M\-\_\-\-C\-H\-N\-L\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-C\-H\-N\-L\-S~{\bf N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S} + {\bf N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}}}\label{a00029_afe433b138bb71d8d26b6e0907e656d1b}
-Total number of I\-I\-R filter control law macros used (doesn't include V\-M\-I\-D semi-\/channel). \hypertarget{a00029_a69b2e41c3deaae85991311202c4a1a14}{\index{Settings.\-h@{Settings.\-h}!N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S@{N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}}
-\index{N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S@{N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}!Settings.h@{Settings.\-h}}
-\subsubsection[{N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-I\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S~5}}\label{a00029_a69b2e41c3deaae85991311202c4a1a14}
-The number of current, or 2-\/pole 2-\/zero, I\-I\-R filter control law macros used. \hypertarget{a00029_a42a316162edffd07a32e68a889760c06}{\index{Settings.\-h@{Settings.\-h}!N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S@{N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}}
-\index{N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S@{N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}!Settings.h@{Settings.\-h}}
-\subsubsection[{N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-V\-C\-T\-R\-L\-\_\-\-C\-H\-N\-L\-S~2}}\label{a00029_a42a316162edffd07a32e68a889760c06}
-The number of voltage, or 3-\/pole 3-\/zero, I\-I\-R filter control law macros used. \hypertarget{a00029_a42d97deed6614a0b5b0aee655055b43a}{\index{Settings.\-h@{Settings.\-h}!O\-C\-P\-\_\-\-T\-R\-I\-P@{O\-C\-P\-\_\-\-T\-R\-I\-P}}
-\index{O\-C\-P\-\_\-\-T\-R\-I\-P@{O\-C\-P\-\_\-\-T\-R\-I\-P}!Settings.h@{Settings.\-h}}
-\subsubsection[{O\-C\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-C\-P\-\_\-\-T\-R\-I\-P~0x12}}\label{a00029_a42d97deed6614a0b5b0aee655055b43a}
-Over-\/current protection trip error code. \hypertarget{a00029_a5815c03ac63c324e326a148e247f24a1}{\index{Settings.\-h@{Settings.\-h}!O\-T\-P\-\_\-\-T\-R\-I\-P@{O\-T\-P\-\_\-\-T\-R\-I\-P}}
-\index{O\-T\-P\-\_\-\-T\-R\-I\-P@{O\-T\-P\-\_\-\-T\-R\-I\-P}!Settings.h@{Settings.\-h}}
-\subsubsection[{O\-T\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-T\-P\-\_\-\-T\-R\-I\-P~0x14}}\label{a00029_a5815c03ac63c324e326a148e247f24a1}
-Over-\/temperature protection trip error code. \hypertarget{a00029_ac330c784fd08c389f8649ac8e34d29e8}{\index{Settings.\-h@{Settings.\-h}!O\-V\-P\-\_\-\-T\-R\-I\-P@{O\-V\-P\-\_\-\-T\-R\-I\-P}}
-\index{O\-V\-P\-\_\-\-T\-R\-I\-P@{O\-V\-P\-\_\-\-T\-R\-I\-P}!Settings.h@{Settings.\-h}}
-\subsubsection[{O\-V\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-V\-P\-\_\-\-T\-R\-I\-P~0x13}}\label{a00029_ac330c784fd08c389f8649ac8e34d29e8}
-Over-\/voltage protection trip error code. \hypertarget{a00029_ae468f418f2e6410dfcfeb58bcbbde516}{\index{Settings.\-h@{Settings.\-h}!R\-E\-C\-P\-\_\-\-S\-Q\-R\-T\-\_\-2@{R\-E\-C\-P\-\_\-\-S\-Q\-R\-T\-\_\-2}}
-\index{R\-E\-C\-P\-\_\-\-S\-Q\-R\-T\-\_\-2@{R\-E\-C\-P\-\_\-\-S\-Q\-R\-T\-\_\-2}!Settings.h@{Settings.\-h}}
-\subsubsection[{R\-E\-C\-P\-\_\-\-S\-Q\-R\-T\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-C\-P\-\_\-\-S\-Q\-R\-T\-\_\-2~0.\-70711}}\label{a00029_ae468f418f2e6410dfcfeb58bcbbde516}
-1/sqrt(2) constant used for R\-M\-S calculations. \hypertarget{a00029_abc63ab2a8e7782de38a5dbdfc33da717}{\index{Settings.\-h@{Settings.\-h}!S\-Q\-R\-T\-\_\-2@{S\-Q\-R\-T\-\_\-2}}
-\index{S\-Q\-R\-T\-\_\-2@{S\-Q\-R\-T\-\_\-2}!Settings.h@{Settings.\-h}}
-\subsubsection[{S\-Q\-R\-T\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-Q\-R\-T\-\_\-2~1.\-41429}}\label{a00029_abc63ab2a8e7782de38a5dbdfc33da717}
-Sqrt(2) constant used for R\-M\-S calculations. \hypertarget{a00029_aa010c11f88da0f9a48a7dfd810412d5d}{\index{Settings.\-h@{Settings.\-h}!u\-Sec100@{u\-Sec100}}
-\index{u\-Sec100@{u\-Sec100}!Settings.h@{Settings.\-h}}
-\subsubsection[{u\-Sec100}]{\setlength{\rightskip}{0pt plus 5cm}\#define u\-Sec100~6000}}\label{a00029_aa010c11f88da0f9a48a7dfd810412d5d}
-100us -\/ System define. \hypertarget{a00029_a67fad1f78c49251e39fa6f1d5ff43e9e}{\index{Settings.\-h@{Settings.\-h}!V\-A\-C\-\_\-\-R1@{V\-A\-C\-\_\-\-R1}}
-\index{V\-A\-C\-\_\-\-R1@{V\-A\-C\-\_\-\-R1}!Settings.h@{Settings.\-h}}
-\subsubsection[{V\-A\-C\-\_\-\-R1}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-A\-C\-\_\-\-R1~540.\-0}}\label{a00029_a67fad1f78c49251e39fa6f1d5ff43e9e}
-Scaling voltage divider R1 resistor value for V\-A\-C A\-D\-C. \hypertarget{a00029_a087778c4195e73f588e5c3cf7d9e9206}{\index{Settings.\-h@{Settings.\-h}!V\-A\-C\-\_\-\-R2@{V\-A\-C\-\_\-\-R2}}
-\index{V\-A\-C\-\_\-\-R2@{V\-A\-C\-\_\-\-R2}!Settings.h@{Settings.\-h}}
-\subsubsection[{V\-A\-C\-\_\-\-R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-A\-C\-\_\-\-R2~4.\-3}}\label{a00029_a087778c4195e73f588e5c3cf7d9e9206}
-Scaling voltage divider R2 resistor value for V\-A\-C A\-D\-C. \hypertarget{a00029_a055087c0064c322a05e443b47479bfe1}{\index{Settings.\-h@{Settings.\-h}!V\-A\-L\-U\-E\-\_\-\-O\-O\-B@{V\-A\-L\-U\-E\-\_\-\-O\-O\-B}}
-\index{V\-A\-L\-U\-E\-\_\-\-O\-O\-B@{V\-A\-L\-U\-E\-\_\-\-O\-O\-B}!Settings.h@{Settings.\-h}}
-\subsubsection[{V\-A\-L\-U\-E\-\_\-\-O\-O\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-A\-L\-U\-E\-\_\-\-O\-O\-B~0x11}}\label{a00029_a055087c0064c322a05e443b47479bfe1}
-Value out of bounds error code. \hypertarget{a00029_a2d52976aedaedf74a90019a689170620}{\index{Settings.\-h@{Settings.\-h}!V\-D\-D\-A@{V\-D\-D\-A}}
-\index{V\-D\-D\-A@{V\-D\-D\-A}!Settings.h@{Settings.\-h}}
-\subsubsection[{V\-D\-D\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-D\-D\-A~3300l}}\label{a00029_a2d52976aedaedf74a90019a689170620}
-System V\-M\-A\-X\-R\-E\-F (millivolts). \hypertarget{a00029_a511faa1530ba984d340a884a97e6a80a}{\index{Settings.\-h@{Settings.\-h}!V\-M\-I\-D\-\_\-\-R1@{V\-M\-I\-D\-\_\-\-R1}}
-\index{V\-M\-I\-D\-\_\-\-R1@{V\-M\-I\-D\-\_\-\-R1}!Settings.h@{Settings.\-h}}
-\subsubsection[{V\-M\-I\-D\-\_\-\-R1}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-M\-I\-D\-\_\-\-R1~540.\-0}}\label{a00029_a511faa1530ba984d340a884a97e6a80a}
-Scaling voltage divider R1 resistor value for V\-M\-I\-D A\-D\-C. \hypertarget{a00029_a86d7f47e3c125143c21e1ca2836eb4ab}{\index{Settings.\-h@{Settings.\-h}!V\-M\-I\-D\-\_\-\-R2@{V\-M\-I\-D\-\_\-\-R2}}
-\index{V\-M\-I\-D\-\_\-\-R2@{V\-M\-I\-D\-\_\-\-R2}!Settings.h@{Settings.\-h}}
-\subsubsection[{V\-M\-I\-D\-\_\-\-R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-M\-I\-D\-\_\-\-R2~4.\-3}}\label{a00029_a86d7f47e3c125143c21e1ca2836eb4ab}
-Scaling voltage divider R2 resistor value for V\-M\-I\-D A\-D\-C. \hypertarget{a00029_a3c2e957a61cfa19e31e8477fe3aacab8}{\index{Settings.\-h@{Settings.\-h}!V\-S\-S\-A@{V\-S\-S\-A}}
-\index{V\-S\-S\-A@{V\-S\-S\-A}!Settings.h@{Settings.\-h}}
-\subsubsection[{V\-S\-S\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\-S\-S\-A~0l}}\label{a00029_a3c2e957a61cfa19e31e8477fe3aacab8}
-System V\-L\-O\-W\-R\-E\-F (millivolts). 
+To register a new command device specific tree node, add a register\-Child() call to the function register\-Specific\-Commands() with the form \char`\"{}err += register\-Child(\-C\-H\-I\-L\-D\-\_\-\-L\-O\-N\-G\-\_\-\-N\-A\-M\-E, P\-A\-R\-E\-N\-T\-\_\-\-S\-H\-O\-R\-T\-\_\-\-N\-A\-M\-E,
+\-B\-O\-O\-L\-\_\-\-I\-S\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-O\-N\-L\-Y, B\-O\-O\-L\-\_\-\-I\-S\-\_\-\-Q\-U\-E\-R\-Y, C\-A\-L\-L\-B\-A\-C\-K\-\_\-\-H\-A\-N\-D\-L\-E);\char`\"{}, where\-:
+\begin{DoxyItemize}
+\item C\-H\-I\-L\-D\-\_\-\-L\-O\-N\-G\-\_\-\-N\-A\-M\-E is the long form of the name of the child node to be registered.
+\item P\-A\-R\-E\-N\-T\-\_\-\-S\-H\-O\-R\-T\-\_\-\-N\-A\-M\-E is the short form of the name of the parent of the child node to be registered. This must be an already existing node.
+\item B\-O\-O\-L\-\_\-\-I\-S\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-O\-N\-L\-Y is a boolean value that indicates if the node being registered is a header only (i.\-e. is not a command) or not.
+\item B\-O\-O\-L\-\_\-\-I\-S\-\_\-\-Q\-U\-E\-R\-Y is a boolean value that indicates if the node being registered my be queried or not.
+\item C\-A\-L\-L\-B\-A\-C\-K\-\_\-\-H\-A\-N\-D\-L\-E is a pointer to the function to be associated with this child if it is a command, or N\-U\-L\-L if it is a header only.
+\end{DoxyItemize}
+
+For further information on the operation of register\-Child() please see the function description.
+
+All string literals M\-U\-S\-T be in upper case and enclosed in quotation marks.
+
+Node long and short names must conform to the standard as outlined by S\-C\-P\-I-\/99 in 6.\-2.\-1
+
+All tree nodes are children of at least \char`\"{}\-R\-O\-O\-T\char`\"{}. Changes to the number of node registered should be reflected by the user in the number defined for T\-R\-E\-E\-\_\-\-C\-H\-I\-L\-D\-\_\-\-L\-I\-M\-I\-T in scpi.\-h 

@@ -1,0 +1,164 @@
+\hypertarget{a00025}{\section{Pwm.\-h File Reference}
+\label{a00025}\index{Pwm.\-h@{Pwm.\-h}}
+}
+
+
+P\-W\-M and related functions.  
+
+
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{a00051}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00025_af281425e62298bac2df0fbe8690a4844}{P\-E\-R\-I\-O\-D}~600
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{a00025_aced17503c602f9e71a2d101e956cce23}{pwm\-Tz\-Configure} (void)
+\item 
+void \hyperlink{a00025_a94a47896496e094f8ab54c1cb46da2e1}{pwm\-Rst\-Tz} (void)
+\item 
+void \hyperlink{a00025_acc68120fcdfa36145370c31a61eb23a7}{pwm\-Macro\-Configure} (void)
+\item 
+void \hyperlink{a00025_a358d8706acd0faf4e1cc705129be6548}{pwm\-Soc\-Configure} (void)
+\item 
+void \hyperlink{a00025_adfbaf2bb56a0c9fe6f54826499cb57de}{pwm\-D\-P\-L\-Trig\-Init} (void)
+\item 
+Uint16 \hyperlink{a00025_af82e2c1ff72afc3de42eb172ca925956}{pwm\-Set\-Freq} (Uint32 frq)
+\item 
+Uint16 \hyperlink{a00025_a79f203a5167440096f2ba270813b6db2}{pwm\-Get\-Freq} (Uint32 $\ast$frq\-Dest)
+\item 
+interrupt void \hyperlink{a00025_a5532a53363218854b0e4b15049d773f7}{D\-P\-L\-\_\-\-I\-S\-R} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile int32 $\ast$ \hyperlink{a00025_a8a02650c6afb411447157faf0e90a7b2}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}
+\item 
+volatile int32 $\ast$ \hyperlink{a00025_a23767edc2ebfabc9336684185a4f2d84}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}
+\item 
+volatile int32 $\ast$ \hyperlink{a00025_acc76d5ffc745e63de05baa242bb3d16f}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}
+\item 
+volatile int32 $\ast$ \hyperlink{a00025_a3215b15b28994e0840d64200f09cbfb0}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}
+\item 
+volatile int32 $\ast$ \hyperlink{a00025_a86962b3c7a5a851d9ddce3301a9db727}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}
+\item 
+volatile int32 $\ast$ \hyperlink{a00025_a9550c95286e784256c9f12906ff5a407}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+P\-W\-M and related functions. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{a00025_af281425e62298bac2df0fbe8690a4844}{\index{Pwm.\-h@{Pwm.\-h}!P\-E\-R\-I\-O\-D@{P\-E\-R\-I\-O\-D}}
+\index{P\-E\-R\-I\-O\-D@{P\-E\-R\-I\-O\-D}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-E\-R\-I\-O\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-E\-R\-I\-O\-D~600}}\label{a00025_af281425e62298bac2df0fbe8690a4844}
+Defines the initial P\-W\-M period setting = 60\-M\-Hz / 600 = 100. 
+
+\subsection{Function Documentation}
+\hypertarget{a00025_a5532a53363218854b0e4b15049d773f7}{\index{Pwm.\-h@{Pwm.\-h}!D\-P\-L\-\_\-\-I\-S\-R@{D\-P\-L\-\_\-\-I\-S\-R}}
+\index{D\-P\-L\-\_\-\-I\-S\-R@{D\-P\-L\-\_\-\-I\-S\-R}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{D\-P\-L\-\_\-\-I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}interrupt void D\-P\-L\-\_\-\-I\-S\-R (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00025_a5532a53363218854b0e4b15049d773f7}
+Digital power control loop interrupt service routine Located in the assembly file Burn\-In\-Unit\-\_\-\-I\-S\-R.\-asm \hypertarget{a00025_adfbaf2bb56a0c9fe6f54826499cb57de}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-D\-P\-L\-Trig\-Init@{pwm\-D\-P\-L\-Trig\-Init}}
+\index{pwm\-D\-P\-L\-Trig\-Init@{pwm\-D\-P\-L\-Trig\-Init}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-D\-P\-L\-Trig\-Init}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-D\-P\-L\-Trig\-Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00025_adfbaf2bb56a0c9fe6f54826499cb57de}
+Initialises and enables P\-W\-M1 (master) to trigger the D\-P\-L I\-S\-R. \hypertarget{a00025_a79f203a5167440096f2ba270813b6db2}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Get\-Freq@{pwm\-Get\-Freq}}
+\index{pwm\-Get\-Freq@{pwm\-Get\-Freq}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Get\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 pwm\-Get\-Freq (
+\begin{DoxyParamCaption}
+\item[{Uint32 $\ast$}]{frq\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00025_a79f203a5167440096f2ba270813b6db2}
+Queries the current P\-W\-M frequency setting. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em frq\-Dest} & Address of the memory location at which to place the query result (hertz). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00025_acc68120fcdfa36145370c31a61eb23a7}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Macro\-Configure@{pwm\-Macro\-Configure}}
+\index{pwm\-Macro\-Configure@{pwm\-Macro\-Configure}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Macro\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Macro\-Configure (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00025_acc68120fcdfa36145370c31a61eb23a7}
+Configures each of the P\-W\-M macros for use. \hypertarget{a00025_a94a47896496e094f8ab54c1cb46da2e1}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Rst\-Tz@{pwm\-Rst\-Tz}}
+\index{pwm\-Rst\-Tz@{pwm\-Rst\-Tz}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Rst\-Tz}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Rst\-Tz (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00025_a94a47896496e094f8ab54c1cb46da2e1}
+Resets the trip zone after a comparator event. \hypertarget{a00025_af82e2c1ff72afc3de42eb172ca925956}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Set\-Freq@{pwm\-Set\-Freq}}
+\index{pwm\-Set\-Freq@{pwm\-Set\-Freq}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Set\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 pwm\-Set\-Freq (
+\begin{DoxyParamCaption}
+\item[{Uint32}]{frq}
+\end{DoxyParamCaption}
+)}}\label{a00025_af82e2c1ff72afc3de42eb172ca925956}
+Sets the frequency of the P\-W\-Ms. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em frq} & Specifies the required frequency (hertz). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00025_a358d8706acd0faf4e1cc705129be6548}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Soc\-Configure@{pwm\-Soc\-Configure}}
+\index{pwm\-Soc\-Configure@{pwm\-Soc\-Configure}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Soc\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Soc\-Configure (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00025_a358d8706acd0faf4e1cc705129be6548}
+Configures P\-W\-M1 (master) to generate A\-D\-C S\-O\-C start for A\-D\-C macro -\/ configure before initialisation. \hypertarget{a00025_aced17503c602f9e71a2d101e956cce23}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Tz\-Configure@{pwm\-Tz\-Configure}}
+\index{pwm\-Tz\-Configure@{pwm\-Tz\-Configure}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{pwm\-Tz\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Tz\-Configure (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00025_aced17503c602f9e71a2d101e956cce23}
+Configures P\-W\-M trip zones for use. Requires the comparator and D\-A\-C to be configured \begin{DoxySeeAlso}{See Also}
+\hyperlink{a00006}{adc.\-h} 
+\end{DoxySeeAlso}
+
+
+\subsection{Variable Documentation}
+\hypertarget{a00025_a8a02650c6afb411447157faf0e90a7b2}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}}\label{a00025_a8a02650c6afb411447157faf0e90a7b2}
+Channel 0 P\-W\-M terminal pointer. \hypertarget{a00025_a23767edc2ebfabc9336684185a4f2d84}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}}\label{a00025_a23767edc2ebfabc9336684185a4f2d84}
+Channel 1 P\-W\-M terminal pointers. \hypertarget{a00025_acc76d5ffc745e63de05baa242bb3d16f}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}}\label{a00025_acc76d5ffc745e63de05baa242bb3d16f}
+Channel 2 P\-W\-M terminal pointer. \hypertarget{a00025_a3215b15b28994e0840d64200f09cbfb0}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}}\label{a00025_a3215b15b28994e0840d64200f09cbfb0}
+Channel 3 P\-W\-M terminal pointer. \hypertarget{a00025_a86962b3c7a5a851d9ddce3301a9db727}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}}\label{a00025_a86962b3c7a5a851d9ddce3301a9db727}
+Interboost P\-W\-M terminal pointer. \hypertarget{a00025_a9550c95286e784256c9f12906ff5a407}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}}
+\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}!Pwm.h@{Pwm.\-h}}
+\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}}\label{a00025_a9550c95286e784256c9f12906ff5a407}
+A\-C stage P\-W\-M terminal pointer. 

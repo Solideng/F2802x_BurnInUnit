@@ -119,9 +119,9 @@ Instrument Selection</h1>
 <p><code>INSTrument:CATalog?;</code>.</p>
 <p></p>
 </blockquote>
-<ol start="0"> <li>Load 0</li> <li>Load 1</li> <li>Load 2</li> <li>Load 3</li> <li>AC Current Control</li> <li>DC Stage</li> <li>AC Stage</li> </ol><p>This means that before setting any of the instruments' settings, the relevant instrument number must first be selected. This is done using the <code>NSELect</code> command from the <code>INSTrument</code> subsystem. The default instrument selection is 0 Thus, for example, the <code>&lt;</code>PROGRAM MESSAGE<code>&gt;</code> required to set the voltage level DC stage to 10 volts would be as follows: </p>
+<ol start="0"> <li>Load 0</li> <li>Load 1</li> <li>Load 2</li> <li>Load 3</li> <li>AC Current Control</li> <li>DC Stage</li> <li>AC Stage</li> </ol><p>This means that before setting any of the instruments' settings, the relevant instrument number must first be selected. This is done using the <code>NSELect</code> command from the <code>INSTrument</code> subsystem. The default instrument selection is 0. Once selected the value is "sticky", and does not need to be set again until the user settings wishes to send commands for a different instrument. Thus, for example, the <code>&lt;</code>PROGRAM MESSAGE<code>&gt;</code> required to set the voltage level DC stage to 10 volts with a range set to 1V/V would be as follows: </p>
 <blockquote class="doxtable">
-<p><code>INSTrument:NSELect 5;:SOURce:VOLTage:LEVel 10;</code></p>
+<p><code>INSTrument:NSELect 5;:SOURce:VOLTage:LEVel 10;:SOURce:VOLTage:RANGe 1;</code></p>
 <p></p>
 </blockquote>
 <h1><a class="anchor" id="tree"></a>
@@ -166,7 +166,6 @@ The Command Tree</h1>
         FIXed
         GAIN
         OFFSet
-        RESolution
     TEMPerature
         PROTect
 <b>MEASure</b>

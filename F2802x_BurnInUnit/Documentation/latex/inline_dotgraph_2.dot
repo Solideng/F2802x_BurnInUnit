@@ -38,7 +38,6 @@ graph Example {
             node631 [label="[FIXed]"];
             node632 [label="GAIN"];
             node633 [label="OFFSet"];
-            node634 [label="RESolution"];
         node64 [label="TEMPerature"];
             node641 [label="[PROTect]"];
     node7 [label="MEASure"];
@@ -83,7 +82,7 @@ graph Example {
     node6 -- {node61 node62 node63 node64};
         node61 -- {node611 node612 node613 node614 node615 node616};
         node62 -- {node621 node622 node623 node624 node625 node626};
-        node63 -- {node631 node632 node633 node634};
+        node63 -- {node631 node632 node633};
         node64 -- node641;
     node7 -- {node71 node72 node73};
     node8 -- {node81 node82 node83};

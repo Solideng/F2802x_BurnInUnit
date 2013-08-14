@@ -85,62 +85,227 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Command Reference </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="cal"></a>
+<div class="textblock"><p>This section outlines the operation of each command and node on the command tree. All commands, unless otherwise specified, also have an equivalent query form that returns the value that the command is currently set to. For example, querying SOURce:VOLTage:PROTect? will return the current voltage protection level setting.</p>
+<p>Some commands have a query form <em>only</em>, that is they have no none-query form. these commands are identified by the presence of the query terminator character, '?'.</p>
+<p>Some of the commands are optional, or default. Such optionality is represented by the presence of square brackets enclosing the command, '[' and ']'. Where commands are optional, it is possible to use the parent node alone instead of needing to append the optional child command. For example, as the :NSELect command from the INSTrument subsystem is marked as optional, the command to select an instrument can be either: </p>
+<blockquote class="doxtable">
+<p><code>INSTrument:NSELect <code>&lt;</code>numeric_value<code>&gt;</code>;</code></p>
+<p></p>
+</blockquote>
+<p>or </p>
+<blockquote class="doxtable">
+<p><code>INSTrument <code>&lt;</code>numeric_value<code>&gt;</code>;</code></p>
+<p></p>
+</blockquote>
+<h1><a class="anchor" id="cal"></a>
 CALibration Subsystem</h1>
+<p>This subsystem has the function of performing system calibration. Currently the subsystem has only one function, the default command ALL and it's complementing query.</p>
 <h2><a class="anchor" id="calall"></a>
-ALL</h2>
+[:ALL]</h2>
+<p><code>CALibration:ALL</code><br/>
+ The CALibration:ALL command performs the same function as the CALibration:ALL? command except there is no response. Calibration errors are reported through the status-reporting mechanism. While this command is executing the CALibrating bit of the Operation Status Condition register will be set.</p>
+<h2><a class="anchor" id="callallq"></a>
+[:ALL]?</h2>
+<p><code>Calibration:ALL?</code><br/>
+ The ALL? query performs a full calibration of the instrument and responds with a <code>&lt;</code>numeric_value<code>&gt;</code> indicating the success of the calibration. A zero will be returned if calibration is completed successfully; otherwise a nonzero value which represents the appropriate error number shall be returned. An instrument will still report calibration errors through the status-reporting mechanism, even though an error is reported by the value of the query response.</p>
 <h1><a class="anchor" id="ctrl"></a>
 CONTrol Subsystem</h1>
+<p>The CONTrol subsystem is used to turn on and off or control the state of the entire device.</p>
 <h2><a class="anchor" id="ctrlidle"></a>
-IDLE</h2>
+:IDLE</h2>
+<p><code>CONTrol:IDLE</code><br/>
+ This node contains commands that control the IDLE state of the device.</p>
 <h3><a class="anchor" id="ctrlidleinit"></a>
-INITiate</h3>
+:INITiate</h3>
+<p><code>CONTrol:IDLE:INITiate</code><br/>
+ Returns the device to the idle state. This command is an event and has no associated *RST condition or query command.</p>
 <h1><a class="anchor" id="inst"></a>
 INSTrument Subsystem</h1>
+<p>This device uses multiple logical instruments (as described in <a class="el" href="a00001.html#device">Instrument Selection</a>), this subsystem provides the mechanism to identify and select logical instruments by number.</p>
 <h2><a class="anchor" id="instcat"></a>
-CATalog?</h2>
+:CATalog?</h2>
+<p><code>INSTrument:CATalog?</code><br/>
+ The CATalog query returns a comma-separated list of the numbers of all logical instruments.</p>
 <h2><a class="anchor" id="instnsel"></a>
-NSELect</h2>
+:NSELect &lt;numeric_value&gt;</h2>
+<p><code>INSTrument:NSELect</code><br/>
+ This command selects an instrument according to the numeric value parameter. When a logical instrument is selected, all other logical instruments or groups are unavailable for programming until selected. When queried it shall return the selected logical instrument number.</p>
+<p>Note that the numbering used for logical instruments directly corresponds to the numbers used in status reporting for the multiple instruments; specifically the STATus:QUEStionable:INSTrument and STATus:OPERation:INSTrument commands.</p>
+<p>At *RST, instrument 0 is selected.</p>
 <h2><a class="anchor" id="inststat"></a>
-STATe</h2>
+:STATe &lt;Boolean&gt;</h2>
+<p><code>INSTrument:STATe</code><br/>
+ Turns the selected logical instrument ON or OFF. A logical instrument does not have to be turned OFF before another logical instrument is selected. That is, several logical instruments may be active, while only one may be selected. When an instrument is active, measurements occur and signals are generated. When inactive, measurements do not occur and signals are not generated. When a logical instrument is selected, yet is inactive, all commands shall be processed so that the logical instrument shall reflect the state changes requested when the logical instrument is turned on.</p>
+<p>At *RST, this value is OFF.</p>
 <h1><a class="anchor" id="outp"></a>
 OUTPut Subsystem</h1>
+<p>The OUTPut subsystem controls the characteristics of the selected instrument's output port.</p>
 <h2><a class="anchor" id="outpstat"></a>
-STATe</h2>
+[:STATe] &lt;Boolean&gt;</h2>
+<p><code>OUTPut:STATe</code><br/>
+ Selects the state of the output. When STATe is ON the signal generated by the source is emitted from the output port of the selected instrument.</p>
 <h1><a class="anchor" id="inp"></a>
 INPut Subsystem</h1>
+<p>The INPut subsystem controls the characteristics of the selected instrument's input port.</p>
 <h2><a class="anchor" id="inpstat"></a>
-STATe</h2>
+:STATe &lt;Boolean&gt;</h2>
+<p><code>INPut:STATe</code><br/>
+ Selects the state of the input. When STATe is ON the signal generated by the source is emitted from the output port of the selected instrument.</p>
 <h1><a class="anchor" id="sour"></a>
 SOURce Subsystem</h1>
+<p>The SOURce setup commands are divided into several sections. Each section or subsystem deals with controls that directly affect device-specific settings of the selected instrument.</p>
 <h2><a class="anchor" id="sourvolt"></a>
-VOLTage</h2>
+:VOLTage</h2>
+<p>This subsection controls the signal voltage characteristics of the source.</p>
+<h3><a class="anchor" id="sourvoltlev"></a>
+[:LEVel] &lt;numeric_value&gt;</h3>
+<p><code>SOURce:VOLTage:LEVel</code><br/>
+ This command sets the target voltage level of a voltage controlled instrument. The numeric value parameter is the level to be set in volts, between 0 and the voltage limit returned in response the LIMit? query.</p>
+<h3><a class="anchor" id="sourvoltlim"></a>
+:LIMit?</h3>
+<p><code>SOURce:VOLTage:LEVel</code><br/>
+ This command has a query form only. This is because the voltage limit value is fixed. The query response is a single numeric value in volts representing this fixed limit.</p>
+<h3><a class="anchor" id="sourvoltprot"></a>
+:PROTect &lt;numeric_value&gt;</h3>
+<p><code>SOURce:VOLTage:PROTect</code><br/>
+ This command sets the voltage protection level. This is the level at which the over-voltage protection is triggered if the voltage rises above it The numeric value parameter is the level to be set in volts, between 0 and the voltage limit returned in response to the LIMit? query.</p>
+<h3><a class="anchor" id="sourvoltrang"></a>
+:RANGe &lt;numeric_value&gt;</h3>
+<p><code>SOURce:VOLTage:RANGe</code><br/>
+ This command sets the voltage range. The numeric value parameter is the voltage scaling value in volts-per-volt from 0 to 1.</p>
+<h3><a class="anchor" id="sourvoltslew"></a>
+:SLEW &lt;numeric_value&gt;</h3>
+<p><code>SOURce:VOLTage:SLEW</code><br/>
+ This command sets the voltage slew for a voltage controlled instrument. The numeric value parameter is the voltage slew rate value in volts-per-microseconds from 0 to 1.</p>
+<h3><a class="anchor" id="sourvoltcoef"></a>
+:COEFficient &lt;numeric_value&gt;, &lt;numeric value&gt;</h3>
+<p><code>SOURce:VOLTage:COEFficient</code><br/>
+ This command is used to specify the voltage control coefficients, of a voltage controlled instrument. The first numeric value parameter specifies the coefficient to be changed, according to the following list, while the second numeric value parameter specifies the level the selected coefficient is to be changed to.</p>
+<ol start="0"> <li>Saturation Minimum</li> <li>Saturation Maximum</li> <li>B0</li> <li>B1</li> <li>A1</li> <li>B2</li> <li>A2</li> <li>B3</li> <li>A3</li> </ol><p>When queried, the response is a list of comma separated numeric values in the following order: </p>
+<blockquote class="doxtable">
+<p>Saturation-Minimum-value, Saturation-Maximum-value, B0-value, B1-value, A1-value, B2-value, A2-value, B3-value, A3-value</p>
+<p></p>
+</blockquote>
 <h2><a class="anchor" id="sourcurr"></a>
-CURRent</h2>
+:CURRent</h2>
+<p><code>SOURce:CURRent</code><br/>
+ This subsection controls the signal current characteristics of the source.</p>
+<h3><a class="anchor" id="sourcurrlev"></a>
+[:LEVel] &lt;numeric_value&gt;</h3>
+<p><code>SOURce:CURRent:LEVel</code><br/>
+ This command sets the target current level of a current controlled instrument. The numeric value parameter is the level to be set in amps, between 0 and the current limit returned in response the LIMit? query.</p>
+<h3><a class="anchor" id="sourcurrlim"></a>
+:LIMit?</h3>
+<p><code>SOURce:CURRent:LEVel</code><br/>
+ This command has a query form only. This is because the current limit value is fixed. The query response is a single numeric value in amps representing this fixed limit.</p>
+<h3><a class="anchor" id="sourcurrprot"></a>
+:PROTect &lt;numeric_value&gt;</h3>
+<p><code>SOURce:VOLTage:PROTect</code><br/>
+ This command sets the current protection level. This is the level at which the over-current protection is triggered if the current rises above it The numeric value parameter is the level to be set in amps, between 0 and the current limit returned in response to the LIMit? query.</p>
+<h3><a class="anchor" id="sourcurrrang"></a>
+:RANGe &lt;numeric_value&gt;</h3>
+<p><code>SOURce:CURRent:RANGe</code><br/>
+ This command sets the current range. The numeric value parameter is the current scaling value in amps-per-volt from 0 to 1. <b>&lt;--&mdash;!!!--&mdash;</b></p>
+<h3><a class="anchor" id="sourcurrslew"></a>
+:SLEW &lt;numeric_value&gt;</h3>
+<p><code>SOURce:CURRent:SLEW</code><br/>
+ This command sets the current slew for a current controlled instrument. The numeric value parameter is the current slew rate value in amps-per-microseconds from 0 to 1.</p>
+<h3><a class="anchor" id="sourcurrcoef"></a>
+:COEFficient &lt;numeric_value&gt;, &lt;numeric_value&gt;</h3>
+<p><code>SOURce:CURRent:COEFficient</code><br/>
+ This command is used to specify the current control coefficients, of a current controlled instrument. The first numeric value parameter specifies the coefficient to be changed, according to the following list, while the second numeric value parameter specifies the level the selected coefficient is to be changed to.</p>
+<ol start="0"> <li>Saturation Minimum</li> <li>Saturation Maximum</li> <li>B0</li> <li>B1</li> <li>A1</li> <li>B2</li> <li>A2</li> </ol><p>When queried, the response is a list of comma separated numeric values in the following order: </p>
+<blockquote class="doxtable">
+<p>Saturation-Minimum-value, Saturation-Maximum-value, B0-value, B1-value, A1-value, B2-value, A2-value</p>
+<p></p>
+</blockquote>
 <h2><a class="anchor" id="sourfreq"></a>
-FREQuency</h2>
+:FREQuency</h2>
+<p><code>SOURce:FREQuency</code><br/>
+ The FREQuency subsystem controls the frequency characteristics of an instrument source that produces a periodic signal - such as the sine wave produced by the AC stage.</p>
+<h3><a class="anchor" id="sourfreqfix"></a>
+[:FIXed] &lt;numeric_value&gt;</h3>
+<p><code>SOURce:FREQuency:FIXed</code><br/>
+ This command is used to set the source frequency. The numeric value parameter should be the required frequency in hertz, from 0 to 1000.</p>
+<h3><a class="anchor" id="sourfreqgain"></a>
+:GAIN &lt;numeric_value&gt;</h3>
+<p><code>SOURce:FREQuency:GAIN</code><br/>
+ This command is used to set the frequency gain. The numeric value parameter should vary from 0 to 1</p>
+<h3><a class="anchor" id="sourfreqoffs"></a>
+:OFFSet &lt;numeric_value&gt;</h3>
+<p><code>SOURce:FREQuency:OFFSet</code><br/>
+ This command sets the frequency offset. The numeric value parameter should vary between -0.5 and +0.5</p>
 <h2><a class="anchor" id="sourtemp"></a>
-TEMPerature</h2>
+:TEMPerature</h2>
+<p><code>SOURce:TEMPerature</code><br/>
+ The temperature subsystem controls the temperature of the selected logical instrument. Note that not all instruments have temperature control functionality.</p>
+<h3><a class="anchor" id="sourtempprot"></a>
+[:PROTect] &lt;numeric_value&gt;</h3>
+<p><code>SOURce:TEMPerature:PROTect</code><br/>
+ This command sets the temperature protection level. This is the level at which the over-temperature protection is triggered if the temperature rises above it The numeric value parameter is the level to be set in degrees Celsius, between 0 and 150 <sup>o</sup>C.</p>
 <h1><a class="anchor" id="meas"></a>
 MEASure Subsystem</h1>
+<p>The MEASure susbsytem allows the user to take measurements of certain aspects of the selected instruments operation.</p>
 <h2><a class="anchor" id="measvolt"></a>
-VOLTage?</h2>
+:VOLTage?</h2>
+<p><code>MEASure:VOLTage?</code> This query responds with a numeric value of the current voltage reading from the selected instrument in volts.</p>
 <h2><a class="anchor" id="meascurr"></a>
-CURRent?</h2>
+:CURRent?</h2>
+<p><code>MEASure:CURRent?</code> This query responds with a numeric value of the current electrical current reading from the selected instrument in amps.</p>
 <h2><a class="anchor" id="meastemp"></a>
-TEMPerature?</h2>
+:TEMPerature?</h2>
+<p><code>MEASure:TEMPerature?</code> This query responds with a numeric value of the current temperature reading from the selected instrument in degrees Celsius.</p>
 <h1><a class="anchor" id="stat"></a>
 STATus Subsystem</h1>
 <h2><a class="anchor" id="statoper"></a>
-OPERation</h2>
+:OPERation</h2>
 <h2><a class="anchor" id="statpres"></a>
-PRESet</h2>
+:PRESet</h2>
 <h2><a class="anchor" id="statques"></a>
-QUEStionable</h2>
+:QUEStionable</h2>
 <h1><a class="anchor" id="syst"></a>
 SYSTem</h1>
+<p>The SYSTem subsystem collects the functions that are not related to instrument performance.</p>
 <h2><a class="anchor" id="systcomm"></a>
-COMMs</h2>
+:COMMs</h2>
+<p><code>SYSTem:COMMs</code><br/>
+ This subsystem controls some aspects of the serial communications (SCI) interface.</p>
+<h3><a class="anchor" id="systcommsbit"></a>
+:SBITs &lt;numeric_value&gt;</h3>
+<p><code>SYSTem:COMMs:SBITs</code><br/>
+ This command sets the number of stop bits used in the SCI frame. The numeric value parameter sets the number of stop bits and may be either 1 or 2. The default value is 1.</p>
+<h3><a class="anchor" id="systcommpar"></a>
+:PARity &lt;numeric_value&gt;</h3>
+<p><code>SYSTem:COMMs:PARity</code><br/>
+ This command sets what parity is used in the SCI frames. The defualt selection is for no parity. The numeric value parameter sets the parity in use and corresponds to parity settings as described by the following list:</p>
+<ol start="0"> <li>No parity</li> <li>Odd parity</li> <li>Even parity</li> </ol><h3><a class="anchor" id="systcommdbit"></a>
+:DBITs &lt;numeric_value&gt;</h3>
+<p><code>SYSTem:COMMs:DBITs</code><br/>
+ This command sets how many data bits are in the SCI frame. The numeric value perameter sets the number of data bits and may vary from 1 to 8.</p>
+<h3><a class="anchor" id="systcommbaud"></a>
+:BAUD &lt;numeric_value&gt;</h3>
+<p><code>SYSTem:COMMs:BAUD</code><br/>
+ This command sets the baud rate used by the SCI interface. The numeric value parameter sets the baud rate. The allowed parameters are any of the standard baud rates which are listed in the table below. Acceptance of a baud rate does not indicate that the device is capable of use such a baud rate. The default baud rate is 9600.</p>
+<table class="doxtable">
+<tr>
+<th align="center">Accepted Baud Rates </th><th align="center">Accepted Baud Rates </th><th align="center">Accepted Baud Rates  </th></tr>
+<tr>
+<td align="center">110 </td><td align="center">9600 </td><td align="center">57600 </td></tr>
+<tr>
+<td align="center">300 </td><td align="center">14400 </td><td align="center">115200 </td></tr>
+<tr>
+<td align="center">600 </td><td align="center">19200 </td><td align="center">230400 </td></tr>
+<tr>
+<td align="center">1200 </td><td align="center">28800 </td><td align="center">460800 </td></tr>
+<tr>
+<td align="center">2400 </td><td align="center">38400 </td><td align="center">921600 </td></tr>
+<tr>
+<td align="center">4800 </td><td align="center">56000 </td><td align="center"></td></tr>
+</table>
+<h3><a class="anchor" id="systcommecho"></a>
+:ECHO &lt;Boolean&gt;</h3>
+<p><code>SYSTem:COMMs:ECHO</code><br/>
+ This command enables or disables the echo functionality of the SCI interface. If the boolean parameter is ON the interface echos any data it receives without passing that data on to any other part of the device. The default setting is OFF. </p>
 </div></div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
 Wed Aug 14 2013
