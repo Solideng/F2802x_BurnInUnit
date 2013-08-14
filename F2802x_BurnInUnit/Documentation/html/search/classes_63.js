@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['channelparameters',['channelParameters',['../structchannel_parameters.html',1,'']]]
+  ['channelparameters',['channelParameters',['../a00003.html',1,'']]]
 ];

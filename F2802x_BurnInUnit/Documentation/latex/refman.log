@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.4.28)  2 AUG 2013 11:47
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.4.25)  14 AUG 2013 11:26
 entering extended mode
 **refman
 
@@ -1034,23 +1034,26 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 350.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 350.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 350.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 350.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 350.
-)
-\tf@toc=\write5
  [3
 
-] [4
-
 ]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 363.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 10.79993pt on input line 363.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 363.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 363.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 363.
+)
+\tf@toc=\write5
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 129.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 129.
+ [4]
 Package hyperref Info: Option `pageanchor' set `true' on input line 131.
 
 Chapter 1.
@@ -1073,7 +1076,7 @@ LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 12.9599pt on input line 5.
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 10.79993pt on input line 6.
- <state_machine_loop.pdf, id=145, 211.79124pt x 272.01625pt>
+ <state_machine_loop.pdf, id=180, 211.79124pt x 272.01625pt>
 File: state_machine_loop.pdf Graphic file (type pdf)
 
 <use state_machine_loop.pdf>
@@ -1083,6 +1086,7 @@ Package pdftex.def Info: state_machine_loop.pdf used on input line 12.
 Underfull \vbox (badness 7397) has occurred while \output is active []
 
  [1
+
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
@@ -1094,27 +1098,23 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 17.
 ("C:\Program Files (x86)\MikTex\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<seq_state_machine_task_itr.pdf, id=156, 422.57875pt x 365.365pt>
+<seq_state_machine_task_itr.pdf, id=191, 422.57875pt x 365.365pt>
 File: seq_state_machine_task_itr.pdf Graphic file (type pdf)
 
 <use seq_state_machine_task_itr.pdf>
 Package pdftex.def Info: seq_state_machine_task_itr.pdf used on input line 21.
 (pdftex.def)             Requested size: 227.62204pt x 196.80913pt.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 29.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 29.
  [2 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
 state_machine_loop.pdf> <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/
-Documentation/latex/seq_state_machine_task_itr.pdf>] <boost_load_loop.pdf, id=1
-80, 474.77374pt x 298.11375pt>
+Documentation/latex/seq_state_machine_task_itr.pdf>] <boost_load_loop.pdf, id=2
+15, 474.77374pt x 298.11375pt>
 File: boost_load_loop.pdf Graphic file (type pdf)
 
 <use boost_load_loop.pdf>
 Package pdftex.def Info: boost_load_loop.pdf used on input line 41.
 (pdftex.def)             Requested size: 284.52756pt x 178.66493pt.
 
-<boost_xfmr_loop.pdf, id=181, 474.77374pt x 298.11375pt>
+<boost_xfmr_loop.pdf, id=216, 474.77374pt x 298.11375pt>
 File: boost_xfmr_loop.pdf Graphic file (type pdf)
 
 <use boost_xfmr_loop.pdf>
@@ -1122,7 +1122,7 @@ Package pdftex.def Info: boost_xfmr_loop.pdf used on input line 51.
 (pdftex.def)             Requested size: 284.52756pt x 178.66493pt.
  [3 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
 boost_load_loop.pdf>]
-<ac_bridge_loop.pdf, id=201, 547.04375pt x 303.1325pt>
+<ac_bridge_loop.pdf, id=236, 547.04375pt x 303.1325pt>
 File: ac_bridge_loop.pdf Graphic file (type pdf)
 
 <use ac_bridge_loop.pdf>
@@ -1133,529 +1133,262 @@ Package pdftex.def Info: ac_bridge_loop.pdf used on input line 63.
 cumentation/latex/ac_bridge_loop.pdf>]
 Chapter 2.
 
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\stru
-ctchannel_parameters.tex
-LaTeX Font Info:    Try loading font information for TS1+phv on input line 11.
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+01.tex
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 8.99994pt on input line 5.
+) [5
 
-("C:\Program Files (x86)\MikTex\tex\latex\psnfss\ts1phv.fd"
+] [6
+
+]
+Chapter 3.
+
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+02.tex <dot_inline_dotgraph_1.pdf, id=270, 108.405pt x 100.375pt>
+File: dot_inline_dotgraph_1.pdf Graphic file (type pdf)
+
+<use dot_inline_dotgraph_1.pdf>
+Package pdftex.def Info: dot_inline_dotgraph_1.pdf used on input line 23.
+(pdftex.def)             Requested size: 379.61998pt x 351.49997pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+[8 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/d
+ot_inline_dotgraph_1.pdf>]
+<dot_inline_dotgraph_2.pdf, id=305, 290.08376pt x 794.97pt>
+File: dot_inline_dotgraph_2.pdf Graphic file (type pdf)
+
+<use dot_inline_dotgraph_2.pdf>
+Package pdftex.def Info: dot_inline_dotgraph_2.pdf used on input line 50.
+(pdftex.def)             Requested size: 128.22594pt x 351.4012pt.
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <9> not available
+(Font)              Font shape `T1/pcr/b/n' tried instead on input line 57.
+ [9 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
+dot_inline_dotgraph_2.pdf>]) [10]
+Chapter 4.
+
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+03.tex
+LaTeX Font Info:    Try loading font information for TS1+phv on input line 11.
+ ("C:\Program Files (x86)\MikTex\tex\latex\psnfss\ts1phv.fd"
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 11.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 59.
- [5
+ [11
 
-] [6])
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\stru
-cti2c_msg.tex [7]) [8]
-Chapter 3.
+]
+[12])
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+04.tex [13]) [14]
+Chapter 5.
 
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_adc
-_8h.tex <_adc_8h__dep__incl.pdf, id=333, 144.54pt x 156.585pt>
-File: _adc_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _adc_8h__dep__incl.pdf>
-Package pdftex.def Info: _adc_8h__dep__incl.pdf used on input line 13.
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+06.tex <a00043.pdf, id=442, 144.54pt x 156.585pt>
+File: a00043.pdf Graphic file (type pdf)
+ <use a00043.pdf>
+Package pdftex.def Info: a00043.pdf used on input line 14.
 (pdftex.def)             Requested size: 144.0pt x 156.00879pt.
- [9
+ [15
 
- <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/_ad
-c_8h__dep__incl.pdf>]
+ <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/a00
+043.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/bc/it' in size <10> not available
-(Font)              Font shape `T1/phv/bc/sl' tried instead on input line 94.
+(Font)              Font shape `T1/phv/bc/sl' tried instead on input line 95.
 LaTeX Font Info:    Font shape `T1/phv/bc/sl' will be
-(Font)              scaled to size 8.99994pt on input line 94.
-
-Underfull \hbox (badness 10000) detected at line 95
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 105
-[][][]
- []
-
-[10]
-Underfull \hbox (badness 10000) detected at line 135
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 153
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 171
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 189
-[][][]
- []
-
-[11]
-Underfull \hbox (badness 10000) detected at line 207
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 225
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 243
-[][][]
- []
-
-[12]
-Underfull \hbox (badness 10000) detected at line 272
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 290
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 308
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 326
-[][][]
- []
-
-[13]
-Underfull \hbox (badness 10000) detected at line 344
-[][][]
- []
-
-[14])
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_bst
-_en_8h.tex <_bst_en_8h__dep__incl.pdf, id=466, 144.54pt x 156.585pt>
-File: _bst_en_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _bst_en_8h__dep__incl.pdf>
-Package pdftex.def Info: _bst_en_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
- [15 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
-/_bst_en_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 63
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 66
-[][][]
- []
-
-[16]
-Underfull \hbox (badness 10000) detected at line 126
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 136
-[][][]
- []
-
-[17]
-Underfull \hbox (badness 10000) detected at line 146
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 156
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 166
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 169
-[][][]
- []
-
-)
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_cnt
-l_8h.tex <_cntl_8h__dep__incl.pdf, id=562, 144.54pt x 156.585pt>
-File: _cntl_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _cntl_8h__dep__incl.pdf>
-Package pdftex.def Info: _cntl_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
- [18 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
-/_cntl_8h__dep__incl.pdf>] [19]
-Underfull \hbox (badness 10000) detected at line 137
-[][][]
- []
-
-LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 141.
-LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 141.
-LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 8.99994pt on input line 141.
-
-Underfull \hbox (badness 10000) detected at line 180
-[][][]
- []
-
-[20]
-Overfull \hbox (29.81956pt too wide) in paragraph at lines 195--203
-[] 
- []
-
-
-Underfull \hbox (badness 10000) detected at line 203
-[][][]
- []
-
-[21] [22])
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_com
-mon_8h.tex <_common_8h__incl.pdf, id=732, 1967.35pt x 168.63pt>
-File: _common_8h__incl.pdf Graphic file (type pdf)
-
-<use _common_8h__incl.pdf>
-Package pdftex.def Info: _common_8h__incl.pdf used on input line 36.
-(pdftex.def)             Requested size: 350.0pt x 29.99957pt.
- [23])
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_fan
-_en_8h.tex <_fan_en_8h__dep__incl.pdf, id=748, 144.54pt x 156.585pt>
-File: _fan_en_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _fan_en_8h__dep__incl.pdf>
-Package pdftex.def Info: _fan_en_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
- [24 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
-/_common_8h__incl.pdf> <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/D
-ocumentation/latex/_fan_en_8h__dep__incl.pdf
-
-pdfTeX warning: pdflatex (file C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnI
-nUnit/Documentation/latex/_fan_en_8h__dep__incl.pdf): PDF inclusion: multiple p
-dfs with page group included in a single page
->]
-Underfull \hbox (badness 10000) detected at line 63
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 66
-[][][]
- []
-
-[25] [26]
-Underfull \hbox (badness 10000) detected at line 126
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 136
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 146
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 156
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 166
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 169
-[][][]
- []
-
-)
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_i2c
-_8h.tex <_i2c_8h__dep__incl.pdf, id=844, 144.54pt x 156.585pt>
-File: _i2c_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _i2c_8h__dep__incl.pdf>
-Package pdftex.def Info: _i2c_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
-
-Underfull \vbox (badness 1242) has occurred while \output is active []
-
- [27]
-[28 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
-_i2c_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 82
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 105
-[][][]
- []
-
-[29] [30] [31]
-Underfull \hbox (badness 10000) detected at line 215
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 230
-[][][]
- []
-
-)
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_mac
-ro_nets_8h.tex <_macro_nets_8h__dep__incl.pdf, id=950, 152.57pt x 156.585pt>
-File: _macro_nets_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _macro_nets_8h__dep__incl.pdf>
-Package pdftex.def Info: _macro_nets_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 152.0pt x 156.0064pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [32]
-[33 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
-_macro_nets_8h__dep__incl.pdf>] [34]
-Underfull \hbox (badness 10000) detected at line 124
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 136
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 168
-[][][]
- []
-
-)
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_pha
-se_ctrl_8h.tex [35]
-<_phase_ctrl_8h__dep__incl.pdf, id=1060, 148.555pt x 156.585pt>
-File: _phase_ctrl_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _phase_ctrl_8h__dep__incl.pdf>
-Package pdftex.def Info: _phase_ctrl_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 148.0pt x 156.0064pt.
-
-Underfull \hbox (badness 10000) detected at line 29
-[][][]
- []
-
-)
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_pwm
-_8h.tex [36 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentatio
-n/latex/_phase_ctrl_8h__dep__incl.pdf>]
-<_pwm_8h__dep__incl.pdf, id=1088, 144.54pt x 156.585pt>
-File: _pwm_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _pwm_8h__dep__incl.pdf>
-Package pdftex.def Info: _pwm_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
- [37 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
-/_pwm_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 93
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 122
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 139
-[][][]
- []
-
-[38])
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_sci
-_8h.tex <_sci_8h__dep__incl.pdf, id=1149, 144.54pt x 156.585pt>
-File: _sci_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _sci_8h__dep__incl.pdf>
-Package pdftex.def Info: _sci_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
- [39 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
-/_sci_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 37
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) in alignment at lines 38--43
-[][][] 
- []
-
-
-Underfull \hbox (badness 10000) detected at line 46
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 79
-[][][]
- []
-
-[40]
-Underfull \hbox (badness 10000) detected at line 82
-[][][]
- []
-
-)
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_s_c
-_p_i__specific_cmds_8h.tex
-<_s_c_p_i__specific_cmds_8h__dep__incl.pdf, id=1198, 190.7125pt x 156.585pt>
-File: _s_c_p_i__specific_cmds_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _s_c_p_i__specific_cmds_8h__dep__incl.pdf>
-Package pdftex.def Info: _s_c_p_i__specific_cmds_8h__dep__incl.pdf used on inpu
-t line 8.
-(pdftex.def)             Requested size: 190.0pt x 156.0064pt.
-)
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_set
-tings_8h.tex [41 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documen
-tation/latex/_s_c_p_i__specific_cmds_8h__dep__incl.pdf>]
-<_settings_8h__dep__incl.pdf, id=1215, 144.54pt x 156.585pt>
-File: _settings_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _settings_8h__dep__incl.pdf>
-Package pdftex.def Info: _settings_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
- [42 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
-/_settings_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 76
-[][][]
- []
-
-[43] [44])
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_sin
-e_gen_8h.tex <_sine_gen_8h__dep__incl.pdf, id=1313, 144.54pt x 156.585pt>
-File: _sine_gen_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _sine_gen_8h__dep__incl.pdf>
-Package pdftex.def Info: _sine_gen_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
- [45 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
-/_sine_gen_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 80
-[][][]
- []
-
-[46]
-Underfull \hbox (badness 10000) detected at line 120
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 135
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 150
-[][][]
- []
-
-[47]
-Underfull \hbox (badness 10000) detected at line 165
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 180
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 195
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 210
-[][][]
- []
-
-[48]
-Underfull \hbox (badness 10000) detected at line 232
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 247
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 262
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 277
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 292
-[][][]
- []
-
-[49] [50]
-Underfull \hbox (badness 10000) detected at line 307
-[][][]
- []
-
-)
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_sle
-w_control_8h.tex
-<_slew_control_8h__dep__incl.pdf, id=1434, 156.585pt x 156.585pt>
-File: _slew_control_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _slew_control_8h__dep__incl.pdf>
-Package pdftex.def Info: _slew_control_8h__dep__incl.pdf used on input line 13.
-
-(pdftex.def)             Requested size: 156.0pt x 156.0064pt.
- [51 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
-/_slew_control_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 60
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 78
-[][][]
- []
-
+(Font)              scaled to size 8.99994pt on input line 95.
 
 Underfull \hbox (badness 10000) detected at line 96
 [][][]
  []
 
-[52]
-Underfull \hbox (badness 10000) detected at line 114
+
+Underfull \hbox (badness 10000) detected at line 106
+[][][]
+ []
+
+[16]
+Underfull \hbox (badness 10000) detected at line 136
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 129
+Underfull \hbox (badness 10000) detected at line 154
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 172
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 190
+[][][]
+ []
+
+[17]
+Underfull \hbox (badness 10000) detected at line 208
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 226
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 244
+[][][]
+ []
+
+[18]
+Underfull \hbox (badness 10000) detected at line 273
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 291
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 309
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 327
+[][][]
+ []
+
+[19]
+Underfull \hbox (badness 10000) detected at line 345
+[][][]
+ []
+
+[20])
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+08.tex <a00045.pdf, id=575, 144.54pt x 156.585pt>
+File: a00045.pdf Graphic file (type pdf)
+ <use a00045.pdf>
+Package pdftex.def Info: a00045.pdf used on input line 14.
+(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
+ [21 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
+/a00045.pdf>]
+Underfull \hbox (badness 10000) detected at line 64
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 67
+[][][]
+ []
+
+[22]
+Underfull \hbox (badness 10000) detected at line 127
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 137
+[][][]
+ []
+
+[23]
+Underfull \hbox (badness 10000) detected at line 147
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 157
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 167
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 170
+[][][]
+ []
+
+)
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+10.tex <a00046.pdf, id=671, 144.54pt x 156.585pt>
+File: a00046.pdf Graphic file (type pdf)
+ <use a00046.pdf>
+Package pdftex.def Info: a00046.pdf used on input line 14.
+(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
+ [24 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
+/a00046.pdf>] [25]
+Underfull \hbox (badness 10000) detected at line 138
+[][][]
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <10> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 142.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 142.
+LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
+(Font)              scaled to size 8.99994pt on input line 142.
+
+Underfull \hbox (badness 10000) detected at line 181
+[][][]
+ []
+
+[26]
+Overfull \hbox (29.81956pt too wide) in paragraph at lines 196--204
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 204
+[][][]
+ []
+
+[27] [28])
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+11.tex <a00047.pdf, id=841, 1967.35pt x 168.63pt>
+File: a00047.pdf Graphic file (type pdf)
+ <use a00047.pdf>
+Package pdftex.def Info: a00047.pdf used on input line 37.
+(pdftex.def)             Requested size: 350.0pt x 29.99957pt.
+ [29])
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+17.tex <a00048.pdf, id=857, 144.54pt x 156.585pt>
+File: a00048.pdf Graphic file (type pdf)
+ <use a00048.pdf>
+Package pdftex.def Info: a00048.pdf used on input line 14.
+(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
+ [30 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
+/a00047.pdf> <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentati
+on/latex/a00048.pdf
+
+pdfTeX warning: pdflatex (file C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnI
+nUnit/Documentation/latex/a00048.pdf): PDF inclusion: multiple pdfs with page g
+roup included in a single page
+>]
+Underfull \hbox (badness 10000) detected at line 64
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 67
+[][][]
+ []
+
+[31] [32]
+Underfull \hbox (badness 10000) detected at line 127
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 137
 [][][]
  []
 
@@ -1665,86 +1398,108 @@ Underfull \hbox (badness 10000) detected at line 147
  []
 
 
-Underfull \hbox (badness 10000) detected at line 162
-[][][]
- []
-
-[53]
-Underfull \hbox (badness 10000) detected at line 180
+Underfull \hbox (badness 10000) detected at line 157
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 195
+Underfull \hbox (badness 10000) detected at line 167
 [][][]
  []
 
-)
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_sta
-te_machine_8h.tex
-<_state_machine_8h__dep__incl.pdf, id=1492, 164.615pt x 156.585pt>
-File: _state_machine_8h__dep__incl.pdf Graphic file (type pdf)
 
-<use _state_machine_8h__dep__incl.pdf>
-Package pdftex.def Info: _state_machine_8h__dep__incl.pdf used on input line 13
-.
-(pdftex.def)             Requested size: 164.0pt x 156.004pt.
- [54 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
-/_state_machine_8h__dep__incl.pdf>])
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_tim
-ers_8h.tex <_timers_8h__dep__incl.pdf, id=1515, 144.54pt x 156.585pt>
-File: _timers_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _timers_8h__dep__incl.pdf>
-Package pdftex.def Info: _timers_8h__dep__incl.pdf used on input line 13.
-(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
-
-Underfull \hbox (badness 10000) detected at line 26
-[][][]
- []
-
-[55 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
-_timers_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 39
+Underfull \hbox (badness 10000) detected at line 170
 [][][]
  []
 
 )
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\_tmp
-_8h.tex <_tmp_8h__dep__incl.pdf, id=1543, 144.54pt x 156.585pt>
-File: _tmp_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use _tmp_8h__dep__incl.pdf>
-Package pdftex.def Info: _tmp_8h__dep__incl.pdf used on input line 13.
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+19.tex <a00049.pdf, id=953, 144.54pt x 156.585pt>
+File: a00049.pdf Graphic file (type pdf)
+ <use a00049.pdf>
+Package pdftex.def Info: a00049.pdf used on input line 14.
 (pdftex.def)             Requested size: 144.0pt x 156.00879pt.
 
-Underfull \hbox (badness 10000) detected at line 51
-[][][]
- []
+Underfull \vbox (badness 1242) has occurred while \output is active []
 
-[56 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
-_tmp_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 54
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 91
-[][][]
- []
-
-[57] [58]
-Underfull \hbox (badness 10000) detected at line 109
+ [33]
+[34 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
+a00049.pdf>]
+Underfull \hbox (badness 10000) detected at line 83
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 119
+Underfull \hbox (badness 10000) detected at line 106
+[][][]
+ []
+
+[35] [36] [37]
+Underfull \hbox (badness 10000) detected at line 216
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 122
+Underfull \hbox (badness 10000) detected at line 231
+[][][]
+ []
+
+)
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+21.tex <a00050.pdf, id=1059, 152.57pt x 156.585pt>
+File: a00050.pdf Graphic file (type pdf)
+ <use a00050.pdf>
+Package pdftex.def Info: a00050.pdf used on input line 14.
+(pdftex.def)             Requested size: 152.0pt x 156.0064pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [38]
+[39 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
+a00050.pdf>] [40]
+Underfull \hbox (badness 10000) detected at line 125
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 137
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 169
+[][][]
+ []
+
+)
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+24.tex [41] <a00051.pdf, id=1169, 148.555pt x 156.585pt>
+File: a00051.pdf Graphic file (type pdf)
+ <use a00051.pdf>
+Package pdftex.def Info: a00051.pdf used on input line 14.
+(pdftex.def)             Requested size: 148.0pt x 156.0064pt.
+
+Underfull \hbox (badness 10000) detected at line 30
+[][][]
+ []
+
+)
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+26.tex [42 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation
+/latex/a00051.pdf>] <a00052.pdf, id=1197, 144.54pt x 156.585pt>
+File: a00052.pdf Graphic file (type pdf)
+
+<use a00052.pdf>
+Package pdftex.def Info: a00052.pdf used on input line 14.
+(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
+ [43 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
+/a00052.pdf>]
+Underfull \hbox (badness 10000) detected at line 94
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 123
 [][][]
  []
 
@@ -1753,52 +1508,311 @@ Underfull \hbox (badness 10000) detected at line 140
 [][][]
  []
 
-
-Underfull \hbox (badness 10000) detected at line 158
+[44])
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+28.tex <a00053.pdf, id=1258, 144.54pt x 156.585pt>
+File: a00053.pdf Graphic file (type pdf)
+ <use a00053.pdf>
+Package pdftex.def Info: a00053.pdf used on input line 14.
+(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
+ [45 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
+/a00053.pdf>]
+Underfull \hbox (badness 10000) detected at line 38
 [][][]
  []
 
-) [59]
-(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\refm
-an.ind [60
 
-] [61] [62] [63] [64] [65] [66] [67
+Underfull \hbox (badness 10000) in alignment at lines 39--44
+[][][] 
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 47
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 80
+[][][]
+ []
+
+[46]
+Underfull \hbox (badness 10000) detected at line 83
+[][][]
+ []
+
+)
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+30.tex <a00054.pdf, id=1307, 190.7125pt x 156.585pt>
+File: a00054.pdf Graphic file (type pdf)
+ <use a00054.pdf>
+Package pdftex.def Info: a00054.pdf used on input line 9.
+(pdftex.def)             Requested size: 190.0pt x 156.0064pt.
+)
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+31.tex [47 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation
+/latex/a00054.pdf>] <a00055.pdf, id=1324, 144.54pt x 156.585pt>
+File: a00055.pdf Graphic file (type pdf)
+
+<use a00055.pdf>
+Package pdftex.def Info: a00055.pdf used on input line 14.
+(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
+ [48 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
+/a00055.pdf>]
+Underfull \hbox (badness 10000) detected at line 77
+[][][]
+ []
+
+[49] [50])
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+33.tex <a00056.pdf, id=1422, 144.54pt x 156.585pt>
+File: a00056.pdf Graphic file (type pdf)
+ <use a00056.pdf>
+Package pdftex.def Info: a00056.pdf used on input line 14.
+(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
+ [51 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
+/a00056.pdf>]
+Underfull \hbox (badness 10000) detected at line 81
+[][][]
+ []
+
+[52]
+Underfull \hbox (badness 10000) detected at line 121
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 136
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 151
+[][][]
+ []
+
+[53]
+Underfull \hbox (badness 10000) detected at line 166
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 181
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 196
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 211
+[][][]
+ []
+
+[54]
+Underfull \hbox (badness 10000) detected at line 233
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 248
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 263
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 278
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 293
+[][][]
+ []
+
+[55] [56]
+Underfull \hbox (badness 10000) detected at line 308
+[][][]
+ []
+
+)
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+35.tex <a00057.pdf, id=1543, 156.585pt x 156.585pt>
+File: a00057.pdf Graphic file (type pdf)
+ <use a00057.pdf>
+Package pdftex.def Info: a00057.pdf used on input line 14.
+(pdftex.def)             Requested size: 156.0pt x 156.0064pt.
+ [57 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
+/a00057.pdf>]
+Underfull \hbox (badness 10000) detected at line 61
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 79
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 97
+[][][]
+ []
+
+[58]
+Underfull \hbox (badness 10000) detected at line 115
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 130
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 148
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 163
+[][][]
+ []
+
+[59]
+Underfull \hbox (badness 10000) detected at line 181
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 196
+[][][]
+ []
+
+)
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+38.tex <a00058.pdf, id=1601, 164.615pt x 156.585pt>
+File: a00058.pdf Graphic file (type pdf)
+ <use a00058.pdf>
+Package pdftex.def Info: a00058.pdf used on input line 14.
+(pdftex.def)             Requested size: 164.0pt x 156.004pt.
+ [60 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex
+/a00058.pdf>])
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+40.tex <a00059.pdf, id=1624, 144.54pt x 156.585pt>
+File: a00059.pdf Graphic file (type pdf)
+ <use a00059.pdf>
+Package pdftex.def Info: a00059.pdf used on input line 14.
+(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
+
+Underfull \hbox (badness 10000) detected at line 27
+[][][]
+ []
+
+[61 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
+a00059.pdf>]
+Underfull \hbox (badness 10000) detected at line 40
+[][][]
+ []
+
+)
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\a000
+42.tex <a00060.pdf, id=1652, 144.54pt x 156.585pt>
+File: a00060.pdf Graphic file (type pdf)
+ <use a00060.pdf>
+Package pdftex.def Info: a00060.pdf used on input line 14.
+(pdftex.def)             Requested size: 144.0pt x 156.00879pt.
+
+Underfull \hbox (badness 10000) detected at line 52
+[][][]
+ []
+
+[62 <C:/Users/Toby/git/F2802x_BurnInUnit/F2802x_BurnInUnit/Documentation/latex/
+a00060.pdf>]
+Underfull \hbox (badness 10000) detected at line 55
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 92
+[][][]
+ []
+
+[63] [64]
+Underfull \hbox (badness 10000) detected at line 110
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 120
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 123
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 141
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 159
+[][][]
+ []
+
+) [65]
+(C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\refm
+an.ind [66
+
+] [67] [68] [69] [70] [71] [72] [73
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 173.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 173.
 
 (C:\Users\Toby\git\F2802x_BurnInUnit\F2802x_BurnInUnit\Documentation\latex\refm
 an.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 173.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 173.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 7EB103DFF16BB63B8D05028DDBDECEDD;4298.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
+(rerunfilecheck)             Checksum: ECDD445EF8E1F672D233DAAB0F5778A5;5264.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 173.
  ) 
 Here is how much of TeX's memory you used:
- 13348 strings out of 493921
- 208976 string characters out of 3146483
- 271295 words of memory out of 3000000
- 15593 multiletter control sequences out of 15000+200000
- 83452 words of font info for 118 fonts, out of 3000000 for 9000
+ 13430 strings out of 493921
+ 205750 string characters out of 3146483
+ 271866 words of memory out of 3000000
+ 15624 multiletter control sequences out of 15000+200000
+ 84694 words of font info for 122 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 48i,13n,43p,1065b,470s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MikTex/fonts/enc/dvips/fontname/8r.enc}<C:/Program Fi
-les (x86)/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x
-86)/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/Mik
-Tex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MikTex/fo
-nts/type1/urw/courier/ucrr8a.pfb><C:/Program Files (x86)/MikTex/fonts/type1/urw
-/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MikTex/fonts/type1/urw/helvetic/uh
-vb8ac.pfb><C:/Program Files (x86)/MikTex/fonts/type1/urw/helvetic/uhvbo8a.pfb><
-C:/Program Files (x86)/MikTex/fonts/type1/urw/helvetic/uhvbo8ac.pfb><C:/Program
- Files (x86)/MikTex/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)
-/MikTex/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Program Files (x86)/MikTex/fon
-ts/type1/urw/times/utmr8a.pfb><C:/Program Files (x86)/MikTex/fonts/type1/urw/ti
-mes/utmri8a.pfb>
-Output written on refman.pdf (71 pages, 778005 bytes).
+ 48i,13n,43p,1065b,497s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{a00001} has been referenced but does not exist, r
+eplaced by a fixed one
+
+{C:/Program Files (x86)/MikTex/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
+s (x86)/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86
+)/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MikTe
+x/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MikTex/font
+s/type1/urw/courier/ucrb8a.pfb><C:/Program Files (x86)/MikTex/fonts/type1/urw/c
+ourier/ucrr8a.pfb><C:/Program Files (x86)/MikTex/fonts/type1/urw/helvetic/uhvb8
+a.pfb><C:/Program Files (x86)/MikTex/fonts/type1/urw/helvetic/uhvb8ac.pfb><C:/P
+rogram Files (x86)/MikTex/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Program File
+s (x86)/MikTex/fonts/type1/urw/helvetic/uhvbo8ac.pfb><C:/Program Files (x86)/Mi
+kTex/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files (x86)/MikTex/fonts/t
+ype1/urw/helvetic/uhvro8a.pfb><C:/Program Files (x86)/MikTex/fonts/type1/urw/ti
+mes/utmr8a.pfb><C:/Program Files (x86)/MikTex/fonts/type1/urw/times/utmri8a.pfb
+>
+Output written on refman.pdf (77 pages, 840616 bytes).
 PDF statistics:
- 2413 PDF objects out of 2487 (max. 8388607)
- 770 named destinations out of 1000 (max. 500000)
- 311 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2533 PDF objects out of 2984 (max. 8388607)
+ 810 named destinations out of 1000 (max. 500000)
+ 377 words of extra memory for PDF output out of 10000 (max. 10000000)
 
