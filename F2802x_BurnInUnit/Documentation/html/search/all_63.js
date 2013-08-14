@@ -13,7 +13,7 @@ var searchData=
   ['channelparameters',['channelParameters',['../a00003.html',1,'']]],
   ['chenable',['chEnable',['../a00003.html#af99576e00746544eab1d4e88d12f39b4',1,'channelParameters']]],
   ['cmax',['cMax',['../a00010.html#a4b8f446b389413b175ff4d4dbcd18da1a3576a9eb4b8f9d1ca3d31a0f9b889299',1,'Cntl.h']]],
-  ['command_20reference',['Command Reference',['../a00001.html',1,'']]],
+  ['command_20reference',['Command Reference',['../a00002.html',1,'']]],
   ['cmin',['cMin',['../a00010.html#a4b8f446b389413b175ff4d4dbcd18da1ad15b967851188a21b2d4fd326304bf83',1,'Cntl.h']]],
   ['cntl_2eh',['Cntl.h',['../a00010.html',1,'']]],
   ['cntl_5f2p2z_5fcoef1',['CNTL_2P2Z_Coef1',['../a00010.html#a047c759a71b80d8cfd5e6f52b1b021b9',1,'Cntl.h']]],
