@@ -184,9 +184,9 @@ void DeviceInit(void)
 //--------------------------------------------------------------------------------------
 //  GPIO-08 - GPIO-11 Do Not Exist
 //--------------------------------------------------------------------------------------
-//  GPIO-12 - PIN FUNCTION = --Spare--
+//  GPIO-12 - PIN FUNCTION = ACFBPhase
 	GpioCtrlRegs.GPAMUX1.bit.GPIO12 = 0;	// 0=GPIO,  1=TZ1,  2=SCITX-A,  3=Resv
-	GpioCtrlRegs.GPADIR.bit.GPIO12 = 0;		// 1=OUTput,  0=INput 
+	GpioCtrlRegs.GPADIR.bit.GPIO12 = 1;		// 1=OUTput,  0=INput
 //	GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO12 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
@@ -211,7 +211,7 @@ void DeviceInit(void)
 //	GpioDataRegs.GPACLEAR.bit.GPIO18 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO18 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
-//  GPIO-19 - PIN FUNCTION = ACFBPhase GPIO19
+//  GPIO-19 - PIN FUNCTION = --Spare--
 	GpioCtrlRegs.GPAMUX2.bit.GPIO19 = 0;	// 0=GPIO,  1=SPISTE-A,  2=SCIRX-A,  3=ECAP1
 	GpioCtrlRegs.GPADIR.bit.GPIO19 = 0;		// 1=OUTput,  0=INput 
 //	GpioDataRegs.GPACLEAR.bit.GPIO19 = 1;	// uncomment if --> Set Low initially

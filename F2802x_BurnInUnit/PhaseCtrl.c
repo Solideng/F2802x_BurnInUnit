@@ -11,8 +11,8 @@ volatile int32 *PHASE_CTRL_In = 0;
 
 void pcUpdate (void) {
 	if ((*PHASE_CTRL_In != 0) && (channel[AC_STAGE].chEnable)) {
-		GpioDataRegs.GPASET.bit.GPIO19 = 1;	/* Phase before rectification was negative */
+		GpioDataRegs.GPASET.bit.GPIO12 = 1;	/* Phase before rectification was negative */
 		return;
 	}
-	GpioDataRegs.GPACLEAR.bit.GPIO19 = 1;	/* Phase before rectification was positive */
+	GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;	/* Phase before rectification was positive */
 }
