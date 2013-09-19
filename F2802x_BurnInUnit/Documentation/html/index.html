@@ -138,16 +138,16 @@ Inter-Boost Control</h2>
 Macro view of control loop for inter-boost</div></div>
 <h2><a class="anchor" id="acbctrl"></a>
 AC Bridge Control</h2>
-<p>The following figure shows a diagram that illustrates he macro and a net view of the control loop for the AC bridge converter stage. The loop depicted is both voltage <em>and</em> current controlled. It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the voltage level across the stage output, AC V<sub>SNS</sub>. This value is used as the feedback into a 3-pole 3-zero filter macro where it is compared to the generated sine wave reference and the output value is varied up or down, using the filter coefficients, as needed to move towards matching the reference.</p>
+<p>The following figure shows a diagram that illustrates the macro and a net view of the control loop for the AC bridge converter stage. The loop depicted is both voltage <em>and</em> current controlled. It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the voltage level across the stage output, AC V<sub>SNS</sub>. This value is used as the feedback into a 3-pole 3-zero filter macro where it is compared to the generated sine wave reference and the output value is varied up or down, using the filter coefficients, as needed to move towards matching the reference.</p>
 <p>Another macro retrieves a value from a second ADC that represents the current level at the low side of the stage input, AC I<sub>SNS</sub>. This value is used as the feedback into a 2-pole 2-zero filter macro where it is compared to the output of the 3-pole 3-zero filter macro and the output is varied up or down, using the filter coefficents, as needed to move towards matching the reference.</p>
-<p>An on board analogue comparator also compares this AC I<sub>SNS</sub> vlaueagainst the user-set allowable current limit, the OCP limit. If the value is above the limit tha comparator output sets the relted trip zone, quickly disabling the control loop output and all other stages output, STOP ALL.</p>
+<p>An on board analogue comparator also compares this AC I<sub>SNS</sub> value against the user-set allowable current limit, the OCP limit. If the value is above the limit, the comparator output sets the related trip zone, quickly disabling the control loop output and all other stages output, STOP ALL.</p>
 <div class="image">
 <img src="ac_bridge_loop.png" alt="ac_bridge_loop.png"/>
 <div class="caption">
 Macro view of control loop for AC bridge</div></div>
  </div></div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Wed Aug 14 2013
+Thu Sep 19 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

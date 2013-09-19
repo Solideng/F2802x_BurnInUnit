@@ -52,11 +52,11 @@ Another macro retrieves a value from a second A\-D\-C that represents the curren
 \caption{Macro view of control loop for inter-\/boost}
 \end{DoxyImage}
 \hypertarget{index_acbctrl}{}\subsection{A\-C Bridge Control}\label{index_acbctrl}
-The following figure shows a diagram that illustrates he macro and a net view of the control loop for the A\-C bridge converter stage. The loop depicted is both voltage {\itshape and} current controlled. It uses a macro to retrieve a reading from an A\-D\-C peripheral to obtain a value that indicates the voltage level across the stage output, A\-C V$_{\mbox{S\-N\-S}}$ . This value is used as the feedback into a 3-\/pole 3-\/zero filter macro where it is compared to the generated sine wave reference and the output value is varied up or down, using the filter coefficients, as needed to move towards matching the reference.
+The following figure shows a diagram that illustrates the macro and a net view of the control loop for the A\-C bridge converter stage. The loop depicted is both voltage {\itshape and} current controlled. It uses a macro to retrieve a reading from an A\-D\-C peripheral to obtain a value that indicates the voltage level across the stage output, A\-C V$_{\mbox{S\-N\-S}}$ . This value is used as the feedback into a 3-\/pole 3-\/zero filter macro where it is compared to the generated sine wave reference and the output value is varied up or down, using the filter coefficients, as needed to move towards matching the reference.
 
 Another macro retrieves a value from a second A\-D\-C that represents the current level at the low side of the stage input, A\-C I$_{\mbox{S\-N\-S}}$ . This value is used as the feedback into a 2-\/pole 2-\/zero filter macro where it is compared to the output of the 3-\/pole 3-\/zero filter macro and the output is varied up or down, using the filter coefficents, as needed to move towards matching the reference.
 
-An on board analogue comparator also compares this A\-C I$_{\mbox{S\-N\-S}}$  vlaueagainst the user-\/set allowable current limit, the O\-C\-P limit. If the value is above the limit tha comparator output sets the relted trip zone, quickly disabling the control loop output and all other stages output, S\-T\-O\-P A\-L\-L.
+An on board analogue comparator also compares this A\-C I$_{\mbox{S\-N\-S}}$  value against the user-\/set allowable current limit, the O\-C\-P limit. If the value is above the limit, the comparator output sets the related trip zone, quickly disabling the control loop output and all other stages output, S\-T\-O\-P A\-L\-L.
 
 
 \begin{DoxyImage}

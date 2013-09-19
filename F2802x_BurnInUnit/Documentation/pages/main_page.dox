@@ -112,7 +112,7 @@ software and hardware, HV EN.
 @image latex boost_xfmr_loop.eps "Macro view of control loop for inter-boost" width=10cm
 
 \subsection acbctrl AC Bridge Control
-The following figure shows a diagram that illustrates he macro and a net view of the control loop for the AC bridge converter 
+The following figure shows a diagram that illustrates the macro and a net view of the control loop for the AC bridge converter 
 stage.
 The loop depicted is both voltage *and* current controlled.
 It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the voltage level across the stage 
@@ -125,9 +125,9 @@ AC I<sub>SNS</sub>.
 This value is used as the feedback into a 2-pole 2-zero filter macro where it is compared to the output of the 3-pole 3-zero 
 filter macro and the output is varied up or down, using the filter coefficents, as needed to move towards matching the reference.
 
-An on board analogue comparator also compares this AC I<sub>SNS</sub> vlaueagainst the user-set allowable current limit, 
+An on board analogue comparator also compares this AC I<sub>SNS</sub> value against the user-set allowable current limit, 
 the OCP limit.
-If the value is above the limit tha comparator output sets the relted trip zone, quickly disabling the control loop output and 
+If the value is above the limit, the comparator output sets the related trip zone, quickly disabling the control loop output and 
 all other stages output, STOP ALL.
 
 @image html ac_bridge_loop.png "Macro view of control loop for AC bridge"
