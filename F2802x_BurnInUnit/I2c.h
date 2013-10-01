@@ -30,8 +30,7 @@
  * Interrupts MUST be globally enabled for the functions i2cWrite()
  * and i2cRead() to operate correctly.
  *
- * @sa BstEn.h
- * @sa FanEn.h
+ * @sa EnableCtrl.h
  * @sa Tmp.h
  *
  */

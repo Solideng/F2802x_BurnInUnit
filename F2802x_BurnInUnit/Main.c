@@ -91,8 +91,6 @@ void main(void)
 	mnSetupChannels();		/* Setup control loop coefficient values */
 
 	pwmSocConfigure();		/* Configure PWM as SOC trigger */
-
-	// TODO: change comp2 - GPIO 34 now used for reset-bar.
 	adcCompConfigure();		/* Configure comparators */
 	pwmTzConfigure();		/* Configure trip zone (for comparator outputs) */
 
