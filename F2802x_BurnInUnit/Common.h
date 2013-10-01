@@ -37,8 +37,6 @@
 #include "PhaseCtrl.h"
 #include "tmp.h"
 #include "EnableCtrl.h"
-#include "FanEn.h"
-#include "BstEn.h"
 
 #include "../../SCPI_Build/SCPI_Build/scpi/scpi.h"
 #include "SCPI_specificCmds.h"

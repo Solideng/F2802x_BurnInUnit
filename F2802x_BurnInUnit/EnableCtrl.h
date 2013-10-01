@@ -5,16 +5,17 @@
  *
  * Circuit sections are controlled via an external I/O
  * expander (MCP23008) that is connected to the I2C bus at
- * address 0100xx0 where 'xx' is determined by the
- * configuration of switch 4 (SW4) on the Ctrl PCB.
+ * address 0100xx0 where 'xx' is determined by the state
+ * of switch 4 (SW4) on the Ctrl PCB, which the user should
+ * record in the macros IOE_SW4A_STATE and IOE_SW4B_STATE.
  *
  * After ecInit() all sections default to disabled.
  *
  * @warning
  * Before any enable control functions can be used the I2C
- * peripheral MUST be initialised and ecInit() must be run
- * - ecInit() will require the interrupts to be enabled
- * globally.
+ * peripheral MUST be initialised, using i2cInit(), and
+ * ecInit() must be run - ecInit() will require the
+ * interrupts to be enabled globally.
  *
  * @sa i2cInit()
  *
@@ -32,7 +33,11 @@
 #define IOE_SW4B_STATE 		0x00	/**< The state of switch 4b; ON = 0x01, OFF = 0x00. */
 #define IOE_I2C_BASE_ADDR	0x20	/**< MCP23008 I/O expander base I2C address. */
 
-#define IOE_I2C_ADDR 		(IOE_I2C_BASE_ADDR | (IOE_SW4A_STATE << 2)) | (IOE_SW4B_STATE << 3)	/**< MCP I/O expander complete I2C address. */
+#if !defined IOE_I2C_BASE_ADDR || !defined IOE_SW4A_STATE || !defined IOE_SW4B_STATE
+	#error "The enable control (MCP23008) I2C address has not been correctly specified."
+#else
+	#define IOE_I2C_ADDR 	(IOE_I2C_BASE_ADDR | (IOE_SW4A_STATE << 2)) | (IOE_SW4B_STATE << 3)	/**< MCP23008 I/O expander complete I2C address. */
+#endif
 
 #define	IOE_IODIR_ADDR		0x00	/**< MCP23008 I/O expander I/O direction register address. */
 #define IOE_IPOL_ADDR		0x01	/**< MCP23008 I/O expander input polarity register address. */
@@ -71,21 +76,16 @@ typedef enum ecSection circuitSection;
  */
 extern Uint16 ecInit (void);
 
+/** Resets the MCP23008 I/O Expander device. */
+extern void ecReset (void);
+
 /** Enables the specified circuit section enable signal.
- * The I2C peripheral and the enable controller interface MUST
- * be initialised before this function is used.
- * @sa i2cInit()
- * @sa ecInit()
  * @param[in]	section	Specifies the circuit section that is to be enabled.
  * @return				Error status.
  */
 extern Uint16 ecEnable (circuitSection section);
 
 /** Disables the specified circuit section enable signal.
- * The I2C peripheral and the enable controller interface MUST
- * be initialised before this function is used.
- * @sa i2cInit()
- * @sa ecInit()
  * @param[in]	section	Specifies the circuit section that is to be disabled.
  * @return				Error status.
  */

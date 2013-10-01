@@ -37,8 +37,7 @@ I2c.obj: ../SlewControl.h
 I2c.obj: ../SineGen.h
 I2c.obj: ../PhaseCtrl.h
 I2c.obj: ../tmp.h
-I2c.obj: ../FanEn.h
-I2c.obj: ../BstEn.h
+I2c.obj: ../EnableCtrl.h
 I2c.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
 I2c.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h
 I2c.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h
@@ -89,8 +88,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../SineGen.h: 
 ../PhaseCtrl.h: 
 ../tmp.h: 
-../FanEn.h: 
-../BstEn.h: 
+../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h: 

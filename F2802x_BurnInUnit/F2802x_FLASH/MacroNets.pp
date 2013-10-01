@@ -37,8 +37,7 @@ MacroNets.obj: ../SlewControl.h
 MacroNets.obj: ../SineGen.h
 MacroNets.obj: ../PhaseCtrl.h
 MacroNets.obj: ../tmp.h
-MacroNets.obj: ../FanEn.h
-MacroNets.obj: ../BstEn.h
+MacroNets.obj: ../EnableCtrl.h
 MacroNets.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
 MacroNets.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h
 MacroNets.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h
@@ -89,8 +88,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../SineGen.h: 
 ../PhaseCtrl.h: 
 ../tmp.h: 
-../FanEn.h: 
-../BstEn.h: 
+../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h: 

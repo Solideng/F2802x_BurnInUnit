@@ -37,8 +37,7 @@ StateMachine.obj: ../SlewControl.h
 StateMachine.obj: ../SineGen.h
 StateMachine.obj: ../PhaseCtrl.h
 StateMachine.obj: ../tmp.h
-StateMachine.obj: ../FanEn.h
-StateMachine.obj: ../BstEn.h
+StateMachine.obj: ../EnableCtrl.h
 StateMachine.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
 StateMachine.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h
 StateMachine.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h
@@ -89,8 +88,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../SineGen.h: 
 ../PhaseCtrl.h: 
 ../tmp.h: 
-../FanEn.h: 
-../BstEn.h: 
+../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h: 

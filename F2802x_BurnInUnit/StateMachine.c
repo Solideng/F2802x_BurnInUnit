@@ -6,6 +6,8 @@
  */
 #include "Common.h"
 
+float32 tmpResult = 0;
+
 /*================ LOCAL VARS =================*/
 static void (*A_Task_Ptr)(void);	/* State pointer A branch */
 static void (*B_Task_Ptr)(void);	/* State pointer B branch */
@@ -86,6 +88,7 @@ void smB0(void) {
 
 void smB1(void) {
 	/* Current dash-board measurements */
+	Uint16 err = tmpRead(0, &tmpResult);
 	#ifdef DEBUG_ADC
 		adcGui();
 	#endif

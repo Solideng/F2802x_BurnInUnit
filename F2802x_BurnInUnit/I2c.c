@@ -62,7 +62,7 @@ void i2cPopMsg(i2cMsg *msg, Uint16 msgStatus, Uint16 slaveAddr, Uint16 numDataBy
 }
 
 void i2cInit(void) {
-	/* Initialize I2C peripheral an interrupts */
+	/* Initialize I2C peripheral and interrupts */
 	Uint16 address = 0;
 	
 	currentMsgPtr = &i2cMsgBlank;		/* Set initial values for I2C message */
@@ -138,7 +138,7 @@ Uint16 i2cWrite (i2cMsg *msg) {
 			I2caRegs.I2CDXR = msg->slavePtrAddrLow;	/*Setup low slave pointer byte */
 
 		for (i = 0; i < msg->numOfBytes; i++) 		/* Setup data bytes */
-			I2caRegs.I2CDXR = *(msg->msgBuffer+i);
+			I2caRegs.I2CDXR = *(msg->msgBuffer + i);
 
 		msg->msgStatus = I2C_MSGSTAT_WRITE_BUSY;	/* Set status as busy */
 		currentMsgPtr = msg;						/* Setup message pointer for interrupt */

@@ -24,7 +24,7 @@
  *============================================================================*/
 
 /*
- * If the TI C2000 LaunchPad is to be powered by an source
+ * If the TI C2000 LaunchPad is to be powered by a source
  * other than the USB connection the jumpers JP1, JP2 and
  * JP3 should be removed.
  *
@@ -91,6 +91,8 @@ void main(void)
 	mnSetupChannels();		/* Setup control loop coefficient values */
 
 	pwmSocConfigure();		/* Configure PWM as SOC trigger */
+
+	// TODO: change comp2 - GPIO 34 now used for reset-bar.
 	adcCompConfigure();		/* Configure comparators */
 	pwmTzConfigure();		/* Configure trip zone (for comparator outputs) */
 
@@ -107,7 +109,7 @@ void main(void)
 	ERTM;   				/* Enable Global realtime interrupt DBGM */
 
 	tmpInit();				/* Initialise the temperature sensing */
-	bcInit();				/* Initialise the external boost converter enable control */
+	ecInit();				/* Initialise the external boost converter enable control */
 
 	//scSetStepAll(0.01);		/* Setup initial values */
 

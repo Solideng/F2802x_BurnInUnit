@@ -37,8 +37,7 @@ Sci.obj: ../SlewControl.h
 Sci.obj: ../SineGen.h
 Sci.obj: ../PhaseCtrl.h
 Sci.obj: ../tmp.h
-Sci.obj: ../FanEn.h
-Sci.obj: ../BstEn.h
+Sci.obj: ../EnableCtrl.h
 Sci.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
 Sci.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h
 Sci.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h
@@ -89,8 +88,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../SineGen.h: 
 ../PhaseCtrl.h: 
 ../tmp.h: 
-../FanEn.h: 
-../BstEn.h: 
+../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h: 

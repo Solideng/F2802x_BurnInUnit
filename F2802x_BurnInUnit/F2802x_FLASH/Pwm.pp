@@ -37,8 +37,7 @@ Pwm.obj: ../SlewControl.h
 Pwm.obj: ../SineGen.h
 Pwm.obj: ../PhaseCtrl.h
 Pwm.obj: ../tmp.h
-Pwm.obj: ../FanEn.h
-Pwm.obj: ../BstEn.h
+Pwm.obj: ../EnableCtrl.h
 Pwm.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
 Pwm.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h
 Pwm.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h
@@ -89,8 +88,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../SineGen.h: 
 ../PhaseCtrl.h: 
 ../tmp.h: 
-../FanEn.h: 
-../BstEn.h: 
+../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h: 

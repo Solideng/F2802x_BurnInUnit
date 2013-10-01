@@ -37,8 +37,7 @@ Timers.obj: ../SlewControl.h
 Timers.obj: ../SineGen.h
 Timers.obj: ../PhaseCtrl.h
 Timers.obj: ../tmp.h
-Timers.obj: ../FanEn.h
-Timers.obj: ../BstEn.h
+Timers.obj: ../EnableCtrl.h
 Timers.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
 Timers.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h
 Timers.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h
@@ -89,8 +88,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../SineGen.h: 
 ../PhaseCtrl.h: 
 ../tmp.h: 
-../FanEn.h: 
-../BstEn.h: 
+../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h: 

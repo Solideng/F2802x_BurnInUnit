@@ -17,13 +17,6 @@ Adc.obj: ../Adc.c $(GEN_OPTS) $(GEN_SRCS)
 	@echo 'Finished building: $<'
 	@echo ' '
 
-BstEn.obj: ../BstEn.c $(GEN_OPTS) $(GEN_SRCS)
-	@echo 'Building file: $<'
-	@echo 'Invoking: C2000 Compiler'
-	"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/bin/cl2000" -v28 -ml -mt -O3 -g --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include" --include_path="C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_common/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2802x_headers" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/asm" --include_path="c:/ti/controlSUITE/libs/dsp/SGEN/v101/source/C28x_SGEN_LIB" --include_path="c:/ti/controlSUITE/libs/dsp/SGEN/v101/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include" --define="_DEBUG" --define="LARGE_MODEL" --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="BstEn.pp" $(GEN_OPTS__FLAG) "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
 BurnInUnit_ISR.obj: ../BurnInUnit_ISR.asm $(GEN_OPTS) $(GEN_SRCS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: C2000 Compiler'
@@ -66,10 +59,10 @@ DevInit_F2802x.obj: ../DevInit_F2802x.c $(GEN_OPTS) $(GEN_SRCS)
 	@echo 'Finished building: $<'
 	@echo ' '
 
-FanEn.obj: ../FanEn.c $(GEN_OPTS) $(GEN_SRCS)
+EnableCtrl.obj: ../EnableCtrl.c $(GEN_OPTS) $(GEN_SRCS)
 	@echo 'Building file: $<'
 	@echo 'Invoking: C2000 Compiler'
-	"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/bin/cl2000" -v28 -ml -mt -O3 -g --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include" --include_path="C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_common/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2802x_headers" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/asm" --include_path="c:/ti/controlSUITE/libs/dsp/SGEN/v101/source/C28x_SGEN_LIB" --include_path="c:/ti/controlSUITE/libs/dsp/SGEN/v101/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include" --define="_DEBUG" --define="LARGE_MODEL" --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="FanEn.pp" $(GEN_OPTS__FLAG) "$<"
+	"C:/ti/ccsv5/tools/compiler/c2000_6.1.3/bin/cl2000" -v28 -ml -mt -O3 -g --include_path="C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include" --include_path="C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include" --include_path="C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_common/include" --include_path="C:/ti/controlSUITE/development_kits/~SupportFiles/F2802x_headers" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/asm" --include_path="c:/ti/controlSUITE/libs/dsp/SGEN/v101/source/C28x_SGEN_LIB" --include_path="c:/ti/controlSUITE/libs/dsp/SGEN/v101/include" --include_path="C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include" --define="_DEBUG" --define="LARGE_MODEL" --define="FLASH" --diag_warning=225 --preproc_with_compile --preproc_dependency="EnableCtrl.pp" $(GEN_OPTS__FLAG) "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

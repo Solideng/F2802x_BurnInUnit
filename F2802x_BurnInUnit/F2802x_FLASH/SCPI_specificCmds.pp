@@ -37,8 +37,7 @@ SCPI_specificCmds.obj: ../SlewControl.h
 SCPI_specificCmds.obj: ../SineGen.h
 SCPI_specificCmds.obj: ../PhaseCtrl.h
 SCPI_specificCmds.obj: ../tmp.h
-SCPI_specificCmds.obj: ../FanEn.h
-SCPI_specificCmds.obj: ../BstEn.h
+SCPI_specificCmds.obj: ../EnableCtrl.h
 SCPI_specificCmds.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
 SCPI_specificCmds.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h
 SCPI_specificCmds.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h
@@ -89,8 +88,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../SineGen.h: 
 ../PhaseCtrl.h: 
 ../tmp.h: 
-../FanEn.h: 
-../BstEn.h: 
+../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h: 

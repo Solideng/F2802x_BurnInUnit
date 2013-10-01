@@ -41,7 +41,7 @@ Uint16 tmpInit (void) {
 
 Uint16 tmpSetOtp (Uint16 chnl, float32 tmp) {
 	/* Set the user set OTP value */
-	if (chnl > ADC_NUM_CHNL)		/* Check channel is valid */
+	if (chnl > (ADC_NUM_CHNL - 2))		/* Check channel is valid */
 		return CHANNEL_OOB;
 	if ((tmp < TMP_OTP_MIN) || (tmp > TMP_OTP_MAX))
 		return VALUE_OOB;			/* Check temperature is valid */
@@ -51,7 +51,7 @@ Uint16 tmpSetOtp (Uint16 chnl, float32 tmp) {
 
 Uint16 tmpGetOtp (Uint16 chnl, float32 *tmpDest) {
 	/* Get the user set OTP value */
-	if (chnl > ADC_NUM_CHNL)		/* Check channel is valid */
+	if (chnl > (ADC_NUM_CHNL - 2))	/* Check channel is valid */
 		return CHANNEL_OOB;
 									/* Convert from SQ7 and save data to destination */
 	*tmpDest = ((float32)channel[chnl].otp) * (1.0 / 128);
@@ -64,7 +64,7 @@ Uint16 tmpCheckOtp (void) {
 	 */
 	Uint16 i = 0, err = 0, sqTmp;
 	float32 tmp = 0;
-	for (i = 0; i < (ADC_NUM_CHNL / 2); i++) {
+	for (i = 0; i < (ADC_NUM_CHNL - 2); i++) {
 		err = tmpRead(i, &tmp);		/* Read temperature for a single channel */
 		if (err)					/* Check read finished OK */
 			return err;
