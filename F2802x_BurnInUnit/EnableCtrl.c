@@ -1,16 +1,16 @@
 /*
- * BstEn.c
+ * EnableCtrl.c
  *
- *  Created on: 8 May 2013
+ *  Created on: 1 Oct 2013
  *      Author: Toby
  */
 #include "Common.h"
 
 static Uint16 crntState;	/* Keeps track of the current state of the I/O Ex GPIO otherwise
- 	 	 	 	 	 	 	 * we would need to read it before every write to the GPIO_ADDR.
+ 	 	 	 	 	 	 	 * we would need to read it before every write to the GPIO_ADDR
  	 	 	 	 	 	 	 */
 static i2cMsg i2cMsgOutBst = { I2C_MSGSTAT_INACTIVE, 		/* Message status */
-								IOE_I2C_ADDR,				/* Slave device I2C address (ADC) */
+								IOE_I2C_ADDR,				/* Slave device I2C address */
 								1,							/* Number of data bytes to be sent */
 								1,							/* Slave uses one command byte */
 								0,							/* Slave command (high byte) */
@@ -20,9 +20,9 @@ static i2cMsg i2cMsgOutBst = { I2C_MSGSTAT_INACTIVE, 		/* Message status */
 								0x00						/* Data byte 3 */
 							};
 
-Uint16 bcInit (void) {
+Uint16 ecInit (void) {
 	Uint16 err = 0;
-	crntState = 0;							/* Reset current state. */
+	crntState = 0;							/* Clear current GPIO state record. */
 
 	i2cPopMsg(&i2cMsgOutBst, I2C_MSGSTAT_SEND_WITHSTOP, IOE_I2C_ADDR, 1, 1, 0, IOE_IOCON_ADDR);
 	i2cMsgOutBst.msgBuffer[0] = 0x24;		/* IOCON: SEQOP off, DISSLW on, HAEN x, ODR on, INTPOL x */
@@ -57,38 +57,38 @@ Uint16 bcInit (void) {
 	return 0;
 }
 
-Uint16 bcEnable(Uint16 chnl) {
+Uint16 ecEnable(circuitSection section) {
 	Uint16 err = 0, msk = 1;
 	i2cMsg i2cMsgOutBst;
 						/* Ensure channel is valid */
-	if (chnl > IOE_NUM_CHNL)
+	if (section >= maxchan)
 		return CHANNEL_OOB;
-						/* Set the related GPIO bit in the current state of the I/O expander output control */
-	msk = crntState | (msk << (chnl));
-						/* Send the new output control state */
+						/* Set the related bit in the current GPIO state */
+	msk = crntState | (msk << (section));
+						/* Send the new GPIO state */
 	i2cPopMsg(&i2cMsgOutBst, I2C_MSGSTAT_SEND_WITHSTOP, IOE_I2C_ADDR, 1, 1, 0, IOE_GPIO_ADDR);
 	i2cMsgOutBst.msgBuffer[0] = msk;
 	err = i2cWrite(&i2cMsgOutBst);
 	if (err)
 		return err;
-	crntState = msk;	/* Update the current output control state record */
+	crntState = msk;	/* Update the current GPIO state record */
 	return 0;
 }
 
-Uint16 bcDisable (Uint16 chnl) {
+Uint16 ecDisable (circuitSection section) {
 	Uint16 err = 0, msk = 1;
 	i2cMsg i2cMsgOutBst;
 						/* Ensure channel is valid */
-	if (chnl > IOE_NUM_CHNL)
+	if (section >= maxchan)
 			return CHANNEL_OOB;
-						/* Clear the related GPIO bit in the current state of the I/O expander output control */
-	msk = crntState & ~(msk << (chnl));
-						/* Send the new output control state */
+						/* Clear the related bit in the current GPIO state */
+	msk = crntState & ~(msk << (section));
+						/* Send the new GPIO state */
 	i2cPopMsg(&i2cMsgOutBst, I2C_MSGSTAT_SEND_WITHSTOP, IOE_I2C_ADDR, 1, 1, 0, IOE_GPIO_ADDR);
 	i2cMsgOutBst.msgBuffer[0] = msk;
 	err = i2cWrite(&i2cMsgOutBst);
 	if (err)
 		return err;
-	crntState = msk;	/* Update the current output control state record */
+	crntState = msk;	/* Update the current GPIO state record */
 	return 0;
 }
