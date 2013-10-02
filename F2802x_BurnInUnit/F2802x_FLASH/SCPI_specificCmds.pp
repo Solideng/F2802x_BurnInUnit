@@ -28,6 +28,7 @@ SCPI_specificCmds.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 SCPI_specificCmds.obj: ../StateMachine.h
 SCPI_specificCmds.obj: ../I2c.h
 SCPI_specificCmds.obj: ../Sci.h
+SCPI_specificCmds.obj: ../Spi.h
 SCPI_specificCmds.obj: ../MacroNets.h
 SCPI_specificCmds.obj: ../Timers.h
 SCPI_specificCmds.obj: ../Adc.h
@@ -79,6 +80,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

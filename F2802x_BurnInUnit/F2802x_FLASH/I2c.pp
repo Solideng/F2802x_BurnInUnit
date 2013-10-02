@@ -28,6 +28,7 @@ I2c.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 I2c.obj: ../StateMachine.h
 I2c.obj: ../I2c.h
 I2c.obj: ../Sci.h
+I2c.obj: ../Spi.h
 I2c.obj: ../MacroNets.h
 I2c.obj: ../Timers.h
 I2c.obj: ../Adc.h
@@ -79,6 +80,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

@@ -28,6 +28,7 @@ Timers.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 Timers.obj: ../StateMachine.h
 Timers.obj: ../I2c.h
 Timers.obj: ../Sci.h
+Timers.obj: ../Spi.h
 Timers.obj: ../MacroNets.h
 Timers.obj: ../Timers.h
 Timers.obj: ../Adc.h
@@ -79,6 +80,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

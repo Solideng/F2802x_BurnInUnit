@@ -28,6 +28,7 @@ SlewControl.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 SlewControl.obj: ../StateMachine.h
 SlewControl.obj: ../I2c.h
 SlewControl.obj: ../Sci.h
+SlewControl.obj: ../Spi.h
 SlewControl.obj: ../MacroNets.h
 SlewControl.obj: ../Timers.h
 SlewControl.obj: ../Adc.h
@@ -79,6 +80,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

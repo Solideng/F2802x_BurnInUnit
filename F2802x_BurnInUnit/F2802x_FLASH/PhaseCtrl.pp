@@ -28,6 +28,7 @@ PhaseCtrl.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 PhaseCtrl.obj: ../StateMachine.h
 PhaseCtrl.obj: ../I2c.h
 PhaseCtrl.obj: ../Sci.h
+PhaseCtrl.obj: ../Spi.h
 PhaseCtrl.obj: ../MacroNets.h
 PhaseCtrl.obj: ../Timers.h
 PhaseCtrl.obj: ../Adc.h
@@ -79,6 +80,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

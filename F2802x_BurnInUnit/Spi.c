@@ -34,6 +34,8 @@
 //}
 // End of example code--------------------------------------------------
 
+static interrupt void spiTxFifoIsr (void);
+static interrupt void spiRxFifoIsr (void);
 
 Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, spiCPol cPol, spiCPha cPha) {
 	// TODO: Enable TALK??
@@ -43,7 +45,7 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, spiCPol cPol, spiCPh
 	temp |= ((Uint16)loopback) << 4;/* Add the loop-back setting to the SPICCR value. */
 	SpiaRegs.SPICCR.all = temp;		/* Save the SPICCR value to the reg. */
 
-	temp = 0;						/* Clear the operation control reg (SPICTL) value. */
+	temp = 0x01;					/* Init the operation control reg (SPICTL) value. Enable SPI interrupts. */
 	temp |= ((Uint16)cPha) << 3;	/* Add the clock phase setting to the SPICTL value. */
 	temp |= ((Uint16)mode) << 2;	/* Add the mode setting to the SPICTL value. */
 	SpiaRegs.SPICTL.all = temp;		/* Save the SPICTL value to the reg. */
@@ -57,7 +59,7 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, spiCPol cPol, spiCPh
 	if ((spiBrr < 4) || (spiBrr > 127))	/* Ensure SPIBRR value is within bounds */
 			return VALUE_OOB;
 
-	SpiaRegs.BRR = (Uint16) spiBrr;	/* Save the |SPIBRR| value to the reg. */
+	SpiaRegs.SPIBRR = (Uint16) spiBrr;	/* Save the |SPIBRR| value to the reg. */
 
 									/* Set Tx FIFO. Reset channels, FIFOs enabled, FIFO in reset, clear any
 									 * interrupt, enable interrupt and add interrupt level.
@@ -67,13 +69,23 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, spiCPol cPol, spiCPh
 									 * interrupt and add interrupt level.
 									 */
 	SpiaRegs.SPIFFRX.all = 0x4040 | SPI_FFRX_INTLVL;
-	SpiaRegs.SPIFFCT.all = 0x00;	/* Set no TxFIFO delay. */
+	SpiaRegs.SPIFFCT.all = 0x00;	/* Set 0 TxFIFO delay. */
 	SpiaRegs.SPIPRI.all = 0x00;		/* Set free-run and 4-wire mode. */
+
+	//TODO: set up the interrupts in PIE/IER and assign ISRs
 
 	return 0;
 }
 
 void spiTx(void) {
+
+}
+
+static interrupt void spiTxFifoIsr (void) {
+
+}
+
+static interrupt void spiRxFifoIsr (void) {
 
 }
 

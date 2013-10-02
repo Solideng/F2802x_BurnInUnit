@@ -28,6 +28,7 @@ SineGen.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 SineGen.obj: ../StateMachine.h
 SineGen.obj: ../I2c.h
 SineGen.obj: ../Sci.h
+SineGen.obj: ../Spi.h
 SineGen.obj: ../MacroNets.h
 SineGen.obj: ../Timers.h
 SineGen.obj: ../Adc.h
@@ -79,6 +80,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

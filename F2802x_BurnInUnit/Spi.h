@@ -48,7 +48,7 @@ enum spiMode {
 };
 
 /** A type to allow specification of the SPI mode. */
-typedef spiMode spiMode;
+typedef enum spiMode spiMode;
 
 /** The possible SPI loop-back settings. */
 enum spiLpbk {
@@ -57,16 +57,16 @@ enum spiLpbk {
 };
 
 /** A type to allows specification of the SPI loop-back setting. */
-typedef spiLpbk spiLpbk;
+typedef enum spiLpbk spiLpbk;
 
 /** The possible SPI clock polarity settings. */
 enum spiCPol {
 	risingEdge = 0,
-	fallingEdge = 1,
+	fallingEdge = 1
 };
 
 /** A type to allow specification of the SPI clock polarity setting. */
-typedef spiCPol spiCPol;
+typedef enum spiCPol spiCPol;
 
 /** The possible SPI clock phase settings. */
 enum spiCPha {
@@ -75,7 +75,7 @@ enum spiCPha {
 };
 
 /** A type to allow specification of the SPI clock phase setting. */
-typedef spiCPha spiCPha;
+typedef enum spiCPha spiCPha;
 
 /** Initialises the SPI-A peripheral and relevant interrupts
  * @param[in]	 mode		Specifies if the device is in slave or master mode, values are master or slave.
@@ -90,13 +90,15 @@ typedef spiCPha spiCPha;
  */
 extern Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, spiCPol cPol, spiCPha cPha);
 
+extern void spiTx (void);
+
 // Public SPI functions
 //extern void spiInit(void);			// Configures SPI peripheral for communications
 									//  Sends 11 left aligned bits at a time
 									// 	spiInit() MUST BE CALLED BEFORE ANY OTHER PUBLIC SPI FUNCTIONS
 									// 	spiInit() CLEARS ANY VALUES CURRENTLY IN SPI REGISTERS
 
-extern void spiTx(Uint16 txData);	// Transmits 11 left aligned bit txData on SPI
+//extern void spiTx(Uint16 txData);	// Transmits 11 left aligned bit txData on SPI
 
 #ifdef __cplusplus
 }

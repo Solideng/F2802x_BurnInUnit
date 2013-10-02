@@ -28,6 +28,7 @@ MacroNets.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 MacroNets.obj: ../StateMachine.h
 MacroNets.obj: ../I2c.h
 MacroNets.obj: ../Sci.h
+MacroNets.obj: ../Spi.h
 MacroNets.obj: ../MacroNets.h
 MacroNets.obj: ../Timers.h
 MacroNets.obj: ../Adc.h
@@ -79,6 +80,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

@@ -28,6 +28,7 @@ Pwm.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 Pwm.obj: ../StateMachine.h
 Pwm.obj: ../I2c.h
 Pwm.obj: ../Sci.h
+Pwm.obj: ../Spi.h
 Pwm.obj: ../MacroNets.h
 Pwm.obj: ../Timers.h
 Pwm.obj: ../Adc.h
@@ -79,6 +80,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

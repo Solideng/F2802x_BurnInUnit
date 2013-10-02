@@ -25,6 +25,7 @@
 /* Communications */
 #include "I2c.h"
 #include "Sci.h"
+#include "Spi.h"
 /* Macro connection */
 #include "MacroNets.h"
 /* Macro terminals & function control */

@@ -28,6 +28,7 @@ StateMachine.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 StateMachine.obj: ../StateMachine.h
 StateMachine.obj: ../I2c.h
 StateMachine.obj: ../Sci.h
+StateMachine.obj: ../Spi.h
 StateMachine.obj: ../MacroNets.h
 StateMachine.obj: ../Timers.h
 StateMachine.obj: ../Adc.h
@@ -79,6 +80,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

@@ -34,6 +34,7 @@ C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/C/PWM_2ch_UpCnt_Cnf.c
 ../Sci.c \
 ../SineGen.c \
 ../SlewControl.c \
+../Spi.c \
 ../StateMachine.c \
 ../Timers.c \
 ../Tmp.c 
@@ -58,6 +59,7 @@ OBJS += \
 ./Sci.obj \
 ./SineGen.obj \
 ./SlewControl.obj \
+./Spi.obj \
 ./StateMachine.obj \
 ./Timers.obj \
 ./Tmp.obj 
@@ -84,6 +86,7 @@ C_DEPS += \
 ./Sci.pp \
 ./SineGen.pp \
 ./SlewControl.pp \
+./Spi.pp \
 ./StateMachine.pp \
 ./Timers.pp \
 ./Tmp.pp 
@@ -105,6 +108,7 @@ C_DEPS__QUOTED += \
 "Sci.pp" \
 "SineGen.pp" \
 "SlewControl.pp" \
+"Spi.pp" \
 "StateMachine.pp" \
 "Timers.pp" \
 "Tmp.pp" 
@@ -129,6 +133,7 @@ OBJS__QUOTED += \
 "Sci.obj" \
 "SineGen.obj" \
 "SlewControl.obj" \
+"Spi.obj" \
 "StateMachine.obj" \
 "Timers.obj" \
 "Tmp.obj" 
@@ -155,6 +160,7 @@ C_SRCS__QUOTED += \
 "../Sci.c" \
 "../SineGen.c" \
 "../SlewControl.c" \
+"../Spi.c" \
 "../StateMachine.c" \
 "../Timers.c" \
 "../Tmp.c" 

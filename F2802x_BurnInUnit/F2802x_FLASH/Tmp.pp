@@ -28,6 +28,7 @@ Tmp.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 Tmp.obj: ../StateMachine.h
 Tmp.obj: ../I2c.h
 Tmp.obj: ../Sci.h
+Tmp.obj: ../Spi.h
 Tmp.obj: ../MacroNets.h
 Tmp.obj: ../Timers.h
 Tmp.obj: ../Adc.h
@@ -79,6 +80,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 

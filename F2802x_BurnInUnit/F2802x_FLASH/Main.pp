@@ -28,6 +28,7 @@ Main.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
 Main.obj: ../StateMachine.h
 Main.obj: ../I2c.h
 Main.obj: ../Sci.h
+Main.obj: ../Spi.h
 Main.obj: ../MacroNets.h
 Main.obj: ../Timers.h
 Main.obj: ../Adc.h
@@ -80,6 +81,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
+../Spi.h: 
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 
