@@ -1,7 +1,7 @@
 /**
  * @file I2c.h
  *
- * @brief I2C communication functions.
+ * @brief Inter-integrated circuit communications functions.
  *
  * @warning
  * The following bridge tracks should be cut on the TI
@@ -85,8 +85,8 @@ typedef struct {
 
 /*============= GLOBAL FUNCTIONS ==============*/
 /** Initialises the I2C-A peripheral and relevant interrupts.
- * This function will clear any values already in the I2C peripheral registers.
- * This function MUST be called before any other public I2C function.
+ * @warning This function will clear any values already in the I2C peripheral registers.
+ * @warning This function MUST be called before any other public I2C function.
  */
 extern void i2cInit (void);
 

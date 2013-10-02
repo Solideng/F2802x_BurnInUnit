@@ -238,14 +238,14 @@ void DeviceInit(void)
 //  GPIO-32 - PIN FUNCTION = I2C-SDA
 	GpioCtrlRegs.GPBMUX1.bit.GPIO32 = 1;	// 0=GPIO,  1=I2C-SDA,  2=SYNCI,  3=ADCSOCA
 	GpioCtrlRegs.GPBDIR.bit.GPIO32 = 0;		// 1=OUTput,  0=INput
-	GpioCtrlRegs.GPBPUD.bit.GPIO32 = 0;    	// Enable pull-up
+	GpioCtrlRegs.GPBPUD.bit.GPIO32 = 0;    	// Pull-up disabled
 //	GpioDataRegs.GPBCLEAR.bit.GPIO32 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPBSET.bit.GPIO32 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
 //  GPIO-33 - PIN FUNCTION = I2C-SCL
 	GpioCtrlRegs.GPBMUX1.bit.GPIO33 = 1;	// 0=GPIO,  1=I2C-SCL,  2=SYNCO,  3=ADCSOCB
 	GpioCtrlRegs.GPBDIR.bit.GPIO33 = 0;		// 1=OUTput,  0=INput
-	GpioCtrlRegs.GPBPUD.bit.GPIO33 = 0;    	// Enable pull-up
+	GpioCtrlRegs.GPBPUD.bit.GPIO33 = 0;    	// Pull-up disabled
 //	GpioDataRegs.GPBCLEAR.bit.GPIO33 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPBSET.bit.GPIO33 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------

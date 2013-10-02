@@ -1,7 +1,7 @@
 /**
  * @file Sci.h
  *
- * @brief SCI communications functions.
+ * @brief Serial communications interface functions.
  *
  * @par
  * On the TI C2000 LaunchPad XL:
@@ -27,12 +27,12 @@
 #define SCIFFTX_FILL_LVL 	4	/**< Fill level for transmission FIFO. */
 
 /*============= GLOBAL FUNCTIONS ==============*/
-/** Initialises the SCI(A) peripheral and relate interrupts.
+/** Initialises the SCI(A) peripheral and relevant interrupts.
  * @param[in]	baud	The baud rate that the SCI should use minimum value is set by SCIBAUD_MIN.
  * @return				Error status.
  *
- * @warning This function MUST be called before any other SCI(A) function.
- * @warning This function will clear any values placed in the associated SCI(A) registers prior to calling.
+ * @warning This function will clear any values already in the SCI peripheral registers.
+ * @warning This function MUST be called before any other SCI function.
  */
 extern Uint16 sciInit(Uint32 baud);
 

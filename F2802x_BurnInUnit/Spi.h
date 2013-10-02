@@ -1,7 +1,7 @@
 /**
  * @file Spi.h
  *
- * @brief SPI communications functions.
+ * @brief Serial peripheral interface communications functions.
  *
  * @warning
  * The following bridge tracks should be cut on the TI
@@ -31,8 +31,67 @@
 extern "C" {
 #endif
 
+#define LOSPCLK_FREQ_SET 	0xE4EC10/*< The frequency of the low speed clock has been set to (in DevInit_F2802x.h). */
+
+#define SPI_DFLT_BAUD		0x3D090	/**< SPI default baud rate. */
+#define SPI_DFLT_CPOL 		0x00	/**< SPI default clock polarity. 0 = Rising edge, 1 = falling edge. */
+#define SPI_DFLT_CPHA 		0x01	/**< SPI default clock phase. 0 = Without delay, 1 = with delay. */
+
+#define SPI_FFRX_INTLVL 	0x01	/**< SPI Rx FIFO interrupt level. */
+#define SPI_FFTX_INTLVL 	0x00	/**< SPI Tx FIFO interrupt level. */
+#define SPI_FFTX_FILLVL 	0x04	/**< SPI Tx FIFO fill level. */
+
+/** The possible SPI Modes. */
+enum spiMode {
+	slave = 0,
+	master = 1
+};
+
+/** A type to allow specification of the SPI mode. */
+typedef spiMode spiMode;
+
+/** The possible SPI loop-back settings. */
+enum spiLpbk {
+	disabled = 0,
+	enabled = 1
+};
+
+/** A type to allows specification of the SPI loop-back setting. */
+typedef spiLpbk spiLpbk;
+
+/** The possible SPI clock polarity settings. */
+enum spiCPol {
+	risingEdge = 0,
+	fallingEdge = 1,
+};
+
+/** A type to allow specification of the SPI clock polarity setting. */
+typedef spiCPol spiCPol;
+
+/** The possible SPI clock phase settings. */
+enum spiCPha {
+	withDelay = 0,
+	withoutDelay = 1
+};
+
+/** A type to allow specification of the SPI clock phase setting. */
+typedef spiCPha spiCPha;
+
+/** Initialises the SPI-A peripheral and relevant interrupts
+ * @param[in]	 mode		Specifies if the device is in slave or master mode, values are master or slave.
+ * @param[in]	 baud		Specifies the baud rate to be used minimum value is 117,187, maximum is 3,750,000
+ * @param[in]	 loopback	Specifies if the SPI module should be run in loop-back mode, values are enable or disable.
+ * @param[in]	 cPol		Specifies the clock polarity, values are risingEdge or fallingEdge.
+ * @param[in]	 cPha		Specifies the clock phase, values are withDelay or withoutDelay.
+ * @return					Error status.
+ *
+ * @warning This function will clear any values already in the SPI peripheral registers.
+ * @warning This function MUST be called before any other public SPI function.
+ */
+extern Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, spiCPol cPol, spiCPha cPha);
+
 // Public SPI functions
-extern void spiInit(void);			// Configures SPI peripheral for communications
+//extern void spiInit(void);			// Configures SPI peripheral for communications
 									//  Sends 11 left aligned bits at a time
 									// 	spiInit() MUST BE CALLED BEFORE ANY OTHER PUBLIC SPI FUNCTIONS
 									// 	spiInit() CLEARS ANY VALUES CURRENTLY IN SPI REGISTERS
