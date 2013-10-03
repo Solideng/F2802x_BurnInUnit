@@ -30,6 +30,7 @@ SlewControl.obj: ../I2c.h
 SlewControl.obj: ../Sci.h
 SlewControl.obj: ../Spi.h
 SlewControl.obj: ../MacroNets.h
+SlewControl.obj: ../slaveMode.h
 SlewControl.obj: ../Timers.h
 SlewControl.obj: ../Adc.h
 SlewControl.obj: ../Pwm.h
@@ -82,6 +83,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Sci.h: 
 ../Spi.h: 
 ../MacroNets.h: 
+../slaveMode.h: 
 ../Timers.h: 
 ../Adc.h: 
 ../Pwm.h: 

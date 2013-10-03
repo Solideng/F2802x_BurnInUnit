@@ -30,6 +30,7 @@ Cntl.obj: ../I2c.h
 Cntl.obj: ../Sci.h
 Cntl.obj: ../Spi.h
 Cntl.obj: ../MacroNets.h
+Cntl.obj: ../slaveMode.h
 Cntl.obj: ../Timers.h
 Cntl.obj: ../Adc.h
 Cntl.obj: ../Pwm.h
@@ -82,6 +83,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Sci.h: 
 ../Spi.h: 
 ../MacroNets.h: 
+../slaveMode.h: 
 ../Timers.h: 
 ../Adc.h: 
 ../Pwm.h: 

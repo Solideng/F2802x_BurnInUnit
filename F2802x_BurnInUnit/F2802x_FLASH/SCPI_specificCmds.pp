@@ -30,6 +30,7 @@ SCPI_specificCmds.obj: ../I2c.h
 SCPI_specificCmds.obj: ../Sci.h
 SCPI_specificCmds.obj: ../Spi.h
 SCPI_specificCmds.obj: ../MacroNets.h
+SCPI_specificCmds.obj: ../slaveMode.h
 SCPI_specificCmds.obj: ../Timers.h
 SCPI_specificCmds.obj: ../Adc.h
 SCPI_specificCmds.obj: ../Pwm.h
@@ -82,6 +83,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Sci.h: 
 ../Spi.h: 
 ../MacroNets.h: 
+../slaveMode.h: 
 ../Timers.h: 
 ../Adc.h: 
 ../Pwm.h: 

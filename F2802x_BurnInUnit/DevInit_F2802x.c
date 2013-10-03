@@ -179,6 +179,7 @@ void DeviceInit(void)
 //  GPIO-07 - PIN FUNCTION = Slave Mode
 	GpioCtrlRegs.GPAMUX1.bit.GPIO7 = 0;		// 0=GPIO,  1=EPWM4B,  2=SCIRX-A,  3=Resv
 	GpioCtrlRegs.GPADIR.bit.GPIO7 = 0;		// 1=OUTput,  0=INput
+	GpioCtrlRegs.GPAPUD.bit.GPIO7 = 1;    	// Pull-up enabled
 //	GpioDataRegs.GPACLEAR.bit.GPIO7 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO7 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------

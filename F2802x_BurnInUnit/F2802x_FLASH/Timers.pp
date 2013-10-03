@@ -30,6 +30,7 @@ Timers.obj: ../I2c.h
 Timers.obj: ../Sci.h
 Timers.obj: ../Spi.h
 Timers.obj: ../MacroNets.h
+Timers.obj: ../slaveMode.h
 Timers.obj: ../Timers.h
 Timers.obj: ../Adc.h
 Timers.obj: ../Pwm.h
@@ -82,6 +83,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Sci.h: 
 ../Spi.h: 
 ../MacroNets.h: 
+../slaveMode.h: 
 ../Timers.h: 
 ../Adc.h: 
 ../Pwm.h: 

@@ -30,6 +30,7 @@ Adc.obj: ../I2c.h
 Adc.obj: ../Sci.h
 Adc.obj: ../Spi.h
 Adc.obj: ../MacroNets.h
+Adc.obj: ../slaveMode.h
 Adc.obj: ../Timers.h
 Adc.obj: ../Adc.h
 Adc.obj: ../Pwm.h
@@ -82,6 +83,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Sci.h: 
 ../Spi.h: 
 ../MacroNets.h: 
+../slaveMode.h: 
 ../Timers.h: 
 ../Adc.h: 
 ../Pwm.h: 

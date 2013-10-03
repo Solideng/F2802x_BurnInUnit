@@ -43,8 +43,8 @@ extern "C" {
 
 /** The possible SPI Modes. */
 enum spiMode {
-	slave = 0,
-	master = 1
+	spiSlave = 0,
+	spiMaster = 1
 };
 
 /** A type to allow specification of the SPI mode. */

@@ -81,13 +81,12 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 	GpioCtrlRegs.GPAPUD.bit.GPIO6 = 1;
 									/* Select GPIO6 as external interrupt 2. */
 	GpioIntRegs.GPIOXINT2SEL.all = 0x06;
-									/* Map SPI interrupts to ISR functions. */
-	PieVectTable.XINT1 = &startSpiRxFifoIsr;
+									/* Map interrupts to ISR functions. */
+	PieVectTable.XINT2 = &startSpiRxFifoIsr;
 	PieVectTable.SPIRXINTA = &spiRxFifoIsr;
 	PieVectTable.SPITXINTA = &spiTxFifoIsr;
 	EDIS;
 
-	// TODO: Check Tx SRQ when have schematic...
 									/* Set external interrupt 2 as falling edge activated. */
 	XIntruptRegs.XINT2CR.bit.POLARITY = (Uint16) fallingEdge;
 	XIntruptRegs.XINT2CR.bit.ENABLE = 1;/* Enable external interrupt 2. */
@@ -95,7 +94,7 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 	PieCtrlRegs.PIECTRL.bit.ENPIE = 1;	/* Enable the PIE block. */
 	PieCtrlRegs.PIEIER6.bit.INTx1 = 1;	/* PIE Group 6, INT1. */
 	PieCtrlRegs.PIEIER6.bit.INTx2 = 1;	/* PIE Group 6, INT2. */
-	PieCtrlRegs.PIEIER1.bit.INTx4 = 1;	/* PIE Group 1, INT4. */
+	PieCtrlRegs.PIEIER1.bit.INTx5 = 1;	/* PIE Group 1, INT5. */
 	IER |= M_INT6;						/* Enable INT 6 group in IER. */
 	IER |= M_INT1;						/* Enable INT 1 group in IER. */
 
@@ -132,7 +131,10 @@ static interrupt void spiTxFifoIsr (void) {
 }
 
 static interrupt void startSpiRxFifoIsr (void) {
-// test changes again
+
+	// TODO: .... check e2e.ti for how to start SPI 'read'
+
+	PieCtrlRegs.PIEACK.bit.ACK1 = 1;	/* Acknowledge interrupt in PIE. */
 }
 
 static interrupt void spiRxFifoIsr (void) {

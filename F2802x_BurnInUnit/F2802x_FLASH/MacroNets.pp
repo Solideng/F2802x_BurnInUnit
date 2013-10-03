@@ -30,6 +30,7 @@ MacroNets.obj: ../I2c.h
 MacroNets.obj: ../Sci.h
 MacroNets.obj: ../Spi.h
 MacroNets.obj: ../MacroNets.h
+MacroNets.obj: ../slaveMode.h
 MacroNets.obj: ../Timers.h
 MacroNets.obj: ../Adc.h
 MacroNets.obj: ../Pwm.h
@@ -82,6 +83,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Sci.h: 
 ../Spi.h: 
 ../MacroNets.h: 
+../slaveMode.h: 
 ../Timers.h: 
 ../Adc.h: 
 ../Pwm.h: 

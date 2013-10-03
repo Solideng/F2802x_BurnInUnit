@@ -29,6 +29,7 @@
 /* Macro connection */
 #include "MacroNets.h"
 /* Macro terminals & function control */
+#include "slaveMode.h"
 #include "Timers.h"
 #include "Adc.h"
 #include "Pwm.h"

@@ -30,6 +30,7 @@ SineGen.obj: ../I2c.h
 SineGen.obj: ../Sci.h
 SineGen.obj: ../Spi.h
 SineGen.obj: ../MacroNets.h
+SineGen.obj: ../slaveMode.h
 SineGen.obj: ../Timers.h
 SineGen.obj: ../Adc.h
 SineGen.obj: ../Pwm.h
@@ -82,6 +83,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Sci.h: 
 ../Spi.h: 
 ../MacroNets.h: 
+../slaveMode.h: 
 ../Timers.h: 
 ../Adc.h: 
 ../Pwm.h: 

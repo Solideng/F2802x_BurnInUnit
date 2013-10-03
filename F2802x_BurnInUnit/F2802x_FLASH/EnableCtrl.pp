@@ -30,6 +30,7 @@ EnableCtrl.obj: ../I2c.h
 EnableCtrl.obj: ../Sci.h
 EnableCtrl.obj: ../Spi.h
 EnableCtrl.obj: ../MacroNets.h
+EnableCtrl.obj: ../slaveMode.h
 EnableCtrl.obj: ../Timers.h
 EnableCtrl.obj: ../Adc.h
 EnableCtrl.obj: ../Pwm.h
@@ -82,6 +83,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Sci.h: 
 ../Spi.h: 
 ../MacroNets.h: 
+../slaveMode.h: 
 ../Timers.h: 
 ../Adc.h: 
 ../Pwm.h: 

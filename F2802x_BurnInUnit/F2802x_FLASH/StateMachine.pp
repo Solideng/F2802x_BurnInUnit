@@ -30,6 +30,7 @@ StateMachine.obj: ../I2c.h
 StateMachine.obj: ../Sci.h
 StateMachine.obj: ../Spi.h
 StateMachine.obj: ../MacroNets.h
+StateMachine.obj: ../slaveMode.h
 StateMachine.obj: ../Timers.h
 StateMachine.obj: ../Adc.h
 StateMachine.obj: ../Pwm.h
@@ -82,6 +83,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Sci.h: 
 ../Spi.h: 
 ../MacroNets.h: 
+../slaveMode.h: 
 ../Timers.h: 
 ../Adc.h: 
 ../Pwm.h: 

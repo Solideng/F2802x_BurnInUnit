@@ -37,7 +37,8 @@ C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/C/PWM_2ch_UpCnt_Cnf.c
 ../Spi.c \
 ../StateMachine.c \
 ../Timers.c \
-../Tmp.c 
+../Tmp.c \
+../slaveMode.c 
 
 OBJS += \
 ./ADC_SOC_Cnf.obj \
@@ -62,7 +63,8 @@ OBJS += \
 ./Spi.obj \
 ./StateMachine.obj \
 ./Timers.obj \
-./Tmp.obj 
+./Tmp.obj \
+./slaveMode.obj 
 
 ASM_DEPS += \
 ./BurnInUnit_ISR.pp \
@@ -89,7 +91,8 @@ C_DEPS += \
 ./Spi.pp \
 ./StateMachine.pp \
 ./Timers.pp \
-./Tmp.pp 
+./Tmp.pp \
+./slaveMode.pp 
 
 C_DEPS__QUOTED += \
 "ADC_SOC_Cnf.pp" \
@@ -111,7 +114,8 @@ C_DEPS__QUOTED += \
 "Spi.pp" \
 "StateMachine.pp" \
 "Timers.pp" \
-"Tmp.pp" 
+"Tmp.pp" \
+"slaveMode.pp" 
 
 OBJS__QUOTED += \
 "ADC_SOC_Cnf.obj" \
@@ -136,7 +140,8 @@ OBJS__QUOTED += \
 "Spi.obj" \
 "StateMachine.obj" \
 "Timers.obj" \
-"Tmp.obj" 
+"Tmp.obj" \
+"slaveMode.obj" 
 
 ASM_DEPS__QUOTED += \
 "BurnInUnit_ISR.pp" \
@@ -163,7 +168,8 @@ C_SRCS__QUOTED += \
 "../Spi.c" \
 "../StateMachine.c" \
 "../Timers.c" \
-"../Tmp.c" 
+"../Tmp.c" \
+"../slaveMode.c" 
 
 ASM_SRCS__QUOTED += \
 "../BurnInUnit_ISR.asm" \
