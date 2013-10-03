@@ -77,26 +77,46 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 	SpiaRegs.SPIPRI.all = 0x00;		/* Set free-run and 4-wire mode. */
 
 	EALLOW;
-									/* Enable pull up for slave SRQ (GPIO6) signal. */
-	GpioCtrlRegs.GPAPUD.bit.GPIO6 = 1;
-									/* Select GPIO6 as external interrupt 2. */
-	GpioIntRegs.GPIOXINT2SEL.all = 0x06;
-									/* Map interrupts to ISR functions. */
-	PieVectTable.XINT2 = &startSpiRxFifoIsr;
 	PieVectTable.SPIRXINTA = &spiRxFifoIsr;
 	PieVectTable.SPITXINTA = &spiTxFifoIsr;
 	EDIS;
 
-									/* Set external interrupt 2 as falling edge activated. */
-	XIntruptRegs.XINT2CR.bit.POLARITY = (Uint16) fallingEdge;
-	XIntruptRegs.XINT2CR.bit.ENABLE = 1;/* Enable external interrupt 2. */
-
 	PieCtrlRegs.PIECTRL.bit.ENPIE = 1;	/* Enable the PIE block. */
 	PieCtrlRegs.PIEIER6.bit.INTx1 = 1;	/* PIE Group 6, INT1. */
 	PieCtrlRegs.PIEIER6.bit.INTx2 = 1;	/* PIE Group 6, INT2. */
-	PieCtrlRegs.PIEIER1.bit.INTx5 = 1;	/* PIE Group 1, INT5. */
+
+	if (mode == spiMaster) {
+		EALLOW;
+									/* Set GPIO6 as input. */
+		GpioCtrlRegs.GPADIR.bit.GPIO6 = 0;
+									/* Enable pull up for slave SRQ (GPIO6) signal. */
+		GpioCtrlRegs.GPAPUD.bit.GPIO6 = 1;
+									/* Select GPIO6 as external interrupt 2. */
+		GpioIntRegs.GPIOXINT2SEL.all = 0x06;
+									/* Map interrupts to ISR functions. */
+		PieVectTable.XINT2 = &startSpiRxFifoIsr;
+		EDIS;
+
+									/* Set external interrupt 2 as falling edge activated. */
+		XIntruptRegs.XINT2CR.bit.POLARITY = (Uint16) fallingEdge;
+									/* Enable external interrupt 2. */
+		XIntruptRegs.XINT2CR.bit.ENABLE = 1;
+									/* PIE Group 1, INT5. */
+		PieCtrlRegs.PIEIER1.bit.INTx5 = 1;
+		IER |= M_INT1;				/* Enable INT 1 group in IER. */
+
+	} else {
+		EALLOW;
+									/* Set GPIO6 as output. */
+		GpioCtrlRegs.GPADIR.bit.GPIO6 = 1;
+									/* Set GPIO6 output HIGH initially. */
+		GpioDataRegs.GPASET.bit.GPIO6 = 1;
+		EDIS;
+
+	}
+
+
 	IER |= M_INT6;						/* Enable INT 6 group in IER. */
-	IER |= M_INT1;						/* Enable INT 1 group in IER. */
 
 	/* Relinquish SPI and FIFOs from reset. */
 	SpiaRegs.SPIFFRX.bit.RXFIFORESET = 1;
