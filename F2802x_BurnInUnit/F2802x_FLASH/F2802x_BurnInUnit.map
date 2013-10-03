@@ -1,10 +1,10 @@
 ******************************************************************************
              TMS320C2000 Linker PC v6.1.3                      
 ******************************************************************************
->> Linked Wed Oct 02 16:46:21 2013
+>> Linked Thu Oct 03 12:18:50 2013
 
 OUTPUT FILE NAME:   <F2802x_BurnInUnit.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 003f117c
+ENTRY POINT SYMBOL: "_c_int00"  address: 003f11e3
 
 
 MEMORY CONFIGURATION
@@ -15,7 +15,7 @@ PAGE 0:
   BOOT_RSVD             00000000   00000050  00000000  00000050  RWIX
   progRAM               00008000   00000800  00000240  000005c0  RWIX
   OTP                   003d7800   00000400  00000000  00000400  RWIX
-  FLASHD                003f0000   00002000  000014b5  00000b4b  RWIX
+  FLASHD                003f0000   00002000  0000155b  00000aa5  RWIX
   FLASHC                003f2000   00002000  00001fff  00000001  RWIX
   FLASHA                003f6000   00001f80  0000064f  00001931  RWIX
   CSM_RSVD              003f7f80   00000076  00000000  00000076  RWIX
@@ -76,7 +76,7 @@ ramfuncs   0    003f0000    00000240     RUN ADDR = 00008000
                   003f021f    0000001d     DevInit_F2802x.obj (ramfuncs)
                   003f023c    00000004     DSP2802x_usDelay.obj (ramfuncs)
 
-.text.1    0    003f0240    00001275     
+.text.1    0    003f0240    0000131b     
                   003f0240    0000011d     Tmp.obj (.text)
                   003f035d    00000107     Cntl.obj (.text)
                   003f0464    000000ec     BurnInUnit_ISR.obj (.text)
@@ -87,50 +87,51 @@ ramfuncs   0    003f0000    00000240     RUN ADDR = 00008000
                   003f0880    000000c0     I2c.obj (.text)
                   003f0940    000000b4     rts2800_ml.lib : log10.obj (.text)
                   003f09f4    000000af     SCPI_outputQueue.obj (.text)
-                  003f0aa3    0000009e     rts2800_ml.lib : exp.obj (.text)
-                  003f0b41    0000008d                    : _log.obj (.text)
-                  003f0bce    00000088     SCPI_serialEmulation.obj (.text)
-                  003f0c56    00000087     Sci.obj (.text)
-                  003f0cdd    00000083     rts2800_ml.lib : fd_mpy.obj (.text)
-                  003f0d60    00000083                    : fs_div.obj (.text)
-                  003f0de3    00000083                    : pow.obj (.text)
-                  003f0e66    0000007f     SCPI_parser.obj (.text)
-                  003f0ee5    0000007b     StateMachine.obj (.text)
-                  003f0f60    00000078     rts2800_ml.lib : fs_add.obj (.text)
-                  003f0fd8    00000061     I2c.obj (.text:retain)
-                  003f1039    0000005c     PWM_2ch_UpCnt_Cnf.obj (.text)
-                  003f1095    0000005a     rts2800_ml.lib : fs_mpy.obj (.text)
-                  003f10ef    00000047     Spi.obj (.text)
-                  003f1136    00000046     Main.obj (.text)
-                  003f117c    00000044     rts2800_ml.lib : boot.obj (.text)
-                  003f11c0    00000041                    : ldexp.obj (.text)
-                  003f1201    00000031                    : modf.obj (.text)
-                  003f1232    0000002c     SCPI_execCtrl.obj (.text)
-                  003f125e    0000002c     Pwm.obj (.text:retain)
-                  003f128a    0000002a     rts2800_ml.lib : l_div.obj (.text)
-                  003f12b4    00000029                    : fs_tol.obj (.text)
-                  003f12dd    00000025                    : fs_toi.obj (.text)
-                  003f1302    00000022                    : i_div.obj (.text)
-                  003f1324    00000021                    : fd_toi.obj (.text)
-                  003f1345    0000001f                    : fd_tol.obj (.text)
-                  003f1364    0000001d                    : fs_tou.obj (.text)
-                  003f1381    0000001c                    : fs_tofd.obj (.text)
-                  003f139d    0000001b     C28x_SGEN_Lib_fixed.lib : sgti1c.obj (.text)
-                  003f13b8    0000001a     rts2800_ml.lib : i_tofs.obj (.text)
-                  003f13d2    0000001a                    : l_tofs.obj (.text)
-                  003f13ec    00000019                    : args_main.obj (.text)
-                  003f1405    00000019                    : exit.obj (.text)
-                  003f141e    00000017                    : fs_cmp.obj (.text)
-                  003f1435    00000014                    : frexp.obj (.text)
-                  003f1449    00000013     PhaseCtrl.obj (.text)
-                  003f145c    00000013     rts2800_ml.lib : ul_tofs.obj (.text)
-                  003f146f    00000010     Timers.obj (.text)
-                  003f147f    00000010     rts2800_ml.lib : u_tofs.obj (.text)
-                  003f148f    0000000b                    : u_div.obj (.text)
-                  003f149a    00000009                    : _lock.obj (.text)
-                  003f14a3    00000008     DSP2802x_CodeStartBranch.obj (.text)
-                  003f14ab    00000005     DevInit_F2802x.obj (.text:retain)
-                  003f14b0    00000005     rts2800_ml.lib : fs_neg.obj (.text)
+                  003f0aa3    000000ae     Spi.obj (.text)
+                  003f0b51    0000009e     rts2800_ml.lib : exp.obj (.text)
+                  003f0bef    0000008d                    : _log.obj (.text)
+                  003f0c7c    00000088     SCPI_serialEmulation.obj (.text)
+                  003f0d04    00000087     Sci.obj (.text)
+                  003f0d8b    00000083     rts2800_ml.lib : fd_mpy.obj (.text)
+                  003f0e0e    00000083                    : fs_div.obj (.text)
+                  003f0e91    00000083                    : pow.obj (.text)
+                  003f0f14    0000007f     SCPI_parser.obj (.text)
+                  003f0f93    0000007b     StateMachine.obj (.text)
+                  003f100e    00000078     rts2800_ml.lib : fs_add.obj (.text)
+                  003f1086    00000061     I2c.obj (.text:retain)
+                  003f10e7    0000005c     PWM_2ch_UpCnt_Cnf.obj (.text)
+                  003f1143    0000005a     rts2800_ml.lib : fs_mpy.obj (.text)
+                  003f119d    00000046     Main.obj (.text)
+                  003f11e3    00000044     rts2800_ml.lib : boot.obj (.text)
+                  003f1227    00000041                    : ldexp.obj (.text)
+                  003f1268    0000003f     Spi.obj (.text:retain)
+                  003f12a7    00000031     rts2800_ml.lib : modf.obj (.text)
+                  003f12d8    0000002c     SCPI_execCtrl.obj (.text)
+                  003f1304    0000002c     Pwm.obj (.text:retain)
+                  003f1330    0000002a     rts2800_ml.lib : l_div.obj (.text)
+                  003f135a    00000029                    : fs_tol.obj (.text)
+                  003f1383    00000025                    : fs_toi.obj (.text)
+                  003f13a8    00000022                    : i_div.obj (.text)
+                  003f13ca    00000021                    : fd_toi.obj (.text)
+                  003f13eb    0000001f                    : fd_tol.obj (.text)
+                  003f140a    0000001d                    : fs_tou.obj (.text)
+                  003f1427    0000001c                    : fs_tofd.obj (.text)
+                  003f1443    0000001b     C28x_SGEN_Lib_fixed.lib : sgti1c.obj (.text)
+                  003f145e    0000001a     rts2800_ml.lib : i_tofs.obj (.text)
+                  003f1478    0000001a                    : l_tofs.obj (.text)
+                  003f1492    00000019                    : args_main.obj (.text)
+                  003f14ab    00000019                    : exit.obj (.text)
+                  003f14c4    00000017                    : fs_cmp.obj (.text)
+                  003f14db    00000014                    : frexp.obj (.text)
+                  003f14ef    00000013     PhaseCtrl.obj (.text)
+                  003f1502    00000013     rts2800_ml.lib : ul_tofs.obj (.text)
+                  003f1515    00000010     Timers.obj (.text)
+                  003f1525    00000010     rts2800_ml.lib : u_tofs.obj (.text)
+                  003f1535    0000000b                    : u_div.obj (.text)
+                  003f1540    00000009                    : _lock.obj (.text)
+                  003f1549    00000008     DSP2802x_CodeStartBranch.obj (.text)
+                  003f1551    00000005     DevInit_F2802x.obj (.text:retain)
+                  003f1556    00000005     rts2800_ml.lib : fs_neg.obj (.text)
 
 .text.2    0    003f2000    00001fff     
                   003f2000    0000071d     SCPI_specificCmds.obj (.text)
@@ -157,7 +158,7 @@ ramfuncs   0    003f0000    00000240     RUN ADDR = 00008000
                   003f630e    0000005b     SCPI_commonCmds.obj (.econst:.string)
                   003f6369    00000001     Sci.obj (.econst)
                   003f636a    0000002f     SCPI_serialEmulation.obj (.econst:.string)
-                  003f6399    00000001     --HOLE-- [fill = 0]
+                  003f6399    00000001     Spi.obj (.econst)
                   003f639a    00000024     Cntl.obj (.econst:_$P$T0$1)
                   003f63be    00000014     rts2800_ml.lib : strtod.obj (.econst:_digits)
                   003f63d2    00000010     Adc.obj (.econst:_$P$T0$1)
@@ -431,33 +432,33 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 address    name
 --------   ----
 ffffffff   .text
-003f1405   C$$EXIT
-003f0cdd   FD$$MPY
-003f1324   FD$$TOI
-003f1345   FD$$TOL
-003f0f65   FS$$ADD
-003f141e   FS$$CMP
-003f0d60   FS$$DIV
-003f1095   FS$$MPY
-003f14b0   FS$$NEG
-003f0f60   FS$$SUB
-003f1381   FS$$TOFD
-003f12dd   FS$$TOI
-003f12b4   FS$$TOL
-003f1364   FS$$TOU
-003f1302   I$$DIV
-003f1313   I$$MOD
-003f13b8   I$$TOFS
-003f128a   L$$DIV
-003f1299   L$$MOD
-003f13d2   L$$TOFS
+003f14ab   C$$EXIT
+003f0d8b   FD$$MPY
+003f13ca   FD$$TOI
+003f13eb   FD$$TOL
+003f1013   FS$$ADD
+003f14c4   FS$$CMP
+003f0e0e   FS$$DIV
+003f1143   FS$$MPY
+003f1556   FS$$NEG
+003f100e   FS$$SUB
+003f1427   FS$$TOFD
+003f1383   FS$$TOI
+003f135a   FS$$TOL
+003f140a   FS$$TOU
+003f13a8   I$$DIV
+003f13b9   I$$MOD
+003f145e   I$$TOFS
+003f1330   L$$DIV
+003f133f   L$$MOD
+003f1478   L$$TOFS
 00008800   SINTAB_360
-003f148f   U$$DIV
-003f1494   U$$MOD
-003f147f   U$$TOFS
-003f12a7   UL$$DIV
-003f12ae   UL$$MOD
-003f145c   UL$$TOFS
+003f1535   U$$DIV
+003f153a   U$$MOD
+003f1525   U$$TOFS
+003f134d   UL$$DIV
+003f1354   UL$$MOD
+003f1502   UL$$TOFS
 00008a06   _ADCDRV_1ch_Rlt1
 00008a18   _ADCDRV_1ch_Rlt10
 00008a1a   _ADCDRV_1ch_Rlt11
@@ -518,9 +519,9 @@ ffffffff   .text
 00000c10   _CpuTimer2Regs
 003f7ff8   _CsmPwl
 00000ae0   _CsmRegs
-003f0c50   _DCL
-003f0c4e   _DFC
-003f1174   _DLOG_BuffInit
+003f0cfe   _DCL
+003f0cfc   _DFC
+003f11db   _DLOG_BuffInit
 00008000   _DPL_ISR
 003f0464   _DPL_Init
 0000823c   _DSP28x_usDelay
@@ -538,23 +539,23 @@ ffffffff   .text
 00000a80   _FlashRegs
 00000d04   _Flash_CPUScaleFactor
 00000d02   _Flash_CallbackPtr
-003f0c48   _GET
-003f0c46   _GTL
+003f0cf6   _GET
+003f0cf4   _GTL
 00006f80   _GpioCtrlRegs
 00006fc0   _GpioDataRegs
 00006fe0   _GpioIntRegs
-003f0c44   _HFC
+003f0cf2   _HFC
 00007900   _I2caRegs
 003f3892   _IDN
-003f14ab   _ISR_ILLEGAL
+003f1551   _ISR_ILLEGAL
 0000821f   _InitFlash
-003f0c42   _LLO
+003f0cf0   _LLO
 003f3efb   _MemCopy
 00007060   _NmiIntruptRegs
 003f387f   _OPC
 00008ffc   _PHASE_CTRL_In
 003f3ec9   _PLLset
-003f0c40   _POL
+003f0cee   _POL
 0000892e   _PWMDRV_2ch_UpCnt_Duty1A
 00008930   _PWMDRV_2ch_UpCnt_Duty1B
 00008934   _PWMDRV_2ch_UpCnt_Duty2A
@@ -564,7 +565,7 @@ ffffffff   .text
 00008932   _PWMDRV_2ch_UpCnt_Period1
 00008938   _PWMDRV_2ch_UpCnt_Period2
 0000893e   _PWMDRV_2ch_UpCnt_Period3
-003f1039   _PWM_2ch_UpCnt_CNF
+003f10e7   _PWM_2ch_UpCnt_CNF
 003d7fff   _PartIdRegs
 003f3eaa   _PieCntlInit
 00000ce0   _PieCtrlRegs
@@ -574,12 +575,12 @@ ffffffff   .text
 003f0240   _RamfuncsLoadEnd
 003f0000   _RamfuncsLoadStart
 00008000   _RamfuncsRunStart
-003f0c3e   _SFC
-003f139d   _SGENTI_1_calc
+003f0cec   _SFC
+003f1443   _SGENTI_1_calc
 00008a3c   _SGENTI_1ch_Sign
 00008a3e   _SGENTI_1ch_VOut
 003f384b   _SRE
-003f0c3c   _SRQ
+003f0cea   _SRQ
 003f3835   _STB
 00007050   _SciaRegs
 00000681   _ScpiRegs
@@ -604,18 +605,18 @@ ffffffff   ___c_args__
 ffffffff   ___etext__
 ffffffff   ___pinit__
 ffffffff   ___text__
-003f13ec   __args_main
+003f1492   __args_main
 00008efc   __cleanup_ptr
 003f618f   __ctypes_
 00008efe   __dtors_ptr
 00008dbe   __lock
-003f0b41   __log
-003f14a2   __nop
-003f149e   __register_lock
-003f149a   __register_unlock
+003f0bef   __log
+003f1548   __nop
+003f1544   __register_lock
+003f1540   __register_unlock
 00000050   __stack
 00008dbc   __unlock
-003f1405   _abort
+003f14ab   _abort
 003f2ac1   _adcCheckOcp
 003f2ab1   _adcCheckOvp
 003f2a89   _adcCompConfigure
@@ -635,7 +636,7 @@ ffffffff   ___text__
 003f271d   _adcSocCnf
 003f3063   _breakString
 003f06ce   _buildScpiTree
-003f117c   _c_int00
+003f11e3   _c_int00
 003f271b   _calAll
 00008e00   _channel
 003f07bc   _clearIBuff
@@ -652,7 +653,7 @@ ffffffff   ___text__
 00008ffa   _comp2Trig
 003f2719   _contIdleInit
 003f0a9c   _dataOnOQueue
-003f0c3a   _ddd
+003f0ce8   _ddd
 003f322d   _deviceError
 003f2f55   _dtoa
 00008fa4   _ePWM
@@ -662,11 +663,11 @@ ffffffff   ___text__
 003f06f7   _ecReset
 00008dc0   _enableAll
 00008ffb   _errno
-003f1237   _execCtrl
+003f12dd   _execCtrl
 003f3228   _executionError
-003f1407   _exit
-003f0aa3   _exp
-003f1435   _frexp
+003f14ad   _exit
+003f0b51   _exp
+003f14db   _frexp
 003f0918   _i2cInit
 00008a2c   _i2cIsrErr
 00008a30   _i2cMsgBlank
@@ -678,10 +679,10 @@ ffffffff   ___text__
 003f26cf   _instNsel
 003f26cd   _instStat
 003f2f13   _itoa
-003f11c0   _ldexp
+003f1227   _ldexp
 003f2c0c   _lexProgramMsg
 003f0940   _log10
-003f1136   _main
+003f119d   _main
 003f26b4   _measCurr
 003f269b   _measTemp
 003f2682   _measVolt
@@ -689,16 +690,16 @@ ffffffff   ___text__
 003f3da9   _mnRunAll
 003f3d58   _mnSetupChannels
 003f3d4a   _mnStopAll
-003f1201   _modf
+003f12a7   _modf
 00000404   _msgs
 00008dbb   _nSel
 003f3223   _operationComplete
 003f2680   _outpStat
-003f0eba   _parseMsgUnit
-003f1449   _pcUpdate
+003f0f68   _parseMsgUnit
+003f14ef   _pcUpdate
 003f083a   _popIBuff
 003f0a6c   _popOQueue
-003f0de3   _pow
+003f0e91   _pow
 003f07dc   _pushIBuff
 003f0a18   _pushOQueue
 003f3bda   _pwmDPLTrigInit
@@ -714,14 +715,14 @@ ffffffff   ___text__
 003f0653   _registerChild
 003f3785   _registerCommonCommands
 003f2286   _registerDeviceCommands
-003f0bce   _registerEmulationCommands
+003f0c7c   _registerEmulationCommands
 003f39d3   _registerRequiredCommands
 003f31f5   _requestControl
-003f1232   _resetExecCtrl
+003f12d8   _resetExecCtrl
 003f07d4   _resetIBuff
 003f2af0   _resetLexer
 003f0a10   _resetOQueue
-003f0e66   _resetParser
+003f0f14   _resetParser
 003f0625   _resetRespFmtr
 003f05bb   _respFmtr
 003f0550   _respond
@@ -735,8 +736,8 @@ ffffffff   ___text__
 003f3601   _scSetTarget
 003f365c   _scSetTargetAll
 003f35d7   _scSlewUpdate
-003f0c75   _sciInit
-003f0c56   _sciTx
+003f0d23   _sciInit
+003f0d04   _sciTx
 003f2d07   _scpi
 003f2cd6   _scpiInit
 003f2cba   _scpiReset
@@ -760,7 +761,7 @@ ffffffff   ___text__
 003f3257   _sgUpdate
 003f062b   _shortenName
 00008a20   _sigGen
-003f0ee5   _smInit
+003f0f93   _smInit
 003f224e   _sourCurrCoef
 003f2223   _sourCurrLev
 003f2209   _sourCurrLim
@@ -777,8 +778,8 @@ ffffffff   ___text__
 003f207a   _sourVoltProt
 003f205a   _sourVoltRang
 003f202e   _sourVoltSlew
-003f10f0   _spiInit
-003f10ef   _spiTx
+003f0ac8   _spiInit
+003f0aa3   _spiTx
 003f39ca   _statOperCond
 003f399c   _statOperEnab
 003f398b   _statOperEven
@@ -821,7 +822,7 @@ ffffffff   ___text__
 003f2000   _systCommScinSbit
 003f3933   _systErrNext
 003f3925   _systVers
-003f146f   _timersSetupReal
+003f1515   _timersSetupReal
 003f0328   _tmpCheckOtp
 003f030b   _tmpGetOtp
 003f02e1   _tmpInit
@@ -1004,72 +1005,72 @@ address    name
 003f0a18   _pushOQueue
 003f0a6c   _popOQueue
 003f0a9c   _dataOnOQueue
-003f0aa3   _exp
-003f0b41   __log
-003f0bce   _registerEmulationCommands
-003f0c3a   _ddd
-003f0c3c   _SRQ
-003f0c3e   _SFC
-003f0c40   _POL
-003f0c42   _LLO
-003f0c44   _HFC
-003f0c46   _GTL
-003f0c48   _GET
-003f0c4e   _DFC
-003f0c50   _DCL
-003f0c56   _sciTx
-003f0c75   _sciInit
-003f0cdd   FD$$MPY
-003f0d60   FS$$DIV
-003f0de3   _pow
-003f0e66   _resetParser
-003f0eba   _parseMsgUnit
-003f0ee5   _smInit
-003f0f60   FS$$SUB
-003f0f65   FS$$ADD
-003f1039   _PWM_2ch_UpCnt_CNF
-003f1095   FS$$MPY
-003f10ef   _spiTx
-003f10f0   _spiInit
-003f1136   _main
-003f1174   _DLOG_BuffInit
-003f117c   _c_int00
-003f11c0   _ldexp
-003f1201   _modf
-003f1232   _resetExecCtrl
-003f1237   _execCtrl
-003f128a   L$$DIV
-003f1299   L$$MOD
-003f12a7   UL$$DIV
-003f12ae   UL$$MOD
-003f12b4   FS$$TOL
-003f12dd   FS$$TOI
-003f1302   I$$DIV
-003f1313   I$$MOD
-003f1324   FD$$TOI
-003f1345   FD$$TOL
-003f1364   FS$$TOU
-003f1381   FS$$TOFD
-003f139d   _SGENTI_1_calc
-003f13b8   I$$TOFS
-003f13d2   L$$TOFS
-003f13ec   __args_main
-003f1405   C$$EXIT
-003f1405   _abort
-003f1407   _exit
-003f141e   FS$$CMP
-003f1435   _frexp
-003f1449   _pcUpdate
-003f145c   UL$$TOFS
-003f146f   _timersSetupReal
-003f147f   U$$TOFS
-003f148f   U$$DIV
-003f1494   U$$MOD
-003f149a   __register_unlock
-003f149e   __register_lock
-003f14a2   __nop
-003f14ab   _ISR_ILLEGAL
-003f14b0   FS$$NEG
+003f0aa3   _spiTx
+003f0ac8   _spiInit
+003f0b51   _exp
+003f0bef   __log
+003f0c7c   _registerEmulationCommands
+003f0ce8   _ddd
+003f0cea   _SRQ
+003f0cec   _SFC
+003f0cee   _POL
+003f0cf0   _LLO
+003f0cf2   _HFC
+003f0cf4   _GTL
+003f0cf6   _GET
+003f0cfc   _DFC
+003f0cfe   _DCL
+003f0d04   _sciTx
+003f0d23   _sciInit
+003f0d8b   FD$$MPY
+003f0e0e   FS$$DIV
+003f0e91   _pow
+003f0f14   _resetParser
+003f0f68   _parseMsgUnit
+003f0f93   _smInit
+003f100e   FS$$SUB
+003f1013   FS$$ADD
+003f10e7   _PWM_2ch_UpCnt_CNF
+003f1143   FS$$MPY
+003f119d   _main
+003f11db   _DLOG_BuffInit
+003f11e3   _c_int00
+003f1227   _ldexp
+003f12a7   _modf
+003f12d8   _resetExecCtrl
+003f12dd   _execCtrl
+003f1330   L$$DIV
+003f133f   L$$MOD
+003f134d   UL$$DIV
+003f1354   UL$$MOD
+003f135a   FS$$TOL
+003f1383   FS$$TOI
+003f13a8   I$$DIV
+003f13b9   I$$MOD
+003f13ca   FD$$TOI
+003f13eb   FD$$TOL
+003f140a   FS$$TOU
+003f1427   FS$$TOFD
+003f1443   _SGENTI_1_calc
+003f145e   I$$TOFS
+003f1478   L$$TOFS
+003f1492   __args_main
+003f14ab   C$$EXIT
+003f14ab   _abort
+003f14ad   _exit
+003f14c4   FS$$CMP
+003f14db   _frexp
+003f14ef   _pcUpdate
+003f1502   UL$$TOFS
+003f1515   _timersSetupReal
+003f1525   U$$TOFS
+003f1535   U$$DIV
+003f153a   U$$MOD
+003f1540   __register_unlock
+003f1544   __register_lock
+003f1548   __nop
+003f1551   _ISR_ILLEGAL
+003f1556   FS$$NEG
 003f2000   _systCommScinSbit
 003f2002   _systCommScinPar
 003f2004   _systCommScinEcho

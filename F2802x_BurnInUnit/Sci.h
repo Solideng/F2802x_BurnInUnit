@@ -36,7 +36,7 @@
  */
 extern Uint16 sciInit(Uint32 baud);
 
-/** Transmits whatever data is on the SCPI output queue. */
+/** Transmits whatever data is on the SCPI output queue if SCI has been selected as the external communications type. */
 extern void sciTx (void);
 
 #endif /* SCI_H_*/

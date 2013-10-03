@@ -59,14 +59,15 @@ enum spiLpbk {
 /** A type to allows specification of the SPI loop-back setting. */
 typedef enum spiLpbk spiLpbk;
 
-/** The possible SPI clock polarity settings. */
-enum spiCPol {
+/** The possible edge transition polarity settings. */
+enum transPol {
 	risingEdge = 0,
-	fallingEdge = 1
+	fallingEdge = 1,
+	risingAndFallingEdge = 3
 };
 
-/** A type to allow specification of the SPI clock polarity setting. */
-typedef enum spiCPol spiCPol;
+/** A type to allow specification of the edge transition polarity setting. */
+typedef enum transPol transPol;
 
 /** The possible SPI clock phase settings. */
 enum spiCPha {
@@ -88,17 +89,10 @@ typedef enum spiCPha spiCPha;
  * @warning This function will clear any values already in the SPI peripheral registers.
  * @warning This function MUST be called before any other public SPI function.
  */
-extern Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, spiCPol cPol, spiCPha cPha);
+extern Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCPha cPha);
 
+/** Transmits whatever data is on the SCPI output queue if SPI has been selected as the external communications type. */
 extern void spiTx (void);
-
-// Public SPI functions
-//extern void spiInit(void);			// Configures SPI peripheral for communications
-									//  Sends 11 left aligned bits at a time
-									// 	spiInit() MUST BE CALLED BEFORE ANY OTHER PUBLIC SPI FUNCTIONS
-									// 	spiInit() CLEARS ANY VALUES CURRENTLY IN SPI REGISTERS
-
-//extern void spiTx(Uint16 txData);	// Transmits 11 left aligned bit txData on SPI
 
 #ifdef __cplusplus
 }
