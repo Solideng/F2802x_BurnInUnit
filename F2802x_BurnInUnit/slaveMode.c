@@ -44,6 +44,21 @@ static interrupt void modeChangedIsr (void) {
 
 static Uint16 changeMode (slaveMode mode) {
 	Uint16 err = 0;
-//gitiignore /scpi
+
+	// TODO: Switch GPIO6 functionality and switch SCPI comms handling, ACV_EXTI functionality switched.
+	//    use scpiChangeIOTx() for comms handling changes
+	//    need to recode some SCPI to allow through-put to slave
+
+	// master
+	//  GPIO6 is input with pull-up, interrupt on falling edge
+	//  SCPI passes relevant commands to SPI
+	//  SCPI receives responses from slave on SPI which should be passed through to SCI/ENet
+
+	// slave
+	//  GPIO6 is output with pull-up, initial value high and is switched low when SCPI has response
+	//  - GPIO6 is switched low
+	//  - When SPI master is ready
+	//  - The SCPI response is Tx on SPI.
+	//  - GPIO6 is switched back high
 	return err;
 }

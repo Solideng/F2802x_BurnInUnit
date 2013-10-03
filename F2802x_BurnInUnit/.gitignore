@@ -9,3 +9,5 @@
 /PWM_2ch_UpCnt_Cnf.c
 /*.lib
 /scpi
+
+/scpi/*
