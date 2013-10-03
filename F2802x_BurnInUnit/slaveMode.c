@@ -44,6 +44,6 @@ static interrupt void modeChangedIsr (void) {
 
 static Uint16 changeMode (slaveMode mode) {
 	Uint16 err = 0;
-
+//gitiignore /scpi
 	return err;
 }
