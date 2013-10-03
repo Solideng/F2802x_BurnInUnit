@@ -132,7 +132,7 @@ static interrupt void spiTxFifoIsr (void) {
 }
 
 static interrupt void startSpiRxFifoIsr (void) {
-// test changes
+// test changes again
 }
 
 static interrupt void spiRxFifoIsr (void) {
