@@ -60,7 +60,7 @@ typedef enum iOrVCtl ctlType;
 struct channelParameters {
 	/* Nets. */
 	volatile int32 refNet;	/**< Net for CNTL reference (IQ24). */
-	volatile int32 iFdbkNet;/**< Current feednack net (IQ24). */
+	volatile int32 iFdbkNet;/**< Current feedback net (IQ24). */
 	volatile int32 vFdbkNet;/**< Voltage feedback net (IQ24). */
 	volatile int32 outNet;	/**< IIR filter control law output net (IQ24). */
 	/* Levels. */
