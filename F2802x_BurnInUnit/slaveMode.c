@@ -10,13 +10,14 @@
 static slaveMode status = master;
 
 static interrupt void modeChangedIsr (void);
-static Uint16 changeMode (slaveMode mode);
 
 Uint16 initSlaveModeDetect (void) {
 	Uint16 err = 0;
-											/* Get current state of GPIO7 and save as current status. */
+											/* Get current state of GPIO7 and save as current status
+											 * and set up SPI based on it.
+											 */
 	status = (slaveMode) GpioDataRegs.GPADAT.bit.GPIO7;
-	err = changeMode (status);				/* Setup things that depend on the status. */
+	//err = changeMode ((slaveMode) GpioDataRegs.GPADAT.bit.GPIO7);
 
 	EALLOW;
 	GpioIntRegs.GPIOXINT1SEL.all = 0x07;	/* Select GPIO7 as external interrupt 7. */
@@ -37,28 +38,40 @@ slaveMode getSlaveMode (void) {
 }
 
 static interrupt void modeChangedIsr (void) {
-	status = (slaveMode) GpioDataRegs.GPADAT.bit.GPIO7;
-	changeMode(status);
+	changeMode((slaveMode) GpioDataRegs.GPADAT.bit.GPIO7);
 	PieCtrlRegs.PIEACK.bit.ACK1 = 1;	/* Acknowledge interrupt in PIE. */
 }
 
-static Uint16 changeMode (slaveMode mode) {
+Uint16 changeMode (slaveMode mode) {
 	Uint16 err = 0;
 
 	// TODO: Switch GPIO6 functionality and switch SCPI comms handling, ACV_EXTI functionality switched.
 	//    use scpiChangeIOTx() for comms handling changes
 	//    need to recode some SCPI to allow through-put to slave
 
-	// master
-	//  GPIO6 is input with pull-up, interrupt on falling edge
-	//  SCPI passes relevant commands to SPI
-	//  SCPI receives responses from slave on SPI which should be passed through to SCI/ENet
+	if (mode == status)
+		return 0;		/* No change needed to mode. */
 
-	// slave
-	//  GPIO6 is output with pull-up, initial value high and is switched low when SCPI has response
-	//  - GPIO6 is switched low
-	//  - When SPI master is ready
-	//  - The SCPI response is Tx on SPI.
-	//  - GPIO6 is switched back high
+	if (mode == master) {
+						/* Re-configure the SPI. */
+		spiInit(master, SPI_DFLT_BAUD, disabled, SPI_DFLT_CPOL, SPI_DFLT_CPHA);
+						/* Re-configure SCPI I/O. */
+		// TODO: ...
+		//  SCPI passes relevant commands to SPI
+		//  SCPI receives responses from slave on SPI which should be passed through to SCI/ENet
+	} else {
+						/* Re-configure the SPI. */
+		spiInit(slave, SPI_DFLT_BAUD, disabled, SPI_DFLT_CPOL, SPI_DFLT_CPHA);
+						/* Re-configure SCPI I/O. */
+		// slave
+		//  GPIO6 is output with pull-up, initial value high and is switched low when SCPI has response
+		//  - GPIO6 is switched low
+		//  - When SPI master is ready
+		//  - The SCPI response is Tx on SPI.
+		//  - GPIO6 is switched back high
+
+	}
+	status = mode;	/* Record mode change. */
+
 	return err;
 }

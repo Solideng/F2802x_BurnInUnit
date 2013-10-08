@@ -44,12 +44,12 @@
 #define VAC_R2 		4.3		/**< Scaling voltage divider R2 resistor value for VAC ADC. */
 
 #define NUM_ICTRL_CHNLS	5	/**< The number of current, or 2-pole 2-zero, IIR filter control law macros used. */
-#define NUM_VCTRL_CHNLS 2	/**< The number of voltage, or 3-pole 3-zero, IIR filter control law macros used. */
-#define NUM_CHNLS 	NUM_ICTRL_CHNLS + NUM_VCTRL_CHNLS	/**< Total number of IIR filter control law macros used (doesn't include VMID semi-channel). */
+#define NUM_VCTRL_CHNLS 1	/**< The number of voltage, or 3-pole 3-zero, IIR filter control law macros used. */
+#define NUM_CHNLS 		6	/**< Total number of IIR filter control law macros used (doesn't include VMID semi-channel). */
 
 #define SQRT_2		1.41429	/**< Sqrt(2) constant used for RMS calculations. */
 #define RECP_SQRT_2	0.70711	/**< 1/sqrt(2) constant used for RMS calculations. */
-#define VDDA 3300l	/**< System VMAXREF (millivolts). */
+#define VDDA 		3300l	/**< System VMAXREF (millivolts). */
 
 #define	uSec100		6000	/**< 100us - System define. */
 

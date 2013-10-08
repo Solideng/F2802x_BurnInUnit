@@ -10,10 +10,10 @@
 Uint16	stopAll = 0;	// TODO May be moved to SCPI device specific regs
 Uint16	enableAll = 0;
 
-#ifndef DUAL_CNTL_AC	// TODO WHY IS IT +2?
-	channelParameters channel[NUM_CHNLS + 1];	/* +1 is for VMid parameters which don't have a channel */
+#ifndef DUAL_CNTL_AC
+//	channelParameters channel[NUM_CHNLS + 1];	/* +1 is for VMid parameters which don't have a channel */
 #else
-	channelParameters channel[NUM_CHNLS + 2];	/* +2 is for VMid and AC 2nd stage parameters which don't have a channel */
+	channelParameters channel[NUM_CHNLS + 3];	/* +3 is for VMid, Xfmr and AC 2nd stage parameters which don't have a channel */
 #endif
 
 #if (INCR_BUILD == 1)
@@ -89,32 +89,32 @@ void mnConnectNets (void) {
 	/* Connect macro terminals to nets
 	 *  - SHOULD BE RUN AFTER DPL_INIT()
 	 */
-	#if (INCR_BUILD == 1) 			/* Open loop */
-		ADCDRV_1ch_Rlt1 = &channel[LOAD_0].iFdbkNet;	/* Channel 1 connections */
-		ADCDRV_1ch_Rlt7 = &channel[LOAD_0].vFdbkNet;
-		PWMDRV_2ch_UpCnt_Duty1A = &duty[LOAD_0];
-
-		ADCDRV_1ch_Rlt2 = &channel[LOAD_1].iFdbkNet;	/* Channel 2 connections */
-		ADCDRV_1ch_Rlt8 = &channel[LOAD_1].vFdbkNet;
-		PWMDRV_2ch_UpCnt_Duty1B = &duty[LOAD_1];
-
-		ADCDRV_1ch_Rlt3 = &channel[LOAD_2].iFdbkNet;	/* Channel 3 connections */
-		ADCDRV_1ch_Rlt9 = &channel[LOAD_2].vFdbkNet;
-		PWMDRV_2ch_UpCnt_Duty2A = &duty[LOAD_2];
-
-		ADCDRV_1ch_Rlt4 = &channel[LOAD_3].iFdbkNet;	/* Channel 4 connections */
-		ADCDRV_1ch_Rlt10 = &channel[LOAD_3].vFdbkNet;
-		PWMDRV_2ch_UpCnt_Duty2B = &duty[LOAD_3];
-
-		ADCDRV_1ch_Rlt5 = &channel[DC_STAGE].iFdbkNet;	/* Interboost connections */
-		ADCDRV_1ch_Rlt11 = &channel[DC_STAGE].vFdbkNet;
-		ADCDRV_1ch_Rlt13 = &channel[V_MID_CH].vFdbkNet;
-		PWMDRV_2ch_UpCnt_Duty3A = &duty[DC_STAGE];
-
-		ADCDRV_1ch_Rlt6 = &channel[AC_STAGE].iFdbkNet;/* AC stage connections */
-		ADCDRV_1ch_Rlt12 = &channel[AC_STAGE].vFdbkNet;
-		PWMDRV_2ch_UpCnt_Duty3B = &duty[AC_STAGE];
-	#endif
+//	#if (INCR_BUILD == 1) 			/* Open loop */
+//		ADCDRV_1ch_Rlt1 = &channel[LOAD_0].iFdbkNet;	/* Channel 1 connections */
+//		ADCDRV_1ch_Rlt7 = &channel[LOAD_0].vFdbkNet;
+//		PWMDRV_2ch_UpCnt_Duty1A = &duty[LOAD_0];
+//
+//		ADCDRV_1ch_Rlt2 = &channel[LOAD_1].iFdbkNet;	/* Channel 2 connections */
+//		ADCDRV_1ch_Rlt8 = &channel[LOAD_1].vFdbkNet;
+//		PWMDRV_2ch_UpCnt_Duty1B = &duty[LOAD_1];
+//
+//		ADCDRV_1ch_Rlt3 = &channel[LOAD_2].iFdbkNet;	/* Channel 3 connections */
+//		ADCDRV_1ch_Rlt9 = &channel[LOAD_2].vFdbkNet;
+//		PWMDRV_2ch_UpCnt_Duty2A = &duty[LOAD_2];
+//
+//		ADCDRV_1ch_Rlt4 = &channel[LOAD_3].iFdbkNet;	/* Channel 4 connections */
+//		ADCDRV_1ch_Rlt10 = &channel[LOAD_3].vFdbkNet;
+//		PWMDRV_2ch_UpCnt_Duty2B = &duty[LOAD_3];
+//
+//		ADCDRV_1ch_Rlt5 = &channel[DC_STAGE].iFdbkNet;	/* Interboost connections */
+//		ADCDRV_1ch_Rlt11 = &channel[DC_STAGE].vFdbkNet;
+//		ADCDRV_1ch_Rlt13 = &channel[V_MID_CH].vFdbkNet;
+//		PWMDRV_2ch_UpCnt_Duty3A = &duty[DC_STAGE];
+//
+//		ADCDRV_1ch_Rlt6 = &channel[AC_STAGE].iFdbkNet;/* AC stage connections */
+//		ADCDRV_1ch_Rlt12 = &channel[AC_STAGE].vFdbkNet;
+//		PWMDRV_2ch_UpCnt_Duty3B = &duty[AC_STAGE];
+//	#endif
 
 	#if (INCR_BUILD == 2)		/* Closed loop */
 		/*============================ DC INPUTS ====================================*/
@@ -154,16 +154,6 @@ void mnConnectNets (void) {
 		CNTL_2P2Z_Out4 = &channel[LOAD_3].outNet;		/* CNTL out */
 		PWMDRV_2ch_UpCnt_Duty2B = &channel[LOAD_3].outNet;/* Channel PWM */
 
-		/*=========================== INTERBOOST ====================================*/
-		ADCDRV_1ch_Rlt5 = &channel[DC_STAGE].iFdbkNet;	/* DC Mid I Sns */
-		ADCDRV_1ch_Rlt11 = &channel[DC_STAGE].vFdbkNet;	/* DC HV V sns */
-		ADCDRV_1ch_Rlt13 = &channel[V_MID_CH].vFdbkNet;	/* DC Mid V sns */
-		CNTL_3P3Z_Ref1 = &channel[DC_STAGE].refNet;					/* CNTL reference */
-		CNTL_3P3Z_Fdbk1 = &channel[DC_STAGE].vFdbkNet;				/* CNTL feedback */
-		CNTL_3P3Z_Coef1 = &coefs3[DC_STAGE - NUM_ICTRL_CHNLS].b3;	/* CNTL coefficients */
-		CNTL_3P3Z_Out1 = &channel[DC_STAGE].outNet;					/* CNTL out */
-		PWMDRV_2ch_UpCnt_Duty3A = &channel[DC_STAGE].outNet;/* Intbst PWM */
-
 		/*============================ AC STAGE =====================================*/
 		#ifndef DUAL_CNTL_AC
 			ADCDRV_1ch_Rlt6 = &channel[AC_STAGE].iFdbkNet;	/* AC I Sns */
@@ -186,10 +176,10 @@ void mnConnectNets (void) {
 			SGENTI_1ch_VOut = &channel[AC_STAGE].refNet;	/* Rectified sine gen out */
 			SGENTI_1ch_Sign = &sgenSignNet;					/* Sine sign */
 
-			CNTL_3P3Z_Ref2 = &channel[AC_STAGE].refNet;		/* CNTL reference */
-			CNTL_3P3Z_Fdbk2 = &channel[AC_STAGE].vFdbkNet;	/* CNTL feedback */
-			CNTL_3P3Z_Coef2 = &coefs3[AC_STAGE - NUM_ICTRL_CHNLS].b3;	/* CNTL coefficients */
-			CNTL_3P3Z_Out2 = &channel[AC_I_CNTL].refNet;	/* CNTL out */
+			CNTL_3P3Z_Ref1 = &channel[AC_STAGE].refNet;		/* CNTL reference */
+			CNTL_3P3Z_Fdbk1 = &channel[AC_STAGE].vFdbkNet;	/* CNTL feedback */
+			CNTL_3P3Z_Coef1 = &coefs3[AC_STAGE - NUM_ICTRL_CHNLS].b3;	/* CNTL coefficients */
+			CNTL_3P3Z_Out1 = &channel[AC_I_CNTL].refNet;	/* CNTL out */
 
 			CNTL_2P2Z_Ref5 = &channel[AC_I_CNTL].refNet;	/* CNTL reference */
 			CNTL_2P2Z_Fdbk5 = &channel[AC_I_CNTL].iFdbkNet;	/* CNTL feedback */
@@ -199,5 +189,15 @@ void mnConnectNets (void) {
 			PWMDRV_2ch_UpCnt_Duty3B = &channel[AC_I_CNTL].outNet;/* AC F B PWM */
 			PHASE_CTRL_In = &sgenSignNet;					/* AC F B Phase */
 		#endif
+
+		/*=========================== INTERBOOST ====================================*/
+		ADCDRV_1ch_Rlt5 = &channel[DC_STAGE].iFdbkNet;	/* DC Mid I Sns */
+		ADCDRV_1ch_Rlt11 = &channel[DC_STAGE].vFdbkNet;	/* DC HV V sns */
+		ADCDRV_1ch_Rlt13 = &channel[V_MID_CH].vFdbkNet;	/* DC Mid V sns */
+//		CNTL_3P3Z_Ref1 = &channel[DC_STAGE].refNet;					/* CNTL reference */
+//		CNTL_3P3Z_Fdbk1 = &channel[DC_STAGE].vFdbkNet;				/* CNTL feedback */
+//		CNTL_3P3Z_Coef1 = &coefs3[DC_STAGE - NUM_ICTRL_CHNLS].b3;	/* CNTL coefficients */
+//		CNTL_3P3Z_Out1 = &channel[DC_STAGE].outNet;					/* CNTL out */
+		PWMDRV_2ch_UpCnt_Duty3A = &channel[DC_STAGE].outNet;/* Intbst PWM */
 	#endif
 }

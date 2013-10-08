@@ -7,36 +7,19 @@
 
 #include "Common.h"
 
-
-// Example code for setting up external interrupt ISR-------------------
-
 // xint on gpio7 to detect if slave or master mode
 // master if HIGH, slave if LOW
 // mode may be selected before or after startup/reset
 //  maybe have the int falling edge activated,
 //  but also run a check on startup for preset mode level
 //  could also have the ISR change the int settings to rising edge
-//  to detect if slave mode is removed (changed back to master)
-
-//static void tmpAlrtInit(void) {
-//	// Setup temperature external interrupt on GPIO-06 from LM73 ALERT
-//	// pin to indicate if temperature is above the user set limit
-//	EALLOW;
-//	GpioCtrlRegs.GPAPUD.bit.GPIO7 = 1;		// Pull up enabled
-//	GpioIntRegs.GPIOXINT1SEL.all = 0x07;	// Select GPIO7 as external interrupt 1
-//	PieVectTable.XINT1 = &tmpAlrt_isr;		// Map int to isr
-//	EDIS;
-//	XIntruptRegs.XINT1CR.bit.POLARITY = 0;	// Cfg XINT1 as falling edge activated
-//	XIntruptRegs.XINT1CR.bit.ENABLE = 1;	// Enable XINT1
-//	PieCtrlRegs.PIECTRL.bit.ENPIE = 1;		// Enable the PIE block
-//	PieCtrlRegs.PIEIER1.bit.INTx4 = 1;		// Enable in PIE Group 1 - INT5
-//	IER |= M_INT1;							// Enable CPU INT1
-//}
-// End of example code--------------------------------------------------
+//  to detect if slave mode is removed (changed back to master).
 
 static interrupt void spiTxFifoIsr (void);
 static interrupt void spiRxFifoIsr (void);
 static interrupt void startSpiRxFifoIsr (void);
+static interrupt void doNothingIsr (void);
+static void disableXInt2 (void);
 
 // TODO change sciEchoEnable to be a SCPI register bit
 static Uint16 spiEchoEnable = 0;		/* Sets the SPI to echo any input instead of doing anything else with it. */
@@ -96,7 +79,6 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 									/* Map interrupts to ISR functions. */
 		PieVectTable.XINT2 = &startSpiRxFifoIsr;
 		EDIS;
-
 									/* Set external interrupt 2 as falling edge activated. */
 		XIntruptRegs.XINT2CR.bit.POLARITY = (Uint16) fallingEdge;
 									/* Enable external interrupt 2. */
@@ -104,18 +86,15 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 									/* PIE Group 1, INT5. */
 		PieCtrlRegs.PIEIER1.bit.INTx5 = 1;
 		IER |= M_INT1;				/* Enable INT 1 group in IER. */
-
 	} else {
+		disableXInt2();				/* Disable external interrupt 2. */
 		EALLOW;
 									/* Set GPIO6 as output. */
 		GpioCtrlRegs.GPADIR.bit.GPIO6 = 1;
 									/* Set GPIO6 output HIGH initially. */
 		GpioDataRegs.GPASET.bit.GPIO6 = 1;
 		EDIS;
-
 	}
-
-
 	IER |= M_INT6;						/* Enable INT 6 group in IER. */
 
 	/* Relinquish SPI and FIFOs from reset. */
@@ -124,6 +103,31 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 	SpiaRegs.SPIFFTX.bit.SPIRST = 1;
 	SpiaRegs.SPICCR.bit.SPISWRESET = 1;
 	return 0;
+}
+
+static void disableXInt2(void) {
+	/* Disable previously setup or enabled interrupt on external interrupt 2. */
+	/* DISCARDS ANY PENDING INTERRUPTS */
+	DINT;									/* Disable global interrupts (INTM = 1). */
+	EALLOW;									/* Set EALLOW. */
+	PieVectTable.XINT2 = &doNothingIsr;		/* Map interrupt to empty ISR. */
+	XIntruptRegs.XINT2CR.bit.ENABLE = 0;	/* Disable external interrupt 2. */
+	EINT;									/* Enable global interrupts (INTM = 0). */
+	DELAY_US(2);							/* Allow time for any pending interrupt to be serviced
+											 *  by the doNothingIsr.
+											 */
+	DINT;									/* Disable global interrupts (INTM = 1). */
+	PieVectTable.XINT2 = &startSpiRxFifoIsr;/* Map interrupt back to correct ISR. */
+	EDIS;									/* Clear EALLOW. */
+	PieCtrlRegs.PIEIER1.bit.INTx5 = 0;		/* Disable in PIE Group 1, INT5. */
+	PieCtrlRegs.PIEIFR1.bit.INTx5 = 0;		/* Ensure interrupt flag is clear. */
+	PieCtrlRegs.PIEACK.bit.ACK1 = 1;		/* Clear the PIE ACK for this group. */
+	EINT;									/* Enable global interrupts (INTM = 0). */
+}
+
+static interrupt void doNothingIsr (void) {
+	/* Used to sink spurious interrupts when disabling an interrupt. */
+	return;
 }
 
 void spiTx(void) {
@@ -153,7 +157,7 @@ static interrupt void spiTxFifoIsr (void) {
 static interrupt void startSpiRxFifoIsr (void) {
 
 	// TODO: .... check e2e.ti for how to start SPI 'read'
-
+	// TALK bit?
 	PieCtrlRegs.PIEACK.bit.ACK1 = 1;	/* Acknowledge interrupt in PIE. */
 }
 

@@ -52,17 +52,17 @@ extern volatile int32 *CNTL_2P2Z_Ref3;	/**< Channel 2 IIR filter control law ref
 extern volatile int32 *CNTL_2P2Z_Ref4;	/**< Channel 3 IIR filter control law reference terminal pointer. */
 extern volatile int32 *CNTL_2P2Z_Ref5;	/**< Channel 4 IIR filter control law reference terminal pointer. */
 
-extern volatile int32 *CNTL_3P3Z_Coef1;	/**< Interboost IIR filter control law coefficient terminal pointer. */
-extern volatile int32 *CNTL_3P3Z_Coef2;	/**< AC stage IIR filter control law coefficient terminal pointer. */
+//extern volatile int32 *CNTL_3P3Z_Coef1;	/**< Interboost IIR filter control law coefficient terminal pointer. */
+extern volatile int32 *CNTL_3P3Z_Coef1;	/**< AC stage IIR filter control law coefficient terminal pointer. */
 
-extern volatile int32 *CNTL_3P3Z_Fdbk1;	/**< Interboost IIR filter control law feedback terminal pointer. */
-extern volatile int32 *CNTL_3P3Z_Fdbk2;	/**< AC stage IIR filter control law feedback terminal pointer. */
+//extern volatile int32 *CNTL_3P3Z_Fdbk1;	/**< Interboost IIR filter control law feedback terminal pointer. */
+extern volatile int32 *CNTL_3P3Z_Fdbk1;	/**< AC stage IIR filter control law feedback terminal pointer. */
 
-extern volatile int32 *CNTL_3P3Z_Out1;	/**< Interboost IIR filter control law output terminal pointer. */
-extern volatile int32 *CNTL_3P3Z_Out2;	/**< AC stage IIR filter control law output terminal pointer. */
+//extern volatile int32 *CNTL_3P3Z_Out1;	/**< Interboost IIR filter control law output terminal pointer. */
+extern volatile int32 *CNTL_3P3Z_Out1;	/**< AC stage IIR filter control law output terminal pointer. */
 
-extern volatile int32 *CNTL_3P3Z_Ref1;	/**< Interboost IIR filter control law reference terminal pointer. */
-extern volatile int32 *CNTL_3P3Z_Ref2;	/**< AC stage IIR filter control law reference terminal pointer. */
+//extern volatile int32 *CNTL_3P3Z_Ref1;	/**< Interboost IIR filter control law reference terminal pointer. */
+extern volatile int32 *CNTL_3P3Z_Ref1;	/**< AC stage IIR filter control law reference terminal pointer. */
 
 extern struct CNTL_2P2Z_CoefStruct coefs2 [NUM_ICTRL_CHNLS];	/**< Array of structures that hold the 2-pole 2-zero IIR filter control law coefficient currently in use. */
 extern struct CNTL_3P3Z_CoefStruct coefs3 [NUM_VCTRL_CHNLS];	/**< Array of structures that hold the 3-pole 3-zero IIR filter control law coefficient currently in use. */

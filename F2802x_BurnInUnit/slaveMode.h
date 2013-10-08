@@ -19,4 +19,6 @@ extern Uint16 initSlaveModeDetect (void);
 
 extern slaveMode getSlaveMode (void);
 
+extern Uint16 changeMode (slaveMode mode);
+
 #endif /* SLAVEMODE_H_ */

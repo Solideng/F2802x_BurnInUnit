@@ -79,6 +79,9 @@ void main(void)
 		InitFlash();		/* Call the flash wrapper init function */
 	#endif
 
+	initSlaveModeDetect();
+	changeMode(getSlaveMode);
+
 	sciInit(9600);			/* Initialise SCI with 9600 Baud setting. */
 	scpiInit(&registerDeviceCommands, &sciTx);		/* Initialise SCPI. */
 
