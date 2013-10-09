@@ -45,6 +45,8 @@ Uint16 scSetLoadSlewTarget (loadStage load, float32 trgt) {
 	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the target maximum with the current scaling */
 	if (trgt > max)							/* Check target is valid */
 		return VALUE_OOB;
+
+	// TODO remove GAIN from calc and ensure is present in other uses...
 											/* Apply gain, normalise and save as Q value */
 	loadSettings[load].slewTarget =  _IQ24(trgt * gain * (1.0 / max));
 	return 0;
@@ -82,26 +84,26 @@ Uint16 scSetLoadState (loadStage load, Uint16 stt) {
 	return 0;
 }
 
-Uint16 scSetLoadTargetAll (float32 trgt) {
+Uint16 scSetLoadSlewTargetAll (float32 trgt) {
 	/* Set all enabled channels to the same target value given by scTarget
 	 * scTarget expected in amps or volts
 	 */
 	Uint16 i = 0, err = 0;
 	for (i = 0; i < numberOfLoads; i++) {
-		err = scSetLoadSlewTarget(i, trgt);
+		err = scSetLoadSlewTarget((loadStage)i, trgt);
 		if (err != 0)
 			return err;
 	}
 	return 0;
 }
 
-Uint16 scSetLoadStepAll (float32 stp) {
+Uint16 scSetLoadSlewStepAll (float32 stp) {
 	/* Set all channels to the same step value given by slewStep
 	 * scStep is expected in amps or volts
 	 */
 	Uint16 i = 0, err = 0;
 	for (i = 0; i < numberOfLoads; i++) {
-		err = scSetLoadSlewStep(i, stp);
+		err = scSetLoadSlewStep((loadStage)i, stp);
 		if (err != 0)
 			return err;
 	}
@@ -118,30 +120,30 @@ Uint16 scSetLoadStateAll (Uint16 stt) {
 	return 0;
 }
 
-Uint16 scGetTarget (Uint16 chnl, float32 * trgtDest) {
+Uint16 scGetLoadSlewTarget (loadStage load, float32 * trgtDest) {
 	float32 gain = 1.0, max = 0.0;
 
-	if ((chnl > (NUM_CHNLS - 1)) && (chnl != AC_I_CNTL))
+	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid. -1 ad the last is sin slew and handled by sgGetGainTarget() */
 
-	if (channel[chnl].ctlMode == iCtrl) { 	/* Select which scaling to use, V or I */
-		max = _IQ14toF((int32)channel[chnl].iScale);
-	} else {
-		max = _IQ14toF((int32)channel[chnl].vScale);
-	}
+	max = _IQ14toF((int32) loadSettings[load].iScale);
+		//max = _IQ14toF((int32)channel[chnl].vScale);
+
+	// TODO remove GAIN from calc and ensure is present in other uses...
 											/* For current controlled channels this is 1 by default anyway (and should never be changed) */
-	gain = _IQ14toF((int32)channel[chnl].vGainLmt);
+	//gain = _IQ14toF((int32) loadSettings[load].vGainLmt);
 
 	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the target maximum with the current scaling */
+
 											/* Convert from IQ24, de-gain and de-normalise */
-	*trgtDest = (_IQ24toF(channel[chnl].target)) * (1.0 / gain) * max;
+	*trgtDest = (_IQ24toF(loadSettings[load].slewTarget)) * (1.0 / gain) * max;
 	return 0;
 }
 
-Uint16 scGetStep (Uint16 chnl, float32 * stpDest) {
+Uint16 scGetLoadSlewStep (loadStage load, float32 * stpDest) {
 	float32 max = 0.0;
 
-	if ((chnl > NUM_CHNLS) && (chnl != AC_I_CNTL))
+	if (chnl > numberOfLoads)
 		return CHANNEL_OOB;						/* Check channel is valid */
 
 	if (channel[chnl].ctlMode == iCtrl) { 	/* Select which scaling to use, V or I */
@@ -156,7 +158,7 @@ Uint16 scGetStep (Uint16 chnl, float32 * stpDest) {
 	return 0;
 }
 
-Uint16 scGetState (Uint16 chnl, Uint16 * sttDest) {
+Uint16 scGetLoadState (loadStage load, Uint16 * sttDest) {
 	if (chnl >= NUM_CHNLS)		/* Check channel is valid */
 		return CHANNEL_OOB;
 	*sttDest = (channel[chnl].chEnable > 0);

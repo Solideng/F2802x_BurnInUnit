@@ -37,13 +37,13 @@ extern Uint16 scSetLoadState (loadStage load, Uint16 stt);
  * @param[in]	trgt	Specifies the value of the slew target to be applied (amps or volts).
  * @return				Error status.
  */
-extern Uint16 scSetLoadTargetAll (float32 trgt);
+extern Uint16 scSetLoadSlewTargetAll (float32 trgt);
 
 /** Sets all channels' slew step size.
  * @param[in]	stp		Specifies the value of the slew step size to be applied (amps or volts).
  * @return				Error status.
  */
-extern Uint16 scSetLoadStepAll (float32 stp);
+extern Uint16 scSetLoadSlewStepAll (float32 stp);
 
 /** Sets all channels' reference net enable state.
  * @param[in]	stt		Specifies the refernce net state to be applied (0:OFF | non-zero:ON).
@@ -56,21 +56,21 @@ extern Uint16 scSetLoadStateAll (Uint16 stt);
  * @param[out]	trgtDest	Address of the memory location at which to place the query result (amps or volts).
  * @return					Error status.
  */
-extern Uint16 scGetTarget (Uint16 chnl, float32 * trgtDest);
+extern Uint16 scGetLoadSlewTarget (loadStage load, float32 * trgtDest);
 
 /** Queries the current slew step size of the specified channel.
  * @param[in]	chnl	Specifies the channel the setting is to be read from.
  * @param[out]	stpDest	Address of the memory location at which to place the query result (amps or volts).
  * @return				Error status.
  */
-extern Uint16 scGetStep (Uint16 chnl, float32 * stpDest);
+extern Uint16 scGetLoadSlewStep (loadStage load, float32 * stpDest);
 
 /** Queries the current reference net enable state for the specified channel.
  * @param[in]	chnl	Specifies the channel the setting is to be read from.
  * @param[out]	sttDest	Address of the memory location at which to place the query result (0:OFF | non-zero:ON).
  * @return				Error status.
  */
-extern Uint16 scGetState (Uint16 chnl, Uint16 * sttDest);
+extern Uint16 scGetLoadState (loadStage load, Uint16 * sttDest);
 
 #endif /* SLEWCONTROL_H_ */
 
