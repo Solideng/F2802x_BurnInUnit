@@ -54,29 +54,29 @@ void sgInit (void) {
 										 *  	= (50Hz / 1kHz) x 32768 = 1638
 										 * Uint16 Q15
 										 */
-	channel[SIN_CHANNEL].chEnable = 0; /* Ensure sine channel output is 0 until enabled */
+	acSettings.enable = 0; 				/* Ensure sine channel output is 0 until enabled */
 }
 
 void sgGainUpdate (void) {
 	int32 targetPoint = 0, error = 0, ref = 0;
 
-	if (!channel[AC_STAGE].chEnable) {
-		targetPoint = 0;							/* Set target to 0 if channel disabled */
-	} else {										/*  else use the currently set target */
-		targetPoint = channel[AC_STAGE].target;
+	if (!acSettings.enable) {
+		targetPoint = 0;					/* Set target to 0 if channel disabled */
+	} else {								/*  else use the currently set target */
+		targetPoint = acSettings.gainTarget;
 	}
 
 	ref = _IQ15toIQ(sigGen.gain);
 
-	error = (ref - targetPoint);					/* Calculate error = ref - targetPoint */
-	if (error > channel[AC_STAGE].slewRate)			/* If error greater than a positive step, reduce the ref by one step */
-		ref = ref - channel[AC_STAGE].slewRate;
-	else if (error < (-channel[AC_STAGE].slewRate))	/* Else if error greater than a negative step, increase the ref by one step */
-		ref = ref + channel[AC_STAGE].slewRate;
-	else											/* Else error is less than or equal to step so set ref = targetPoint */
+	error = (ref - targetPoint);			/* Calculate error = ref - targetPoint */
+	if (error > acSettings.gainRate)		/* If error greater than a positive step, reduce the ref by one step */
+		ref = ref - acSettings.gainRate;
+	else if (error < (-acSettings.gainRate))/* Else if error greater than a negative step, increase the ref by one step */
+		ref = ref + acSettings.gainRate;
+	else									/* Else error is less than or equal to step so set ref = targetPoint */
 		ref = targetPoint;
 
-	sigGen.gain = (Uint16)(ref >> 9);				/* Convert to unsigned Q15 */
+	sigGen.gain = (Uint16)(ref >> 9);		/* Convert to unsigned Q15 */
 }
 
 void sgUpdate (void) {
@@ -85,7 +85,7 @@ void sgUpdate (void) {
 		static Uint16 i = 0;
 		static Uint16 j = 0;
 	#endif
-	if(!channel[SIN_CHANNEL].chEnable) {			/* If channel disabled output all zeroes */
+	if(!acSettings.enable) {			/* If channel disabled output all zeroes */
 		*SGENTI_1ch_Sign = 0;
 		*SGENTI_1ch_VOut = 0;
 		return;
@@ -122,7 +122,7 @@ void sgUpdate (void) {
 }
 
 Uint16 sgSetState (Uint16 stt) {
-	channel[SIN_CHANNEL].chEnable = (stt > 0);
+	acSettings.enable = (stt > 0);
 	return 0;
 }
 
@@ -161,11 +161,11 @@ Uint16 sgSetGainTarget (float32 gnt) {
 	 * 0.0 - 1.0
 	 */
 	float32 uprLmt = 0.0;
-	uprLmt = _IQ14toF((int32)channel[AC_STAGE].vGainLmt);
-	if ((gnt <= 0) || (gnt > uprLmt))			/* Check gain is between 0-1 */
+	uprLmt = _IQ14toF((int32)acSettings.vGainLmt);
+	if ((gnt <= 0) || (gnt > uprLmt))	/* Check gain is between 0-1 */
 		return VALUE_OOB;
-	gnt = gnt * 16777216;						/* Convert to Q24 and round */
-	channel[AC_STAGE].target = (int32)gnt;		/* Cast and set */
+	gnt = gnt * 16777216;				/* Convert to Q24 and round */
+	acSettings.gainTarget = (int32)gnt;	/* Cast and set */
 	return 0;
 }
 
@@ -243,7 +243,7 @@ Uint16 sgSetFreq (Uint16 frq) {
 //}
 
 Uint16 sgGetState (Uint16 *sttDest) {
-	*sttDest = (channel[SIN_CHANNEL].chEnable > 0);
+	*sttDest = (acSettings.enable > 0);
 	return 0;
 }
 
@@ -258,7 +258,7 @@ Uint16 sgGetOffset (float32 *oftDest) {
 }
 
 Uint16 sgGetGainTarget (float32 *gntDest) {
-	*gntDest = _IQ24toF(channel[AC_STAGE].target);
+	*gntDest = _IQ24toF(acSettings.gainTarget);
 	return 0;
 }
 

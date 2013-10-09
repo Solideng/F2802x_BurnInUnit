@@ -80,7 +80,7 @@ void main(void)
 	#endif
 
 	initSlaveModeDetect();
-	changeMode(getSlaveMode);
+	changeMode(getSlaveMode());
 
 	sciInit(9600);			/* Initialise SCI with 9600 Baud setting. */
 	scpiInit(&registerDeviceCommands, &sciTx);		/* Initialise SCPI. */
@@ -91,7 +91,7 @@ void main(void)
 	pwmMacroConfigure();	/* Configure Macro PWMs */
 
 	// TODO VVV !!!! NEEDS TO BE AFTER pwmMacroConfigure() FOR SOME REASON??!?!?!? (ELSE DPL_ISR WILL NOT WORK)
-	mnSetupChannels();		/* Setup control loop coefficient values */
+	//mnSetupChannels();		/* Setup control loop coefficient values */
 
 	pwmSocConfigure();		/* Configure PWM as SOC trigger */
 	adcCompConfigure();		/* Configure comparators */
@@ -101,8 +101,9 @@ void main(void)
 	sgInit();				/* Initialise sine ref generator */
 
 	DPL_Init();				/* DPL ASM ISR init */
+	mnSetupNets();
 
-	mnConnectNets();		/* Connect Macros to nets */
+	//mnConnectNets();		/* Connect Macros to nets */
 							/* Enable Peripheral, global Ints and higher priority real-time debug events: */
 	pwmDPLTrigInit();		/* Init DPL_ISR trigger */
 

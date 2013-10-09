@@ -20,6 +20,7 @@ Cntl.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include
 Cntl.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_SysCtrl.h
 Cntl.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_XIntrupt.h
 Cntl.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_common/include/DSP2802x_EPWM_defines.h
+Cntl.obj: ../slaveMode.h
 Cntl.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_common/include/IQMathLib.h
 Cntl.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/limits.h
 Cntl.obj: ../SQMath.h
@@ -30,7 +31,6 @@ Cntl.obj: ../I2c.h
 Cntl.obj: ../Sci.h
 Cntl.obj: ../Spi.h
 Cntl.obj: ../MacroNets.h
-Cntl.obj: ../slaveMode.h
 Cntl.obj: ../Timers.h
 Cntl.obj: ../Adc.h
 Cntl.obj: ../Pwm.h
@@ -73,6 +73,7 @@ C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_
 C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_SysCtrl.h: 
 C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_XIntrupt.h: 
 C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_common/include/DSP2802x_EPWM_defines.h: 
+../slaveMode.h: 
 C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_common/include/IQMathLib.h: 
 C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/limits.h: 
 ../SQMath.h: 
@@ -83,7 +84,6 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Sci.h: 
 ../Spi.h: 
 ../MacroNets.h: 
-../slaveMode.h: 
 ../Timers.h: 
 ../Adc.h: 
 ../Pwm.h: 

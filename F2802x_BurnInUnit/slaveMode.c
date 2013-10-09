@@ -54,14 +54,14 @@ Uint16 changeMode (slaveMode mode) {
 
 	if (mode == master) {
 						/* Re-configure the SPI. */
-		spiInit(master, SPI_DFLT_BAUD, disabled, SPI_DFLT_CPOL, SPI_DFLT_CPHA);
+		spiInit(spiMaster, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
 						/* Re-configure SCPI I/O. */
 		// TODO: ...
 		//  SCPI passes relevant commands to SPI
 		//  SCPI receives responses from slave on SPI which should be passed through to SCI/ENet
 	} else {
 						/* Re-configure the SPI. */
-		spiInit(slave, SPI_DFLT_BAUD, disabled, SPI_DFLT_CPOL, SPI_DFLT_CPHA);
+		spiInit(spiSlave, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
 						/* Re-configure SCPI I/O. */
 		// slave
 		//  GPIO6 is output with pull-up, initial value high and is switched low when SCPI has response

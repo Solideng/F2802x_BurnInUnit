@@ -14,6 +14,7 @@
 #include "Settings.h"
 #include "PeripheralHeaderIncludes.h"
 #include "DSP2802x_EPWM_defines.h"
+#include "slaveMode.h"
 /* Additional function libraries */
 #include "IQMathLib.h"
 #include "SQMath.h"
@@ -29,7 +30,6 @@
 /* Macro connection */
 #include "MacroNets.h"
 /* Macro terminals & function control */
-#include "slaveMode.h"
 #include "Timers.h"
 #include "Adc.h"
 #include "Pwm.h"

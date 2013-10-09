@@ -10,7 +10,7 @@
 volatile int32 *PHASE_CTRL_In = 0;
 
 void pcUpdate (void) {
-	if ((*PHASE_CTRL_In != 0) && (channel[AC_STAGE].chEnable)) {
+	if ((*PHASE_CTRL_In != 0) && (acSettings.enable)) {
 		GpioDataRegs.GPASET.bit.GPIO12 = 1;	/* Phase before rectification was negative */
 		return;
 	}
