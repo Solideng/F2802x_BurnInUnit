@@ -28,7 +28,7 @@
 
 //#define LOG_SIN		/**< Logs the sine wave VOut and SignOut data into data-log buffers for debug graphing. */
 
-//#define VTIMERS		/**< Enables virtul timer code for use */
+//#define VTIMERS		/**< Enables virtual timer code for use */
 
 #define DUAL_CNTL_AC	/**< Uses the dual CNTL AC control instead of single VCtrl. Cannot be used if PID is still in use. */
 
@@ -46,6 +46,10 @@
 #define NUM_ICTRL_CHNLS	5	/**< The number of current, or 2-pole 2-zero, IIR filter control law macros used. */
 #define NUM_VCTRL_CHNLS 1	/**< The number of voltage, or 3-pole 3-zero, IIR filter control law macros used. */
 #define NUM_CHNLS 		6	/**< Total number of IIR filter control law macros used (doesn't include VMID semi-channel). */
+
+#define LOAD_OCPLVL_MAX 35	/**< The maximum allowable value, in Amps, for the load OCP Levels. */
+#define LOAD_OVPLVL_FIX 60	/**< The fixed value, in Volts, for the load OVP levels. */
+#define LOAD_OPPLVL_FIX 200	/**< The fixed value, in Watts, for the load OPP levels. */
 
 #define SQRT_2		1.41429	/**< Sqrt(2) constant used for RMS calculations. */
 #define RECP_SQRT_2	0.70711	/**< 1/sqrt(2) constant used for RMS calculations. */

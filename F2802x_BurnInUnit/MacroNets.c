@@ -18,7 +18,8 @@ loadStageNets 		loadNets[numberOfLoads];
 loadStageSettings 	loadSettings[numberOfLoads];
 acStageNets 		acNets;
 acStageSettings 	acSettings;
-xfmrStage 			xfmr;
+xfmrStageNets		xfmrNets;
+xfmrStageSettings	xfmrSettings;
 
 //#ifndef DUAL_CNTL_AC
 //	channelParameters channel[NUM_CHNLS + 1];	/* +1 is for VMid parameters which don't have a channel */
@@ -92,8 +93,8 @@ void mnStopAll (void) {
 	acSettings.enable = FALSE;
 	acNets.vRefNet = 0;
 	acNets.vFiltOutNet = 0;
-	xfmr.enable = FALSE;
-	xfmr.pwmDutyNet = 0;
+	xfmrSettings.enable = FALSE;
+	xfmrNets.pwmDutyNet = 0;
 	stopAll = 0;
 }
 
@@ -104,7 +105,7 @@ void mnRunAll (void) {
 		loadSettings[i].enable = TRUE;
 	}
 	acSettings.enable = TRUE;
-	xfmr.enable = TRUE;
+	xfmrSettings.enable = TRUE;
 	enableAll = 0;
 }
 
@@ -113,25 +114,24 @@ void mnInitSettings (void) {
 	/* FOR SOME REASON THIS *MUST* BE CALLED *AFTER* pwmMacroConfig(), NOT BEFORE */
 	Uint16 i = 0;
 	for (i = 0; i < numberOfLoads; i++) {
-		loadSettings[i].slewRate = _IQ24(0.001);/* Q24 */
-		loadSettings[i].slewTarget = 0;			/* Q24 */
-		loadSettings[i].ocpLevel   = 16777216;	/* Maximum Q24 */
-		loadSettings[i].ovpLevel   = 16777216;	/* Maximum Q24 */
-		loadSettings[i].otpLevel   = 19200;		/* 150 degree C OTP limit Q7 */
-		loadSettings[i].iMaxRms    = 15360;		/* 15 amps (RMS) Q10 SQ10 */
-		loadSettings[i].iMinRms    = 0;			/* 0 amps (RMS) Q10 */
-		loadSettings[i].vMaxRms    = 15360;		/* 15 volts (RMS) Q10 */ //TODO Test setting << need actual
-		loadSettings[i].vMinRms    = 0;			/* 0 volts (RMS) Q10 */
+		loadSettings[i].slewRate   = 16777;		/* 0.001 Q24 */
+		loadSettings[i].slewTarget = 0;			/* 0 Q24 */
+		loadSettings[i].ocpLevel   = 587202560;	/* 35A variable Q24 */
+		//loadSettings[i].ovpLevel   = 1006632960;/* 60V fixed Q24 */
+		//loadSettings[i].oppLevel   = 0;			/* 200W fixed Q24 */ 	//TODO: 200 doesnt fit in IQ24!!!
+		loadSettings[i].otpLevel   = 19200;		/* 150 degree C Q7 */
+		//loadSettings[i].iMax 	   = 0;			/* 35 amps (RMS) Q10 SQ10 */	// TODO: 35 doesnt fit in SQ10!!! use LOAD_OCPLVL_MAX
+		//loadSettings[i].vMax 	   = 15360;		/* 15 volts (RMS) Q10 */ //TODO Test setting << need actual
 		loadSettings[i].iScale     = 2048;		/* 0.125f amps-per-volt Q14 */
 		loadSettings[i].vScale     = 32767;		/* 1.0f volts-per-volt Q14 */
-		loadSettings[i].enable = FALSE;			/* FALSE | TRUE */
+		loadSettings[i].enable     = FALSE;		/* Disabled */
 	}
 
-	acSettings.gainRate = _IQ24(0.001);	/* Q24 */
-	acSettings.gainTarget = 0;			/* Q24 */
+	acSettings.gainRate   = 16777;		/* 0.001 Q24 */
+	acSettings.gainTarget = 0;			/* 0 Q24 */
 	acSettings.ocpLevel   = 16777216;	/* Maximum Q24 */
 	acSettings.ovpLevel   = 16777216;	/* Maximum Q24 */
-	acSettings.otpLevel   = 19200;		/* 150 degree C OTP limit Q7 */
+	acSettings.otpLevel   = 19200;		/* 150 degree C Q7 */
 	acSettings.iMaxRms    = 15360;		/* 15 amps (RMS) Q10 SQ10 */
 	acSettings.iMinRms    = 0;			/* 0 amps (RMS) Q10 */
 	acSettings.vMaxRms    = 15360;		/* 15 volts (RMS) Q10 */ //TODO Test setting << need actual
@@ -143,35 +143,41 @@ void mnInitSettings (void) {
 	acSettings.vScale     = _SQ14(VAC_R2 / (VAC_R1 + VAC_R2 + VAC_R2));
 	acSettings.vGainLmt   = _SQ14(0.9);	/* 0.9 gain limit Q14 */
 
-	xfmr.ocpLevel = 16777216;
-	xfmr.midOvpLevel = 16777216;
-	xfmr.hvOvpLevel = 16777216;
-	xfmr.otpLevel = 19200;
-	xfmr.iScale = 0;
-	xfmr.midVScale = _SQ14(VMID_R2 / (VMID_R1 + VMID_R2));
-	xfmr.hvVScale = _SQ14(1.0);		// TODO: Need actual value
-	xfmr.enable = FALSE;
+	xfmrSettings.ocpLevel 	 = 16777216;	/* Maximum Q24 */
+	xfmrSettings.midOvpLevel = 16777216;	/* Maximum Q24 */
+	xfmrSettings.hvOvpLevel  = 16777216;	/* Maximum Q24 */
+	xfmrSettings.otpLevel 	 = 19200;		/* 150 degree C Q7*/
+	xfmrSettings.iMaxRms 	 = 15360;		/* 15 Amps RMS Q10 */
+	xfmrSettings.iMinRms 	 = 0;			/* 0 Amps RMS Q10 */
+	xfmrSettings.iScale 	 = 0;			/* */
+	xfmrSettings.midVMaxRms  = 15360;		/* 15 Amps RMS Q10 */
+	xfmrSettings.midVMinRms  = 0;			/* 0 Amps RMS Q10 */
+	xfmrSettings.midVScale 	 = _SQ14(VMID_R2 / (VMID_R1 + VMID_R2));
+	xfmrSettings.hvVMaxRms   = 15360;		/* 15 Amps RMS Q10 */
+	xfmrSettings.hvVMinRms   = 0;			/* 0 Amps RMS Q10 */
+	xfmrSettings.hvVScale 	 = _SQ14(1.0);	// TODO: Need actual value
+	xfmrSettings.enable 	 = FALSE;		/* Disabled */
 }
 
 void mnInitNets (void) {
 	/* Clears all nets. */
 	Uint16 i = 0;
 	for (i = 0; i < numberOfLoads; i++) {
-		loadNets[i].iFdbkNet = 0;	/* Q24 (IQ24: -128 - +128) */
-		loadNets[i].vFdbkNet = 0;	/* Q24 */
-		loadNets[i].iRefNet = 0;	/* Q24 */
-		loadNets[i].iFiltOutNet = 0;/* Q24 */
+		loadNets[i].iFdbkNet 	= 0;	/* Q24 (IQ24: -128 - +128) */
+		loadNets[i].vFdbkNet 	= 0;	/* Q24 */
+		loadNets[i].iRefNet 	= 0;	/* Q24 */
+		loadNets[i].iFiltOutNet = 0;	/* Q24 */
 	}
 
-	acNets.iFdbkNet = 0;	/* Q24 */
-	acNets.vFdbkNet = 0;	/* Q24 */
-	acNets.vRefNet = 0;		/* Q24 */
-	acNets.vFiltOutNet = 0;	/* Q24 */
-	acNets.iFiltOutNet = 0;	/* Q24 */
+	acNets.iFdbkNet 	= 0;	/* Q24 */
+	acNets.vFdbkNet 	= 0;	/* Q24 */
+	acNets.vRefNet 		= 0;	/* Q24 */
+	acNets.vFiltOutNet 	= 0;	/* Q24 */
+	acNets.iFiltOutNet 	= 0;	/* Q24 */
 
-	xfmr.iSnsNet = 0;		/* Q24 */
-	xfmr.midVSnsNet = 0;	/* Q24 */
-	xfmr.hvVSnsNet = 0;		/* Q24 */
+	xfmrNets.iSnsNet 	= 0;	/* Q24 */
+	xfmrNets.midVSnsNet = 0;	/* Q24 */
+	xfmrNets.hvVSnsNet 	= 0;	/* Q24 */
 }
 
 void mnConnectNets (void) {
@@ -195,9 +201,9 @@ void mnConnectNets (void) {
 		ADCDRV_1ch_Rlt10 = &loadNets[load4].vFdbkNet;
 		PWMDRV_2ch_UpCnt_Duty2B = &duty[load4];
 
-		ADCDRV_1ch_Rlt5 = &xfmr.iSnsNet;				/* Xfmr connections */
-		ADCDRV_1ch_Rlt11 = &xfmr.hvVSnsNet;
-		ADCDRV_1ch_Rlt13 = &xfmr.midVSnsNet;
+		ADCDRV_1ch_Rlt5  = &xfmrNets.iSnsNet;			/* Xfmr connections */
+		ADCDRV_1ch_Rlt11 = &xfmrNets.hvVSnsNet;
+		ADCDRV_1ch_Rlt13 = &xfmrNets.midVSnsNet;
 		PWMDRV_2ch_UpCnt_Duty3A = &duty[DC_STAGE];
 
 		ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;			/* AC stage connections */
@@ -280,9 +286,9 @@ void mnConnectNets (void) {
 		#endif
 
 		/*============================== XFMR =======================================*/
-		ADCDRV_1ch_Rlt5  = &xfmr.iSnsNet;			/* DC Mid I Sns */
-		ADCDRV_1ch_Rlt11 = &xfmr.hvVSnsNet;			/* DC HV V Sns */
-		ADCDRV_1ch_Rlt13 = &xfmr.midVSnsNet;		/* DC Mid V Sns */
-		PWMDRV_2ch_UpCnt_Duty3A = &xfmr.pwmDutyNet;	/* Xfmr PWM */
+		ADCDRV_1ch_Rlt5  = &xfmrNets.iSnsNet;			/* DC Mid I Sns */
+		ADCDRV_1ch_Rlt11 = &xfmrNets.hvVSnsNet;			/* DC HV V Sns */
+		ADCDRV_1ch_Rlt13 = &xfmrNets.midVSnsNet;		/* DC Mid V Sns */
+		PWMDRV_2ch_UpCnt_Duty3A = &xfmrNets.pwmDutyNet;	/* Xfmr PWM */
 	#endif
 }

@@ -87,11 +87,10 @@ struct loadStageSettings {
 	int32 	slewTarget;	/**< IIR filter control law reference slew target (IQ24). */
 	int32 	ocpLevel;	/**< Normalised OCP limit (IQ24). */
 	int32 	ovpLevel;	/**< Normalised OVP limit (IQ24). */
+	int32 	oppLevel;	/**< Normalised OPP limit (IQ22). */
 	int32 	otpLevel;	/**< OTP limit in @f$ ^\circ@f$ C (SQ7). */
-	int16 	iMaxRms;	/**< Maximum RMS current setting limit (SQ10). */
-	int16 	iMinRms;	/**< Minimum RMS current setting limit (SQ10). */
-	int16 	vMaxRms;	/**< Maximum RMS voltage setting limit (SQ10). */
-	int16 	vMinRms;	/**< Minimum RMS voltage setting limit (SQ10). */
+	int16 	iMax;		/**< Maximum RMS current setting limit (SQ10). */
+	int16 	vMax;		/**< Maximum RMS voltage setting limit (SQ10). */
 	int16 	iScale;		/**< Current scaling setting in volts-per-amp for scaling between a voltage level measured by an ADC to a real current value (SQ14). */
 	int16 	vScale;		/**< Voltage scaling setting in volts-per-volts for scaling between a voltage level measured by an ADC to a real voltage value (SQ14). */
 	Uint16 	enable;		/**< Channel enable status {FALSE, TRUE}. */
@@ -135,24 +134,37 @@ typedef struct acStageSettings acStageSettings;
 
 extern acStageSettings acSettings;
 
-struct xfmrStage {
+struct xfmrStageNets {
 	volatile int32 iSnsNet;
 	volatile int32 midVSnsNet;
 	volatile int32 hvVSnsNet;
 	volatile int32 pwmDutyNet;
+};
+
+typedef struct xfmrStageNets xfmrStageNets;
+
+extern xfmrStageNets xfmrNets;
+
+struct xfmrStageSettings {
 	int32 	ocpLevel;
 	int32 	midOvpLevel;
 	int32   hvOvpLevel;
 	int32	otpLevel;
+	int16 	iMinRms;
+	int16 	iMaxRms;
+	int16 	midVMinRms;
+	int16 	midVMaxRms;
+	int16 	hvVMinRms;
+	int16 	hvVMaxRms;
 	int16 	iScale;
 	int16 	midVScale;
 	int16 	hvVScale;
 	Uint16 	enable;
 };
 
-typedef struct xfmrStage xfmrStage;
+typedef struct xfmrStageSettings xfmrStageSettings;
 
-extern xfmrStage xfmr;
+extern xfmrStageSettings xfmrSettings;
 
 //** A structure used to represent the collection of settings pertaining
 // * to a particular channel or stage.

@@ -50,33 +50,33 @@ extern Uint16 adcCheckOvp (void);
  */
 extern Uint16 adcSetDac (Uint16 chnl, float32 dacLvl);
 
-/** Sets the current scaling for the specified channel.
- * @param[in]	chnl 			Specifies the channel number the setting is to be applied to.
- * @param[in]	scaleSetting	Specifies the value of the scaling setting to be applied (amps/volts).
+/** Sets the current scaling for the specified load.
+ * @param[in]	load 			Specifies the load the setting is to be applied to.
+ * @param[in]	scaleSetting	Specifies the value of the scaling setting to be applied (amps-per-volts).
  * @return						Error status.
  */
-extern Uint16 adcSetIScale (Uint16 chnl, float32 scaleSetting);
+extern Uint16 adcSetLoadIScale (loadStage load, float32 scaleSetting);
 
-/** Sets the voltage scaling for the specified channel.
- * @param[in]	chnl 			Specifies the channel number the setting is to be applied to.
- * @param[in]	scaleSetting	Specifies the value of the scaling setting to be applied (volts/volts).
+/** Sets the voltage scaling for the specified load.
+ * @param[in]	load 			Specifies the load the setting is to be applied to.
+ * @param[in]	scaleSetting	Specifies the value of the scaling setting to be applied (volts-per-volts).
  * @return						Error status.
  */
-extern Uint16 adcSetVScale (Uint16 chnl, float32 scaleSetting);
+extern Uint16 adcSetLoadVScale (loadStage load, float32 scaleSetting);
 
-/** Sets the over current protection limit for the specified channel.
- * @param[in]	chnl		Specifies the channel number the setting is to be applied to.
+/** Sets the over current protection limit for the specified load.
+ * @param[in]	load		Specifies the load the setting is to be applied to.
  * @param[in]	ocpSetting	Specifies the value of the limit to be applied (Amps).
  * @return					Error status.
  */
-extern Uint16 adcSetOcp (Uint16 chnl, float32 ocpSetting);
+extern Uint16 adcSetLoadOcp (loadStage load, float32 ocpSetting);
 
-/** Sets the over voltage protection limit for the specified channel.
- * @param[in]	chnl 		Specifies the channel number the setting is to be applied to.
+/** Sets the over voltage protection limit for the specified load.
+ * @param[in]	load 		Specifies the load the setting is to be applied to.
  * @param[in]	ovpSetting	Specifies the value of the limit to be applied (volts).
  * @return					Error status.
  */
-extern Uint16 adcSetOvp (Uint16 chnl, float32 ovpSetting);
+extern Uint16 adcSetLoadOvp (loadStage load, float32 ovpSetting);
 
 /** Queries the output level setting of the DAC on the inverting input of the comparators.
  * @param[in]	chnl	Specifies the channel number on which the setting is to be queried.
@@ -85,47 +85,47 @@ extern Uint16 adcSetOvp (Uint16 chnl, float32 ovpSetting);
  */
 extern Uint16 adcGetDac (Uint16 chnl, float32 *dacDest);
 
-/** Queries the current current scaling setting of the specified channel.
- * @param[in]	chnl	Specifies the channel number on which the setting is to be queried.
+/** Queries the current current scaling setting of the specified load.
+ * @param[in]	load	Specifies the load on which the setting is to be queried.
  * @param[out]	sclDest	Address of the memory location at which to place the query result (amps).
  * @return				Error status.
  */
-extern Uint16 adcGetIScale (Uint16 chnl, float32 * sclDest);
+extern Uint16 adcGetLoadIScale (loadStage load, float32 * sclDest);
 
-/** Queries the current voltage scaling setting of the specified channel.
- * @param[in]	chnl	Specifies the channel number on which the setting is to be queried.
+/** Queries the current voltage scaling setting of the specified load.
+ * @param[in]	load	Specifies the load on which the setting is to be queried.
  * @param[out]	sclDest	Address of the memory location at which to place the query result (volts).
  * @return				Error status.
  */
-extern Uint16 adcGetVScale (Uint16 chnl, float32 * sclDest);
+extern Uint16 adcGetLoadVScale (loadStage load, float32 * sclDest);
 
-/** Queries the most recent voltage reading from the specified channel's associated ADC.
- * @param[in]	chnl	Specifies the channel number on which the reading is to be queried.
+/** Queries the most recent voltage reading from the specified load's associated ADC.
+ * @param[in]	load	Specifies the load on which the reading is to be queried.
  * @param[out]	vDest	Address of the memory location at which to place the query result (volts).
  * @return				Error status.
  */
-extern Uint16 adcGetVoltage (Uint16 chnl, float32 * vDest);
+extern Uint16 adcGetLoadVoltage (loadStage load, float32 * vDest);
 
-/** Queries the most recent current reading from the specified channel's associated ADC.
- * @param[in]	chnl	Specifies the channel number on which the reading is to be queried.
+/** Queries the most recent current reading from the specified load's associated ADC.
+ * @param[in]	load	Specifies the load on which the reading is to be queried.
  * @param[out]	iDest	Address of the memory location at which to place the query result (amps).
  * @return				Error status.
  */
-extern Uint16 adcGetCurrent (Uint16 chnl, float32 * iDest);
+extern Uint16 adcGetLoadCurrent (loadStage load, float32 * iDest);
 
-/** Queries the over current protection setting for the specified channel.
- * @param[in]	chnl	Specifies the channel number on which the setting is to be queried.
+/** Queries the over current protection setting for the specified load.
+ * @param[in]	load	Specifies the load on which the setting is to be queried.
  * @param[out]	ocpDest	Address of the memory location at which to place the query result (amps).
  * @return				Error status.
  */
-extern Uint16 adcGetOcp (Uint16 chnl, float32 * ocpDest);
+extern Uint16 adcGetLoadOcp (loadStage load, float32 * ocpDest);
 
-/** Queries the over current protection setting for the specified channel.
- * @param[in]	chnl	Specifies the channel number on which the setting is to be queried.
+/** Queries the over current protection setting for the specified load.
+ * @param[in]	load	Specifies the load on which the setting is to be queried.
  * @param[out]	ovpDest	Address of the memory location at which to place the query result (volts).
  * @return				Error status.
  */
-extern Uint16 adcGetOvp (Uint16 chnl, float32 * ovpDest);
+extern Uint16 adcGetLoadOvp (loadStage load, float32 * ovpDest);
 
 /*================ GLOBAL VARS ================*/
 /*============= TERMINAL POINTERS =============*/

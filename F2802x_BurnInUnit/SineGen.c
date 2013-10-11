@@ -21,8 +21,9 @@ volatile int32 *SGENTI_1ch_Sign = 0;
 
 
 /*================ LOCAL VARS ================*/
-static Uint16 rectify = SIN_DFLT_RCTFY;
+static Uint16 rectifyMode = SIN_DFLT_RCTFY;
 static Uint16 fMax = SIN_DFLT_F_MAX;
+
 #ifndef DEBUG
 	static SGENTI_1 sigGen = SGENTI_1_DEFAULTS;
 	#pragma DATA_SECTION (sigGen, "SGENTI_1ch_Struct")
@@ -34,7 +35,7 @@ void sgInit (void) {
 	 *  the values #define'd in SineGen.h
 	 */
 	fMax = SIN_DFLT_F_MAX;
-	rectify = SIN_DFLT_RCTFY;
+	rectifyMode = SIN_DFLT_RCTFY;
 
 	sigGen.offset = SIN_DFLT_OFST;		/* DC offset, Uint16 Q15 */
 	sigGen.alpha = SIN_DFLT_PHSE; 		/* Alpha = [phase / (2 x pi)] x 2^16, Uint16, Q16 */
@@ -84,7 +85,11 @@ void sgUpdate (void) {
 	#ifdef LOG_SIN
 		static Uint16 i = 0;
 		static Uint16 j = 0;
+
+		if (i >= LOG_SIZE)		/* If i (which is static) has reached the log limit, go back to the start of the log arrays */
+			i = 0;
 	#endif
+
 	if(!acSettings.enable) {			/* If channel disabled output all zeroes */
 		*SGENTI_1ch_Sign = 0;
 		*SGENTI_1ch_VOut = 0;
@@ -92,25 +97,18 @@ void sgUpdate (void) {
 	}
 	sigGen.calc(&sigGen);							/* Call the sine lib function, passing the settings struct */
 
-	#ifdef LOG_SIN
-		if (i >= LOG_SIZE)
-			i = 0;
-	#endif
-
 	*SGENTI_1ch_Sign = (sigGen.out < 0);
-	//*SGENTI_1ch_Sign = (int32)(sigGen.out >> 15);		/* Load the sign value to the net connect to the Sign module terminal [0, 1) */
+	// TODO: ws the below supposed t be removed?
+	//*SGENTI_1ch_Sign = (int32)(sigGen.out >> 15);	/* Load the sign value to the net connected to the Sign module terminal [0, 1) */
 
-	#ifdef LOG_SIN
-		sine_sign[i] = (int)(*SGENTI_1ch_Sign);
-	#endif
-
-	if (rectify) {									/* Load the absolute result to the net connected to the VOut module terminal */
+	if (rectifyMode) {									/* Load the absolute result to the net connected to the VOut module terminal */
 		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out * ((sigGen.out > 0) - (sigGen.out < 0)));
 	} else {
 		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out);	/* Load the result to the net connected to the VOut module terminal */
 	}
 
 	#ifdef LOG_SIN
+		sine_sign[i] = (int)(*SGENTI_1ch_Sign);	/* Save the sign value to the sign log array */
 		sine_abs[i] = (int16)(*SGENTI_1ch_VOut >> 9);
 		if (j == 0) { /* Only save every other sample */
 			i++;
@@ -127,7 +125,7 @@ Uint16 sgSetState (Uint16 stt) {
 }
 
 Uint16 sgSetRectify (Uint16 rfy) {
-	rectify = (rfy > 0);
+	rectifyMode = (rfy > 0);
 	return 0;
 }
 
@@ -174,7 +172,7 @@ Uint16 sgSetFreq (Uint16 frq) {
 	 * 0 - fMax (max. 7FFF)
 	 */
 	float32 temp = 0.0;
-	if (frq > fMax)	/* Check frequency is less than maximum frequency */
+	if (frq > fMax)		/* Check frequency is less than maximum frequency */
 		return VALUE_OOB;
 	temp = (float32)frq / fMax;
 	sigGen.freq = (Uint16)((temp * 32768.0) + 0.5);
@@ -248,7 +246,7 @@ Uint16 sgGetState (Uint16 *sttDest) {
 }
 
 Uint16 sgGetRectify (Uint16 *rfyDest) {
-	*rfyDest = rectify > 0;
+	*rfyDest = rectifyMode > 0;
 	return 0;
 }
 

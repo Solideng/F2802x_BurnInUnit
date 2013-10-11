@@ -97,7 +97,7 @@ static Uint16 cntlSetCoef (Uint16 i, Uint16 j, float32 val) {
 	return 0;
 }
 
-Uint16 cntlGetLoadICoef (loadStages load, cfType coef, float32 *valDest) {
+Uint16 cntlGetLoadICoef (loadStage load, cfType coef, float32 *valDest) {
 	/* Gets the specified coefficient for the specified load
 	 * The coefficient reported is not the coefficient actually in use but the
 	 * one set to be used after the next iteration of cntlUpdateCoefs().
