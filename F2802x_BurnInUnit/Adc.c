@@ -129,7 +129,7 @@ Uint16 adcCheckOcp (void) {
 
 Uint16 adcCheckOvp (void) {
 	/* Over-voltage protection
-	 *  - vScale and ovp SHOULD BE SET BEFORE USE -
+	 *  - vScale AND OVP SHOULD BE SET BEFORE USE -
 	 */
 	Uint16 i = 0;
 	for (i = 0; i < numberOfLoads; i++) {				/* Compare all load VSns ADC values to their OVP limits */
@@ -148,6 +148,37 @@ Uint16 adcCheckOvp (void) {
 			return OVP_TRIP;
 		}
 	}
+	return 0;
+}
+
+Uint16 adcCheckOpp (void) {
+	/* Over-power protection
+	 *  - vScale AND iScale SHOULD BE SET BEFORE USE -
+	 */
+	Uint16 i = 0;
+	int32 vMeas = 0, iMeas = 0;
+	float32 iLimDyn = 0;
+
+	for (i = 0; i < numberOfLoads; i++) {
+
+		/* Get the most recent vSns reading for the given load and multiply by the related vScale to get the real value (IQ24). */
+		vMeas = _IQmpy(loadNets[i].vFdbkNet, _Q14toIQ(loadSettings[i].vScale));
+
+		// TODO: CONVERT iLIM to IQ24 or CONVERT vMeas AND iMeas TO FLOAT.
+		iLimDyn = LOAD_OPPLVL_FIX / vMeas;	/* Divide real V value into the power limit value to get the dynamic I limit. */
+
+		/* Get the most recent iSns reading for the given load and multiply by the related iScale to get the real value (IQ24). */
+		iMeas = _IQmpy(loadNets[i].iFdbkNet, _Q14toIQ(loadSettings[i].iScale));
+
+
+		if (iMeas > iLimDyn) {	/* Check the measured current value is below the dynamic current limit value. */
+			mnStopAll();
+			return OPP_TRIP;
+		}
+	}
+
+	// TODO: ADD OPP CHECK FOR XFMR AND AC
+
 	return 0;
 }
 

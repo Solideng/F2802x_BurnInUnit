@@ -65,7 +65,8 @@
 #define VALUE_OOB	 		0x11	/**< Value out of bounds error code. */
 #define OCP_TRIP			0x12	/**< Over-current protection trip error code. */
 #define OVP_TRIP			0x13	/**< Over-voltage protection trip error code. */
-#define OTP_TRIP			0x14	/**< Over-temperature protection trip error code. */
+#define OPP_TRIP			0x14	/**< Over-power protection trip error code. */
+#define OTP_TRIP			0x15	/**< Over-temperature protection trip error code. */
 
 #define I2C_READ_WRONG_MSG	0x20	/**< Incorrect type I2C message read error code. */
 #define I2C_WRITE_WRONG_MSG	0x21	/**< Incorrect type I2C write message error code. */
