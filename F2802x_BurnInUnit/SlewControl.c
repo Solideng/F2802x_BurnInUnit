@@ -70,6 +70,7 @@ Uint16 scSetLoadSlewStep (loadStage load, float32 stp) {
 	return 0;
 }
 
+// TODO: SHOULD NOT BE IN SLEW CONTROL...
 Uint16 scSetLoadState (loadStage load, Uint16 stt) {
 	/* onOrOff should be zero (OFF) or non-zero (ON) */
 	if (load >= numberOfLoads)
@@ -78,32 +79,33 @@ Uint16 scSetLoadState (loadStage load, Uint16 stt) {
 	return 0;
 }
 
-Uint16 scSetLoadSlewTargetAll (float32 trgt) {
-	/* Set all enabled channels to the same target value given by scTarget
-	 * scTarget expected in amps or volts
-	 */
-	Uint16 i = 0, err = 0;
-	for (i = 0; i < numberOfLoads; i++) {
-		err = scSetLoadSlewTarget((loadStage)i, trgt);
-		if (err != 0)
-			return err;
-	}
-	return 0;
-}
+//Uint16 scSetLoadSlewTargetAll (float32 trgt) {
+//	/* Set all enabled channels to the same target value given by scTarget
+//	 * scTarget expected in amps or volts
+//	 */
+//	Uint16 i = 0, err = 0;
+//	for (i = 0; i < numberOfLoads; i++) {
+//		err = scSetLoadSlewTarget((loadStage)i, trgt);
+//		if (err != 0)
+//			return err;
+//	}
+//	return 0;
+//}
+//
+//Uint16 scSetLoadSlewStepAll (float32 stp) {
+//	/* Set all channels to the same step value given by slewStep
+//	 * scStep is expected in amps or volts
+//	 */
+//	Uint16 i = 0, err = 0;
+//	for (i = 0; i < numberOfLoads; i++) {
+//		err = scSetLoadSlewStep((loadStage)i, stp);
+//		if (err != 0)
+//			return err;
+//	}
+//	return 0;
+//}
 
-Uint16 scSetLoadSlewStepAll (float32 stp) {
-	/* Set all channels to the same step value given by slewStep
-	 * scStep is expected in amps or volts
-	 */
-	Uint16 i = 0, err = 0;
-	for (i = 0; i < numberOfLoads; i++) {
-		err = scSetLoadSlewStep((loadStage)i, stp);
-		if (err != 0)
-			return err;
-	}
-	return 0;
-}
-
+// TODO: SHOULD NOT BE IN SLEW CONTROL...
 Uint16 scSetLoadStateAll (Uint16 stt) {
 	/* onOrOff should be zero (OFF) or non-zero (ON) */
 	Uint16 i = 0;
@@ -138,6 +140,7 @@ Uint16 scGetLoadSlewStep (loadStage load, float32 * stpDest) {
 	return 0;
 }
 
+// TODO: SHOULD NOT BE IN SLEW CONTROL...
 Uint16 scGetLoadState (loadStage load, Uint16 * sttDest) {
 	if (load >= numberOfLoads)		/* Check channel is valid */
 		return CHANNEL_OOB;

@@ -35,6 +35,7 @@ MacroNets.obj: ../Timers.h
 MacroNets.obj: ../Adc.h
 MacroNets.obj: ../Pwm.h
 MacroNets.obj: ../Cntl.h
+MacroNets.obj: ../Ocp.h
 MacroNets.obj: ../SlewControl.h
 MacroNets.obj: ../SineGen.h
 MacroNets.obj: ../PhaseCtrl.h
@@ -88,6 +89,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Adc.h: 
 ../Pwm.h: 
 ../Cntl.h: 
+../Ocp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

@@ -34,6 +34,7 @@
 #include "Adc.h"
 #include "Pwm.h"
 #include "Cntl.h"
+#include "Ocp.h"
 #include "SlewControl.h"
 #include "SineGen.h"
 #include "PhaseCtrl.h"

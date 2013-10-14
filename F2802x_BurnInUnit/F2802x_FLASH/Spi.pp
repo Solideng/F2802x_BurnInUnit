@@ -35,6 +35,7 @@ Spi.obj: ../Timers.h
 Spi.obj: ../Adc.h
 Spi.obj: ../Pwm.h
 Spi.obj: ../Cntl.h
+Spi.obj: ../Ocp.h
 Spi.obj: ../SlewControl.h
 Spi.obj: ../SineGen.h
 Spi.obj: ../PhaseCtrl.h
@@ -88,6 +89,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Adc.h: 
 ../Pwm.h: 
 ../Cntl.h: 
+../Ocp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

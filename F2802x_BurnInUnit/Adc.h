@@ -1,13 +1,7 @@
 /**
  * @file Adc.h
  *
- * @brief ADC, DAC, comparator and related functions.
- *
- * Requires the modification of the COMP_REGS struct of the
- * DSP2802x_GlobalVariableDefs in the file DSP2802x_Comp.h,
- * to allow use of the DACCTL and ramp-related register
- * unions. Use the equivalent file from the f2903x includes
- * for reference.
+ * @brief ADC functions.
  *
  */
 
@@ -24,31 +18,11 @@ extern void adcSocCnf (void);
  */
 extern void adcMacroConfigure (void);
 
-/** Configures the COMP 1 & 2 comparators using the internal DACs at inverting inputs.
- *  - SHOULD be called AFTER adcSocCnf().
- *  - SHOULD be called BEFORE PWMS (SYNC) are started.
- *  - SHOULD be called BEFORE pwmTZConfigure().
- */
-extern void adcCompConfigure (void);
-
-/** Checks the current current sense ADC readings against the OCP limits.
- * @return Error status
- */
-extern Uint16 adcCheckOcp (void);
-
 /** Checks the current voltage sense ADC readings against the OVP limits.
  * @return Error status
  */
 extern Uint16 adcCheckOvp (void);
 
-/** Sets the output levels of the DACs on the inverting input of the comparators.
- * The function will determine the scaling to be applied by testing the ctrlMode setting of the channel specified.
- * The respective channel's current or voltage MUST be set previously.
- * @param[in]	chnl	Specifies the channel number the setting is to be applied to.
- * @param[in]	dacLvl	Specifies the value of the level setting to be applied (volts or amps).
- * @return				Error status.
- */
-extern Uint16 adcSetDac (Uint16 chnl, float32 dacLvl);
 
 /** Sets the current scaling for the specified load.
  * @param[in]	load 			Specifies the load the setting is to be applied to.
@@ -64,26 +38,12 @@ extern Uint16 adcSetLoadIScale (loadStage load, float32 scaleSetting);
  */
 extern Uint16 adcSetLoadVScale (loadStage load, float32 scaleSetting);
 
-/** Sets the over current protection limit for the specified load.
- * @param[in]	load		Specifies the load the setting is to be applied to.
- * @param[in]	ocpSetting	Specifies the value of the limit to be applied (Amps).
- * @return					Error status.
- */
-extern Uint16 adcSetLoadOcp (loadStage load, float32 ocpSetting);
-
 /** Sets the over voltage protection limit for the specified load.
  * @param[in]	load 		Specifies the load the setting is to be applied to.
  * @param[in]	ovpSetting	Specifies the value of the limit to be applied (volts).
  * @return					Error status.
  */
 extern Uint16 adcSetLoadOvp (loadStage load, float32 ovpSetting);
-
-/** Queries the output level setting of the DAC on the inverting input of the comparators.
- * @param[in]	chnl	Specifies the channel number on which the setting is to be queried.
- * @param[out]	dacDest	Address of the memory location at which to place the query result (volts or amps).
- * @return				Error status.
- */
-extern Uint16 adcGetDac (Uint16 chnl, float32 *dacDest);
 
 /** Queries the current current scaling setting of the specified load.
  * @param[in]	load	Specifies the load on which the setting is to be queried.
@@ -112,13 +72,6 @@ extern Uint16 adcGetLoadVoltage (loadStage load, float32 * vDest);
  * @return				Error status.
  */
 extern Uint16 adcGetLoadCurrent (loadStage load, float32 * iDest);
-
-/** Queries the over current protection setting for the specified load.
- * @param[in]	load	Specifies the load on which the setting is to be queried.
- * @param[out]	ocpDest	Address of the memory location at which to place the query result (amps).
- * @return				Error status.
- */
-extern Uint16 adcGetLoadOcp (loadStage load, float32 * ocpDest);
 
 /** Queries the over current protection setting for the specified load.
  * @param[in]	load	Specifies the load on which the setting is to be queried.

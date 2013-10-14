@@ -89,8 +89,8 @@ struct loadStageSettings {
 	int32 	ovpLevel;	/**< Normalised OVP limit (IQ24). */
 	int32 	oppLevel;	/**< Normalised OPP limit (IQ22). */
 	int32 	otpLevel;	/**< OTP limit in @f$ ^\circ@f$ C (SQ7). */
-	int16 	iMax;		/**< Maximum RMS current setting limit (SQ10). */
-	int16 	vMax;		/**< Maximum RMS voltage setting limit (SQ10). */
+	int16 	iMax;		/**< Maximum DC current setting limit (SQ10). */
+	int16 	vMax;		/**< Maximum DC voltage setting limit (SQ10). */
 	int16 	iScale;		/**< Current scaling setting in volts-per-amp for scaling between a voltage level measured by an ADC to a real current value (SQ14). */
 	int16 	vScale;		/**< Voltage scaling setting in volts-per-volts for scaling between a voltage level measured by an ADC to a real voltage value (SQ14). */
 	Uint16 	enable;		/**< Channel enable status {FALSE, TRUE}. */
@@ -150,8 +150,7 @@ struct xfmrStageSettings {
 	int32 	midOvpLevel;
 	int32   hvOvpLevel;
 	int32	otpLevel;
-	int16 	iMinRms;
-	int16 	iMaxRms;
+	int16 	iMax;
 	int16 	midVMinRms;
 	int16 	midVMaxRms;
 	int16 	hvVMinRms;

@@ -35,6 +35,7 @@ Cntl.obj: ../Timers.h
 Cntl.obj: ../Adc.h
 Cntl.obj: ../Pwm.h
 Cntl.obj: ../Cntl.h
+Cntl.obj: ../Ocp.h
 Cntl.obj: ../SlewControl.h
 Cntl.obj: ../SineGen.h
 Cntl.obj: ../PhaseCtrl.h
@@ -88,6 +89,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Adc.h: 
 ../Pwm.h: 
 ../Cntl.h: 
+../Ocp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

@@ -143,7 +143,7 @@ Uint16 setAcOcpLevel (float32 pkLevel) {
 	iPkMax = ((VDDA - VSSA) * 0.001) * (1.0 / iPkMax);	/* Calculate maximum Ipk */
 	acSettings.ocpLevel = _IQ24(pkLevel / iPkMax);		/* Normalise and save */
 	//TODO: Include gain??
-	//TODO: Update AC OCP ISns DAC value?
+	setAcDac(pkLevel);
 	return 0;
 }
 
@@ -165,17 +165,19 @@ Uint16 checkAcOcp (void)  {
 	/* AC over-current protection
 	 *  - iScale AND ocpLevel SHOULD BE SET BEFORE USE -
 	 */
-	if (acNets.iFdbkNet > acSettings.ocpLevel) {	/* Compare the AC ISns ADC value to its OCP limit */
-		mnStopAll();
-		ocpFlagRegister |= AC_OCP_TRIP;
-		return OCP_TRIP;
-	}
-	return 0;
+	//TODO: uses DAC, COMP & TZ instead. - these need to set the flag at some point...
+//	if (acNets.iFdbkNet > acSettings.ocpLevel) {	/* Compare the AC ISns ADC value to its OCP limit */
+//		mnStopAll();
+//		ocpFlagRegister |= AC_OCP_TRIP;
+//		return OCP_TRIP;
+//	}
+//	return 0;
 }
 
 Uint16 getAcOcpState (void) {return ((ocpFlagRegister & AC_OCP_TRIP) > 0);}
 
 Uint16 clearAcOcp (void) {
+	//TODO: uses DAC, COMP & TZ instead.
 	ocpFlagRegister &= (~AC_OCP_TRIP);
 	return 0;
 }

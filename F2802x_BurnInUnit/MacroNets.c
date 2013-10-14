@@ -147,9 +147,8 @@ void mnInitSettings (void) {
 	xfmrSettings.midOvpLevel = 16777216;	/* Maximum Q24 */
 	xfmrSettings.hvOvpLevel  = 16777216;	/* Maximum Q24 */
 	xfmrSettings.otpLevel 	 = 19200;		/* 150 degree C Q7*/
-	xfmrSettings.iMaxRms 	 = 15360;		/* 15 Amps RMS Q10 */
-	xfmrSettings.iMinRms 	 = 0;			/* 0 Amps RMS Q10 */
-	xfmrSettings.iScale 	 = 0;			/* */
+	xfmrSettings.iMax	 	 = 15360;		/* 15 Amps RMS Q10 */
+	xfmrSettings.iScale 	 = 0;			/* Q14 */
 	xfmrSettings.midVMaxRms  = 15360;		/* 15 Amps RMS Q10 */
 	xfmrSettings.midVMinRms  = 0;			/* 0 Amps RMS Q10 */
 	xfmrSettings.midVScale 	 = _SQ14(VMID_R2 / (VMID_R1 + VMID_R2));

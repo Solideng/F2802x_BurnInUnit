@@ -35,6 +35,7 @@ SlewControl.obj: ../Timers.h
 SlewControl.obj: ../Adc.h
 SlewControl.obj: ../Pwm.h
 SlewControl.obj: ../Cntl.h
+SlewControl.obj: ../Ocp.h
 SlewControl.obj: ../SlewControl.h
 SlewControl.obj: ../SineGen.h
 SlewControl.obj: ../PhaseCtrl.h
@@ -88,6 +89,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Adc.h: 
 ../Pwm.h: 
 ../Cntl.h: 
+../Ocp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

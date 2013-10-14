@@ -27,32 +27,32 @@ extern Uint16 ocpFlagRegister;	/** < OCP flag register. Bits are set to indicate
  * @param[in]	dcLevel	Specifies the DC value to be applied (Amps).
  * @return				Error status.
  */
-Uint16 setLoadOcpLevel (loadStage load, float32 dcLevel);
+extern Uint16 setLoadOcpLevel (loadStage load, float32 dcLevel);
 
 /** Queries the over current protection level for the specified load.
  * @param[in]	load	Specifies the load on which the setting is to be queried.
  * @param[out]	dcLevel	Pointer to location at which to place the query result (amps).
  * @return				Error status.
  */
-Uint16 getLoadOcpLevel (loadStage load, float32 * dcLevel);
+extern Uint16 getLoadOcpLevel (loadStage load, float32 * dcLevel);
 
 /** Checks the current reading of the specified load against the load OCP limit.
  * Raises the load OCP flag if the reading is above the limit.
  * @param[in]	load	Specifies the load on which the setting is to be queried.
  * @return 				Error status
  */
-Uint16 checkLoadOcp (loadStage load);
+extern Uint16 checkLoadOcp (loadStage load);
 
 /** Queries the state of the OCP flag for the specified load.
  * @return	True if OCP flag has been raised.
  */
-Uint16 getLoadOcpState (loadStage load);
+extern Uint16 getLoadOcpState (loadStage load);
 
 /** Clears the OCP flag for the specified load.
  * @param[in]	load	Specifies the load for which the flag is to be cleared.
  * @return				Error status.
  */
-Uint16 clearLoadOcp (loadStage load);
+extern Uint16 clearLoadOcp (loadStage load);
 
 
 /*============== DC Mid ==============*/
@@ -60,29 +60,29 @@ Uint16 clearLoadOcp (loadStage load);
  * @param[in]	dcLevel	Specifies the DC value to be applied (Amps).
  * @return				Error status.
  */
-Uint16 setDcOcpLevel (float32 dcLevel);
+extern Uint16 setDcOcpLevel (float32 dcLevel);
 
 /** Queries the over current protection level for the DC stage.
  * @param[out]	dcLevel	Pointer to location at which to place the query result (amps).
  * @return				Error status.
  */
-Uint16 getDcOcpLevel (float32 * dcLevel);
+extern Uint16 getDcOcpLevel (float32 * dcLevel);
 
 /** Checks the current reading of the DC stage against the DC OCP limit.
  * Raises the DC OCP flag if the reading is above the limit.
  * @return 				Error status
  */
-Uint16 checkDcOcp (void);
+extern Uint16 checkDcOcp (void);
 
 /** Queries the state of the DC OCP flag.
  * @return	True if OCP flag has been raised.
  */
-Uint16 getDcOcpState (void);
+extern Uint16 getDcOcpState (void);
 
 /** Clears the DC stage OCP flag.
  * @return				Error status.
  */
-Uint16 clearDcOcp (void);
+extern Uint16 clearDcOcp (void);
 
 
 /*================ AC ================*/
@@ -90,28 +90,28 @@ Uint16 clearDcOcp (void);
  * @param[in]	pkLevel	Specifies the peak value to be applied (Amps).
  * @return				Error status.
  */
-Uint16 setAcOcpLevel (float32 pkLevel);
+extern Uint16 setAcOcpLevel (float32 pkLevel);
 
 /** Queries the over current protection level for the AC stage.
  * @param[out]	dcLevel	Pointer to location at which to place the query result (amps).
  * @return				Error status.
  */
-Uint16 getAcOcpLevel (float32 * pkLevel);
+extern Uint16 getAcOcpLevel (float32 * pkLevel);
 
 /** Checks the current reading of the AC stage against the AC OCP limit.
  * Raises the AC OCP flag if the reading is above the limit.
  * @return 				Error status
  */
-Uint16 checkAcOcp (void);
+extern Uint16 checkAcOcp (void);
 
 /** Queries the state of the DC OCP flag.
  * @return	True if OCP flag has been raised.
  */
-Uint16 getAcOcpState (void);
+extern Uint16 getAcOcpState (void);
 
 /** Clears the AC stage OCP flag.
  * @return				Error status.
  */
-Uint16 clearAcOcp (void);
+extern Uint16 clearAcOcp (void);
 
 #endif /* OCP_H_ */

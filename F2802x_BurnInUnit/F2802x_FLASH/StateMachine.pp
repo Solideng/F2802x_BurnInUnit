@@ -35,6 +35,7 @@ StateMachine.obj: ../Timers.h
 StateMachine.obj: ../Adc.h
 StateMachine.obj: ../Pwm.h
 StateMachine.obj: ../Cntl.h
+StateMachine.obj: ../Ocp.h
 StateMachine.obj: ../SlewControl.h
 StateMachine.obj: ../SineGen.h
 StateMachine.obj: ../PhaseCtrl.h
@@ -88,6 +89,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Adc.h: 
 ../Pwm.h: 
 ../Cntl.h: 
+../Ocp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

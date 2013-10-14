@@ -6,90 +6,6 @@
  */
 #include "Common.h"
 
-/*============= COMP/DAC SECTION ==============*/
-void adcCompConfigure (void) {
-	/* Sets up the COMP 1 & 2 comparators using the internal DACs at inverting inputs
-	 *  - SHOULD BE CALLED AFTER adcSocCnf() -
-	 *  - SHOULD BE CALLED BEFORE PWMS (SYNC) ARE STARTED -
-	 *  - SHOULD BE CALLED BEFORE pwmTZConfigure() -
-	 */
-	EALLOW;									/* COMPCTL & DACCTL are EALLOW protected */
-	Comp1Regs.COMPCTL.bit.COMPDACEN = 1;	/* Enable COMP1 section */
-	Comp1Regs.DACVAL.bit.DACVAL = 0x3FF;	/* Set the DAC Value to the maximum value to begin with */
-	Comp1Regs.COMPCTL.bit.COMPSOURCE = 0;	/* COMP1 inverting i/p is connected to internal DAC */
-	Comp1Regs.COMPCTL.bit.CMPINV = 0; 		/* COMP1 o/p is not inverted */
-	Comp1Regs.COMPCTL.bit.QUALSEL = 3;		/* COMP1 o/p has no qualification window length */
-	Comp1Regs.COMPCTL.bit.SYNCSEL = 1;		/* COMP1 o/p is not synchronised to the SysClk */
-	Comp1Regs.DACCTL.bit.DACSOURCE = 0;		/* Set DACVAL as DAC control source */
-
-	Comp2Regs.COMPCTL.bit.COMPDACEN = 1;	/* Do the same for COMP2 */
-	Comp2Regs.DACVAL.bit.DACVAL = 0x3FF;
-	Comp2Regs.COMPCTL.bit.COMPSOURCE = 0;
-	Comp2Regs.COMPCTL.bit.CMPINV = 0;
-	Comp2Regs.COMPCTL.bit.QUALSEL = 3;
-	Comp2Regs.COMPCTL.bit.SYNCSEL = 1;
-	Comp2Regs.DACCTL.bit.DACSOURCE = 0;
-	EDIS;
-}
-
-Uint16 adcSetDac (Uint16 chnl, float32 dacLvl) {
-	// TODO: Rewrite to two separate functions, one for AC stage ISns and one for Xfmr stage VSns
-	//TODO ramp ADC?
-	/* Sets the parameters of the DAC
-	 * dacLvl is expected in amps or volts
-	 *  - I & V SCALE MUST BE SET PREVIOUSLY -
-	 *  - SHOULD BE CALLED AFTER adcInitComp() -
-	 */
-	if (dacLvl < 0)			/* Check requested voltage peak is within lower boundary */
-		return VALUE_OOB;
-							/* Scale and calculate DAC level setting */
-							/* DACVAL = (Lvl * scale * 1023) / 3.3, but here scale is SQ14 so we can just rsh 4 instead of *1023 */
-	if (chnl > NUM_CHNLS)	/* Check channel is valid */
-			return CHANNEL_OOB;
-							/* Normalise */
-	dacLvl *= (1.0 / ((VDDA - VSSA) * 0.001));
-							/* Perform the scaling based on the channel control type */
-	if (channel[chnl].ctlMode == iCtrl)
-		dacLvl *= (float32)(channel[chnl].vScale >> 4);
-	else
-		dacLvl *= (float32)(channel[chnl].iScale >> 4);
-
-	if (dacLvl > 1023.0)	/* Check requested value is within upper boundary */
-		return VALUE_OOB;
-
-	if (chnl == DC_STAGE) {	/* Round and cast the level into relevant COMP DACVAL */
-		Comp1Regs.DACVAL.all = (Uint16)(dacLvl + 0.5);
-	} else if (chnl == AC_STAGE) {
-		Comp2Regs.DACVAL.all = (Uint16)(dacLvl + 0.5);
-	} else {
-		return CHANNEL_OOB;
-	}
-	return 0;
-}
-
-Uint16 adcGetDac (Uint16 chnl, float32 *dacDest) {
-	// TODO: Rewrite to two separate functions, one for AC stage ISns and one for Xfmr stage VSns
-	float32 dacLvl = 0;
-
-	if (chnl > NUM_CHNLS)	/* Check channel is valid */
-		return CHANNEL_OOB;
-
-	if (chnl == DC_STAGE) {	/* Get the raw data from the relevant comparator peripheral and de-normalise */
-		dacLvl = Comp1Regs.DACVAL.all * ((VDDA - VSSA) * 0.001);
-	} else if (chnl == AC_STAGE) {
-		dacLvl = Comp2Regs.DACVAL.all * ((VDDA - VSSA) * 0.001);
-	} else {
-		return CHANNEL_OOB;
-	}
-							/* Perform the scaling based on the channel control type */
-	if (channel[chnl].ctlMode == iCtrl)
-		*dacDest = dacLvl * (1.0 / (channel[chnl].vScale >> 4));
-	else
-		*dacDest = dacLvl * (1.0 / (channel[chnl].iScale >> 4));
-	return 0;
-}
-
-/*================ ADC SECTION ================*/
 void adcMacroConfigure (void) {
 	/* This SHOULD be called after the PWMs have been configured (pwmMacroConfigure())
 	 *  - SHOULD BE RUN AFTER pwmMacroConfigure() -
@@ -109,76 +25,23 @@ void adcSocCnf(void) {
 	ADC_SOC_CNF(ChSel, TrigSel, ACQPS, 16, 0);
 }
 
-Uint16 adcCheckOcp (void) {
-	/* Over-current protection
-	 *  - iScale AND ocp SHOULD BE SET BEFORE USE -
-	 */
-	Uint16 i = 0;
-	for (i = 0; i < numberOfLoads; i++) {			/* Compare all load ISns ADC values to their OCP limits */
-		if (loadNets[i].iFdbkNet > loadSettings[i].ocpLevel) {
-			mnStopAll();
-			return OCP_TRIP;
-		}
-	}
-	if (xfmrNets.iSnsNet > xfmrSettings.ocpLevel) {	/* Compare the DC Mid ISns ADC value to its OCP limit */
-		mnStopAll();
-		return OCP_TRIP;
-	}
+Uint16 adcGetLoadVoltage (loadStage load, float32 * vDest) {
+	/* Reads the Voltage ADC reading. */
+	float32 vltg = 0;
+	if (load >= numberOfLoads)
+		return CHANNEL_OOB;
+	vltg = _IQ24toF(loadNets[load].vFdbkNet);					/* Get the most recent reading. */
+	*vDest = vltg * _IQ14toF((int32) loadSettings[load].vScale);/* Multiply reading by scaling factor */
 	return 0;
 }
 
-Uint16 adcCheckOvp (void) {
-	/* Over-voltage protection
-	 *  - vScale AND OVP SHOULD BE SET BEFORE USE -
-	 */
-	Uint16 i = 0;
-	for (i = 0; i < numberOfLoads; i++) {				/* Compare all load VSns ADC values to their OVP limits */
-		if (loadNets[i].vFdbkNet > loadSettings[i].ovpLevel) {
-			mnStopAll();
-			return OVP_TRIP;
-		}
-	}
-	if (xfmrNets.hvVSnsNet > xfmrSettings.hvOvpLevel){	/* Compare the DC HV VSns ADC value to its OVP limit */
-		mnStopAll();
-		return OVP_TRIP;
-	}
-	if (getSlaveMode() == master) {						/* Check if the system is in master mode */
-		if (acNets.vFdbkNet > acSettings.ovpLevel) {	/* Compare the AC VSns ADC value to its OVP limit */
-			mnStopAll ();
-			return OVP_TRIP;
-		}
-	}
-	return 0;
-}
-
-Uint16 adcCheckOpp (void) {
-	/* Over-power protection
-	 *  - vScale AND iScale SHOULD BE SET BEFORE USE -
-	 */
-	Uint16 i = 0;
-	int32 vMeas = 0, iMeas = 0;
-	float32 iLimDyn = 0;
-
-	for (i = 0; i < numberOfLoads; i++) {
-
-		/* Get the most recent vSns reading for the given load and multiply by the related vScale to get the real value (IQ24). */
-		vMeas = _IQmpy(loadNets[i].vFdbkNet, _Q14toIQ(loadSettings[i].vScale));
-
-		// TODO: CONVERT iLIM to IQ24 or CONVERT vMeas AND iMeas TO FLOAT.
-		iLimDyn = LOAD_OPPLVL_FIX / vMeas;	/* Divide real V value into the power limit value to get the dynamic I limit. */
-
-		/* Get the most recent iSns reading for the given load and multiply by the related iScale to get the real value (IQ24). */
-		iMeas = _IQmpy(loadNets[i].iFdbkNet, _Q14toIQ(loadSettings[i].iScale));
-
-
-		if (iMeas > iLimDyn) {	/* Check the measured current value is below the dynamic current limit value. */
-			mnStopAll();
-			return OPP_TRIP;
-		}
-	}
-
-	// TODO: ADD OPP CHECK FOR XFMR AND AC
-
+Uint16 adcGetLoadCurrent (loadStage load, float32 * iDest) {
+	/* Reads the Current ADC reading. */
+	float32 curr = 0;
+	if (load >= numberOfLoads)
+		return CHANNEL_OOB;
+	curr = _IQ24toF(loadNets[load].iFdbkNet);					/* Get the most recent reading. */
+	*iDest = curr * _IQ14toF((int32) loadSettings[load].iScale);/* Multiply reading by scaling factor */
 	return 0;
 }
 
@@ -217,59 +80,82 @@ Uint16 adcCheckOpp (void) {
 //	loadSettings[load].vScale = _SQ14(scaleSetting);/* Save as Q format*/
 //	return 0;
 //}
+//
+//Uint16 adcGetLoadIScale (loadStage load, float32 * sclDest) {
+//	/* Returns the current iScale value (amps-per-volt) for the specified load */
+//	if (load >= numberOfLoads)
+//		return CHANNEL_OOB;
+//	*sclDest = _IQ14toF((int32)loadSettings[load].iScale);
+//	return 0;
+//}
+//
+//Uint16 adcGetLoadVScale (loadStage load, float32 * sclDest) {
+//	/* Returns the current vScale value (volts-per-volt) for the specified load */
+//	if (load >= numberOfLoads)
+//		return CHANNEL_OOB;
+//	*sclDest = _IQ14toF((int32) loadSettings[load].vScale);
+//	return 0;
+//}
 
-Uint16 adcSetLoadOcp (loadStage load, float32 ocpSetting) {
-	/* Sets OCP value for the specified load
-	 *  ocpSetting is expected in amps
-	 *  - iScale SHOULD BE SET BEFORE OCP -
+/*=================== STUFF TO BE MOVED ===================*/
+
+Uint16 adcCheckOvp (void) {
+	/* Over-voltage protection
+	 *  - vScale AND OVP SHOULD BE SET BEFORE USE -
 	 */
-	float32 iMax = 0;
-	int32 iStRms = 0;
-
-	if (load >= numberOfLoads)				/* Check channel is valid */
-		return CHANNEL_OOB;
-	if (loadSettings[load].iScale == 0)		/* Check iScale is set, to avoid div-by-0 exception */
-		return VALUE_OOB;
-													/* Convert scale from SQ to float */
-	iMax = _IQ14toF((int32) loadSettings[load].iScale);
-	iMax = ((VDDA - VSSA) * 0.001) * (1.0 / iMax); 	/* Calculate maximum I */
-	iStRms = _IQ10(ocpSetting * RECP_SQRT_2);		/* Convert setting to RMS Q10 and check result is in range */
-	if ((iStRms <= loadSettings[load].iMinRms) && (iStRms > loadSettings[load].iMaxRms))
-		return VALUE_OOB;
-													/* Normalise and save */
-	loadSettings[load].ocpLevel = _IQ24(ocpSetting / iMax);
+	Uint16 i = 0;
+	for (i = 0; i < numberOfLoads; i++) {				/* Compare all load VSns ADC values to their OVP limits */
+		if (loadNets[i].vFdbkNet > loadSettings[i].ovpLevel) {
+			mnStopAll();
+			return OVP_TRIP;
+		}
+	}
+	if (xfmrNets.hvVSnsNet > xfmrSettings.hvOvpLevel){	/* Compare the DC HV VSns ADC value to its OVP limit */
+		mnStopAll();
+		return OVP_TRIP;
+	}
+	if (getSlaveMode() == master) {						/* Check if the system is in master mode */
+		if (acNets.vFdbkNet > acSettings.ovpLevel) {	/* Compare the AC VSns ADC value to its OVP limit */
+			mnStopAll ();
+			return OVP_TRIP;
+		}
+	}
 	return 0;
 }
 
-Uint16 adcSetMidOcp (float32 ocpSetting) {
-	/* Sets the OCP value for the DC MID ISns
-	 * ocpSetting is expected in amps
+Uint16 adcCheckOpp (void) {
+	/* Over-power protection
+	 *  - vScale AND iScale SHOULD BE SET BEFORE USE -
 	 */
-	float32 iMax = 0;
-	int32 iStRms = 0;
-	iMax = _IQ14toF((int32) xfmrSettings.iScale);	/* Convert scale from SQ to float */
-	iMax = ((VDDA - VSSA) * 0.001) * (1.0 / iMax);	/* Calculate maximum I */
-	iStRms = _IQ10(ocpSetting * RECP_SQRT_2);		/* Convert setting to RMS Q10 and check result is in range */
-	if ((iStRms <= xfmrSettings.iMinRms) && (iStRms > xfmrSettings.iMaxRms))
-		return VALUE_OOB;
-	xfmrSettings.ocpLevel = _IQ24(ocpSetting / iMax);/* Normalise and save */
-	return 0;
-}
+	Uint16 i = 0;
+	int32 vMeas = 0, iMeas = 0;
+	float32 iLimDyn = 0, iMeasF = 0;
 
-Uint16 adcSetAcOcp (float32 ocpSetting) {
-	/* Sets the OCP value for the AC ISns
-	 * ocpSetting expected in amps
-	 */
-	float32 iMax = 0;
-	int32 iStRms = 0;
-	iMax = _IQ14toF((int32) acSettings.iScale);		/* Convert scale from SQ to float */
-	iMax = ((VDDA - VSSA) * 0.001) * (1.0 / iMax);	/* Calculate maximum I */
-	iStRms = _IQ10(ocpSetting * RECP_SQRT_2);		/* Convert setting to RMS Q10 and check result is in range */
-	if ((iStRms <= acSettings.iMinRms) && (iStRms > acSettings.iMaxRms))
-		return VALUE_OOB;
-	acSettings.ocpLevel = _IQ24(ocpSetting / iMax);	/* Normalise and save */
+	for (i = 0; i < numberOfLoads; i++) {
+									/* Get the most recent voltage reading for the given load and multiply by
+									 * the related vScale to get the real value (IQ24).
+									 */
+		vMeas = _IQmpy(loadNets[i].vFdbkNet, _Q14toIQ(loadSettings[i].vScale));
 
-	//TODO: Update AC OCP ISns DAC value?
+		iLimDyn = _IQ24toF(vMeas);	/* Convert real voltage value from IQ24. */
+									/* Divide real voltage value into the power limit value to get the dynamic
+									 * current limit.
+									 */
+		iLimDyn = LOAD_OPPLVL_FIX / iLimDyn;
+
+									/* Get the most recent current reading for the given load and multiply by the
+									 * related current scale to get the real value (IQ24).
+									 */
+		iMeas = _IQmpy(loadNets[i].iFdbkNet, _Q14toIQ(loadSettings[i].iScale));
+		iMeasF = _IQ24toF(iMeas);
+
+		if (iMeasF > iLimDyn) {		/* Check the measured current value is below the dynamic current limit value. */
+			mnStopAll();
+			return OPP_TRIP;
+		}
+	}
+
+	// TODO: ADD OPP CHECK FOR XFMR AND AC
 
 	return 0;
 }
@@ -335,57 +221,6 @@ Uint16 adcSetAcOvp (float32 ovpSetting) {
 		return CHANNEL_OOB;
 
 	// TODO: ...
-	return 0;
-}
-
-//Uint16 adcGetLoadIScale (loadStage load, float32 * sclDest) {
-//	/* Returns the current iScale value (amps-per-volt) for the specified load */
-//	if (load >= numberOfLoads)
-//		return CHANNEL_OOB;
-//	*sclDest = _IQ14toF((int32)loadSettings[load].iScale);
-//	return 0;
-//}
-//
-//Uint16 adcGetLoadVScale (loadStage load, float32 * sclDest) {
-//	/* Returns the current vScale value (volts-per-volt) for the specified load */
-//	if (load >= numberOfLoads)
-//		return CHANNEL_OOB;
-//	*sclDest = _IQ14toF((int32) loadSettings[load].vScale);
-//	return 0;
-//}
-
-Uint16 adcGetLoadVoltage (loadStage load, float32 * vDest) {
-	/* Reads the Voltage ADC reading. */
-	float32 vltg = 0;
-	if (load >= numberOfLoads)
-		return CHANNEL_OOB;
-	vltg = _IQ24toF(loadNets[load].vFdbkNet);					/* Get the most recent reading. */
-	*vDest = vltg * _IQ14toF((int32) loadSettings[load].vScale);/* Multiply reading by scaling factor */
-	return 0;
-}
-
-Uint16 adcGetLoadCurrent (loadStage load, float32 * iDest) {
-	/* Reads the Current ADC reading. */
-	float32 curr = 0;
-	if (load >= numberOfLoads)
-		return CHANNEL_OOB;
-	curr = _IQ24toF(loadNets[load].iFdbkNet);					/* Get the most recent reading. */
-	*iDest = curr * _IQ14toF((int32) loadSettings[load].iScale);/* Multiply reading by scaling factor */
-	return 0;
-}
-
-Uint16 adcGetLoadOcp (loadStage load, float32 * ocpDest) {
-	/* Returns current OCP limit, for the specified load,
-	 *  based on actual OCP and iScale
-	 *  - iScale SHOULD BE SET BEFORE OCP USE -
-	 */
-	float32 iMax = 0;
-	if (load >= numberOfLoads)				/* Check channel is valid */
-		return CHANNEL_OOB;
-	if (loadSettings[load].iScale == 0)		/* Check iScale is set, to avoid div-by-0 exception */
-		return VALUE_OOB;
-	iMax = ((VDDA - VSSA) * 0.001) * (16384.0 / loadSettings[load].iScale); /* Calculate maximum I */
-	*ocpDest = ((_IQ24toF(loadSettings[load].ocpLevel)) * iMax);			/* De-normalise */
 	return 0;
 }
 

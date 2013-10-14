@@ -35,6 +35,7 @@ SCPI_specificCmds.obj: ../Timers.h
 SCPI_specificCmds.obj: ../Adc.h
 SCPI_specificCmds.obj: ../Pwm.h
 SCPI_specificCmds.obj: ../Cntl.h
+SCPI_specificCmds.obj: ../Ocp.h
 SCPI_specificCmds.obj: ../SlewControl.h
 SCPI_specificCmds.obj: ../SineGen.h
 SCPI_specificCmds.obj: ../PhaseCtrl.h
@@ -88,6 +89,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Adc.h: 
 ../Pwm.h: 
 ../Cntl.h: 
+../Ocp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

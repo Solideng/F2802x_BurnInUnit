@@ -35,6 +35,7 @@ Pwm.obj: ../Timers.h
 Pwm.obj: ../Adc.h
 Pwm.obj: ../Pwm.h
 Pwm.obj: ../Cntl.h
+Pwm.obj: ../Ocp.h
 Pwm.obj: ../SlewControl.h
 Pwm.obj: ../SineGen.h
 Pwm.obj: ../PhaseCtrl.h
@@ -88,6 +89,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Adc.h: 
 ../Pwm.h: 
 ../Cntl.h: 
+../Ocp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

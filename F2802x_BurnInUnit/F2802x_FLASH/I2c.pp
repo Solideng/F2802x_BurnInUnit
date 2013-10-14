@@ -35,6 +35,7 @@ I2c.obj: ../Timers.h
 I2c.obj: ../Adc.h
 I2c.obj: ../Pwm.h
 I2c.obj: ../Cntl.h
+I2c.obj: ../Ocp.h
 I2c.obj: ../SlewControl.h
 I2c.obj: ../SineGen.h
 I2c.obj: ../PhaseCtrl.h
@@ -88,6 +89,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Adc.h: 
 ../Pwm.h: 
 ../Cntl.h: 
+../Ocp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 
