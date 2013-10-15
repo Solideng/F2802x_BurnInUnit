@@ -94,7 +94,6 @@ Uint16 clearDcHvOvp (void) {
 }
 
 /*================ AC ================*/
-
 Uint16 setAcOcpLevel (float32 pkLevel) {
 	/* Sets the OVP value for the AC VSns
 	 * pkLevel expected in amps

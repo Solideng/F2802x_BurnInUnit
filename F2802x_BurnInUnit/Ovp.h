@@ -22,6 +22,35 @@
 
 extern Uint16 ovpFlagRegister;	/** < OVP flag register. Bits are set to indicate an OVP condition has been found. */
 
+/*============== Load n ==============*/
+extern Uint16 checkLoadOvp (loadStage load);
 
+extern Uint16 getLoadOvpState (loadStage load);
+
+extern Uint16 clearLoadOvp (loadStage load);
+
+/*============== DC Mid ==============*/
+
+/*=============== DC HV ==============*/
+extern Uint16 setDcHvOvpLevel (float32 dcLevel);
+
+extern Uint16 getDcHvOvpLevel (float32 *dcLevel);
+
+extern Uint16 checkDcHvOvp (void);
+
+extern Uint16 getDcHvOvpState (void);
+
+extern Uint16 clearDcHvOvp (void);
+
+/*================ AC ================*/
+extern Uint16 setAcOvpLevel (float32 pkLevel);
+
+extern Uint16 getAcOvpLevel (float32 *pkLevel);
+
+extern Uint16 checkAcOvp (void);
+
+extern Uint16 getAcOvpState (void);
+
+extern Uint16 clearAcOvp (void);
 
 #endif /* OVP_H_ */
