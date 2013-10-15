@@ -16,14 +16,14 @@ Uint16 setLoadOcpLevel (loadStage load, float32 dcLevel) {
 	 *  - iScale SHOULD BE SET BEFORE USE -
 	 */
 	float32 iMax = 0;
-	int32 iStRms = 0;
+	int32 iSt = 0;
 
-	if (load >= numberOfLoads)				/* Check channel is valid */
+	if (load >= numberOfLoads)			/* Check channel is valid */
 		return CHANNEL_OOB;
-	if (loadSettings[load].iScale == 0)		/* Check iScale is set, to avoid div-by-0 exception */
+	if (loadSettings[load].iScale == 0)	/* Check iScale is set, to avoid div-by-0 exception */
 		return VALUE_OOB;
-	iStRms = _IQ10(dcLevel);				/* Convert level to Q10 and check result is in range */
-	if ((iStRms <= 0) && (iStRms > loadSettings[load].iMax))
+	iSt = _IQ10(dcLevel);				/* Convert level to Q10 and check result is in range */
+	if ((iSt <= 0) && (iSt > loadSettings[load].iMax))
 		return VALUE_OOB;
 
 	iMax = _IQ14toF((int32) loadSettings[load].iScale);	/* Convert scale from SQ to float */
@@ -38,9 +38,9 @@ Uint16 getLoadOcpLevel (loadStage load, float32 * dcLevel) {
 	 *  - iScale SHOULD BE SET BEFORE USE -
 	 */
 	float32 iMax = 0;
-	if (load >= numberOfLoads)				/* Check channel is valid */
+	if (load >= numberOfLoads)			/* Check channel is valid */
 		return CHANNEL_OOB;
-	if (loadSettings[load].iScale == 0)		/* Check iScale is set, to avoid div-by-0 exception */
+	if (loadSettings[load].iScale == 0)	/* Check iScale is set, to avoid div-by-0 exception */
 		return VALUE_OOB;
 	iMax = ((VDDA - VSSA) * 0.001) * (16384.0 / loadSettings[load].iScale); /* Calculate maximum I */
 	*dcLevel = ((_IQ24toF(loadSettings[load].ocpLevel)) * iMax);			/* De-normalise */
@@ -53,7 +53,7 @@ Uint16 checkLoadOcp (loadStage load) {
 	 */
 	if (load >= numberOfLoads)	/* Check channel is valid */
 		return CHANNEL_OOB;
-								/* Compare all load ISns ADC values to their OCP limits */
+								/* Compare the load ISns ADC value to its OCP limit */
 	if (loadNets[load].iFdbkNet > loadSettings[load].ocpLevel) {
 		mnStopAll();
 		ocpFlagRegister |= (1 << (load - 1));
@@ -68,23 +68,26 @@ Uint16 getLoadOcpState (loadStage load) {
 
 Uint16 clearLoadOcp (loadStage load) {
 	ocpFlagRegister &= (~(1 << (load - 1)));
+	if (ocpFlagRegister)
+		return OCP_TRIP;
+	mnRunAll();
 	return 0;
 }
 
 /*============== DC Mid ==============*/
-Uint16 setDcOcpLevel (float32 dcLevel) {
+Uint16 setDcMidOcpLevel (float32 dcLevel) {
 	/* Sets the OCP level for the DC Mid ISns
 	 * ocpSetting is expected in amps
 	 * - iScale SHOULD BE SET BEFORE USE -
 	 */
 	float32 iMax = 0;
-	int32 iStRms = 0;
+	int32 iSt = 0;
 
-	if (xfmrSettings.iScale == 0)					/* Check iScale is set, to avoid div-by-0 exception */
+	if (xfmrSettings.iScale == 0)	/* Check iScale is set, to avoid div-by-0 exception */
 		return VALUE_OOB;
 
-	iStRms = _IQ10(dcLevel);						/* Convert level to Q10 and check result is in range */
-	if ((iStRms <= 0) && (iStRms > xfmrSettings.iMax))
+	iSt = _IQ10(dcLevel);			/* Convert level to Q10 and check result is in range */
+	if ((iSt <= 0) && (iSt > xfmrSettings.iMax))
 		return VALUE_OOB;
 
 	iMax = _IQ14toF((int32) xfmrSettings.iScale);	/* Convert scale from SQ to float */
@@ -93,7 +96,7 @@ Uint16 setDcOcpLevel (float32 dcLevel) {
 	return 0;
 }
 
-Uint16 getDcOcpLevel (float32 * dcLevel) {
+Uint16 getDcMidOcpLevel (float32 * dcLevel) {
 	/* Returns current OCP limit for the DC Mid ISns,
 	 *  based on actual OCP and iScale
 	 *  - iScale SHOULD BE SET BEFORE USE -
@@ -107,22 +110,25 @@ Uint16 getDcOcpLevel (float32 * dcLevel) {
 	return 0;
 }
 
-Uint16 checkDcOcp (void) {
+Uint16 checkDcMidOcp (void) {
 	/* DC Mid over-current protection
 	 *  - iScale AND ocpLevel SHOULD BE SET BEFORE USE -
 	 */
 	if (xfmrNets.iSnsNet > xfmrSettings.ocpLevel) {	/* Compare the DC Mid ISns ADC value to its OCP limit */
 		mnStopAll();
-		ocpFlagRegister |= DC_OCP_TRIP;	/* Set flag */
+		ocpFlagRegister |= DCMID_OCP_TRIP;	/* Set flag */
 		return OCP_TRIP;
 	}
 	return 0;
 }
 
-Uint16 getDcOcpState (void) {return ((ocpFlagRegister & DC_OCP_TRIP) > 0);}
+Uint16 getDcMidOcpState (void) {return ((ocpFlagRegister & DCMID_OCP_TRIP) > 0);}
 
-Uint16 clearDcOcp (void) {
-	ocpFlagRegister &= (~DC_OCP_TRIP);
+Uint16 clearDcMidOcp (void) {
+	ocpFlagRegister &= (~DCMID_OCP_TRIP);
+	if (ocpFlagRegister)
+		return OCP_TRIP;
+	mnRunAll();
 	return 0;
 }
 
@@ -130,13 +136,13 @@ Uint16 clearDcOcp (void) {
 /*================ AC ================*/
 Uint16 setAcOcpLevel (float32 pkLevel) {
 	/* Sets the OCP value for the AC ISns
-	 * ocpSetting expected in amps
+	 * pkLevel expected in amps
 	 */
 	float32 iPkMax = 0;
 	int32 iStRms = 0;
 
 	iStRms = _IQ10(pkLevel * RECP_SQRT_2);	/* Convert setting to RMS Q10 and check result is in range */
-	if ((iStRms <= acSettings.iMinRms) && (iStRms > acSettings.iMaxRms))
+	if ((iStRms <= 0) && (iStRms > acSettings.iMaxRms))
 		return VALUE_OOB;
 
 	iPkMax = _IQ14toF((int32) acSettings.iScale);		/* Convert scale from SQ to float */
@@ -171,7 +177,7 @@ Uint16 checkAcOcp (void)  {
 //		ocpFlagRegister |= AC_OCP_TRIP;
 //		return OCP_TRIP;
 //	}
-//	return 0;
+	return 0;
 }
 
 Uint16 getAcOcpState (void) {return ((ocpFlagRegister & AC_OCP_TRIP) > 0);}
@@ -179,5 +185,8 @@ Uint16 getAcOcpState (void) {return ((ocpFlagRegister & AC_OCP_TRIP) > 0);}
 Uint16 clearAcOcp (void) {
 	//TODO: uses DAC, COMP & TZ instead.
 	ocpFlagRegister &= (~AC_OCP_TRIP);
+	if (ocpFlagRegister)
+		return OCP_TRIP;
+	mnRunAll();
 	return 0;
 }

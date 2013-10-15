@@ -33,9 +33,11 @@ StateMachine.obj: ../Spi.h
 StateMachine.obj: ../MacroNets.h
 StateMachine.obj: ../Timers.h
 StateMachine.obj: ../Adc.h
+StateMachine.obj: ../Comparator.h
 StateMachine.obj: ../Pwm.h
 StateMachine.obj: ../Cntl.h
 StateMachine.obj: ../Ocp.h
+StateMachine.obj: ../Ovp.h
 StateMachine.obj: ../SlewControl.h
 StateMachine.obj: ../SineGen.h
 StateMachine.obj: ../PhaseCtrl.h
@@ -87,9 +89,11 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 
+../Comparator.h: 
 ../Pwm.h: 
 ../Cntl.h: 
 ../Ocp.h: 
+../Ovp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

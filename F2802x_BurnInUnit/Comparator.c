@@ -8,6 +8,8 @@
 
 // N.B. DACs do not currently ramp.
 
+// TODO: Move TZ functions here as well + write TZ reset and ensure TZ isr calls reset and sets ocp flag
+
 void initDcComparator (void) {
 	/* Initialises the DC comparator (COMP 2) using an internal DAC at the inverting input.
 	 *  - SHOULD BE CALLED AFTER adcSocCnf() -

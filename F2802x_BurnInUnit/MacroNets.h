@@ -119,9 +119,7 @@ struct acStageSettings {
 	int32 	ovpLevel;	/**< Normalised OVP limit (IQ24). */
 	int32 	otpLevel;	/**< OTP limit in @f$ ^\circ@f$ C (SQ7). */
 	int16 	iMaxRms;	/**< Maximum RMS current setting limit (SQ10). */
-	int16 	iMinRms;	/**< Minimum RMS current setting limit (SQ10). */
 	int16 	vMaxRms;	/**< Maximum RMS voltage setting limit (SQ10). */
-	int16 	vMinRms;	/**< Minimum RMS voltage setting limit (SQ10). */
 	int16 	iScale;		/**< Current scaling setting in volts-per-amp for scaling between a voltage level measured by an ADC to a real current value (SQ14). */
 	int16 	vScale;		/**< Voltage scaling setting in volts-per-volts for scaling between a voltage level measured by an ADC to a real voltage value (SQ14). */
 	int16	vGainLmt;	/**< Sine signal generator voltage gain limit (SQ14). */
@@ -151,10 +149,8 @@ struct xfmrStageSettings {
 	int32   hvOvpLevel;
 	int32	otpLevel;
 	int16 	iMax;
-	int16 	midVMinRms;
-	int16 	midVMaxRms;
-	int16 	hvVMinRms;
-	int16 	hvVMaxRms;
+	int16 	midVMax;
+	int16 	hvVMax;
 	int16 	iScale;
 	int16 	midVScale;
 	int16 	hvVScale;

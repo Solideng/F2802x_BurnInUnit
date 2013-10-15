@@ -29,6 +29,7 @@ C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/source/DSP2802x_G
 ../MacroNets.c \
 ../Main.c \
 ../Ocp.c \
+../Ovp.c \
 C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/C/PWM_2ch_UpCnt_Cnf.c \
 ../PhaseCtrl.c \
 ../Pwm.c \
@@ -57,6 +58,7 @@ OBJS += \
 ./MacroNets.obj \
 ./Main.obj \
 ./Ocp.obj \
+./Ovp.obj \
 ./PWM_2ch_UpCnt_Cnf.obj \
 ./PhaseCtrl.obj \
 ./Pwm.obj \
@@ -87,6 +89,7 @@ C_DEPS += \
 ./MacroNets.pp \
 ./Main.pp \
 ./Ocp.pp \
+./Ovp.pp \
 ./PWM_2ch_UpCnt_Cnf.pp \
 ./PhaseCtrl.pp \
 ./Pwm.pp \
@@ -112,6 +115,7 @@ C_DEPS__QUOTED += \
 "MacroNets.pp" \
 "Main.pp" \
 "Ocp.pp" \
+"Ovp.pp" \
 "PWM_2ch_UpCnt_Cnf.pp" \
 "PhaseCtrl.pp" \
 "Pwm.pp" \
@@ -140,6 +144,7 @@ OBJS__QUOTED += \
 "MacroNets.obj" \
 "Main.obj" \
 "Ocp.obj" \
+"Ovp.obj" \
 "PWM_2ch_UpCnt_Cnf.obj" \
 "PhaseCtrl.obj" \
 "Pwm.obj" \
@@ -170,6 +175,7 @@ C_SRCS__QUOTED += \
 "../MacroNets.c" \
 "../Main.c" \
 "../Ocp.c" \
+"../Ovp.c" \
 "C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/C/PWM_2ch_UpCnt_Cnf.c" \
 "../PhaseCtrl.c" \
 "../Pwm.c" \

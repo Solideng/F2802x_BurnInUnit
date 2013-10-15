@@ -33,9 +33,11 @@ Timers.obj: ../Spi.h
 Timers.obj: ../MacroNets.h
 Timers.obj: ../Timers.h
 Timers.obj: ../Adc.h
+Timers.obj: ../Comparator.h
 Timers.obj: ../Pwm.h
 Timers.obj: ../Cntl.h
 Timers.obj: ../Ocp.h
+Timers.obj: ../Ovp.h
 Timers.obj: ../SlewControl.h
 Timers.obj: ../SineGen.h
 Timers.obj: ../PhaseCtrl.h
@@ -87,9 +89,11 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 
+../Comparator.h: 
 ../Pwm.h: 
 ../Cntl.h: 
 ../Ocp.h: 
+../Ovp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

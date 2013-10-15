@@ -33,9 +33,11 @@ PhaseCtrl.obj: ../Spi.h
 PhaseCtrl.obj: ../MacroNets.h
 PhaseCtrl.obj: ../Timers.h
 PhaseCtrl.obj: ../Adc.h
+PhaseCtrl.obj: ../Comparator.h
 PhaseCtrl.obj: ../Pwm.h
 PhaseCtrl.obj: ../Cntl.h
 PhaseCtrl.obj: ../Ocp.h
+PhaseCtrl.obj: ../Ovp.h
 PhaseCtrl.obj: ../SlewControl.h
 PhaseCtrl.obj: ../SineGen.h
 PhaseCtrl.obj: ../PhaseCtrl.h
@@ -87,9 +89,11 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 
+../Comparator.h: 
 ../Pwm.h: 
 ../Cntl.h: 
 ../Ocp.h: 
+../Ovp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

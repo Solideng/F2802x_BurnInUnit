@@ -33,9 +33,11 @@ EnableCtrl.obj: ../Spi.h
 EnableCtrl.obj: ../MacroNets.h
 EnableCtrl.obj: ../Timers.h
 EnableCtrl.obj: ../Adc.h
+EnableCtrl.obj: ../Comparator.h
 EnableCtrl.obj: ../Pwm.h
 EnableCtrl.obj: ../Cntl.h
 EnableCtrl.obj: ../Ocp.h
+EnableCtrl.obj: ../Ovp.h
 EnableCtrl.obj: ../SlewControl.h
 EnableCtrl.obj: ../SineGen.h
 EnableCtrl.obj: ../PhaseCtrl.h
@@ -87,9 +89,11 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 
+../Comparator.h: 
 ../Pwm.h: 
 ../Cntl.h: 
 ../Ocp.h: 
+../Ovp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

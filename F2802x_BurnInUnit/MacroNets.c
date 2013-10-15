@@ -133,9 +133,7 @@ void mnInitSettings (void) {
 	acSettings.ovpLevel   = 16777216;	/* Maximum Q24 */
 	acSettings.otpLevel   = 19200;		/* 150 degree C Q7 */
 	acSettings.iMaxRms    = 15360;		/* 15 amps (RMS) Q10 SQ10 */
-	acSettings.iMinRms    = 0;			/* 0 amps (RMS) Q10 */
 	acSettings.vMaxRms    = 15360;		/* 15 volts (RMS) Q10 */ //TODO Test setting << need actual
-	acSettings.vMinRms    = 0;			/* 0 volts (RMS) Q10 */
 	acSettings.iScale     = 2048;		/* 0.125f amps-per-volt Q14 */
 	acSettings.vScale     = 32767;		/* 1.0f volts-per-volt Q14 */
 	acSettings.enable     = FALSE;		/* FALSE | TRUE */
@@ -149,11 +147,9 @@ void mnInitSettings (void) {
 	xfmrSettings.otpLevel 	 = 19200;		/* 150 degree C Q7*/
 	xfmrSettings.iMax	 	 = 15360;		/* 15 Amps RMS Q10 */
 	xfmrSettings.iScale 	 = 0;			/* Q14 */
-	xfmrSettings.midVMaxRms  = 15360;		/* 15 Amps RMS Q10 */
-	xfmrSettings.midVMinRms  = 0;			/* 0 Amps RMS Q10 */
+	xfmrSettings.midVMax	 = 15360;		/* 15 Amps RMS Q10 */
 	xfmrSettings.midVScale 	 = _SQ14(VMID_R2 / (VMID_R1 + VMID_R2));
-	xfmrSettings.hvVMaxRms   = 15360;		/* 15 Amps RMS Q10 */
-	xfmrSettings.hvVMinRms   = 0;			/* 0 Amps RMS Q10 */
+	xfmrSettings.hvVMax  	 = 15360;		/* 15 Amps Q10 */
 	xfmrSettings.hvVScale 	 = _SQ14(1.0);	// TODO: Need actual value
 	xfmrSettings.enable 	 = FALSE;		/* Disabled */
 }

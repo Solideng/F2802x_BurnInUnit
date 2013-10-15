@@ -160,28 +160,28 @@ Uint16 adcCheckOpp (void) {
 	return 0;
 }
 
-Uint16 adcSetLoadOvp (loadStage load, float32 ovpSetting) {
-	/* Sets OVP value for the specified load
-	 *  ovpSetting is expected in volts
-	 *  - vScale SHOULD BE SET BEFORE OVP -
-	 */
-	float32 vMax = 0;
-	int32 vStRms = 0;
-
-	if (load >= numberOfLoads)				/* Check channel is valid */
-		return CHANNEL_OOB;
-	if (loadSettings[load].vScale == 0)		/* Check vScale is set, to avoid div-by-0 exception */
-		return VALUE_OOB;
-
-	vMax = _IQ14toF((int32) loadSettings[load].vScale);		/* Convert scale from SQ to float */
-	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);	/* Calculate maximum V */
-	vStRms = _IQ10(ovpSetting * RECP_SQRT_2);		/* Convert setting to RMS Q10 and check result is in range */
-	if ((vStRms <= loadSettings[load].vMinRms) && (vStRms > loadSettings[load].vMaxRms))
-		return VALUE_OOB;
-
-	loadSettings[load].ovpLevel = _IQ24(ovpSetting / vMax);	/* Normalise */
-	return 0;
-}
+//Uint16 adcSetLoadOvp (loadStage load, float32 ovpSetting) {
+//	/* Sets OVP value for the specified load
+//	 *  ovpSetting is expected in volts
+//	 *  - vScale SHOULD BE SET BEFORE OVP -
+//	 */
+//	float32 vMax = 0;
+//	int32 vStRms = 0;
+//
+//	if (load >= numberOfLoads)				/* Check channel is valid */
+//		return CHANNEL_OOB;
+//	if (loadSettings[load].vScale == 0)		/* Check vScale is set, to avoid div-by-0 exception */
+//		return VALUE_OOB;
+//
+//	vMax = _IQ14toF((int32) loadSettings[load].vScale);		/* Convert scale from SQ to float */
+//	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);	/* Calculate maximum V */
+//	vStRms = _IQ10(ovpSetting * RECP_SQRT_2);		/* Convert setting to RMS Q10 and check result is in range */
+//	if ((vStRms <= loadSettings[load].vMinRms) && (vStRms > loadSettings[load].vMaxRms))
+//		return VALUE_OOB;
+//
+//	loadSettings[load].ovpLevel = _IQ24(ovpSetting / vMax);	/* Normalise */
+//	return 0;
+//}
 
 Uint16 adcSetMidOvp (float32 ovpSetting) {
 	/* Sets OVP value for the DC Mid VSns
@@ -201,42 +201,42 @@ Uint16 adcSetMidOvp (float32 ovpSetting) {
 	return 0;
 }
 
-Uint16 adcSetHvOvp (float32 ovpSetting) {
-	/* Sets OVP value for the DC HV VSns
-	 * ovpSetting is expected in volts
-	 */
-	float32 vMax = 0;
-	int32 vStRms = 0;
-	vMax = _IQ14toF((int32) xfmrSettings.hvVScale);		/* Convert scale from SQ to float */
-	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);		/* Calculate maximum V */
-	vStRms = _IQ10(ovpSetting * RECP_SQRT_2);			/* Convert setting to RMS Q10 and check result is in range */
-	if ((vStRms <= xfmrSettings.hvVMinRms) && (vStRms > xfmrSettings.hvVMaxRms))
-		return VALUE_OOB;
-	xfmrSettings.hvOvpLevel = _IQ24(ovpSetting / vMax);	/* Normalise */
-	return 0;
-}
-
-Uint16 adcSetAcOvp (float32 ovpSetting) {
-	if (getSlaveMode() == master)
-		return CHANNEL_OOB;
-
-	// TODO: ...
-	return 0;
-}
-
-Uint16 adcGetLoadOvp (loadStage load, float32 * ovpDest) {
-	/* Returns current OVP limit, for the specified load,
-	 *  based on actual OVP and vScale
-	 *  - vScale SHOULD BE SET BEFORE OVP USE -
-	 */
-	float32 vMax = 0;
-	if (load >= numberOfLoads)				/* Check channel is valid */
-		return CHANNEL_OOB;
-	if (loadSettings[load].vScale == 0)		/* Check vScale is set, to avoid divide-by-0 exception */
-		return VALUE_OOB;
-	vMax = ((VDDA - VSSA) * 0.001) * (16384.0 / loadSettings[load].vScale); 	/* Calculate maximum V */
-	*ovpDest = ((_IQ24toF(loadSettings[load].ovp)) * vMax);		/* De-normalise */
-
-	//*ovpDest = (((_IQ24toF(channel[chnl].ovp)) * vMax) * (16384.0 / channel[chnl].vGainLmt));	/* De-normalise and de-gain */
-	return 0;
-}
+//Uint16 adcSetHvOvp (float32 ovpSetting) {
+//	/* Sets OVP value for the DC HV VSns
+//	 * ovpSetting is expected in volts
+//	 */
+//	float32 vMax = 0;
+//	int32 vStRms = 0;
+//	vMax = _IQ14toF((int32) xfmrSettings.hvVScale);		/* Convert scale from SQ to float */
+//	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);		/* Calculate maximum V */
+//	vStRms = _IQ10(ovpSetting * RECP_SQRT_2);			/* Convert setting to RMS Q10 and check result is in range */
+//	if ((vStRms <= xfmrSettings.hvVMinRms) && (vStRms > xfmrSettings.hvVMaxRms))
+//		return VALUE_OOB;
+//	xfmrSettings.hvOvpLevel = _IQ24(ovpSetting / vMax);	/* Normalise */
+//	return 0;
+//}
+//
+//Uint16 adcSetAcOvp (float32 ovpSetting) {
+//	if (getSlaveMode() == master)
+//		return CHANNEL_OOB;
+//
+//	// TODO: ...
+//	return 0;
+//}
+//
+//Uint16 adcGetLoadOvp (loadStage load, float32 * ovpDest) {
+//	/* Returns current OVP limit, for the specified load,
+//	 *  based on actual OVP and vScale
+//	 *  - vScale SHOULD BE SET BEFORE OVP USE -
+//	 */
+//	float32 vMax = 0;
+//	if (load >= numberOfLoads)				/* Check channel is valid */
+//		return CHANNEL_OOB;
+//	if (loadSettings[load].vScale == 0)		/* Check vScale is set, to avoid divide-by-0 exception */
+//		return VALUE_OOB;
+//	vMax = ((VDDA - VSSA) * 0.001) * (16384.0 / loadSettings[load].vScale); 	/* Calculate maximum V */
+//	*ovpDest = ((_IQ24toF(loadSettings[load].ovp)) * vMax);		/* De-normalise */
+//
+//	//*ovpDest = (((_IQ24toF(channel[chnl].ovp)) * vMax) * (16384.0 / channel[chnl].vGainLmt));	/* De-normalise and de-gain */
+//	return 0;
+//}

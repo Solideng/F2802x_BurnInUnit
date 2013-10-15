@@ -33,9 +33,11 @@ Pwm.obj: ../Spi.h
 Pwm.obj: ../MacroNets.h
 Pwm.obj: ../Timers.h
 Pwm.obj: ../Adc.h
+Pwm.obj: ../Comparator.h
 Pwm.obj: ../Pwm.h
 Pwm.obj: ../Cntl.h
 Pwm.obj: ../Ocp.h
+Pwm.obj: ../Ovp.h
 Pwm.obj: ../SlewControl.h
 Pwm.obj: ../SineGen.h
 Pwm.obj: ../PhaseCtrl.h
@@ -87,9 +89,11 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 
+../Comparator.h: 
 ../Pwm.h: 
 ../Cntl.h: 
 ../Ocp.h: 
+../Ovp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

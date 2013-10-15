@@ -33,9 +33,11 @@ Spi.obj: ../Spi.h
 Spi.obj: ../MacroNets.h
 Spi.obj: ../Timers.h
 Spi.obj: ../Adc.h
+Spi.obj: ../Comparator.h
 Spi.obj: ../Pwm.h
 Spi.obj: ../Cntl.h
 Spi.obj: ../Ocp.h
+Spi.obj: ../Ovp.h
 Spi.obj: ../SlewControl.h
 Spi.obj: ../SineGen.h
 Spi.obj: ../PhaseCtrl.h
@@ -87,9 +89,11 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 
+../Comparator.h: 
 ../Pwm.h: 
 ../Cntl.h: 
 ../Ocp.h: 
+../Ovp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

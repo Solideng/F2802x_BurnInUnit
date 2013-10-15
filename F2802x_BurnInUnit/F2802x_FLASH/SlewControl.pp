@@ -33,9 +33,11 @@ SlewControl.obj: ../Spi.h
 SlewControl.obj: ../MacroNets.h
 SlewControl.obj: ../Timers.h
 SlewControl.obj: ../Adc.h
+SlewControl.obj: ../Comparator.h
 SlewControl.obj: ../Pwm.h
 SlewControl.obj: ../Cntl.h
 SlewControl.obj: ../Ocp.h
+SlewControl.obj: ../Ovp.h
 SlewControl.obj: ../SlewControl.h
 SlewControl.obj: ../SineGen.h
 SlewControl.obj: ../PhaseCtrl.h
@@ -87,9 +89,11 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 
+../Comparator.h: 
 ../Pwm.h: 
 ../Cntl.h: 
 ../Ocp.h: 
+../Ovp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

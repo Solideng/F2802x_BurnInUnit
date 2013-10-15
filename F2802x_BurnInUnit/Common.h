@@ -32,9 +32,11 @@
 /* Macro terminals & function control */
 #include "Timers.h"
 #include "Adc.h"
+#include "Comparator.h"
 #include "Pwm.h"
 #include "Cntl.h"
 #include "Ocp.h"
+#include "Ovp.h"
 #include "SlewControl.h"
 #include "SineGen.h"
 #include "PhaseCtrl.h"

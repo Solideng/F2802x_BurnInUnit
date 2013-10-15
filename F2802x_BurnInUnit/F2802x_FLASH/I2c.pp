@@ -33,9 +33,11 @@ I2c.obj: ../Spi.h
 I2c.obj: ../MacroNets.h
 I2c.obj: ../Timers.h
 I2c.obj: ../Adc.h
+I2c.obj: ../Comparator.h
 I2c.obj: ../Pwm.h
 I2c.obj: ../Cntl.h
 I2c.obj: ../Ocp.h
+I2c.obj: ../Ovp.h
 I2c.obj: ../SlewControl.h
 I2c.obj: ../SineGen.h
 I2c.obj: ../PhaseCtrl.h
@@ -87,9 +89,11 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../MacroNets.h: 
 ../Timers.h: 
 ../Adc.h: 
+../Comparator.h: 
 ../Pwm.h: 
 ../Cntl.h: 
 ../Ocp.h: 
+../Ovp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 
