@@ -39,9 +39,6 @@
 	#define ADC_I2C_ADDR 	(ADC_I2C_BASE_ADDR | ADC_SW3A_STATE) | (ADC_SW3B_STATE << 1)	/**< ADS7830 ADC complete I2C address. */
 #endif
 
-#define EXT1 				7	/**< External temperature 1 channel reference. */
-#define EXT2				8	/**< External temperature 2 channel reference. */
-
 #define ADC_NUM_CHNL		0x08	/**< ADS7830 ADC number of temperature channels. */
 #define ADC_VREF			5.0		/**< ADS7830 ADC reference voltage (volts). */
 #define ADC_STPS			256		/**< ADS7830 ADC number of steps. */

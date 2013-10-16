@@ -182,9 +182,9 @@ Uint16 checkExtOtp (extSelect ext){
 		return CHANNEL_OOB;
 
 	if (ext == ext1)
-		err = tmpRead(EXT1, &tmp);	/* Read temperature of the Ext1 sensor */
+		err = tmpRead(EXT_1, &tmp);	/* Read temperature of the Ext1 sensor */
 	else
-		err = tmpRead(EXT2, &tmp);	/* Read temperature of the Ext2 sensor */
+		err = tmpRead(EXT_2, &tmp);	/* Read temperature of the Ext2 sensor */
 
 	if (err)						/* Check the read finished without error */
 		return err;
