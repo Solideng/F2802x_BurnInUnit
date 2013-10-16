@@ -23,7 +23,7 @@
 extern Uint16 ovpFlagRegister;	/** < OVP flag register. Bits are set to indicate an OVP condition has been found. */
 
 /*============== Load n ==============*/
-/** Checks the current reading of the specified load against the load OVP limit.
+/** Checks the voltage reading of the specified load against the load OVP limit.
  * Raises the load OVP flag if the reading is above the limit.
  * @param[in]	load	Specifies the load on which the setting is to be queried.
  * @return 				Error status
@@ -31,7 +31,8 @@ extern Uint16 ovpFlagRegister;	/** < OVP flag register. Bits are set to indicate
 extern Uint16 checkLoadOvp (loadStage load);
 
 /** Queries the state of the OVP flag for the specified load.
- * @return	True if OVP flag has been raised.
+ * @param[in]	load	Specifies the load on which to check the flag.
+ * @return				True if OVP flag has been raised.
  */
 extern Uint16 getLoadOvpState (loadStage load);
 
@@ -83,7 +84,7 @@ extern Uint16 setDcHvOvpLevel (float32 dcLevel);
  */
 extern Uint16 getDcHvOvpLevel (float32 *dcLevel);
 
-/** Checks the current reading of the DC HV stage against the DC HV OVP limit.
+/** Checks the voltage reading of the DC HV stage against the DC HV OVP limit.
  * Raises the DC HV OVP flag if the reading is above the limit.
  * @return 				Error status
  */
@@ -112,7 +113,7 @@ extern Uint16 setAcOvpLevel (float32 pkLevel);
  */
 extern Uint16 getAcOvpLevel (float32 *pkLevel);
 
-/** Checks the current reading of the AC stage against the AC OVP limit.
+/** Checks the voltage reading of the AC stage against the AC OVP limit.
  * Raises the AC OVP flag if the reading is above the limit.
  * @return 				Error status
  */

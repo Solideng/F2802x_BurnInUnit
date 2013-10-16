@@ -45,7 +45,8 @@ extern Uint16 getLoadOcpLevel (loadStage load, float32 * dcLevel);
 extern Uint16 checkLoadOcp (loadStage load);
 
 /** Queries the state of the OCP flag for the specified load.
- * @return	True if OCP flag has been raised.
+ * @param[in]	load	Specifies the load on which to check the flag.
+ * @return				True if OCP flag has been raised.
  */
 extern Uint16 getLoadOcpState (loadStage load);
 
