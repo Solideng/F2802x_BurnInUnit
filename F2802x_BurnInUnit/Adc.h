@@ -10,75 +10,30 @@
 
 /*============= GLOBAL FUNCTIONS ==============*/
 /** Configures ADC SOC for ADC macro */
-extern void adcSocCnf (void);
+extern void adcSocConfig (void);
 
 /** Configures the ADC's SOCs then calls pwmSocConfigure().
  *  - SHOULD be run after pwmMacroConfigure().
  *  - SHOULD be run before DPL_INIT().
  */
-extern void adcMacroConfigure (void);
-
-/** Checks the current voltage sense ADC readings against the OVP limits.
- * @return Error status
- */
-extern Uint16 adcCheckOvp (void);
-
-
-/** Sets the current scaling for the specified load.
- * @param[in]	load 			Specifies the load the setting is to be applied to.
- * @param[in]	scaleSetting	Specifies the value of the scaling setting to be applied (amps-per-volts).
- * @return						Error status.
- */
-extern Uint16 adcSetLoadIScale (loadStage load, float32 scaleSetting);
-
-/** Sets the voltage scaling for the specified load.
- * @param[in]	load 			Specifies the load the setting is to be applied to.
- * @param[in]	scaleSetting	Specifies the value of the scaling setting to be applied (volts-per-volts).
- * @return						Error status.
- */
-extern Uint16 adcSetLoadVScale (loadStage load, float32 scaleSetting);
-
-/** Sets the over voltage protection limit for the specified load.
- * @param[in]	load 		Specifies the load the setting is to be applied to.
- * @param[in]	ovpSetting	Specifies the value of the limit to be applied (volts).
- * @return					Error status.
- */
-extern Uint16 adcSetLoadOvp (loadStage load, float32 ovpSetting);
-
-/** Queries the current current scaling setting of the specified load.
- * @param[in]	load	Specifies the load on which the setting is to be queried.
- * @param[out]	sclDest	Address of the memory location at which to place the query result (amps).
- * @return				Error status.
- */
-extern Uint16 adcGetLoadIScale (loadStage load, float32 * sclDest);
-
-/** Queries the current voltage scaling setting of the specified load.
- * @param[in]	load	Specifies the load on which the setting is to be queried.
- * @param[out]	sclDest	Address of the memory location at which to place the query result (volts).
- * @return				Error status.
- */
-extern Uint16 adcGetLoadVScale (loadStage load, float32 * sclDest);
+extern void adcMacroConfig (void);
 
 /** Queries the most recent voltage reading from the specified load's associated ADC.
  * @param[in]	load	Specifies the load on which the reading is to be queried.
  * @param[out]	vDest	Address of the memory location at which to place the query result (volts).
  * @return				Error status.
  */
-extern Uint16 adcGetLoadVoltage (loadStage load, float32 * vDest);
+extern Uint16 getLoadVoltage (loadStage load, float32 * vDest);
 
 /** Queries the most recent current reading from the specified load's associated ADC.
  * @param[in]	load	Specifies the load on which the reading is to be queried.
  * @param[out]	iDest	Address of the memory location at which to place the query result (amps).
  * @return				Error status.
  */
-extern Uint16 adcGetLoadCurrent (loadStage load, float32 * iDest);
+extern Uint16 getLoadCurrent (loadStage load, float32 * iDest);
 
-/** Queries the over current protection setting for the specified load.
- * @param[in]	load	Specifies the load on which the setting is to be queried.
- * @param[out]	ovpDest	Address of the memory location at which to place the query result (volts).
- * @return				Error status.
- */
-extern Uint16 adcGetLoadOvp (loadStage load, float32 * ovpDest);
+extern Uint16 adcCheckOpp (void);
+
 
 /*================ GLOBAL VARS ================*/
 /*============= TERMINAL POINTERS =============*/

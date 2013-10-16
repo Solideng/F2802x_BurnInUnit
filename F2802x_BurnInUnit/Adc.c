@@ -6,16 +6,16 @@
  */
 #include "Common.h"
 
-void adcMacroConfigure (void) {
+void adcMacroConfig (void) {
 	/* This SHOULD be called after the PWMs have been configured (pwmMacroConfigure())
 	 *  - SHOULD BE RUN AFTER pwmMacroConfigure() -
 	 *  - SHOULD BE RUN BEFORE DPL_INIT() -
 	 */
-	adcSocCnf();			/* Configure Macro ADCs SOCs */
+	adcSocConfig();			/* Configure Macro ADCs SOCs */
 	pwmSocConfigure();		/* Configure PWM as SOC trigger */
 }
 
-void adcSocCnf(void) {
+void adcSocConfig(void) {
 	/* Configures ADC SOC for ADC macro
 	 *  - SHOULD BE RUN BEFORE DPL_INIT() -
 	 */
@@ -25,7 +25,7 @@ void adcSocCnf(void) {
 	ADC_SOC_CNF(ChSel, TrigSel, ACQPS, 16, 0);
 }
 
-Uint16 adcGetLoadVoltage (loadStage load, float32 * vDest) {
+Uint16 getLoadVoltage (loadStage load, float32 * vDest) {
 	/* Reads the Voltage ADC reading. */
 	float32 vltg = 0;
 	if (load >= numberOfLoads)
@@ -35,7 +35,7 @@ Uint16 adcGetLoadVoltage (loadStage load, float32 * vDest) {
 	return 0;
 }
 
-Uint16 adcGetLoadCurrent (loadStage load, float32 * iDest) {
+Uint16 getLoadCurrent (loadStage load, float32 * iDest) {
 	/* Reads the Current ADC reading. */
 	float32 curr = 0;
 	if (load >= numberOfLoads)
@@ -99,24 +99,6 @@ Uint16 adcGetLoadCurrent (loadStage load, float32 * iDest) {
 
 /*=================== STUFF TO BE MOVED ===================*/
 
-Uint16 adcSetMidOvp (float32 ovpSetting) {
-	/* Sets OVP value for the DC Mid VSns
-	 * ovpSetting is expected in volts
-	 */
-	float32 vMax = 0;
-	int32 vStRms = 0;
-	vMax = _IQ14toF((int32) xfmrSettings.midVScale);	/* Convert scale from SQ to float */
-	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);		/* Calculate maximum V */
-	vStRms = _IQ10(ovpSetting * RECP_SQRT_2);			/* Convert setting to RMS Q10 and check result is in range */
-	if ((vStRms <= xfmrSettings.midVMinRms) && (vStRms > xfmrSettings.midVMaxRms))
-		return VALUE_OOB;
-	xfmrSettings.midOvpLevel = _IQ24(ovpSetting / vMax);/* Normalise */
-
-	//TODO: Update Mid OVP VSns DAC value?
-
-	return 0;
-}
-
 Uint16 adcCheckOpp (void) {
 	/* Over-power protection
 	 *  - vScale AND iScale SHOULD BE SET BEFORE USE -
@@ -154,6 +136,24 @@ Uint16 adcCheckOpp (void) {
 	return 0;
 }
 
+//Uint16 adcSetMidOvp (float32 ovpSetting) {
+//	/* Sets OVP value for the DC Mid VSns
+//	 * ovpSetting is expected in volts
+//	 */
+//	float32 vMax = 0;
+//	int32 vStRms = 0;
+//	vMax = _IQ14toF((int32) xfmrSettings.midVScale);	/* Convert scale from SQ to float */
+//	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);		/* Calculate maximum V */
+//	vStRms = _IQ10(ovpSetting * RECP_SQRT_2);			/* Convert setting to RMS Q10 and check result is in range */
+//	if ((vStRms <= xfmrSettings.midVMinRms) && (vStRms > xfmrSettings.midVMaxRms))
+//		return VALUE_OOB;
+//	xfmrSettings.midOvpLevel = _IQ24(ovpSetting / vMax);/* Normalise */
+//
+//	//TODO: Update Mid OVP VSns DAC value?
+//
+//	return 0;
+//}
+//
 //Uint16 adcCheckOvp (void) {
 //	/* Over-voltage protection
 //	 *  - vScale AND OVP SHOULD BE SET BEFORE USE -

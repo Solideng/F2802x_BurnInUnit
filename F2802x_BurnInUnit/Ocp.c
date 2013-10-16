@@ -56,18 +56,18 @@ Uint16 checkLoadOcp (loadStage load) {
 								/* Compare the load ISns ADC value to its OCP limit */
 	if (loadNets[load].iFdbkNet > loadSettings[load].ocpLevel) {
 		mnStopAll();
-		ocpFlagRegister |= (1 << (load - 1));
+		ocpFlagRegister |= (1 << load);
 		return OCP_TRIP;
 	}
 	return 0;
 }
 
 Uint16 getLoadOcpState (loadStage load) {
-	return (load < numberOfLoads) ? ((ocpFlagRegister & (1 << (load - 1))) > 0) : CHANNEL_OOB;
+	return (load < numberOfLoads) ? ((ocpFlagRegister & (1 << load)) > 0) : CHANNEL_OOB;
 }
 
 Uint16 clearLoadOcp (loadStage load) {
-	ocpFlagRegister &= (~(1 << (load - 1)));
+	ocpFlagRegister &= (~(1 << load));
 	if (ocpFlagRegister)
 		return OCP_TRIP;
 	mnRunAll();
@@ -176,10 +176,10 @@ Uint16 tripAcOcp (void) {
 Uint16 getAcOcpState (void) {return ((ocpFlagRegister & AC_OCP_TRIP) > 0);}
 
 Uint16 clearAcOcp (void) {
-	ocpFlagRegister &= (~AC_OCP_TRIP);
-	rstAcTripzone();
-	if (ocpFlagRegister)
+	ocpFlagRegister &= (~AC_OCP_TRIP);	/* Clear flag */
+	rstAcTripzone();					/* Reset trip zone */
+	if (ocpFlagRegister)				/* Check if there are any other flags still raised */
 		return OCP_TRIP;
-	mnRunAll();
+	mnRunAll();							/* Run macros */
 	return 0;
 }

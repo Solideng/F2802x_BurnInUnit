@@ -38,6 +38,7 @@ SineGen.obj: ../Pwm.h
 SineGen.obj: ../Cntl.h
 SineGen.obj: ../Ocp.h
 SineGen.obj: ../Ovp.h
+SineGen.obj: ../Otp.h
 SineGen.obj: ../SlewControl.h
 SineGen.obj: ../SineGen.h
 SineGen.obj: ../PhaseCtrl.h
@@ -94,6 +95,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Cntl.h: 
 ../Ocp.h: 
 ../Ovp.h: 
+../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

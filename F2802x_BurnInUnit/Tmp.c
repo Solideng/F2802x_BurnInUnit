@@ -39,15 +39,15 @@ Uint16 tmpInit (void) {
 	return 0;
 }
 
-Uint16 tmpSetOtp (Uint16 chnl, float32 tmp) {
-	/* Set the user set OTP value */
-	if (chnl > (ADC_NUM_CHNL - 2))		/* Check channel is valid */
-		return CHANNEL_OOB;
-	if ((tmp < TMP_OTP_MIN) || (tmp > TMP_OTP_MAX))
-		return VALUE_OOB;			/* Check temperature is valid */
-	channel[chnl].otp = _SQ7(tmp);	/* Convert to SQ7 and Set OTP */
-	return 0;
-}
+//Uint16 tmpSetOtp (Uint16 chnl, float32 tmp) {
+//	/* Set the user set OTP value */
+//	if (chnl > (ADC_NUM_CHNL - 2))		/* Check channel is valid */
+//		return CHANNEL_OOB;
+//	if ((tmp < TMP_OTP_MIN) || (tmp > TMP_OTP_MAX))
+//		return VALUE_OOB;			/* Check temperature is valid */
+//	channel[chnl].otp = _SQ7(tmp);	/* Convert to SQ7 and Set OTP */
+//	return 0;
+//}
 
 Uint16 tmpGetOtp (Uint16 chnl, float32 *tmpDest) {
 	/* Get the user set OTP value */

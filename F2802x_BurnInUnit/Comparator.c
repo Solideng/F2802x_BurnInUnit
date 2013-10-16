@@ -8,8 +8,6 @@
 
 // N.B. DACs do not currently ramp.
 
-// TODO: Move TZ functions here as well + write TZ reset and ensure TZ isr calls reset and sets ocp flag
-
 void initDcComparator (void) {
 	/* Initialises the DC comparator (COMP 2) using an internal DAC at the inverting input.
 	 *  - SHOULD BE CALLED AFTER adcSocCnf() -
@@ -98,6 +96,7 @@ Uint16 getAcDac (float32 * level) {
 }
 
 static interrupt void tripzone_ISR (void) {
+	Uint16 i = 0;
 	mnStopAll();	/* Stop all channels */
 					/* Check flags to see which COMP/SNS caused the interrupt */
 	if ((EPwm3Regs.TZFLG.bit.DCAEVT1 == 1) || (EPwm3Regs.TZFLG.bit.DCBEVT1 == 1)) {
@@ -108,6 +107,10 @@ static interrupt void tripzone_ISR (void) {
 		/* DC comparator (COMP2) triggered */
 		tripDcMidOvp();
 	}
+
+	for (i = 1; i <= 3; i++)
+		(*ePWM[i]).TZCLR.bit.INT = 1;	/* Clear trip zone interrupt flag, does not clear event flags */
+
 	PieCtrlRegs.PIEACK.bit.ACK2 = 1;	/* Acknowledge this interrupt to allow more from group 2 */
 	return;
 }
@@ -181,15 +184,33 @@ void initTripZone (void) {
 	initTripzoneIsr();
 }
 
-//TODO: write TZ resets
-
-void rstDcTripzone (void) { }
-
-void rstAcTripzone (void) {
-	Uint16 i;	// TODO: write more for this reset function?
+static void rstTripZone (void) {
+	Uint16 i;
 	EALLOW;
 	for (i = 1; i <= 3; i++) {
-		(*ePWM[i]).TZCLR.all = 0x3F;	/* Clear trip all zone flags */
+		(*ePWM[i]).TZCLR.all = 0x3F;	/* Clear all trip zone flags, restarts PWMs */
+	}
+	EDIS;
+	mnRunAll();
+}
+
+void rstDcTripzone (void) {
+	Uint16 i;
+	EALLOW;
+	for (i = 1; i <= 3; i++) {
+		(*ePWM[i]).TZCLR.bit.DCAEVT2 = 1;	/* Clear event trip flags */
+		(*ePWM[i]).TZCLR.bit.DCBEVT2 = 1;
+	}
+	EDIS;
+	mnRunAll();
+}
+
+void rstAcTripzone (void) {
+	Uint16 i;
+	EALLOW;
+	for (i = 1; i <= 3; i++) {
+		(*ePWM[i]).TZCLR.bit.DCAEVT1 = 1;	/* Clear event trip flags */
+		(*ePWM[i]).TZCLR.bit.DCBEVT1 = 1;
 	}
 	EDIS;
 	mnRunAll();

@@ -37,6 +37,7 @@
 #include "Cntl.h"
 #include "Ocp.h"
 #include "Ovp.h"
+#include "Otp.h"
 #include "SlewControl.h"
 #include "SineGen.h"
 #include "PhaseCtrl.h"

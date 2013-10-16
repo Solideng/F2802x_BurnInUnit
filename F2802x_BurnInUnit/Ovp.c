@@ -18,18 +18,18 @@ Uint16 checkLoadOvp (loadStage load) {
 								/* Compare the load VSns ADC value to its OVP limit */
 	if (loadNets[load].vFdbkNet > loadSettings[load].ovpLevel) {
 		mnStopAll();
-		ocpFlagRegister |= (1 << (load - 1));
+		ocpFlagRegister |= (1 << load);
 		return OVP_TRIP;
 	}
 	return 0;
 }
 
 Uint16 getLoadOvpState (loadStage load) {
-	return (load < numberOfLoads) ? ((ovpFlagRegister & (1 << (load - 1))) > 0) : CHANNEL_OOB;
+	return (load < numberOfLoads) ? ((ovpFlagRegister & (1 << load)) > 0) : CHANNEL_OOB;
 }
 
 Uint16 clearLoadOvp (loadStage load) {
-	ovpFlagRegister &= (~(1 << (load - 1)));
+	ovpFlagRegister &= (~(1 << load));
 	if (ovpFlagRegister)
 		return OVP_TRIP;
 	mnRunAll();

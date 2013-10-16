@@ -20,12 +20,7 @@ acStageNets 		acNets;
 acStageSettings 	acSettings;
 xfmrStageNets		xfmrNets;
 xfmrStageSettings	xfmrSettings;
-
-//#ifndef DUAL_CNTL_AC
-//	channelParameters channel[NUM_CHNLS + 1];	/* +1 is for VMid parameters which don't have a channel */
-//#else
-//	channelParameters channel[NUM_CHNLS + 3];	/* +3 is for VMid, Xfmr and AC 2nd stage parameters which don't have a channel */
-//#endif
+extDeviceSettings 	extSettings;
 
 #if (INCR_BUILD == 1)
 	volatile int32 duty[NUM_CHNLS] = {0};	/* Open-loop duty setting for use in watch window */
@@ -33,49 +28,6 @@ xfmrStageSettings	xfmrSettings;
 
 /*============== LOCAL VARIABLES ==============*/
 static volatile int32 sgenSignNet = 0;		/* Net for sine generator sign output */
-
-//
-//void mnSetupChannels (void) {
-//	/* FOR SOME REASON THIS *MUST* BE CALLED *AFTER* pwmMacroConfig(), NOT BEFORE */
-//	/* Initialise all channel structures with default values */
-//	Uint16 i = 0;
-//	for (i = 0; i< (NUM_CHNLS + 2); i++) {
-//		channel[i].refNet = 0;		/* Q24 (IQ24: -128 - +128) */
-//		channel[i].iFdbkNet = 0;	/* Q24 */
-//		channel[i].vFdbkNet = 0;	/* Q24 */
-//		channel[i].outNet = 0;		/* Q24 */ //<< TODO IS IT BECAUSE OF THIS??
-//		channel[i].ocp = 16777216;	/* maximum Q24 */
-//		channel[i].ovp = 16777216;	/* maximum Q24 */
-//		channel[i].target = 0;		/* Q24 */
-//		channel[i].slewRate = _IQ24(0.001);	/* Q24 */
-//		channel[i].otp = 19200;		/* 150 degree C OTP limit Q7 */
-//		channel[i].iMaxRms = 15360;	/* 15 amps (RMS) Q10 SQ10 */
-//		channel[i].iMinRms = 0;		/* 0 amps (RMS) Q10 */
-//		channel[i].vMaxRms = 15360;	/* 15 volts (RMS) Q10 */ //TODO Test setting << need actual
-//		channel[i].vMinRms = 0;		/* 0 volts (RMS) Q10 */
-//		channel[i].iScale = 2048;	/* 0.125f amps-per-volt Q14 */
-//		channel[i].vScale = 32767;	/* 1.0f volts-per-volt Q14 */
-//		channel[i].vGainLmt = 16384;/* 1.0f gain Q14 */
-//		channel[i].opMode = dc;		/* dc | ac */
-//		channel[i].ctlMode = iCtrl; /* iCtrl | vCtrl */
-//		channel[i].chEnable = FALSE;/* FALSE | TRUE */
-//	}
-//	channel[DC_STAGE].ctlMode = vCtrl;
-//	channel[DC_STAGE].vScale = _SQ14(1.0); //TODO Need actual value
-//
-//	channel[AC_STAGE].ctlMode = vCtrl;
-//	channel[AC_STAGE].vScale = _SQ14(VAC_R2 / (VAC_R1 + VAC_R2 + VAC_R2));
-//	channel[DC_STAGE].vGainLmt = _SQ14(0.9);
-//	channel[AC_STAGE].opMode = ac;
-//
-//	channel[V_MID_CH].ctlMode = vCtrl;	/* VMid channel is used for OVP only */
-//	channel[V_MID_CH].vScale = _SQ14(VMID_R2 / (VMID_R1 + VMID_R2));
-//
-//	#ifdef DUAL_CNTL_AC
-//		channel[AC_I_CNTL].ctlMode = iCtrl;	/* VMid channel is used for OVP only */
-//		// TODO anything else for default values of AC_I_CNTRL?
-//	#endif
-//}
 
 void mnSetupNets (void) {
 	mnInitSettings();
@@ -95,6 +47,8 @@ void mnStopAll (void) {
 	acNets.vFiltOutNet = 0;
 	xfmrSettings.enable = FALSE;
 	xfmrNets.pwmDutyNet = 0;
+	extSettings.extPsuEnable = FALSE;
+	extSettings.extFanEnable = FALSE;
 	stopAll = 0;
 }
 
@@ -106,6 +60,7 @@ void mnRunAll (void) {
 	}
 	acSettings.enable = TRUE;
 	xfmrSettings.enable = TRUE;
+	extSettings.extPsuEnable = TRUE;
 	enableAll = 0;
 }
 
@@ -152,6 +107,11 @@ void mnInitSettings (void) {
 	xfmrSettings.hvVMax  	 = 15360;		/* 15 Amps Q10 */
 	xfmrSettings.hvVScale 	 = _SQ14(1.0);	// TODO: Need actual value
 	xfmrSettings.enable 	 = FALSE;		/* Disabled */
+
+	extSettings.ext1OtpLevel = 19200;	/* 150 degree C Q7 */
+	extSettings.ext2OtpLevel = 19200;	/* 150 degree C Q7 */
+	extSettings.extFanEnable = FALSE;	/* Disabled */
+	extSettings.extPsuEnable = FALSE;	/* Disabled */
 }
 
 void mnInitNets (void) {

@@ -38,6 +38,7 @@ EnableCtrl.obj: ../Pwm.h
 EnableCtrl.obj: ../Cntl.h
 EnableCtrl.obj: ../Ocp.h
 EnableCtrl.obj: ../Ovp.h
+EnableCtrl.obj: ../Otp.h
 EnableCtrl.obj: ../SlewControl.h
 EnableCtrl.obj: ../SineGen.h
 EnableCtrl.obj: ../PhaseCtrl.h
@@ -94,6 +95,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Cntl.h: 
 ../Ocp.h: 
 ../Ovp.h: 
+../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 

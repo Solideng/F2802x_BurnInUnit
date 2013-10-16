@@ -38,6 +38,7 @@ Timers.obj: ../Pwm.h
 Timers.obj: ../Cntl.h
 Timers.obj: ../Ocp.h
 Timers.obj: ../Ovp.h
+Timers.obj: ../Otp.h
 Timers.obj: ../SlewControl.h
 Timers.obj: ../SineGen.h
 Timers.obj: ../PhaseCtrl.h
@@ -94,6 +95,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Cntl.h: 
 ../Ocp.h: 
 ../Ovp.h: 
+../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
 ../PhaseCtrl.h: 
