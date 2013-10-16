@@ -25,7 +25,7 @@ extern Uint16 ocpFlagRegister;	/** < OCP flag register. Bits are set to indicate
 /*============== Load n ==============*/
 /** Sets the over current protection level for the specified load.
  * @param[in]	load	Specifies the load the setting is to be applied to.
- * @param[in]	dcLevel	Specifies the DC value to be applied (Amps).
+ * @param[in]	dcLevel	Specifies the DC value to be applied (amps).
  * @return				Error status.
  */
 extern Uint16 setLoadOcpLevel (loadStage load, float32 dcLevel);
@@ -49,8 +49,8 @@ extern Uint16 checkLoadOcp (loadStage load);
  */
 extern Uint16 getLoadOcpState (loadStage load);
 
-/** Clears the OCP flag for the specified load.
- * @param[in]	load	Specifies the load for which the flag is to be cleared.
+/** Clears the OCP state for the specified load.
+ * @param[in]	load	Specifies the load for which the OCP state is to be cleared.
  * @return				Error status.
  */
 extern Uint16 clearLoadOcp (loadStage load);
@@ -58,7 +58,7 @@ extern Uint16 clearLoadOcp (loadStage load);
 
 /*============== DC Mid ==============*/
 /** Sets the over current protection limit for the DC stage.
- * @param[in]	dcLevel	Specifies the DC value to be applied (Amps).
+ * @param[in]	dcLevel	Specifies the DC value to be applied (amps).
  * @return				Error status.
  */
 extern Uint16 setDcMidOcpLevel (float32 dcLevel);
@@ -80,7 +80,7 @@ extern Uint16 checkDcMidOcp (void);
  */
 extern Uint16 getDcMidOcpState (void);
 
-/** Clears the DC stage OCP flag.
+/** Clears the DC stage OCP state.
  * @return				Error status.
  */
 extern Uint16 clearDcMidOcp (void);
@@ -88,7 +88,7 @@ extern Uint16 clearDcMidOcp (void);
 
 /*================ AC ================*/
 /** Sets the over current protection limit for the AC stage.
- * @param[in]	pkLevel	Specifies the peak value to be applied (Amps).
+ * @param[in]	pkLevel	Specifies the peak value to be applied (amps).
  * @return				Error status.
  */
 extern Uint16 setAcOcpLevel (float32 pkLevel);
@@ -99,18 +99,18 @@ extern Uint16 setAcOcpLevel (float32 pkLevel);
  */
 extern Uint16 getAcOcpLevel (float32 * pkLevel);
 
-/** Checks the current reading of the AC stage against the AC OCP limit.
- * Raises the AC OCP flag if the reading is above the limit.
+/** Trips the AC OCP.
+ * This provides an OCP function for the trip zone ISR to call when the AC comparator is triggered.
  * @return 				Error status
  */
-extern Uint16 checkAcOcp (void);
+extern Uint16 tripAcOcp (void);
 
-/** Queries the state of the DC OCP flag.
+/** Queries the state of the AC OCP flag.
  * @return	True if OCP flag has been raised.
  */
 extern Uint16 getAcOcpState (void);
 
-/** Clears the AC stage OCP flag.
+/** Clears the AC stage OCP state.
  * @return				Error status.
  */
 extern Uint16 clearAcOcp (void);

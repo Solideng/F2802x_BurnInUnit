@@ -85,7 +85,7 @@ void DeviceInit(void)
 
    EALLOW; // below registers are "protected", allow access.
 
-// LOW SPEED CLOCKS prescale register settings
+// LOW SPEED CLOCKS pre-scale register settings
    SysCtrlRegs.LOSPCP.all = 0x0002;		// Sysclk / 4 (15 MHz)
    SysCtrlRegs.XCLK.bit.XCLKOUTDIV=2;
       	
@@ -249,8 +249,8 @@ void DeviceInit(void)
 //	GpioDataRegs.GPBCLEAR.bit.GPIO33 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPBSET.bit.GPIO33 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
-//  GPIO-34 - PIN FUNCTION = LED for F28027
-	GpioCtrlRegs.GPBMUX1.bit.GPIO34 = 0;	// 0=GPIO,  1=COMP2OUT,  2=EMU1,  3=Resv
+//  GPIO-34 - PIN FUNCTION = DC Mid VSns comparator (COMP 2) OUT
+	GpioCtrlRegs.GPBMUX1.bit.GPIO34 = 1;	// 0=GPIO,  1=COMP2OUT,  2=EMU1,  3=Resv
 	GpioCtrlRegs.GPBDIR.bit.GPIO34 = 1;		// 1=OUTput,  0=INput 
 	GpioDataRegs.GPBCLEAR.bit.GPIO34 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPBSET.bit.GPIO34 = 1;		// uncomment if --> Set High initially

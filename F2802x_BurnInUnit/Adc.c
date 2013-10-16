@@ -99,27 +99,21 @@ Uint16 adcGetLoadCurrent (loadStage load, float32 * iDest) {
 
 /*=================== STUFF TO BE MOVED ===================*/
 
-Uint16 adcCheckOvp (void) {
-	/* Over-voltage protection
-	 *  - vScale AND OVP SHOULD BE SET BEFORE USE -
+Uint16 adcSetMidOvp (float32 ovpSetting) {
+	/* Sets OVP value for the DC Mid VSns
+	 * ovpSetting is expected in volts
 	 */
-	Uint16 i = 0;
-	for (i = 0; i < numberOfLoads; i++) {				/* Compare all load VSns ADC values to their OVP limits */
-		if (loadNets[i].vFdbkNet > loadSettings[i].ovpLevel) {
-			mnStopAll();
-			return OVP_TRIP;
-		}
-	}
-	if (xfmrNets.hvVSnsNet > xfmrSettings.hvOvpLevel){	/* Compare the DC HV VSns ADC value to its OVP limit */
-		mnStopAll();
-		return OVP_TRIP;
-	}
-	if (getSlaveMode() == master) {						/* Check if the system is in master mode */
-		if (acNets.vFdbkNet > acSettings.ovpLevel) {	/* Compare the AC VSns ADC value to its OVP limit */
-			mnStopAll ();
-			return OVP_TRIP;
-		}
-	}
+	float32 vMax = 0;
+	int32 vStRms = 0;
+	vMax = _IQ14toF((int32) xfmrSettings.midVScale);	/* Convert scale from SQ to float */
+	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);		/* Calculate maximum V */
+	vStRms = _IQ10(ovpSetting * RECP_SQRT_2);			/* Convert setting to RMS Q10 and check result is in range */
+	if ((vStRms <= xfmrSettings.midVMinRms) && (vStRms > xfmrSettings.midVMaxRms))
+		return VALUE_OOB;
+	xfmrSettings.midOvpLevel = _IQ24(ovpSetting / vMax);/* Normalise */
+
+	//TODO: Update Mid OVP VSns DAC value?
+
 	return 0;
 }
 
@@ -160,6 +154,30 @@ Uint16 adcCheckOpp (void) {
 	return 0;
 }
 
+//Uint16 adcCheckOvp (void) {
+//	/* Over-voltage protection
+//	 *  - vScale AND OVP SHOULD BE SET BEFORE USE -
+//	 */
+//	Uint16 i = 0;
+//	for (i = 0; i < numberOfLoads; i++) {				/* Compare all load VSns ADC values to their OVP limits */
+//		if (loadNets[i].vFdbkNet > loadSettings[i].ovpLevel) {
+//			mnStopAll();
+//			return OVP_TRIP;
+//		}
+//	}
+//	if (xfmrNets.hvVSnsNet > xfmrSettings.hvOvpLevel){	/* Compare the DC HV VSns ADC value to its OVP limit */
+//		mnStopAll();
+//		return OVP_TRIP;
+//	}
+//	if (getSlaveMode() == master) {						/* Check if the system is in master mode */
+//		if (acNets.vFdbkNet > acSettings.ovpLevel) {	/* Compare the AC VSns ADC value to its OVP limit */
+//			mnStopAll ();
+//			return OVP_TRIP;
+//		}
+//	}
+//	return 0;
+//}
+//
 //Uint16 adcSetLoadOvp (loadStage load, float32 ovpSetting) {
 //	/* Sets OVP value for the specified load
 //	 *  ovpSetting is expected in volts
@@ -182,25 +200,7 @@ Uint16 adcCheckOpp (void) {
 //	loadSettings[load].ovpLevel = _IQ24(ovpSetting / vMax);	/* Normalise */
 //	return 0;
 //}
-
-Uint16 adcSetMidOvp (float32 ovpSetting) {
-	/* Sets OVP value for the DC Mid VSns
-	 * ovpSetting is expected in volts
-	 */
-	float32 vMax = 0;
-	int32 vStRms = 0;
-	vMax = _IQ14toF((int32) xfmrSettings.midVScale);	/* Convert scale from SQ to float */
-	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);		/* Calculate maximum V */
-	vStRms = _IQ10(ovpSetting * RECP_SQRT_2);			/* Convert setting to RMS Q10 and check result is in range */
-	if ((vStRms <= xfmrSettings.midVMinRms) && (vStRms > xfmrSettings.midVMaxRms))
-		return VALUE_OOB;
-	xfmrSettings.midOvpLevel = _IQ24(ovpSetting / vMax);/* Normalise */
-
-	//TODO: Update Mid OVP VSns DAC value?
-
-	return 0;
-}
-
+//
 //Uint16 adcSetHvOvp (float32 ovpSetting) {
 //	/* Sets OVP value for the DC HV VSns
 //	 * ovpSetting is expected in volts

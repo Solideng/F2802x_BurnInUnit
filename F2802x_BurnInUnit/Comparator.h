@@ -14,6 +14,19 @@
 #ifndef COMPARATOR_H_
 #define COMPARATOR_H_
 
+extern Uint16 comp1Trig;	// TODO: Replace these with SCPI register bits when available.
+extern Uint16 comp2Trig;
+
+/** Configures PWM trip zones for use.
+ * Requires the comparator and DAC to be configured
+ * @sa adc.h
+ */
+extern void initTripzone (void);
+
+/** Resets the trip zone after a comparator event. */
+extern void rstTripzone (void);
+//=================================================
+
 /** Initialises the DC comparator (COMP 2) using an internal DAC at the inverting input.
  *  - SHOULD be called AFTER adcSocCnf().
  *  - SHOULD be called BEFORE PWMS (SYNC) are started.

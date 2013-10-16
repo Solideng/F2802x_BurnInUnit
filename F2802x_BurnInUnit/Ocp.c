@@ -12,7 +12,7 @@ Uint16 ocpFlagRegister = 0;
 /*============== Load n ==============*/
 Uint16 setLoadOcpLevel (loadStage load, float32 dcLevel) {
 	/* Sets OCP level for the specified load
-	 *  ocpSetting is expected in amps
+	 *  dcLevel is expected in amps
 	 *  - iScale SHOULD BE SET BEFORE USE -
 	 */
 	float32 iMax = 0;
@@ -77,7 +77,7 @@ Uint16 clearLoadOcp (loadStage load) {
 /*============== DC Mid ==============*/
 Uint16 setDcMidOcpLevel (float32 dcLevel) {
 	/* Sets the OCP level for the DC Mid ISns
-	 * ocpSetting is expected in amps
+	 * dcLevel is expected in amps
 	 * - iScale SHOULD BE SET BEFORE USE -
 	 */
 	float32 iMax = 0;
@@ -149,7 +149,7 @@ Uint16 setAcOcpLevel (float32 pkLevel) {
 	iPkMax = ((VDDA - VSSA) * 0.001) * (1.0 / iPkMax);	/* Calculate maximum Ipk */
 	acSettings.ocpLevel = _IQ24(pkLevel / iPkMax);		/* Normalise and save */
 	//TODO: Include gain??
-	setAcDac(pkLevel);
+	setAcDac(pkLevel);						/* Set the related DAC level */
 	return 0;
 }
 
@@ -167,24 +167,17 @@ Uint16 getAcOcpLevel (float32 * pkLevel) {
 	return 0;
 }
 
-Uint16 checkAcOcp (void)  {
-	/* AC over-current protection
-	 *  - iScale AND ocpLevel SHOULD BE SET BEFORE USE -
-	 */
-	//TODO: uses DAC, COMP & TZ instead. - these need to set the flag at some point...
-//	if (acNets.iFdbkNet > acSettings.ocpLevel) {	/* Compare the AC ISns ADC value to its OCP limit */
-//		mnStopAll();
-//		ocpFlagRegister |= AC_OCP_TRIP;
-//		return OCP_TRIP;
-//	}
-	return 0;
+Uint16 tripAcOcp (void) {
+	mnStopAll();
+	ocpFlagRegister |= AC_OCP_TRIP;
+	return OCP_TRIP;
 }
 
 Uint16 getAcOcpState (void) {return ((ocpFlagRegister & AC_OCP_TRIP) > 0);}
 
 Uint16 clearAcOcp (void) {
-	//TODO: uses DAC, COMP & TZ instead.
 	ocpFlagRegister &= (~AC_OCP_TRIP);
+	rstAcTripzone();
 	if (ocpFlagRegister)
 		return OCP_TRIP;
 	mnRunAll();
