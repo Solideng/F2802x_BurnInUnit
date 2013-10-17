@@ -38,6 +38,7 @@ Main.obj: ../Pwm.h
 Main.obj: ../Cntl.h
 Main.obj: ../Ocp.h
 Main.obj: ../Ovp.h
+Main.obj: ../Opp.h
 Main.obj: ../Otp.h
 Main.obj: ../SlewControl.h
 Main.obj: ../SineGen.h
@@ -96,6 +97,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Cntl.h: 
 ../Ocp.h: 
 ../Ovp.h: 
+../Opp.h: 
 ../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 

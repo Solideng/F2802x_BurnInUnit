@@ -38,6 +38,7 @@ Adc.obj: ../Pwm.h
 Adc.obj: ../Cntl.h
 Adc.obj: ../Ocp.h
 Adc.obj: ../Ovp.h
+Adc.obj: ../Opp.h
 Adc.obj: ../Otp.h
 Adc.obj: ../SlewControl.h
 Adc.obj: ../SineGen.h
@@ -95,6 +96,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Cntl.h: 
 ../Ocp.h: 
 ../Ovp.h: 
+../Opp.h: 
 ../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 

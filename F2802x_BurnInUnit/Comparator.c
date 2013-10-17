@@ -97,7 +97,7 @@ Uint16 getAcDac (float32 * level) {
 
 static interrupt void tripzone_ISR (void) {
 	Uint16 i = 0;
-	mnStopAll();	/* Stop all channels */
+	stopAll();		/* Stop all channels */
 					/* Check flags to see which COMP/SNS caused the interrupt */
 	if ((EPwm3Regs.TZFLG.bit.DCAEVT1 == 1) || (EPwm3Regs.TZFLG.bit.DCBEVT1 == 1)) {
 		/* AC comparator (COMP1) triggered */
@@ -191,7 +191,7 @@ static void rstTripZone (void) {
 		(*ePWM[i]).TZCLR.all = 0x3F;	/* Clear all trip zone flags, restarts PWMs */
 	}
 	EDIS;
-	mnRunAll();
+	runAll();
 }
 
 void rstDcTripzone (void) {
@@ -202,7 +202,7 @@ void rstDcTripzone (void) {
 		(*ePWM[i]).TZCLR.bit.DCBEVT2 = 1;
 	}
 	EDIS;
-	mnRunAll();
+	runAll();
 }
 
 void rstAcTripzone (void) {
@@ -213,5 +213,5 @@ void rstAcTripzone (void) {
 		(*ePWM[i]).TZCLR.bit.DCBEVT1 = 1;
 	}
 	EDIS;
-	mnRunAll();
+	runAll();
 }

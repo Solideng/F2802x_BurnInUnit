@@ -15,9 +15,9 @@ Uint16 checkLoadOvp (loadStage load) {
 	 */
 	if (load >= numberOfLoads)	/* Check channel is valid */
 		return CHANNEL_OOB;
-								/* Compare the load VSns ADC value to its OVP limit */
-	if (loadNets[load].vFdbkNet > loadSettings[load].ovpLevel) {
-		mnStopAll();
+								/* Compare the load VSns ADC value to the fixed OVP level */
+	if (_IQ24toF(loadNets[load].vFdbkNet) > LOAD_VDCLVL_FIX) {
+		stopAll();
 		ocpFlagRegister |= (1 << load);
 		return OVP_TRIP;
 	}
@@ -32,7 +32,7 @@ Uint16 clearLoadOvp (loadStage load) {
 	ovpFlagRegister &= (~(1 << load));
 	if (ovpFlagRegister)
 		return OVP_TRIP;
-	mnRunAll();
+	runAll();
 	return 0;
 }
 
@@ -74,7 +74,7 @@ Uint16 getDcMidOvpLevel (float32 *dcLevel) {
 }
 
 Uint16 tripDcMidOvp (void) {
-	mnStopAll();
+	stopAll();
 	ovpFlagRegister |= DCMID_OVP_TRIP;
 	return OVP_TRIP;
 }
@@ -86,7 +86,7 @@ Uint16 clearDcMidOvp (void) {
 	rstDcTripzone();
 	if (ovpFlagRegister)
 		return OVP_TRIP;
-	mnRunAll();
+	runAll();
 	return 0;
 }
 
@@ -128,7 +128,7 @@ Uint16 checkDcHvOvp (void) {
 	 *  - vScale AND ovpLevel SHOULD BE SET BEFORE USE -
 	 */
 	if (xfmrNets.hvVSnsNet > xfmrSettings.hvOvpLevel){	/* Compare the DC HV VSns ADC value to its OVP limit */
-		mnStopAll();
+		stopAll();
 		ovpFlagRegister |= DCHV_OVP_TRIP;	/* Set flag */
 		return OVP_TRIP;
 	}
@@ -141,7 +141,7 @@ Uint16 clearDcHvOvp (void) {
 	ovpFlagRegister &= (~DCHV_OVP_TRIP);
 	if (ovpFlagRegister)
 		return OVP_TRIP;
-	mnRunAll();
+	runAll();
 	return 0;
 }
 
@@ -183,7 +183,7 @@ Uint16 checkAcOcp (void)  {
 	 *  - vScale AND ovpLevel SHOULD BE SET BEFORE USE -
 	 */
 	if (acNets.vFdbkNet > acSettings.ovpLevel) {	/* Compare the AC VSns ADC value to its OVP limit */
-		mnStopAll();
+		stopAll();
 		ovpFlagRegister |= AC_OVP_TRIP;
 		return OVP_TRIP;
 	}
@@ -196,6 +196,6 @@ Uint16 clearAcOcp (void) {
 	ocpFlagRegister &= (~AC_OCP_TRIP);
 	if (ocpFlagRegister)
 		return OCP_TRIP;
-	mnRunAll();
+	runAll();
 	return 0;
 }

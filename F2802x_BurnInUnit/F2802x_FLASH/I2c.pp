@@ -38,6 +38,7 @@ I2c.obj: ../Pwm.h
 I2c.obj: ../Cntl.h
 I2c.obj: ../Ocp.h
 I2c.obj: ../Ovp.h
+I2c.obj: ../Opp.h
 I2c.obj: ../Otp.h
 I2c.obj: ../SlewControl.h
 I2c.obj: ../SineGen.h
@@ -95,6 +96,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Cntl.h: 
 ../Ocp.h: 
 ../Ovp.h: 
+../Opp.h: 
 ../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 

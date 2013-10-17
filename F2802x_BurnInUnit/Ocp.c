@@ -16,15 +16,17 @@ Uint16 setLoadOcpLevel (loadStage load, float32 dcLevel) {
 	 *  - iScale SHOULD BE SET BEFORE USE -
 	 */
 	float32 iMax = 0;
-	int32 iSt = 0;
+//	int32 iSt = 0;
 
 	if (load >= numberOfLoads)			/* Check channel is valid */
 		return CHANNEL_OOB;
+	if (dcLevel > LOAD_IDCLVL_MAX)		/* Check level is less than the allowed maximum */
+		return VALUE_OOB;
 	if (loadSettings[load].iScale == 0)	/* Check iScale is set, to avoid div-by-0 exception */
 		return VALUE_OOB;
-	iSt = _IQ10(dcLevel);				/* Convert level to Q10 and check result is in range */
-	if ((iSt <= 0) && (iSt > loadSettings[load].iMax))
-		return VALUE_OOB;
+//	iSt = _IQ10(dcLevel);				/* Convert level to Q10 and check result is in range */
+//	if ((iSt <= 0) && (iSt > loadSettings[load].iMax))
+//		return VALUE_OOB;
 
 	iMax = _IQ14toF((int32) loadSettings[load].iScale);	/* Convert scale from SQ to float */
 	iMax = ((VDDA - VSSA) * 0.001) * (1.0 / iMax); 		/* Calculate maximum I */
@@ -55,7 +57,7 @@ Uint16 checkLoadOcp (loadStage load) {
 		return CHANNEL_OOB;
 								/* Compare the load ISns ADC value to its OCP limit */
 	if (loadNets[load].iFdbkNet > loadSettings[load].ocpLevel) {
-		mnStopAll();
+		stopAll();
 		ocpFlagRegister |= (1 << load);
 		return OCP_TRIP;
 	}
@@ -70,7 +72,7 @@ Uint16 clearLoadOcp (loadStage load) {
 	ocpFlagRegister &= (~(1 << load));
 	if (ocpFlagRegister)
 		return OCP_TRIP;
-	mnRunAll();
+	runAll();
 	return 0;
 }
 
@@ -115,7 +117,7 @@ Uint16 checkDcMidOcp (void) {
 	 *  - iScale AND ocpLevel SHOULD BE SET BEFORE USE -
 	 */
 	if (xfmrNets.iSnsNet > xfmrSettings.ocpLevel) {	/* Compare the DC Mid ISns ADC value to its OCP limit */
-		mnStopAll();
+		stopAll();
 		ocpFlagRegister |= DCMID_OCP_TRIP;	/* Set flag */
 		return OCP_TRIP;
 	}
@@ -128,7 +130,7 @@ Uint16 clearDcMidOcp (void) {
 	ocpFlagRegister &= (~DCMID_OCP_TRIP);
 	if (ocpFlagRegister)
 		return OCP_TRIP;
-	mnRunAll();
+	runAll();
 	return 0;
 }
 
@@ -168,7 +170,7 @@ Uint16 getAcOcpLevel (float32 * pkLevel) {
 }
 
 Uint16 tripAcOcp (void) {
-	mnStopAll();
+	stopAll();
 	ocpFlagRegister |= AC_OCP_TRIP;
 	return OCP_TRIP;
 }
@@ -180,6 +182,6 @@ Uint16 clearAcOcp (void) {
 	rstAcTripzone();					/* Reset trip zone */
 	if (ocpFlagRegister)				/* Check if there are any other flags still raised */
 		return OCP_TRIP;
-	mnRunAll();							/* Run macros */
+	runAll();							/* Run macros */
 	return 0;
 }

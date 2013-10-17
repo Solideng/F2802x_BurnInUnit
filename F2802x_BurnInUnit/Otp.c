@@ -42,7 +42,7 @@ Uint16 checkLoadOtp (loadStage load){
 	sqTmp = _SQ7(tmp);			/* Convert temperature to SQ7 to match OTP level */
 								/* Check temperature against OTP level */
 	if (sqTmp >= loadSettings[load].otpLevel) {
-		mnStopAll();
+		stopAll();
 		otpFlagRegister |= (1 << load);
 		return OTP_TRIP;
 	}
@@ -57,7 +57,7 @@ Uint16 clearLoadOtp (loadStage load){
 	otpFlagRegister &= (~(1 << load));
 	if (otpFlagRegister)
 		return OTP_TRIP;
-	mnRunAll();
+	runAll();
 	return 0;
 }
 
@@ -87,7 +87,7 @@ Uint16 checkDcOtp (void){
 	sqTmp = _SQ7(tmp);				/* Convert temperature to SQ7 to match OTP level */
 									/* Check temperature against OTP level */
 	if (sqTmp >= xfmrSettings.otpLevel) {
-		mnStopAll();
+		stopAll();
 		otpFlagRegister |= DC_OTP_TRIP;
 		return OTP_TRIP;
 	}
@@ -100,7 +100,7 @@ Uint16 clearDcOtp (void){
 	otpFlagRegister &= (~DC_OTP_TRIP);
 	if (otpFlagRegister)
 		return OTP_TRIP;
-	mnRunAll();
+	runAll();
 	return 0;
 }
 
@@ -130,7 +130,7 @@ Uint16 checkAcOtp (void){
 	sqTmp = _SQ7(tmp);				/* Convert temperature to SQ7 to match OTP level */
 									/* Check temperature against OTP level */
 	if (sqTmp >= xfmrSettings.otpLevel) {
-		mnStopAll();
+		stopAll();
 		otpFlagRegister |= AC_OTP_TRIP;
 		return OTP_TRIP;
 	}
@@ -143,7 +143,7 @@ Uint16 clearAcOtp (void){
 	otpFlagRegister &= (~AC_OTP_TRIP);
 	if (otpFlagRegister)
 		return OTP_TRIP;
-	mnRunAll();
+	runAll();
 	return 0;
 }
 
@@ -192,7 +192,7 @@ Uint16 checkExtOtp (extSelect ext){
 									/* Check temperature against OTP level */
 	if (((ext == ext1) && (sqTmp >= extSettings.ext1OtpLevel)) ||
 			((ext == ext2) &&(sqTmp >= extSettings.ext2OtpLevel))) {
-		mnStopAll();
+		stopAll();
 		otpFlagRegister |= (EXT1_OTP_TRIP << ext);
 		return OTP_TRIP;
 	}
@@ -209,6 +209,6 @@ Uint16 clearExtOtp (extSelect ext){
 	otpFlagRegister &= (~(EXT1_OTP_TRIP << ext));
 	if (otpFlagRegister)
 		return OTP_TRIP;
-	mnRunAll();
+	runAll();
 	return 0;
 }

@@ -117,7 +117,7 @@ Uint16 adcCheckOpp (void) {
 									/* Divide real voltage value into the power limit value to get the dynamic
 									 * current limit.
 									 */
-		iLimDyn = LOAD_OPPLVL_FIX / iLimDyn;
+		iLimDyn = LOAD_PWRLVL_FIX / iLimDyn;
 
 									/* Get the most recent current reading for the given load and multiply by the
 									 * related current scale to get the real value (IQ24).
@@ -126,7 +126,7 @@ Uint16 adcCheckOpp (void) {
 		iMeasF = _IQ24toF(iMeas);
 
 		if (iMeasF > iLimDyn) {		/* Check the measured current value is below the dynamic current limit value. */
-			mnStopAll();
+			stopAll();
 			return OPP_TRIP;
 		}
 	}

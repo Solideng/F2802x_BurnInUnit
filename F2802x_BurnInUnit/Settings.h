@@ -47,9 +47,13 @@
 #define NUM_VCTRL_CHNLS 1	/**< The number of voltage, or 3-pole 3-zero, IIR filter control law macros used. */
 #define NUM_CHNLS 		6	/**< Total number of IIR filter control law macros used (doesn't include VMID semi-channel). */
 
-#define LOAD_OCPLVL_MAX 35	/**< The maximum allowable value, in Amps, for the load OCP Levels. */
-#define LOAD_OVPLVL_FIX 60	/**< The fixed value, in Volts, for the load OVP levels. */
-#define LOAD_OPPLVL_FIX 200	/**< The fixed value, in Watts, for the load OPP levels. */
+#define LOAD_IDCLVL_MAX 35	/**< The maximum allowable value, in amps, for the load current levels. */
+#define LOAD_VDCLVL_FIX 60	/**< The fixed maximum value, in volts, for the load voltage levels. */
+#define LOAD_PWRLVL_FIX 200/**< The fixed maximum value, in watts, for the load power levels. */
+
+#define AC_IRMSLVL_MAX 	10	/**< The maximum allowable value, in amps (RMS), for the AC current levels. */
+#define AC_VRMSLVL_MAX 	250	/**< The maximum allowable value, in volts (RMS), for the AC voltage levels. */
+#define AC_PWRLVL_FIX 	800	/**< The fixed value, in watts, for the AC OPP level. */
 
 #define SQRT_2		1.41429	/**< Sqrt(2) constant used for RMS calculations. */
 #define RECP_SQRT_2	0.70711	/**< 1/sqrt(2) constant used for RMS calculations. */

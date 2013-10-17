@@ -25,17 +25,17 @@
 extern void SetupNets (slaveMode mode);
 
 /** Disables and zeros all IIR filter control law reference inputs, thus causing their outputs to ramp down to zero. */
-extern void mnStopAll (void);
+extern void stopAll (void);
 
 /** Enables all IIR filter control law reference inputs. */
-extern void mnRunAll (void);
+extern void runAll (void);
 
 #if (INCR_BUILD == 1)
 	extern volatile int32 duty[NUM_CHNLS];	/* Open-loop duty for GUI input (Replaces Duty:n). */
 #endif
 
-extern Uint16 stopAll;		/**< Stop-all condition flag that allows status communication between the state machine tasks. */
-extern Uint16 enableAll;	/**< Enable-all condition flag that allows status communication between the state machine tasks. */
+extern Uint16 stopAllFlag;		/**< Stop-all condition flag that allows status communication between the state machine tasks. */
+extern Uint16 enableAllFlag;	/**< Enable-all condition flag that allows status communication between the state machine tasks. */
 
 /** The possible external sensor selections. */
 enum extSelect {

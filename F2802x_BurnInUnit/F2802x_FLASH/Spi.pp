@@ -38,6 +38,7 @@ Spi.obj: ../Pwm.h
 Spi.obj: ../Cntl.h
 Spi.obj: ../Ocp.h
 Spi.obj: ../Ovp.h
+Spi.obj: ../Opp.h
 Spi.obj: ../Otp.h
 Spi.obj: ../SlewControl.h
 Spi.obj: ../SineGen.h
@@ -95,6 +96,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Cntl.h: 
 ../Ocp.h: 
 ../Ovp.h: 
+../Opp.h: 
 ../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 

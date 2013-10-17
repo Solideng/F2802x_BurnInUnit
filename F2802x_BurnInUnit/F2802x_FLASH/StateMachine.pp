@@ -38,6 +38,7 @@ StateMachine.obj: ../Pwm.h
 StateMachine.obj: ../Cntl.h
 StateMachine.obj: ../Ocp.h
 StateMachine.obj: ../Ovp.h
+StateMachine.obj: ../Opp.h
 StateMachine.obj: ../Otp.h
 StateMachine.obj: ../SlewControl.h
 StateMachine.obj: ../SineGen.h
@@ -95,6 +96,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Cntl.h: 
 ../Ocp.h: 
 ../Ovp.h: 
+../Opp.h: 
 ../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 

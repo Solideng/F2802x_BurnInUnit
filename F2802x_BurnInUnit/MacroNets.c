@@ -7,8 +7,8 @@
 #include "Common.h"
 
 /*============= GLOBAL VARIABLES ==============*/
-Uint16	stopAll = 0;	// TODO May be moved to SCPI device specific regs
-Uint16	enableAll = 0;
+Uint16	stopAllFlag = 0;	// TODO May be moved to SCPI device specific regs
+Uint16	enableAllFlag = 0;
 
 loadStageNets 		loadNets[numberOfLoads];	/* Load nets */
 xfmrStageNets		xfmrNets;					/* Transformer stage nets */
@@ -236,7 +236,7 @@ void stopAll (void) {
 	xfmrNets.pwmDutyNet = 0;
 	extSettings.extPsuEnable = FALSE;
 	extSettings.extFanEnable = FALSE;
-	stopAll = 0;
+	stopAllFlag = 0;
 }
 
 void runAll (void) {
@@ -248,7 +248,7 @@ void runAll (void) {
 	acSettings.enable = TRUE;
 	xfmrSettings.enable = TRUE;
 	extSettings.extPsuEnable = TRUE;
-	enableAll = 0;
+	enableAllFlag = 0;
 }
 
 //void mnConnectNets (void) {

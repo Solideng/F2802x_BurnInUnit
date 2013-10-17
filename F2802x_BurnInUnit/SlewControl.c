@@ -37,10 +37,12 @@ Uint16 scSetLoadSlewTarget (loadStage load, float32 trgt) {
 	float32 max = 0.0;
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid */
+	if (trgt > LOAD_IDCLVL_MAX)				/* Check target is less than the allowed maximum. */
+		return CHANNEL_OOB;
 
 	max = _IQ14toF((int32) loadSettings[load].iScale);
 	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the target maximum with the current scaling */
-	if (trgt > max)							/* Check target is valid */
+	if (trgt > max)							/* Check target is less than maximum allowed by scaling */
 		return VALUE_OOB;
 											/* Normalise and save as Q value */
 	loadSettings[load].slewTarget =  _IQ24(trgt * (1.0 / max));
