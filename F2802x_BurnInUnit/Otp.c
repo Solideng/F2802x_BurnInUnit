@@ -36,7 +36,7 @@ Uint16 checkLoadOtp (loadStage load){
 	if (load >= numberOfLoads)	/* Check channel is valid */
 		return CHANNEL_OOB;
 
-	err = tmpRead(load, &tmp);	/* Read temperature of the load */
+	err = readTemperature(load, &tmp);	/* Read temperature of the load */
 	if (err)					/* Check the read finished without error */
 		return err;
 	sqTmp = _SQ7(tmp);			/* Convert temperature to SQ7 to match OTP level */
@@ -81,7 +81,7 @@ Uint16 checkDcOtp (void){
 	Uint16 err = 0, sqTmp;
 	float32 tmp = 0;
 
-	err = tmpRead(DC_STAGE, &tmp);	/* Read temperature of the DC stage */
+	err = readTemperature(XFMR_STAGE, &tmp);/* Read temperature of the DC stage */
 	if (err)						/* Check the read finished without error */
 		return err;
 	sqTmp = _SQ7(tmp);				/* Convert temperature to SQ7 to match OTP level */
@@ -124,7 +124,7 @@ Uint16 checkAcOtp (void){
 	Uint16 err = 0, sqTmp;
 	float32 tmp = 0;
 
-	err = tmpRead(AC_STAGE, &tmp);	/* Read temperature of the AC stage */
+	err = readTemperature(AC_STAGE, &tmp);	/* Read temperature of the AC stage */
 	if (err)						/* Check the read finished without error */
 		return err;
 	sqTmp = _SQ7(tmp);				/* Convert temperature to SQ7 to match OTP level */
@@ -182,9 +182,9 @@ Uint16 checkExtOtp (extSelect ext){
 		return CHANNEL_OOB;
 
 	if (ext == ext1)
-		err = tmpRead(EXT_1, &tmp);	/* Read temperature of the Ext1 sensor */
+		err = readTemperature(EXT_1, &tmp);	/* Read temperature of the Ext1 sensor */
 	else
-		err = tmpRead(EXT_2, &tmp);	/* Read temperature of the Ext2 sensor */
+		err = readTemperature(EXT_2, &tmp);	/* Read temperature of the Ext2 sensor */
 
 	if (err)						/* Check the read finished without error */
 		return err;
@@ -212,6 +212,3 @@ Uint16 clearExtOtp (extSelect ext){
 	mnRunAll();
 	return 0;
 }
-
-
-

@@ -10,15 +10,26 @@
  * should record in the macros ADC_SW3A_STATE and
  * ADC_SW3B_STATE.
  *
- * All temperatures are in degrees Celcius.
+ * All temperatures are in degrees Celsius.
  *
  * @warning
  * Before any temperature functions can be used the I2C
  * peripheral MUST be initialised, using i2cInit(), and
- * tmpInit() must be run - tmpInit() will require the
+ * initTemperature() must be run - initTemperature() will require the
  * interrupts to be enabled globally.
  *
  * @sa i2cInit()
+ *
+ * |ADS7830 Ch #| Signal 	| Chnl selector | ADC Sel Code	|
+ * |:----------:|:---------:|:-------------:|:-------------:|
+ * | CH0 		| TEMP1		| load1	(0)		| 0				|
+ * | CH1 		| TEMP2		| load2	(1)		| 4				|
+ * | CH2 		| TEMP3		| load3	(2)		| 1				|
+ * | CH3 		| TEMP4		| load4	(3)		| 5				|
+ * | CH4 		| TEMP5		| XFMR_STAGE (4)| 2				|
+ * | CH5 		| TEMP6		| AC_STAGE (5)	| 6				|
+ * | CH6 		| TEMP_EXT1	| EXT_1	(6)		| 3				|
+ * | CH7 		| TEMP_EXT2	| EXT_2	(7)		| 7				|
  *
  */
 
@@ -39,9 +50,9 @@
 	#define ADC_I2C_ADDR 	(ADC_I2C_BASE_ADDR | ADC_SW3A_STATE) | (ADC_SW3B_STATE << 1)	/**< ADS7830 ADC complete I2C address. */
 #endif
 
-#define ADC_NUM_CHNL		0x08	/**< ADS7830 ADC number of temperature channels. */
-#define ADC_VREF			5.0		/**< ADS7830 ADC reference voltage (volts). */
-#define ADC_STPS			256		/**< ADS7830 ADC number of steps. */
+#define ADC_NUM_CHNL	0x08	/**< ADS7830 ADC number of temperature channels. */
+#define ADC_VREF		5.0		/**< ADS7830 ADC reference voltage (volts). */
+#define ADC_STPS		256		/**< ADS7830 ADC number of steps. */
 
 #define TMP_OTP_MIN		0x00	/**< Minimum over temperature limit setting (0@f$ ^\circ@f$ C). */  /* 0 degree C */
 #define TMP_OTP_MAX		0x96	/**< Maximum over temperature limit setting (150@f$ ^\circ@f$ C). */ /* 150 degree C */
@@ -55,46 +66,19 @@
 #define TMP_EC1			1E-3	/**< First order MCP9701 temperature error coefficient (@f$ ^\circ@f$ C/@f$ ^\circ C^2@f$), calculated as shown in Microchip AN1001. */ /* degree C / degree C^2 */
 #define TMP_EC2			-200E-6	/**< Second order MCP9701 temperature error coefficient (@f$ ^\circ@f$ C/@f$ ^\circ C^2@f$), calculated as shown in Microchip AN1001. */ /* degree C / degree C^2 */
 
-/*============= GLOBAL FUNCTIONS ==============*/
+
 /** Initialises the system for temperature readings.
  * The I2C peripheral must be initialised before this function is used
  * @sa i2cInit().
  * @return				Error status.
  */
-extern Uint16 tmpInit (void);
+extern Uint16 initTemperature (void);
 
-/** Sets the on-board over temperature limit for the specified channel.
- * @param[in]	chnl	Specifies the channel the setting is to be applied to.
- * @param[in]	tmp		Specifies the value of the limit to be applied (@f$ ^\circ@f$ C).
- * @return				Error status.
- */
-extern Uint16 tmpSetOtp (Uint16 chnl, float32 tmp);
-
-/** Queries the on-board over temperature limit for the specified channel.
- * @param[in]	chnl	Specifies the channel the setting is to be read from.
- * @param[out]	tmpDest	Address of the memory location at which to place the query result (@f$ ^\circ@f$ C).
- * @return				Error status.
- */
-extern Uint16 tmpGetOtp (Uint16 chnl, float32 *tmpDest);
-
-/** Tests the current on-board temperature sensor readings against the OTP limits.
- * @return				Error status.
- */
-extern Uint16 tmpCheckOtp (void);
-
-/* The above functions use only on-board temperature sensors, the following
- * functions will need to be implemented to allow off-board sensors to be added
- */
-/* extern Uint16 tmpSetExtOtp (Uint16 chnl, float32 tmp); */
-/* extern Uint16 tmpGetExtOtp (Uint16 chnl, float32 *tmpDest); */
-/* extern Uint16 tmpCheckExtOtp (void); */
-
-
-/** Queries the current temperature of the specified channel.
+/** Queries the current temperature on the specified ADC channel.
  * @param[in]	chnl	Specifies the channel the temperature is to be read from.
  * @param[out]	tmpDest	Address of the memory location at which to place the query result (@f$ ^\circ@f$ C).
  * @return				Error status.
  */
-extern Uint16 tmpRead (Uint16 chnl, float32 *tmpDest);
+extern Uint16 readTemperature (Uint16 chnl, float32 *tmpDest);
 
 #endif /* TMP_H_ */

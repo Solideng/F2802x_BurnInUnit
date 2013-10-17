@@ -11,12 +11,10 @@
 #define LOAD_1		1	/**< The index position for Load 1 settings. */
 #define LOAD_2		2	/**< The index position for Load 2 settings. */
 #define LOAD_3		3	/**< The index position for Load 3 settings. */
-#define AC_I_CNTL	4	/**< The index position for AC I control settings. */
+#define XFMR_STAGE	4	/**< The index position for transformer stage settings. */
 #define AC_STAGE	5	/**< The index position for AC stage settings. */
-#define DC_STAGE	6	/**< The index position for DC stage  settings. */
-#define V_MID_CH	7	/**< The index position for VMid settings. */
-#define EXT_1 		8	/**< External temperature 1 channel reference. */
-#define EXT_2 		9	/**< External temperature 2 channel reference. */
+#define EXT_1 		6	/**< External temperature 1 channel reference. */
+#define EXT_2 		7	/**< External temperature 2 channel reference. */
 
 /** Initialises macro settings and nets.
  * IIR control law coefficients are handled outside of this function.
