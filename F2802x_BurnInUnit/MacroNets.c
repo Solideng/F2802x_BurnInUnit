@@ -44,7 +44,7 @@ void mnStopAll (void) {
 	}
 	acSettings.enable = FALSE;
 	acNets.vRefNet = 0;
-	acNets.vFiltOutNet = 0;
+	acNets.iRefNet = 0;
 	xfmrSettings.enable = FALSE;
 	xfmrNets.pwmDutyNet = 0;
 	extSettings.extPsuEnable = FALSE;
@@ -127,7 +127,7 @@ void mnInitNets (void) {
 	acNets.iFdbkNet 	= 0;	/* Q24 */
 	acNets.vFdbkNet 	= 0;	/* Q24 */
 	acNets.vRefNet 		= 0;	/* Q24 */
-	acNets.vFiltOutNet 	= 0;	/* Q24 */
+	acNets.iRefNet 		= 0;	/* Q24 */
 	acNets.iFiltOutNet 	= 0;	/* Q24 */
 
 	xfmrNets.iSnsNet 	= 0;	/* Q24 */
@@ -139,34 +139,34 @@ void connectLoadNets (void) {
 				/* Load 1 */
 	ADCDRV_1ch_Rlt1 = &loadNets[load1].iFdbkNet;	/* Load I Sns */
 	ADCDRV_1ch_Rlt7 = &loadNets[load1].vFdbkNet;	/* Load V Sns */
-	CNTL_2P2Z_Ref1 	= &loadNets[load1].iRefNet;		/* CNTL reference */
-	CNTL_2P2Z_Fdbk1 = &loadNets[load1].iFdbkNet;	/* CNTL feedback */
-	CNTL_2P2Z_Out1 	= &loadNets[load1].iFiltOutNet;	/* CNTL out */
-	CNTL_2P2Z_Coef1 = &loadICoefs[load1].b2;		/* CNTL coefficients */
+	CNTL_2P2Z_Ref1 	= &loadNets[load1].iRefNet;		/* ICNTL reference */
+	CNTL_2P2Z_Fdbk1 = &loadNets[load1].iFdbkNet;	/* ICNTL feedback */
+	CNTL_2P2Z_Out1 	= &loadNets[load1].iFiltOutNet;	/* ICNTL out */
+	CNTL_2P2Z_Coef1 = &loadICoefs[load1].b2;		/* ICNTL coefficients */
 	PWMDRV_2ch_UpCnt_Duty1A = &loadNets[load1].iFiltOutNet;	/* Load PWM */
 				/* Load 2 */
 	ADCDRV_1ch_Rlt2 = &loadNets[load2].iFdbkNet;	/* Load I Sns */
 	ADCDRV_1ch_Rlt8 = &loadNets[load2].vFdbkNet;	/* Load V Sns */
-	CNTL_2P2Z_Ref2 	= &loadNets[load2].iRefNet;		/* CNTL reference */
-	CNTL_2P2Z_Fdbk2 = &loadNets[load2].iFdbkNet;	/* CNTL feedback */
-	CNTL_2P2Z_Out2 	= &loadNets[load2].iFiltOutNet;	/* CNTL out */
-	CNTL_2P2Z_Coef2 = &loadICoefs[load2].b2;		/* CNTL coefficients */
+	CNTL_2P2Z_Ref2 	= &loadNets[load2].iRefNet;		/* ICNTL reference */
+	CNTL_2P2Z_Fdbk2 = &loadNets[load2].iFdbkNet;	/* ICNTL feedback */
+	CNTL_2P2Z_Out2 	= &loadNets[load2].iFiltOutNet;	/* ICNTL out */
+	CNTL_2P2Z_Coef2 = &loadICoefs[load2].b2;		/* ICNTL coefficients */
 	PWMDRV_2ch_UpCnt_Duty1B = &loadNets[load2].iFiltOutNet;	/* Load PWM */
 				/* Load 3 */
 	ADCDRV_1ch_Rlt3 = &loadNets[load3].iFdbkNet;	/* Load I Sns */
 	ADCDRV_1ch_Rlt9 = &loadNets[load3].vFdbkNet;	/* Load V Sns */
-	CNTL_2P2Z_Ref3 	= &loadNets[load3].iRefNet;		/* CNTL reference */
-	CNTL_2P2Z_Fdbk3 = &loadNets[load3].iFdbkNet;	/* CNTL feedback */
-	CNTL_2P2Z_Out3 	= &loadNets[load3].iFiltOutNet;	/* CNTL out */
-	CNTL_2P2Z_Coef3 = &loadICoefs[load3].b2;		/* CNTL coefficients */
+	CNTL_2P2Z_Ref3 	= &loadNets[load3].iRefNet;		/* ICNTL reference */
+	CNTL_2P2Z_Fdbk3 = &loadNets[load3].iFdbkNet;	/* ICNTL feedback */
+	CNTL_2P2Z_Out3 	= &loadNets[load3].iFiltOutNet;	/* ICNTL out */
+	CNTL_2P2Z_Coef3 = &loadICoefs[load3].b2;		/* ICNTL coefficients */
 	PWMDRV_2ch_UpCnt_Duty2A = &loadNets[load3].iFiltOutNet;	/* Load PWM */
 				/* Load 4 */
 	ADCDRV_1ch_Rlt4  = &loadNets[load4].iFdbkNet;	/* Load I Sns */
 	ADCDRV_1ch_Rlt10 = &loadNets[load4].vFdbkNet;	/* Load V Sns */
-	CNTL_2P2Z_Ref4 	 = &loadNets[load4].iRefNet;	/* CNTL reference */
-	CNTL_2P2Z_Fdbk4  = &loadNets[load4].iFdbkNet;	/* CNTL feedback */
-	CNTL_2P2Z_Out4 	 = &loadNets[load4].iFiltOutNet;/* CNTL out */
-	CNTL_2P2Z_Coef4  = &loadICoefs[load4].b2;		/* CNTL coefficients */
+	CNTL_2P2Z_Ref4 	 = &loadNets[load4].iRefNet;	/* ICNTL reference */
+	CNTL_2P2Z_Fdbk4  = &loadNets[load4].iFdbkNet;	/* ICNTL feedback */
+	CNTL_2P2Z_Out4 	 = &loadNets[load4].iFiltOutNet;/* ICNTL out */
+	CNTL_2P2Z_Coef4  = &loadICoefs[load4].b2;		/* ICNTL coefficients */
 	PWMDRV_2ch_UpCnt_Duty2B = &loadNets[load4].iFiltOutNet;	/* Load PWM */
 }
 
@@ -177,15 +177,15 @@ void connectXfmrNets (void) {
 	PWMDRV_2ch_UpCnt_Duty3A = &xfmrNets.pwmDutyNet;	/* Xfmr PWM */
 }
 
-void connectAcNets (void) {
+void connectAcNets (slaveMode mode) {
 	#ifndef DUAL_CNTL_AC
 		ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;	/* AC I Sns */
 		ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;	/* AC V Sns */
 		SGENTI_1ch_VOut  = &acNets.vRefNet;		/* Rectified sine gen out */
-		CNTL_3P3Z_Ref2 	 = &acNets.vRefNet;		/* CNTL reference */
-		CNTL_3P3Z_Fdbk2  = &acNets.vFdbkNet;	/* CNTL feedback */
-		CNTL_3P3Z_Out2   = &acNets.vFiltOutNet;	/* CNTL out */
-		CNTL_3P3Z_Coef2  = &acVCoefs.b3;		/* CNTL coefficients */
+		CNTL_3P3Z_Ref2 	 = &acNets.vRefNet;		/* VCNTL reference */
+		CNTL_3P3Z_Fdbk2  = &acNets.vFdbkNet;	/* VCNTL feedback */
+		CNTL_3P3Z_Out2   = &acNets.iRefNet;		/* VCNTL out */
+		CNTL_3P3Z_Coef2  = &acVCoefs.b3;		/* VCNTL coefficients */
 		SGENTI_1ch_Sign  = &sgenSignNet;		/* Sine sign */
 		PHASE_CTRL_In 	 = &sgenSignNet;		/* AC F B Phase */
 		#ifndef AC_STAGE_OPEN
@@ -194,34 +194,37 @@ void connectAcNets (void) {
 			PWMDRV_2ch_UpCnt_Duty3B = &acNets.vRefNet;
 		#endif
 	#else
-		ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;	/* AC I Sns */
-		ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;	/* AC V Sns */
-		SGENTI_1ch_VOut  = &acNets.vRefNet;		/* Rectified sine gen out */
-		SGENTI_1ch_Sign  = &sgenSignNet;		/* Sine sign */
+		if (mode != slave) {
+			ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;/* AC V Sns */
+			SGENTI_1ch_VOut  = &acNets.vRefNet;	/* Rectified sine gen out */
+			SGENTI_1ch_Sign  = &sgenSignNet;	/* Sine sign */
+			PHASE_CTRL_In 	 = &sgenSignNet;	/* AC F B Phase */
 
-		CNTL_3P3Z_Ref1  = &acNets.vRefNet;		/* CNTL reference */
-		CNTL_3P3Z_Fdbk1 = &acNets.vFdbkNet;		/* CNTL feedback */
-		CNTL_3P3Z_Out1  = &acNets.vFiltOutNet;	/* CNTL out */
-		CNTL_3P3Z_Coef1 = &acVCoefs.b3;			/* CNTL coefficients */
+			CNTL_3P3Z_Ref1   = &acNets.vRefNet;	/* VCNTL reference */
+			CNTL_3P3Z_Fdbk1  = &acNets.vFdbkNet;/* VCNTL feedback */
+			CNTL_3P3Z_Out1   = &acNets.iRefNet;	/* VCNTL out/CNTLI in */
+			CNTL_3P3Z_Coef1  = &acVCoefs.b3;	/* VCNTL coefficients */
+		} else {
+			ADCDRV_1ch_Rlt12 = &acNets.iRefNet;	/* AC Ext I Sns */
+		}
 
-		CNTL_2P2Z_Ref5  = &acNets.vFiltOutNet;	/* CNTL reference */
-		CNTL_2P2Z_Fdbk5 = &acNets.iFdbkNet;		/* CNTL feedback */
-		CNTL_2P2Z_Out5  = &acNets.iFiltOutNet;	/* CNTL out */
-		CNTL_2P2Z_Coef5 = &acICoefs.b2;			/* CNTL coefficients */
-
+		ADCDRV_1ch_Rlt6 = &acNets.iFdbkNet;		/* AC I Sns */
+		CNTL_2P2Z_Ref5  = &acNets.iRefNet;		/* ICNTL reference */
+		CNTL_2P2Z_Fdbk5 = &acNets.iFdbkNet;		/* ICNTL feedback */
+		CNTL_2P2Z_Out5  = &acNets.iFiltOutNet;	/* ICNTL out */
+		CNTL_2P2Z_Coef5 = &acICoefs.b2;			/* ICNTL coefficients */
 		PWMDRV_2ch_UpCnt_Duty3B = &acNets.iFiltOutNet;/* AC F B PWM */
-		PHASE_CTRL_In = &sgenSignNet;			/* AC F B Phase */
 	#endif
 }
 
-void connectAllNets (void) {
+void connectAllNets (slaveMode mode) {
 	/* Connect all macro terminals to nets.
 	 *  - SHOULD BE RUN AFTER DPL_INIT()
 	 */
 	#if (INCR_BUILD == 2)
 		connectLoadNets();
 		connectXfmrNets();
-		connectAcNets();
+		connectAcNets(mode);
 	#elif (INCR_BUILD == 1)
 			/* Load 1 connections */
 		ADCDRV_1ch_Rlt1 = &loadNets[load1].iFdbkNet;
