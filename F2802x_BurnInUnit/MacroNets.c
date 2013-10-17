@@ -6,65 +6,27 @@
  */
 #include "Common.h"
 
-void mnInitSettings (void);
-void mnInitNets (void);
-void mnConnectNets (void);
-
 /*============= GLOBAL VARIABLES ==============*/
 Uint16	stopAll = 0;	// TODO May be moved to SCPI device specific regs
 Uint16	enableAll = 0;
 
-loadStageNets 		loadNets[numberOfLoads];
-loadStageSettings 	loadSettings[numberOfLoads];
-acStageNets 		acNets;
-acStageSettings 	acSettings;
-xfmrStageNets		xfmrNets;
-xfmrStageSettings	xfmrSettings;
-extDeviceSettings 	extSettings;
+loadStageNets 		loadNets[numberOfLoads];	/* Load nets */
+xfmrStageNets		xfmrNets;					/* Transformer stage nets */
+acStageNets 		acNets;						/* AC stage nets */
+loadStageSettings 	loadSettings[numberOfLoads];/* Load settings */
+xfmrStageSettings	xfmrSettings;				/* Transformer stage nets */
+acStageSettings 	acSettings;					/* AC stage settings */
+extDeviceSettings 	extSettings;				/* External device settings */
 
 #if (INCR_BUILD == 1)
 	volatile int32 duty[NUM_CHNLS] = {0};	/* Open-loop duty setting for use in watch window */
 #endif
 
 /*============== LOCAL VARIABLES ==============*/
-static volatile int32 sgenSignNet = 0;		/* Net for sine generator sign output */
+static volatile int32 sgenSignNet = 0;		/* Net for sine generator sign output NET */
 
-void mnSetupNets (void) {
-	mnInitSettings();
-	mnInitNets();
-	mnConnectNets();
-}
 
-void mnStopAll (void) {
-	/* Disables and zeroes all references */
-	Uint16 i = 0;
-	for (i = 0; i < numberOfLoads; i++) {
-		loadSettings[i].enable = FALSE;
-		loadNets[i].iRefNet = 0;
-	}
-	acSettings.enable = FALSE;
-	acNets.vRefNet = 0;
-	acNets.iRefNet = 0;
-	xfmrSettings.enable = FALSE;
-	xfmrNets.pwmDutyNet = 0;
-	extSettings.extPsuEnable = FALSE;
-	extSettings.extFanEnable = FALSE;
-	stopAll = 0;
-}
-
-void mnRunAll (void) {
-	/* Enable all references */
-	Uint16 i = 0;
-	for (i = 0; i < numberOfLoads; i++) {
-		loadSettings[i].enable = TRUE;
-	}
-	acSettings.enable = TRUE;
-	xfmrSettings.enable = TRUE;
-	extSettings.extPsuEnable = TRUE;
-	enableAll = 0;
-}
-
-void mnInitSettings (void) {
+static void initSettings (void) {
 	/* Initialise all settings structures with default values */
 	/* FOR SOME REASON THIS *MUST* BE CALLED *AFTER* pwmMacroConfig(), NOT BEFORE */
 	Uint16 i = 0;
@@ -114,7 +76,7 @@ void mnInitSettings (void) {
 	extSettings.extPsuEnable = FALSE;	/* Disabled */
 }
 
-void mnInitNets (void) {
+static void initNets (void) {
 	/* Clears all nets. */
 	Uint16 i = 0;
 	for (i = 0; i < numberOfLoads; i++) {
@@ -135,7 +97,7 @@ void mnInitNets (void) {
 	xfmrNets.hvVSnsNet 	= 0;	/* Q24 */
 }
 
-void connectLoadNets (void) {
+static void connectLoadNets (void) {
 				/* Load 1 */
 	ADCDRV_1ch_Rlt1 = &loadNets[load1].iFdbkNet;	/* Load I Sns */
 	ADCDRV_1ch_Rlt7 = &loadNets[load1].vFdbkNet;	/* Load V Sns */
@@ -170,14 +132,14 @@ void connectLoadNets (void) {
 	PWMDRV_2ch_UpCnt_Duty2B = &loadNets[load4].iFiltOutNet;	/* Load PWM */
 }
 
-void connectXfmrNets (void) {
+static void connectXfmrNets (void) {
 	ADCDRV_1ch_Rlt5  = &xfmrNets.iSnsNet;			/* DC Mid I Sns */
 	ADCDRV_1ch_Rlt11 = &xfmrNets.hvVSnsNet;			/* DC HV V Sns */
 	ADCDRV_1ch_Rlt13 = &xfmrNets.midVSnsNet;		/* DC Mid V Sns */
 	PWMDRV_2ch_UpCnt_Duty3A = &xfmrNets.pwmDutyNet;	/* Xfmr PWM */
 }
 
-void connectAcNets (slaveMode mode) {
+static void connectAcNets (slaveMode mode) {
 	#ifndef DUAL_CNTL_AC
 		ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;	/* AC I Sns */
 		ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;	/* AC V Sns */
@@ -217,7 +179,7 @@ void connectAcNets (slaveMode mode) {
 	#endif
 }
 
-void connectAllNets (slaveMode mode) {
+static connectAllNets (slaveMode mode) {
 	/* Connect all macro terminals to nets.
 	 *  - SHOULD BE RUN AFTER DPL_INIT()
 	 */
@@ -252,6 +214,41 @@ void connectAllNets (slaveMode mode) {
 		ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;
 		PWMDRV_2ch_UpCnt_Duty3B = &duty[AC_STAGE];
 	#endif
+}
+
+void setupNets (slaveMode mode) {
+	initSettings();
+	initNets();
+	connectAllNets(mode);
+}
+
+void stopAll (void) {
+	/* Disables and zeroes all references */
+	Uint16 i = 0;
+	for (i = 0; i < numberOfLoads; i++) {
+		loadSettings[i].enable = FALSE;
+		loadNets[i].iRefNet = 0;
+	}
+	acSettings.enable = FALSE;
+	acNets.vRefNet = 0;
+	acNets.iRefNet = 0;
+	xfmrSettings.enable = FALSE;
+	xfmrNets.pwmDutyNet = 0;
+	extSettings.extPsuEnable = FALSE;
+	extSettings.extFanEnable = FALSE;
+	stopAll = 0;
+}
+
+void runAll (void) {
+	/* Enable all references */
+	Uint16 i = 0;
+	for (i = 0; i < numberOfLoads; i++) {
+		loadSettings[i].enable = TRUE;
+	}
+	acSettings.enable = TRUE;
+	xfmrSettings.enable = TRUE;
+	extSettings.extPsuEnable = TRUE;
+	enableAll = 0;
 }
 
 //void mnConnectNets (void) {
