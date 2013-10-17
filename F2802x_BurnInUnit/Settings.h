@@ -36,27 +36,28 @@
  * System Settings
  *============================================================*/
 
-#define VSSA 		0l		/**< System VLOWREF (millivolts). */
-
 #define VMID_R1		540.0	/**< Scaling voltage divider R1 resistor value for VMID ADC. */
 #define VMID_R2		4.3		/**< Scaling voltage divider R2 resistor value for VMID ADC. */
 #define VAC_R1 		540.0	/**< Scaling voltage divider R1 resistor value for VAC ADC. */
 #define VAC_R2 		4.3		/**< Scaling voltage divider R2 resistor value for VAC ADC. */
 
-#define NUM_ICTRL_CHNLS	5	/**< The number of current, or 2-pole 2-zero, IIR filter control law macros used. */
-#define NUM_VCTRL_CHNLS 1	/**< The number of voltage, or 3-pole 3-zero, IIR filter control law macros used. */
+// TODO: Sort this NUM_CHNLS. Has conflict in SCPI specific commands and cntl(coeffs array).
 #define NUM_CHNLS 		6	/**< Total number of IIR filter control law macros used (doesn't include VMID semi-channel). */
 
 #define LOAD_IDCLVL_MAX 35	/**< The maximum allowable value, in amps, for the load current levels. */
 #define LOAD_VDCLVL_FIX 60	/**< The fixed maximum value, in volts, for the load voltage levels. */
-#define LOAD_PWRLVL_FIX 200/**< The fixed maximum value, in watts, for the load power levels. */
+#define LOAD_PWRLVL_FIX 200	/**< The fixed maximum value, in watts, for the load power levels. */
 
-#define AC_IRMSLVL_MAX 	10	/**< The maximum allowable value, in amps (RMS), for the AC current levels. */
-#define AC_VRMSLVL_MAX 	250	/**< The maximum allowable value, in volts (RMS), for the AC voltage levels. */
+#define DCMID_VDCLVL_FIX 400	/**< The fixed maximum value, in volts, for the DC mid voltage level. */
+
+#define AC_IRMSLVL_MAX 	10	/**< The maximum allowable value, in amps (RMS), for the AC current level. */
+#define AC_VRMSLVL_MAX 	250	/**< The maximum allowable value, in volts (RMS), for the AC voltage level. */
 #define AC_PWRLVL_FIX 	800	/**< The fixed value, in watts, for the AC OPP level. */
 
 #define SQRT_2		1.41429	/**< Sqrt(2) constant used for RMS calculations. */
 #define RECP_SQRT_2	0.70711	/**< 1/sqrt(2) constant used for RMS calculations. */
+
+#define VSSA 		0l		/**< System VLOWREF (millivolts). */
 #define VDDA 		3300l	/**< System VMAXREF (millivolts). */
 
 #define	uSec100		6000	/**< 100us - System define. */

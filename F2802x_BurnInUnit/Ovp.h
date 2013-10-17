@@ -25,7 +25,7 @@ extern Uint16 ovpFlagRegister;	/** < OVP flag register. Bits are set to indicate
 /*============== Load n ==============*/
 /** Checks the voltage reading of the specified load against the load OVP limit.
  * Raises the load OVP flag if the reading is above the limit.
- * @param[in]	load	Specifies the load on which the setting is to be queried.
+ * @param[in]	load	Specifies the load on which the reading is to be tested.
  * @return 				Error status
  */
 extern Uint16 checkLoadOvp (loadStage load);

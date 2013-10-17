@@ -37,7 +37,7 @@ extern Uint16 getLoadOtp (loadStage load, float32 *level);
 
 /** Checks the temperature reading of the specified load against the load OTP limit.
  * Raises the load OTP flag if the reading is above the limit.
- * @param[in]	load	Specifies the load on which the setting is to be queried.
+ * @param[in]	load	Specifies the load on which the reading is to be tested.
  * @return 				Error status
  */
 extern Uint16 checkLoadOtp (loadStage load);

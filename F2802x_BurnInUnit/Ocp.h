@@ -39,7 +39,7 @@ extern Uint16 getLoadOcpLevel (loadStage load, float32 * dcLevel);
 
 /** Checks the current reading of the specified load against the load OCP limit.
  * Raises the load OCP flag if the reading is above the limit.
- * @param[in]	load	Specifies the load on which the setting is to be queried.
+ * @param[in]	load	Specifies the load on which the reading is to be tested.
  * @return 				Error status
  */
 extern Uint16 checkLoadOcp (loadStage load);
