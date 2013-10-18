@@ -7,29 +7,24 @@
 
 #include "Common.h"
 
-/*=============== GLOBAL VARS =================*/
+
 volatile int32 *SGENTI_1ch_VOut = 0;	/* Voltage signal output terminal*/
-volatile int32 *SGENTI_1ch_Sign = 0;	/* Sign signal output terminal */
-volatile int32 *PHASE_CTRL_In = 0;
 
 #ifdef DEBUG
 	SGENTI_1 sigGen = SGENTI_1_DEFAULTS;	// TODO: can be private when testing finished
 	#pragma DATA_SECTION (sigGen, "SGENTI_1ch_Struct")
+#else
+	static SGENTI_1 sigGen = SGENTI_1_DEFAULTS;
+	#pragma DATA_SECTION (sigGen, "SGENTI_1ch_Struct")
 #endif
+
 #ifdef LOG_SIN
 	volatile int16 sine_abs[LOG_SIZE] = {0};
 	volatile int16 sine_sign[LOG_SIZE] = {0};
 #endif
 
-
-/*================ LOCAL VARS ================*/
 static Uint16 rectifyMode = SIN_DFLT_RCTFY;	/* Selects whether signal is recitified or not */
 static Uint16 fMax = SIN_DFLT_F_MAX;
-
-#ifndef DEBUG
-	static SGENTI_1 sigGen = SGENTI_1_DEFAULTS;
-	#pragma DATA_SECTION (sigGen, "SGENTI_1ch_Struct")
-#endif
 
 void initSine (void) {
 	/* Set signal generator default values
@@ -58,16 +53,6 @@ void initSine (void) {
 										 * Uint16 Q15
 										 */
 	acSettings.enable = 0; 				/* Ensure sine channel output is 0 until enabled */
-}
-
-
-
-void pcUpdate (void) {
-	if ((*PHASE_CTRL_In != 0) && (acSettings.enable)) {
-		GpioDataRegs.GPASET.bit.GPIO12 = 1;	/* Phase before rectification was negative */
-		return;
-	}
-	GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;	/* Phase before rectification was positive */
 }
 
 void updateSineGain (void) {
@@ -103,7 +88,6 @@ void updateSineSignal (void) {
 	#endif
 
 	if(!acSettings.enable) {	/* If channel disabled output all zeroes */
-		*SGENTI_1ch_Sign = 0;
 		*SGENTI_1ch_VOut = 0;
 		return;
 	}
@@ -133,31 +117,31 @@ void updateSineSignal (void) {
 	#endif
 }
 
-Uint16 setSineState (Uint16 stt) {
-	acSettings.enable = (stt > 0);
+Uint16 setSineState (Uint16 state) {
+	acSettings.enable = (state > 0);
 	return 0;
 }
 
-Uint16 getSineState (Uint16 *sttDest) {
-	*sttDest = (acSettings.enable > 0);
+Uint16 getSineState (Uint16 *state) {
+	*state = (acSettings.enable > 0);
 	return 0;
 }
 
-Uint16 setSineGainTarget (float32 gnt) {
+Uint16 setSineGainTarget (float32 target) {
 	/* Sets the gain
 	 * 0.0 - 1.0
 	 */
 	float32 uprLmt = 0.0;
 	uprLmt = _IQ14toF((int32)acSettings.vGainLmt);
-	if ((gnt <= 0) || (gnt > uprLmt))	/* Check gain is between 0-1 */
+	if ((target <= 0) || (target > uprLmt))	/* Check gain is between 0-1 */
 		return VALUE_OOB;
-	gnt = gnt * 16777216;				/* Convert to Q24 and round */
-	acSettings.gainTarget = (int32)gnt;	/* Cast and set */
+	target = target * 16777216;				/* Convert to Q24 and round */
+	acSettings.gainTarget = (int32) target;	/* Cast and set */
 	return 0;
 }
 
-Uint16 getSineGainTarget (float32 *gntDest) {
-	*gntDest = _IQ24toF(acSettings.gainTarget);
+Uint16 getSineGainTarget (float32 *target) {
+	*target = _IQ24toF(acSettings.gainTarget);
 	return 0;
 }
 

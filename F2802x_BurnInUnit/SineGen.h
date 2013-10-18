@@ -18,8 +18,6 @@
 #ifndef SINEGEN_H_
 #define SINEGEN_H_
 
-/*================== MACROS ===================*/
-/*======== INITIAL SIN PARAMETER VALUES =======*/
 #define SIN_DFLT_RCTFY	TRUE	/**< Initial rectification setting [TRUE | FALSE). */
 #define SIN_DFLT_OFST	0		/**< Initial offset setting [-0.5, +0.5], IQ15. */
 #define SIN_DFLT_PHSE	0		/**< Initial initial phase setting [0, 360), IQ16. */
@@ -35,8 +33,7 @@
 								 */
 
 extern volatile int32 *SGENTI_1ch_VOut;	/**< Voltage output terminal. */
-extern volatile int32 *SGENTI_1ch_Sign;	/**< Voltage sign (pre-rectification) output terminal. */
-extern volatile int32 *PHASE_CTRL_In; /**< Phase control module signal input terminal. */
+
 
 #ifdef LOG_SIN
 	#define LOG_SIZE 100		/* Arrays for logging data during debug. */
@@ -48,58 +45,48 @@ extern volatile int32 *PHASE_CTRL_In; /**< Phase control module signal input ter
 	extern SGENTI_1 sigGen;		/* Makes struct available to watch during debug. */
 #endif
 
-/** Updates GPIO19 based on state of *PHASE_CTRL_In terminal.
- * Expects 0 (GPIO19 set) or non-zero (GPIO19 cleared).
- * This is generally called by the DPL_ISR.asm
- */
-extern void pcUpdate (void);
-
-/** Sets the initial generator values and disables
- * the output.
+/** Sets the initial generator values and disables the output.
  * This function MUST be called before any other signal
  * generator function.
  */
 extern void initSine (void);
 
-/** Generates the next signal data point
- * and loads it onto the VOut terminal.
- * If the point is positive the sign terminal is set,
- * otherwise it is cleared.
- * If rectify is enabled, the value produced will be
- * an absolute value.
- */
-extern void updateSineSignal (void);
-
 /** Updates the gain value to create a slow-start ramp.
  * This should be called at the same time and similarly to
  * the DC slew update.
- * @sa scSlewUpdate()
  */
 extern void updateSineGain (void);
 
-/** Enables or disables the output of the generator onto the connected net
- * @param[in]	stt	Output enable state {1:ON | 0:OFF}.
- * @return			Error status.
+/** Generates the next signal data point and loads it onto the VOut terminal.
+ * If the point is positive the sign terminal is set, otherwise it is cleared.
+ * If rectify is enabled, the VOut value produced will be an absolute value.
+ * This is called by the DP_LIB asm ISR.
  */
-extern Uint16 setSineState (Uint16 stt);
+extern void updateSineSignal (void);
+
+/** Enables or disables the output of the generator onto the connected net
+ * @param[in]	state	Output enable state {1:ON | 0:OFF}.
+ * @return				Error status.
+ */
+extern Uint16 setSineState (Uint16 state);
 
 /** Queries the current state of the generator output.
- * @param[out]	sttDest	Address of the memory location at which to place the query result  {1:ON | 0:OFF}.
+ * @param[out]	state	Address of the memory location at which to place the query result  {1:ON | 0:OFF}.
  * @return				Error status.
  */
-extern Uint16 getSineState (Uint16 *sttDest);
+extern Uint16 getSineState (Uint16 *state);
 
 /** Sets the target gain of the signal.
- * @param[in]	gnt	Gain target value [0.0, 1.0).
- * @return		Error status.
- */
-extern Uint16 setSineGainTarget (float32 gnt);
-
-/** Queries the current target gain setting.
- * @param[out] gntDest	Address of the memory location at which to place the query result.
+ * @param[in]	target	Gain target value [0.0, 1.0).
  * @return				Error status.
  */
-extern Uint16 getSineGainTarget (float32 *gntDest);
+extern Uint16 setSineGainTarget (float32 target);
+
+/** Queries the current target gain setting.
+ * @param[out] target	Address of the memory location at which to place the query result.
+ * @return				Error status.
+ */
+extern Uint16 getSineGainTarget (float32 *target);
 
 
 /* Enables or disables the rectification of the generator output

@@ -144,13 +144,11 @@ static void connectAcNets (slaveMode mode) {
 	#ifndef DUAL_CNTL_AC
 		ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;	/* AC I Sns */
 		ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;	/* AC V Sns */
-		SGENTI_1ch_VOut  = &acNets.vRefNet;		/* Rectified sine gen out */
+		SGENTI_1ch_VOut  = &acNets.vRefNet;		/* Sine gen out */
 		CNTL_3P3Z_Ref2 	 = &acNets.vRefNet;		/* VCNTL reference */
 		CNTL_3P3Z_Fdbk2  = &acNets.vFdbkNet;	/* VCNTL feedback */
 		CNTL_3P3Z_Out2   = &acNets.iRefNet;		/* VCNTL out */
 		CNTL_3P3Z_Coef2  = &acVCoefs.b3;		/* VCNTL coefficients */
-		SGENTI_1ch_Sign  = &sgenSignNet;		/* Sine sign */
-		PHASE_CTRL_In 	 = &sgenSignNet;		/* AC F B Phase */
 		#ifndef AC_STAGE_OPEN
 			PWMDRV_2ch_UpCnt_Duty3B = &acNets.vFiltOutNet;/* AC F B PWM */
 		#else
@@ -159,9 +157,7 @@ static void connectAcNets (slaveMode mode) {
 	#else
 		if (mode != slave) {
 			ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;/* AC V Sns */
-			SGENTI_1ch_VOut  = &acNets.vRefNet;	/* Rectified sine gen out */
-			SGENTI_1ch_Sign  = &sgenSignNet;	/* Sine sign */
-			PHASE_CTRL_In 	 = &sgenSignNet;	/* AC F B Phase */
+			SGENTI_1ch_VOut  = &acNets.vRefNet;	/* Sine gen out */
 
 			CNTL_3P3Z_Ref1   = &acNets.vRefNet;	/* VCNTL reference */
 			CNTL_3P3Z_Fdbk1  = &acNets.vFdbkNet;/* VCNTL feedback */
