@@ -13,27 +13,24 @@ Uint16 checkLoadOpp (loadStage load) {
 	/* Load over-power protection
 	 *  - vScale AND iScale SHOULD BE SET BEFORE USE -
 	 */
-	int32 vMeas = 0, iMeas = 0;
-	float32 iLimDyn = 0, iMeasF = 0;
+	Uint16 err = 0;
+	float32 iLimDyn = 0, iMeas = 0, vMeas = 0;
 
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;
-								/* Get the voltage reading for the given load and multiply by
-								 * the related vScale to get the actual value (IQ24).
-								 */
-	vMeas = _IQmpy(loadNets[load].vFdbkNet, _Q14toIQ(loadSettings[load].vScale));
-	iLimDyn = _IQ24toF(vMeas); 	/* Convert real voltage value from IQ24 */
+								/* Get current and voltage readings */
+	err = getLoadCurrent(load, &iMeas);
+	if (err)					/* Check reading completed OK*/
+		 return err;
+	err = getLoadVoltage(load, &vMeas);
+	if (err)					/* Check reading completed OK*/
+		return err;
 								/* Divide real voltage value into the power limit value to get the dynamic
 								 * current limit.
 								 */
-	iLimDyn = LOAD_PWRLVL_FIX / iLimDyn;
-								/* Get the most recent current reading for the given load and multiply by the
-								 * related current scale to get the real value (IQ24).
-								 */
-	iMeas = _IQmpy(loadNets[load].iFdbkNet, _Q14toIQ(loadSettings[load].iScale));
-	iMeasF = _IQ24toF(iMeas);
+	iLimDyn = LOAD_PWRLVL_FIX / vMeas;
 
-	if (iMeasF > iLimDyn) {		/* Check the measured current value is below the dynamic current limit value. */
+	if (iMeas > iLimDyn) {		/* Check the measured current value is below the dynamic current limit value. */
 		stopAll();
 		oppFlagRegister |= (1 << load);
 		return OPP_TRIP;
@@ -60,7 +57,7 @@ Uint16 checkAcOpp (void) {
 	 */
 	int32 iMeas = 0, vMeas = 0, pMeas = 0;
 	float32 pMeasF;
-
+	// TODO: THESE ARE WRONG! THEY HAVE NOT BEEN UN-NORMALISED!
 	vMeas = _IQmpy(acNets.vFdbkNet, _Q14toIQ(acSettings.vScale));	/* Scale voltage reading (IQ24) */
 	iMeas = _IQmpy(acNets.iFdbkNet, _Q14toIQ(acSettings.iScale));	/* Scale current reading (IQ24) */
 	pMeas = _IQmpy(vMeas, iMeas);	/* Get power value from measured current and voltage (IQ24) */

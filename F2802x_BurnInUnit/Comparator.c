@@ -8,11 +8,14 @@
 
 // N.B. DACs do not currently ramp.
 
+static Uint16 setDcDac (float32 level);
+
 void initDcComparator (void) {
 	/* Initialises the DC comparator (COMP 2) using an internal DAC at the inverting input.
 	 *  - SHOULD BE CALLED AFTER adcSocCnf() -
 	 *  - SHOULD BE CALLED BEFORE PWMS (SYNC) ARE STARTED -
 	 *  - SHOULD BE CALLED BEFORE pwmTZConfigure() -
+	 *  - midVScale should be set before use
 	 */
 	EALLOW;									/* COMPCTL & DACCTL are EALLOW protected */
 	Comp2Regs.COMPCTL.bit.COMPDACEN = 1;	/* Enable COMP2 section */
@@ -23,12 +26,13 @@ void initDcComparator (void) {
 	Comp2Regs.COMPCTL.bit.SYNCSEL = 1;		/* COMP2 o/p is not synchronised to the SysClk */
 	Comp2Regs.DACCTL.bit.DACSOURCE = 0;		/* Set DACVAL as DAC control source */
 	EDIS;
+	setDcDac (DCMID_VDCLVL_FIX);	/* Set the DC DAC to the fixed OVP_V_MID_PK value*/
 }
 
-Uint16 setDcDac (float32 level) {
+static Uint16 setDcDac (float32 level) {
 	/* Sets the parameters of the DAC for the DC comparator (COMP 2).
 	 * level argument is expected in volts.
-	 * - iScale SHOULD BE SET BEFORE USE -
+	 * - midVScale SHOULD BE SET BEFORE USE -
 	 * - SHOULD BE CALLED AFTER initDcComparator() -
 	 */
 	if (level < 0 )		/* Check the requested level is within lower boundary */
@@ -44,12 +48,12 @@ Uint16 setDcDac (float32 level) {
 	return 0;
 }
 
-Uint16 getDcDac (float32 * level) {
-															/* Get the raw data from COMP 1 DAC VAL * 3v3 */
-	float32 dacLvl = Comp2Regs.DACVAL.all * ((VDDA - VSSA) * 0.001);
-	*level = dacLvl * (1.0 / (xfmrSettings.midVScale >> 4));/* level / (scale * 1023) */
-	return 0;
-}
+//Uint16 getDcDac (float32 * level) {
+//															/* Get the raw data from COMP 1 DAC VAL * 3v3 */
+//	float32 dacLvl = Comp2Regs.DACVAL.all * ((VDDA - VSSA) * 0.001);
+//	*level = dacLvl * (1.0 / (xfmrSettings.midVScale >> 4));/* level / (scale * 1023) */
+//	return 0;
+//}
 
 
 void initAcComparator (void) {

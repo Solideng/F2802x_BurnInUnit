@@ -24,9 +24,6 @@ Uint16 setLoadOcpLevel (loadStage load, float32 dcLevel) {
 		return VALUE_OOB;
 	if (loadSettings[load].iScale == 0)	/* Check iScale is set, to avoid div-by-0 exception */
 		return VALUE_OOB;
-//	iSt = _IQ10(dcLevel);				/* Convert level to Q10 and check result is in range */
-//	if ((iSt <= 0) && (iSt > loadSettings[load].iMax))
-//		return VALUE_OOB;
 
 	iMax = _IQ14toF((int32) loadSettings[load].iScale);	/* Convert scale from SQ to float */
 	iMax = ((VDDA - VSSA) * 0.001) * (1.0 / iMax); 		/* Calculate maximum I */

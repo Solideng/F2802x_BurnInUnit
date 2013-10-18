@@ -13,13 +13,14 @@ Uint16 checkLoadOvp (loadStage load) {
 	/* Load over-voltage protection
 	 *  - vScale AND ovpLevel SHOULD BE SET BEFORE USE -
 	 */
-	float32 vScaled = 0;
-	if (load >= numberOfLoads)	/* Check channel is valid */
-		return CHANNEL_OOB;
-								/* Scale the measured load voltage and convert to float */
-	vScaled = _IQ24toF(_IQmpy(loadNets[load].vFdbkNet, _Q14toIQ(loadSettings[load].vScale)));
-								/* Compare the scaled measured load voltage value to the fixed OVP level */
-	if (vScaled > LOAD_VDCLVL_FIX) {
+	Uint16 err = 0;
+	float32 vMeas = 0;
+					/* Read voltage */
+	err = getLoadVoltage(load, &vMeas);
+	if (err)		/* Check reading completed OK */
+		return err;
+					/* Compare the scaled measured load voltage value to the fixed OVP level */
+	if (vMeas > LOAD_VDCLVL_FIX) {
 		stopAll();
 		ocpFlagRegister |= (1 << load);
 		return OVP_TRIP;
@@ -40,6 +41,9 @@ Uint16 clearLoadOvp (loadStage load) {
 }
 
 /*============== DC Mid ==============*/
+// THESE ARE COMMENTED OUT BECAUSE DC_MID IS USING THE 400 V_PK FIXED LEVEL
+// BUT NOT SURE IF THAT IS CORRECT. IF IT IS, THESE CAN BE DELETED.
+
 //Uint16 setDcMidOvpLevel (float32 dcLevel) {
 //	/* Sets the OVP level for the DC Mid VSns
 //	 * dcLevel is expected in volts

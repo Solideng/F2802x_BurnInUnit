@@ -25,7 +25,6 @@ void pwmSocConfigure (void) {
 	EPwm1Regs.ETPS.bit.SOCAPRD = ET_3RD;			/* Trigger ePWM1 SOCA on every 3rd event (i.e. the start of every third pulse) */
 }
 
-
 void pwmDPLTrigInit (void) {
 	/* Interrupt and ISR initialisation */
 	EALLOW;

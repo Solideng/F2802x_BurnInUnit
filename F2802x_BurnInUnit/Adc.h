@@ -8,35 +8,6 @@
 #ifndef ADC_H_
 #define ADC_H_
 
-/*============= GLOBAL FUNCTIONS ==============*/
-/** Configures ADC SOC for ADC macro */
-extern void adcSocConfig (void);
-
-/** Configures the ADC's SOCs then calls pwmSocConfigure().
- *  - SHOULD be run after pwmMacroConfigure().
- *  - SHOULD be run before DPL_INIT().
- */
-extern void adcMacroConfig (void);
-
-/** Queries the most recent voltage reading from the specified load's associated ADC.
- * @param[in]	load	Specifies the load on which the reading is to be queried.
- * @param[out]	vDest	Address of the memory location at which to place the query result (volts).
- * @return				Error status.
- */
-extern Uint16 getLoadVoltage (loadStage load, float32 * vDest);
-
-/** Queries the most recent current reading from the specified load's associated ADC.
- * @param[in]	load	Specifies the load on which the reading is to be queried.
- * @param[out]	iDest	Address of the memory location at which to place the query result (amps).
- * @return				Error status.
- */
-extern Uint16 getLoadCurrent (loadStage load, float32 * iDest);
-
-extern Uint16 adcCheckOpp (void);
-
-
-/*================ GLOBAL VARS ================*/
-/*============= TERMINAL POINTERS =============*/
 extern volatile int32 *ADCDRV_1ch_Rlt1;	/**< Channel 0 current sense ADC terminal pointer. */
 extern volatile int32 *ADCDRV_1ch_Rlt2;	/**< Channel 1 current sense ADC terminal pointer. */
 extern volatile int32 *ADCDRV_1ch_Rlt3;	/**< Channel 2 current sense ADC terminal pointer. */
@@ -50,6 +21,53 @@ extern volatile int32 *ADCDRV_1ch_Rlt10;/**< Channel 3 voltage sense ADC termina
 extern volatile int32 *ADCDRV_1ch_Rlt11;/**< Interboost voltage sense ADC terminal pointer. */
 extern volatile int32 *ADCDRV_1ch_Rlt12;/**< AC stage voltage sense ADC terminal pointer. */
 extern volatile int32 *ADCDRV_1ch_Rlt13;/**< VMid voltage sense ADC terminal pointer. */
+
+//** Configures ADC SOC for ADC macro */
+//extern void adcSocConfig (void);
+
+/** Configures the ADC's SOCs then calls pwmSocConfigure().
+ *  - SHOULD be run after pwmMacroConfigure().
+ *  - SHOULD be run before DPL_INIT().
+ */
+extern void adcMacroConfig (void);
+
+/*============== Load n ==============*/
+/** Queries the most recent current reading from the specified load's associated ADC.
+ * @param[in]	load	Specifies the load on which the reading is to be queried.
+ * @param[out]	iDest	Address of the memory location at which to place the query result (amps).
+ * @return				Error status.
+ */
+extern Uint16 getLoadCurrent (loadStage load, float32 * dcCurrent);
+
+/** Queries the most recent voltage reading from the specified load's associated ADC.
+ * @param[in]	load	Specifies the load on which the reading is to be queried.
+ * @param[out]	vDest	Address of the memory location at which to place the query result (volts).
+ * @return				Error status.
+ */
+extern Uint16 getLoadVoltage (loadStage load, float32 * dcVoltage);
+
+/*============== DC Mid ==============*/
+/** Queries the most recent current reading from the DC Mid's associated ADC.
+ * @param[out]	dcCurrent	Address of the memory location at which to place the query result (amps).
+ * @return					Error status.
+ */
+extern Uint16 getDcMidCurrent (float32 * dcCurrent);
+
+/** Queries the most recent voltage reading from the DC Mid's associated ADC.
+ * @param[out]	dcVoltage	Address of the memory location at which to place the query result (volts).
+ * @return					Error status.
+ */
+extern Uint16 getDcMidVoltage (float32 * dcVoltage);
+
+/*=============== DC HV ==============*/
+/** Queries the most recent voltage reading from the DC HV's associated ADC.
+ * @param[out]	dcVoltage	Address of the memory location at which to place the query result (volts).
+ * @return					Error status.
+ */
+extern Uint16 getDcHvVoltage (float32 * dcVoltage);
+
+/*================ AC ================*/
+
 
 /*========= SYMBOLS DEFINED BY DP LIB =========*/
 extern void ADC_SOC_CNF(int16 ChSel[], int16 Trigsel[], int16 ACQPS[], int16 IntChSel, int16 mode);

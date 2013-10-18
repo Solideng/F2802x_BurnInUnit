@@ -24,22 +24,23 @@ extern void initTripzone (void);
  *  - SHOULD be called AFTER adcSocCnf().
  *  - SHOULD be called BEFORE PWMS (SYNC) are started.
  *  - SHOULD be called BEFORE pwmTZConfigure().
+ *  - midVScale should be set before use.
  */
 extern void initDcComparator (void);
 
-/** Sets the output level of the DAC on the inverting input of the DC comparator.
- * The voltage and vScale MUST be set before use.
- * @param[in]	level	Specifies the value of the level setting to be applied (volts).
- * @return				Error status.
- */
-extern Uint16 setDcDac (float32 level);
-
-/** Queries the output level setting of the DAC on the inverting input of the DC comparator.
- * vScale MUST be set before use.
- * @param[out]	level	Pointer to location at which to place the query result (volts).
- * @return				Error status.
- */
-extern Uint16 getDcDac (float32 *level);
+//** Sets the output level of the DAC on the inverting input of the DC comparator.
+// * The voltage and vScale MUST be set before use.
+// * @param[in]	level	Specifies the value of the level setting to be applied (volts).
+// * @return				Error status.
+// */
+//extern Uint16 setDcDac (float32 level);
+//
+//** Queries the output level setting of the DAC on the inverting input of the DC comparator.
+// * vScale MUST be set before use.
+// * @param[out]	level	Pointer to location at which to place the query result (volts).
+// * @return				Error status.
+// */
+//extern Uint16 getDcDac (float32 *level);
 
 /** Resets the DC trip zone after an DC comparator event. */
 extern void rstDcTripzone (void);
