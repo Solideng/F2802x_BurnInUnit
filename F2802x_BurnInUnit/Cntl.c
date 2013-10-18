@@ -6,7 +6,6 @@
  */
 #include "Common.h"
 
-/*=============== GLOBAL VARS ==============*/
 /* Declare closed loop feedback coefficient structure net nodes
  * The DATA_SECTION directive assigns the structures to the correct
  *  sections of dataRAM as mapped in the relevant .CMD file
@@ -18,146 +17,251 @@ struct CNTL_2P2Z_CoefStruct acICoefs;
 struct CNTL_3P3Z_CoefStruct acVCoefs;
 #pragma DATA_SECTION(acVCoefs, "CNTL_3P3Z_Coef")
 
-#define INIT_SMIN	0			/* IQ24 0.0 */
-#define INIT_SMAX	15099494	/* IQ24 0.9 */
-#define INIT_B0		241969836	/* IQ26 3.60563154 */
-#define INIT_B1		81334398	/* IQ26 1.21197699 */
-#define INIT_A1		0			/* IQ26 0.0 */
-#define INIT_B2 	-160635437	/* IQ26 -2.39365455 */
-#define INIT_A2		67108864	/* IQ26 1.0 */
-#define INIT_B3		0			/* IQ26 0.0 */
-#define INIT_A3		0			/* IQ26 0.0 */
-
-/*=============== LOCAL VARS ===============*/
-										/*	 min,       max,       B0,      B1,      A1,      B2,      A2,      B3,      A3	 */
-static int32 pCfs [NUM_CHNLS][cA3+ 1] = {	{INIT_SMIN, INIT_SMAX, INIT_B0, INIT_B1, INIT_A1, INIT_B2, INIT_A2, INIT_B3, INIT_A3},	/* LOAD 1. */
-											{INIT_SMIN, INIT_SMAX, INIT_B0, INIT_B1, INIT_A1, INIT_B2, INIT_A2, INIT_B3, INIT_A3},	/* LOAD 2. */
-											{INIT_SMIN, INIT_SMAX, INIT_B0, INIT_B1, INIT_A1, INIT_B2, INIT_A2, INIT_B3, INIT_A3},	/* LOAD 3. */
-											{INIT_SMIN, INIT_SMAX, INIT_B0, INIT_B1, INIT_A1, INIT_B2, INIT_A2, INIT_B3, INIT_A3},	/* LOAD 4. */
-											{INIT_SMIN, 11744051,  INIT_B0, INIT_B1, INIT_A1, INIT_B2, INIT_A2, INIT_B3, INIT_A3},	/* AC I CNTL (SMAX 0.7) */
-										//	{INIT_SMIN, 16777216,  INIT_B0, INIT_B1, INIT_A1, INIT_B2, INIT_A2, INIT_B3, INIT_A3},	/* DC STAGE (SMAX 1.0) */
-											{INIT_SMIN, INIT_SMAX, INIT_B0, INIT_B1, INIT_A1, INIT_B2, INIT_A2, INIT_B3, INIT_A3}};	/* AC V STAGE */
-
 							/*	 min, max, B0,  B1,  A1,  B2,  A2,  B3,  A3	 */
-float32 cfLmts[2][cA3 + 1] = {	{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},	/* Coefficient minimums. */
+float32 cfLimits[2][cA3 + 1] = {{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},	/* Coefficient minimums. */
 								{1.0, 0.9, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0}};	/* Coefficient maximums. */
 
-/*==== SETUP COEFFICIENT STRUCT MEMBERS ====*/
-void cntlUpdateCoefs (void) {
-	/* Should be called by one of the state machine tasks */
-	Uint16 i = 0, j = 0;
+extern void initCoefs (void) {
+	/* Initialises all coefficients.
+	 *  - MUST be called before IIR CNTL macros are used.
+	 */
+	Uint16 i = 0;
 	for (i = 0; i < numberOfLoads; i++) {
-		j = 0;
-		loadICoefs[i].min = pCfs[i][j++];
-		loadICoefs[i].max = pCfs[i][j++];
-		loadICoefs[i].b0  = pCfs[i][j++];
-		loadICoefs[i].b1  = pCfs[i][j++];
-		loadICoefs[i].a1  = pCfs[i][j++];
-		loadICoefs[i].b2  = pCfs[i][j++];
-		loadICoefs[i].a2  = pCfs[i][j++];
+		loadICoefs[i].min 	= INIT_SMIN;
+		loadICoefs[i].max 	= INIT_SMAX;
+		loadICoefs[i].b0 	= INIT_B0;
+		loadICoefs[i].b1 	= INIT_B1;
+		loadICoefs[i].a1 	= INIT_A1;
+		loadICoefs[i].b2 	= INIT_B2;
+		loadICoefs[i].a2 	= INIT_A2;
 	}
 
-	j = 0;
-	acICoefs.min = pCfs[i][j++];
-	acICoefs.max = pCfs[i][j++];
-	acICoefs.b0  = pCfs[i][j++];
-	acICoefs.b1  = pCfs[i][j++];
-	acICoefs.a1  = pCfs[i][j++];
-	acICoefs.b2  = pCfs[i][j++];
-	acICoefs.a2  = pCfs[i][j++];
-	i++;
+	acICoefs.min 	= INIT_SMIN;
+	acICoefs.max 	= INIT_SMAX;
+	acICoefs.b0 	= INIT_B0;
+	acICoefs.b1 	= INIT_B1;
+	acICoefs.a1 	= INIT_A1;
+	acICoefs.b2 	= INIT_B2;
+	acICoefs.a2 	= INIT_A2;
 
-	j = 0;
-	acVCoefs.min = pCfs[i][j++];
-	acVCoefs.max = pCfs[i][j++];
-	acVCoefs.b0  = pCfs[i][j++];
-	acVCoefs.b1  = pCfs[i][j++];
-	acVCoefs.a1  = pCfs[i][j++];
-	acVCoefs.b2  = pCfs[i][j++];
-	acVCoefs.a2  = pCfs[i][j++];
-
-	return;
+	acVCoefs.min 	= INIT_SMIN;
+	acVCoefs.max 	= INIT_SMAX;
+	acVCoefs.b0 	= INIT_B0;
+	acVCoefs.b1 	= INIT_B1;
+	acVCoefs.a1 	= INIT_A1;
+	acVCoefs.b2 	= INIT_B2;
+	acVCoefs.a2 	= INIT_A2;
+	acVCoefs.b3 	= INIT_B3;
+	acVCoefs.a3 	= INIT_A3;
 }
 
-static float32 cntlGetCoef (Uint16 i, Uint16 j) {
-	if (j > cMax)
-		return _IQ26toF(pCfs[i][j]);
-	else
-		return _IQ24toF(pCfs[i][j]);
+/*============== Load n ==============*/
+static Uint16 getLoadICoefAddress(loadStage load, cfType coef, int32 *address) {
+	/* Sets the specified coefficient for the specified load current control.
+	 * The CNTL macro expects the coefficient structure layout as defined by
+	 * DPLib, so cannot be redefined and does not allow programmatic indexing.
+	 * The load specifier is NOT checked for validity.
+	 */
+	switch (coef) {
+		case cMin:
+			*address = (int32) &loadICoefs[load].min;
+			break;
+		case cMax:
+			*address = (int32) loadICoefs[load].max;
+			break;
+		case cB0:
+			*address = (int32) loadICoefs[load].b0;
+			break;
+		case cB1:
+			*address = (int32) loadICoefs[load].b1;
+			break;
+		case cA1:
+			*address = (int32) loadICoefs[load].a1;
+			break;
+		case cB2:
+			*address = (int32) loadICoefs[load].b2;
+			break;
+		case cA2:
+			*address = (int32) loadICoefs[load].a2;
+			break;
+		default:
+			return CHANNEL_OOB;
+	}
+	return 0;
 }
 
-static Uint16 cntlSetCoef (Uint16 i, Uint16 j, float32 val) {
-	if ((val < cfLmts[cMin][j]) || (val > cfLmts[cMax][j]))
+Uint16 setLoadICoef (loadStage load, cfType coef, float32 value) {
+	/* Sets the specified coefficient for the specified load current control */
+	Uint16 err = 0;
+	int32 cfAddr = 0;
+	if ((load >= numberOfLoads) || (coef > cA2))	/* Check load and coefficient specifiers are valid */
+		return CHANNEL_OOB;
+													/* Check the new value is within the coefficient boundaries */
+	if ((value < cfLimits[cMin][coef]) || (value > cfLimits[cMax][coef]))
 		return VALUE_OOB;
-	if (j > cMax) {
-		pCfs[i][j] = _IQ26(val);
-	} else {
-		pCfs[i][j] = _IQ24(val);
+
+	err = getLoadICoefAddress(load, coef, &cfAddr);	/* Get the address of the specified coefficient on the specified load */
+	if (err)										/* Check that the address was found without error */
+		return err;
+	if (coef > cMax)								/* Save the value to the found address */
+		*((long *) cfAddr) = _IQ26(value);
+	else
+		*((long *) cfAddr) = _IQ24(value);
+	return 0;
+}
+
+Uint16 getLoadICoef (loadStage load, cfType coef, float32 *value) {
+	/* Gets the specified coefficient for the specified load current control */
+	Uint16 err = 0;
+	int32 cfAddr = 0;
+	if ((load >= numberOfLoads) || (coef > cA2))	/* Check load and coefficient specifiers are valid */
+		return CHANNEL_OOB;
+	err = getLoadICoefAddress(load, coef, &cfAddr);	/* Get the address of the specified coefficient on the specified load */
+	if (err)										/* Check that the address was found without error */
+		return err;
+	if (coef > cMax)								/* Save the value from the found address */
+		*value = _IQ26toF(*((long *) cfAddr));
+	else
+		*value = _IQ24toF(*((long *) cfAddr));
+	return 0;
+}
+
+/*=============== AC I ===============*/
+static Uint16 getAcICoefAddress (cfType coef, int32 *address) {
+	/* Gets the address for the specified coefficient for the AC current control */
+	switch (coef) {
+		case cMin:
+			*address = (int32) acICoefs.min;
+			break;
+		case cMax:
+			*address = (int32) acICoefs.max;
+			break;
+		case cB0:
+			*address = (int32) acICoefs.b0;
+			break;
+		case cB1:
+			*address = (int32) acICoefs.b1;
+			break;
+		case cA1:
+			*address = (int32) acICoefs.a1;
+			break;
+		case cB2:
+			*address = (int32) acICoefs.b2;
+			break;
+		case cA2:
+			*address = (int32) acICoefs.a2;
+			break;
+		default:
+			return CHANNEL_OOB;
 	}
 	return 0;
 }
 
-Uint16 cntlGetLoadICoef (loadStage load, cfType coef, float32 *valDest) {
-	/* Gets the specified coefficient for the specified load
-	 * The coefficient reported is not the coefficient actually in use but the
-	 * one set to be used after the next iteration of cntlUpdateCoefs().
-	 */
-	if ((load >= numberOfLoads) || (coef > cA2))
+Uint16 setAcICoef (cfType coef, float32 value) {
+	/* Sets the specified coefficient for the AC stage current control */
+	Uint16 err = 0;
+	int32 cfAddr = 0;
+	if (coef > cA2)							/* Check the coefficient specifier is valid */
 		return CHANNEL_OOB;
-	*valDest = cntlGetCoef(load, coef);
+											/* Check the new value is within the coefficient boundaries */
+	if ((value < cfLimits[cMin][coef]) || (value > cfLimits[cMax][coef]))
+		return VALUE_OOB;
+
+	err = getAcICoefAddress(coef, &cfAddr);	/* Get the address of the specified coefficient */
+	if (err)								/* Check that the address was found without error */
+		return err;
+	if (coef > cMax)						/* Save the value to the found address */
+		*((long *) cfAddr) = _IQ26(value);
+	else
+		*((long *) cfAddr) = _IQ24(value);
 	return 0;
 }
 
-Uint16 cntlGetAcICoef (cfType coef, float32 * valDest) {
-	/* Gets the specified coefficient for the AC I IIR filter control law.
-	 * The coefficient reported is not the coefficient actually in use but the
-	 * one set to be used after the next iteration of cntlUpdateCoefs().
-	 */
-	if (coef > cA3)
+Uint16 getAcICoef (cfType coef, float32 *value) {
+	/* Gets the specified coefficient for the AC stage current control */
+	Uint16 err = 0;
+	int32 cfAddr = 0;
+	if (coef > cA2)							/* Check the coefficient specifier is valid */
 		return CHANNEL_OOB;
-	*valDest = cntlGetCoef(4, coef);
+	err = getAcICoefAddress(coef, &cfAddr);	/* Get the address of the specified coefficient */
+	if (err)								/* Check that the address was found without error */
+		return err;
+	if (coef > cMax)						/* Save the value from the found address */
+		*value = _IQ26toF(*((long *) cfAddr));
+	else
+		*value = _IQ24toF(*((long *) cfAddr));
 	return 0;
 }
 
-Uint16 cntlGetAcVCoef (cfType coef, float32 *valDest) {
-	/* Gets the specified coefficient for the AC V IIR filter control law.
-	 * The coefficient reported is not the coefficient actually in use but the
-	 * one set to be used after the next iteration of cntlUpdateCoefs().
-	 */
-	if (coef > cA3)
-		return CHANNEL_OOB;
-	*valDest = cntlGetCoef(5, coef);
+/*=============== AC V ===============*/
+static Uint16 getAcVCoefAddress (cfType coef, int32 *address) {
+	/* Gets the address for the specified coefficient for the AC voltage control */
+	switch (coef) {
+		case cMin:
+			*address = (int32) acVCoefs.min;
+			break;
+		case cMax:
+			*address = (int32) acVCoefs.max;
+			break;
+		case cB0:
+			*address = (int32) acVCoefs.b0;
+			break;
+		case cB1:
+			*address = (int32) acVCoefs.b1;
+			break;
+		case cA1:
+			*address = (int32) acVCoefs.a1;
+			break;
+		case cB2:
+			*address = (int32) acVCoefs.b2;
+			break;
+		case cA2:
+			*address = (int32) acVCoefs.a2;
+			break;
+		case cB3:
+			*address = (int32) acVCoefs.b3;
+			break;
+		case cA3:
+			*address = (int32) acVCoefs.a3;
+			break;
+		default:
+			return CHANNEL_OOB;
+	}
 	return 0;
 }
 
-Uint16 cntlSetLoadICoef (loadStage load, cfType coef, float32 val) {
-	/* Sets the specified coefficient on the specified load.
-	 * Actual coefficient in use is not changed until cntlUpdatCoefs() is
-	 * called as otherwise the DPL_ISR() could be run *as* the change is being
-	 * made, also, the coefficient structure layout is defined by DPLib, cannot
-	 * be redefined and does not allow programmatic indexing.
-	 */
-	if ((load >= numberOfLoads) || (coef > cA2))
+Uint16 setAcVCoef (cfType coef, float32 value) {
+	/* Sets the specified coefficient for the AC stage voltage control */
+	Uint16 err = 0;
+	int32 cfAddr = 0;
+	if (coef > cA3)							/* Check the coefficient specifier is valid */
 		return CHANNEL_OOB;
-	return cntlSetCoef(load, coef, val);
+											/* Check the new value is within the coefficient boundaries */
+	if ((value < cfLimits[cMin][coef]) || (value > cfLimits[cMax][coef]))
+		return VALUE_OOB;
+
+	err = getAcVCoefAddress(coef, &cfAddr);	/* Get the address of the specified coefficient */
+	if (err)								/* Check that the address was found without error */
+		return err;
+	if (coef > cMax)						/* Save the value to the found address */
+		*((long *) cfAddr) = _IQ26(value);
+	else
+		*((long *) cfAddr) = _IQ24(value);
+	return 0;
 }
 
-Uint16 cntlSetAcICoef (cfType coef, float32 val) {
-	/* Sets the specified coefficient on the specified load.
-	 * Actual coefficient in use is not changed until cntlUpdatCoefs() is
-	 * called
-	 */
-	if (coef > cA3)
+Uint16 getAcVCoef (cfType coef, float32 *value) {
+	/* Gets the specified coefficient for the AC stage voltage control */
+	Uint16 err = 0;
+	int32 cfAddr = 0;
+	if (coef > cA3)							/* Check the coefficient specifier is valid */
 		return CHANNEL_OOB;
-	return cntlSetCoef(4, coef, val);
-}
-
-Uint16 cntlSetAcVCoef (cfType coef, float32 val) {
-	/* Sets the specified coefficient on the specified load.
-	 * Actual coefficient in use is not changed until cntlUpdatCoefs() is
-	 * called
-	 */
-	if (coef > cA3)
-		return CHANNEL_OOB;
-	return cntlSetCoef(5, coef, val);
+	err = getAcVCoefAddress(coef, &cfAddr);	/* Get the address of the specified coefficient */
+	if (err)								/* Check that the address was found without error */
+		return err;
+	if (coef > cMax)						/* Save the value from the found address */
+		*value = _IQ26toF(*((long *) cfAddr));
+	else
+		*value = _IQ24toF(*((long *) cfAddr));
+	return 0;
 }

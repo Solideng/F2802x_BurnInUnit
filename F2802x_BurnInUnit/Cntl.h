@@ -7,10 +7,18 @@
 #ifndef CNTL_H_
 #define CNTL_H_
 
-/*================== MACROS ===================*/
 //#define SATMAX_MAX 0.9f	/**< The maximum allowable value for the IIR filter control law's maximum saturation. */
 
-/*================ GLOBAL VARS ================*/
+#define INIT_SMIN	0			/* IQ24 0.0 */
+#define INIT_SMAX	15099494	/* IQ24 0.9 */
+#define INIT_B0		241969836	/* IQ26 3.60563154 */
+#define INIT_B1		81334398	/* IQ26 1.21197699 */
+#define INIT_A1		0			/* IQ26 0.0 */
+#define INIT_B2 	-160635437	/* IQ26 -2.39365455 */
+#define INIT_A2		67108864	/* IQ26 1.0 */
+#define INIT_B3		0			/* IQ26 0.0 */
+#define INIT_A3		0			/* IQ26 0.0 */
+
 /** CNTL Coefficient references */
 enum coefNum {
 	firstCoef = 0,
@@ -27,6 +35,10 @@ enum coefNum {
 };
 /** A type that allows a reference to a CNTL coefficient. */
 typedef enum coefNum cfType;
+
+extern struct CNTL_2P2Z_CoefStruct loadICoefs [numberOfLoads];	/**< Array of structures that hold the load 2-pole 2-zero IIR filter control law coefficient currently in use. */
+extern struct CNTL_2P2Z_CoefStruct acICoefs;	/**< Structure that holds the AC I 2-pole 2-zero IIR filter control law coefficient currently in use. */
+extern struct CNTL_3P3Z_CoefStruct acVCoefs;	/**< Structure that holds the AC V 2-pole 2-zero IIR filter control law coefficient currently in use. */
 
 extern volatile int32 *CNTL_2P2Z_Coef1;	/**< Load 1 IIR filter control law coefficient terminal pointer. */
 extern volatile int32 *CNTL_2P2Z_Coef2;	/**< Load 2 IIR filter control law coefficient terminal pointer. */
@@ -58,59 +70,57 @@ extern volatile int32 *CNTL_3P3Z_Fdbk1;	/**< AC stage V IIR filter control law f
 extern volatile int32 *CNTL_3P3Z_Out1;	/**< AC stage V IIR filter control law output terminal pointer. */
 extern volatile int32 *CNTL_3P3Z_Ref1;	/**< AC stage V IIR filter control law reference terminal pointer. */
 
-extern struct CNTL_2P2Z_CoefStruct loadICoefs [numberOfLoads];	/**< Array of structures that hold the load 2-pole 2-zero IIR filter control law coefficient currently in use. */
-extern struct CNTL_2P2Z_CoefStruct acICoefs;	/**< Structure that holds the AC I 2-pole 2-zero IIR filter control law coefficient currently in use. */
-extern struct CNTL_3P3Z_CoefStruct acVCoefs;	/**< Structure that holds the AC V 2-pole 2-zero IIR filter control law coefficient currently in use. */
-
-/*============= GLOBAL FUNCTIONS ==============*/
-/** Updates the IIR filter control law's coefficients that are being used to those values set by the use of the other functions within this file. */
-extern void cntlUpdateCoefs (void);
-
-/** Queries the specified IIR filter control law coefficient for a specified load.
- * @param[in]	load	Specifies the load on which the setting is to be queried [0, NUM_CHNLS).
- * @param[in]	coef	Specifies the coefficient to be queried [cMin, cA3).
- * @param[out]	valDest	Address of the memory location at which to place the query result.
- * @return				Error status.
+/** Initialises all IIR filter control law coefficients.
+ * @warning This function must be called before the control macros are used.
  */
-extern Uint16 cntlGetLoadICoef (loadStage load, cfType coef, float32 *valDest);
+extern void initCoefs (void);
 
-/** Queries the specified IIR filter control law coefficient for the AC I control.
- * @param[in]	coef	Specifies the coefficient to be queried [cMin, cA3).
- * @param[out]	valDest	Address of the memory location at which to place the query result.
- * @return				Error status.
- */
-extern Uint16 cntlGetAcICoef (cfType coef, float32 *valDest);
-
-/** Queries the specified IIR filter control law coefficient for the AC V control.
- * @param[in]	coef	Specifies the coefficient to be queried [cMin, cA3).
- * @param[out]	valDest	Address of the memory location at which to place the query result.
- * @return				Error status.
- */
-extern Uint16 cntlGetAcVCoef (cfType coef, float32 *valDest);
-
-/** Sets the specified IIR filter control law coefficient for a specified load.
- * - The actual setting in use is not updated until AFTER cntlUpdateCoefs() has been called.
+/*============== Load n ==============*/
+/** Sets the specified IIR filter control law coefficient for a specified load's current control.
  * @param[in]	load	Specifies the load number the setting is to be applied to [0, NUM_CHNLS).
  * @param[in]	coef	Specifies the coefficient to be set [cMin, cA3).
- * @param[in]	val		Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[coef] and cfLmts[coef + cA3].
+ * @param[in]	value	Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][].
  * @return				Error status.
  */
-extern Uint16 cntlSetLoadICoef (loadStage chnl, cfType coef, float32 val);
+extern Uint16 setLoadICoef (loadStage chnl, cfType coef, float32 value);
 
-/** Sets the specified IIR filter control law coefficient for the AC I control.
- * - The actual setting in use is not updated until AFTER cntlUpdateCoefs() has been called.
+/** Queries the specified IIR filter control law coefficient for a specified load's current control.
+ * @param[in]	load	Specifies the load on which the setting is to be queried [0, NUM_CHNLS).
+ * @param[in]	coef	Specifies the coefficient to be queried [cMin, cA3).
+ * @param[out]	value	Address of the memory location at which to place the query result.
+ * @return				Error status.
+ */
+extern Uint16 getLoadICoef (loadStage load, cfType coef, float32 *value);
+
+/*=============== AC I ===============*/
+/** Sets the specified IIR filter control law coefficient for the AC current control.
  * @param[in]	coef	Specifies the coefficient to be set [cMin, cA3).
- * @param[in]	val		Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[coef] and cfLmts[coef + cA3].
+ * @param[in]	val		Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][].
  * @return				Error status.
  */
 extern Uint16 cntlSetAcICoef (cfType coef, float32 val);
 
-/** Sets the specified IIR filter control law coefficient for the AC V control.
- * - The actual setting in use is not updated until AFTER cntlUpdateCoefs() has been called.
- * @param[in]	coef	Specifies the coefficient to be set [cMin, cA3).
- * @param[in]	val		Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[coef] and cfLmts[coef + cA3].
+/** Queries the specified IIR filter control law coefficient for the AC current control.
+ * @param[in]	coef	Specifies the coefficient to be queried [cMin, cA3).
+ * @param[out]	value	Address of the memory location at which to place the query result.
  * @return				Error status.
  */
-extern Uint16 cntlSetAcVCoef (cfType coef, float32 val);
+extern Uint16 getAcICoef (cfType coef, float32 *value);
+
+/*=============== AC V ===============*/
+/** Sets the specified IIR filter control law coefficient for the AC voltage control.
+ * - The actual setting in use is not updated until AFTER cntlUpdateCoefs() has been called.
+ * @param[in]	coef	Specifies the coefficient to be set [cMin, cA3).
+ * @param[in]	value	Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][].
+ * @return				Error status.
+ */
+extern Uint16 setAcVCoef (cfType coef, float32 value);
+
+/** Queries the specified IIR filter control law coefficient for the AC voltage control.
+ * @param[in]	coef	Specifies the coefficient to be queried [cMin, cA3).
+ * @param[out]	value	Address of the memory location at which to place the query result.
+ * @return				Error status.
+ */
+extern Uint16 getAcVCoef (cfType coef, float32 *value);
 
 #endif /* CNTL_H_ */
