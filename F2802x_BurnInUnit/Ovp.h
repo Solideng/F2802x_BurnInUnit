@@ -43,17 +43,17 @@ extern Uint16 getLoadOvpState (loadStage load);
 extern Uint16 clearLoadOvp (loadStage load);
 
 /*============== DC Mid ==============*/
-/** Sets the over voltage protection limit for the DC Mid stage.
- * @param[in]	dcLevel	Specifies the DC value to be applied (volts).
- * @return				Error status.
- */
-extern Uint16 setDcMidOvpLevel (float32 dcLevel);
-
-/** Queries the over voltage protection level for the DC Mid stage.
- * @param[out]	dcLevel	Pointer to location at which to place the query result (volts).
- * @return				Error status.
- */
-extern Uint16 getDcMidOvpLevel (float32 *dcLevel);
+//** Sets the over voltage protection limit for the DC Mid stage.
+// * @param[in]	dcLevel	Specifies the DC value to be applied (volts).
+// * @return				Error status.
+// */
+//extern Uint16 setDcMidOvpLevel (float32 dcLevel);
+//
+//** Queries the over voltage protection level for the DC Mid stage.
+// * @param[out]	dcLevel	Pointer to location at which to place the query result (volts).
+// * @return				Error status.
+// */
+//extern Uint16 getDcMidOvpLevel (float32 *dcLevel);
 
 /** Trips the DC Mid OVP.
  * This provides an OVP function for the trip zone ISR to call when the DC comparator is triggered.

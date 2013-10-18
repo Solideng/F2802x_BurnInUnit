@@ -13,10 +13,13 @@ Uint16 checkLoadOvp (loadStage load) {
 	/* Load over-voltage protection
 	 *  - vScale AND ovpLevel SHOULD BE SET BEFORE USE -
 	 */
+	float32 vScaled = 0;
 	if (load >= numberOfLoads)	/* Check channel is valid */
 		return CHANNEL_OOB;
-								/* Compare the load VSns ADC value to the fixed OVP level */
-	if (_IQ24toF(loadNets[load].vFdbkNet) > LOAD_VDCLVL_FIX) {
+								/* Scale the measured load voltage and convert to float */
+	vScaled = _IQ24toF(_IQmpy(loadNets[load].vFdbkNet, _Q14toIQ(loadSettings[load].vScale)));
+								/* Compare the scaled measured load voltage value to the fixed OVP level */
+	if (vScaled > LOAD_VDCLVL_FIX) {
 		stopAll();
 		ocpFlagRegister |= (1 << load);
 		return OVP_TRIP;
@@ -37,41 +40,41 @@ Uint16 clearLoadOvp (loadStage load) {
 }
 
 /*============== DC Mid ==============*/
-Uint16 setDcMidOvpLevel (float32 dcLevel) {
-	/* Sets the OVP level for the DC Mid VSns
-	 * dcLevel is expected in volts
-	 * - vScale SHOULD BE SET BEFORE USE -
-	 */
-	float32 vMax = 0;
-	int32 vSt = 0;
-
-	if (xfmrSettings.midVScale == 0)	/* Check vScale is set, to avoid div-by-0 exception */
-		return VALUE_OOB;
-
-	vSt = _IQ10(dcLevel);				/* Convert level to Q10 and check result is in range */
-	if ((vSt <= 0) && (vSt > xfmrSettings.midVMax))
-		return VALUE_OOB;
-
-	vMax = _IQ14toF((int32) xfmrSettings.midVScale);	/* Convert scale from SQ to float */
-	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);		/* Calculate maximum V */
-	xfmrSettings.midOvpLevel = _IQ24(dcLevel / vMax);	/* Normalise and save */
-	setDcDac(dcLevel);					/* Set the related DAC level */
-	return 0;
-}
-
-Uint16 getDcMidOvpLevel (float32 *dcLevel) {
-	/* Returns current OVP limit for the DC Mid VSns,
-	 *  based on actual OVP and vScale
-	 *  - vScale SHOULD BE SET BEFORE USE -
-	 */
-	float32 vMax = 0;
-	if (xfmrSettings.midVScale == 0)	/* Check vScale is set, to avoid div-by-0 exception */
-		return VALUE_OOB;
-
-	vMax = ((VDDA - VSSA) * 0.001) * (16384.0 / xfmrSettings.midVScale);/* Calculate maximum V */
-	*dcLevel = ((_IQ24toF(xfmrSettings.midOvpLevel)) * vMax);			/* De-normalise */
-	return 0;
-}
+//Uint16 setDcMidOvpLevel (float32 dcLevel) {
+//	/* Sets the OVP level for the DC Mid VSns
+//	 * dcLevel is expected in volts
+//	 * - vScale SHOULD BE SET BEFORE USE -
+//	 */
+//	float32 vMax = 0;
+//	int32 vSt = 0;
+//
+//	if (xfmrSettings.midVScale == 0)	/* Check vScale is set, to avoid div-by-0 exception */
+//		return VALUE_OOB;
+//
+//	vSt = _IQ10(dcLevel);				/* Convert level to Q10 and check result is in range */
+//	if ((vSt <= 0) && (vSt > xfmrSettings.midVMax))
+//		return VALUE_OOB;
+//
+//	vMax = _IQ14toF((int32) xfmrSettings.midVScale);	/* Convert scale from SQ to float */
+//	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);		/* Calculate maximum V */
+//	xfmrSettings.midOvpLevel = _IQ24(dcLevel / vMax);	/* Normalise and save */
+//	setDcDac(dcLevel);					/* Set the related DAC level */
+//	return 0;
+//}
+//
+//Uint16 getDcMidOvpLevel (float32 *dcLevel) {
+//	/* Returns current OVP limit for the DC Mid VSns,
+//	 *  based on actual OVP and vScale
+//	 *  - vScale SHOULD BE SET BEFORE USE -
+//	 */
+//	float32 vMax = 0;
+//	if (xfmrSettings.midVScale == 0)	/* Check vScale is set, to avoid div-by-0 exception */
+//		return VALUE_OOB;
+//
+//	vMax = ((VDDA - VSSA) * 0.001) * (16384.0 / xfmrSettings.midVScale);/* Calculate maximum V */
+//	*dcLevel = ((_IQ24toF(xfmrSettings.midOvpLevel)) * vMax);			/* De-normalise */
+//	return 0;
+//}
 
 Uint16 tripDcMidOvp (void) {
 	stopAll();

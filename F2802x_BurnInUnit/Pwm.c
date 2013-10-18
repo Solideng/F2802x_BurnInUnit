@@ -6,6 +6,9 @@
  */
 #include "Common.h"
 
+// TODO: For 130 kHz the period would need to be 60MHz / 130kHz = 461.538...
+// WE CANT CHANGE THE FREQUENCY OF THE A PORTION OF A PWM CHANNEL BY ITSEF - THUS CHANGING INTBSTPWM (EPWM3A) TO 130 kHz WOULD
+// REQUIRE CHANGING ACPWM (EPWM3B) AS WELL
 static Uint16 period = PERIOD;		/* Initially 600 - with a SysClk of 60MHz the freq = 60MHz/600 = 100kHz */
 
 void pwmMacroConfigure (void) {

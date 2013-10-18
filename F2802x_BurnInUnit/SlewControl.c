@@ -6,7 +6,7 @@
  */
 #include "Common.h"
 
-void scLoadSlewUpdate (void) {
+void updateLoadSlew (void) {
 	/* This code ensures that each load ramps at the
 	 *  given slew rate until it reaches the given target
 	 * Derivation shown in attached Excel Spreadsheet
@@ -30,7 +30,7 @@ void scLoadSlewUpdate (void) {
 	}
 }
 
-Uint16 scSetLoadSlewTarget (loadStage load, float32 trgt) {
+Uint16 setLoadSlewTarget (loadStage load, float32 trgt) {
 	/* Changes an enabled channel's target value
 	 * scTarget is expected in amps or volts
 	 */
@@ -49,7 +49,7 @@ Uint16 scSetLoadSlewTarget (loadStage load, float32 trgt) {
 	return 0;
 }
 
-Uint16 scSetLoadSlewStep (loadStage load, float32 stp) {
+Uint16 setLoadSlewStep (loadStage load, float32 stp) {
 	/* Changes a load's slew step value
 	 * scStep is expected in amps //or volts
 	 */
@@ -73,7 +73,7 @@ Uint16 scSetLoadSlewStep (loadStage load, float32 stp) {
 }
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
-Uint16 scSetLoadState (loadStage load, Uint16 stt) {
+Uint16 setLoadState (loadStage load, Uint16 stt) {
 	/* onOrOff should be zero (OFF) or non-zero (ON) */
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid */
@@ -81,7 +81,7 @@ Uint16 scSetLoadState (loadStage load, Uint16 stt) {
 	return 0;
 }
 
-//Uint16 scSetLoadSlewTargetAll (float32 trgt) {
+//Uint16 setLoadSlewTargetAll (float32 trgt) {
 //	/* Set all enabled channels to the same target value given by scTarget
 //	 * scTarget expected in amps or volts
 //	 */
@@ -94,7 +94,7 @@ Uint16 scSetLoadState (loadStage load, Uint16 stt) {
 //	return 0;
 //}
 //
-//Uint16 scSetLoadSlewStepAll (float32 stp) {
+//Uint16 setLoadSlewStepAll (float32 stp) {
 //	/* Set all channels to the same step value given by slewStep
 //	 * scStep is expected in amps or volts
 //	 */
@@ -108,7 +108,7 @@ Uint16 scSetLoadState (loadStage load, Uint16 stt) {
 //}
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
-Uint16 scSetLoadStateAll (Uint16 stt) {
+Uint16 setLoadStateAll (Uint16 stt) {
 	/* onOrOff should be zero (OFF) or non-zero (ON) */
 	Uint16 i = 0;
 	stt = (stt > 0);
@@ -118,7 +118,7 @@ Uint16 scSetLoadStateAll (Uint16 stt) {
 	return 0;
 }
 
-Uint16 scGetLoadSlewTarget (loadStage load, float32 * trgtDest) {
+Uint16 getLoadSlewTarget (loadStage load, float32 * trgtDest) {
 	float32 max = 0.0;
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid */
@@ -130,7 +130,7 @@ Uint16 scGetLoadSlewTarget (loadStage load, float32 * trgtDest) {
 	return 0;
 }
 
-Uint16 scGetLoadSlewStep (loadStage load, float32 * stpDest) {
+Uint16 getLoadSlewStep (loadStage load, float32 * stpDest) {
 	float32 max = 0.0;
 	if (load > numberOfLoads)
 		return CHANNEL_OOB;						/* Check channel is valid */
@@ -143,7 +143,7 @@ Uint16 scGetLoadSlewStep (loadStage load, float32 * stpDest) {
 }
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
-Uint16 scGetLoadState (loadStage load, Uint16 * sttDest) {
+Uint16 getLoadState (loadStage load, Uint16 * sttDest) {
 	if (load >= numberOfLoads)		/* Check channel is valid */
 		return CHANNEL_OOB;
 	*sttDest = (loadSettings[load].enable > 0);

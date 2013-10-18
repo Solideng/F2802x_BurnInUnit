@@ -8,8 +8,10 @@
 #include "Common.h"
 
 /*=============== GLOBAL VARS =================*/
-volatile int32 *SGENTI_1ch_VOut = 0;
-volatile int32 *SGENTI_1ch_Sign = 0;
+volatile int32 *SGENTI_1ch_VOut = 0;	/* Voltage signal output terminal*/
+volatile int32 *SGENTI_1ch_Sign = 0;	/* Sign signal output terminal */
+volatile int32 *PHASE_CTRL_In = 0;
+
 #ifdef DEBUG
 	SGENTI_1 sigGen = SGENTI_1_DEFAULTS;	// TODO: can be private when testing finished
 	#pragma DATA_SECTION (sigGen, "SGENTI_1ch_Struct")
@@ -21,7 +23,7 @@ volatile int32 *SGENTI_1ch_Sign = 0;
 
 
 /*================ LOCAL VARS ================*/
-static Uint16 rectifyMode = SIN_DFLT_RCTFY;
+static Uint16 rectifyMode = SIN_DFLT_RCTFY;	/* Selects whether signal is recitified or not */
 static Uint16 fMax = SIN_DFLT_F_MAX;
 
 #ifndef DEBUG
@@ -29,7 +31,7 @@ static Uint16 fMax = SIN_DFLT_F_MAX;
 	#pragma DATA_SECTION (sigGen, "SGENTI_1ch_Struct")
 #endif
 
-void sgInit (void) {
+void initSine (void) {
 	/* Set signal generator default values
 	 * These values can be altered by changing
 	 *  the values #define'd in SineGen.h
@@ -58,7 +60,17 @@ void sgInit (void) {
 	acSettings.enable = 0; 				/* Ensure sine channel output is 0 until enabled */
 }
 
-void sgGainUpdate (void) {
+
+
+void pcUpdate (void) {
+	if ((*PHASE_CTRL_In != 0) && (acSettings.enable)) {
+		GpioDataRegs.GPASET.bit.GPIO12 = 1;	/* Phase before rectification was negative */
+		return;
+	}
+	GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;	/* Phase before rectification was positive */
+}
+
+void updateSineGain (void) {
 	int32 targetPoint = 0, error = 0, ref = 0;
 
 	if (!acSettings.enable) {
@@ -80,7 +92,7 @@ void sgGainUpdate (void) {
 	sigGen.gain = (Uint16)(ref >> 9);		/* Convert to unsigned Q15 */
 }
 
-void sgUpdate (void) {
+void updateSineSignal (void) {
 	/* Generates the next sine wave point using the settings in struct sigGen */
 	#ifdef LOG_SIN
 		static Uint16 i = 0;
@@ -119,42 +131,17 @@ void sgUpdate (void) {
 	#endif
 }
 
-Uint16 sgSetState (Uint16 stt) {
+Uint16 setSineState (Uint16 stt) {
 	acSettings.enable = (stt > 0);
 	return 0;
 }
 
-Uint16 sgSetRectify (Uint16 rfy) {
-	rectifyMode = (rfy > 0);
+Uint16 getSineState (Uint16 *sttDest) {
+	*sttDest = (acSettings.enable > 0);
 	return 0;
 }
 
-Uint16 sgSetOffset (float32 ofst) {
-	/* DC offset in the sine
-	 * -0.5 - +0.5 dec
-	 */
-	if ((ofst < -0.5) || (ofst > 0.5))
-		return VALUE_OOB;
-	sigGen.gain = _SQ15(ofst);
-	return 0;
-}
-
-Uint16 sgSetInitialPhase (float32 phs) {
-	/* Sets the initial phase
-	 * 0 - 2pi (360deg)
-	 */
-	if ((phs < 0) || (phs > 360))	/* Check angle is within 0-360 degrees */
-		return VALUE_OOB;
-	if (phs == 0) {					/* Take a shortcut if phase is 0 */
-		sigGen.alpha = 0;
-		return 0;
-	}
-	phs = ((phs / 360.0) * 65536) + 0.5;	/* Normalise, convert to Q16 and round */
-	sigGen.alpha = (Uint16)phs;		/* Cast and set */
-	return 0;
-}
-
-Uint16 sgSetGainTarget (float32 gnt) {
+Uint16 setSineGainTarget (float32 gnt) {
 	/* Sets the gain
 	 * 0.0 - 1.0
 	 */
@@ -167,117 +154,143 @@ Uint16 sgSetGainTarget (float32 gnt) {
 	return 0;
 }
 
-Uint16 sgSetFreq (Uint16 frq) {
-	/* Sets the frequency of the SIN signal
-	 * 0 - fMax (max. 7FFF)
-	 */
-	float32 temp = 0.0;
-	if (frq > fMax)		/* Check frequency is less than maximum frequency */
-		return VALUE_OOB;
-	temp = (float32)frq / fMax;
-	sigGen.freq = (Uint16)((temp * 32768.0) + 0.5);
+Uint16 getSineGainTarget (float32 *gntDest) {
+	*gntDest = _IQ24toF(acSettings.gainTarget);
 	return 0;
 }
 
-//Uint16 sgSetResolution (float32 rsl) {
-////	Uint16 currentFreq;
-////	float32 newFMax;
-//
-////	if (rsl <= 0)
-////		return VALUE_OOB;
-////
-////	newFMax = rsl * sigGen.step_max;
-////	sgGetFreq(&currentFreq);
-////
-////	if ((newFMax > SIN_F_SPL) || (currentFreq < newFMax))
-////		return VALUE_OOB;
-////
-////	fMax = newFMax;
-////	sgSetFreq(currentFreq);
-////
+
+//Uint16 sgSetFreq (Uint16 frq) {
+//	/* Sets the frequency of the SIN signal
+//	 * 0 - fMax (max. 7FFF)
+//	 */
+//	float32 temp = 0.0;
+//	if (frq > fMax)		/* Check frequency is less than maximum frequency */
+//		return VALUE_OOB;
+//	temp = (float32)frq / fMax;
+//	sigGen.freq = (Uint16)((temp * 32768.0) + 0.5);
 //	return 0;
 //}
-
+//
+//Uint16 setRectify (Uint16 rfy) {
+//	rectifyMode = (rfy > 0);
+//	return 0;
+//}
+//
+//Uint16 sgSetOffset (float32 ofst) {
+//	/* DC offset in the sine
+//	 * -0.5 - +0.5 dec
+//	 */
+//	if ((ofst < -0.5) || (ofst > 0.5))
+//		return VALUE_OOB;
+//	sigGen.gain = _SQ15(ofst);
+//	return 0;
+//}
+//
+//Uint16 sgSetInitialPhase (float32 phs) {
+//	/* Sets the initial phase
+//	 * 0 - 2pi (360deg)
+//	 */
+//	if ((phs < 0) || (phs > 360))	/* Check angle is within 0-360 degrees */
+//		return VALUE_OOB;
+//	if (phs == 0) {					/* Take a shortcut if phase is 0 */
+//		sigGen.alpha = 0;
+//		return 0;
+//	}
+//	phs = ((phs / 360.0) * 65536) + 0.5;	/* Normalise, convert to Q16 and round */
+//	sigGen.alpha = (Uint16)phs;		/* Cast and set */
+//	return 0;
+//}
+//
+//Uint16 sgSetResolution (float32 rsl) {
+//	Uint16 currentFreq;
+//	float32 newFMax;
+//
+//	if (rsl <= 0)
+//		return VALUE_OOB;
+//
+//	newFMax = rsl * sigGen.step_max;
+//	sgGetFreq(&currentFreq);
+//
+//	if ((newFMax > SIN_F_SPL) || (currentFreq < newFMax))
+//		return VALUE_OOB;
+//
+//	fMax = newFMax;
+//	sgSetFreq(currentFreq);
+//
+//	return 0;
+//}
+//
 //Uint16 sgSetFMax (Uint16 frq) {
 //	/* Sets fMax (instead of using sgSetStepMax())
 //	 * also affects f, step max and resolution
 //	 * 0 - Sampling frequency (SIN_F_SPL)
 //	 */
-////	Uint16 fOld = 0, err = 0;
-////	(sgGetFreq(&fOld));		/* Calculate the current frequency value using the current fMax */
-////
-////	if ((frq <= 0) || (frq > SIN_F_SPL) || (frq < fOld))
-////		return VALUE_OOB;	/* Check the new fMax value is within allowable ranges */
-////
-////	fMax = frq;				/* Update fMax with new value */
-////	err = sgSetFreq(fOld);	/* Update freq with new fMax */
-////	if (err != 0)
-////		return VALUE_OOB;
-////							/* Update step_max with new fMax */
-////	sigGen.step_max = (Uint16)(((fMax * 65536.0) / SIN_F_SPL) + 0.5);
+//	Uint16 fOld = 0, err = 0;
+//	(sgGetFreq(&fOld));		/* Calculate the current frequency value using the current fMax */
+//
+//	if ((frq <= 0) || (frq > SIN_F_SPL) || (frq < fOld))
+//		return VALUE_OOB;	/* Check the new fMax value is within allowable ranges */
+//
+//	fMax = frq;				/* Update fMax with new value */
+//	err = sgSetFreq(fOld);	/* Update freq with new fMax */
+//	if (err != 0)
+//		return VALUE_OOB;
+//							/* Update step_max with new fMax */
+//	sigGen.step_max = (Uint16)(((fMax * 65536.0) / SIN_F_SPL) + 0.5);
 //	return 0;
 //}
-
+//
 //Uint16 sgSetStepMax (Uint16 sMx) {
 //	/* Sets the step_max
 //	 * also affects fMax and resolution
 //	 * 0 - 7FFF
 //	 */
-////	float32 fmNew = 0, freqInHz = 0;
-////	Uint16 err = 0;
-////	fmNew = sMx * (SIN_F_SPL / 65536.0);	/* Calculate the new f_max with the new step_max*/
-////	freqInHz = _IQ15toF((int32)sigGen.freq) * fMax;/* Calculate the current f_req setting */
-////
-////	if (freqInHz > fmNew)					/* f_req should be less than the new f_max */
-////		return VALUE_OOB;
-////
-////	fMax = (Uint16) (fmNew + 0.5);			/* Update fMax */
-////	err = sgSetFreq (freqInHz);				/* Update freq with the new fMax */
-////	if (err != 0)
-////		return VALUE_OOB;
-////											/* Update step_max */
-////	sigGen.step_max = sMx;
+//	float32 fmNew = 0, freqInHz = 0;
+//	Uint16 err = 0;
+//	fmNew = sMx * (SIN_F_SPL / 65536.0);	/* Calculate the new f_max with the new step_max*/
+//	freqInHz = _IQ15toF((int32)sigGen.freq) * fMax;/* Calculate the current f_req setting */
+//
+//	if (freqInHz > fmNew)					/* f_req should be less than the new f_max */
+//		return VALUE_OOB;
+//
+//	fMax = (Uint16) (fmNew + 0.5);			/* Update fMax */
+//	err = sgSetFreq (freqInHz);				/* Update freq with the new fMax */
+//	if (err != 0)
+//		return VALUE_OOB;
+//											/* Update step_max */
+//	sigGen.step_max = sMx;
 //	return 0;
 //}
-
-Uint16 sgGetState (Uint16 *sttDest) {
-	*sttDest = (acSettings.enable > 0);
-	return 0;
-}
-
-Uint16 sgGetRectify (Uint16 *rfyDest) {
-	*rfyDest = rectifyMode > 0;
-	return 0;
-}
-
-Uint16 sgGetOffset (float32 *oftDest) {
-	*oftDest = _IQ15toF(sigGen.gain);
-	return 0;
-}
-
-Uint16 sgGetGainTarget (float32 *gntDest) {
-	*gntDest = _IQ24toF(acSettings.gainTarget);
-	return 0;
-}
-
-Uint16 sgGetFreq (Uint16 *frqDest) {
-	*frqDest = (Uint16)((sigGen.freq * (1.0 / 32768) * fMax) + 0.5);
-	return 0;
-}
-
+//
+//Uint16 sgGetRectify (Uint16 *rfyDest) {
+//	*rfyDest = rectifyMode > 0;
+//	return 0;
+//}
+//
+//Uint16 sgGetOffset (float32 *oftDest) {
+//	*oftDest = _IQ15toF(sigGen.gain);
+//	return 0;
+//}
+//
+//Uint16 sgGetFreq (Uint16 *frqDest) {
+//	*frqDest = (Uint16)((sigGen.freq * (1.0 / 32768) * fMax) + 0.5);
+//	return 0;
+//}
+//
 //Uint16 sgGetFMax (Uint16 *frqDest) {
-////	*frqDest = fMax;
+//	*frqDest = fMax;
 //	return 0;
 //}
 //
 //Uint16 sgGetStepMax (Uint16 *sMxDest) {
-////	*sMxDest = sigGen.step_max;
+//	*sMxDest = sigGen.step_max;
 //	return 0;
 //}
-
-Uint16 sgGetResolution (float32 *rslDest) {
-	if (sigGen.step_max == 0)
-		return VALUE_OOB;
-	*rslDest = ( fMax / ((float32) sigGen.step_max));
-	return 0;
-}
+//
+//Uint16 sgGetResolution (float32 *rslDest) {
+//	if (sigGen.step_max == 0)
+//		return VALUE_OOB;
+//	*rslDest = ( fMax / ((float32) sigGen.step_max));
+//	return 0;
+//}

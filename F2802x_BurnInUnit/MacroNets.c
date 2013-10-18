@@ -95,6 +95,7 @@ static void initNets (void) {
 	xfmrNets.iSnsNet 	= 0;	/* Q24 */
 	xfmrNets.midVSnsNet = 0;	/* Q24 */
 	xfmrNets.hvVSnsNet 	= 0;	/* Q24 */
+	xfmrNets.pwmDutyNet = _IQ24(0.5);	/* 50% Q24 */
 }
 
 static void connectLoadNets (void) {

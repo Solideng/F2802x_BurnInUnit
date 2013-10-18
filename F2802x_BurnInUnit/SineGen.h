@@ -27,7 +27,6 @@
 #define SIN_DFLT_F 		50.0	/**< Initial frequency setting (hertz). */
 #define SIN_DFLT_F_MAX 	1000u	/**< Initial maximum frequency setting (hertz). */
 
-/*======== CONSTANT SIN PARAMETER VALUES ======*/
 #define SIN_CHANNEL	AC_STAGE 	/**< Defines which channel enable controls the generator output. */
 #define SIN_F_SPL 	8250u		/**< Signal sampling frequency, i.e. the frequency that sgen.calc()
  	 	 	 	 	 	 	 	 * is called at.
@@ -35,10 +34,9 @@
 								 * full ISR speed is 33,000Hz.
 								 */
 
-/*=============== GLOBAL VARS =================*/
-/*============= TERMINAL POINTERS =============*/
 extern volatile int32 *SGENTI_1ch_VOut;	/**< Voltage output terminal. */
 extern volatile int32 *SGENTI_1ch_Sign;	/**< Voltage sign (pre-rectification) output terminal. */
+extern volatile int32 *PHASE_CTRL_In; /**< Phase control module signal input terminal. */
 
 #ifdef LOG_SIN
 	#define LOG_SIZE 100		/* Arrays for logging data during debug. */
@@ -50,7 +48,12 @@ extern volatile int32 *SGENTI_1ch_Sign;	/**< Voltage sign (pre-rectification) ou
 	extern SGENTI_1 sigGen;		/* Makes struct available to watch during debug. */
 #endif
 
-/*============= GLOBAL FUNCTIONS ==============*/
+/** Updates GPIO19 based on state of *PHASE_CTRL_In terminal.
+ * Expects 0 (GPIO19 set) or non-zero (GPIO19 cleared).
+ * This is generally called by the DPL_ISR.asm
+ */
+extern void pcUpdate (void);
+
 /** Sets the initial generator values and disables
  * the output.
  * This function MUST be called before any other signal
