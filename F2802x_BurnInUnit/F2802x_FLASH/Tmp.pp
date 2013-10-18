@@ -42,7 +42,6 @@ Tmp.obj: ../Opp.h
 Tmp.obj: ../Otp.h
 Tmp.obj: ../SlewControl.h
 Tmp.obj: ../SineGen.h
-Tmp.obj: ../PhaseCtrl.h
 Tmp.obj: ../tmp.h
 Tmp.obj: ../EnableCtrl.h
 Tmp.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
@@ -100,7 +99,6 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
-../PhaseCtrl.h: 
 ../tmp.h: 
 ../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 

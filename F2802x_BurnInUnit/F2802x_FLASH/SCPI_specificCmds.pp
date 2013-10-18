@@ -42,7 +42,6 @@ SCPI_specificCmds.obj: ../Opp.h
 SCPI_specificCmds.obj: ../Otp.h
 SCPI_specificCmds.obj: ../SlewControl.h
 SCPI_specificCmds.obj: ../SineGen.h
-SCPI_specificCmds.obj: ../PhaseCtrl.h
 SCPI_specificCmds.obj: ../tmp.h
 SCPI_specificCmds.obj: ../EnableCtrl.h
 SCPI_specificCmds.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
@@ -100,7 +99,6 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
-../PhaseCtrl.h: 
 ../tmp.h: 
 ../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 

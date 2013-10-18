@@ -30,8 +30,6 @@
 	    	#include "sgen.h"
 	    	//Include the signal generator control header
 	    	#include "SineGen.h"
-	    	//Include the phase control header
-	    	#include "PhaseCtrl.h"
     	%}
 
 		; Identify symbols to be used that are defined elsewhere (e.g. in the included C headers)
@@ -212,8 +210,8 @@ TS2:
 		CMP @sgntPtr, #1
 		B SGNTSKP, EQ
 		MOV @sgntPtr, #0
-		LCR _sgUpdate
-		LCR _pcUpdate
+		LCR _updateSineSignal
+
 SGNTSKP:
 		ADCDRV_1ch 6
 ;		CNTL_2P2Z 6

@@ -42,7 +42,6 @@ Cntl.obj: ../Opp.h
 Cntl.obj: ../Otp.h
 Cntl.obj: ../SlewControl.h
 Cntl.obj: ../SineGen.h
-Cntl.obj: ../PhaseCtrl.h
 Cntl.obj: ../tmp.h
 Cntl.obj: ../EnableCtrl.h
 Cntl.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
@@ -100,7 +99,6 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
-../PhaseCtrl.h: 
 ../tmp.h: 
 ../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 

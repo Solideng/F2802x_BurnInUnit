@@ -33,7 +33,6 @@ C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/source/DSP2802x_G
 ../Otp.c \
 ../Ovp.c \
 C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/C/PWM_2ch_UpCnt_Cnf.c \
-../PhaseCtrl.c \
 ../Pwm.c \
 ../SCPI_specificCmds.c \
 ../Sci.c \
@@ -64,7 +63,6 @@ OBJS += \
 ./Otp.obj \
 ./Ovp.obj \
 ./PWM_2ch_UpCnt_Cnf.obj \
-./PhaseCtrl.obj \
 ./Pwm.obj \
 ./SCPI_specificCmds.obj \
 ./Sci.obj \
@@ -97,7 +95,6 @@ C_DEPS += \
 ./Otp.pp \
 ./Ovp.pp \
 ./PWM_2ch_UpCnt_Cnf.pp \
-./PhaseCtrl.pp \
 ./Pwm.pp \
 ./SCPI_specificCmds.pp \
 ./Sci.pp \
@@ -125,7 +122,6 @@ C_DEPS__QUOTED += \
 "Otp.pp" \
 "Ovp.pp" \
 "PWM_2ch_UpCnt_Cnf.pp" \
-"PhaseCtrl.pp" \
 "Pwm.pp" \
 "SCPI_specificCmds.pp" \
 "Sci.pp" \
@@ -156,7 +152,6 @@ OBJS__QUOTED += \
 "Otp.obj" \
 "Ovp.obj" \
 "PWM_2ch_UpCnt_Cnf.obj" \
-"PhaseCtrl.obj" \
 "Pwm.obj" \
 "SCPI_specificCmds.obj" \
 "Sci.obj" \
@@ -189,7 +184,6 @@ C_SRCS__QUOTED += \
 "../Otp.c" \
 "../Ovp.c" \
 "C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/C/PWM_2ch_UpCnt_Cnf.c" \
-"../PhaseCtrl.c" \
 "../Pwm.c" \
 "../SCPI_specificCmds.c" \
 "../Sci.c" \

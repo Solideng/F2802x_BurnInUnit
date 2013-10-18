@@ -59,7 +59,7 @@ extern void pcUpdate (void);
  * This function MUST be called before any other signal
  * generator function.
  */
-extern void sgInit (void);
+extern void initSine (void);
 
 /** Generates the next signal data point
  * and loads it onto the VOut terminal.
@@ -68,50 +68,63 @@ extern void sgInit (void);
  * If rectify is enabled, the value produced will be
  * an absolute value.
  */
-extern void sgUpdate (void);
+extern void updateSineSignal (void);
 
 /** Updates the gain value to create a slow-start ramp.
  * This should be called at the same time and similarly to
  * the DC slew update.
  * @sa scSlewUpdate()
  */
-extern void sgGainUpdate (void);
+extern void updateSineGain (void);
 
 /** Enables or disables the output of the generator onto the connected net
  * @param[in]	stt	Output enable state {1:ON | 0:OFF}.
  * @return			Error status.
  */
-extern Uint16 sgSetState (Uint16 stt);
+extern Uint16 setSineState (Uint16 stt);
 
-/** Enables or disables the rectification of the generator output
- * @param[in]	rfy	Rectification enable state {1:ON | 0:OFF}.
- * @return			Error status.
- */
-extern Uint16 sgSetRectify (Uint16 rfy);
-
-/** Sets the signal DC offset
- * @param[in]	ofst	DC offset value [-0.5, +0.5].
+/** Queries the current state of the generator output.
+ * @param[out]	sttDest	Address of the memory location at which to place the query result  {1:ON | 0:OFF}.
  * @return				Error status.
  */
-extern Uint16 sgSetOffset (float32 ofst);
-
-/** Sets the signal initial phase value
- * @param[in]	phs	Initial phase value [0, 360) (degrees).
- * @return			Error status
- */
-extern Uint16 sgSetInitialPhase (float32 phs);
+extern Uint16 getSineState (Uint16 *sttDest);
 
 /** Sets the target gain of the signal.
  * @param[in]	gnt	Gain target value [0.0, 1.0).
  * @return		Error status.
  */
-extern Uint16 sgSetGainTarget (float32 gnt);
+extern Uint16 setSineGainTarget (float32 gnt);
 
-/** Sets the signal frequency.
+/** Queries the current target gain setting.
+ * @param[out] gntDest	Address of the memory location at which to place the query result.
+ * @return				Error status.
+ */
+extern Uint16 getSineGainTarget (float32 *gntDest);
+
+
+/* Enables or disables the rectification of the generator output
+ * @param[in]	rfy	Rectification enable state {1:ON | 0:OFF}.
+ * @return			Error status.
+ */
+//extern Uint16 sgSetRectify (Uint16 rfy);
+
+/* Sets the signal DC offset
+ * @param[in]	ofst	DC offset value [-0.5, +0.5].
+ * @return				Error status.
+ */
+//extern Uint16 sgSetOffset (float32 ofst);
+
+/* Sets the signal initial phase value
+ * @param[in]	phs	Initial phase value [0, 360) (degrees).
+ * @return			Error status
+ */
+//extern Uint16 sgSetInitialPhase (float32 phs);
+
+/* Sets the signal frequency.
  * @param[in]	frq	Frequency value [0, @f$ f_{max}@f$] (hertz).
  * @return			Error status.
  */
-extern Uint16 sgSetFreq (Uint16 frq);
+//extern Uint16 sgSetFreq (Uint16 frq);
 
 /* Sets the signal generator maximum frequency setting value, @f$ f_{max}@f$ .
  * @param[in]	frq	Frequency value [0, @f$ f_{sample}@f$] (hertz).
@@ -125,35 +138,23 @@ extern Uint16 sgSetFreq (Uint16 frq);
  */
 //extern Uint16 sgSetStepMax (Uint16 sMx);
 
-/** Queries the current state of the generator output.
- * @param[out]	sttDest	Address of the memory location at which to place the query result  {1:ON | 0:OFF}.
- * @return				Error status.
- */
-extern Uint16 sgGetState (Uint16 *sttDest);
-
-/** Queries the current state of the signal generator rectification enable.
+/* Queries the current state of the signal generator rectification enable.
  * @param[out]	rfyDest	Address of the memory location at which to place the query result  {1:ON | 0:OF}.
  * @return				Error status.
  */
-extern Uint16 sgGetRectify (Uint16 *rfyDest);
+//extern Uint16 sgGetRectify (Uint16 *rfyDest);
 
-/** Queries the current signal DC offset setting.
+/* Queries the current signal DC offset setting.
  * @param[out]	oftDest	Address of the memory location at which to place the query result.
  * @return				Error status.
  */
-extern Uint16 sgGetOffset (float32 *oftDest);
+//extern Uint16 sgGetOffset (float32 *oftDest);
 
-/** Queries the current target gain setting.
- * @param[out] gntDest	Address of the memory location at which to place the query result.
- * @return				Error status.
- */
-extern Uint16 sgGetGainTarget (float32 *gntDest);
-
-/** Queries the current frequency setting.
+/* Queries the current frequency setting.
  * @param[out]	frqDest	Address of the memory location at which to place the query result (hertz).
  * @return				Error status.
  */
-extern Uint16 sgGetFreq (Uint16 *frqDest);
+//extern Uint16 sgGetFreq (Uint16 *frqDest);
 
 /* Queries the current maximum frequecny setting.
  * @param[out]	frqDest	Address of the memory location at which to place the query result (hertz).
@@ -167,11 +168,11 @@ extern Uint16 sgGetFreq (Uint16 *frqDest);
  */
 //extern Uint16 sgGetStepMax (Uint16 *sMxDest);
 
-/** Queries the current frequency resolution.
+/* Queries the current frequency resolution.
  * This is equal to @f$ f_{max}@f$ / step_max.
  * @param[out]	rslDest	Address of the memory location at which to place the query result.
  * @return				Error status.
  */
-extern Uint16 sgGetResolution (float32 *rslDest);
+//extern Uint16 sgGetResolution (float32 *rslDest);
 
 #endif /* SINEGEN_H_ */

@@ -42,7 +42,6 @@ I2c.obj: ../Opp.h
 I2c.obj: ../Otp.h
 I2c.obj: ../SlewControl.h
 I2c.obj: ../SineGen.h
-I2c.obj: ../PhaseCtrl.h
 I2c.obj: ../tmp.h
 I2c.obj: ../EnableCtrl.h
 I2c.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
@@ -100,7 +99,6 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../Otp.h: 
 ../SlewControl.h: 
 ../SineGen.h: 
-../PhaseCtrl.h: 
 ../tmp.h: 
 ../EnableCtrl.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 

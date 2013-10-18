@@ -93,7 +93,7 @@ void updateSineGain (void) {
 }
 
 void updateSineSignal (void) {
-	/* Generates the next sine wave point using the settings in struct sigGen */
+	/* Generates the next sine wave point using the settings in the sigGen structure */
 	#ifdef LOG_SIN
 		static Uint16 i = 0;
 		static Uint16 j = 0;
@@ -102,27 +102,29 @@ void updateSineSignal (void) {
 			i = 0;
 	#endif
 
-	if(!acSettings.enable) {			/* If channel disabled output all zeroes */
+	if(!acSettings.enable) {	/* If channel disabled output all zeroes */
 		*SGENTI_1ch_Sign = 0;
 		*SGENTI_1ch_VOut = 0;
 		return;
 	}
-	sigGen.calc(&sigGen);							/* Call the sine lib function, passing the settings struct */
+	sigGen.calc(&sigGen);		/* Call the sine lib function, passing the settings struct */
 
-	*SGENTI_1ch_Sign = (sigGen.out < 0);
-	// TODO: ws the below supposed t be removed?
-	//*SGENTI_1ch_Sign = (int32)(sigGen.out >> 15);	/* Load the sign value to the net connected to the Sign module terminal [0, 1) */
+	if (sigGen.out < 0) {		/* Switch GPIO12 to indicate the phase */
+		GpioDataRegs.GPASET.bit.GPIO12 = 1;
+	} else {
+		GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;
+	}
 
-	if (rectifyMode) {									/* Load the absolute result to the net connected to the VOut module terminal */
+	if (rectifyMode) {			/* Load the sine gen result to the net connected to the VOut module terminal */
 		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out * ((sigGen.out > 0) - (sigGen.out < 0)));
 	} else {
-		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out);	/* Load the result to the net connected to the VOut module terminal */
+		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out);
 	}
 
 	#ifdef LOG_SIN
-		sine_sign[i] = (int)(*SGENTI_1ch_Sign);	/* Save the sign value to the sign log array */
+		sine_sign[i] = (sigGen.out > 0);/* Save the sign value to the sign log array */
 		sine_abs[i] = (int16)(*SGENTI_1ch_VOut >> 9);
-		if (j == 0) { /* Only save every other sample */
+		if (j == 0) { 					/* Only save every other sample */
 			i++;
 			j++;
 		} else {
