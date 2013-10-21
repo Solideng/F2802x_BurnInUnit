@@ -9,8 +9,8 @@
 #define F2802X_BURNINUNIT_STATEMACHINE_H_
 
 /*============= GLOBAL FUNCTIONS ==============*/
-/** Sets up the state machine (incl. timers) ready for use. */
-extern void smInit (void);
+/** Sets up the state machine (including timers) ready for use. */
+extern void initStateMachine(void);
 
 /** Runs the next iteration of the state machine.
  * Should be called from the main super-loop.

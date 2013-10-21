@@ -12,32 +12,32 @@ static void (*B_Task_Ptr)(void);	/* State pointer B branch */
 static void (*C_Task_Ptr)(void);	/* State pointer C branch */
 
 /*============== LOCAL FUNCTIONS ==============*/
-static void smA0(void);	/* State B0 */
-static void smB0(void);	/* State B0 */
-static void smC0(void);	/* State C0 */
-static void smA1(void);	/* State A1 */
-static void smA2(void);	/* State A2 */
-static void smB1(void);	/* State B1 */
-static void smB2(void);	/* State B2 */
-static void smC1(void);	/* State C1 */
-static void smC2(void);	/* State C2 */
+static void loopASync(void);	/* State B0 */
+static void loopBSync(void);	/* State B0 */
+static void loopCSync(void);	/* State C0 */
+static void loopATask1(void);	/* State A1 */
+static void loopATask2(void);	/* State A2 */
+static void loopBTask1(void);	/* State B1 */
+static void loopBTask2(void);	/* State B2 */
+static void loopCTask1(void);	/* State C1 */
+static void loopCTask2(void);	/* State C2 */
 
 /*============== GLOBAL FUNCTIONS =============*/
 void (*Alpha_State_Ptr)(void);
 
-void smInit (void) {
+void initStateMachine (void) {
 	#ifdef VTIMERS
 		timersSetupVirtual();	/* Setup (clear) virtual timer arrays */
 	#endif
 	timersSetupReal();			/* Timing sync for background loops */
 
-	Alpha_State_Ptr = &smA0;	/* Set state machine alpha task, i.e., first task for next machine iteration */
-	A_Task_Ptr = &smA1;			/* Set first A state */
-	B_Task_Ptr = &smB1;			/* Set first B state */
-	C_Task_Ptr = &smC1;			/* Set first C state */
+	Alpha_State_Ptr = &loopASync;	/* Set state machine alpha task, i.e., first task for next machine iteration */
+	A_Task_Ptr = &loopATask1;			/* Set first A state */
+	B_Task_Ptr = &loopBTask1;			/* Set first B state */
+	C_Task_Ptr = &loopCTask1;			/* Set first C state */
 }
 
-void smA0(void) {
+void loopASync (void) {
 	/* loop rate synchroniser for A-tasks */
 	if(CpuTimer0Regs.TCR.bit.TIF == 1) {
 		CpuTimer0Regs.TCR.bit.TIF = 1;	/* clear flag */
@@ -46,10 +46,10 @@ void smA0(void) {
 			VTimer0[0]++;		/* virtual timer 0, instance 0 (spare) */
 		#endif
 	}
-	Alpha_State_Ptr = &smB0;	/* Comment out to allow only A tasks */
+	Alpha_State_Ptr = &loopBSync;	/* Comment out to allow only A tasks */
 }
 
-void smA1(void) {
+void loopATask1 (void) {
 	/* Over-current protection, all channel On/Off control */
 	adcCheckOcp();
 
@@ -59,20 +59,20 @@ void smA1(void) {
 	if (enableAll == 1)		/* All Channel enable control */
 		mnRunAll();
 
-	A_Task_Ptr = &smA2;		/* Set pointer to next A task */
+	A_Task_Ptr = &loopATask2;		/* Set pointer to next A task */
 }
 
-void smA2(void) /* SCI GUI, Slew control, LED current control */
+void loopATask2 (void) /* SCI GUI, Slew control, LED current control */
 {
 //	scSetTarget(DC_STAGE, vMidOut);
 //	scSetTarget(AC_STAGE, vMidOut);
 	scSlewUpdate();			/* Step the slew values for load channels */
 	sgGainUpdate();			/*  and for AC stage */
 
-	A_Task_Ptr = &smA1;		/* Set pointer to next A task */
+	A_Task_Ptr = &loopATask1;		/* Set pointer to next A task */
 }
 
-void smB0(void) {
+void loopBSync (void) {
 	/* loop rate synchroniser for B-tasks */
 	if(CpuTimer1Regs.TCR.bit.TIF == 1) {
 		CpuTimer1Regs.TCR.bit.TIF = 1;	/* clear flag */
@@ -81,23 +81,23 @@ void smB0(void) {
 			VTimer1[0]++;		/* virtual timer 1, instance 0 (used to control SPI LEDs) */
 		#endif
 	}
-	Alpha_State_Ptr = &smC0;
+	Alpha_State_Ptr = &loopCTask1;
 }
 
-void smB1(void) {
+void loopBTask1 (void) {
 	/* Current dash-board measurements */
 	#ifdef DEBUG_ADC
 		adcGui();
 	#endif
-	B_Task_Ptr = &smB2;		/* Set pointer to next B task */
+	B_Task_Ptr = &loopBTask2;		/* Set pointer to next B task */
 }
 
-void smB2(void) {
+void loopBTask2 (void) {
 	cntlUpdateCoefs();		/* Make sure CNTL coefficients are up to date */
-	B_Task_Ptr = &smB1;		/* Set pointer to next B task */
+	B_Task_Ptr = &loopBTask1;		/* Set pointer to next B task */
 }
 
-void smC0(void) {
+void loopCSync(void) {
 	/* loop rate synchroniser for C-tasks */
 	if(CpuTimer2Regs.TCR.bit.TIF == 1) {
 		CpuTimer2Regs.TCR.bit.TIF = 1;	/* clear flag */
@@ -106,15 +106,15 @@ void smC0(void) {
 			VTimer2[0]++;		/* virtual timer 2, instance 0 (spare) */
 		#endif
 	}
-	Alpha_State_Ptr = &smA0;	/* Back to State A0 */
+	Alpha_State_Ptr = &loopASync;	/* Back to State A0 */
 }
 
-void smC1(void) {
+void loopCTask1 (void) {
 	/* Spare task */
-	C_Task_Ptr = &smC2;			/* Set pointer to next C task */
+	C_Task_Ptr = &loopCTask2;			/* Set pointer to next C task */
 }
 
-void smC2(void) {
+void loopCTask2 (void) {
 	/* Spare task */
-	C_Task_Ptr = &smC1;			/* Set pointer to next C task */
+	C_Task_Ptr = &loopCTask1;			/* Set pointer to next C task */
 }
