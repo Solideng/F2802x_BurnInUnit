@@ -22,14 +22,18 @@ extern volatile int32 *PWMDRV_2ch_UpCnt_Duty3A;	/**< Interboost PWM terminal poi
 extern volatile int32 *PWMDRV_2ch_UpCnt_Duty3B;	/**< AC stage PWM terminal pointer. */
 
 /*============= GLOBAL FUNCTIONS ==============*/
-/** Configures each of the PWM macros for use. */
-extern void pwmMacroConfigure (void);
 
-/** Configures PWM1 (master) to generate ADC SOC start for ADC macro - configure before initialisation. */
-extern void pwmSocConfigure (void);
+/** Initialises PWM macros, SOCs and ISR (DPL trigger). */
+extern void initPwm (void);
 
-/** Initialises and enables PWM1 (master) to trigger the DPL ISR. */
-extern void pwmDPLTrigInit (void);
+//** Configures each of the PWM macros for use. */
+//extern void pwmMacroConfigure (void);
+//
+//** Configures PWM1 (master) to generate ADC SOC start for ADC macro - configure before initialisation. */
+//extern void pwmSocConfigure (void);
+//
+//** Initialises and enables PWM1 (master) to trigger the DPL ISR. */
+//extern void pwmDPLTrigInit (void);
 
 //** Sets the frequency of the PWMs.
 // * @param[in]	frq	Specifies the required frequency (hertz).

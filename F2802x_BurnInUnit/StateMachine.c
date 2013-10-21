@@ -51,23 +51,45 @@ void loopASync (void) {
 
 void loopATask1 (void) {
 	/* Over-current protection, all channel On/Off control */
-	adcCheckOcp();
+	/* Check for over-current */
+	checkLoadOcp(load1);
+	checkLoadOcp(load2);
+	checkLoadOcp(load3);
+	checkLoadOcp(load4);
+	checkDcMidOcp();
 
-	if(stopAll == 1)		/* All Channel shut-down control (no sequencing) */
-		mnStopAll();
+	/* Check for over-voltage */
+	checkLoadOvp(load1);
+	checkLoadOvp(load2);
+	checkLoadOvp(load3);
+	checkLoadOvp(load4);
+	checkDcHvOvp();
+	checkAcOvp();
 
-	if (enableAll == 1)		/* All Channel enable control */
-		mnRunAll();
+	/* Check for over-power */
+	checkLoadOpp(load1);
+	checkLoadOpp(load2);
+	checkLoadOpp(load3);
+	checkLoadOpp(load4);
+	checkAcOpp();
 
 	A_Task_Ptr = &loopATask2;		/* Set pointer to next A task */
 }
 
-void loopATask2 (void) /* SCI GUI, Slew control, LED current control */
-{
-//	scSetTarget(DC_STAGE, vMidOut);
-//	scSetTarget(AC_STAGE, vMidOut);
-	scSlewUpdate();			/* Step the slew values for load channels */
-	sgGainUpdate();			/*  and for AC stage */
+void loopATask2 (void) {
+	/* OTP, slew and gain update */
+	/* Check for over-temperature */
+	checkLoadOtp(load1);
+	checkLoadOtp(load2);
+	checkLoadOtp(load3);
+	checkLoadOtp(load4);
+	checkDcOtp();
+	checkAcOtp();
+	checkExtOtp(ext1);
+	checkExtOtp(ext2);
+
+	updateLoadSlew();		/* Step the slew values for load channels */
+	updateSineGain();		/*  and for AC stage */
 
 	A_Task_Ptr = &loopATask1;		/* Set pointer to next A task */
 }
@@ -81,7 +103,7 @@ void loopBSync (void) {
 			VTimer1[0]++;		/* virtual timer 1, instance 0 (used to control SPI LEDs) */
 		#endif
 	}
-	Alpha_State_Ptr = &loopCTask1;
+	Alpha_State_Ptr = &loopCSync;
 }
 
 void loopBTask1 (void) {
@@ -93,7 +115,6 @@ void loopBTask1 (void) {
 }
 
 void loopBTask2 (void) {
-	cntlUpdateCoefs();		/* Make sure CNTL coefficients are up to date */
 	B_Task_Ptr = &loopBTask1;		/* Set pointer to next B task */
 }
 

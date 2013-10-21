@@ -70,24 +70,24 @@ extern Uint16 *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart; /* Used f
 /*============================ MAIN CODE - starts here ===========================*/
 void main(void)
 {
+	slaveMode mode = master;
+
 	/* INITIALISATION - General */
 	DeviceInit();			/* Device Life support & GPIO */
-
 	#ifdef FLASH
 		MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 							/* Copy time critical code and Flash setup code to RAM */
 		InitFlash();		/* Call the flash wrapper init function */
 	#endif
 
-	//TODO: SCI NEEDS INTERRUPTS!
-	sciInit(9600);			/* Initialise SCI with 9600 Baud setting. */
-	// TODO: SLAVE MODE DETECT WILL NEED SCI TO CHECK IF THIS MASTER HAS A SLAVE
+	// TODO: SLAVE MODE DETECT WILL NEED SPI TO CHECK IF THIS MASTER HAS A SLAVE - SPI NEEDS INTERRUPTS!!
 	initSlaveModeDetect();
 	changeMode(getSlaveMode());
+
+	sciInit(9600);			/* Initialise SCI with 9600 Baud setting for LAN server communications. */
 	scpiInit(&registerDeviceCommands, &sciTx);		/* Initialise SCPI. */
 
-
-	initStateMachine();		/* Setup device state machine */
+	initStateMachine();		/* Initialise device state machine */
 
 	/* Setup macros and the hardware they use */
 	initPwm();				/* Initialise PWM macros */
@@ -106,7 +106,7 @@ void main(void)
 
 							/* Enable Peripheral, global Ints and higher priority real-time debug events: */
 	EINT;   				/* Enable Global interrupt INTM */
-	ERTM;   				/* Enable Global realtime interrupt DBGM */
+	ERTM;   				/* Enable Global real-time interrupt DBGM */
 
 							/* Initialise items that required interrupts to initialise - e.g. items on I2C */
 	initTemperature();		/* Initialise the temperature sensing */

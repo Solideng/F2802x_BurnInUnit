@@ -6,27 +6,21 @@
  */
 #include "Common.h"
 
-void initPwm (void) {
-	pwmMacroConfigure();
-	pwmSocConfigure();
-	pwmDPLTrigInit();
-}
-
-void pwmMacroConfigure (void) {
+static void pwmMacroConfigure (void) {
 	/* Configure each of the PWM macros to be used */
 	PWM_2ch_UpCnt_CNF(1, PWM_1_PRD, 1, 0);
 	PWM_2ch_UpCnt_CNF(2, PWM_2_PRD, 0, 2);
  	PWM_2ch_UpCnt_CNF(3, PWM_3_PRD, 1, 0);
 }
 
-void pwmSocConfigure (void) {
+static void pwmSocConfigure (void) {
 	/* Configure ePWM1 (master PWM) to generate ADC SOC pulses */
 	EPwm1Regs.ETSEL.bit.SOCAEN = 1;					/* Enable ePWM1 SOCA pulse */
 	EPwm1Regs.ETSEL.bit.SOCASEL = ET_CTR_ZERO;		/* SOCA from ePWM1 Zero event (With the PWMDRV_2ch_UpCnt thats the start of a pulse) */
 	EPwm1Regs.ETPS.bit.SOCAPRD = ET_3RD;			/* Trigger ePWM1 SOCA on every 3rd event (i.e. the start of every third pulse) */
 }
 
-void pwmDPLTrigInit (void) {
+static void pwmDPLTrigInit (void) {
 	/* Interrupt and ISR initialisation */
 	EALLOW;
 	PieVectTable.EPWM1_INT = &DPL_ISR;		/* Map Interrupt */
@@ -38,6 +32,12 @@ void pwmDPLTrigInit (void) {
 	EPwm1Regs.ETPS.bit.INTPRD = ET_3RD;		/* Generate ISR INT on every 3rd ePWM1 event (i.e. the end of every third pulse) */
 
 	IER |= M_INT3;							/* Enable CPU INT3 connected to ePWM1-6 INTs: */
+}
+
+void initPwm (void) {
+	pwmMacroConfigure();
+	pwmSocConfigure();
+	pwmDPLTrigInit();
 }
 
 //Uint16 pwmSetFreq (Uint32 frq) {
