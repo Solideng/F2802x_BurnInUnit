@@ -88,7 +88,7 @@ typedef struct {
  * @warning This function will clear any values already in the I2C peripheral registers.
  * @warning This function MUST be called before any other public I2C function.
  */
-extern void i2cInit (void);
+extern void initI2c (void);
 
 /** This function can be used to validate and populate the specified settings and values into the specified I2C
  * message structure.

@@ -79,41 +79,38 @@ void main(void)
 		InitFlash();		/* Call the flash wrapper init function */
 	#endif
 
+	//TODO: SCI NEEDS INTERRUPTS!
+	sciInit(9600);			/* Initialise SCI with 9600 Baud setting. */
+	// TODO: SLAVE MODE DETECT WILL NEED SCI TO CHECK IF THIS MASTER HAS A SLAVE
 	initSlaveModeDetect();
 	changeMode(getSlaveMode());
-
-	sciInit(9600);			/* Initialise SCI with 9600 Baud setting. */
 	scpiInit(&registerDeviceCommands, &sciTx);		/* Initialise SCPI. */
 
-	smInit();				/* Setup device state machine */
 
-	adcSocCnf();			/* Configure Macro ADCs SOCs */
-	pwmMacroConfigure();	/* Configure Macro PWMs */
+	initStateMachine();		/* Setup device state machine */
 
-	// TODO VVV !!!! NEEDS TO BE AFTER pwmMacroConfigure() FOR SOME REASON??!?!?!? (ELSE DPL_ISR WILL NOT WORK)
-	//mnSetupChannels();		/* Setup control loop coefficient values */
+	/* Setup macros and the hardware they use */
+	initPwm();				/* Initialise PWM macros */
+	initAdc();				/* Initialise the ADCs macros */
+	initSine();				/* Initialise the sine generator macro */
+	initCoefs();			/* Initialise the IIR control loop coefficient values */
+	initDcComparator();		/* Initialise the comparators */
+	initAcComparator();
+	initTripzone();			/* Initialise trip zone (for comparator outputs) */
 
-	pwmSocConfigure();		/* Configure PWM as SOC trigger */
-	adcCompConfigure();		/* Configure comparators */
-	pwmTzConfigure();		/* Configure trip zone (for comparator outputs) */
+	initI2c();				/* Initialise the I2C control to external devices */
 
-	i2cInit();				/* Initialise the I2C control */
-	sgInit();				/* Initialise sine ref generator */
+	DPL_Init();				/* Initialise the used macros with the DPL ASM ISR */
 
-	DPL_Init();				/* DPL ASM ISR init */
-	mnSetupNets();
+	setupNets(mode);		/* Setup macro nets and settings */
 
-	//mnConnectNets();		/* Connect Macros to nets */
 							/* Enable Peripheral, global Ints and higher priority real-time debug events: */
-	pwmDPLTrigInit();		/* Init DPL_ISR trigger */
-
 	EINT;   				/* Enable Global interrupt INTM */
 	ERTM;   				/* Enable Global realtime interrupt DBGM */
 
-	tmpInit();				/* Initialise the temperature sensing */
+							/* Initialise items that required interrupts to initialise - e.g. items on I2C */
+	initTemperature();		/* Initialise the temperature sensing */
 	ecInit();				/* Initialise the external boost converter enable control */
-
-	//scSetStepAll(0.01);		/* Setup initial values */
 
 	for(;;)					/* BACKGROUND (BG) LOOP */
 	{

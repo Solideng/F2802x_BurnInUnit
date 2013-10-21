@@ -6,7 +6,7 @@
  */
 #include "Common.h"
 
-static void adcSocConfig(void) {
+void initAdc(void) {
 	/* Configures ADC SOC for ADC macro
 	 *  - SHOULD BE RUN BEFORE DPL_INIT() -
 	 */
@@ -14,15 +14,6 @@ static void adcSocConfig(void) {
 	int16 TrigSel[16]={5,5,5,5,5,5,5,5,5,5,5,5,5,0,0};		/* ADC trigger selections */
 	int16 ACQPS[16]={6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6};		/* ADC qualification window sizes */
 	ADC_SOC_CNF(ChSel, TrigSel, ACQPS, 16, 0);
-}
-
-void configAllAdc (void) {
-	/* This SHOULD be called after the PWMs have been configured (pwmMacroConfigure())
-	 *  - SHOULD BE RUN AFTER pwmMacroConfigure() -
-	 *  - SHOULD BE RUN BEFORE DPL_INIT() -
-	 */
-	adcSocConfig();			/* Configure Macro ADCs SOCs */
-	pwmSocConfigure();		/* Configure PWM as SOC trigger */
 }
 
 /*============== Load n ==============*/

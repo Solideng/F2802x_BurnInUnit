@@ -6,6 +6,12 @@
  */
 #include "Common.h"
 
+void initPwm (void) {
+	pwmMacroConfigure();
+	pwmSocConfigure();
+	pwmDPLTrigInit();
+}
+
 void pwmMacroConfigure (void) {
 	/* Configure each of the PWM macros to be used */
 	PWM_2ch_UpCnt_CNF(1, PWM_1_PRD, 1, 0);

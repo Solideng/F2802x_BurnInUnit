@@ -22,7 +22,7 @@
  * @warning This MUST be called after pwmMacroConfig()
  * @param[in] 	mode	Selects the test unit mode to allow correct macro net connection.
  */
-extern void SetupNets (slaveMode mode);
+extern void setupNets (slaveMode mode);
 
 /** Disables and zeros all IIR filter control law reference inputs, thus causing their outputs to ramp down to zero. */
 extern void stopAll (void);

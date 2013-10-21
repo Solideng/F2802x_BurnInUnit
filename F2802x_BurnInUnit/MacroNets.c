@@ -214,6 +214,7 @@ static connectAllNets (slaveMode mode) {
 }
 
 void setupNets (slaveMode mode) {
+	/*  - SHOULD BE RUN AFTER DPL_INIT() */
 	initSettings();
 	initNets();
 	connectAllNets(mode);

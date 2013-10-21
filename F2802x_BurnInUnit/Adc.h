@@ -26,10 +26,10 @@ extern volatile int32 *ADCDRV_1ch_Rlt13;/**< VMid voltage sense ADC terminal poi
 //extern void adcSocConfig (void);
 
 /** Configures the ADC's SOCs then calls pwmSocConfigure().
- *  - SHOULD be run after pwmMacroConfigure().
+ *  - SHOULD be run after initPWM().
  *  - SHOULD be run before DPL_INIT().
  */
-extern void adcMacroConfig (void);
+extern void initAdc (void);
 
 /*============== Load n ==============*/
 /** Queries the most recent current reading from the specified load's associated ADC.

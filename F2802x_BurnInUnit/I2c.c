@@ -61,7 +61,7 @@ void i2cPopMsg(i2cMsg *msg, Uint16 msgStatus, Uint16 slaveAddr, Uint16 numDataBy
 	msg->slavePtrAddrLow = slavePtrAddrLo;
 }
 
-void i2cInit(void) {
+void initI2c(void) {
 	/* Initialize I2C peripheral and interrupts */
 	Uint16 address = 0;
 	
