@@ -216,7 +216,7 @@ void setupNets (slaveMode mode) {
 
 void stopAll (void) {
 	Uint16 i = 0;
-	resetEnableControl();	/* Disable all stages */
+	resetEnableControl();	/* Disable all stages */ //TODO: OR DOES THIS NEED TO BE ORDERED??
 							/* Zero all IIR references and flag each stage as disabled */
 	for (i = 0; i < numberOfLoads; i++) {
 		loadSettings[i].enable = FALSE;
@@ -234,8 +234,15 @@ void stopAll (void) {
 
 void runAll (void) {
 	Uint16 i = 0;
-
-
+	if ((ocpFlagRegister) || (ovpFlagRegister) || (oppFlagRegister) || (otpFlagRegister))
+		return;
+	enableCircuit(chan1); //TODO: ORDER THESE? EG XFMR DUTY TURN ON NEEDS DCMIDVSNS TO BE <10V...
+	enableCircuit(chan2);
+	enableCircuit(chan3);
+	enableCircuit(chan4);
+	enableCircuit(hvCct);
+	enableCircuit(acCct);
+	enableCircuit(psu);
 							/* Flag each stage as enabled. */
 	for (i = 0; i < numberOfLoads; i++) {
 		loadSettings[i].enable = TRUE;
