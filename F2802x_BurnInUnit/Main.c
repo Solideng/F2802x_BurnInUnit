@@ -85,28 +85,26 @@ void main(void)
 	initI2c();				/* Initialise the I2C control to external devices */
 
 	if (getSlaveMode == singleUnit) {
-		EALLOW;
-		SysCtrlRegs.PCLKCR0.bit.SPIAENCLK = 1;	/* Disable clock to SPI-A peripheral */
+		EALLOW;				/* Disable clock to SPI-A peripheral */
+		SysCtrlRegs.PCLKCR0.bit.SPIAENCLK = 1;
 		EDIS;
-		sciInit(9600);			/* Initialise SCI with 9600 Baud setting for LAN server communications. */
-								/* Initialise SCPI with SCI I/O. */
+		sciInit(9600);		/* Initialise SCI with 9600 Baud setting for LAN server communications. */
+							/* Initialise SCPI with SCI I/O. */
 		scpiInit(&registerDeviceCommands, &sciTx);
 
 	} else if (getSlaveMode == masterUnit) {
-		// init both sci & SPI(master)
-		sciInit(9600);
+		sciInit(9600);		/* Initialise SCI with 9600 baud and SPI as master */
 		spiInit(spiMaster, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
-
-		// init SCPI with SCI and SPI I/O
-		//...
-
+							/* Initialise SCPI with SCI I/O */
+		scpiInit(&registerDeviceCommands, &sciTx);
 	} else {
 		EALLOW;				/* Disable clock to SCI-A peripheral */
 		SysCtrlRegs.PCLKCR0.bit.SCIAENCLK = 0;
 		EDIS;
-		// init SPI(slave)
+							/* Initialise SPI as slave */
+		spiInit(spiSlave, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
 							/* Initialise SCPI with SPI I/O */
-		spicInit(&registerDeviceCommands, &spiTx);
+		scpiInit(&registerDeviceCommands, &spiTx);
 	}
 
 	initStateMachine();		/* Initialise device state machine and timers */
