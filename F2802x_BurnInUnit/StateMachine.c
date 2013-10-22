@@ -64,7 +64,8 @@ void loopATask1 (void) {
 	checkLoadOvp(load3);
 	checkLoadOvp(load4);
 	checkDcHvOvp();
-	checkAcOvp();
+	if (getSlaveMode != slaveUnit)
+		checkAcOvp();
 
 	/* Check for over-power */
 	checkLoadOpp(load1);
