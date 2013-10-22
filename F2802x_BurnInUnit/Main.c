@@ -70,23 +70,44 @@ extern Uint16 *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart; /* Used f
 /*============================ MAIN CODE - starts here ===========================*/
 void main(void)
 {
-	slaveMode mode = masterUnit;
+	//slaveMode mode = masterUnit;
 
 	/* INITIALISATION - General */
-	DeviceInit();			/* Device Life support & GPIO */
+	DeviceInit();			/* Device life support & GPIO */
 	#ifdef FLASH
 							/* Copy time critical code and Flash setup code to RAM */
 		MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 		InitFlash();		/* Call the flash wrapper init function */
 	#endif
 
-	// TODO: SLAVE MODE DETECT WILL NEED SPI TO CHECK IF THIS MASTER HAS A SLAVE - SPI NEEDS INTERRUPTS!!
-	initSlaveModeDetect();
-	changeMode(getSlaveMode());
+	detectSlaveMode();		/* Detect if the unit is master, single or single */
 
 	initI2c();				/* Initialise the I2C control to external devices */
-	sciInit(9600);			/* Initialise SCI with 9600 Baud setting for LAN server communications. */
-	scpiInit(&registerDeviceCommands, &sciTx);		/* Initialise SCPI. */
+
+	if (getSlaveMode == singleUnit) {
+		EALLOW;
+		SysCtrlRegs.PCLKCR0.bit.SPIAENCLK = 1;	/* Disable clock to SPI-A peripheral */
+		EDIS;
+		sciInit(9600);			/* Initialise SCI with 9600 Baud setting for LAN server communications. */
+								/* Initialise SCPI with SCI I/O. */
+		scpiInit(&registerDeviceCommands, &sciTx);
+
+	} else if (getSlaveMode == masterUnit) {
+		// init both sci & SPI(master)
+		sciInit(9600);
+		spiInit(spiMaster, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
+
+		// init SCPI with SCI and SPI I/O
+		//...
+
+	} else {
+		EALLOW;				/* Disable clock to SCI-A peripheral */
+		SysCtrlRegs.PCLKCR0.bit.SCIAENCLK = 0;
+		EDIS;
+		// init SPI(slave)
+							/* Initialise SCPI with SPI I/O */
+		spicInit(&registerDeviceCommands, &spiTx);
+	}
 
 	initStateMachine();		/* Initialise device state machine and timers */
 
@@ -100,7 +121,7 @@ void main(void)
 	initTripzone();			/* Initialise trip zone (for comparator outputs) */
 
 	DPL_Init();				/* Initialise the used macros with the DPL ASM ISR */
-	setupNets(mode);		/* Setup macro nets and settings */
+	setupNets(getSlaveMode);/* Setup macro nets and settings according to the unit mode */
 
 							/* Enable Peripheral, global Ints and higher priority real-time debug events: */
 	EINT;   				/* Enable Global interrupt INTM */
