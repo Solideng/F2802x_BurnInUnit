@@ -93,10 +93,12 @@ void updateSineSignal (void) {
 	}
 	sigGen.calc(&sigGen);		/* Call the sine lib function, passing the settings struct */
 
-	if (sigGen.out < 0) {		/* Switch GPIO12 to indicate the phase */
-		GpioDataRegs.GPASET.bit.GPIO12 = 1;
-	} else {
-		GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;
+	if (getSlaveMode != slaveUnit) {
+		if (sigGen.out < 0) {	/* Switch GPIO12 to indicate the phase */
+			GpioDataRegs.GPASET.bit.GPIO12 = 1;
+		} else {
+			GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;
+		}
 	}
 
 	if (rectifyMode) {			/* Load the sine gen result to the net connected to the VOut module terminal */
