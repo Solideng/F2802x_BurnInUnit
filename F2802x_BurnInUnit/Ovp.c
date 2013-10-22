@@ -153,7 +153,7 @@ Uint16 clearDcHvOvp (void) {
 }
 
 /*================ AC ================*/
-Uint16 setAcOcpLevel (float32 pkLevel) {
+Uint16 setAcOvpLevel (float32 pkLevel) {
 	/* Sets the OVP value for the AC VSns
 	 * pkLevel expected in amps
 	 */
@@ -171,7 +171,7 @@ Uint16 setAcOcpLevel (float32 pkLevel) {
 	return 0;
 }
 
-Uint16 getAcOcpLevel (float32 * pkLevel) {
+Uint16 getAcOvpLevel (float32 * pkLevel) {
 	/* Returns current OVP limit for the AC VSns,
 	 *  based on actual OVP and vScale
 	 *  - vScale SHOULD BE SET BEFORE USE -
@@ -185,7 +185,7 @@ Uint16 getAcOcpLevel (float32 * pkLevel) {
 	return 0;
 }
 
-Uint16 checkAcOcp (void)  {
+Uint16 checkAcOvp (void)  {
 	/* AC over-voltage protection
 	 *  - vScale AND ovpLevel SHOULD BE SET BEFORE USE -
 	 */
@@ -197,12 +197,12 @@ Uint16 checkAcOcp (void)  {
 	return 0;
 }
 
-Uint16 getAcOcpState (void) {return ((ovpFlagRegister & AC_OVP_TRIP) > 0);}
+Uint16 getAcOvpState (void) {return ((ovpFlagRegister & AC_OVP_TRIP) > 0);}
 
-Uint16 clearAcOcp (void) {
-	ocpFlagRegister &= (~AC_OCP_TRIP);
-	if (ocpFlagRegister)
-		return OCP_TRIP;
+Uint16 clearAcOvp (void) {
+	ovpFlagRegister &= (~AC_OVP_TRIP);
+	if (ovpFlagRegister)
+		return OVP_TRIP;
 	runAll();
 	return 0;
 }
