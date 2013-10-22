@@ -6,7 +6,6 @@
  */
 #include "Common.h"
 
-/*============= GLOBAL VARIABLES ==============*/
 Uint16	stopAllFlag = 0;	// TODO May be moved to SCPI device specific regs
 Uint16	enableAllFlag = 0;
 
@@ -22,7 +21,6 @@ extDeviceSettings 	extSettings;				/* External device settings */
 	volatile int32 duty[NUM_CHNLS] = {0};	/* Open-loop duty setting for use in watch window */
 #endif
 
-/*============== LOCAL VARIABLES ==============*/
 static volatile int32 sgenSignNet = 0;		/* Net for sine generator sign output NET */
 
 
@@ -34,11 +32,7 @@ static void initSettings (void) {
 		loadSettings[i].slewRate   = 16777;		/* 0.001 Q24 */
 		loadSettings[i].slewTarget = 0;			/* 0 Q24 */
 		loadSettings[i].ocpLevel   = 587202560;	/* 35A variable Q24 */
-		//loadSettings[i].ovpLevel   = 1006632960;/* 60V fixed Q24 */
-		//loadSettings[i].oppLevel   = 0;			/* 200W fixed Q24 */ 	//TODO: 200 doesnt fit in IQ24!!!
 		loadSettings[i].otpLevel   = 19200;		/* 150 degree C Q7 */
-		//loadSettings[i].iMax 	   = 0;			/* 35 amps (RMS) Q10 SQ10 */	// TODO: 35 doesnt fit in SQ10!!! use LOAD_OCPLVL_MAX
-		//loadSettings[i].vMax 	   = 15360;		/* 15 volts (RMS) Q10 */ //TODO Test setting << need actual
 		loadSettings[i].iScale     = 2048;		/* 0.125f amps-per-volt Q14 */
 		loadSettings[i].vScale     = 32767;		/* 1.0f volts-per-volt Q14 */
 		loadSettings[i].enable     = FALSE;		/* Disabled */
@@ -54,7 +48,7 @@ static void initSettings (void) {
 	acSettings.iScale     = 2048;		/* 0.125f amps-per-volt Q14 */
 	acSettings.vScale     = 32767;		/* 1.0f volts-per-volt Q14 */
 	acSettings.enable     = FALSE;		/* FALSE | TRUE */
-	acSettings.mode       = master;		/* master | slave */
+	acSettings.mode       = masterUnit;	/* master | slave */
 	acSettings.vScale     = _SQ14(VAC_R2 / (VAC_R1 + VAC_R2 + VAC_R2));
 	acSettings.vGainLmt   = _SQ14(0.9);	/* 0.9 gain limit Q14 */
 
@@ -155,7 +149,7 @@ static void connectAcNets (slaveMode mode) {
 			PWMDRV_2ch_UpCnt_Duty3B = &acNets.vRefNet;
 		#endif
 	#else
-		if (mode != slave) {
+		if (mode != slaveUnit) {
 			ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;/* AC V Sns */
 			SGENTI_1ch_VOut  = &acNets.vRefNet;	/* Sine gen out */
 
@@ -221,25 +215,28 @@ void setupNets (slaveMode mode) {
 }
 
 void stopAll (void) {
-	/* Disables and zeroes all references */
 	Uint16 i = 0;
+	resetEnableControl();	/* Disable all stages */
+							/* Zero all IIR references and flag each stage as disabled */
 	for (i = 0; i < numberOfLoads; i++) {
 		loadSettings[i].enable = FALSE;
 		loadNets[i].iRefNet = 0;
 	}
+	xfmrSettings.enable = FALSE;
+	xfmrNets.pwmDutyNet = 0;
 	acSettings.enable = FALSE;
 	acNets.vRefNet = 0;
 	acNets.iRefNet = 0;
-	xfmrSettings.enable = FALSE;
-	xfmrNets.pwmDutyNet = 0;
 	extSettings.extPsuEnable = FALSE;
 	extSettings.extFanEnable = FALSE;
 	stopAllFlag = 0;
 }
 
 void runAll (void) {
-	/* Enable all references */
 	Uint16 i = 0;
+
+
+							/* Flag each stage as enabled. */
 	for (i = 0; i < numberOfLoads; i++) {
 		loadSettings[i].enable = TRUE;
 	}
@@ -248,116 +245,3 @@ void runAll (void) {
 	extSettings.extPsuEnable = TRUE;
 	enableAllFlag = 0;
 }
-
-//void mnConnectNets (void) {
-//	/* Connect macro terminals to nets
-//	 *  - SHOULD BE RUN AFTER DPL_INIT()
-//	 */
-//	#if (INCR_BUILD == 1) 			/* Open loop */
-//		ADCDRV_1ch_Rlt1 = &loadNets[load1].iFdbkNet;	/* Load 1 connections */
-//		ADCDRV_1ch_Rlt7 = &loadNets[load1].vFdbkNet;
-//		PWMDRV_2ch_UpCnt_Duty1A = &duty[load1];
-//
-//		ADCDRV_1ch_Rlt2 = &loadNets[load2].iFdbkNet;	/* Load 2 connections */
-//		ADCDRV_1ch_Rlt8 = &loadNets[load2].vFdbkNet;
-//		PWMDRV_2ch_UpCnt_Duty1B = &duty[load2];
-//
-//		ADCDRV_1ch_Rlt3 = &loadNets[load3].iFdbkNet;	/* Load 3 connections */
-//		ADCDRV_1ch_Rlt9 = &loadNets[load3].vFdbkNet;
-//		PWMDRV_2ch_UpCnt_Duty2A = &duty[load3];
-//
-//		ADCDRV_1ch_Rlt4  = &loadNets[load4].iFdbkNet;	/* Load 4 connections */
-//		ADCDRV_1ch_Rlt10 = &loadNets[load4].vFdbkNet;
-//		PWMDRV_2ch_UpCnt_Duty2B = &duty[load4];
-//
-//		ADCDRV_1ch_Rlt5  = &xfmrNets.iSnsNet;			/* Xfmr connections */
-//		ADCDRV_1ch_Rlt11 = &xfmrNets.hvVSnsNet;
-//		ADCDRV_1ch_Rlt13 = &xfmrNets.midVSnsNet;
-//		PWMDRV_2ch_UpCnt_Duty3A = &duty[DC_STAGE];
-//
-//		ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;			/* AC stage connections */
-//		ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;
-//		PWMDRV_2ch_UpCnt_Duty3B = &duty[AC_STAGE];
-//	#endif
-//
-//	#if (INCR_BUILD == 2)		/* Closed loop */
-//		/*============================ DC INPUTS ====================================*/
-//					/* Load 1 */
-//		ADCDRV_1ch_Rlt1 = &loadNets[load1].iFdbkNet;	/* Load I Sns */
-//		ADCDRV_1ch_Rlt7 = &loadNets[load1].vFdbkNet;	/* Load V Sns */
-//		CNTL_2P2Z_Ref1 	= &loadNets[load1].iRefNet;		/* CNTL reference */
-//		CNTL_2P2Z_Fdbk1 = &loadNets[load1].iFdbkNet;	/* CNTL feedback */
-//		CNTL_2P2Z_Out1 	= &loadNets[load1].iFiltOutNet;	/* CNTL out */
-//		CNTL_2P2Z_Coef1 = &loadICoefs[load1].b2;		/* CNTL coefficients */
-//		PWMDRV_2ch_UpCnt_Duty1A = &loadNets[load1].iFiltOutNet;	/* Load PWM */
-//
-//					/* Load 2 */
-//		ADCDRV_1ch_Rlt2 = &loadNets[load2].iFdbkNet;	/* Load I Sns */
-//		ADCDRV_1ch_Rlt8 = &loadNets[load2].vFdbkNet;	/* Load V Sns */
-//		CNTL_2P2Z_Ref2 	= &loadNets[load2].iRefNet;		/* CNTL reference */
-//		CNTL_2P2Z_Fdbk2 = &loadNets[load2].iFdbkNet;	/* CNTL feedback */
-//		CNTL_2P2Z_Out2 	= &loadNets[load2].iFiltOutNet;	/* CNTL out */
-//		CNTL_2P2Z_Coef2 = &loadICoefs[load2].b2;		/* CNTL coefficients */
-//		PWMDRV_2ch_UpCnt_Duty1B = &loadNets[load2].iFiltOutNet;	/* Load PWM */
-//
-//					/* Load 3 */
-//		ADCDRV_1ch_Rlt3 = &loadNets[load3].iFdbkNet;	/* Load I Sns */
-//		ADCDRV_1ch_Rlt9 = &loadNets[load3].vFdbkNet;	/* Load V Sns */
-//		CNTL_2P2Z_Ref3 	= &loadNets[load3].iRefNet;		/* CNTL reference */
-//		CNTL_2P2Z_Fdbk3 = &loadNets[load3].iFdbkNet;	/* CNTL feedback */
-//		CNTL_2P2Z_Out3 	= &loadNets[load3].iFiltOutNet;	/* CNTL out */
-//		CNTL_2P2Z_Coef3 = &loadICoefs[load3].b2;		/* CNTL coefficients */
-//		PWMDRV_2ch_UpCnt_Duty2A = &loadNets[load3].iFiltOutNet;	/* Load PWM */
-//
-//					/* Load 4 */
-//		ADCDRV_1ch_Rlt4  = &loadNets[load4].iFdbkNet;	/* Load I Sns */
-//		ADCDRV_1ch_Rlt10 = &loadNets[load4].vFdbkNet;	/* Load V Sns */
-//		CNTL_2P2Z_Ref4 	 = &loadNets[load4].iRefNet;	/* CNTL reference */
-//		CNTL_2P2Z_Fdbk4  = &loadNets[load4].iFdbkNet;	/* CNTL feedback */
-//		CNTL_2P2Z_Out4 	 = &loadNets[load4].iFiltOutNet;/* CNTL out */
-//		CNTL_2P2Z_Coef4  = &loadICoefs[load4].b2;		/* CNTL coefficients */
-//		PWMDRV_2ch_UpCnt_Duty2B = &loadNets[load4].iFiltOutNet;	/* Load PWM */
-//
-//		/*============================ AC STAGE =====================================*/
-//		#ifndef DUAL_CNTL_AC
-//			ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;	/* AC I Sns */
-//			ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;	/* AC V Sns */
-//			SGENTI_1ch_VOut  = &acNets.vRefNet;		/* Rectified sine gen out */
-//			CNTL_3P3Z_Ref2 	 = &acNets.vRefNet;		/* CNTL reference */
-//			CNTL_3P3Z_Fdbk2  = &acNets.vFdbkNet;	/* CNTL feedback */
-//			CNTL_3P3Z_Out2   = &acNets.vFiltOutNet;	/* CNTL out */
-//			CNTL_3P3Z_Coef2  = &acVCoefs.b3;		/* CNTL coefficients */
-//			SGENTI_1ch_Sign  = &sgenSignNet;		/* Sine sign */
-//			PHASE_CTRL_In 	 = &sgenSignNet;		/* AC F B Phase */
-//			#ifndef AC_STAGE_OPEN
-//				PWMDRV_2ch_UpCnt_Duty3B = &acNets.vFiltOutNet;/* AC F B PWM */
-//			#else
-//				PWMDRV_2ch_UpCnt_Duty3B = &acNets.vRefNet;
-//			#endif
-//		#else
-//			ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;	/* AC I Sns */
-//			ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;	/* AC V Sns */
-//			SGENTI_1ch_VOut  = &acNets.vRefNet;		/* Rectified sine gen out */
-//			SGENTI_1ch_Sign  = &sgenSignNet;		/* Sine sign */
-//
-//			CNTL_3P3Z_Ref1  = &acNets.vRefNet;		/* CNTL reference */
-//			CNTL_3P3Z_Fdbk1 = &acNets.vFdbkNet;		/* CNTL feedback */
-//			CNTL_3P3Z_Out1  = &acNets.vFiltOutNet;	/* CNTL out */
-//			CNTL_3P3Z_Coef1 = &acVCoefs.b3;			/* CNTL coefficients */
-//
-//			CNTL_2P2Z_Ref5  = &acNets.vFiltOutNet;	/* CNTL reference */
-//			CNTL_2P2Z_Fdbk5 = &acNets.iFdbkNet;		/* CNTL feedback */
-//			CNTL_2P2Z_Out5  = &acNets.iFiltOutNet;	/* CNTL out */
-//			CNTL_2P2Z_Coef5 = &acICoefs.b2;			/* CNTL coefficients */
-//
-//			PWMDRV_2ch_UpCnt_Duty3B = &acNets.iFiltOutNet;/* AC F B PWM */
-//			PHASE_CTRL_In = &sgenSignNet;			/* AC F B Phase */
-//		#endif
-//
-//		/*============================== XFMR =======================================*/
-//		ADCDRV_1ch_Rlt5  = &xfmrNets.iSnsNet;			/* DC Mid I Sns */
-//		ADCDRV_1ch_Rlt11 = &xfmrNets.hvVSnsNet;			/* DC HV V Sns */
-//		ADCDRV_1ch_Rlt13 = &xfmrNets.midVSnsNet;		/* DC Mid V Sns */
-//		PWMDRV_2ch_UpCnt_Duty3A = &xfmrNets.pwmDutyNet;	/* Xfmr PWM */
-//	#endif
-//}

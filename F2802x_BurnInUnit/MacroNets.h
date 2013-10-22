@@ -24,7 +24,7 @@
  */
 extern void setupNets (slaveMode mode);
 
-/** Disables and zeros all IIR filter control law reference inputs, thus causing their outputs to ramp down to zero. */
+/** Disables all circuit sections, zeroes all IIR references and flags each stage as disabled. */
 extern void stopAll (void);
 
 /** Enables all IIR filter control law reference inputs. */

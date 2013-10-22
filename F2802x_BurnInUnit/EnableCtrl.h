@@ -9,23 +9,22 @@
  * of switch 4 (SW4) on the Ctrl PCB, which the user should
  * record in the macros IOE_SW4A_STATE and IOE_SW4B_STATE.
  *
- * After ecInit() all sections default to disabled.
+ * After initialisation or reset all sections default to disabled.
  *
  * @warning
  * Before any enable control functions can be used the I2C
- * peripheral MUST be initialised, using i2cInit(), and
- * ecInit() must be run - ecInit() will require the
- * interrupts to be enabled globally.
+ * peripheral MUST be initialised, followed by enable control
+ * initialisation, both of which will require global interrupts
+ * to be enabled.
  *
- * @sa i2cInit()
+ * @sa initI2c()
  *
  */
 
 #ifndef ENABLECTRL_H_
 #define ENABLECTRL_H_
 
-/*================== MACROS ===================*/
-#ifndef I2C_H_
+#ifndef I2C_H_						/* Check that I2C functionality is included in build. */
 	#error "The enable control interface requires the file I2c.h to be included"
 #endif
 
@@ -33,7 +32,7 @@
 #define IOE_SW4B_STATE 		0x00	/**< The state of switch 4b; ON = 0x01, OFF = 0x00. */
 #define IOE_I2C_BASE_ADDR	0x20	/**< MCP23008 I/O expander base I2C address. */
 
-#if !defined IOE_I2C_BASE_ADDR || !defined IOE_SW4A_STATE || !defined IOE_SW4B_STATE
+#if !defined IOE_I2C_BASE_ADDR || !defined IOE_SW4A_STATE || !defined IOE_SW4B_STATE	/* Check the device address has been set properly. */
 	#error "The enable control (MCP23008) I2C address has not been correctly specified."
 #else
 	#define IOE_I2C_ADDR 	(IOE_I2C_BASE_ADDR | (IOE_SW4A_STATE << 2)) | (IOE_SW4B_STATE << 3)	/**< MCP23008 I/O expander complete I2C address. */
@@ -68,27 +67,26 @@ enum ecSection {
 /**  A type that allow specification of an enable control circuit section. */
 typedef enum ecSection circuitSection;
 
-/*============= GLOBAL FUNCTIONS ==============*/
 /** Initialises the enable control interface.
  * The I2C peripheral MUST be initialised before this function is used.
  * @sa i2cInit()
  * @return				Error status.
  */
-extern Uint16 ecInit (void);
+extern Uint16 initEnableControl (void);
 
-/** Resets the MCP23008 I/O Expander device. */
-extern void ecReset (void);
+/** Resets and reinitialises the MCP23008 I/O Expander device. */
+extern void resetEnableControl (void);
 
 /** Enables the specified circuit section enable signal.
  * @param[in]	section	Specifies the circuit section that is to be enabled.
  * @return				Error status.
  */
-extern Uint16 ecEnable (circuitSection section);
+extern Uint16 enableCircuit (circuitSection section);
 
 /** Disables the specified circuit section enable signal.
  * @param[in]	section	Specifies the circuit section that is to be disabled.
  * @return				Error status.
  */
-extern Uint16 ecDisable (circuitSection section);
+extern Uint16 disableCircuit (circuitSection section);
 
 #endif /* ENABLECTRL_H_ */

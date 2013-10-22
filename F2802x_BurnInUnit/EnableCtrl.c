@@ -20,15 +20,7 @@ static i2cMsg i2cMsgOutEC = { I2C_MSGSTAT_INACTIVE, 		/* Message status */
 								0x00						/* Data byte 3 */
 							};
 
-void ecReset (void) {
-	/* Pulses the reset-bar line of the MCP23008 I/O Expander low */
-	GpioDataRegs.GPBSET.bit.GPIO34 = 1;
-	DELAY_US(1);		/* Hold low for 1uS, T_RSTL */
-	GpioDataRegs.GPBSET.bit.GPIO34 = 1;
-	DELAY_US(100000);	/* Allow PowerOn Reset time. SV_DD = 0.05 V/ms. V_DD = 5V => S = 100ms */
-}
-
-Uint16 ecInit (void) {
+Uint16 initEnableControl (void) {
 	Uint16 err = 0;
 	crntState = 0;							/* Clear current GPIO state record. */
 
@@ -65,7 +57,16 @@ Uint16 ecInit (void) {
 	return 0;
 }
 
-Uint16 ecEnable(circuitSection section) {
+void resetEnableControl (void) {
+	/* Pulses the reset-bar line of the MCP23008 I/O Expander low */
+	GpioDataRegs.GPBSET.bit.GPIO34 = 1;
+	DELAY_US(1);		/* Hold low for 1uS, T_RSTL */
+	GpioDataRegs.GPBSET.bit.GPIO34 = 1;
+	DELAY_US(100000);	/* Allow PowerOn Reset time. SV_DD = 0.05 V/ms. V_DD = 5V => S = 100ms */
+	initEnableControl();
+}
+
+Uint16 enableCircuit(circuitSection section) {
 	Uint16 err = 0, msk = 1;
 						/* Ensure channel is valid */
 	if (section >= maxchan)
@@ -82,7 +83,7 @@ Uint16 ecEnable(circuitSection section) {
 	return 0;
 }
 
-Uint16 ecDisable (circuitSection section) {
+Uint16 disableCircuit (circuitSection section) {
 	Uint16 err = 0, msk = 1;
 						/* Ensure channel is valid */
 	if (section >= maxchan)

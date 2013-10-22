@@ -70,13 +70,13 @@ extern Uint16 *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart; /* Used f
 /*============================ MAIN CODE - starts here ===========================*/
 void main(void)
 {
-	slaveMode mode = master;
+	slaveMode mode = masterUnit;
 
 	/* INITIALISATION - General */
 	DeviceInit();			/* Device Life support & GPIO */
 	#ifdef FLASH
-		MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 							/* Copy time critical code and Flash setup code to RAM */
+		MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
 		InitFlash();		/* Call the flash wrapper init function */
 	#endif
 
@@ -84,12 +84,13 @@ void main(void)
 	initSlaveModeDetect();
 	changeMode(getSlaveMode());
 
+	initI2c();				/* Initialise the I2C control to external devices */
 	sciInit(9600);			/* Initialise SCI with 9600 Baud setting for LAN server communications. */
 	scpiInit(&registerDeviceCommands, &sciTx);		/* Initialise SCPI. */
 
-	initStateMachine();		/* Initialise device state machine */
+	initStateMachine();		/* Initialise device state machine and timers */
 
-	/* Setup macros and the hardware they use */
+							/* Setup macros and the hardware they use */
 	initPwm();				/* Initialise PWM macros */
 	initAdc();				/* Initialise the ADCs macros */
 	initSine();				/* Initialise the sine generator macro */
@@ -98,10 +99,7 @@ void main(void)
 	initAcComparator();
 	initTripzone();			/* Initialise trip zone (for comparator outputs) */
 
-	initI2c();				/* Initialise the I2C control to external devices */
-
 	DPL_Init();				/* Initialise the used macros with the DPL ASM ISR */
-
 	setupNets(mode);		/* Setup macro nets and settings */
 
 							/* Enable Peripheral, global Ints and higher priority real-time debug events: */
@@ -110,7 +108,7 @@ void main(void)
 
 							/* Initialise items that required interrupts to initialise - e.g. items on I2C */
 	initTemperature();		/* Initialise the temperature sensing */
-	ecInit();				/* Initialise the external boost converter enable control */
+	initEnableControl();	/* Initialise the external boost converter enable control */
 
 	for(;;)					/* BACKGROUND (BG) LOOP */
 	{
