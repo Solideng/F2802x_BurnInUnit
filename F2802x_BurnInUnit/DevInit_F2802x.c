@@ -104,7 +104,7 @@ void DeviceInit(void)
    //------------------------------------------------
    SysCtrlRegs.PCLKCR0.bit.I2CAENCLK = 1;   // I2C
    //------------------------------------------------
-   SysCtrlRegs.PCLKCR0.bit.SPIAENCLK = 0;	// SPI-A
+   SysCtrlRegs.PCLKCR0.bit.SPIAENCLK = 1;	// SPI-A
    //------------------------------------------------
    SysCtrlRegs.PCLKCR0.bit.SCIAENCLK = 1;  	// SCI-A
    //------------------------------------------------
