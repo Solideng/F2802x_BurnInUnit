@@ -68,11 +68,8 @@ void MemCopy();
 /* VARIABLE DECLARATIONS */
 extern Uint16 *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart; /* Used for running BackGround in flash, and ISR in RAM */
 /*============================ MAIN CODE - starts here ===========================*/
-void main(void)
-{
-	//slaveMode mode = masterUnit;
+void main (void) {
 
-	/* INITIALISATION - General */
 	DeviceInit();			/* Device life support & GPIO */
 	#ifdef FLASH
 							/* Copy time critical code and Flash setup code to RAM */
