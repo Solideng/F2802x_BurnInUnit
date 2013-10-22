@@ -173,6 +173,7 @@ void DeviceInit(void)
 //  GPIO-06 - PIN FUNCTION = SPI Slave TxRQ
 	GpioCtrlRegs.GPAMUX1.bit.GPIO6 = 0;		// 0=GPIO,  1=EPWM4A,  2=SYNCI,  3=SYNCO
 	GpioCtrlRegs.GPADIR.bit.GPIO6 = 0;		// 1=OUTput,  0=INput
+	GpioCtrlRegs.GPAPUD.bit.GPIO6 = 1;		// Disable the internal pull-up
 //	GpioDataRegs.GPACLEAR.bit.GPIO6 = 1;	// uncomment if --> Set Low initially
 //	GpioDataRegs.GPASET.bit.GPIO6 = 1;		// uncomment if --> Set High initially
 //--------------------------------------------------------------------------------------
