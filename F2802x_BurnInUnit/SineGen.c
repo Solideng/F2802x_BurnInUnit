@@ -93,7 +93,7 @@ void updateSineSignal (void) {
 	}
 	sigGen.calc(&sigGen);		/* Call the sine lib function, passing the settings struct */
 
-	if (getSlaveMode != slaveUnit) {
+	if (slaveModeStatus != slaveUnit) {
 		if (sigGen.out < 0) {	/* Switch GPIO12 to indicate the phase */
 			GpioDataRegs.GPASET.bit.GPIO12 = 1;
 		} else {

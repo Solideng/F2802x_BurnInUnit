@@ -26,7 +26,7 @@ slaveMode detectSlaveMode (void) {
 	return slaveModeStatus;
 }
 
-slaveMode getSlaveMode (void) {
+static slaveMode getSlaveMode (void) {
 	return slaveModeStatus;
 }
 

@@ -81,7 +81,7 @@ void main (void) {
 
 	initI2c();				/* Initialise the I2C control to external devices */
 
-	if (getSlaveMode() == singleUnit) {
+	if (slaveModeStatus == singleUnit) {
 		EALLOW;				/* Disable clock to SPI-A peripheral */
 		SysCtrlRegs.PCLKCR0.bit.SPIAENCLK = 1;
 		EDIS;
@@ -89,12 +89,12 @@ void main (void) {
 							/* Initialise SCPI with SCI I/O. */
 		scpiInit(&registerDeviceCommands, &sciTx);
 
-	} else if (getSlaveMode() == masterUnit) {
+	} else if (slaveModeStatus == masterUnit) {
 		sciInit(9600);		/* Initialise SCI with 9600 baud and SPI as master */
 		spiInit(spiMaster, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
 							/* Initialise SCPI with SCI I/O */
 		scpiInit(&registerDeviceCommands, &sciTx);
-	} else {
+	} else if (slaveModeStatus == slaveUnit) {
 		EALLOW;				/* Disable clock to SCI-A peripheral */
 		SysCtrlRegs.PCLKCR0.bit.SCIAENCLK = 0;
 		EDIS;
@@ -102,6 +102,9 @@ void main (void) {
 		spiInit(spiSlave, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
 							/* Initialise SCPI with SPI I/O */
 		scpiInit(&registerDeviceCommands, &spiTx);
+	} else {
+		/* Unit type has somehow not been determined */
+		// TODO: Put an error in SCPI error queue.
 	}
 
 	initStateMachine();		/* Initialise device state machine and timers */
@@ -116,7 +119,7 @@ void main (void) {
 	initTripzone();			/* Initialise trip zone (for comparator outputs) */
 
 	DPL_Init();				/* Initialise the used macros with the DPL ASM ISR */
-	setupNets(getSlaveMode());/* Setup macro nets and settings according to the unit mode */
+	setupNets(slaveModeStatus);	/* Setup macro nets and settings according to the unit mode */
 
 							/* Enable Peripheral, global Ints and higher priority real-time debug events: */
 	EINT;   				/* Enable Global interrupt INTM */
