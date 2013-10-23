@@ -18,7 +18,7 @@
  * Requires the comparator and DAC to be configured
  * @sa adc.h
  */
-extern void initTripzone (void);
+extern void initTripZone (void);
 
 /** Initialises the DC comparator (COMP 2) using an internal DAC at the inverting input.
  *  - SHOULD be called AFTER adcSocCnf().

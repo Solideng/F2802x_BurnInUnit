@@ -22,8 +22,8 @@ void initDcComparator (void) {
 	Comp2Regs.DACVAL.bit.DACVAL = 0x3FF;	/* Set the DAC value to the maximum value to begin with */
 	Comp2Regs.COMPCTL.bit.COMPSOURCE = 0;	/* COMP2 inverting i/p is connected to internal DAC */
 	Comp2Regs.COMPCTL.bit.CMPINV = 0; 		/* COMP2 o/p is not inverted */
-	Comp2Regs.COMPCTL.bit.QUALSEL = 3;		/* COMP2 o/p has no qualification window length */
-	Comp2Regs.COMPCTL.bit.SYNCSEL = 1;		/* COMP2 o/p is not synchronised to the SysClk */
+	Comp2Regs.COMPCTL.bit.QUALSEL = 3;		/* COMP2 o/p is qualified to 3 clock period */
+	Comp2Regs.COMPCTL.bit.SYNCSEL = 1;		/* Synchronous version of COMP2 o/p is used  */
 	Comp2Regs.DACCTL.bit.DACSOURCE = 0;		/* Set DACVAL as DAC control source */
 	EDIS;
 	setDcDac (DCMID_VDCLVL_FIX);	/* Set the DC DAC to the fixed OVP_V_MID_PK value*/
@@ -67,8 +67,8 @@ void initAcComparator (void) {
 	Comp1Regs.DACVAL.bit.DACVAL = 0x3FF;	/* Set the DAC Value to the maximum value to begin with */
 	Comp1Regs.COMPCTL.bit.COMPSOURCE = 0;	/* COMP1 inverting i/p is connected to internal DAC */
 	Comp1Regs.COMPCTL.bit.CMPINV = 0; 		/* COMP1 o/p is not inverted */
-	Comp1Regs.COMPCTL.bit.QUALSEL = 3;		/* COMP1 o/p has no qualification window length */
-	Comp1Regs.COMPCTL.bit.SYNCSEL = 1;		/* COMP1 o/p is not synchronised to the SysClk */
+	Comp1Regs.COMPCTL.bit.QUALSEL = 3;		/* COMP1 o/p is qualified to 3 clock period */
+	Comp1Regs.COMPCTL.bit.SYNCSEL = 1;		/* Synchronous version of COMP2 o/p is used */
 	Comp1Regs.DACCTL.bit.DACSOURCE = 0;		/* Set DACVAL as DAC control source */
 	EDIS;
 }
@@ -124,7 +124,7 @@ static void initDcTripzone (void) {
 	EALLOW;
 	for (i = 1; i <= 3; i++) {
 			/* Digital compare trip select */
-		(*ePWM[i]).DCTRIPSEL.bit.DCBHCOMPSEL 	= 0x09;	/* Select COMP2 as digital compare A Low input */
+		(*ePWM[i]).DCTRIPSEL.bit.DCALCOMPSEL 	= 0x09;	/* Select COMP2 as digital compare A Low input */
 		(*ePWM[i]).DCTRIPSEL.bit.DCBLCOMPSEL 	= 0x09;	/* Select COMP2 as digital compare B Low input */
 			/* Digital compare event A qualification */
 		(*ePWM[i]).DCACTL.bit.EVT2SRCSEL 		= 0;	/* DCAEVT2 is not filtered */
@@ -147,8 +147,8 @@ void initAcTripzone (void) {
 	EALLOW;
 	for (i = 1; i <= 3; i++) {
 			/* Digital compare trip select */
-		(*ePWM[i]).DCTRIPSEL.bit.DCBHCOMPSEL 	= 0x08;	/* Select COMP1 as digital compare A Low input */
-		(*ePWM[i]).DCTRIPSEL.bit.DCBLCOMPSEL 	= 0x08;	/* Select COMP1 as digital compare B Low input */
+		(*ePWM[i]).DCTRIPSEL.bit.DCAHCOMPSEL 	= 0x08;	/* Select COMP1 as digital compare A high input */
+		(*ePWM[i]).DCTRIPSEL.bit.DCBHCOMPSEL 	= 0x08;	/* Select COMP1 as digital compare B high input */
 			/* Digital compare event A qualification */
 		(*ePWM[i]).DCACTL.bit.EVT1SRCSEL 		= 0;	/* DCAEVT1 is not filtered */
 		(*ePWM[i]).DCACTL.bit.EVT1FRCSYNCSEL 	= 1;	/* DCAEVT1 source is asynchronous */
@@ -174,6 +174,8 @@ static void initTripzoneIsr (void) {
 	EPwm3Regs.TZEINT.bit.DCAEVT1 = 1;	/* Set DCAEVT1 to raise an interrupt */
 	EPwm3Regs.TZEINT.bit.DCBEVT1 = 1;	/* Set DCBEVT1 to raise an interrupt */
 
+	EPwm3Regs.TZCLR.all = 0xFFFF;		/* Ensure all flags are clear */
+
 	PieVectTable.EPWM3_TZINT = &tripzone_ISR;	/* Map interrupt to ISR */
 	EDIS;
 
@@ -188,15 +190,15 @@ void initTripZone (void) {
 	initTripzoneIsr();
 }
 
-static void rstTripZone (void) {
-	Uint16 i;
-	EALLOW;
-	for (i = 1; i <= 3; i++) {
-		(*ePWM[i]).TZCLR.all = 0x3F;	/* Clear all trip zone flags, restarts PWMs */
-	}
-	EDIS;
-	runAll();
-}
+//static void rstTripZone (void) {
+//	Uint16 i;
+//	EALLOW;
+//	for (i = 1; i <= 3; i++) {
+//		(*ePWM[i]).TZCLR.all = 0x3F;	/* Clear all trip zone flags, restarts PWMs */
+//	}
+//	EDIS;
+//	runAll();
+//}
 
 void rstDcTripzone (void) {
 	Uint16 i;
