@@ -32,11 +32,11 @@
  *
  * Control the TI C2000 LaunchPad XL boot mode using
  * switch 1 (S1):
- * Position the three switches so that all of them are on,
- * then connect USB and use CCS IDE to load the program.
- * When the program is loaded, stop the emulator and
- * disconnect the USB. Then turn switch 3 to the off
- * position. Ensure the terminal emulator is in
+ * Position the three switches (S1-1, S1-2, S1-3) so that
+ * all of them are on, then connect USB and use CCS IDE to
+ * load the program. When the program is loaded, stop the
+ * emulator and disconnect the USB. Then turn switch S1-3
+ * to the off position. Ensure the terminal emulator is in
  * disconnected mode, then reconnect the USB. Change the
  * terminal emulator mode to connected and press the reset
  * button on the PCB. The program should now be running and
@@ -112,11 +112,11 @@ void main (void) {
 							/* Setup macros and the hardware they use */
 	initPwm();				/* Initialise PWM macros */
 	initAdc();				/* Initialise the ADCs macros */
-	initSine();				/* Initialise the sine generator macro */
+	initSine();	/* Initialise the sine generator macro */
 	initCoefs();			/* Initialise the IIR control loop coefficient values */
 	initDcComparator();		/* Initialise the comparators */
 	initAcComparator();
-	initTripzone();			/* Initialise trip zone (for comparator outputs) */
+	initTripZone();			/* Initialise trip zone (for comparator outputs) */
 
 	DPL_Init();				/* Initialise the used macros with the DPL ASM ISR */
 	setupNets(slaveModeStatus);	/* Setup macro nets and settings according to the unit mode */
@@ -128,6 +128,10 @@ void main (void) {
 							/* Initialise items that required interrupts to initialise - e.g. items on I2C */
 	initTemperature();		/* Initialise the temperature sensing */
 	initEnableControl();	/* Initialise the external boost converter enable control */
+
+	//=============== TEST CODE ===============
+	enableCircuit(hvCct);
+	//============= END TEST CODE =============
 
 	for(;;)					/* BACKGROUND (BG) LOOP */
 	{
