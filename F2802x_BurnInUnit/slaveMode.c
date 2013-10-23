@@ -26,10 +26,6 @@ slaveMode detectSlaveMode (void) {
 	return slaveModeStatus;
 }
 
-static slaveMode getSlaveMode (void) {
-	return slaveModeStatus;
-}
-
 //Uint16 initSlaveModeDetect (void) {
 //	Uint16 err = 0;
 //											/* Get current state of GPIO7 and save as current status
