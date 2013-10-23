@@ -80,14 +80,14 @@ void loopATask1 (void) {
 void loopATask2 (void) {
 	/* OTP, slew and gain update */
 	/* Check for over-temperature */
-	checkLoadOtp(load1);
-	checkLoadOtp(load2);
-	checkLoadOtp(load3);
-	checkLoadOtp(load4);
+//	checkLoadOtp(load1);
+//	checkLoadOtp(load2);
+//	checkLoadOtp(load3);
+//	checkLoadOtp(load4);
 	checkDcOtp();
-	checkAcOtp();
-	checkExtOtp(ext1);
-	checkExtOtp(ext2);
+//	checkAcOtp();
+//	checkExtOtp(ext1);
+//	checkExtOtp(ext2);
 
 	updateLoadSlew();		/* Step the slew values for load channels */
 	updateSineGain();		/*  and for AC stage */
