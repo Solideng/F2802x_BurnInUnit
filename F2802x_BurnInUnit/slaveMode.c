@@ -7,24 +7,27 @@
 
 #include "Common.h"
 
-static slaveMode status = undetected;
+slaveMode slaveModeStatus = undetected;
 
 //static interrupt void modeChangedIsr (void);
 
 slaveMode detectSlaveMode (void) {
-	status = (slaveMode) GpioDataRegs.GPADAT.bit.GPIO7;
-	if (status == masterUnit) {
+	slaveMode state = (slaveMode) GpioDataRegs.GPADAT.bit.GPIO7;
+	if (state == masterUnit) {
 		if (GpioDataRegs.GPADAT.bit.GPIO6 == 0)
-			status = singleUnit;
-	} else if (status == slaveUnit) {
+			slaveModeStatus = singleUnit;
+		else
+			slaveModeStatus = state;
+	} else if (state == slaveUnit) {
+		slaveModeStatus = state;
 		GpioCtrlRegs.GPADIR.bit.GPIO6 = 1; 	/* Change GPIO6 to an output */
 		GpioDataRegs.GPASET.bit.GPIO6 = 1;	/* Set output HIGH */
 	}
-	return status;
+	return slaveModeStatus;
 }
 
 slaveMode getSlaveMode (void) {
-	return status;
+	return slaveModeStatus;
 }
 
 //Uint16 initSlaveModeDetect (void) {

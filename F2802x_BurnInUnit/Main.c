@@ -81,7 +81,7 @@ void main (void) {
 
 	initI2c();				/* Initialise the I2C control to external devices */
 
-	if (getSlaveMode == singleUnit) {
+	if (getSlaveMode() == singleUnit) {
 		EALLOW;				/* Disable clock to SPI-A peripheral */
 		SysCtrlRegs.PCLKCR0.bit.SPIAENCLK = 1;
 		EDIS;
@@ -89,7 +89,7 @@ void main (void) {
 							/* Initialise SCPI with SCI I/O. */
 		scpiInit(&registerDeviceCommands, &sciTx);
 
-	} else if (getSlaveMode == masterUnit) {
+	} else if (getSlaveMode() == masterUnit) {
 		sciInit(9600);		/* Initialise SCI with 9600 baud and SPI as master */
 		spiInit(spiMaster, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
 							/* Initialise SCPI with SCI I/O */
@@ -116,7 +116,7 @@ void main (void) {
 	initTripzone();			/* Initialise trip zone (for comparator outputs) */
 
 	DPL_Init();				/* Initialise the used macros with the DPL ASM ISR */
-	setupNets(getSlaveMode);/* Setup macro nets and settings according to the unit mode */
+	setupNets(getSlaveMode());/* Setup macro nets and settings according to the unit mode */
 
 							/* Enable Peripheral, global Ints and higher priority real-time debug events: */
 	EINT;   				/* Enable Global interrupt INTM */

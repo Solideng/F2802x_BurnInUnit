@@ -28,6 +28,8 @@ enum slaveMode {
 
 typedef enum slaveMode slaveMode;
 
+extern slaveMode slaveModeStatus;
+
 extern slaveMode detectSlaveMode (void);
 
 extern slaveMode getSlaveMode (void);
