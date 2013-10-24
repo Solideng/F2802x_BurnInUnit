@@ -36,33 +36,37 @@
  * System Settings
  *============================================================*/
 
-#define VMID_R1		540.0	/**< Scaling voltage divider R1 resistor value for VMID ADC. */
-#define VMID_R2		4.3		/**< Scaling voltage divider R2 resistor value for VMID ADC. */
-#define VAC_R1 		540.0	/**< Scaling voltage divider R1 resistor value for VAC ADC. */
-#define VAC_R2 		4.3		/**< Scaling voltage divider R2 resistor value for VAC ADC. */
+#define VMID_R1				540.0	/**< Scaling voltage divider R1 resistor value for VMID ADC. */
+#define VMID_R2				4.3		/**< Scaling voltage divider R2 resistor value for VMID ADC. */
+#define VAC_R1 				540.0	/**< Scaling voltage divider R1 resistor value for VAC ADC. */
+#define VAC_R2 				4.3		/**< Scaling voltage divider R2 resistor value for VAC ADC. */
 
 // TODO: Remove NUM_CHNLS. Use numberOfLoads etc in specificCmds.
 #define NUM_CHNLS 	6		/**< Total number of IIR filter control law macros used (doesn't include VMID semi-channel). */
 
-#define LOAD_IDCLVL_MAX 35	/**< The maximum allowable value, in amps, for the load current levels. */
-#define LOAD_VDCLVL_FIX 60	/**< The fixed maximum value, in volts, for the load voltage levels. */
-#define LOAD_PWRLVL_FIX 200	/**< The fixed maximum value, in watts, for the load power levels. */
+#define LOAD_IDCLVL_MAX 	35		/**< The maximum allowable value, in amps, for the load current levels. */
+#define LOAD_VDCLVL_FIX 	60		/**< The fixed maximum value, in volts, for the load voltage levels. */
+#define LOAD_PWRLVL_FIX 	200		/**< The fixed maximum value, in watts, for the load power levels. */
 
-#define DCMID_VDCLVL_FIX 400	/**< The fixed maximum value, in volts, for the DC mid voltage level. */
+#define DCMID_VDCLVL_FIX 	400		/**< The fixed maximum value, in volts, for the DC mid voltage level. */
+#define DCMIDV_STRTUP_LMT 	10.0f	/**< The maximum limit for DC MID voltage at to allow transformer stage startup. */
 
-#define AC_IRMSLVL_MAX 	10	/**< The maximum allowable value, in amps (RMS), for the AC current level. */
-#define AC_VRMSLVL_MAX 	250	/**< The maximum allowable value, in volts (RMS), for the AC voltage level. */
-#define AC_PWRLVL_FIX 	800	/**< The fixed value, in watts, for the AC OPP level. */
+#define DCHV_UVLCK_LMT 		330.0f	/**< The DC HV under-voltage lockout limit level. */
 
-#define XFMR_PWMF_FIX 	130	/**< The fixed frequency (kHz) setting for the transformer PWM (at 50% duty). */
+#define AC_IRMSLVL_MAX 		10		/**< The maximum allowable value, in amps (RMS), for the AC current level. */
+#define AC_VRMSLVL_MAX 		250		/**< The maximum allowable value, in volts (RMS), for the AC voltage level. */
+#define AC_PWRLVL_FIX 		800		/**< The fixed value, in watts, for the AC OPP level. */
 
-#define SQRT_2		1.41429	/**< Sqrt(2) constant used for RMS calculations. */
-#define RECP_SQRT_2	0.70711	/**< 1/sqrt(2) constant used for RMS calculations. */
+#define XFMR_PWMF_FIX 		130		/**< The fixed frequency (kHz) setting for the transformer PWM (at 50% duty). */
 
-#define VSSA 		0l		/**< System VLOWREF (millivolts). */
-#define VDDA 		3300l	/**< System VMAXREF (millivolts). */
+#define SQRT_2				1.41429	/**< Sqrt(2) constant used for RMS calculations. */
+#define RECP_SQRT_2			0.70711	/**< 1/sqrt(2) constant used for RMS calculations. */
 
-#define	uSec100		6000	/**< 100us - System define. */
+#define VSSA 				0l		/**< System VLOWREF (millivolts). */
+#define VDDA 				3300l	/**< System VMAXREF (millivolts). */
+
+// TODO: Not used??
+//#define	uSec100				6000	/**< 100us - System define. */
 
 /*==============================================================
  * System Error Codes
@@ -74,6 +78,8 @@
 #define OVP_TRIP			0x13	/**< Over-voltage protection trip error code. */
 #define OPP_TRIP			0x14	/**< Over-power protection trip error code. */
 #define OTP_TRIP			0x15	/**< Over-temperature protection trip error code. */
+#define UVLKT_TRIP 			0x16	/**< Under-voltage lock-out trip error code. */
+#define TRIP_ALERT 			0x17	/**< General purpose alert trip error code. */
 
 #define I2C_READ_WRONG_MSG	0x20	/**< Incorrect type I2C message read error code. */
 #define I2C_WRITE_WRONG_MSG	0x21	/**< Incorrect type I2C write message error code. */

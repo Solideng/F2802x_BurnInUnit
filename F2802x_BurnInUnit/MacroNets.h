@@ -27,8 +27,10 @@ extern void setupNets (slaveMode mode);
 /** Disables all circuit sections, zeroes all IIR references and flags each stage as disabled. */
 extern void stopAll (void);
 
-/** Enables all IIR filter control law reference inputs. */
-extern void runAll (void);
+/** Enables all IIR filter control law reference inputs.
+ * @return	Error status.
+ */
+extern Uint16 runAll (void);
 
 #if (INCR_BUILD == 1)
 	extern volatile int32 duty[NUM_CHNLS];	/* Open-loop duty for GUI input (Replaces Duty:n). */

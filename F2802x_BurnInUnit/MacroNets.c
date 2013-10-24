@@ -217,6 +217,14 @@ void setupNets (slaveMode mode) {
 void stopAll (void) {
 	Uint16 i = 0;
 	resetEnableControl();	/* Disable all stages */ //TODO: OR DOES THIS NEED TO BE ORDERED??
+	disableCircuit(chan1);
+	disableCircuit(chan2);
+	disableCircuit(chan3);
+	disableCircuit(chan4);
+	disableCircuit(acCct);
+	disableCircuit(xfmrCct);
+	disableCircuit(psu);
+	disableCircuit(fan);
 							/* Zero all IIR references and flag each stage as disabled */
 	for (i = 0; i < numberOfLoads; i++) {
 		loadSettings[i].enable = FALSE;
@@ -232,17 +240,44 @@ void stopAll (void) {
 	stopAllFlag = 0;
 }
 
-void runAll (void) {
+Uint16 runAll (void) {
 	Uint16 i = 0;
+	float32 meas = 0;
+
+	// TODO: Can move disable section to stopALL() in place off resetEnableControl() then just call stopAll() ??
+	disableCircuit(chan1);	/* Ensure channel 1 is disabled */
+	disableCircuit(chan2);	/* Ensure channel 2 is disabled */
+	disableCircuit(chan3);	/* Ensure channel 3 is disabled */
+	disableCircuit(chan4);	/* Ensure channel 4 is disabled */
+	disableCircuit(psu);	/* Ensure external PSU is disabled */
+	disableCircuit(xfmrCct);/* Ensure transformer stage is disabled */
+	disableCircuit(acCct);	/* Ensure AC stage is disabled */
+	disableCircuit(fan);	/* Ensure fan is disabled */
+
 	if ((ocpFlagRegister) || (ovpFlagRegister) || (oppFlagRegister) || (otpFlagRegister))
-		return;
-	enableCircuit(chan1); //TODO: ORDER THESE? EG XFMR DUTY TURN ON NEEDS DCMIDVSNS TO BE <10V...
+		return TRIP_ALERT;
+
+	getDcMidVoltage(&meas);	/* Check the DC Mid voltage level is low enough to turn on the transformer stage */
+	while (meas > DCMIDV_STRTUP_LMT) {
+		DELAY_US(1000000);	/* Wait 1 second */
+		getDcMidVoltage(&meas);	/* Check the DC Mid voltage level again */
+	}
+
+	enableCircuit(fan);		/* Enable the fan */
+	enableCircuit(xfmrCct);	/* Enable the transformer stage */
+	enableCircuit(psu);		/* Enable the external PSU */
+
+	getDcHvVoltage(&meas);	/* Check the DC HV voltage level is high enough to turn on the AC stage */
+	if (meas < DCHV_UVLCK_LMT) {
+		stopAll();
+		return UVLKT_TRIP;
+	}
+
+	enableCircuit(acCct);	/* Enable the AC stage */
+	enableCircuit(chan1);	/* Enable on the load channel circuits */
 	enableCircuit(chan2);
 	enableCircuit(chan3);
 	enableCircuit(chan4);
-	enableCircuit(xfmrCct);
-	enableCircuit(acCct);
-	enableCircuit(psu);
 							/* Flag each stage as enabled. */
 	for (i = 0; i < numberOfLoads; i++) {
 		loadSettings[i].enable = TRUE;
@@ -250,5 +285,7 @@ void runAll (void) {
 	acSettings.enable = TRUE;
 	xfmrSettings.enable = TRUE;
 	extSettings.extPsuEnable = TRUE;
+	extSettings.extFanEnable = TRUE;
 	enableAllFlag = 0;
+	return 0;
 }
