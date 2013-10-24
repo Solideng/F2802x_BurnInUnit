@@ -48,8 +48,10 @@ extern volatile int32 *SGENTI_1ch_VOut;	/**< Voltage output terminal. */
 /** Sets the initial generator values and disables the output.
  * This function MUST be called before any other signal
  * generator function.
+ * @param[in]	enablePhaseOut	Determines if the AC phase signal is enabled
+ * 								as an output or disabled and switched to an input.
  */
-extern void initSine (void);
+extern void initSine (Uint16 enablePhaseOut);
 
 /** Updates the gain value to create a slow-start ramp.
  * This should be called at the same time and similarly to

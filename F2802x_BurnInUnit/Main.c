@@ -112,7 +112,12 @@ void main (void) {
 							/* Setup macros and the hardware they use */
 	initPwm();				/* Initialise PWM macros */
 	initAdc();				/* Initialise the ADCs macros */
-	initSine();	/* Initialise the sine generator macro */
+							/* Initialise the sine generator macro */
+	if (slaveModeStatus == slaveUnit)
+		initSine(FALSE);
+	else
+		initSine(TRUE);
+
 	initCoefs();			/* Initialise the IIR control loop coefficient values */
 	initDcComparator();		/* Initialise the comparators */
 	initAcComparator();

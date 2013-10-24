@@ -10,8 +10,8 @@
 
 volatile int32 *SGENTI_1ch_VOut = 0;	/* Voltage signal output terminal*/
 
-#ifdef DEBUG
-	SGENTI_1 sigGen = SGENTI_1_DEFAULTS;	// TODO: can be private when testing finished
+#ifdef DEBUG	/* Makes the struct local when debug testing has finished */
+	SGENTI_1 sigGen = SGENTI_1_DEFAULTS;
 	#pragma DATA_SECTION (sigGen, "SGENTI_1ch_Struct")
 #else
 	static SGENTI_1 sigGen = SGENTI_1_DEFAULTS;
@@ -23,10 +23,11 @@ volatile int32 *SGENTI_1ch_VOut = 0;	/* Voltage signal output terminal*/
 	volatile int16 sine_sign[LOG_SIZE] = {0};
 #endif
 
+static Uint16 usePhaseOut = TRUE;			/* Saves whether to use AC PHASE OUT */
 static Uint16 rectifyMode = SIN_DFLT_RCTFY;	/* Selects whether signal is recitified or not */
-static Uint16 fMax = SIN_DFLT_F_MAX;
+static Uint16 fMax = SIN_DFLT_F_MAX;		/* Sets the fMax value */
 
-void initSine (void) {
+void initSine (Uint16 enablePhaseOut) {
 	/* Set signal generator default values
 	 * These values can be altered by changing
 	 *  the values #define'd in SineGen.h
@@ -36,22 +37,29 @@ void initSine (void) {
 
 	sigGen.offset = SIN_DFLT_OFST;		/* DC offset, Uint16 Q15 */
 	sigGen.alpha = SIN_DFLT_PHSE; 		/* Alpha = [phase / (2 x pi)] x 2^16, Uint16, Q16 */
-								//(Uint16) (((SIN_DFLT_PHSE / 360.0) * 65536) + 0.5);
+	//sigGen.alpha = (Uint16) (((SIN_DFLT_PHSE / 360.0) * 65536) + 0.5);
 
 	sigGen.gain = _IQ15(SIN_DFLT_GAIN);	/* Gain, 0x7fff is full gain of 1, int16 Q15 */
 
-	sigGen.step_max = (Uint16)(((fMax * 65536.0) / SIN_F_SPL) + 0.5);
 										/* Step_max = (f_max x 2^16) / f_sampling
 										 *  		= (1kHz x 65,536) / 16.5kHz = 3971.9
 										 * Frequency resolution = f_max/step_max,
 										 * hence step_max should be above 100 for good resolution
 										 * Uint16 Q0
 										 */
-	sigGen.freq = (Uint16)((SIN_DFLT_F / SIN_DFLT_F_MAX) * 32768) + 0.5;
+	sigGen.step_max = (Uint16)(((fMax * 65536.0) / SIN_F_SPL) + 0.5);
+
 										/* Freq = (f_req / f_max) x 2^15
 										 *  	= (50Hz / 1kHz) x 32768 = 1638
 										 * Uint16 Q15
 										 */
+	sigGen.freq = (Uint16)((SIN_DFLT_F / SIN_DFLT_F_MAX) * 32768) + 0.5;
+
+	if (!enablePhaseOut) {				/* Change AC PHASE OUT to an input */
+		GpioCtrlRegs.GPADIR.bit.GPIO19 = 0;
+	}
+	usePhaseOut = enablePhaseOut;		/* Save the enable phase setting */
+
 	acSettings.enable = 0; 				/* Ensure sine channel output is 0 until enabled */
 }
 
@@ -83,7 +91,7 @@ void updateSineSignal (void) {
 		static Uint16 i = 0;
 		static Uint16 j = 0;
 
-		if (i >= LOG_SIZE)		/* If i (which is static) has reached the log limit, go back to the start of the log arrays */
+		if (i >= LOG_SIZE)		/* If i (static) has reached the log limit, go back to the start of the log arrays */
 			i = 0;
 	#endif
 
@@ -93,24 +101,22 @@ void updateSineSignal (void) {
 	}
 	sigGen.calc(&sigGen);		/* Call the sine lib function, passing the settings struct */
 
-	if (slaveModeStatus != slaveUnit) {
-		if (sigGen.out < 0) {	/* Switch GPIO12 to indicate the phase */
+	if (usePhaseOut) {
+		if (sigGen.out < 0)		/* Switch GPIO12 to indicate the phase */
 			GpioDataRegs.GPASET.bit.GPIO12 = 1;
-		} else {
+		else
 			GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;
-		}
 	}
 
-	if (rectifyMode) {			/* Load the sine gen result to the net connected to the VOut module terminal */
+	if (rectifyMode) 			/* Load the sine gen result to the net connected to the VOut module terminal */
 		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out * ((sigGen.out > 0) - (sigGen.out < 0)));
-	} else {
+	else
 		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out);
-	}
 
-	#ifdef LOG_SIN
-		sine_sign[i] = (sigGen.out > 0);/* Save the sign value to the sign log array */
+	#ifdef LOG_SIN				/* Save the sign value to the sign log array */
+		sine_sign[i] = (sigGen.out > 0);
 		sine_abs[i] = (int16)(*SGENTI_1ch_VOut >> 9);
-		if (j == 0) { 					/* Only save every other sample */
+		if (j == 0) { 			/* Only save every other sample */
 			i++;
 			j++;
 		} else {
