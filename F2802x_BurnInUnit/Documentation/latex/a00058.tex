@@ -1,0 +1,137 @@
+\hypertarget{a00058}{\section{Tmp.\-h File Reference}
+\label{a00058}\index{Tmp.\-h@{Tmp.\-h}}
+}
+
+
+Temperature sensor functions.  
+
+
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{a00080}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00058_ac80e67c94bf6570094bba2248b9586f3}{A\-D\-C\-\_\-\-S\-W3\-A\-\_\-\-S\-T\-A\-T\-E}~0x00
+\item 
+\#define \hyperlink{a00058_a63e298aff78f6afee6ebffa60c1de62a}{A\-D\-C\-\_\-\-S\-W3\-B\-\_\-\-S\-T\-A\-T\-E}~0x00
+\item 
+\#define \hyperlink{a00058_a6c0e4f915b6ac0c3af9a27d604f1f7b1}{A\-D\-C\-\_\-\-I2\-C\-\_\-\-B\-A\-S\-E\-\_\-\-A\-D\-D\-R}~0x48
+\item 
+\#define \hyperlink{a00058_a5fd3aabe18504a5314a5d0e71e3bc495}{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}~(\hyperlink{a00058_a6c0e4f915b6ac0c3af9a27d604f1f7b1}{A\-D\-C\-\_\-\-I2\-C\-\_\-\-B\-A\-S\-E\-\_\-\-A\-D\-D\-R} $|$ \hyperlink{a00058_ac80e67c94bf6570094bba2248b9586f3}{A\-D\-C\-\_\-\-S\-W3\-A\-\_\-\-S\-T\-A\-T\-E}) $|$ (\hyperlink{a00058_a63e298aff78f6afee6ebffa60c1de62a}{A\-D\-C\-\_\-\-S\-W3\-B\-\_\-\-S\-T\-A\-T\-E} $<$$<$ 1)
+\item 
+\#define \hyperlink{a00058_a448e8a52be570dfe9fdddb2045039534}{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}~0x08
+\item 
+\#define \hyperlink{a00058_a5a03d0b939a8dda552c9fe3319a82485}{A\-D\-C\-\_\-\-V\-R\-E\-F}~5.\-0
+\item 
+\#define \hyperlink{a00058_a9be6401f8c9339711816bec5ca55dd88}{A\-D\-C\-\_\-\-S\-T\-P\-S}~256
+\item 
+\#define \hyperlink{a00058_a6d41a70e126c748f2c99c3ff8228eb1b}{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T}~0.\-4
+\item 
+\#define \hyperlink{a00058_a0f910bb108922c8686a139977510af53}{T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T}~\hyperlink{a00058_a6d41a70e126c748f2c99c3ff8228eb1b}{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T} $\ast$ \hyperlink{a00058_a9be6401f8c9339711816bec5ca55dd88}{A\-D\-C\-\_\-\-S\-T\-P\-S} / \hyperlink{a00058_a5a03d0b939a8dda552c9fe3319a82485}{A\-D\-C\-\_\-\-V\-R\-E\-F}
+\item 
+\#define \hyperlink{a00058_acc66f9f90ea4746679f5d26c834ddea5}{T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D}~1.\-5
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \hyperlink{a00058_a3e441d5071e094ff4f2aeb9d47f9a102}{init\-Temperature} (void)
+\item 
+Uint16 \hyperlink{a00058_a74292ec2fc953664dbf7be82f1656b09}{read\-Temperature} (Uint16 chnl, float32 $\ast$tmp\-Dest)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Temperature sensor functions. The temperature sensor (M\-C\-P9701) output is read via an external A\-D\-C (A\-D\-S7830) that is connected to the I2\-C bus at address 10010xx where 'xx' is dependent upon the state of switch 3 (S\-W3) on the Ctrl P\-C\-B, which the user should record in the macros A\-D\-C\-\_\-\-S\-W3\-A\-\_\-\-S\-T\-A\-T\-E and A\-D\-C\-\_\-\-S\-W3\-B\-\_\-\-S\-T\-A\-T\-E.
+
+All temperatures are in degrees Celsius.
+
+\begin{DoxyWarning}{Warning}
+Before any temperature functions can be used the I2\-C peripheral M\-U\-S\-T be initialised, using i2c\-Init(), and \hyperlink{a00058_a3e441d5071e094ff4f2aeb9d47f9a102}{init\-Temperature()} must be run -\/ \hyperlink{a00058_a3e441d5071e094ff4f2aeb9d47f9a102}{init\-Temperature()} will require the interrupts to be enabled globally.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See Also}
+i2c\-Init()
+\end{DoxySeeAlso}
+\begin{TabularC}{4}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf A\-D\-S7830 Ch \#}&\PBS\centering {\bf Signal }&\PBS\centering {\bf Chnl selector }&\PBS\centering {\bf A\-D\-C Sel Code  }\\\cline{1-4}
+\PBS\centering C\-H0 &\PBS\centering T\-E\-M\-P1 &\PBS\centering load1 (0) &\PBS\centering 0 \\\cline{1-4}
+\PBS\centering C\-H1 &\PBS\centering T\-E\-M\-P2 &\PBS\centering load2 (1) &\PBS\centering 4 \\\cline{1-4}
+\PBS\centering C\-H2 &\PBS\centering T\-E\-M\-P3 &\PBS\centering load3 (2) &\PBS\centering 1 \\\cline{1-4}
+\PBS\centering C\-H3 &\PBS\centering T\-E\-M\-P4 &\PBS\centering load4 (3) &\PBS\centering 5 \\\cline{1-4}
+\PBS\centering C\-H4 &\PBS\centering T\-E\-M\-P5 &\PBS\centering X\-F\-M\-R\-\_\-\-S\-T\-A\-G\-E (4)&\PBS\centering 2 \\\cline{1-4}
+\PBS\centering C\-H5 &\PBS\centering T\-E\-M\-P6 &\PBS\centering A\-C\-\_\-\-S\-T\-A\-G\-E (5) &\PBS\centering 6 \\\cline{1-4}
+\PBS\centering C\-H6 &\PBS\centering T\-E\-M\-P\-\_\-\-E\-X\-T1 &\PBS\centering E\-X\-T\-\_\-1 (6) &\PBS\centering 3 \\\cline{1-4}
+\PBS\centering C\-H7 &\PBS\centering T\-E\-M\-P\-\_\-\-E\-X\-T2 &\PBS\centering E\-X\-T\-\_\-2 (7) &\PBS\centering 7 \\\cline{1-4}
+\end{TabularC}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{a00058_a5fd3aabe18504a5314a5d0e71e3bc495}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R@{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}}
+\index{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R@{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R~({\bf A\-D\-C\-\_\-\-I2\-C\-\_\-\-B\-A\-S\-E\-\_\-\-A\-D\-D\-R} $|$ {\bf A\-D\-C\-\_\-\-S\-W3\-A\-\_\-\-S\-T\-A\-T\-E}) $|$ ({\bf A\-D\-C\-\_\-\-S\-W3\-B\-\_\-\-S\-T\-A\-T\-E} $<$$<$ 1)}}\label{a00058_a5fd3aabe18504a5314a5d0e71e3bc495}
+A\-D\-S7830 A\-D\-C complete I2\-C address. \hypertarget{a00058_a6c0e4f915b6ac0c3af9a27d604f1f7b1}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-I2\-C\-\_\-\-B\-A\-S\-E\-\_\-\-A\-D\-D\-R@{A\-D\-C\-\_\-\-I2\-C\-\_\-\-B\-A\-S\-E\-\_\-\-A\-D\-D\-R}}
+\index{A\-D\-C\-\_\-\-I2\-C\-\_\-\-B\-A\-S\-E\-\_\-\-A\-D\-D\-R@{A\-D\-C\-\_\-\-I2\-C\-\_\-\-B\-A\-S\-E\-\_\-\-A\-D\-D\-R}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-I2\-C\-\_\-\-B\-A\-S\-E\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-I2\-C\-\_\-\-B\-A\-S\-E\-\_\-\-A\-D\-D\-R~0x48}}\label{a00058_a6c0e4f915b6ac0c3af9a27d604f1f7b1}
+A\-D\-S7830 A\-D\-C base I2\-C address. \hypertarget{a00058_a448e8a52be570dfe9fdddb2045039534}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L@{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}}
+\index{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L@{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L~0x08}}\label{a00058_a448e8a52be570dfe9fdddb2045039534}
+A\-D\-S7830 A\-D\-C number of temperature channels. \hypertarget{a00058_a9be6401f8c9339711816bec5ca55dd88}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-S\-T\-P\-S@{A\-D\-C\-\_\-\-S\-T\-P\-S}}
+\index{A\-D\-C\-\_\-\-S\-T\-P\-S@{A\-D\-C\-\_\-\-S\-T\-P\-S}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-S\-T\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-S\-T\-P\-S~256}}\label{a00058_a9be6401f8c9339711816bec5ca55dd88}
+A\-D\-S7830 A\-D\-C number of steps. \hypertarget{a00058_ac80e67c94bf6570094bba2248b9586f3}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-S\-W3\-A\-\_\-\-S\-T\-A\-T\-E@{A\-D\-C\-\_\-\-S\-W3\-A\-\_\-\-S\-T\-A\-T\-E}}
+\index{A\-D\-C\-\_\-\-S\-W3\-A\-\_\-\-S\-T\-A\-T\-E@{A\-D\-C\-\_\-\-S\-W3\-A\-\_\-\-S\-T\-A\-T\-E}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-S\-W3\-A\-\_\-\-S\-T\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-S\-W3\-A\-\_\-\-S\-T\-A\-T\-E~0x00}}\label{a00058_ac80e67c94bf6570094bba2248b9586f3}
+The state of switch 3a; O\-N = 0x01, O\-F\-F = 0x00. \hypertarget{a00058_a63e298aff78f6afee6ebffa60c1de62a}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-S\-W3\-B\-\_\-\-S\-T\-A\-T\-E@{A\-D\-C\-\_\-\-S\-W3\-B\-\_\-\-S\-T\-A\-T\-E}}
+\index{A\-D\-C\-\_\-\-S\-W3\-B\-\_\-\-S\-T\-A\-T\-E@{A\-D\-C\-\_\-\-S\-W3\-B\-\_\-\-S\-T\-A\-T\-E}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-S\-W3\-B\-\_\-\-S\-T\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-S\-W3\-B\-\_\-\-S\-T\-A\-T\-E~0x00}}\label{a00058_a63e298aff78f6afee6ebffa60c1de62a}
+The state of switch 3b; O\-N = 0x01, O\-F\-F = 0x00. \hypertarget{a00058_a5a03d0b939a8dda552c9fe3319a82485}{\index{Tmp.\-h@{Tmp.\-h}!A\-D\-C\-\_\-\-V\-R\-E\-F@{A\-D\-C\-\_\-\-V\-R\-E\-F}}
+\index{A\-D\-C\-\_\-\-V\-R\-E\-F@{A\-D\-C\-\_\-\-V\-R\-E\-F}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{A\-D\-C\-\_\-\-V\-R\-E\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-D\-C\-\_\-\-V\-R\-E\-F~5.\-0}}\label{a00058_a5a03d0b939a8dda552c9fe3319a82485}
+A\-D\-S7830 A\-D\-C reference voltage (volts). \hypertarget{a00058_acc66f9f90ea4746679f5d26c834ddea5}{\index{Tmp.\-h@{Tmp.\-h}!T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D@{T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D}}
+\index{T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D@{T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-P\-\_\-\-E\-\_\-\-T\-\_\-\-C\-O\-L\-D~1.\-5}}\label{a00058_acc66f9f90ea4746679f5d26c834ddea5}
+M\-C\-P9701 Error at lowest operating temperature ( $ ^\circ$ C), calculated as shown in Microchip A\-N1001. \hypertarget{a00058_a0f910bb108922c8686a139977510af53}{\index{Tmp.\-h@{Tmp.\-h}!T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T@{T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T}}
+\index{T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T@{T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-P\-\_\-\-S\-C\-L\-\_\-\-O\-F\-S\-T~{\bf T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T} $\ast$ {\bf A\-D\-C\-\_\-\-S\-T\-P\-S} / {\bf A\-D\-C\-\_\-\-V\-R\-E\-F}}}\label{a00058_a0f910bb108922c8686a139977510af53}
+Scaled temperature offset. \hypertarget{a00058_a6d41a70e126c748f2c99c3ff8228eb1b}{\index{Tmp.\-h@{Tmp.\-h}!T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T@{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T}}
+\index{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T@{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-M\-P\-\_\-\-V0\-C\-\_\-\-O\-F\-S\-T~0.\-4}}\label{a00058_a6d41a70e126c748f2c99c3ff8228eb1b}
+M\-C\-P9701 Temperature sensor $ V_{0{^\circ}C}$ (volts). 
+
+\subsection{Function Documentation}
+\hypertarget{a00058_a3e441d5071e094ff4f2aeb9d47f9a102}{\index{Tmp.\-h@{Tmp.\-h}!init\-Temperature@{init\-Temperature}}
+\index{init\-Temperature@{init\-Temperature}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{init\-Temperature}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 init\-Temperature (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00058_a3e441d5071e094ff4f2aeb9d47f9a102}
+Initialises the system for temperature readings. The I2\-C peripheral must be initialised before this function is used \begin{DoxySeeAlso}{See Also}
+i2c\-Init(). 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00058_a74292ec2fc953664dbf7be82f1656b09}{\index{Tmp.\-h@{Tmp.\-h}!read\-Temperature@{read\-Temperature}}
+\index{read\-Temperature@{read\-Temperature}!Tmp.h@{Tmp.\-h}}
+\subsubsection[{read\-Temperature}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 read\-Temperature (
+\begin{DoxyParamCaption}
+\item[{Uint16}]{chnl, }
+\item[{float32 $\ast$}]{tmp\-Dest}
+\end{DoxyParamCaption}
+)}}\label{a00058_a74292ec2fc953664dbf7be82f1656b09}
+Queries the current temperature on the specified A\-D\-C channel. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em chnl} & Specifies the channel the temperature is to be read from. \\
+\hline
+\mbox{\tt out}  & {\em tmp\-Dest} & Address of the memory location at which to place the query result ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}

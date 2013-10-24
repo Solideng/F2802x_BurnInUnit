@@ -1,0 +1,177 @@
+\hypertarget{a00051}{\section{Spi.\-h File Reference}
+\label{a00051}\index{Spi.\-h@{Spi.\-h}}
+}
+
+
+Serial peripheral interface communications functions.  
+
+
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=144pt]{a00077}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00051_a02b50bd3a63177b3074b0aa1ed813e38}{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-B\-A\-U\-D}~0x3\-D090
+\item 
+\#define \hyperlink{a00051_a203ac5cf3a2f7ee6932c53909a2b41e8}{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-O\-L}~0x00
+\item 
+\#define \hyperlink{a00051_a8ef22e1c92c431c764876c93a6e53f40}{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-H\-A}~0x01
+\item 
+\#define \hyperlink{a00051_aaf3e602cf02d489821651ca9ee6774ea}{S\-P\-I\-\_\-\-F\-F\-R\-X\-\_\-\-I\-N\-T\-L\-V\-L}~0x01
+\item 
+\#define \hyperlink{a00051_a2e13bd89cf02fafba0287ffca964b102}{S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-I\-N\-T\-L\-V\-L}~0x00
+\item 
+\#define \hyperlink{a00051_a38b4bec17e21d86050db6fa1f5ec6f33}{S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-V\-L}~0x04
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{a00051_afb5b84cea8395f82ed709dbd8dcc82ce}{spi\-Mode} \hyperlink{a00051_a6707561b1d595f87f0cf027cdc4f262d}{spi\-Mode}
+\item 
+typedef enum \hyperlink{a00051_ab94a5ba6760c1a12ee032dd12fffd6a3}{spi\-Lpbk} \hyperlink{a00051_a2709984dcd2ad90d6c4066b0d8d0769a}{spi\-Lpbk}
+\item 
+typedef enum \hyperlink{a00051_ab694d7b7f6041ac353aa1475e9c39ddc}{trans\-Pol} \hyperlink{a00051_a9d877f7feaeca9d2393e8dbae1aca73d}{trans\-Pol}
+\item 
+typedef enum \hyperlink{a00051_a0701b982f4dc80e47f32c3419a27f1d9}{spi\-C\-Pha} \hyperlink{a00051_aed8a0ae18613612fe7700f5da26144ba}{spi\-C\-Pha}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{a00051_afb5b84cea8395f82ed709dbd8dcc82ce}{spi\-Mode} 
+\item 
+enum \hyperlink{a00051_ab94a5ba6760c1a12ee032dd12fffd6a3}{spi\-Lpbk} 
+\item 
+enum \hyperlink{a00051_ab694d7b7f6041ac353aa1475e9c39ddc}{trans\-Pol} 
+\item 
+enum \hyperlink{a00051_a0701b982f4dc80e47f32c3419a27f1d9}{spi\-C\-Pha} 
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \hyperlink{a00051_af60691ee5cb4ab20b305278c6e435511}{spi\-Init} (\hyperlink{a00051_afb5b84cea8395f82ed709dbd8dcc82ce}{spi\-Mode} mode, Uint32 baud, \hyperlink{a00051_ab94a5ba6760c1a12ee032dd12fffd6a3}{spi\-Lpbk} loopback, \hyperlink{a00051_ab694d7b7f6041ac353aa1475e9c39ddc}{trans\-Pol} c\-Pol, \hyperlink{a00051_a0701b982f4dc80e47f32c3419a27f1d9}{spi\-C\-Pha} c\-Pha)
+\item 
+void \hyperlink{a00051_a2a410bb43bd6e77aa27484add35a009d}{spi\-Tx} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Serial peripheral interface communications functions. \begin{DoxyWarning}{Warning}
+The following bridge tracks should be cut on the T\-I C2000 Launch\-Pad X\-L P\-C\-B before S\-P\-I (or I2\-C) may be used\-: \begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf Bridge to Cut }&\PBS\centering {\bf G\-P\-I\-O }&\PBS\centering {\bf P\-C\-B Pin  }\\\cline{1-3}
+\PBS\centering J\-P5 &\PBS\centering G\-P\-I\-O32&\PBS\centering J2-\/6 \\\cline{1-3}
+\PBS\centering J\-P7 &\PBS\centering G\-P\-I\-O33&\PBS\centering J2-\/7 \\\cline{1-3}
+\PBS\centering J\-P8 &\PBS\centering G\-P\-I\-O16&\PBS\centering J6-\/7 \\\cline{1-3}
+\PBS\centering J\-P10 &\PBS\centering G\-P\-I\-O17&\PBS\centering J6-\/8 \\\cline{1-3}
+\end{TabularC}
+This should result in the following functionality\-: \begin{TabularC}{3}
+\hline
+\rowcolor{lightgray}\PBS\centering {\bf Function }&\PBS\centering {\bf G\-P\-I\-O }&\PBS\centering {\bf P\-C\-B Pin  }\\\cline{1-3}
+\PBS\centering I2\-C\-\_\-\-S\-D\-A\-A &\PBS\centering G\-P\-I\-O32&\PBS\centering J6-\/7 \\\cline{1-3}
+\PBS\centering I2\-C\-\_\-\-S\-C\-L\-A &\PBS\centering G\-P\-I\-O33&\PBS\centering J6-\/8 \\\cline{1-3}
+\PBS\centering S\-P\-I\-\_\-\-M\-O\-S\-I &\PBS\centering G\-P\-I\-O16&\PBS\centering J2-\/6 \\\cline{1-3}
+\PBS\centering S\-P\-I\-\_\-\-M\-I\-S\-O &\PBS\centering G\-P\-I\-O17&\PBS\centering J2-\/7 \\\cline{1-3}
+\PBS\centering S\-P\-I\-\_\-\-C\-L\-K &\PBS\centering G\-P\-I\-O18&\PBS\centering J1-\/18 \\\cline{1-3}
+\PBS\centering S\-P\-I\-\_\-\-S\-T\-E &\PBS\centering G\-P\-I\-O19&\PBS\centering J2-\/1 \\\cline{1-3}
+\end{TabularC}
+
+\end{DoxyWarning}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{a00051_a02b50bd3a63177b3074b0aa1ed813e38}{\index{Spi.\-h@{Spi.\-h}!S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-B\-A\-U\-D@{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-B\-A\-U\-D}}
+\index{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-B\-A\-U\-D@{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-B\-A\-U\-D}!Spi.h@{Spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-B\-A\-U\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-B\-A\-U\-D~0x3\-D090}}\label{a00051_a02b50bd3a63177b3074b0aa1ed813e38}
+S\-P\-I default baud rate. \hypertarget{a00051_a8ef22e1c92c431c764876c93a6e53f40}{\index{Spi.\-h@{Spi.\-h}!S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-H\-A@{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-H\-A}}
+\index{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-H\-A@{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-H\-A}!Spi.h@{Spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-H\-A~0x01}}\label{a00051_a8ef22e1c92c431c764876c93a6e53f40}
+S\-P\-I default clock phase. 0 = Without delay, 1 = with delay. \hypertarget{a00051_a203ac5cf3a2f7ee6932c53909a2b41e8}{\index{Spi.\-h@{Spi.\-h}!S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-O\-L@{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-O\-L}}
+\index{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-O\-L@{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-O\-L}!Spi.h@{Spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-D\-F\-L\-T\-\_\-\-C\-P\-O\-L~0x00}}\label{a00051_a203ac5cf3a2f7ee6932c53909a2b41e8}
+S\-P\-I default clock polarity. 0 = Rising edge, 1 = falling edge. \hypertarget{a00051_aaf3e602cf02d489821651ca9ee6774ea}{\index{Spi.\-h@{Spi.\-h}!S\-P\-I\-\_\-\-F\-F\-R\-X\-\_\-\-I\-N\-T\-L\-V\-L@{S\-P\-I\-\_\-\-F\-F\-R\-X\-\_\-\-I\-N\-T\-L\-V\-L}}
+\index{S\-P\-I\-\_\-\-F\-F\-R\-X\-\_\-\-I\-N\-T\-L\-V\-L@{S\-P\-I\-\_\-\-F\-F\-R\-X\-\_\-\-I\-N\-T\-L\-V\-L}!Spi.h@{Spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-F\-F\-R\-X\-\_\-\-I\-N\-T\-L\-V\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-F\-F\-R\-X\-\_\-\-I\-N\-T\-L\-V\-L~0x01}}\label{a00051_aaf3e602cf02d489821651ca9ee6774ea}
+S\-P\-I Rx F\-I\-F\-O interrupt level. \hypertarget{a00051_a38b4bec17e21d86050db6fa1f5ec6f33}{\index{Spi.\-h@{Spi.\-h}!S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-V\-L@{S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-V\-L}}
+\index{S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-V\-L@{S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-V\-L}!Spi.h@{Spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-V\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-V\-L~0x04}}\label{a00051_a38b4bec17e21d86050db6fa1f5ec6f33}
+S\-P\-I Tx F\-I\-F\-O fill level. \hypertarget{a00051_a2e13bd89cf02fafba0287ffca964b102}{\index{Spi.\-h@{Spi.\-h}!S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-I\-N\-T\-L\-V\-L@{S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-I\-N\-T\-L\-V\-L}}
+\index{S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-I\-N\-T\-L\-V\-L@{S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-I\-N\-T\-L\-V\-L}!Spi.h@{Spi.\-h}}
+\subsubsection[{S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-I\-N\-T\-L\-V\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-F\-F\-T\-X\-\_\-\-I\-N\-T\-L\-V\-L~0x00}}\label{a00051_a2e13bd89cf02fafba0287ffca964b102}
+S\-P\-I Tx F\-I\-F\-O interrupt level. 
+
+\subsection{Typedef Documentation}
+\hypertarget{a00051_aed8a0ae18613612fe7700f5da26144ba}{\index{Spi.\-h@{Spi.\-h}!spi\-C\-Pha@{spi\-C\-Pha}}
+\index{spi\-C\-Pha@{spi\-C\-Pha}!Spi.h@{Spi.\-h}}
+\subsubsection[{spi\-C\-Pha}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf spi\-C\-Pha} {\bf spi\-C\-Pha}}}\label{a00051_aed8a0ae18613612fe7700f5da26144ba}
+A type to allow specification of the S\-P\-I clock phase setting. \hypertarget{a00051_a2709984dcd2ad90d6c4066b0d8d0769a}{\index{Spi.\-h@{Spi.\-h}!spi\-Lpbk@{spi\-Lpbk}}
+\index{spi\-Lpbk@{spi\-Lpbk}!Spi.h@{Spi.\-h}}
+\subsubsection[{spi\-Lpbk}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf spi\-Lpbk} {\bf spi\-Lpbk}}}\label{a00051_a2709984dcd2ad90d6c4066b0d8d0769a}
+A type to allows specification of the S\-P\-I loop-\/back setting. \hypertarget{a00051_a6707561b1d595f87f0cf027cdc4f262d}{\index{Spi.\-h@{Spi.\-h}!spi\-Mode@{spi\-Mode}}
+\index{spi\-Mode@{spi\-Mode}!Spi.h@{Spi.\-h}}
+\subsubsection[{spi\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf spi\-Mode} {\bf spi\-Mode}}}\label{a00051_a6707561b1d595f87f0cf027cdc4f262d}
+A type to allow specification of the S\-P\-I mode. \hypertarget{a00051_a9d877f7feaeca9d2393e8dbae1aca73d}{\index{Spi.\-h@{Spi.\-h}!trans\-Pol@{trans\-Pol}}
+\index{trans\-Pol@{trans\-Pol}!Spi.h@{Spi.\-h}}
+\subsubsection[{trans\-Pol}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf trans\-Pol} {\bf trans\-Pol}}}\label{a00051_a9d877f7feaeca9d2393e8dbae1aca73d}
+A type to allow specification of the edge transition polarity setting. 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{a00051_a0701b982f4dc80e47f32c3419a27f1d9}{\index{Spi.\-h@{Spi.\-h}!spi\-C\-Pha@{spi\-C\-Pha}}
+\index{spi\-C\-Pha@{spi\-C\-Pha}!Spi.h@{Spi.\-h}}
+\subsubsection[{spi\-C\-Pha}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf spi\-C\-Pha}}}\label{a00051_a0701b982f4dc80e47f32c3419a27f1d9}
+The possible S\-P\-I clock phase settings. \hypertarget{a00051_ab94a5ba6760c1a12ee032dd12fffd6a3}{\index{Spi.\-h@{Spi.\-h}!spi\-Lpbk@{spi\-Lpbk}}
+\index{spi\-Lpbk@{spi\-Lpbk}!Spi.h@{Spi.\-h}}
+\subsubsection[{spi\-Lpbk}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf spi\-Lpbk}}}\label{a00051_ab94a5ba6760c1a12ee032dd12fffd6a3}
+The possible S\-P\-I loop-\/back settings. \hypertarget{a00051_afb5b84cea8395f82ed709dbd8dcc82ce}{\index{Spi.\-h@{Spi.\-h}!spi\-Mode@{spi\-Mode}}
+\index{spi\-Mode@{spi\-Mode}!Spi.h@{Spi.\-h}}
+\subsubsection[{spi\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf spi\-Mode}}}\label{a00051_afb5b84cea8395f82ed709dbd8dcc82ce}
+The possible S\-P\-I Modes. \hypertarget{a00051_ab694d7b7f6041ac353aa1475e9c39ddc}{\index{Spi.\-h@{Spi.\-h}!trans\-Pol@{trans\-Pol}}
+\index{trans\-Pol@{trans\-Pol}!Spi.h@{Spi.\-h}}
+\subsubsection[{trans\-Pol}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf trans\-Pol}}}\label{a00051_ab694d7b7f6041ac353aa1475e9c39ddc}
+The possible edge transition polarity settings. 
+
+\subsection{Function Documentation}
+\hypertarget{a00051_af60691ee5cb4ab20b305278c6e435511}{\index{Spi.\-h@{Spi.\-h}!spi\-Init@{spi\-Init}}
+\index{spi\-Init@{spi\-Init}!Spi.h@{Spi.\-h}}
+\subsubsection[{spi\-Init}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 spi\-Init (
+\begin{DoxyParamCaption}
+\item[{{\bf spi\-Mode}}]{mode, }
+\item[{Uint32}]{baud, }
+\item[{{\bf spi\-Lpbk}}]{loopback, }
+\item[{{\bf trans\-Pol}}]{c\-Pol, }
+\item[{{\bf spi\-C\-Pha}}]{c\-Pha}
+\end{DoxyParamCaption}
+)}}\label{a00051_af60691ee5cb4ab20b305278c6e435511}
+Initialises the S\-P\-I-\/\-A peripheral and relevant interrupts 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & Specifies if the device is in slave or master mode, values are master or slave. \\
+\hline
+\mbox{\tt in}  & {\em baud} & Specifies the baud rate to be used minimum value is 117,187, maximum is 3,750,000 \\
+\hline
+\mbox{\tt in}  & {\em loopback} & Specifies if the S\-P\-I module should be run in loop-\/back mode, values are enable or disable. \\
+\hline
+\mbox{\tt in}  & {\em c\-Pol} & Specifies the clock polarity, values are rising\-Edge or falling\-Edge. \\
+\hline
+\mbox{\tt in}  & {\em c\-Pha} & Specifies the clock phase, values are with\-Delay or without\-Delay. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+This function will clear any values already in the S\-P\-I peripheral registers. 
+
+This function M\-U\-S\-T be called before any other public S\-P\-I function. 
+\end{DoxyWarning}
+\hypertarget{a00051_a2a410bb43bd6e77aa27484add35a009d}{\index{Spi.\-h@{Spi.\-h}!spi\-Tx@{spi\-Tx}}
+\index{spi\-Tx@{spi\-Tx}!Spi.h@{Spi.\-h}}
+\subsubsection[{spi\-Tx}]{\setlength{\rightskip}{0pt plus 5cm}void spi\-Tx (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00051_a2a410bb43bd6e77aa27484add35a009d}
+Transmits whatever data is on the S\-C\-P\-I output queue if S\-P\-I has been selected as the external communications type. 
