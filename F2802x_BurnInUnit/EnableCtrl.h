@@ -88,7 +88,7 @@ typedef enum ecSection circuitSection;
 
 #define ALL_DISABLED_WORD (~(0 | (CHAN1_EN_STATE << chan1) | (CHAN2_EN_STATE << chan2) | (CHAN3_EN_STATE << chan3) \
 							   | (CHAN4_EN_STATE << chan4) | (XFMR_EN_STATE << xfmrCct) | (AC_EN_STATE << acCct) \
-							   | (PSU_EN_STATE << psu) | (EXTFAN_EN_STATE << fan))) & 0x00FF
+							   | (PSU_EN_STATE << psu) | (EXTFAN_EN_STATE << fan))) & 0x00FF /**< Uses the defined states to create a definition for the case where all circuits are disabled */
 
 /** Initialises the enable control interface.
  * The I2C peripheral MUST be initialised before this function is used.

@@ -68,34 +68,38 @@ void resetEnableControl (void) {
 
 Uint16 enableCircuit(circuitSection section) {
 	Uint16 err = 0, msk = 1;
-						/* Ensure channel is valid */
-	if (section >= maxchan)
+	if (section >= maxchan)	/* Ensure channel is valid */
 		return CHANNEL_OOB;
-						/* Set the related bit in the current GPIO state */
-	msk = crntState | (msk << (section));
-						/* Send the new GPIO state */
+							/* Enable the related bit in the current GPIO state */
+	if (ALL_DISABLED_WORD & (1 << section))
+		msk = crntState & ~(msk << section);
+	else
+		msk = crntState | (msk << section);
+							/* Send the new GPIO state */
 	i2cPopMsg(&i2cMsgOutEC, I2C_MSGSTAT_SEND_WITHSTOP, IOE_I2C_ADDR, 1, 1, 0, IOE_GPIO_ADDR);
 	i2cMsgOutEC.msgBuffer[0] = msk;
 	err = i2cWrite(&i2cMsgOutEC);
 	if (err)
 		return err;
-	crntState = msk;	/* Update the current GPIO state record */
+	crntState = msk;		/* Update the current GPIO state record */
 	return 0;
 }
 
 Uint16 disableCircuit (circuitSection section) {
 	Uint16 err = 0, msk = 1;
-						/* Ensure channel is valid */
-	if (section >= maxchan)
+	if (section >= maxchan)	/* Ensure channel is valid */
 			return CHANNEL_OOB;
-						/* Clear the related bit in the current GPIO state */
-	msk = crntState & ~(msk << (section));
-						/* Send the new GPIO state */
+							/* Disable the related bit in the current GPIO state */
+	if (ALL_DISABLED_WORD & (1 << section))
+		msk = crntState | (msk << section);
+	else
+		msk = crntState & ~(msk << (section));
+							/* Send the new GPIO state */
 	i2cPopMsg(&i2cMsgOutEC, I2C_MSGSTAT_SEND_WITHSTOP, IOE_I2C_ADDR, 1, 1, 0, IOE_GPIO_ADDR);
 	i2cMsgOutEC.msgBuffer[0] = msk;
 	err = i2cWrite(&i2cMsgOutEC);
 	if (err)
 		return err;
-	crntState = msk;	/* Update the current GPIO state record */
+	crntState = msk;		/* Update the current GPIO state record */
 	return 0;
 }
