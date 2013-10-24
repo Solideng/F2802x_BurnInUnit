@@ -240,7 +240,7 @@ void runAll (void) {
 	enableCircuit(chan2);
 	enableCircuit(chan3);
 	enableCircuit(chan4);
-	enableCircuit(hvCct);
+	enableCircuit(xfmrCct);
 	enableCircuit(acCct);
 	enableCircuit(psu);
 							/* Flag each stage as enabled. */

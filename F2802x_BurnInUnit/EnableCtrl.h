@@ -19,6 +19,17 @@
  *
  * @sa initI2c()
  *
+ * |ADS7830 Ch #| Signal 	| Enable bit#   | Enable state	|
+ * |:----------:|:---------:|:-------------:|:-------------:|
+ * | GP0 		| CHAN1EN	| 0				| 1				|
+ * | GP1 		| CHAN2EN	| 1				| 1				|
+ * | GP2 		| CHAN3EN	| 2				| 1				|
+ * | GP3 		| CHAN4EN	| 3				| 1				|
+ * | GP4 		| HVENABLE	| 4				| 0				|
+ * | GP5 		| ACENABLE	| 5				| 1				|
+ * | GP6 		| PSUENBLE	| 6				| 1				|
+ * | GP7 		| EXTFANEN	| 7				| 1				|
+ *
  */
 
 #ifndef ENABLECTRL_H_
@@ -31,13 +42,6 @@
 #define IOE_SW4A_STATE 		0x00	/**< The state of switch 4a; ON = 0x01, OFF = 0x00. */
 #define IOE_SW4B_STATE 		0x00	/**< The state of switch 4b; ON = 0x01, OFF = 0x00. */
 #define IOE_I2C_BASE_ADDR	0x20	/**< MCP23008 I/O expander base I2C address. */
-
-#if !defined IOE_I2C_BASE_ADDR || !defined IOE_SW4A_STATE || !defined IOE_SW4B_STATE	/* Check the device address has been set properly. */
-	#error "The enable control (MCP23008) I2C address has not been correctly specified."
-#else
-	#define IOE_I2C_ADDR 	(IOE_I2C_BASE_ADDR | (IOE_SW4A_STATE << 2)) | (IOE_SW4B_STATE << 3)	/**< MCP23008 I/O expander complete I2C address. */
-#endif
-
 #define	IOE_IODIR_ADDR		0x00	/**< MCP23008 I/O expander I/O direction register address. */
 #define IOE_IPOL_ADDR		0x01	/**< MCP23008 I/O expander input polarity register address. */
 #define IOE_GPINTEN_ADDR	0x02	/**< MCP23008 I/O expander interrupt on change enable register address. */
@@ -51,13 +55,19 @@
 #define IOE_OLAT_ADDR		0x0A	/**< MCP23008 I/O expander output latch register address. */
 #define IOE_MAX_CHNL 		0x08	/**< MCP23008 I/O expander number of channels (0 - 7). */
 
-/** The possible enable control circuit section selections. */
+#if !defined IOE_I2C_BASE_ADDR || !defined IOE_SW4A_STATE || !defined IOE_SW4B_STATE	/* Check the device address has been set properly. */
+	#error "The enable control (MCP23008) I2C address has not been correctly specified."
+#else
+	#define IOE_I2C_ADDR 	(IOE_I2C_BASE_ADDR | (IOE_SW4A_STATE << 2)) | (IOE_SW4B_STATE << 3)	/**< MCP23008 I/O expander complete I2C address. */
+#endif
+
+/** The possible enable control circuit section selections. Also defines bit order. */
 enum ecSection {
 	chan1 = 0,
 	chan2 = 1,
 	chan3 = 2,
 	chan4 = 3,
-	hvCct = 4,
+	xfmrCct = 4,
 	acCct = 5,
 	psu = 6,
 	fan = 7,
@@ -66,6 +76,19 @@ enum ecSection {
 
 /**  A type that allow specification of an enable control circuit section. */
 typedef enum ecSection circuitSection;
+
+#define CHAN1_EN_STATE 	0x01	/** The state required to disable the channel 1 circuit. */
+#define CHAN2_EN_STATE 	0x01	/** The state required to disable the channel 2 circuit. */
+#define CHAN3_EN_STATE 	0x01	/** The state required to disable the channel 3 circuit. */
+#define CHAN4_EN_STATE 	0x01	/** The state required to disable the channel 4 circuit. */
+#define XFMR_EN_STATE 	0x00	/** The state required to disable the transformer circuit. */
+#define AC_EN_STATE 	0x01	/** The state required to disable the AC circuit. */
+#define PSU_EN_STATE 	0x01	/** The state required to disable the PSU circuit. */
+#define EXTFAN_EN_STATE 0x01	/** The state required to disable the external fan circuit. */
+
+#define ALL_DISABLED_WORD (~(0 | (CHAN1_EN_STATE << chan1) | (CHAN2_EN_STATE << chan2) | (CHAN3_EN_STATE << chan3) \
+							   | (CHAN4_EN_STATE << chan4) | (XFMR_EN_STATE << xfmrCct) | (AC_EN_STATE << acCct) \
+							   | (PSU_EN_STATE << psu) | (EXTFAN_EN_STATE << fan))) & 0x00FF
 
 /** Initialises the enable control interface.
  * The I2C peripheral MUST be initialised before this function is used.

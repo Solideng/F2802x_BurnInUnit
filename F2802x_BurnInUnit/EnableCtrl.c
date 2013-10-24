@@ -43,7 +43,7 @@ Uint16 initEnableControl (void) {
 		return err;
 
 	i2cPopMsg(&i2cMsgOutEC, I2C_MSGSTAT_SEND_WITHSTOP, IOE_I2C_ADDR, 1, 1, 0, IOE_OLAT_ADDR);
-	i2cMsgOutEC.msgBuffer[0] = 0x00;		/* GPIO: All outputs OFF */
+	i2cMsgOutEC.msgBuffer[0] = ALL_DISABLED_WORD; /* GPIO: All outputs OFF */
 	err = i2cWrite(&i2cMsgOutEC);
 	if (err)
 		return err;

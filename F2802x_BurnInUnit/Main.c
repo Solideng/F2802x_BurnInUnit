@@ -23,6 +23,10 @@
  * Note: "Rebuild All" compile must be used if this file is modified.
  *============================================================================*/
 
+/* R2 H/W Issues:
+ *  - XFMR PCB - 12VIN not connected to 12V track.
+ */
+
 /*
  * If the TI C2000 LaunchPad is to be powered by a source
  * other than the USB connection the jumpers JP1, JP2 and
@@ -69,7 +73,6 @@ void MemCopy();
 extern Uint16 *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart; /* Used for running BackGround in flash, and ISR in RAM */
 /*============================ MAIN CODE - starts here ===========================*/
 void main (void) {
-
 	DeviceInit();			/* Device life support & GPIO */
 	#ifdef FLASH
 							/* Copy time critical code and Flash setup code to RAM */
@@ -112,12 +115,7 @@ void main (void) {
 							/* Setup macros and the hardware they use */
 	initPwm();				/* Initialise PWM macros */
 	initAdc();				/* Initialise the ADCs macros */
-							/* Initialise the sine generator macro */
-	if (slaveModeStatus == slaveUnit)
-		initSine(FALSE);
-	else
-		initSine(TRUE);
-
+	initSine(slaveModeStatus);	/* Initialise the sine generator macro */
 	initCoefs();			/* Initialise the IIR control loop coefficient values */
 	initDcComparator();		/* Initialise the comparators */
 	initAcComparator();
@@ -135,7 +133,7 @@ void main (void) {
 	initEnableControl();	/* Initialise the external boost converter enable control */
 
 	//=============== TEST CODE ===============
-	enableCircuit(hvCct);
+	enableCircuit(xfmrCct);
 	//============= END TEST CODE =============
 
 	for(;;)					/* BACKGROUND (BG) LOOP */
