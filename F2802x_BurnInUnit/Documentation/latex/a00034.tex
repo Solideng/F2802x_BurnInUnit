@@ -1,206 +1,397 @@
-\hypertarget{a00034}{\section{Slew\-Control.\-h File Reference}
-\label{a00034}\index{Slew\-Control.\-h@{Slew\-Control.\-h}}
+\hypertarget{a00034}{\section{Otp.\-h File Reference}
+\label{a00034}\index{Otp.\-h@{Otp.\-h}}
 }
 
 
-Slew control functions.  
+Over-\/temperature protection functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=156pt]{a00056}
+\includegraphics[width=144pt]{a00069}
 \end{center}
 \end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00034_a720054d07475f46293498641ca147dec}{L\-O\-A\-D1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}~1
+\item 
+\#define \hyperlink{a00034_a6a57d6c23509cd22be3a64fc25867f08}{L\-O\-A\-D2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}~2
+\item 
+\#define \hyperlink{a00034_a38b67fb04c7a94aea1d7a6cd71dcbdfb}{L\-O\-A\-D3\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}~4
+\item 
+\#define \hyperlink{a00034_a11dc13a3236e2a227537278ccd45390d}{L\-O\-A\-D4\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}~8
+\item 
+\#define \hyperlink{a00034_aabece239f4e25bd4b48f0535ff667c46}{D\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}~16
+\item 
+\#define \hyperlink{a00034_ab40204e9c76cfcc0d9f892050440e2e9}{R\-S\-R\-V\-D\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}~32
+\item 
+\#define \hyperlink{a00034_a339a1358cf8dfd3ea7a81342bb32d399}{A\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}~64
+\item 
+\#define \hyperlink{a00034_a91ac28ba381b421811645935e398c8c4}{E\-X\-T1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}~128
+\item 
+\#define \hyperlink{a00034_acb47b2c45d5513cb21e25ae252a7bec1}{E\-X\-T2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}~256
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{a00034_a8f8f2b1ef59b7fa90122e5609e24cd06}{sc\-Slew\-Update} (void)
+Uint16 \hyperlink{a00034_af106c65ecd7a27b0af61e108d09e330f}{set\-Load\-Otp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 level)
 \item 
-Uint16 \hyperlink{a00034_acd4f1d77c353f333438ae688a9bcc8fe}{sc\-Set\-Target} (Uint16 chnl, float32 trgt)
+Uint16 \hyperlink{a00034_a0f019d8375281a322e2b136f367d9f73}{get\-Load\-Otp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 $\ast$level)
 \item 
-Uint16 \hyperlink{a00034_a91e197a77f8f6c05dc478431164114a4}{sc\-Set\-Step} (Uint16 chnl, float32 stp)
+Uint16 \hyperlink{a00034_ac41af2b33ac4b5ac6552ed797a71b25d}{check\-Load\-Otp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
 \item 
-Uint16 \hyperlink{a00034_a92578a062af02eb967ca2dfbd68b00cf}{sc\-Set\-State} (Uint16 chnl, Uint16 stt)
+Uint16 \hyperlink{a00034_ac26e4a57e49a8a0dbb58aa993a26e6c3}{get\-Load\-Otp\-State} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
 \item 
-Uint16 \hyperlink{a00034_a1e7d07e1a6d9b1e40b1b39d97df638b9}{sc\-Set\-Target\-All} (float32 trgt)
+Uint16 \hyperlink{a00034_a8c4197a002661d8a8fc0ee4367c98caa}{clear\-Load\-Otp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
 \item 
-Uint16 \hyperlink{a00034_a2dbe145695a65570ebc1ff5588e08a18}{sc\-Set\-Step\-All} (float32 stp)
+Uint16 \hyperlink{a00034_a99d17f52bec6b23581f05149a21b8d7a}{set\-Dc\-Otp} (float32 level)
 \item 
-Uint16 \hyperlink{a00034_af4b016a1a10639dfeca7af4f750d8c75}{sc\-Set\-State\-All} (Uint16 stt)
+Uint16 \hyperlink{a00034_ade095cc31020c7d4afeebe83ca8e52ea}{get\-Dc\-Otp} (float32 $\ast$level)
 \item 
-Uint16 \hyperlink{a00034_ab83b8f320a4bf9e8ea1a251fec458032}{sc\-Get\-Target} (Uint16 chnl, float32 $\ast$trgt\-Dest)
+Uint16 \hyperlink{a00034_a66c1d5f4705adf4b8947c6760d6c3e88}{check\-Dc\-Otp} (void)
 \item 
-Uint16 \hyperlink{a00034_adac64f58de9a029d849e0df2962bad16}{sc\-Get\-Step} (Uint16 chnl, float32 $\ast$stp\-Dest)
+Uint16 \hyperlink{a00034_a8f738c9c764f982075747c4561937580}{get\-Dc\-Otp\-State} (void)
 \item 
-Uint16 \hyperlink{a00034_a77a235d70df3aff6a742ff375bd45119}{sc\-Get\-State} (Uint16 chnl, Uint16 $\ast$stt\-Dest)
+Uint16 \hyperlink{a00034_a1058c22a8c169984c8c615fec65064a4}{clear\-Dc\-Otp} (void)
+\item 
+Uint16 \hyperlink{a00034_a15a820aa2efc9b533c12b1a444f031fb}{set\-Ac\-Otp} (float32 level)
+\item 
+Uint16 \hyperlink{a00034_ab590c612ea9a7827859e0c100623e338}{get\-Ac\-Otp} (float32 $\ast$level)
+\item 
+Uint16 \hyperlink{a00034_aa88957137245403b79608032a773d6fe}{check\-Ac\-Otp} (void)
+\item 
+Uint16 \hyperlink{a00034_a17dc5aa8abd3776b8bea4283e69cfb93}{get\-Ac\-Otp\-State} (void)
+\item 
+Uint16 \hyperlink{a00034_ad65b5cbf773b35ebd01a88885a8f7ece}{clear\-Ac\-Otp} (void)
+\item 
+Uint16 \hyperlink{a00034_a6790a4babfd805b692a2410d6920fc13}{set\-Ext\-Otp} (\hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} ext, float32 level)
+\item 
+Uint16 \hyperlink{a00034_a3e177278b2eba8404cda5240902c9cf8}{get\-Ext\-Otp} (\hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} ext, float32 $\ast$level)
+\item 
+Uint16 \hyperlink{a00034_a3bf6ccb465aa4c60464dece3f4bb2dcc}{check\-Ext\-Otp} (\hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} ext)
+\item 
+Uint16 \hyperlink{a00034_a4b40fa3df1da35063225d79c83e85a0c}{get\-Ext\-Otp\-State} (\hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} ext)
+\item 
+Uint16 \hyperlink{a00034_a6444030799cca288f6ac6925a6b4171a}{clear\-Ext\-Otp} (\hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} ext)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Slew control functions. 
+Over-\/temperature protection functions. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{a00034_a339a1358cf8dfd3ea7a81342bb32d399}{\index{Otp.\-h@{Otp.\-h}!A\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{A\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}}
+\index{A\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{A\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}!Otp.h@{Otp.\-h}}
+\subsubsection[{A\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P~64}}\label{a00034_a339a1358cf8dfd3ea7a81342bb32d399}
+O\-T\-P flag register A\-C bit. \hypertarget{a00034_aabece239f4e25bd4b48f0535ff667c46}{\index{Otp.\-h@{Otp.\-h}!D\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{D\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}}
+\index{D\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{D\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}!Otp.h@{Otp.\-h}}
+\subsubsection[{D\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P~16}}\label{a00034_aabece239f4e25bd4b48f0535ff667c46}
+O\-T\-P flag register D\-C bit. \hypertarget{a00034_a91ac28ba381b421811645935e398c8c4}{\index{Otp.\-h@{Otp.\-h}!E\-X\-T1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{E\-X\-T1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}}
+\index{E\-X\-T1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{E\-X\-T1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}!Otp.h@{Otp.\-h}}
+\subsubsection[{E\-X\-T1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-X\-T1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P~128}}\label{a00034_a91ac28ba381b421811645935e398c8c4}
+O\-T\-P flag register external 1 bit. \hypertarget{a00034_acb47b2c45d5513cb21e25ae252a7bec1}{\index{Otp.\-h@{Otp.\-h}!E\-X\-T2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{E\-X\-T2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}}
+\index{E\-X\-T2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{E\-X\-T2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}!Otp.h@{Otp.\-h}}
+\subsubsection[{E\-X\-T2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-X\-T2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P~256}}\label{a00034_acb47b2c45d5513cb21e25ae252a7bec1}
+O\-T\-P flag register external 2 bit. \hypertarget{a00034_a720054d07475f46293498641ca147dec}{\index{Otp.\-h@{Otp.\-h}!L\-O\-A\-D1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}!Otp.h@{Otp.\-h}}
+\subsubsection[{L\-O\-A\-D1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D1\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P~1}}\label{a00034_a720054d07475f46293498641ca147dec}
+O\-T\-P flag register load 1 bit. \hypertarget{a00034_a6a57d6c23509cd22be3a64fc25867f08}{\index{Otp.\-h@{Otp.\-h}!L\-O\-A\-D2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}!Otp.h@{Otp.\-h}}
+\subsubsection[{L\-O\-A\-D2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D2\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P~2}}\label{a00034_a6a57d6c23509cd22be3a64fc25867f08}
+O\-T\-P flag register load 2 bit. \hypertarget{a00034_a38b67fb04c7a94aea1d7a6cd71dcbdfb}{\index{Otp.\-h@{Otp.\-h}!L\-O\-A\-D3\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D3\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D3\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D3\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}!Otp.h@{Otp.\-h}}
+\subsubsection[{L\-O\-A\-D3\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D3\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P~4}}\label{a00034_a38b67fb04c7a94aea1d7a6cd71dcbdfb}
+O\-T\-P flag register load 3 bit. \hypertarget{a00034_a11dc13a3236e2a227537278ccd45390d}{\index{Otp.\-h@{Otp.\-h}!L\-O\-A\-D4\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D4\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D4\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D4\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}!Otp.h@{Otp.\-h}}
+\subsubsection[{L\-O\-A\-D4\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D4\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P~8}}\label{a00034_a11dc13a3236e2a227537278ccd45390d}
+O\-T\-P flag register load 4 bit. \hypertarget{a00034_ab40204e9c76cfcc0d9f892050440e2e9}{\index{Otp.\-h@{Otp.\-h}!R\-S\-R\-V\-D\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{R\-S\-R\-V\-D\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}}
+\index{R\-S\-R\-V\-D\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P@{R\-S\-R\-V\-D\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}!Otp.h@{Otp.\-h}}
+\subsubsection[{R\-S\-R\-V\-D\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-S\-R\-V\-D\-\_\-\-O\-T\-P\-\_\-\-T\-R\-I\-P~32}}\label{a00034_ab40204e9c76cfcc0d9f892050440e2e9}
+Reserved bit. 
 
 \subsection{Function Documentation}
-\hypertarget{a00034_a77a235d70df3aff6a742ff375bd45119}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Get\-State@{sc\-Get\-State}}
-\index{sc\-Get\-State@{sc\-Get\-State}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Get\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Get\-State (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{chnl, }
-\item[{Uint16 $\ast$}]{stt\-Dest}
-\end{DoxyParamCaption}
-)}}\label{a00034_a77a235d70df3aff6a742ff375bd45119}
-Queries the current reference net enable state for the specified channel. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be read from. \\
-\hline
-\mbox{\tt out}  & {\em stt\-Dest} & Address of the memory location at which to place the query result (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00034_adac64f58de9a029d849e0df2962bad16}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Get\-Step@{sc\-Get\-Step}}
-\index{sc\-Get\-Step@{sc\-Get\-Step}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Get\-Step}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Get\-Step (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{chnl, }
-\item[{float32 $\ast$}]{stp\-Dest}
-\end{DoxyParamCaption}
-)}}\label{a00034_adac64f58de9a029d849e0df2962bad16}
-Queries the current slew step size of the specified channel. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be read from. \\
-\hline
-\mbox{\tt out}  & {\em stp\-Dest} & Address of the memory location at which to place the query result (amps or volts). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00034_ab83b8f320a4bf9e8ea1a251fec458032}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Get\-Target@{sc\-Get\-Target}}
-\index{sc\-Get\-Target@{sc\-Get\-Target}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Get\-Target}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Get\-Target (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{chnl, }
-\item[{float32 $\ast$}]{trgt\-Dest}
-\end{DoxyParamCaption}
-)}}\label{a00034_ab83b8f320a4bf9e8ea1a251fec458032}
-Queries the current slew target setting for the specified channel. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be read from. \\
-\hline
-\mbox{\tt out}  & {\em trgt\-Dest} & Address of the memory location at which to place the query result (amps or volts). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00034_a92578a062af02eb967ca2dfbd68b00cf}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-State@{sc\-Set\-State}}
-\index{sc\-Set\-State@{sc\-Set\-State}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Set\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-State (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{chnl, }
-\item[{Uint16}]{stt}
-\end{DoxyParamCaption}
-)}}\label{a00034_a92578a062af02eb967ca2dfbd68b00cf}
-Sets the reference net enable state for the specified channel. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be applied to. \\
-\hline
-\mbox{\tt in}  & {\em stt} & Specifies the reference net state to be applied (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error Status. 
-\end{DoxyReturn}
-\hypertarget{a00034_af4b016a1a10639dfeca7af4f750d8c75}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-State\-All@{sc\-Set\-State\-All}}
-\index{sc\-Set\-State\-All@{sc\-Set\-State\-All}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Set\-State\-All}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-State\-All (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{stt}
-\end{DoxyParamCaption}
-)}}\label{a00034_af4b016a1a10639dfeca7af4f750d8c75}
-Sets all channels' reference net enable state. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em stt} & Specifies the refernce net state to be applied (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00034_a91e197a77f8f6c05dc478431164114a4}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Step@{sc\-Set\-Step}}
-\index{sc\-Set\-Step@{sc\-Set\-Step}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Set\-Step}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-Step (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{chnl, }
-\item[{float32}]{stp}
-\end{DoxyParamCaption}
-)}}\label{a00034_a91e197a77f8f6c05dc478431164114a4}
-Sets the slew step size for the specified channel. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be applied to. \\
-\hline
-\mbox{\tt in}  & {\em stp} & Specifies the value of the slew step size to be applied (amps or volts). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00034_a2dbe145695a65570ebc1ff5588e08a18}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Step\-All@{sc\-Set\-Step\-All}}
-\index{sc\-Set\-Step\-All@{sc\-Set\-Step\-All}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Set\-Step\-All}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-Step\-All (
-\begin{DoxyParamCaption}
-\item[{float32}]{stp}
-\end{DoxyParamCaption}
-)}}\label{a00034_a2dbe145695a65570ebc1ff5588e08a18}
-Sets all channels' slew step size. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em stp} & Specifies the value of the slew step size to be applied (amps or volts). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00034_acd4f1d77c353f333438ae688a9bcc8fe}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Target@{sc\-Set\-Target}}
-\index{sc\-Set\-Target@{sc\-Set\-Target}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Set\-Target}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-Target (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{chnl, }
-\item[{float32}]{trgt}
-\end{DoxyParamCaption}
-)}}\label{a00034_acd4f1d77c353f333438ae688a9bcc8fe}
-Sets the slew target for the specified channel. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em chnl} & Specifies the channel the setting is to be applied to. \\
-\hline
-\mbox{\tt in}  & {\em trgt} & Specifies the value of the slew target to be applied (amps or volts). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00034_a1e7d07e1a6d9b1e40b1b39d97df638b9}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Target\-All@{sc\-Set\-Target\-All}}
-\index{sc\-Set\-Target\-All@{sc\-Set\-Target\-All}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Set\-Target\-All}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-Target\-All (
-\begin{DoxyParamCaption}
-\item[{float32}]{trgt}
-\end{DoxyParamCaption}
-)}}\label{a00034_a1e7d07e1a6d9b1e40b1b39d97df638b9}
-Sets all channels' slew target 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em trgt} & Specifies the value of the slew target to be applied (amps or volts). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00034_a8f8f2b1ef59b7fa90122e5609e24cd06}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Slew\-Update@{sc\-Slew\-Update}}
-\index{sc\-Slew\-Update@{sc\-Slew\-Update}!SlewControl.h@{Slew\-Control.\-h}}
-\subsubsection[{sc\-Slew\-Update}]{\setlength{\rightskip}{0pt plus 5cm}void sc\-Slew\-Update (
+\hypertarget{a00034_aa88957137245403b79608032a773d6fe}{\index{Otp.\-h@{Otp.\-h}!check\-Ac\-Otp@{check\-Ac\-Otp}}
+\index{check\-Ac\-Otp@{check\-Ac\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{check\-Ac\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 check\-Ac\-Otp (
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
-)}}\label{a00034_a8f8f2b1ef59b7fa90122e5609e24cd06}
-Advances the slew ramps for all relevant channels. Does not apply to channels that use sine references 
+)}}\label{a00034_aa88957137245403b79608032a773d6fe}
+Checks the temperature reading of the A\-C stage against the A\-C O\-T\-P limit. Raises the A\-C O\-T\-P flag if the reading is above the limit. \begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00034_a66c1d5f4705adf4b8947c6760d6c3e88}{\index{Otp.\-h@{Otp.\-h}!check\-Dc\-Otp@{check\-Dc\-Otp}}
+\index{check\-Dc\-Otp@{check\-Dc\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{check\-Dc\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 check\-Dc\-Otp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00034_a66c1d5f4705adf4b8947c6760d6c3e88}
+Checks the temperature reading of the D\-C stage against the D\-C O\-T\-P limit. Raises the D\-C O\-T\-P flag if the reading is above the limit. \begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00034_a3bf6ccb465aa4c60464dece3f4bb2dcc}{\index{Otp.\-h@{Otp.\-h}!check\-Ext\-Otp@{check\-Ext\-Otp}}
+\index{check\-Ext\-Otp@{check\-Ext\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{check\-Ext\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 check\-Ext\-Otp (
+\begin{DoxyParamCaption}
+\item[{{\bf ext\-Select}}]{ext}
+\end{DoxyParamCaption}
+)}}\label{a00034_a3bf6ccb465aa4c60464dece3f4bb2dcc}
+Checks the temperature reading of the specified external sensor against the sensor O\-T\-P limit. Raises the load O\-T\-P flag if the reading is above the limit. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ext} & Specifies the sensor on which the setting is to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00034_ac41af2b33ac4b5ac6552ed797a71b25d}{\index{Otp.\-h@{Otp.\-h}!check\-Load\-Otp@{check\-Load\-Otp}}
+\index{check\-Load\-Otp@{check\-Load\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{check\-Load\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 check\-Load\-Otp (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load}
+\end{DoxyParamCaption}
+)}}\label{a00034_ac41af2b33ac4b5ac6552ed797a71b25d}
+Checks the temperature reading of the specified load against the load O\-T\-P limit. Raises the load O\-T\-P flag if the reading is above the limit. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load on which the reading is to be tested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00034_ad65b5cbf773b35ebd01a88885a8f7ece}{\index{Otp.\-h@{Otp.\-h}!clear\-Ac\-Otp@{clear\-Ac\-Otp}}
+\index{clear\-Ac\-Otp@{clear\-Ac\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{clear\-Ac\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Ac\-Otp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00034_ad65b5cbf773b35ebd01a88885a8f7ece}
+Clears the A\-C stage O\-T\-P state. \begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_a1058c22a8c169984c8c615fec65064a4}{\index{Otp.\-h@{Otp.\-h}!clear\-Dc\-Otp@{clear\-Dc\-Otp}}
+\index{clear\-Dc\-Otp@{clear\-Dc\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{clear\-Dc\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Dc\-Otp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00034_a1058c22a8c169984c8c615fec65064a4}
+Clears the D\-C stage O\-T\-P state. \begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_a6444030799cca288f6ac6925a6b4171a}{\index{Otp.\-h@{Otp.\-h}!clear\-Ext\-Otp@{clear\-Ext\-Otp}}
+\index{clear\-Ext\-Otp@{clear\-Ext\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{clear\-Ext\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Ext\-Otp (
+\begin{DoxyParamCaption}
+\item[{{\bf ext\-Select}}]{ext}
+\end{DoxyParamCaption}
+)}}\label{a00034_a6444030799cca288f6ac6925a6b4171a}
+Clears the O\-T\-P state for the specified external sensor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ext} & Specifies the external sensor for which the O\-T\-P state is to be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_a8c4197a002661d8a8fc0ee4367c98caa}{\index{Otp.\-h@{Otp.\-h}!clear\-Load\-Otp@{clear\-Load\-Otp}}
+\index{clear\-Load\-Otp@{clear\-Load\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{clear\-Load\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Load\-Otp (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load}
+\end{DoxyParamCaption}
+)}}\label{a00034_a8c4197a002661d8a8fc0ee4367c98caa}
+Clears the O\-T\-P state for the specified load. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load for which the O\-T\-P state is to be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_ab590c612ea9a7827859e0c100623e338}{\index{Otp.\-h@{Otp.\-h}!get\-Ac\-Otp@{get\-Ac\-Otp}}
+\index{get\-Ac\-Otp@{get\-Ac\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Ac\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ac\-Otp (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$}]{level}
+\end{DoxyParamCaption}
+)}}\label{a00034_ab590c612ea9a7827859e0c100623e338}
+Queries the over temperature protection level for the A\-C stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em level} & Pointer to location at which to place the query result ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_a17dc5aa8abd3776b8bea4283e69cfb93}{\index{Otp.\-h@{Otp.\-h}!get\-Ac\-Otp\-State@{get\-Ac\-Otp\-State}}
+\index{get\-Ac\-Otp\-State@{get\-Ac\-Otp\-State}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Ac\-Otp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ac\-Otp\-State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00034_a17dc5aa8abd3776b8bea4283e69cfb93}
+Queries the state of the A\-C O\-T\-P flag. \begin{DoxyReturn}{Returns}
+True if O\-T\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00034_ade095cc31020c7d4afeebe83ca8e52ea}{\index{Otp.\-h@{Otp.\-h}!get\-Dc\-Otp@{get\-Dc\-Otp}}
+\index{get\-Dc\-Otp@{get\-Dc\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Dc\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Otp (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$}]{level}
+\end{DoxyParamCaption}
+)}}\label{a00034_ade095cc31020c7d4afeebe83ca8e52ea}
+Queries the over current protection level for the D\-C stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em level} & Pointer to location at which to place the query result ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_a8f738c9c764f982075747c4561937580}{\index{Otp.\-h@{Otp.\-h}!get\-Dc\-Otp\-State@{get\-Dc\-Otp\-State}}
+\index{get\-Dc\-Otp\-State@{get\-Dc\-Otp\-State}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Dc\-Otp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Otp\-State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00034_a8f738c9c764f982075747c4561937580}
+Queries the state of the D\-C O\-T\-P flag. \begin{DoxyReturn}{Returns}
+True if O\-T\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00034_a3e177278b2eba8404cda5240902c9cf8}{\index{Otp.\-h@{Otp.\-h}!get\-Ext\-Otp@{get\-Ext\-Otp}}
+\index{get\-Ext\-Otp@{get\-Ext\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Ext\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ext\-Otp (
+\begin{DoxyParamCaption}
+\item[{{\bf ext\-Select}}]{ext, }
+\item[{float32 $\ast$}]{level}
+\end{DoxyParamCaption}
+)}}\label{a00034_a3e177278b2eba8404cda5240902c9cf8}
+Queries the over temperature protection level for the specified external sensor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ext} & Specifies the external sensor on which the setting is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em level} & Pointer to location at which to place the query result ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_a4b40fa3df1da35063225d79c83e85a0c}{\index{Otp.\-h@{Otp.\-h}!get\-Ext\-Otp\-State@{get\-Ext\-Otp\-State}}
+\index{get\-Ext\-Otp\-State@{get\-Ext\-Otp\-State}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Ext\-Otp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ext\-Otp\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf ext\-Select}}]{ext}
+\end{DoxyParamCaption}
+)}}\label{a00034_a4b40fa3df1da35063225d79c83e85a0c}
+Queries the state of the O\-T\-P flag for the specified external sensor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ext} & Specifies the sensor on which to check the flag. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if O\-T\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00034_a0f019d8375281a322e2b136f367d9f73}{\index{Otp.\-h@{Otp.\-h}!get\-Load\-Otp@{get\-Load\-Otp}}
+\index{get\-Load\-Otp@{get\-Load\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Load\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Otp (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load, }
+\item[{float32 $\ast$}]{level}
+\end{DoxyParamCaption}
+)}}\label{a00034_a0f019d8375281a322e2b136f367d9f73}
+Queries the over temperature protection level for the specified load. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load on which the setting is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em level} & Pointer to location at which to place the query result ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_ac26e4a57e49a8a0dbb58aa993a26e6c3}{\index{Otp.\-h@{Otp.\-h}!get\-Load\-Otp\-State@{get\-Load\-Otp\-State}}
+\index{get\-Load\-Otp\-State@{get\-Load\-Otp\-State}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Load\-Otp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Otp\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load}
+\end{DoxyParamCaption}
+)}}\label{a00034_ac26e4a57e49a8a0dbb58aa993a26e6c3}
+Queries the state of the O\-T\-P flag for the specified load. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load on which to check the flag. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if O\-T\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00034_a15a820aa2efc9b533c12b1a444f031fb}{\index{Otp.\-h@{Otp.\-h}!set\-Ac\-Otp@{set\-Ac\-Otp}}
+\index{set\-Ac\-Otp@{set\-Ac\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{set\-Ac\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Ac\-Otp (
+\begin{DoxyParamCaption}
+\item[{float32}]{level}
+\end{DoxyParamCaption}
+)}}\label{a00034_a15a820aa2efc9b533c12b1a444f031fb}
+Sets the over current protection limit for the A\-C stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em level} & Specifies the value to be applied ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_a99d17f52bec6b23581f05149a21b8d7a}{\index{Otp.\-h@{Otp.\-h}!set\-Dc\-Otp@{set\-Dc\-Otp}}
+\index{set\-Dc\-Otp@{set\-Dc\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{set\-Dc\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Dc\-Otp (
+\begin{DoxyParamCaption}
+\item[{float32}]{level}
+\end{DoxyParamCaption}
+)}}\label{a00034_a99d17f52bec6b23581f05149a21b8d7a}
+Sets the over temperature protection limit for the D\-C stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em level} & Specifies the value to be applied ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_a6790a4babfd805b692a2410d6920fc13}{\index{Otp.\-h@{Otp.\-h}!set\-Ext\-Otp@{set\-Ext\-Otp}}
+\index{set\-Ext\-Otp@{set\-Ext\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{set\-Ext\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Ext\-Otp (
+\begin{DoxyParamCaption}
+\item[{{\bf ext\-Select}}]{ext, }
+\item[{float32}]{level}
+\end{DoxyParamCaption}
+)}}\label{a00034_a6790a4babfd805b692a2410d6920fc13}
+Sets the over temperature protection level for the specified external sensor. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ext} & Specifies the sensor the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em level} & Specifies the value to be applied ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00034_af106c65ecd7a27b0af61e108d09e330f}{\index{Otp.\-h@{Otp.\-h}!set\-Load\-Otp@{set\-Load\-Otp}}
+\index{set\-Load\-Otp@{set\-Load\-Otp}!Otp.h@{Otp.\-h}}
+\subsubsection[{set\-Load\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Load\-Otp (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load, }
+\item[{float32}]{level}
+\end{DoxyParamCaption}
+)}}\label{a00034_af106c65ecd7a27b0af61e108d09e330f}
+$<$ O\-T\-P flag register. Bits are set to indicate an O\-T\-P condition has been found. Sets the over temperature protection level for the specified load. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em level} & Specifies the value to be applied ( $ ^\circ$ C). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}

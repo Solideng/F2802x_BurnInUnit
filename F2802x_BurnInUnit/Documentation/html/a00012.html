@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>F2802x Burn In Unit: FanEn.h File Reference</title>
+<title>F2802x Burn In Unit: Adc.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -75,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,315 +88,218 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">FanEn.h File Reference</div>  </div>
+<div class="title">Adc.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Functions for enabling and disabling the external fans via I2C.  
+<p>ADC functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00043.png" border="0" usemap="#_fan_en_8hdep" alt=""/></div>
-<map name="_fan_en_8hdep" id="_fan_en_8hdep">
-<area shape="rect" id="node2" href="a00009.html" title="Common include file for the project. " alt="" coords="5,80,91,107"/></map>
+<div class="center"><img src="a00059.png" border="0" usemap="#_adc_8hdep" alt=""/></div>
+<map name="_adc_8hdep" id="_adc_8hdep">
+<area shape="rect" id="node2" href="a00015.html" title="Common include file for the project. " alt="" coords="5,80,91,107"/></map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ad615a329bea187ce779cf9930ba8a6fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ad615a329bea187ce779cf9930ba8a6fa">IOE_I2C_ADDR</a>&#160;&#160;&#160;0x20</td></tr>
-<tr class="separator:ad615a329bea187ce779cf9930ba8a6fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36c134b088cc2e64e0a5e14e8f90fe38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a36c134b088cc2e64e0a5e14e8f90fe38">IOE_IODIR_ADDR</a>&#160;&#160;&#160;0x00</td></tr>
-<tr class="separator:a36c134b088cc2e64e0a5e14e8f90fe38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04633cd2ea7fd0b332e1edf066f674c4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a04633cd2ea7fd0b332e1edf066f674c4">IOE_IPOL_ADDR</a>&#160;&#160;&#160;0x01</td></tr>
-<tr class="separator:a04633cd2ea7fd0b332e1edf066f674c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa68be5a6ed28fb146600b4fd2d11fafd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#aa68be5a6ed28fb146600b4fd2d11fafd">IOE_GPINTEN_ADDR</a>&#160;&#160;&#160;0x02</td></tr>
-<tr class="separator:aa68be5a6ed28fb146600b4fd2d11fafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a687e15212e8d4b49c12159dce73eeeab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a687e15212e8d4b49c12159dce73eeeab">IOE_DEFVAL_ADDR</a>&#160;&#160;&#160;0x03</td></tr>
-<tr class="separator:a687e15212e8d4b49c12159dce73eeeab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90945d9544eebc892154f1e0443b1407"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a90945d9544eebc892154f1e0443b1407">IOE_INTCON_ADDR</a>&#160;&#160;&#160;0x04</td></tr>
-<tr class="separator:a90945d9544eebc892154f1e0443b1407"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af44ed2bf93808aeb932ce9944a942b75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#af44ed2bf93808aeb932ce9944a942b75">IOE_IOCON_ADDR</a>&#160;&#160;&#160;0x05</td></tr>
-<tr class="separator:af44ed2bf93808aeb932ce9944a942b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e588d697383f94de2bf7f11d9ecb4b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a91e588d697383f94de2bf7f11d9ecb4b">IOE_GPPU_ADDR</a>&#160;&#160;&#160;0x06</td></tr>
-<tr class="separator:a91e588d697383f94de2bf7f11d9ecb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32cac2ad5af58a2562540ec8fc205dd1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a32cac2ad5af58a2562540ec8fc205dd1">IOE_INTF_ADDR</a>&#160;&#160;&#160;0x07</td></tr>
-<tr class="separator:a32cac2ad5af58a2562540ec8fc205dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0afd8503a8584599cc81f3d9b0a04dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ac0afd8503a8584599cc81f3d9b0a04dc">IOE_INTCAP_ADDR</a>&#160;&#160;&#160;0x08</td></tr>
-<tr class="separator:ac0afd8503a8584599cc81f3d9b0a04dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2d85152c5775a221f107d6de547bca1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#af2d85152c5775a221f107d6de547bca1">IOE_GPIO_ADDR</a>&#160;&#160;&#160;0x09</td></tr>
-<tr class="separator:af2d85152c5775a221f107d6de547bca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab26864d7372ac11db9c1996842a3cf56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ab26864d7372ac11db9c1996842a3cf56">IOE_OLAT_ADDR</a>&#160;&#160;&#160;0x0A</td></tr>
-<tr class="separator:ab26864d7372ac11db9c1996842a3cf56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24c7360527d594acd521520c99b3de1b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a24c7360527d594acd521520c99b3de1b">FAN_NUM_CHNL</a>&#160;&#160;&#160;0x04</td></tr>
-<tr class="separator:a24c7360527d594acd521520c99b3de1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ccf236abd5b2b9bbf73007968077e3d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a8ccf236abd5b2b9bbf73007968077e3d">FAN_CHNL_OFST</a>&#160;&#160;&#160;0x04</td></tr>
-<tr class="separator:a8ccf236abd5b2b9bbf73007968077e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3506b5e25346351ce292e2ad256607cc"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a3506b5e25346351ce292e2ad256607cc">fcInit</a> (void)</td></tr>
-<tr class="separator:a3506b5e25346351ce292e2ad256607cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68c8852e37fd686fda74e593ecd71915"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a68c8852e37fd686fda74e593ecd71915">fcEnable</a> (Uint16 chnl)</td></tr>
-<tr class="separator:a68c8852e37fd686fda74e593ecd71915"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac781d303e240f077d206088806a75ccd"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ac781d303e240f077d206088806a75ccd">fcDisable</a> (Uint16 chnl)</td></tr>
-<tr class="separator:ac781d303e240f077d206088806a75ccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99fb31efe14a1f6f9cf3e4a642ebbae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a99fb31efe14a1f6f9cf3e4a642ebbae3">initAdc</a> (void)</td></tr>
+<tr class="separator:a99fb31efe14a1f6f9cf3e4a642ebbae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28f0815ea5d750d31a3fb48fbfa94bdb"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a28f0815ea5d750d31a3fb48fbfa94bdb">getLoadCurrent</a> (<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> load, float32 *dcCurrent)</td></tr>
+<tr class="separator:a28f0815ea5d750d31a3fb48fbfa94bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e88fe2ebb2218ff8218996b0fde656f"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a6e88fe2ebb2218ff8218996b0fde656f">getLoadVoltage</a> (<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> load, float32 *dcVoltage)</td></tr>
+<tr class="separator:a6e88fe2ebb2218ff8218996b0fde656f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ed34e388fa9d521c6005c3fc9007c92"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a7ed34e388fa9d521c6005c3fc9007c92">getDcMidCurrent</a> (float32 *dcCurrent)</td></tr>
+<tr class="separator:a7ed34e388fa9d521c6005c3fc9007c92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb69b24f66dd6b4dacf6a87c0933d8d4"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#acb69b24f66dd6b4dacf6a87c0933d8d4">getDcMidVoltage</a> (float32 *dcVoltage)</td></tr>
+<tr class="separator:acb69b24f66dd6b4dacf6a87c0933d8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ba3e16114b94a0b9bb26bbaa49e8242"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a5ba3e16114b94a0b9bb26bbaa49e8242">getDcHvVoltage</a> (float32 *dcVoltage)</td></tr>
+<tr class="separator:a5ba3e16114b94a0b9bb26bbaa49e8242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a42ca9720519e1d0cb7ded4f56da083ba"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a42ca9720519e1d0cb7ded4f56da083ba">ADCDRV_1ch_Rlt1</a></td></tr>
+<tr class="separator:a42ca9720519e1d0cb7ded4f56da083ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca55c7841c3e4bc154789647a068810"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a1ca55c7841c3e4bc154789647a068810">ADCDRV_1ch_Rlt2</a></td></tr>
+<tr class="separator:a1ca55c7841c3e4bc154789647a068810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1704632b071d0fff6bdc9629549c5d08"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a1704632b071d0fff6bdc9629549c5d08">ADCDRV_1ch_Rlt3</a></td></tr>
+<tr class="separator:a1704632b071d0fff6bdc9629549c5d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac181cb2fb372cceb0f55844ed941c5d0"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ac181cb2fb372cceb0f55844ed941c5d0">ADCDRV_1ch_Rlt4</a></td></tr>
+<tr class="separator:ac181cb2fb372cceb0f55844ed941c5d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b586f409f6daf8232917fbd976532a4"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a7b586f409f6daf8232917fbd976532a4">ADCDRV_1ch_Rlt5</a></td></tr>
+<tr class="separator:a7b586f409f6daf8232917fbd976532a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8182c9b35af2d72b1c18ea41ccece2d"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ae8182c9b35af2d72b1c18ea41ccece2d">ADCDRV_1ch_Rlt6</a></td></tr>
+<tr class="separator:ae8182c9b35af2d72b1c18ea41ccece2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fa6265d0bf9b69d560d8f9f488b98c1"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a4fa6265d0bf9b69d560d8f9f488b98c1">ADCDRV_1ch_Rlt7</a></td></tr>
+<tr class="separator:a4fa6265d0bf9b69d560d8f9f488b98c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0415309d16a115f0116a26aeda91aabd"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#a0415309d16a115f0116a26aeda91aabd">ADCDRV_1ch_Rlt8</a></td></tr>
+<tr class="separator:a0415309d16a115f0116a26aeda91aabd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adea6b0b8533e0d56a5c6cbac1c1e705f"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#adea6b0b8533e0d56a5c6cbac1c1e705f">ADCDRV_1ch_Rlt9</a></td></tr>
+<tr class="separator:adea6b0b8533e0d56a5c6cbac1c1e705f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1b851523cd317f0910f2db4220f32da"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ad1b851523cd317f0910f2db4220f32da">ADCDRV_1ch_Rlt10</a></td></tr>
+<tr class="separator:ad1b851523cd317f0910f2db4220f32da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4435404e2f432a8c3a449dd23cda8f0"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ad4435404e2f432a8c3a449dd23cda8f0">ADCDRV_1ch_Rlt11</a></td></tr>
+<tr class="separator:ad4435404e2f432a8c3a449dd23cda8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3656f047361723ec883e6ebfe3f026a"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ac3656f047361723ec883e6ebfe3f026a">ADCDRV_1ch_Rlt12</a></td></tr>
+<tr class="separator:ac3656f047361723ec883e6ebfe3f026a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7ef0544a173d3c7883f0e739b7d2096"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html#ad7ef0544a173d3c7883f0e739b7d2096">ADCDRV_1ch_Rlt13</a></td></tr>
+<tr class="separator:ad7ef0544a173d3c7883f0e739b7d2096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Functions for enabling and disabling the external fans via I2C. </p>
-<p>The fans are controlled via an external I/O expander (MCP23008) that is connected to the I2C bus at address 0100x-x-x where 'x-x-x' is dependent upon the configuration of resistors R60 - 61 &amp; R70 - R74.</p>
-<p>After <a class="el" href="a00012.html#a3506b5e25346351ce292e2ad256607cc">fcInit()</a> all fans default to disabled.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Before any fan control functions can be used the I2C peripheral MUST be initialised and EITHER <a class="el" href="a00012.html#a3506b5e25346351ce292e2ad256607cc">fcInit()</a> or <a class="el" href="a00006.html#aa6cb02a7aacce8671212b21ed6e39863">bcInit()</a> must be run - <a class="el" href="a00012.html#a3506b5e25346351ce292e2ad256607cc">fcInit()</a> will require the interrupts to be enabled globally.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="a00014.html#a1e0a81a1ad1fd7710ca189236e3e5476">i2cInit()</a> </dd>
-<dd>
-<a class="el" href="a00006.html#aa6cb02a7aacce8671212b21ed6e39863">bcInit()</a> </dd></dl>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a8ccf236abd5b2b9bbf73007968077e3d"></a>
+<div class="textblock"><p>ADC functions. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a5ba3e16114b94a0b9bb26bbaa49e8242"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FAN_CHNL_OFST&#160;&#160;&#160;0x04</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Fan channel numbering offset </p>
-
-</div>
-</div>
-<a class="anchor" id="a24c7360527d594acd521520c99b3de1b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FAN_NUM_CHNL&#160;&#160;&#160;0x04</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Number of fan channels </p>
-
-</div>
-</div>
-<a class="anchor" id="a687e15212e8d4b49c12159dce73eeeab"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_DEFVAL_ADDR&#160;&#160;&#160;0x03</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander default value register address </p>
-
-</div>
-</div>
-<a class="anchor" id="aa68be5a6ed28fb146600b4fd2d11fafd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_GPINTEN_ADDR&#160;&#160;&#160;0x02</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander interrupt on change enable register address </p>
-
-</div>
-</div>
-<a class="anchor" id="af2d85152c5775a221f107d6de547bca1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_GPIO_ADDR&#160;&#160;&#160;0x09</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander GPIO port register address </p>
-
-</div>
-</div>
-<a class="anchor" id="a91e588d697383f94de2bf7f11d9ecb4b"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_GPPU_ADDR&#160;&#160;&#160;0x06</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander pull-up resistor configuration register address </p>
-
-</div>
-</div>
-<a class="anchor" id="ad615a329bea187ce779cf9930ba8a6fa"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_I2C_ADDR&#160;&#160;&#160;0x20</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander I2C address (slave, 32d, 8-bit I/O expander) </p>
-
-</div>
-</div>
-<a class="anchor" id="ac0afd8503a8584599cc81f3d9b0a04dc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_INTCAP_ADDR&#160;&#160;&#160;0x08</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander interrupt capture register address </p>
-
-</div>
-</div>
-<a class="anchor" id="a90945d9544eebc892154f1e0443b1407"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_INTCON_ADDR&#160;&#160;&#160;0x04</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander interrupt on change control register address </p>
-
-</div>
-</div>
-<a class="anchor" id="a32cac2ad5af58a2562540ec8fc205dd1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_INTF_ADDR&#160;&#160;&#160;0x07</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander interrupt flag register address </p>
-
-</div>
-</div>
-<a class="anchor" id="af44ed2bf93808aeb932ce9944a942b75"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_IOCON_ADDR&#160;&#160;&#160;0x05</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander configuration register address </p>
-
-</div>
-</div>
-<a class="anchor" id="a36c134b088cc2e64e0a5e14e8f90fe38"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_IODIR_ADDR&#160;&#160;&#160;0x00</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander I/O direction register address </p>
-
-</div>
-</div>
-<a class="anchor" id="a04633cd2ea7fd0b332e1edf066f674c4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_IPOL_ADDR&#160;&#160;&#160;0x01</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander input polarity register address </p>
-
-</div>
-</div>
-<a class="anchor" id="ab26864d7372ac11db9c1996842a3cf56"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IOE_OLAT_ADDR&#160;&#160;&#160;0x0A</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>MCP23008 I/O expander output latch register address </p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ac781d303e240f077d206088806a75ccd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Uint16 fcDisable </td>
+          <td class="memname">Uint16 getDcHvVoltage </td>
           <td>(</td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>chnl</em>)</td><td></td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>dcVoltage</em>)</td><td></td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Disables the specified channel's fan The I2C peripheral and the fan enable controller interface MUST be initialised before this function is used. </p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="a00014.html#a1e0a81a1ad1fd7710ca189236e3e5476">i2cInit()</a> </dd>
-<dd>
-<a class="el" href="a00012.html#a3506b5e25346351ce292e2ad256607cc">fcInit()</a> </dd></dl>
+<p>Queries the most recent voltage reading from the DC HV's associated ADC. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">chnl</td><td>Specifies the channel fan that is to be disabled </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dcVoltage</td><td>Address of the memory location at which to place the query result (volts). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a68c8852e37fd686fda74e593ecd71915"></a>
+<a class="anchor" id="a7ed34e388fa9d521c6005c3fc9007c92"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 fcEnable </td>
+          <td class="memname">Uint16 getDcMidCurrent </td>
           <td>(</td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>chnl</em>)</td><td></td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>dcCurrent</em>)</td><td></td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Enables the specified channel's fan The I2C peripheral and the fan enable controller interface MUST be initialised before this function is used. </p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="a00014.html#a1e0a81a1ad1fd7710ca189236e3e5476">i2cInit()</a> </dd>
-<dd>
-<a class="el" href="a00012.html#a3506b5e25346351ce292e2ad256607cc">fcInit()</a> </dd></dl>
+<p>Queries the most recent current reading from the DC Mid's associated ADC. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">chnl</td><td>Specifies the channel fan that is to be enabled </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dcCurrent</td><td>Address of the memory location at which to place the query result (amps). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a3506b5e25346351ce292e2ad256607cc"></a>
+<a class="anchor" id="acb69b24f66dd6b4dacf6a87c0933d8d4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 fcInit </td>
+          <td class="memname">Uint16 getDcMidVoltage </td>
+          <td>(</td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>dcVoltage</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the most recent voltage reading from the DC Mid's associated ADC. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">dcVoltage</td><td>Address of the memory location at which to place the query result (volts). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a28f0815ea5d750d31a3fb48fbfa94bdb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getLoadCurrent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a>&#160;</td>
+          <td class="paramname"><em>load</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>dcCurrent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the most recent current reading from the specified load's associated ADC. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">load</td><td>Specifies the load on which the reading is to be queried. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dcCurrent</td><td>Address of the memory location at which to place the query result (amps). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6e88fe2ebb2218ff8218996b0fde656f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getLoadVoltage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a>&#160;</td>
+          <td class="paramname"><em>load</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>dcVoltage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the most recent voltage reading from the specified load's associated ADC. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">load</td><td>Specifies the load on which the reading is to be queried. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dcVoltage</td><td>Address of the memory location at which to place the query result (volts). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a99fb31efe14a1f6f9cf3e4a642ebbae3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initAdc </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname">)</td><td></td>
@@ -403,15 +307,187 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Initialises the fan enable control interface. The I2C peripheral must be initialised before this function is used. </p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="a00014.html#a1e0a81a1ad1fd7710ca189236e3e5476">i2cInit()</a> </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status </dd></dl>
+<p>Configures the ADC's SOCs then calls pwmSocConfigure().</p>
+<ul>
+<li>SHOULD be run after initPWM().</li>
+<li>SHOULD be run before DPL_INIT(). </li>
+</ul>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a42ca9720519e1d0cb7ded4f56da083ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Channel 0 current sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad1b851523cd317f0910f2db4220f32da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Channel 3 voltage sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad4435404e2f432a8c3a449dd23cda8f0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Interboost voltage sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac3656f047361723ec883e6ebfe3f026a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AC stage voltage sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad7ef0544a173d3c7883f0e739b7d2096"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>VMid voltage sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1ca55c7841c3e4bc154789647a068810"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Channel 1 current sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1704632b071d0fff6bdc9629549c5d08"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Channel 2 current sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac181cb2fb372cceb0f55844ed941c5d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Channel 3 current sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7b586f409f6daf8232917fbd976532a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Interboost current sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae8182c9b35af2d72b1c18ea41ccece2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AC stage current sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4fa6265d0bf9b69d560d8f9f488b98c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Channel 0 voltage sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0415309d16a115f0116a26aeda91aabd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Channel 1 voltage sense ADC terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="adea6b0b8533e0d56a5c6cbac1c1e705f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* ADCDRV_1ch_Rlt9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Channel 2 voltage sense ADC terminal pointer. </p>
 
 </div>
 </div>
 </div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Wed Aug 14 2013
+Thu Oct 24 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

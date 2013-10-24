@@ -113,12 +113,12 @@ Sequence of thread tasks</div></div>
 <h1><a class="anchor" id="dpctrl"></a>
 Digital Power Control</h1>
 <p>The control of the power, voltage and current is managed using control loop logic, normally one loop for each stage (Transformer, AC, each of the four loads). These control loops are formed from a set of macros and helper functions.</p>
-<p>Each of these macros acts as a block of functionality, much like a black-box electronic component, allowing their terminals to be wired together in the required order with nets. Once initialised and configured, or connected, correctly the macro blocks are executed, sequentially, by calling the appropriate code from an assembly ISR. In this case, this is what forms the DPL ISR tasks. Each block performs a precisely defined computation and delivers the result to the appropriate net-list variables. Each control loop's net vairables and operation parameter variables are grouped together and stored in a structure (<a class="el" href="a00003.html">channelParameters</a>), with one such structure for each control loop.</p>
+<p>Each of these macros acts as a block of functionality, much like a black-box electronic component, allowing their terminals to be wired together in the required order with nets. Once initialised and configured, or connected, correctly the macro blocks are executed, sequentially, by calling the appropriate code from an assembly ISR. In this case, this is what forms the DPL ISR tasks. Each block performs a precisely defined computation and delivers the result to the appropriate net-list variables. Each control loop's net vairables and operation parameter variables are grouped together and stored in a structure (channelParameters), with one such structure for each control loop.</p>
 <p>The basic use of macros that are available within the program can be broken down into three parts:</p>
 <ol type="1">
 <li>Initialisation: the macro blocks are initialised from the program by using a C callable function, DPL_Init(), which is contained within the assembly file DPL_ISR.asm.</li>
 <li>Configuration: C pointers of the macro block terminals are assigned to net nodes to form the desired control structure, i.e., the control loop.</li>
-<li>Execution: Macro block code is executed in the assembly ISR, <a class="el" href="a00026.html#a5532a53363218854b0e4b15049d773f7">DPL_ISR()</a>.</li>
+<li>Execution: Macro block code is executed in the assembly ISR, <a class="el" href="a00038.html#a5532a53363218854b0e4b15049d773f7">DPL_ISR()</a>.</li>
 </ol>
 <h2><a class="anchor" id="blctrl"></a>
 Boost Load Control</h2>
@@ -147,7 +147,7 @@ AC Bridge Control</h2>
 Macro view of control loop for AC bridge</div></div>
  </div></div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Thu Sep 19 2013
+Thu Oct 24 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

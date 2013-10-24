@@ -1,43 +1,41 @@
-\hypertarget{a00009}{\section{Common.\-h File Reference}
-\label{a00009}\index{Common.\-h@{Common.\-h}}
+\hypertarget{a00009}{\section{xfmr\-Stage\-Nets Struct Reference}
+\label{a00009}\index{xfmr\-Stage\-Nets@{xfmr\-Stage\-Nets}}
 }
 
 
-Common include file for the project.  
+{\ttfamily \#include $<$Macro\-Nets.\-h$>$}
 
-
-{\ttfamily \#include \char`\"{}Settings.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Peripheral\-Header\-Includes.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}D\-S\-P2802x\-\_\-\-E\-P\-W\-M\-\_\-defines.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}I\-Q\-Math\-Lib.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}S\-Q\-Math.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}D\-Plib.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}sgen.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}State\-Machine.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}I2c.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Sci.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Macro\-Nets.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Timers.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Adc.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Pwm.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Cntl.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Slew\-Control.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Sine\-Gen.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Phase\-Ctrl.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}tmp.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Fan\-En.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Bst\-En.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}../../\-S\-C\-P\-I\-\_\-\-Build/\-S\-C\-P\-I\-\_\-\-Build/scpi/scpi.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}S\-C\-P\-I\-\_\-specific\-Cmds.\-h\char`\"{}}\\*
-Include dependency graph for Common.\-h\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{a00042}
-\end{center}
-\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+volatile int32 \hyperlink{a00009_a794dc3b0f07e245bb54f830d86ad8fed}{i\-Sns\-Net}
+\item 
+volatile int32 \hyperlink{a00009_a6cf2860aba64beca1c5471fcc7432c07}{mid\-V\-Sns\-Net}
+\item 
+volatile int32 \hyperlink{a00009_af673ad18a7fbfd829202293dd019d25b}{hv\-V\-Sns\-Net}
+\item 
+volatile int32 \hyperlink{a00009_a0c842e8cc854cd6665110f4ade15514f}{pwm\-Duty\-Net}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Common include file for the project. All other header files used should be included within this file and this file should then be used to include them in the required source files. 
+A structure that contains the nets used in the transformer stage. 
+
+\subsection{Field Documentation}
+\hypertarget{a00009_af673ad18a7fbfd829202293dd019d25b}{\index{xfmr\-Stage\-Nets@{xfmr\-Stage\-Nets}!hv\-V\-Sns\-Net@{hv\-V\-Sns\-Net}}
+\index{hv\-V\-Sns\-Net@{hv\-V\-Sns\-Net}!xfmrStageNets@{xfmr\-Stage\-Nets}}
+\subsubsection[{hv\-V\-Sns\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 xfmr\-Stage\-Nets\-::hv\-V\-Sns\-Net}}\label{a00009_af673ad18a7fbfd829202293dd019d25b}
+D\-C H\-V voltage sense net (I\-Q24). \hypertarget{a00009_a794dc3b0f07e245bb54f830d86ad8fed}{\index{xfmr\-Stage\-Nets@{xfmr\-Stage\-Nets}!i\-Sns\-Net@{i\-Sns\-Net}}
+\index{i\-Sns\-Net@{i\-Sns\-Net}!xfmrStageNets@{xfmr\-Stage\-Nets}}
+\subsubsection[{i\-Sns\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 xfmr\-Stage\-Nets\-::i\-Sns\-Net}}\label{a00009_a794dc3b0f07e245bb54f830d86ad8fed}
+Current sense net (I\-Q24). \hypertarget{a00009_a6cf2860aba64beca1c5471fcc7432c07}{\index{xfmr\-Stage\-Nets@{xfmr\-Stage\-Nets}!mid\-V\-Sns\-Net@{mid\-V\-Sns\-Net}}
+\index{mid\-V\-Sns\-Net@{mid\-V\-Sns\-Net}!xfmrStageNets@{xfmr\-Stage\-Nets}}
+\subsubsection[{mid\-V\-Sns\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 xfmr\-Stage\-Nets\-::mid\-V\-Sns\-Net}}\label{a00009_a6cf2860aba64beca1c5471fcc7432c07}
+D\-C mid voltage sense net (I\-Q24). \hypertarget{a00009_a0c842e8cc854cd6665110f4ade15514f}{\index{xfmr\-Stage\-Nets@{xfmr\-Stage\-Nets}!pwm\-Duty\-Net@{pwm\-Duty\-Net}}
+\index{pwm\-Duty\-Net@{pwm\-Duty\-Net}!xfmrStageNets@{xfmr\-Stage\-Nets}}
+\subsubsection[{pwm\-Duty\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 xfmr\-Stage\-Nets\-::pwm\-Duty\-Net}}\label{a00009_a0c842e8cc854cd6665110f4ade15514f}
+Transformer P\-W\-M duty net (I\-Q24). 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{a00027}{Macro\-Nets.\-h}\end{DoxyCompactItemize}

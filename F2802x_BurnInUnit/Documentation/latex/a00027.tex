@@ -1,95 +1,271 @@
-\hypertarget{a00027}{\section{Sci.\-h File Reference}
-\label{a00027}\index{Sci.\-h@{Sci.\-h}}
+\hypertarget{a00027}{\section{Macro\-Nets.\-h File Reference}
+\label{a00027}\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}}
 }
 
 
-S\-C\-I communications functions.  
+D\-P\-Lib macro net and value control functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=144pt]{a00052}
+\includegraphics[width=152pt]{a00066}
 \end{center}
 \end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{a00005}{ext\-Device\-Settings}
+\item 
+struct \hyperlink{a00007}{load\-Stage\-Nets}
+\item 
+struct \hyperlink{a00008}{load\-Stage\-Settings}
+\item 
+struct \hyperlink{a00009}{xfmr\-Stage\-Nets}
+\item 
+struct \hyperlink{a00010}{xfmr\-Stage\-Settings}
+\item 
+struct \hyperlink{a00003}{ac\-Stage\-Nets}
+\item 
+struct \hyperlink{a00004}{ac\-Stage\-Settings}
+\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{a00027_a0e4c420431b12616b61e9f3a28f07e4d}{S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N}~29
+\#define \hyperlink{a00027_a007a209cd2e2b935be1f69218652edc1}{L\-O\-A\-D\-\_\-0}~0
 \item 
-\#define \hyperlink{a00027_a5733933fffc18dbcb8bc9404e80bc493}{S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}~1
+\#define \hyperlink{a00027_a363f09c63f2ecb9086b47d72a3f3f57d}{L\-O\-A\-D\-\_\-1}~1
 \item 
-\#define \hyperlink{a00027_a5340c9de55b8e5c65ef801d2dcabffd7}{S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}~0
+\#define \hyperlink{a00027_af7c1e96216e7b48160e5a03afe8ac807}{L\-O\-A\-D\-\_\-2}~2
 \item 
-\#define \hyperlink{a00027_af0368b1c16e194a32bf4ce09eb937930}{S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L}~4
+\#define \hyperlink{a00027_a2c862ec4115c4a016b61800609f236a7}{L\-O\-A\-D\-\_\-3}~3
+\item 
+\#define \hyperlink{a00027_a873d529c32530ec23fbf76318011aeee}{X\-F\-M\-R\-\_\-\-S\-T\-A\-G\-E}~4
+\item 
+\#define \hyperlink{a00027_a3fc4318ae73eae35339f616047300b0f}{A\-C\-\_\-\-S\-T\-A\-G\-E}~5
+\item 
+\#define \hyperlink{a00027_ae72b26dfe821ff1cfeb352b6b54e5cbb}{E\-X\-T\-\_\-1}~6
+\item 
+\#define \hyperlink{a00027_a461d83d7d883765da6f6b257a7a4c385}{E\-X\-T\-\_\-2}~7
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} \hyperlink{a00027_a70b24a6c60fcd622c699e09219a34da0}{ext\-Select}
+\item 
+typedef struct \hyperlink{a00005}{ext\-Device\-Settings} \hyperlink{a00027_aa0c9d277e59731716a1973e29ea96246}{ext\-Device\-Settings}
+\item 
+typedef enum \hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} \hyperlink{a00027_af7950a62c78fd817e8115e55c0f4bb44}{load\-Stage}
+\item 
+typedef struct \hyperlink{a00007}{load\-Stage\-Nets} \hyperlink{a00027_aae981f2f918bbbfae4517a68d60ffb45}{load\-Stage\-Nets}
+\item 
+typedef struct \hyperlink{a00008}{load\-Stage\-Settings} \hyperlink{a00027_a23ea7275d3010efb32f35ffe237401ff}{load\-Stage\-Settings}
+\item 
+typedef struct \hyperlink{a00009}{xfmr\-Stage\-Nets} \hyperlink{a00027_a583225b973f6b7cb16edbff4d3dadeab}{xfmr\-Stage\-Nets}
+\item 
+typedef struct \hyperlink{a00010}{xfmr\-Stage\-Settings} \hyperlink{a00027_ab13cb1eb6c11d220d249e98a5250235a}{xfmr\-Stage\-Settings}
+\item 
+typedef struct \hyperlink{a00003}{ac\-Stage\-Nets} \hyperlink{a00027_a8e395a646881dbb659b7fdaff0f80be0}{ac\-Stage\-Nets}
+\item 
+typedef struct \hyperlink{a00004}{ac\-Stage\-Settings} \hyperlink{a00027_a32c7a835db0120b8a119548c2a0337d5}{ac\-Stage\-Settings}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} \{ \hyperlink{a00027_a258413561252a6c94af200747272a9f3a6b8e8e9bb4b53b3fc029110541623a3c}{ext1} = 0, 
+\hyperlink{a00027_a258413561252a6c94af200747272a9f3a6b3e8213ce7722257795b7a3ffb915fc}{ext2} = 1
+ \}
+\item 
+enum \hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} \{ \hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbaeae319629172a300013df8b0149c386f96}{load1} = 0, 
+\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbaea690fc43c88b8671aff6aed61a8a2f9c6}{load2} = 1, 
+\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbaea861124cff343ddc4d2cc20dfe3ee7fa2}{load3} = 2, 
+\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbaea94258908ecc1dedac8f08e7baf1156fc}{load4} = 3
+ \}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-Uint16 \hyperlink{a00027_a1f05b9c5226c73b67c1d6c3bf7f80b52}{sci\-Init} (Uint32 baud)
+void \hyperlink{a00027_a0ae5a77eff5aae0f7aead915fe68328b}{setup\-Nets} (slave\-Mode mode)
 \item 
-void \hyperlink{a00027_a941bdbf3e64ac5f4492a7f7c5936b445}{sci\-Tx} (void)
+void \hyperlink{a00027_a776854c00eb8a571abbfb27130ba4849}{stop\-All} (void)
+\item 
+void \hyperlink{a00027_a24dce601551d1d81b127711d2f4aabdd}{run\-All} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \hyperlink{a00027_af6530cd8f296ed6bf84f4ce75ea4c9ad}{stop\-All\-Flag}
+\item 
+Uint16 \hyperlink{a00027_a65fcb0c0a483e3bc3433b17227fa29ac}{enable\-All\-Flag}
+\item 
+\hyperlink{a00005}{ext\-Device\-Settings} \hyperlink{a00027_ab8092749f4706406bb47ec950573ebed}{ext\-Settings}
+\item 
+\hyperlink{a00007}{load\-Stage\-Nets} \hyperlink{a00027_a0a6ae344146684f87fe8ca400640dced}{load\-Nets} \mbox{[}number\-Of\-Loads\mbox{]}
+\item 
+\hyperlink{a00008}{load\-Stage\-Settings} \hyperlink{a00027_acb0d5fe43ffb1c0edbb3d22409a8f346}{load\-Settings} \mbox{[}number\-Of\-Loads\mbox{]}
+\item 
+\hyperlink{a00009}{xfmr\-Stage\-Nets} \hyperlink{a00027_aec1d3b8f844d1d31ce7e703e50209432}{xfmr\-Nets}
+\item 
+\hyperlink{a00010}{xfmr\-Stage\-Settings} \hyperlink{a00027_ab8977a3c81ebfcd1b5dbe7fb49e9f832}{xfmr\-Settings}
+\item 
+\hyperlink{a00003}{ac\-Stage\-Nets} \hyperlink{a00027_ab73a0aedbde1954d7bf8091e07e4675c}{ac\-Nets}
+\item 
+\hyperlink{a00004}{ac\-Stage\-Settings} \hyperlink{a00027_aee11a0ac36813aa41597f992e943cd17}{ac\-Settings}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-S\-C\-I communications functions. \begin{DoxyParagraph}{}
-On the T\-I C2000 Launch\-Pad X\-L\-: \begin{TabularC}{3}
-\hline
-\rowcolor{lightgray}\PBS\centering {\bf Function}&\PBS\centering {\bf G\-P\-I\-O }&\PBS\centering {\bf P\-C\-B Pin  }\\\cline{1-3}
-\PBS\centering S\-C\-I\-\_\-\-R\-X &\PBS\centering G\-P\-I\-O28&\PBS\centering J1-\/3 \\\cline{1-3}
-\PBS\centering S\-C\-I\-\_\-\-T\-X &\PBS\centering G\-P\-I\-O29&\PBS\centering J1-\/4 \\\cline{1-3}
-\end{TabularC}
-
-\end{DoxyParagraph}
-\begin{DoxyWarning}{Warning}
-On the T\-I C2000 Launch\-Pad X\-L the switch 4 (S4) should be in the O\-F\-F position to communicate with devices other than the on-\/board U\-S\-B controller. 
-\end{DoxyWarning}
-
+D\-P\-Lib macro net and value control functions. 
 
 \subsection{Macro Definition Documentation}
-\hypertarget{a00027_a0e4c420431b12616b61e9f3a28f07e4d}{\index{Sci.\-h@{Sci.\-h}!S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N@{S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N}}
-\index{S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N@{S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N}!Sci.h@{Sci.\-h}}
-\subsubsection[{S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N~29}}\label{a00027_a0e4c420431b12616b61e9f3a28f07e4d}
-Minimum allowable value of S\-C\-I Baud. \hypertarget{a00027_a5733933fffc18dbcb8bc9404e80bc493}{\index{Sci.\-h@{Sci.\-h}!S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}}
-\index{S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}!Sci.h@{Sci.\-h}}
-\subsubsection[{S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-I\-F\-F\-R\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L~1}}\label{a00027_a5733933fffc18dbcb8bc9404e80bc493}
-Interrupt level for receiving F\-I\-F\-O. \hypertarget{a00027_af0368b1c16e194a32bf4ce09eb937930}{\index{Sci.\-h@{Sci.\-h}!S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L}}
-\index{S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L}!Sci.h@{Sci.\-h}}
-\subsubsection[{S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-I\-F\-F\-T\-X\-\_\-\-F\-I\-L\-L\-\_\-\-L\-V\-L~4}}\label{a00027_af0368b1c16e194a32bf4ce09eb937930}
-Fill level for transmission F\-I\-F\-O. \hypertarget{a00027_a5340c9de55b8e5c65ef801d2dcabffd7}{\index{Sci.\-h@{Sci.\-h}!S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}}
-\index{S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L@{S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}!Sci.h@{Sci.\-h}}
-\subsubsection[{S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-C\-I\-F\-F\-T\-X\-\_\-\-I\-N\-T\-\_\-\-L\-V\-L~0}}\label{a00027_a5340c9de55b8e5c65ef801d2dcabffd7}
-Interrupt level for transmission F\-I\-F\-O. 
+\hypertarget{a00027_a3fc4318ae73eae35339f616047300b0f}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!A\-C\-\_\-\-S\-T\-A\-G\-E@{A\-C\-\_\-\-S\-T\-A\-G\-E}}
+\index{A\-C\-\_\-\-S\-T\-A\-G\-E@{A\-C\-\_\-\-S\-T\-A\-G\-E}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{A\-C\-\_\-\-S\-T\-A\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-\_\-\-S\-T\-A\-G\-E~5}}\label{a00027_a3fc4318ae73eae35339f616047300b0f}
+The index position for A\-C stage settings. \hypertarget{a00027_ae72b26dfe821ff1cfeb352b6b54e5cbb}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!E\-X\-T\-\_\-1@{E\-X\-T\-\_\-1}}
+\index{E\-X\-T\-\_\-1@{E\-X\-T\-\_\-1}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{E\-X\-T\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-X\-T\-\_\-1~6}}\label{a00027_ae72b26dfe821ff1cfeb352b6b54e5cbb}
+External temperature 1 channel reference. \hypertarget{a00027_a461d83d7d883765da6f6b257a7a4c385}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!E\-X\-T\-\_\-2@{E\-X\-T\-\_\-2}}
+\index{E\-X\-T\-\_\-2@{E\-X\-T\-\_\-2}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{E\-X\-T\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-X\-T\-\_\-2~7}}\label{a00027_a461d83d7d883765da6f6b257a7a4c385}
+External temperature 2 channel reference. \hypertarget{a00027_a007a209cd2e2b935be1f69218652edc1}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!L\-O\-A\-D\-\_\-0@{L\-O\-A\-D\-\_\-0}}
+\index{L\-O\-A\-D\-\_\-0@{L\-O\-A\-D\-\_\-0}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{L\-O\-A\-D\-\_\-0}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D\-\_\-0~0}}\label{a00027_a007a209cd2e2b935be1f69218652edc1}
+The index position for Load 0 settings. \hypertarget{a00027_a363f09c63f2ecb9086b47d72a3f3f57d}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!L\-O\-A\-D\-\_\-1@{L\-O\-A\-D\-\_\-1}}
+\index{L\-O\-A\-D\-\_\-1@{L\-O\-A\-D\-\_\-1}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{L\-O\-A\-D\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D\-\_\-1~1}}\label{a00027_a363f09c63f2ecb9086b47d72a3f3f57d}
+The index position for Load 1 settings. \hypertarget{a00027_af7c1e96216e7b48160e5a03afe8ac807}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!L\-O\-A\-D\-\_\-2@{L\-O\-A\-D\-\_\-2}}
+\index{L\-O\-A\-D\-\_\-2@{L\-O\-A\-D\-\_\-2}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{L\-O\-A\-D\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D\-\_\-2~2}}\label{a00027_af7c1e96216e7b48160e5a03afe8ac807}
+The index position for Load 2 settings. \hypertarget{a00027_a2c862ec4115c4a016b61800609f236a7}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!L\-O\-A\-D\-\_\-3@{L\-O\-A\-D\-\_\-3}}
+\index{L\-O\-A\-D\-\_\-3@{L\-O\-A\-D\-\_\-3}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{L\-O\-A\-D\-\_\-3}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D\-\_\-3~3}}\label{a00027_a2c862ec4115c4a016b61800609f236a7}
+The index position for Load 3 settings. \hypertarget{a00027_a873d529c32530ec23fbf76318011aeee}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!X\-F\-M\-R\-\_\-\-S\-T\-A\-G\-E@{X\-F\-M\-R\-\_\-\-S\-T\-A\-G\-E}}
+\index{X\-F\-M\-R\-\_\-\-S\-T\-A\-G\-E@{X\-F\-M\-R\-\_\-\-S\-T\-A\-G\-E}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{X\-F\-M\-R\-\_\-\-S\-T\-A\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-F\-M\-R\-\_\-\-S\-T\-A\-G\-E~4}}\label{a00027_a873d529c32530ec23fbf76318011aeee}
+The index position for transformer stage settings. 
+
+\subsection{Typedef Documentation}
+\hypertarget{a00027_a8e395a646881dbb659b7fdaff0f80be0}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!ac\-Stage\-Nets@{ac\-Stage\-Nets}}
+\index{ac\-Stage\-Nets@{ac\-Stage\-Nets}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{ac\-Stage\-Nets}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf ac\-Stage\-Nets} {\bf ac\-Stage\-Nets}}}\label{a00027_a8e395a646881dbb659b7fdaff0f80be0}
+A type to allow use of the A\-C stage nets structure. \hypertarget{a00027_a32c7a835db0120b8a119548c2a0337d5}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!ac\-Stage\-Settings@{ac\-Stage\-Settings}}
+\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{ac\-Stage\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf ac\-Stage\-Settings} {\bf ac\-Stage\-Settings}}}\label{a00027_a32c7a835db0120b8a119548c2a0337d5}
+A type to allow use of the A\-C stage settings structure. \hypertarget{a00027_aa0c9d277e59731716a1973e29ea96246}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!ext\-Device\-Settings@{ext\-Device\-Settings}}
+\index{ext\-Device\-Settings@{ext\-Device\-Settings}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{ext\-Device\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf ext\-Device\-Settings} {\bf ext\-Device\-Settings}}}\label{a00027_aa0c9d277e59731716a1973e29ea96246}
+A type to allow use of the external device settings structure. \hypertarget{a00027_a70b24a6c60fcd622c699e09219a34da0}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!ext\-Select@{ext\-Select}}
+\index{ext\-Select@{ext\-Select}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{ext\-Select}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf ext\-Select} {\bf ext\-Select}}}\label{a00027_a70b24a6c60fcd622c699e09219a34da0}
+A type that allow specification of an external sensor. \hypertarget{a00027_af7950a62c78fd817e8115e55c0f4bb44}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!load\-Stage@{load\-Stage}}
+\index{load\-Stage@{load\-Stage}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{load\-Stage}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf load\-Stage} {\bf load\-Stage}}}\label{a00027_af7950a62c78fd817e8115e55c0f4bb44}
+A type that allow specification of a load. \hypertarget{a00027_aae981f2f918bbbfae4517a68d60ffb45}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!load\-Stage\-Nets@{load\-Stage\-Nets}}
+\index{load\-Stage\-Nets@{load\-Stage\-Nets}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{load\-Stage\-Nets}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf load\-Stage\-Nets} {\bf load\-Stage\-Nets}}}\label{a00027_aae981f2f918bbbfae4517a68d60ffb45}
+A type to allow use of the load stage nets structure. \hypertarget{a00027_a23ea7275d3010efb32f35ffe237401ff}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!load\-Stage\-Settings@{load\-Stage\-Settings}}
+\index{load\-Stage\-Settings@{load\-Stage\-Settings}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{load\-Stage\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf load\-Stage\-Settings} {\bf load\-Stage\-Settings}}}\label{a00027_a23ea7275d3010efb32f35ffe237401ff}
+A type to allow use of the load stage settings structure. \hypertarget{a00027_a583225b973f6b7cb16edbff4d3dadeab}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!xfmr\-Stage\-Nets@{xfmr\-Stage\-Nets}}
+\index{xfmr\-Stage\-Nets@{xfmr\-Stage\-Nets}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{xfmr\-Stage\-Nets}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf xfmr\-Stage\-Nets} {\bf xfmr\-Stage\-Nets}}}\label{a00027_a583225b973f6b7cb16edbff4d3dadeab}
+A type to allow use of the transformer stage nets structure. \hypertarget{a00027_ab13cb1eb6c11d220d249e98a5250235a}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!xfmr\-Stage\-Settings@{xfmr\-Stage\-Settings}}
+\index{xfmr\-Stage\-Settings@{xfmr\-Stage\-Settings}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{xfmr\-Stage\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf xfmr\-Stage\-Settings} {\bf xfmr\-Stage\-Settings}}}\label{a00027_ab13cb1eb6c11d220d249e98a5250235a}
+A type to allow use of the A\-C stage settings structure. 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{a00027_a258413561252a6c94af200747272a9f3}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!ext\-Select@{ext\-Select}}
+\index{ext\-Select@{ext\-Select}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{ext\-Select}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf ext\-Select}}}\label{a00027_a258413561252a6c94af200747272a9f3}
+The possible external sensor selections. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{ext1@{ext1}!Macro\-Nets.\-h@{Macro\-Nets.\-h}}\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!ext1@{ext1}}\item[{\em 
+\hypertarget{a00027_a258413561252a6c94af200747272a9f3a6b8e8e9bb4b53b3fc029110541623a3c}{ext1}\label{a00027_a258413561252a6c94af200747272a9f3a6b8e8e9bb4b53b3fc029110541623a3c}
+}]External sensor 1. \index{ext2@{ext2}!Macro\-Nets.\-h@{Macro\-Nets.\-h}}\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!ext2@{ext2}}\item[{\em 
+\hypertarget{a00027_a258413561252a6c94af200747272a9f3a6b3e8213ce7722257795b7a3ffb915fc}{ext2}\label{a00027_a258413561252a6c94af200747272a9f3a6b3e8213ce7722257795b7a3ffb915fc}
+}]External sensor 2. \end{description}
+\end{Desc}
+\hypertarget{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!load\-Stage@{load\-Stage}}
+\index{load\-Stage@{load\-Stage}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{load\-Stage}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf load\-Stage}}}\label{a00027_a2820f1e18d921d2f1e97d53404b9fbae}
+The possible load stage selections. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{load1@{load1}!Macro\-Nets.\-h@{Macro\-Nets.\-h}}\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!load1@{load1}}\item[{\em 
+\hypertarget{a00027_a2820f1e18d921d2f1e97d53404b9fbaeae319629172a300013df8b0149c386f96}{load1}\label{a00027_a2820f1e18d921d2f1e97d53404b9fbaeae319629172a300013df8b0149c386f96}
+}]Load 1. \index{load2@{load2}!Macro\-Nets.\-h@{Macro\-Nets.\-h}}\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!load2@{load2}}\item[{\em 
+\hypertarget{a00027_a2820f1e18d921d2f1e97d53404b9fbaea690fc43c88b8671aff6aed61a8a2f9c6}{load2}\label{a00027_a2820f1e18d921d2f1e97d53404b9fbaea690fc43c88b8671aff6aed61a8a2f9c6}
+}]Load 2. \index{load3@{load3}!Macro\-Nets.\-h@{Macro\-Nets.\-h}}\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!load3@{load3}}\item[{\em 
+\hypertarget{a00027_a2820f1e18d921d2f1e97d53404b9fbaea861124cff343ddc4d2cc20dfe3ee7fa2}{load3}\label{a00027_a2820f1e18d921d2f1e97d53404b9fbaea861124cff343ddc4d2cc20dfe3ee7fa2}
+}]Load 3. \index{load4@{load4}!Macro\-Nets.\-h@{Macro\-Nets.\-h}}\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!load4@{load4}}\item[{\em 
+\hypertarget{a00027_a2820f1e18d921d2f1e97d53404b9fbaea94258908ecc1dedac8f08e7baf1156fc}{load4}\label{a00027_a2820f1e18d921d2f1e97d53404b9fbaea94258908ecc1dedac8f08e7baf1156fc}
+}]Load 4. \end{description}
+\end{Desc}
+
 
 \subsection{Function Documentation}
-\hypertarget{a00027_a1f05b9c5226c73b67c1d6c3bf7f80b52}{\index{Sci.\-h@{Sci.\-h}!sci\-Init@{sci\-Init}}
-\index{sci\-Init@{sci\-Init}!Sci.h@{Sci.\-h}}
-\subsubsection[{sci\-Init}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sci\-Init (
-\begin{DoxyParamCaption}
-\item[{Uint32}]{baud}
-\end{DoxyParamCaption}
-)}}\label{a00027_a1f05b9c5226c73b67c1d6c3bf7f80b52}
-Initialises the S\-C\-I(\-A) peripheral and relate interrupts. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em baud} & The baud rate that the S\-C\-I should use minimum value is set by S\-C\-I\-B\-A\-U\-D\-\_\-\-M\-I\-N. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status.
-\end{DoxyReturn}
-\begin{DoxyWarning}{Warning}
-This function M\-U\-S\-T be called before any other S\-C\-I(\-A) function. 
-
-This function will clear any values placed in the associated S\-C\-I(\-A) registers prior to calling. 
-\end{DoxyWarning}
-\hypertarget{a00027_a941bdbf3e64ac5f4492a7f7c5936b445}{\index{Sci.\-h@{Sci.\-h}!sci\-Tx@{sci\-Tx}}
-\index{sci\-Tx@{sci\-Tx}!Sci.h@{Sci.\-h}}
-\subsubsection[{sci\-Tx}]{\setlength{\rightskip}{0pt plus 5cm}void sci\-Tx (
+\hypertarget{a00027_a24dce601551d1d81b127711d2f4aabdd}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!run\-All@{run\-All}}
+\index{run\-All@{run\-All}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{run\-All}]{\setlength{\rightskip}{0pt plus 5cm}void run\-All (
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
-)}}\label{a00027_a941bdbf3e64ac5f4492a7f7c5936b445}
-Transmits whatever data is on the S\-C\-P\-I output queue. 
+)}}\label{a00027_a24dce601551d1d81b127711d2f4aabdd}
+Enables all I\-I\-R filter control law reference inputs. \hypertarget{a00027_a0ae5a77eff5aae0f7aead915fe68328b}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!setup\-Nets@{setup\-Nets}}
+\index{setup\-Nets@{setup\-Nets}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{setup\-Nets}]{\setlength{\rightskip}{0pt plus 5cm}void setup\-Nets (
+\begin{DoxyParamCaption}
+\item[{slave\-Mode}]{mode}
+\end{DoxyParamCaption}
+)}}\label{a00027_a0ae5a77eff5aae0f7aead915fe68328b}
+Initialises macro settings and nets. I\-I\-R control law coefficients are handled outside of this function. \begin{DoxyWarning}{Warning}
+This M\-U\-S\-T be called after D\-P\-L\-\_\-\-I\-N\-I\-T() 
+
+This M\-U\-S\-T be called after pwm\-Macro\-Config() 
+\end{DoxyWarning}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em mode} & Selects the test unit mode to allow correct macro net connection. \\
+\hline
+\end{DoxyParams}
+\hypertarget{a00027_a776854c00eb8a571abbfb27130ba4849}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!stop\-All@{stop\-All}}
+\index{stop\-All@{stop\-All}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{stop\-All}]{\setlength{\rightskip}{0pt plus 5cm}void stop\-All (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00027_a776854c00eb8a571abbfb27130ba4849}
+Disables all circuit sections, zeroes all I\-I\-R references and flags each stage as disabled. 
+
+\subsection{Variable Documentation}
+\hypertarget{a00027_ab73a0aedbde1954d7bf8091e07e4675c}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!ac\-Nets@{ac\-Nets}}
+\index{ac\-Nets@{ac\-Nets}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{ac\-Nets}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ac\-Stage\-Nets} ac\-Nets}}\label{a00027_ab73a0aedbde1954d7bf8091e07e4675c}
+A global instance of the A\-C nets structure. \hypertarget{a00027_aee11a0ac36813aa41597f992e943cd17}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!ac\-Settings@{ac\-Settings}}
+\index{ac\-Settings@{ac\-Settings}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{ac\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ac\-Stage\-Settings} ac\-Settings}}\label{a00027_aee11a0ac36813aa41597f992e943cd17}
+A global instance of the A\-C settings structure. \hypertarget{a00027_a65fcb0c0a483e3bc3433b17227fa29ac}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!enable\-All\-Flag@{enable\-All\-Flag}}
+\index{enable\-All\-Flag@{enable\-All\-Flag}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{enable\-All\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 enable\-All\-Flag}}\label{a00027_a65fcb0c0a483e3bc3433b17227fa29ac}
+Enable-\/all condition flag that allows status communication between the state machine tasks. \hypertarget{a00027_ab8092749f4706406bb47ec950573ebed}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!ext\-Settings@{ext\-Settings}}
+\index{ext\-Settings@{ext\-Settings}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{ext\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ext\-Device\-Settings} ext\-Settings}}\label{a00027_ab8092749f4706406bb47ec950573ebed}
+A global instance of the external device settings structure. \hypertarget{a00027_a0a6ae344146684f87fe8ca400640dced}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!load\-Nets@{load\-Nets}}
+\index{load\-Nets@{load\-Nets}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{load\-Nets}]{\setlength{\rightskip}{0pt plus 5cm}{\bf load\-Stage\-Nets} load\-Nets\mbox{[}number\-Of\-Loads\mbox{]}}}\label{a00027_a0a6ae344146684f87fe8ca400640dced}
+A global array instance of the load nets structure that collects the nets for all 4 loads. \hypertarget{a00027_acb0d5fe43ffb1c0edbb3d22409a8f346}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!load\-Settings@{load\-Settings}}
+\index{load\-Settings@{load\-Settings}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{load\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf load\-Stage\-Settings} load\-Settings\mbox{[}number\-Of\-Loads\mbox{]}}}\label{a00027_acb0d5fe43ffb1c0edbb3d22409a8f346}
+A global array instance of the load settings structure that collects the settings for all 4 loads. \hypertarget{a00027_af6530cd8f296ed6bf84f4ce75ea4c9ad}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!stop\-All\-Flag@{stop\-All\-Flag}}
+\index{stop\-All\-Flag@{stop\-All\-Flag}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{stop\-All\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 stop\-All\-Flag}}\label{a00027_af6530cd8f296ed6bf84f4ce75ea4c9ad}
+Stop-\/all condition flag that allows status communication between the state machine tasks. \hypertarget{a00027_aec1d3b8f844d1d31ce7e703e50209432}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!xfmr\-Nets@{xfmr\-Nets}}
+\index{xfmr\-Nets@{xfmr\-Nets}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{xfmr\-Nets}]{\setlength{\rightskip}{0pt plus 5cm}{\bf xfmr\-Stage\-Nets} xfmr\-Nets}}\label{a00027_aec1d3b8f844d1d31ce7e703e50209432}
+A global instance of the transformer nets structure. \hypertarget{a00027_ab8977a3c81ebfcd1b5dbe7fb49e9f832}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!xfmr\-Settings@{xfmr\-Settings}}
+\index{xfmr\-Settings@{xfmr\-Settings}!MacroNets.h@{Macro\-Nets.\-h}}
+\subsubsection[{xfmr\-Settings}]{\setlength{\rightskip}{0pt plus 5cm}{\bf xfmr\-Stage\-Settings} xfmr\-Settings}}\label{a00027_ab8977a3c81ebfcd1b5dbe7fb49e9f832}
+A global instance of the transformer settings structure. 

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>F2802x Burn In Unit: Common.h File Reference</title>
+<title>F2802x Burn In Unit: xfmrStageNets Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -44,8 +44,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -66,8 +67,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
+      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -75,7 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,49 +88,87 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">Common.h File Reference</div>  </div>
+<div class="title">xfmrStageNets Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Common include file for the project.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00026.html">Settings.h</a>&quot;</code><br/>
-<code>#include &quot;PeripheralHeaderIncludes.h&quot;</code><br/>
-<code>#include &quot;DSP2802x_EPWM_defines.h&quot;</code><br/>
-<code>#include &quot;IQMathLib.h&quot;</code><br/>
-<code>#include &quot;SQMath.h&quot;</code><br/>
-<code>#include &quot;DPlib.h&quot;</code><br/>
-<code>#include &quot;sgen.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00033.html">StateMachine.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00014.html">I2c.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00023.html">Sci.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00016.html">MacroNets.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00035.html">Timers.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00004.html">Adc.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00021.html">Pwm.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00008.html">Cntl.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00030.html">SlewControl.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00028.html">SineGen.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00019.html">PhaseCtrl.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00037.html">tmp.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00012.html">FanEn.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00006.html">BstEn.h</a>&quot;</code><br/>
-<code>#include &quot;../../SCPI_Build/SCPI_Build/scpi/scpi.h&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00025.html">SCPI_specificCmds.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for Common.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00042.png" border="0" usemap="#_common_8h" alt=""/></div>
-<map name="_common_8h" id="_common_8h">
-<area shape="rect" id="node2" href="a00026.html" title="Major build definitions and settings for the project. " alt="" coords="5,88,85,115"/><area shape="rect" id="node8" href="a00033.html" title="State machine functions. " alt="" coords="822,88,935,115"/><area shape="rect" id="node9" href="a00014.html" title="I2C communication functions. " alt="" coords="960,88,1011,115"/><area shape="rect" id="node10" href="a00023.html" title="SCI communications functions. " alt="" coords="1035,88,1087,115"/><area shape="rect" id="node11" href="a00016.html" title="DPLib macro net and value control functions. " alt="" coords="1112,88,1208,115"/><area shape="rect" id="node12" href="a00035.html" title="Real and virtual timer functions. " alt="" coords="1232,88,1304,115"/><area shape="rect" id="node13" href="a00004.html" title="ADC, DAC, comparator and related functions. " alt="" coords="1328,88,1384,115"/><area shape="rect" id="node14" href="a00021.html" title="PWM and related functions. " alt="" coords="1409,88,1471,115"/><area shape="rect" id="node15" href="a00008.html" title="DPLib CNTL Macro related helper functions. " alt="" coords="1496,88,1552,115"/><area shape="rect" id="node16" href="a00030.html" title="Slew control functions. " alt="" coords="1577,88,1679,115"/><area shape="rect" id="node17" href="a00028.html" title="Signal generator functions. " alt="" coords="1704,88,1787,115"/><area shape="rect" id="node18" href="a00019.html" title="Signal generator phase (ACFBPHASE) control function. " alt="" coords="1811,88,1901,115"/><area shape="rect" id="node19" href="a00037.html" title="Temperature sensor functions. " alt="" coords="1926,88,1980,115"/><area shape="rect" id="node20" href="a00012.html" title="Functions for enabling and disabling the external fans via I2C. " alt="" coords="2005,88,2075,115"/><area shape="rect" id="node21" href="a00006.html" title="Functions for enabling and disabling the boost converter stages via I2C. " alt="" coords="2100,88,2169,115"/><area shape="rect" id="node23" href="a00025.html" title="SCPI_specificCmds.h" alt="" coords="2365,88,2512,115"/></map>
+<p><code>#include &lt;MacroNets.h&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:a794dc3b0f07e245bb54f830d86ad8fed"><td class="memItemLeft" align="right" valign="top">volatile int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#a794dc3b0f07e245bb54f830d86ad8fed">iSnsNet</a></td></tr>
+<tr class="separator:a794dc3b0f07e245bb54f830d86ad8fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf2860aba64beca1c5471fcc7432c07"><td class="memItemLeft" align="right" valign="top">volatile int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#a6cf2860aba64beca1c5471fcc7432c07">midVSnsNet</a></td></tr>
+<tr class="separator:a6cf2860aba64beca1c5471fcc7432c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af673ad18a7fbfd829202293dd019d25b"><td class="memItemLeft" align="right" valign="top">volatile int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#af673ad18a7fbfd829202293dd019d25b">hvVSnsNet</a></td></tr>
+<tr class="separator:af673ad18a7fbfd829202293dd019d25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c842e8cc854cd6665110f4ade15514f"><td class="memItemLeft" align="right" valign="top">volatile int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html#a0c842e8cc854cd6665110f4ade15514f">pwmDutyNet</a></td></tr>
+<tr class="separator:a0c842e8cc854cd6665110f4ade15514f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A structure that contains the nets used in the transformer stage. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="af673ad18a7fbfd829202293dd019d25b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32 xfmrStageNets::hvVSnsNet</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DC HV voltage sense net (IQ24). </p>
+
 </div>
-</div><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Common include file for the project. </p>
-<p>All other header files used should be included within this file and this file should then be used to include them in the required source files. </p>
-</div></div><!-- contents -->
+</div>
+<a class="anchor" id="a794dc3b0f07e245bb54f830d86ad8fed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32 xfmrStageNets::iSnsNet</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Current sense net (IQ24). </p>
+
+</div>
+</div>
+<a class="anchor" id="a6cf2860aba64beca1c5471fcc7432c07"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32 xfmrStageNets::midVSnsNet</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DC mid voltage sense net (IQ24). </p>
+
+</div>
+</div>
+<a class="anchor" id="a0c842e8cc854cd6665110f4ade15514f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32 xfmrStageNets::pwmDutyNet</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Transformer PWM duty net (IQ24). </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="a00027.html">MacroNets.h</a></li>
+</ul>
+</div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Wed Aug 14 2013
+Thu Oct 24 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

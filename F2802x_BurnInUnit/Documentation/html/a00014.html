@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>F2802x Burn In Unit: I2c.h File Reference</title>
+<title>F2802x Burn In Unit: Cntl.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -75,7 +76,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,386 +88,197 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">I2c.h File Reference</div>  </div>
+<div class="title">Cntl.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>I2C communication functions.  
+<p>DPLib CNTL Macro related helper functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00044.png" border="0" usemap="#_i2c_8hdep" alt=""/></div>
-<map name="_i2c_8hdep" id="_i2c_8hdep">
-<area shape="rect" id="node2" href="a00009.html" title="Common include file for the project. " alt="" coords="5,80,91,107"/></map>
+<div class="center"><img src="a00061.png" border="0" usemap="#_cntl_8hdep" alt=""/></div>
+<map name="_cntl_8hdep" id="_cntl_8hdep">
+<area shape="rect" id="node2" href="a00015.html" title="Common include file for the project. " alt="" coords="5,80,91,107"/></map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html">i2cMsg</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ac340fbbc5919954c173757935549588f"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1">coefNum</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a></td></tr>
+<tr class="separator:ac340fbbc5919954c173757935549588f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a0889ccb6e4a98d6d8a0bf7c009c818e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a0889ccb6e4a98d6d8a0bf7c009c818e2">I2C_MAX_BUFFER_SIZE</a>&#160;&#160;&#160;0x04</td></tr>
-<tr class="separator:a0889ccb6e4a98d6d8a0bf7c009c818e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae429af928d46f8186343fb3eb550dc92"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#ae429af928d46f8186343fb3eb550dc92">I2C_MAX_PTR_SIZE</a>&#160;&#160;&#160;0x02</td></tr>
-<tr class="separator:ae429af928d46f8186343fb3eb550dc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:a8e07057d8bd0732259c8b4aba0ccf747"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a8e07057d8bd0732259c8b4aba0ccf747">I2C_CLR_AL_BIT</a>&#160;&#160;&#160;0x0001</td></tr>
-<tr class="separator:a8e07057d8bd0732259c8b4aba0ccf747"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac28843bc51cce0ce461810ff06c1dddc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#ac28843bc51cce0ce461810ff06c1dddc">I2C_CLR_NACK_BIT</a>&#160;&#160;&#160;0x0002</td></tr>
-<tr class="separator:ac28843bc51cce0ce461810ff06c1dddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4496263a3b781866a48a6b7e8fcc1543"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a4496263a3b781866a48a6b7e8fcc1543">I2C_CLR_ARDY_BIT</a>&#160;&#160;&#160;0x0004</td></tr>
-<tr class="separator:a4496263a3b781866a48a6b7e8fcc1543"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10317717bb3efb7ede2a49999fd161ba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a10317717bb3efb7ede2a49999fd161ba">I2C_CLR_RRDY_BIT</a>&#160;&#160;&#160;0x0008</td></tr>
-<tr class="separator:a10317717bb3efb7ede2a49999fd161ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb930d2f95f82d333b27b02f9586c3cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#aeb930d2f95f82d333b27b02f9586c3cd">I2C_CLR_SCD_BIT</a>&#160;&#160;&#160;0x0020</td></tr>
-<tr class="separator:aeb930d2f95f82d333b27b02f9586c3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:adf7bc6e4d458e0b13f0ad26570f04528"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#adf7bc6e4d458e0b13f0ad26570f04528">I2C_ARDY_ISRC</a>&#160;&#160;&#160;0x0003</td></tr>
-<tr class="separator:adf7bc6e4d458e0b13f0ad26570f04528"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa26238e86d534cda62318e98e1655654"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#aa26238e86d534cda62318e98e1655654">I2C_SCD_ISRC</a>&#160;&#160;&#160;0x0006</td></tr>
-<tr class="separator:aa26238e86d534cda62318e98e1655654"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:ad7ff7f3ddb5fb35b633d558b376cf329"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#ad7ff7f3ddb5fb35b633d558b376cf329">I2C_MSGSTAT_INACTIVE</a>&#160;&#160;&#160;0x0000</td></tr>
-<tr class="separator:ad7ff7f3ddb5fb35b633d558b376cf329"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56f7eeab5c8dbbe042a10d1f8ac1ad55"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a56f7eeab5c8dbbe042a10d1f8ac1ad55">I2C_MSGSTAT_SEND_WITHSTOP</a>&#160;&#160;&#160;0x0010</td></tr>
-<tr class="separator:a56f7eeab5c8dbbe042a10d1f8ac1ad55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36809495e97c0e8033246b227f9716be"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a36809495e97c0e8033246b227f9716be">I2C_MSGSTAT_WRITE_BUSY</a>&#160;&#160;&#160;0x0011</td></tr>
-<tr class="separator:a36809495e97c0e8033246b227f9716be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b46589e75a5bfdc3c57b0bc30cc8671"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a6b46589e75a5bfdc3c57b0bc30cc8671">I2C_MSGSTAT_SEND_NOSTOP</a>&#160;&#160;&#160;0x0020</td></tr>
-<tr class="separator:a6b46589e75a5bfdc3c57b0bc30cc8671"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbe18b39fde045ed6d51eaa7e17b78e0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#adbe18b39fde045ed6d51eaa7e17b78e0">I2C_MSGSTAT_SEND_NOSTOP_BUSY</a>&#160;&#160;&#160;0x0021</td></tr>
-<tr class="separator:adbe18b39fde045ed6d51eaa7e17b78e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf5a3e5950b5af97d3ec2e40b96c2251"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#adf5a3e5950b5af97d3ec2e40b96c2251">I2C_MSGSTAT_RESTART</a>&#160;&#160;&#160;0x0022</td></tr>
-<tr class="separator:adf5a3e5950b5af97d3ec2e40b96c2251"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bd9503fa86f5b4d52aeb21be008064a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a9bd9503fa86f5b4d52aeb21be008064a">I2C_MSGSTAT_READ_BUSY</a>&#160;&#160;&#160;0x0023</td></tr>
-<tr class="separator:a9bd9503fa86f5b4d52aeb21be008064a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a4b8f446b389413b175ff4d4dbcd18da1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1">coefNum</a> { , <br/>
+&#160;&#160;<a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1ad15b967851188a21b2d4fd326304bf83">cMin</a> = firstCoef, 
+<a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1a3576a9eb4b8f9d1ca3d31a0f9b889299">cMax</a>, 
+<a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1a3dec162fc3f68f49f43775eba612e110">cB0</a>, 
+<a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1a43986b141584b760c8c8c9fc29304de2">cB1</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1aac28a7344b33c5e968a79fc27078da99">cA1</a>, 
+<a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1a5229cb73bab727c5aeaae425a4fd2472">cB2</a>, 
+<a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1a80d8d6d72b42fa8603b71cba71e13ef2">cA2</a>, 
+<a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1aaf02fe4d8a1a90d96d8ceb29c6face14">cB3</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1a23a7967c17fd0f99330009d84750ff62">cA3</a>
+<br/>
+ }</td></tr>
+<tr class="separator:a4b8f446b389413b175ff4d4dbcd18da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1e0a81a1ad1fd7710ca189236e3e5476"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a1e0a81a1ad1fd7710ca189236e3e5476">i2cInit</a> (void)</td></tr>
-<tr class="separator:a1e0a81a1ad1fd7710ca189236e3e5476"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e3198d675e7b65c3652bb5c887a7a64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a9e3198d675e7b65c3652bb5c887a7a64">i2cPopMsg</a> (<a class="el" href="a00002.html">i2cMsg</a> *msg, Uint16 msgStatus, Uint16 slaveAddr, Uint16 numDataBytes, Uint16 numSlavePtrBytes, Uint16 slavePtrAddrHi, Uint16 slavePtrAddrLo)</td></tr>
-<tr class="separator:a9e3198d675e7b65c3652bb5c887a7a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3813bb8cae6159f7df2672a55be4014b"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a3813bb8cae6159f7df2672a55be4014b">i2cWrite</a> (<a class="el" href="a00002.html">i2cMsg</a> *msg)</td></tr>
-<tr class="separator:a3813bb8cae6159f7df2672a55be4014b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa681ec1b6413dd7009a6aaf0df2cbac1"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#aa681ec1b6413dd7009a6aaf0df2cbac1">i2cRead</a> (<a class="el" href="a00002.html">i2cMsg</a> *msg)</td></tr>
-<tr class="separator:aa681ec1b6413dd7009a6aaf0df2cbac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91a941a20fc5a9465397d4701e0beaf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a91a941a20fc5a9465397d4701e0beaf4">initCoefs</a> (void)</td></tr>
+<tr class="separator:a91a941a20fc5a9465397d4701e0beaf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac551a1fee10631510b139d6d97bb166c"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#ac551a1fee10631510b139d6d97bb166c">setLoadICoef</a> (<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> load, <a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a> coef, float32 value)</td></tr>
+<tr class="separator:ac551a1fee10631510b139d6d97bb166c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86bea9827291d6230b0f3366bbd8ce27"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a86bea9827291d6230b0f3366bbd8ce27">getLoadICoef</a> (<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> load, <a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a> coef, float32 *value)</td></tr>
+<tr class="separator:a86bea9827291d6230b0f3366bbd8ce27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a68710ce9ede60c43503c65300a585"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a46a68710ce9ede60c43503c65300a585">cntlSetAcICoef</a> (<a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a> coef, float32 val)</td></tr>
+<tr class="separator:a46a68710ce9ede60c43503c65300a585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a766238d36085cd55f37f88fd8b2bb110"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a766238d36085cd55f37f88fd8b2bb110">getAcICoef</a> (<a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a> coef, float32 *value)</td></tr>
+<tr class="separator:a766238d36085cd55f37f88fd8b2bb110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaa99aafbcfaf6399a815e094c431474"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#acaa99aafbcfaf6399a815e094c431474">setAcVCoef</a> (<a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a> coef, float32 value)</td></tr>
+<tr class="separator:acaa99aafbcfaf6399a815e094c431474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3161240a1aa23145fcba9506cb9001c"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#ad3161240a1aa23145fcba9506cb9001c">getAcVCoef</a> (<a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a> coef, float32 *value)</td></tr>
+<tr class="separator:ad3161240a1aa23145fcba9506cb9001c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af15987bb0b6b0819b233fa6963671a35"><td class="memItemLeft" align="right" valign="top">struct CNTL_2P2Z_CoefStruct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#af15987bb0b6b0819b233fa6963671a35">loadICoefs</a> [numberOfLoads]</td></tr>
+<tr class="separator:af15987bb0b6b0819b233fa6963671a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05ea1ba581ea8bf1eb5c44f15534d31c"><td class="memItemLeft" align="right" valign="top">struct CNTL_2P2Z_CoefStruct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a05ea1ba581ea8bf1eb5c44f15534d31c">acICoefs</a></td></tr>
+<tr class="separator:a05ea1ba581ea8bf1eb5c44f15534d31c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b7cdba3e3e2fb71309dd78c6c1cd4cc"><td class="memItemLeft" align="right" valign="top">struct CNTL_3P3Z_CoefStruct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a1b7cdba3e3e2fb71309dd78c6c1cd4cc">acVCoefs</a></td></tr>
+<tr class="separator:a1b7cdba3e3e2fb71309dd78c6c1cd4cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a047c759a71b80d8cfd5e6f52b1b021b9"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a047c759a71b80d8cfd5e6f52b1b021b9">CNTL_2P2Z_Coef1</a></td></tr>
+<tr class="separator:a047c759a71b80d8cfd5e6f52b1b021b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdc599cbabc62898c49926678c3327e6"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#abdc599cbabc62898c49926678c3327e6">CNTL_2P2Z_Coef2</a></td></tr>
+<tr class="separator:abdc599cbabc62898c49926678c3327e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e357d296e76299ea04d7a63e4c46d1b"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a1e357d296e76299ea04d7a63e4c46d1b">CNTL_2P2Z_Coef3</a></td></tr>
+<tr class="separator:a1e357d296e76299ea04d7a63e4c46d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe468cb1e995b267671e88b8d292aef6"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#afe468cb1e995b267671e88b8d292aef6">CNTL_2P2Z_Coef4</a></td></tr>
+<tr class="separator:afe468cb1e995b267671e88b8d292aef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c0418a780375035750c3d4dc16f3ae4"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a9c0418a780375035750c3d4dc16f3ae4">CNTL_2P2Z_Fdbk1</a></td></tr>
+<tr class="separator:a9c0418a780375035750c3d4dc16f3ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6092ef1c1c54802bb5e11564f782390d"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a6092ef1c1c54802bb5e11564f782390d">CNTL_2P2Z_Fdbk2</a></td></tr>
+<tr class="separator:a6092ef1c1c54802bb5e11564f782390d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a939782d23ddbf7f45e5e393a65bafcff"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a939782d23ddbf7f45e5e393a65bafcff">CNTL_2P2Z_Fdbk3</a></td></tr>
+<tr class="separator:a939782d23ddbf7f45e5e393a65bafcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6937e965f3ae840ea6ee43cce410680f"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a6937e965f3ae840ea6ee43cce410680f">CNTL_2P2Z_Fdbk4</a></td></tr>
+<tr class="separator:a6937e965f3ae840ea6ee43cce410680f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84d7c096ca668d1edc5e4fa54abe5d98"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a84d7c096ca668d1edc5e4fa54abe5d98">CNTL_2P2Z_Out1</a></td></tr>
+<tr class="separator:a84d7c096ca668d1edc5e4fa54abe5d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6679b66ffeca93742f973a2c947855f"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#ae6679b66ffeca93742f973a2c947855f">CNTL_2P2Z_Out2</a></td></tr>
+<tr class="separator:ae6679b66ffeca93742f973a2c947855f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11dcb9f6b6d03fe960ddf790e1ad5ed2"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a11dcb9f6b6d03fe960ddf790e1ad5ed2">CNTL_2P2Z_Out3</a></td></tr>
+<tr class="separator:a11dcb9f6b6d03fe960ddf790e1ad5ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a253e4070b19470606e0566ff25fc911f"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a253e4070b19470606e0566ff25fc911f">CNTL_2P2Z_Out4</a></td></tr>
+<tr class="separator:a253e4070b19470606e0566ff25fc911f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98527ce76f5175fa2933d46f324d85fb"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a98527ce76f5175fa2933d46f324d85fb">CNTL_2P2Z_Ref1</a></td></tr>
+<tr class="separator:a98527ce76f5175fa2933d46f324d85fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bf1756a901a3a74d9f43a51f85cede4"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a9bf1756a901a3a74d9f43a51f85cede4">CNTL_2P2Z_Ref2</a></td></tr>
+<tr class="separator:a9bf1756a901a3a74d9f43a51f85cede4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a859e9bbd5bc82f1b42863a93e4f992af"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a859e9bbd5bc82f1b42863a93e4f992af">CNTL_2P2Z_Ref3</a></td></tr>
+<tr class="separator:a859e9bbd5bc82f1b42863a93e4f992af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af54c55f228deb8189c44282a94a870c1"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#af54c55f228deb8189c44282a94a870c1">CNTL_2P2Z_Ref4</a></td></tr>
+<tr class="separator:af54c55f228deb8189c44282a94a870c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe3f4dd6aac27512c9e0b6fc843b0b6"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a5fe3f4dd6aac27512c9e0b6fc843b0b6">CNTL_2P2Z_Coef5</a></td></tr>
+<tr class="separator:a5fe3f4dd6aac27512c9e0b6fc843b0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5cbb635f31bbebd041e8543deb40dee"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#af5cbb635f31bbebd041e8543deb40dee">CNTL_2P2Z_Fdbk5</a></td></tr>
+<tr class="separator:af5cbb635f31bbebd041e8543deb40dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b336a91d25a7feb9f8927b32b800d0d"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a3b336a91d25a7feb9f8927b32b800d0d">CNTL_2P2Z_Out5</a></td></tr>
+<tr class="separator:a3b336a91d25a7feb9f8927b32b800d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3b240e2d3f7d3f4f717066ee8efd3e"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#abd3b240e2d3f7d3f4f717066ee8efd3e">CNTL_2P2Z_Ref5</a></td></tr>
+<tr class="separator:abd3b240e2d3f7d3f4f717066ee8efd3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41005c53e7c439f0af28e140f7d3d0ed"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a41005c53e7c439f0af28e140f7d3d0ed">CNTL_3P3Z_Coef1</a></td></tr>
+<tr class="separator:a41005c53e7c439f0af28e140f7d3d0ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a361372a23d9146cd2d077e6c843ec47e"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a361372a23d9146cd2d077e6c843ec47e">CNTL_3P3Z_Fdbk1</a></td></tr>
+<tr class="separator:a361372a23d9146cd2d077e6c843ec47e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0edbb1cfd2fb0e63ac2eb233dcd577"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#acb0edbb1cfd2fb0e63ac2eb233dcd577">CNTL_3P3Z_Out1</a></td></tr>
+<tr class="separator:acb0edbb1cfd2fb0e63ac2eb233dcd577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ebe91dab023eff56cade0eddcd3e96d"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00014.html#a6ebe91dab023eff56cade0eddcd3e96d">CNTL_3P3Z_Ref1</a></td></tr>
+<tr class="separator:a6ebe91dab023eff56cade0eddcd3e96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>I2C communication functions. </p>
-<dl class="section warning"><dt>Warning</dt><dd>The following bridge tracks should be cut on the TI C2000 LaunchPad XL PCB before I2C (or SPI) may be used: <table class="doxtable">
-<tr>
-<th align="center">Bridge to Cut </th><th align="center">GPIO </th><th align="center">PCB Pin  </th></tr>
-<tr>
-<td align="center">JP5 </td><td align="center">GPIO32</td><td align="center">J2-6 </td></tr>
-<tr>
-<td align="center">JP7 </td><td align="center">GPIO33</td><td align="center">J2-7 </td></tr>
-<tr>
-<td align="center">JP8 </td><td align="center">GPIO16</td><td align="center">J6-7 </td></tr>
-<tr>
-<td align="center">JP10 </td><td align="center">GPIO17</td><td align="center">J6-8 </td></tr>
+<div class="textblock"><p>DPLib CNTL Macro related helper functions. </p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="ac340fbbc5919954c173757935549588f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1">coefNum</a> <a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type that allows a reference to a CNTL coefficient. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a4b8f446b389413b175ff4d4dbcd18da1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00014.html#a4b8f446b389413b175ff4d4dbcd18da1">coefNum</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>CNTL Coefficient references </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a4b8f446b389413b175ff4d4dbcd18da1ad15b967851188a21b2d4fd326304bf83"></a>cMin</em>&nbsp;</td><td class="fielddoc">
+<p>Saturation minimum reference. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4b8f446b389413b175ff4d4dbcd18da1a3576a9eb4b8f9d1ca3d31a0f9b889299"></a>cMax</em>&nbsp;</td><td class="fielddoc">
+<p>Saturation maximum reference. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4b8f446b389413b175ff4d4dbcd18da1a3dec162fc3f68f49f43775eba612e110"></a>cB0</em>&nbsp;</td><td class="fielddoc">
+<p>B0 coefficient reference. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4b8f446b389413b175ff4d4dbcd18da1a43986b141584b760c8c8c9fc29304de2"></a>cB1</em>&nbsp;</td><td class="fielddoc">
+<p>B1 coefficient reference. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4b8f446b389413b175ff4d4dbcd18da1aac28a7344b33c5e968a79fc27078da99"></a>cA1</em>&nbsp;</td><td class="fielddoc">
+<p>A1 coefficient reference. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4b8f446b389413b175ff4d4dbcd18da1a5229cb73bab727c5aeaae425a4fd2472"></a>cB2</em>&nbsp;</td><td class="fielddoc">
+<p>B2 coefficient reference. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4b8f446b389413b175ff4d4dbcd18da1a80d8d6d72b42fa8603b71cba71e13ef2"></a>cA2</em>&nbsp;</td><td class="fielddoc">
+<p>A2 coefficient reference. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4b8f446b389413b175ff4d4dbcd18da1aaf02fe4d8a1a90d96d8ceb29c6face14"></a>cB3</em>&nbsp;</td><td class="fielddoc">
+<p>B3 coefficient reference. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a4b8f446b389413b175ff4d4dbcd18da1a23a7967c17fd0f99330009d84750ff62"></a>cA3</em>&nbsp;</td><td class="fielddoc">
+<p>A3 coefficient reference. </p>
+</td></tr>
 </table>
-This should result in the following functionality: <table class="doxtable">
-<tr>
-<th align="center">Function </th><th align="center">GPIO </th><th align="center">PCB Pin  </th></tr>
-<tr>
-<td align="center">I2C_SDAA </td><td align="center">GPIO32</td><td align="center">J6-7 </td></tr>
-<tr>
-<td align="center">I2C_SCLA </td><td align="center">GPIO33</td><td align="center">J6-8 </td></tr>
-<tr>
-<td align="center">SPI_MOSI </td><td align="center">GPIO16</td><td align="center">J2-6 </td></tr>
-<tr>
-<td align="center">SPI_MISO </td><td align="center">GPIO17</td><td align="center">J2-7 </td></tr>
-</table>
-</dd>
-<dd>
-The function <a class="el" href="a00014.html#a1e0a81a1ad1fd7710ca189236e3e5476">i2cInit()</a> MUST be called before any other public I2C function is used. This will clear any values already in the I2C registers.</dd>
-<dd>
-Interrupts MUST be globally enabled for the functions <a class="el" href="a00014.html#a3813bb8cae6159f7df2672a55be4014b">i2cWrite()</a> and <a class="el" href="a00014.html#aa681ec1b6413dd7009a6aaf0df2cbac1">i2cRead()</a> to operate correctly.</dd></dl>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="a00006.html" title="Functions for enabling and disabling the boost converter stages via I2C. ">BstEn.h</a> </dd>
-<dd>
-<a class="el" href="a00012.html" title="Functions for enabling and disabling the external fans via I2C. ">FanEn.h</a> </dd>
-<dd>
-<a class="el" href="a00037.html" title="Temperature sensor functions. ">Tmp.h</a> </dd></dl>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="adf7bc6e4d458e0b13f0ad26570f04528"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_ARDY_ISRC&#160;&#160;&#160;0x0003</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>I2C Interrupt Sources Register access ready condition I2C interrupt source. </p>
-
-</div>
-</div>
-<a class="anchor" id="a8e07057d8bd0732259c8b4aba0ccf747"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_CLR_AL_BIT&#160;&#160;&#160;0x0001</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>I2C Status Clear Bits Arbitration lost status clear bit. </p>
-
-</div>
-</div>
-<a class="anchor" id="a4496263a3b781866a48a6b7e8fcc1543"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_CLR_ARDY_BIT&#160;&#160;&#160;0x0004</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Register access ready status clear bit. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac28843bc51cce0ce461810ff06c1dddc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_CLR_NACK_BIT&#160;&#160;&#160;0x0002</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>NACK status clear bit. </p>
-
-</div>
-</div>
-<a class="anchor" id="a10317717bb3efb7ede2a49999fd161ba"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_CLR_RRDY_BIT&#160;&#160;&#160;0x0008</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Receive data ready status clear bit. </p>
-
-</div>
-</div>
-<a class="anchor" id="aeb930d2f95f82d333b27b02f9586c3cd"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_CLR_SCD_BIT&#160;&#160;&#160;0x0020</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Stop detected status clear bit. </p>
-
-</div>
-</div>
-<a class="anchor" id="a0889ccb6e4a98d6d8a0bf7c009c818e2"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MAX_BUFFER_SIZE&#160;&#160;&#160;0x04</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Maximum I2C message buffer size in bytes, including slave register pointer bytes. </p>
-
-</div>
-</div>
-<a class="anchor" id="ae429af928d46f8186343fb3eb550dc92"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MAX_PTR_SIZE&#160;&#160;&#160;0x02</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Maximum number of slave register pointer bytes. </p>
-
-</div>
-</div>
-<a class="anchor" id="ad7ff7f3ddb5fb35b633d558b376cf329"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MSGSTAT_INACTIVE&#160;&#160;&#160;0x0000</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>I2C Message States Inactive I2C message state. </p>
-
-</div>
-</div>
-<a class="anchor" id="a9bd9503fa86f5b4d52aeb21be008064a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MSGSTAT_READ_BUSY&#160;&#160;&#160;0x0023</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>State indicating the I2C is busy with a read. </p>
-
-</div>
-</div>
-<a class="anchor" id="adf5a3e5950b5af97d3ec2e40b96c2251"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MSGSTAT_RESTART&#160;&#160;&#160;0x0022</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Transmit a master read with a restart. </p>
-
-</div>
-</div>
-<a class="anchor" id="a6b46589e75a5bfdc3c57b0bc30cc8671"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MSGSTAT_SEND_NOSTOP&#160;&#160;&#160;0x0020</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Transmit a write with no stop. </p>
-
-</div>
-</div>
-<a class="anchor" id="adbe18b39fde045ed6d51eaa7e17b78e0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MSGSTAT_SEND_NOSTOP_BUSY&#160;&#160;&#160;0x0021</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>State indicating the I2C is busy with a write with no stop. </p>
-
-</div>
-</div>
-<a class="anchor" id="a56f7eeab5c8dbbe042a10d1f8ac1ad55"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MSGSTAT_SEND_WITHSTOP&#160;&#160;&#160;0x0010</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Transmit a write with stop I2C message state. </p>
-
-</div>
-</div>
-<a class="anchor" id="a36809495e97c0e8033246b227f9716be"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_MSGSTAT_WRITE_BUSY&#160;&#160;&#160;0x0011</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>State indicating the I2C is busy with a write with a stop. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa26238e86d534cda62318e98e1655654"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define I2C_SCD_ISRC&#160;&#160;&#160;0x0006</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Stop detected condition I2C interrupt source. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a1e0a81a1ad1fd7710ca189236e3e5476"></a>
+<a class="anchor" id="a46a68710ce9ede60c43503c65300a585"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void i2cInit </td>
+          <td class="memname">Uint16 cntlSetAcICoef </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname">)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Initialises the I2C-A peripheral and relevant interrupts. This function will clear any values already in the I2C peripheral registers. This function MUST be called before any other public I2C function. </p>
-
-</div>
-</div>
-<a class="anchor" id="a9e3198d675e7b65c3652bb5c887a7a64"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void i2cPopMsg </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00002.html">i2cMsg</a> *&#160;</td>
-          <td class="paramname"><em>msg</em>, </td>
+          <td class="paramtype"><a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a>&#160;</td>
+          <td class="paramname"><em>coef</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>msgStatus</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>slaveAddr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>numDataBytes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>numSlavePtrBytes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>slavePtrAddrHi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>slavePtrAddrLo</em>&#160;</td>
+          <td class="paramtype">float32&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -475,39 +287,11 @@ Interrupts MUST be globally enabled for the functions <a class="el" href="a00014
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function can be used to validate and populate the specified settings and values into the specified I2C message structure. </p>
+<p>Sets the specified IIR filter control law coefficient for the AC current control. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">msg</td><td>The I2C message structure. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">msgStatus</td><td>The initial I2C message status. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">slaveAddr</td><td>The slave address. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">numDataBytes</td><td>The number, if any, of data bytes, above any slave register pointer bytes, in the message. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">numSlavePtrBytes</td><td>The number, if any, of slave register pointer bytes. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">slavePtrAddrHi</td><td>The slave register pointer high byte. If only one byte, or none, (as indicated by numSlavePtrbytes) is to be used leave this at zero. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">slavePtrAddrLo</td><td>The slave register pointer low byte. If no pointer bytes (as indicated by numSlavePtrbytes) are used leave this at zero. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="aa681ec1b6413dd7009a6aaf0df2cbac1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Uint16 i2cRead </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00002.html">i2cMsg</a> *&#160;</td>
-          <td class="paramname"><em>msg</em>)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Starts an I2C-A read using the settings specified. Read bytes are saved to the buffer msg.msgBuffer[]. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>The I2C message struct. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">coef</td><td>Specifies the coefficient to be set [cMin, cA3). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">val</td><td>Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][]. </td></tr>
   </table>
   </dd>
 </dl>
@@ -515,33 +299,571 @@ Interrupts MUST be globally enabled for the functions <a class="el" href="a00014
 
 </div>
 </div>
-<a class="anchor" id="a3813bb8cae6159f7df2672a55be4014b"></a>
+<a class="anchor" id="a766238d36085cd55f37f88fd8b2bb110"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 i2cWrite </td>
+          <td class="memname">Uint16 getAcICoef </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00002.html">i2cMsg</a> *&#160;</td>
-          <td class="paramname"><em>msg</em>)</td><td></td>
+          <td class="paramtype"><a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a>&#160;</td>
+          <td class="paramname"><em>coef</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the specified IIR filter control law coefficient for the AC current control. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">coef</td><td>Specifies the coefficient to be queried [cMin, cA3). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Address of the memory location at which to place the query result. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad3161240a1aa23145fcba9506cb9001c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getAcVCoef </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a>&#160;</td>
+          <td class="paramname"><em>coef</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the specified IIR filter control law coefficient for the AC voltage control. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">coef</td><td>Specifies the coefficient to be queried [cMin, cA3). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Address of the memory location at which to place the query result. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a86bea9827291d6230b0f3366bbd8ce27"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getLoadICoef </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a>&#160;</td>
+          <td class="paramname"><em>load</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a>&#160;</td>
+          <td class="paramname"><em>coef</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the specified IIR filter control law coefficient for a specified load's current control. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">load</td><td>Specifies the load on which the setting is to be queried [0, NUM_CHNLS). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">coef</td><td>Specifies the coefficient to be queried [cMin, cA3). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Address of the memory location at which to place the query result. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a91a941a20fc5a9465397d4701e0beaf4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initCoefs </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Starts an I2C-A write using the settings and values specified. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Initialises all IIR filter control law coefficients. </p>
+<dl class="section warning"><dt>Warning</dt><dd>This function must be called before the control macros are used. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acaa99aafbcfaf6399a815e094c431474"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 setAcVCoef </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a>&#160;</td>
+          <td class="paramname"><em>coef</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the specified IIR filter control law coefficient for the AC voltage control.</p>
+<ul>
+<li>The actual setting in use is not updated until AFTER cntlUpdateCoefs() has been called. <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">msg</td><td>The I2C message structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">coef</td><td>Specifies the coefficient to be set [cMin, cA3). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][]. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error Status. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+</li>
+</ul>
+
+</div>
+</div>
+<a class="anchor" id="ac551a1fee10631510b139d6d97bb166c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 setLoadICoef </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a>&#160;</td>
+          <td class="paramname"><em>load</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00014.html#ac340fbbc5919954c173757935549588f">cfType</a>&#160;</td>
+          <td class="paramname"><em>coef</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the specified IIR filter control law coefficient for a specified load's current control. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">load</td><td>Specifies the load number the setting is to be applied to [0, NUM_CHNLS). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">coef</td><td>Specifies the coefficient to be set [cMin, cA3). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][]. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="a05ea1ba581ea8bf1eb5c44f15534d31c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct CNTL_2P2Z_CoefStruct acICoefs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Structure that holds the AC I 2-pole 2-zero IIR filter control law coefficient currently in use. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1b7cdba3e3e2fb71309dd78c6c1cd4cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct CNTL_3P3Z_CoefStruct acVCoefs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Structure that holds the AC V 2-pole 2-zero IIR filter control law coefficient currently in use. </p>
+
+</div>
+</div>
+<a class="anchor" id="a047c759a71b80d8cfd5e6f52b1b021b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Coef1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 1 IIR filter control law coefficient terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="abdc599cbabc62898c49926678c3327e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Coef2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 2 IIR filter control law coefficient terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1e357d296e76299ea04d7a63e4c46d1b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Coef3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 3 IIR filter control law coefficient terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="afe468cb1e995b267671e88b8d292aef6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Coef4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 4 IIR filter control law coefficient terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5fe3f4dd6aac27512c9e0b6fc843b0b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Coef5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AC stage I IIR filter control law coefficient terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9c0418a780375035750c3d4dc16f3ae4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Fdbk1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 1 IIR filter control law feedback terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6092ef1c1c54802bb5e11564f782390d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Fdbk2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 2 IIR filter control law feedback terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a939782d23ddbf7f45e5e393a65bafcff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Fdbk3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 3 IIR filter control law feedback terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6937e965f3ae840ea6ee43cce410680f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Fdbk4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 4 IIR filter control law feedback terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="af5cbb635f31bbebd041e8543deb40dee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Fdbk5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AC stage I IIR filter control law feedback terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a84d7c096ca668d1edc5e4fa54abe5d98"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Out1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 1 IIR filter control law output terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae6679b66ffeca93742f973a2c947855f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Out2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 2 IIR filter control law output terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a11dcb9f6b6d03fe960ddf790e1ad5ed2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Out3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 3 IIR filter control law output terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a253e4070b19470606e0566ff25fc911f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Out4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 4 IIR filter control law output terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3b336a91d25a7feb9f8927b32b800d0d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Out5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AC stage I IIR filter control law output terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a98527ce76f5175fa2933d46f324d85fb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Ref1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 1 IIR filter control law reference terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9bf1756a901a3a74d9f43a51f85cede4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Ref2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 2 IIR filter control law reference terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a859e9bbd5bc82f1b42863a93e4f992af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Ref3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 3 IIR filter control law reference terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="af54c55f228deb8189c44282a94a870c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Ref4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load 4 IIR filter control law reference terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="abd3b240e2d3f7d3f4f717066ee8efd3e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_2P2Z_Ref5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AC stage I IIR filter control law reference terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a41005c53e7c439f0af28e140f7d3d0ed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_3P3Z_Coef1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AC stage V IIR filter control law coefficient terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a361372a23d9146cd2d077e6c843ec47e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_3P3Z_Fdbk1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AC stage V IIR filter control law feedback terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="acb0edbb1cfd2fb0e63ac2eb233dcd577"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_3P3Z_Out1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AC stage V IIR filter control law output terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6ebe91dab023eff56cade0eddcd3e96d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int32* CNTL_3P3Z_Ref1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>AC stage V IIR filter control law reference terminal pointer. </p>
+
+</div>
+</div>
+<a class="anchor" id="af15987bb0b6b0819b233fa6963671a35"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct CNTL_2P2Z_CoefStruct loadICoefs[numberOfLoads]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array of structures that hold the load 2-pole 2-zero IIR filter control law coefficient currently in use. </p>
 
 </div>
 </div>
 </div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Wed Aug 14 2013
+Thu Oct 24 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

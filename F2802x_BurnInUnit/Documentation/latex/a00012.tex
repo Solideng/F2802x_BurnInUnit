@@ -1,172 +1,200 @@
-\hypertarget{a00012}{\section{Fan\-En.\-h File Reference}
-\label{a00012}\index{Fan\-En.\-h@{Fan\-En.\-h}}
+\hypertarget{a00012}{\section{Adc.\-h File Reference}
+\label{a00012}\index{Adc.\-h@{Adc.\-h}}
 }
 
 
-Functions for enabling and disabling the external fans via I2\-C.  
+A\-D\-C functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=144pt]{a00043}
+\includegraphics[width=144pt]{a00059}
 \end{center}
 \end{figure}
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{a00012_ad615a329bea187ce779cf9930ba8a6fa}{I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}~0x20
-\item 
-\#define \hyperlink{a00012_a36c134b088cc2e64e0a5e14e8f90fe38}{I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R}~0x00
-\item 
-\#define \hyperlink{a00012_a04633cd2ea7fd0b332e1edf066f674c4}{I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R}~0x01
-\item 
-\#define \hyperlink{a00012_aa68be5a6ed28fb146600b4fd2d11fafd}{I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R}~0x02
-\item 
-\#define \hyperlink{a00012_a687e15212e8d4b49c12159dce73eeeab}{I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R}~0x03
-\item 
-\#define \hyperlink{a00012_a90945d9544eebc892154f1e0443b1407}{I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R}~0x04
-\item 
-\#define \hyperlink{a00012_af44ed2bf93808aeb932ce9944a942b75}{I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R}~0x05
-\item 
-\#define \hyperlink{a00012_a91e588d697383f94de2bf7f11d9ecb4b}{I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R}~0x06
-\item 
-\#define \hyperlink{a00012_a32cac2ad5af58a2562540ec8fc205dd1}{I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R}~0x07
-\item 
-\#define \hyperlink{a00012_ac0afd8503a8584599cc81f3d9b0a04dc}{I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R}~0x08
-\item 
-\#define \hyperlink{a00012_af2d85152c5775a221f107d6de547bca1}{I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R}~0x09
-\item 
-\#define \hyperlink{a00012_ab26864d7372ac11db9c1996842a3cf56}{I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R}~0x0\-A
-\item 
-\#define \hyperlink{a00012_a24c7360527d594acd521520c99b3de1b}{F\-A\-N\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}~0x04
-\item 
-\#define \hyperlink{a00012_a8ccf236abd5b2b9bbf73007968077e3d}{F\-A\-N\-\_\-\-C\-H\-N\-L\-\_\-\-O\-F\-S\-T}~0x04
-\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-Uint16 \hyperlink{a00012_a3506b5e25346351ce292e2ad256607cc}{fc\-Init} (void)
+void \hyperlink{a00012_a99fb31efe14a1f6f9cf3e4a642ebbae3}{init\-Adc} (void)
 \item 
-Uint16 \hyperlink{a00012_a68c8852e37fd686fda74e593ecd71915}{fc\-Enable} (Uint16 chnl)
+Uint16 \hyperlink{a00012_a28f0815ea5d750d31a3fb48fbfa94bdb}{get\-Load\-Current} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 $\ast$dc\-Current)
 \item 
-Uint16 \hyperlink{a00012_ac781d303e240f077d206088806a75ccd}{fc\-Disable} (Uint16 chnl)
+Uint16 \hyperlink{a00012_a6e88fe2ebb2218ff8218996b0fde656f}{get\-Load\-Voltage} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 $\ast$dc\-Voltage)
+\item 
+Uint16 \hyperlink{a00012_a7ed34e388fa9d521c6005c3fc9007c92}{get\-Dc\-Mid\-Current} (float32 $\ast$dc\-Current)
+\item 
+Uint16 \hyperlink{a00012_acb69b24f66dd6b4dacf6a87c0933d8d4}{get\-Dc\-Mid\-Voltage} (float32 $\ast$dc\-Voltage)
+\item 
+Uint16 \hyperlink{a00012_a5ba3e16114b94a0b9bb26bbaa49e8242}{get\-Dc\-Hv\-Voltage} (float32 $\ast$dc\-Voltage)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_a42ca9720519e1d0cb7ded4f56da083ba}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_a1ca55c7841c3e4bc154789647a068810}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_a1704632b071d0fff6bdc9629549c5d08}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_ac181cb2fb372cceb0f55844ed941c5d0}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_a7b586f409f6daf8232917fbd976532a4}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_ae8182c9b35af2d72b1c18ea41ccece2d}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_a4fa6265d0bf9b69d560d8f9f488b98c1}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_a0415309d16a115f0116a26aeda91aabd}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_adea6b0b8533e0d56a5c6cbac1c1e705f}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_ad1b851523cd317f0910f2db4220f32da}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_ad4435404e2f432a8c3a449dd23cda8f0}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_ac3656f047361723ec883e6ebfe3f026a}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12}
+\item 
+volatile int32 $\ast$ \hyperlink{a00012_ad7ef0544a173d3c7883f0e739b7d2096}{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Functions for enabling and disabling the external fans via I2\-C. The fans are controlled via an external I/\-O expander (M\-C\-P23008) that is connected to the I2\-C bus at address 0100x-\/x-\/x where 'x-\/x-\/x' is dependent upon the configuration of resistors R60 -\/ 61 \& R70 -\/ R74.
-
-After \hyperlink{a00012_a3506b5e25346351ce292e2ad256607cc}{fc\-Init()} all fans default to disabled.
-
-\begin{DoxyWarning}{Warning}
-Before any fan control functions can be used the I2\-C peripheral M\-U\-S\-T be initialised and E\-I\-T\-H\-E\-R \hyperlink{a00012_a3506b5e25346351ce292e2ad256607cc}{fc\-Init()} or \hyperlink{a00006_aa6cb02a7aacce8671212b21ed6e39863}{bc\-Init()} must be run -\/ \hyperlink{a00012_a3506b5e25346351ce292e2ad256607cc}{fc\-Init()} will require the interrupts to be enabled globally.
-\end{DoxyWarning}
-\begin{DoxySeeAlso}{See Also}
-\hyperlink{a00014_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()} 
-
-\hyperlink{a00006_aa6cb02a7aacce8671212b21ed6e39863}{bc\-Init()} 
-\end{DoxySeeAlso}
-
-
-\subsection{Macro Definition Documentation}
-\hypertarget{a00012_a8ccf236abd5b2b9bbf73007968077e3d}{\index{Fan\-En.\-h@{Fan\-En.\-h}!F\-A\-N\-\_\-\-C\-H\-N\-L\-\_\-\-O\-F\-S\-T@{F\-A\-N\-\_\-\-C\-H\-N\-L\-\_\-\-O\-F\-S\-T}}
-\index{F\-A\-N\-\_\-\-C\-H\-N\-L\-\_\-\-O\-F\-S\-T@{F\-A\-N\-\_\-\-C\-H\-N\-L\-\_\-\-O\-F\-S\-T}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{F\-A\-N\-\_\-\-C\-H\-N\-L\-\_\-\-O\-F\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-N\-\_\-\-C\-H\-N\-L\-\_\-\-O\-F\-S\-T~0x04}}\label{a00012_a8ccf236abd5b2b9bbf73007968077e3d}
-Fan channel numbering offset \hypertarget{a00012_a24c7360527d594acd521520c99b3de1b}{\index{Fan\-En.\-h@{Fan\-En.\-h}!F\-A\-N\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L@{F\-A\-N\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}}
-\index{F\-A\-N\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L@{F\-A\-N\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{F\-A\-N\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-N\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L~0x04}}\label{a00012_a24c7360527d594acd521520c99b3de1b}
-Number of fan channels \hypertarget{a00012_a687e15212e8d4b49c12159dce73eeeab}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R~0x03}}\label{a00012_a687e15212e8d4b49c12159dce73eeeab}
-M\-C\-P23008 I/\-O expander default value register address \hypertarget{a00012_aa68be5a6ed28fb146600b4fd2d11fafd}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R~0x02}}\label{a00012_aa68be5a6ed28fb146600b4fd2d11fafd}
-M\-C\-P23008 I/\-O expander interrupt on change enable register address \hypertarget{a00012_af2d85152c5775a221f107d6de547bca1}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R~0x09}}\label{a00012_af2d85152c5775a221f107d6de547bca1}
-M\-C\-P23008 I/\-O expander G\-P\-I\-O port register address \hypertarget{a00012_a91e588d697383f94de2bf7f11d9ecb4b}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R~0x06}}\label{a00012_a91e588d697383f94de2bf7f11d9ecb4b}
-M\-C\-P23008 I/\-O expander pull-\/up resistor configuration register address \hypertarget{a00012_ad615a329bea187ce779cf9930ba8a6fa}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R~0x20}}\label{a00012_ad615a329bea187ce779cf9930ba8a6fa}
-M\-C\-P23008 I/\-O expander I2\-C address (slave, 32d, 8-\/bit I/\-O expander) \hypertarget{a00012_ac0afd8503a8584599cc81f3d9b0a04dc}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R~0x08}}\label{a00012_ac0afd8503a8584599cc81f3d9b0a04dc}
-M\-C\-P23008 I/\-O expander interrupt capture register address \hypertarget{a00012_a90945d9544eebc892154f1e0443b1407}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R~0x04}}\label{a00012_a90945d9544eebc892154f1e0443b1407}
-M\-C\-P23008 I/\-O expander interrupt on change control register address \hypertarget{a00012_a32cac2ad5af58a2562540ec8fc205dd1}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R~0x07}}\label{a00012_a32cac2ad5af58a2562540ec8fc205dd1}
-M\-C\-P23008 I/\-O expander interrupt flag register address \hypertarget{a00012_af44ed2bf93808aeb932ce9944a942b75}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R~0x05}}\label{a00012_af44ed2bf93808aeb932ce9944a942b75}
-M\-C\-P23008 I/\-O expander configuration register address \hypertarget{a00012_a36c134b088cc2e64e0a5e14e8f90fe38}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R~0x00}}\label{a00012_a36c134b088cc2e64e0a5e14e8f90fe38}
-M\-C\-P23008 I/\-O expander I/\-O direction register address \hypertarget{a00012_a04633cd2ea7fd0b332e1edf066f674c4}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R~0x01}}\label{a00012_a04633cd2ea7fd0b332e1edf066f674c4}
-M\-C\-P23008 I/\-O expander input polarity register address \hypertarget{a00012_ab26864d7372ac11db9c1996842a3cf56}{\index{Fan\-En.\-h@{Fan\-En.\-h}!I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R~0x0\-A}}\label{a00012_ab26864d7372ac11db9c1996842a3cf56}
-M\-C\-P23008 I/\-O expander output latch register address 
+A\-D\-C functions. 
 
 \subsection{Function Documentation}
-\hypertarget{a00012_ac781d303e240f077d206088806a75ccd}{\index{Fan\-En.\-h@{Fan\-En.\-h}!fc\-Disable@{fc\-Disable}}
-\index{fc\-Disable@{fc\-Disable}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{fc\-Disable}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 fc\-Disable (
+\hypertarget{a00012_a5ba3e16114b94a0b9bb26bbaa49e8242}{\index{Adc.\-h@{Adc.\-h}!get\-Dc\-Hv\-Voltage@{get\-Dc\-Hv\-Voltage}}
+\index{get\-Dc\-Hv\-Voltage@{get\-Dc\-Hv\-Voltage}!Adc.h@{Adc.\-h}}
+\subsubsection[{get\-Dc\-Hv\-Voltage}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Hv\-Voltage (
 \begin{DoxyParamCaption}
-\item[{Uint16}]{chnl}
+\item[{float32 $\ast$}]{dc\-Voltage}
 \end{DoxyParamCaption}
-)}}\label{a00012_ac781d303e240f077d206088806a75ccd}
-Disables the specified channel's fan The I2\-C peripheral and the fan enable controller interface M\-U\-S\-T be initialised before this function is used. \begin{DoxySeeAlso}{See Also}
-\hyperlink{a00014_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()} 
-
-\hyperlink{a00012_a3506b5e25346351ce292e2ad256607cc}{fc\-Init()} 
-\end{DoxySeeAlso}
-
+)}}\label{a00012_a5ba3e16114b94a0b9bb26bbaa49e8242}
+Queries the most recent voltage reading from the D\-C H\-V's associated A\-D\-C. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em chnl} & Specifies the channel fan that is to be disabled \\
+\mbox{\tt out}  & {\em dc\-Voltage} & Address of the memory location at which to place the query result (volts). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error status 
+Error status. 
 \end{DoxyReturn}
-\hypertarget{a00012_a68c8852e37fd686fda74e593ecd71915}{\index{Fan\-En.\-h@{Fan\-En.\-h}!fc\-Enable@{fc\-Enable}}
-\index{fc\-Enable@{fc\-Enable}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{fc\-Enable}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 fc\-Enable (
+\hypertarget{a00012_a7ed34e388fa9d521c6005c3fc9007c92}{\index{Adc.\-h@{Adc.\-h}!get\-Dc\-Mid\-Current@{get\-Dc\-Mid\-Current}}
+\index{get\-Dc\-Mid\-Current@{get\-Dc\-Mid\-Current}!Adc.h@{Adc.\-h}}
+\subsubsection[{get\-Dc\-Mid\-Current}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Mid\-Current (
 \begin{DoxyParamCaption}
-\item[{Uint16}]{chnl}
+\item[{float32 $\ast$}]{dc\-Current}
 \end{DoxyParamCaption}
-)}}\label{a00012_a68c8852e37fd686fda74e593ecd71915}
-Enables the specified channel's fan The I2\-C peripheral and the fan enable controller interface M\-U\-S\-T be initialised before this function is used. \begin{DoxySeeAlso}{See Also}
-\hyperlink{a00014_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()} 
-
-\hyperlink{a00012_a3506b5e25346351ce292e2ad256607cc}{fc\-Init()} 
-\end{DoxySeeAlso}
-
+)}}\label{a00012_a7ed34e388fa9d521c6005c3fc9007c92}
+Queries the most recent current reading from the D\-C Mid's associated A\-D\-C. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em chnl} & Specifies the channel fan that is to be enabled \\
+\mbox{\tt out}  & {\em dc\-Current} & Address of the memory location at which to place the query result (amps). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Error status 
+Error status. 
 \end{DoxyReturn}
-\hypertarget{a00012_a3506b5e25346351ce292e2ad256607cc}{\index{Fan\-En.\-h@{Fan\-En.\-h}!fc\-Init@{fc\-Init}}
-\index{fc\-Init@{fc\-Init}!FanEn.h@{Fan\-En.\-h}}
-\subsubsection[{fc\-Init}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 fc\-Init (
+\hypertarget{a00012_acb69b24f66dd6b4dacf6a87c0933d8d4}{\index{Adc.\-h@{Adc.\-h}!get\-Dc\-Mid\-Voltage@{get\-Dc\-Mid\-Voltage}}
+\index{get\-Dc\-Mid\-Voltage@{get\-Dc\-Mid\-Voltage}!Adc.h@{Adc.\-h}}
+\subsubsection[{get\-Dc\-Mid\-Voltage}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Mid\-Voltage (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$}]{dc\-Voltage}
+\end{DoxyParamCaption}
+)}}\label{a00012_acb69b24f66dd6b4dacf6a87c0933d8d4}
+Queries the most recent voltage reading from the D\-C Mid's associated A\-D\-C. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em dc\-Voltage} & Address of the memory location at which to place the query result (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00012_a28f0815ea5d750d31a3fb48fbfa94bdb}{\index{Adc.\-h@{Adc.\-h}!get\-Load\-Current@{get\-Load\-Current}}
+\index{get\-Load\-Current@{get\-Load\-Current}!Adc.h@{Adc.\-h}}
+\subsubsection[{get\-Load\-Current}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Current (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load, }
+\item[{float32 $\ast$}]{dc\-Current}
+\end{DoxyParamCaption}
+)}}\label{a00012_a28f0815ea5d750d31a3fb48fbfa94bdb}
+Queries the most recent current reading from the specified load's associated A\-D\-C. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load on which the reading is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em dc\-Current} & Address of the memory location at which to place the query result (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00012_a6e88fe2ebb2218ff8218996b0fde656f}{\index{Adc.\-h@{Adc.\-h}!get\-Load\-Voltage@{get\-Load\-Voltage}}
+\index{get\-Load\-Voltage@{get\-Load\-Voltage}!Adc.h@{Adc.\-h}}
+\subsubsection[{get\-Load\-Voltage}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Voltage (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load, }
+\item[{float32 $\ast$}]{dc\-Voltage}
+\end{DoxyParamCaption}
+)}}\label{a00012_a6e88fe2ebb2218ff8218996b0fde656f}
+Queries the most recent voltage reading from the specified load's associated A\-D\-C. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load on which the reading is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em dc\-Voltage} & Address of the memory location at which to place the query result (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00012_a99fb31efe14a1f6f9cf3e4a642ebbae3}{\index{Adc.\-h@{Adc.\-h}!init\-Adc@{init\-Adc}}
+\index{init\-Adc@{init\-Adc}!Adc.h@{Adc.\-h}}
+\subsubsection[{init\-Adc}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Adc (
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
-)}}\label{a00012_a3506b5e25346351ce292e2ad256607cc}
-Initialises the fan enable control interface. The I2\-C peripheral must be initialised before this function is used. \begin{DoxySeeAlso}{See Also}
-\hyperlink{a00014_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()} 
-\end{DoxySeeAlso}
-\begin{DoxyReturn}{Returns}
-Error status 
-\end{DoxyReturn}
+)}}\label{a00012_a99fb31efe14a1f6f9cf3e4a642ebbae3}
+Configures the A\-D\-C's S\-O\-Cs then calls pwm\-Soc\-Configure().
+\begin{DoxyItemize}
+\item S\-H\-O\-U\-L\-D be run after init\-P\-W\-M().
+\item S\-H\-O\-U\-L\-D be run before D\-P\-L\-\_\-\-I\-N\-I\-T(). 
+\end{DoxyItemize}
+
+\subsection{Variable Documentation}
+\hypertarget{a00012_a42ca9720519e1d0cb7ded4f56da083ba}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt1}}\label{a00012_a42ca9720519e1d0cb7ded4f56da083ba}
+Channel 0 current sense A\-D\-C terminal pointer. \hypertarget{a00012_ad1b851523cd317f0910f2db4220f32da}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt10}}\label{a00012_ad1b851523cd317f0910f2db4220f32da}
+Channel 3 voltage sense A\-D\-C terminal pointer. \hypertarget{a00012_ad4435404e2f432a8c3a449dd23cda8f0}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt11}}\label{a00012_ad4435404e2f432a8c3a449dd23cda8f0}
+Interboost voltage sense A\-D\-C terminal pointer. \hypertarget{a00012_ac3656f047361723ec883e6ebfe3f026a}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt12}}\label{a00012_ac3656f047361723ec883e6ebfe3f026a}
+A\-C stage voltage sense A\-D\-C terminal pointer. \hypertarget{a00012_ad7ef0544a173d3c7883f0e739b7d2096}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt13}}\label{a00012_ad7ef0544a173d3c7883f0e739b7d2096}
+V\-Mid voltage sense A\-D\-C terminal pointer. \hypertarget{a00012_a1ca55c7841c3e4bc154789647a068810}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt2}}\label{a00012_a1ca55c7841c3e4bc154789647a068810}
+Channel 1 current sense A\-D\-C terminal pointer. \hypertarget{a00012_a1704632b071d0fff6bdc9629549c5d08}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt3}}\label{a00012_a1704632b071d0fff6bdc9629549c5d08}
+Channel 2 current sense A\-D\-C terminal pointer. \hypertarget{a00012_ac181cb2fb372cceb0f55844ed941c5d0}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt4}}\label{a00012_ac181cb2fb372cceb0f55844ed941c5d0}
+Channel 3 current sense A\-D\-C terminal pointer. \hypertarget{a00012_a7b586f409f6daf8232917fbd976532a4}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt5}}\label{a00012_a7b586f409f6daf8232917fbd976532a4}
+Interboost current sense A\-D\-C terminal pointer. \hypertarget{a00012_ae8182c9b35af2d72b1c18ea41ccece2d}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt6}}\label{a00012_ae8182c9b35af2d72b1c18ea41ccece2d}
+A\-C stage current sense A\-D\-C terminal pointer. \hypertarget{a00012_a4fa6265d0bf9b69d560d8f9f488b98c1}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt7}}\label{a00012_a4fa6265d0bf9b69d560d8f9f488b98c1}
+Channel 0 voltage sense A\-D\-C terminal pointer. \hypertarget{a00012_a0415309d16a115f0116a26aeda91aabd}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt8}}\label{a00012_a0415309d16a115f0116a26aeda91aabd}
+Channel 1 voltage sense A\-D\-C terminal pointer. \hypertarget{a00012_adea6b0b8533e0d56a5c6cbac1c1e705f}{\index{Adc.\-h@{Adc.\-h}!A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9}}
+\index{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9@{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9}!Adc.h@{Adc.\-h}}
+\subsubsection[{A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ A\-D\-C\-D\-R\-V\-\_\-1ch\-\_\-\-Rlt9}}\label{a00012_adea6b0b8533e0d56a5c6cbac1c1e705f}
+Channel 2 voltage sense A\-D\-C terminal pointer. 

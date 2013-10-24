@@ -1,164 +1,235 @@
-\hypertarget{a00025}{\section{Pwm.\-h File Reference}
-\label{a00025}\index{Pwm.\-h@{Pwm.\-h}}
+\hypertarget{a00025}{\section{I2c.\-h File Reference}
+\label{a00025}\index{I2c.\-h@{I2c.\-h}}
 }
 
 
-P\-W\-M and related functions.  
+Inter-\/integrated circuit communications functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=144pt]{a00051}
+\includegraphics[width=144pt]{a00065}
 \end{center}
 \end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{a00006}{i2c\-Msg}
+\end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{a00025_af281425e62298bac2df0fbe8690a4844}{P\-E\-R\-I\-O\-D}~600
+\#define \hyperlink{a00025_a0889ccb6e4a98d6d8a0bf7c009c818e2}{I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~0x04
+\item 
+\#define \hyperlink{a00025_ae429af928d46f8186343fb3eb550dc92}{I2\-C\-\_\-\-M\-A\-X\-\_\-\-P\-T\-R\-\_\-\-S\-I\-Z\-E}~0x02
 \end{DoxyCompactItemize}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00025_a8e07057d8bd0732259c8b4aba0ccf747}{I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-L\-\_\-\-B\-I\-T}~0x0001
+\item 
+\#define \hyperlink{a00025_ac28843bc51cce0ce461810ff06c1dddc}{I2\-C\-\_\-\-C\-L\-R\-\_\-\-N\-A\-C\-K\-\_\-\-B\-I\-T}~0x0002
+\item 
+\#define \hyperlink{a00025_a4496263a3b781866a48a6b7e8fcc1543}{I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-R\-D\-Y\-\_\-\-B\-I\-T}~0x0004
+\item 
+\#define \hyperlink{a00025_a10317717bb3efb7ede2a49999fd161ba}{I2\-C\-\_\-\-C\-L\-R\-\_\-\-R\-R\-D\-Y\-\_\-\-B\-I\-T}~0x0008
+\item 
+\#define \hyperlink{a00025_aeb930d2f95f82d333b27b02f9586c3cd}{I2\-C\-\_\-\-C\-L\-R\-\_\-\-S\-C\-D\-\_\-\-B\-I\-T}~0x0020
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00025_adf7bc6e4d458e0b13f0ad26570f04528}{I2\-C\-\_\-\-A\-R\-D\-Y\-\_\-\-I\-S\-R\-C}~0x0003
+\item 
+\#define \hyperlink{a00025_aa26238e86d534cda62318e98e1655654}{I2\-C\-\_\-\-S\-C\-D\-\_\-\-I\-S\-R\-C}~0x0006
+\end{DoxyCompactItemize}
+
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00025_ad7ff7f3ddb5fb35b633d558b376cf329}{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-I\-N\-A\-C\-T\-I\-V\-E}~0x0000
+\item 
+\#define \hyperlink{a00025_a56f7eeab5c8dbbe042a10d1f8ac1ad55}{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-W\-I\-T\-H\-S\-T\-O\-P}~0x0010
+\item 
+\#define \hyperlink{a00025_a36809495e97c0e8033246b227f9716be}{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-W\-R\-I\-T\-E\-\_\-\-B\-U\-S\-Y}~0x0011
+\item 
+\#define \hyperlink{a00025_a6b46589e75a5bfdc3c57b0bc30cc8671}{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P}~0x0020
+\item 
+\#define \hyperlink{a00025_adbe18b39fde045ed6d51eaa7e17b78e0}{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P\-\_\-\-B\-U\-S\-Y}~0x0021
+\item 
+\#define \hyperlink{a00025_adf5a3e5950b5af97d3ec2e40b96c2251}{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-S\-T\-A\-R\-T}~0x0022
+\item 
+\#define \hyperlink{a00025_a9bd9503fa86f5b4d52aeb21be008064a}{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-A\-D\-\_\-\-B\-U\-S\-Y}~0x0023
+\end{DoxyCompactItemize}
+
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{a00025_aced17503c602f9e71a2d101e956cce23}{pwm\-Tz\-Configure} (void)
+void \hyperlink{a00025_abcb138d5ddee570bf37734dde6ee291e}{init\-I2c} (void)
 \item 
-void \hyperlink{a00025_a94a47896496e094f8ab54c1cb46da2e1}{pwm\-Rst\-Tz} (void)
+void \hyperlink{a00025_a9e3198d675e7b65c3652bb5c887a7a64}{i2c\-Pop\-Msg} (\hyperlink{a00006}{i2c\-Msg} $\ast$msg, Uint16 msg\-Status, Uint16 slave\-Addr, Uint16 num\-Data\-Bytes, Uint16 num\-Slave\-Ptr\-Bytes, Uint16 slave\-Ptr\-Addr\-Hi, Uint16 slave\-Ptr\-Addr\-Lo)
 \item 
-void \hyperlink{a00025_acc68120fcdfa36145370c31a61eb23a7}{pwm\-Macro\-Configure} (void)
+Uint16 \hyperlink{a00025_a3813bb8cae6159f7df2672a55be4014b}{i2c\-Write} (\hyperlink{a00006}{i2c\-Msg} $\ast$msg)
 \item 
-void \hyperlink{a00025_a358d8706acd0faf4e1cc705129be6548}{pwm\-Soc\-Configure} (void)
-\item 
-void \hyperlink{a00025_adfbaf2bb56a0c9fe6f54826499cb57de}{pwm\-D\-P\-L\-Trig\-Init} (void)
-\item 
-Uint16 \hyperlink{a00025_af82e2c1ff72afc3de42eb172ca925956}{pwm\-Set\-Freq} (Uint32 frq)
-\item 
-Uint16 \hyperlink{a00025_a79f203a5167440096f2ba270813b6db2}{pwm\-Get\-Freq} (Uint32 $\ast$frq\-Dest)
-\item 
-interrupt void \hyperlink{a00025_a5532a53363218854b0e4b15049d773f7}{D\-P\-L\-\_\-\-I\-S\-R} (void)
-\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-volatile int32 $\ast$ \hyperlink{a00025_a8a02650c6afb411447157faf0e90a7b2}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}
-\item 
-volatile int32 $\ast$ \hyperlink{a00025_a23767edc2ebfabc9336684185a4f2d84}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}
-\item 
-volatile int32 $\ast$ \hyperlink{a00025_acc76d5ffc745e63de05baa242bb3d16f}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}
-\item 
-volatile int32 $\ast$ \hyperlink{a00025_a3215b15b28994e0840d64200f09cbfb0}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}
-\item 
-volatile int32 $\ast$ \hyperlink{a00025_a86962b3c7a5a851d9ddce3301a9db727}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}
-\item 
-volatile int32 $\ast$ \hyperlink{a00025_a9550c95286e784256c9f12906ff5a407}{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}
+Uint16 \hyperlink{a00025_aa681ec1b6413dd7009a6aaf0df2cbac1}{i2c\-Read} (\hyperlink{a00006}{i2c\-Msg} $\ast$msg)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-P\-W\-M and related functions. 
-
-\subsection{Macro Definition Documentation}
-\hypertarget{a00025_af281425e62298bac2df0fbe8690a4844}{\index{Pwm.\-h@{Pwm.\-h}!P\-E\-R\-I\-O\-D@{P\-E\-R\-I\-O\-D}}
-\index{P\-E\-R\-I\-O\-D@{P\-E\-R\-I\-O\-D}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{P\-E\-R\-I\-O\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-E\-R\-I\-O\-D~600}}\label{a00025_af281425e62298bac2df0fbe8690a4844}
-Defines the initial P\-W\-M period setting = 60\-M\-Hz / 600 = 100. 
-
-\subsection{Function Documentation}
-\hypertarget{a00025_a5532a53363218854b0e4b15049d773f7}{\index{Pwm.\-h@{Pwm.\-h}!D\-P\-L\-\_\-\-I\-S\-R@{D\-P\-L\-\_\-\-I\-S\-R}}
-\index{D\-P\-L\-\_\-\-I\-S\-R@{D\-P\-L\-\_\-\-I\-S\-R}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{D\-P\-L\-\_\-\-I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}interrupt void D\-P\-L\-\_\-\-I\-S\-R (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}}\label{a00025_a5532a53363218854b0e4b15049d773f7}
-Digital power control loop interrupt service routine Located in the assembly file Burn\-In\-Unit\-\_\-\-I\-S\-R.\-asm \hypertarget{a00025_adfbaf2bb56a0c9fe6f54826499cb57de}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-D\-P\-L\-Trig\-Init@{pwm\-D\-P\-L\-Trig\-Init}}
-\index{pwm\-D\-P\-L\-Trig\-Init@{pwm\-D\-P\-L\-Trig\-Init}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{pwm\-D\-P\-L\-Trig\-Init}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-D\-P\-L\-Trig\-Init (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}}\label{a00025_adfbaf2bb56a0c9fe6f54826499cb57de}
-Initialises and enables P\-W\-M1 (master) to trigger the D\-P\-L I\-S\-R. \hypertarget{a00025_a79f203a5167440096f2ba270813b6db2}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Get\-Freq@{pwm\-Get\-Freq}}
-\index{pwm\-Get\-Freq@{pwm\-Get\-Freq}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{pwm\-Get\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 pwm\-Get\-Freq (
-\begin{DoxyParamCaption}
-\item[{Uint32 $\ast$}]{frq\-Dest}
-\end{DoxyParamCaption}
-)}}\label{a00025_a79f203a5167440096f2ba270813b6db2}
-Queries the current P\-W\-M frequency setting. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em frq\-Dest} & Address of the memory location at which to place the query result (hertz). \\
+Inter-\/integrated circuit communications functions. \begin{DoxyWarning}{Warning}
+The following bridge tracks should be cut on the T\-I C2000 Launch\-Pad X\-L P\-C\-B before I2\-C (or S\-P\-I) may be used\-: \begin{TabularC}{3}
 \hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00025_acc68120fcdfa36145370c31a61eb23a7}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Macro\-Configure@{pwm\-Macro\-Configure}}
-\index{pwm\-Macro\-Configure@{pwm\-Macro\-Configure}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{pwm\-Macro\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Macro\-Configure (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}}\label{a00025_acc68120fcdfa36145370c31a61eb23a7}
-Configures each of the P\-W\-M macros for use. \hypertarget{a00025_a94a47896496e094f8ab54c1cb46da2e1}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Rst\-Tz@{pwm\-Rst\-Tz}}
-\index{pwm\-Rst\-Tz@{pwm\-Rst\-Tz}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{pwm\-Rst\-Tz}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Rst\-Tz (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}}\label{a00025_a94a47896496e094f8ab54c1cb46da2e1}
-Resets the trip zone after a comparator event. \hypertarget{a00025_af82e2c1ff72afc3de42eb172ca925956}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Set\-Freq@{pwm\-Set\-Freq}}
-\index{pwm\-Set\-Freq@{pwm\-Set\-Freq}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{pwm\-Set\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 pwm\-Set\-Freq (
-\begin{DoxyParamCaption}
-\item[{Uint32}]{frq}
-\end{DoxyParamCaption}
-)}}\label{a00025_af82e2c1ff72afc3de42eb172ca925956}
-Sets the frequency of the P\-W\-Ms. 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em frq} & Specifies the required frequency (hertz). \\
+\rowcolor{lightgray}\PBS\centering {\bf Bridge to Cut }&\PBS\centering {\bf G\-P\-I\-O }&\PBS\centering {\bf P\-C\-B Pin  }\\\cline{1-3}
+\PBS\centering J\-P5 &\PBS\centering G\-P\-I\-O32&\PBS\centering J2-\/6 \\\cline{1-3}
+\PBS\centering J\-P7 &\PBS\centering G\-P\-I\-O33&\PBS\centering J2-\/7 \\\cline{1-3}
+\PBS\centering J\-P8 &\PBS\centering G\-P\-I\-O16&\PBS\centering J6-\/7 \\\cline{1-3}
+\PBS\centering J\-P10 &\PBS\centering G\-P\-I\-O17&\PBS\centering J6-\/8 \\\cline{1-3}
+\end{TabularC}
+This should result in the following functionality\-: \begin{TabularC}{3}
 \hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00025_a358d8706acd0faf4e1cc705129be6548}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Soc\-Configure@{pwm\-Soc\-Configure}}
-\index{pwm\-Soc\-Configure@{pwm\-Soc\-Configure}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{pwm\-Soc\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Soc\-Configure (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}}\label{a00025_a358d8706acd0faf4e1cc705129be6548}
-Configures P\-W\-M1 (master) to generate A\-D\-C S\-O\-C start for A\-D\-C macro -\/ configure before initialisation. \hypertarget{a00025_aced17503c602f9e71a2d101e956cce23}{\index{Pwm.\-h@{Pwm.\-h}!pwm\-Tz\-Configure@{pwm\-Tz\-Configure}}
-\index{pwm\-Tz\-Configure@{pwm\-Tz\-Configure}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{pwm\-Tz\-Configure}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Tz\-Configure (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}}\label{a00025_aced17503c602f9e71a2d101e956cce23}
-Configures P\-W\-M trip zones for use. Requires the comparator and D\-A\-C to be configured \begin{DoxySeeAlso}{See Also}
-\hyperlink{a00006}{adc.\-h} 
+\rowcolor{lightgray}\PBS\centering {\bf Function }&\PBS\centering {\bf G\-P\-I\-O }&\PBS\centering {\bf P\-C\-B Pin  }\\\cline{1-3}
+\PBS\centering I2\-C\-\_\-\-S\-D\-A\-A &\PBS\centering G\-P\-I\-O32&\PBS\centering J6-\/7 \\\cline{1-3}
+\PBS\centering I2\-C\-\_\-\-S\-C\-L\-A &\PBS\centering G\-P\-I\-O33&\PBS\centering J6-\/8 \\\cline{1-3}
+\PBS\centering S\-P\-I\-\_\-\-M\-O\-S\-I &\PBS\centering G\-P\-I\-O16&\PBS\centering J2-\/6 \\\cline{1-3}
+\PBS\centering S\-P\-I\-\_\-\-M\-I\-S\-O &\PBS\centering G\-P\-I\-O17&\PBS\centering J2-\/7 \\\cline{1-3}
+\end{TabularC}
+
+
+The function i2c\-Init() M\-U\-S\-T be called before any other public I2\-C function is used. This will clear any values already in the I2\-C registers.
+
+Interrupts M\-U\-S\-T be globally enabled for the functions \hyperlink{a00025_a3813bb8cae6159f7df2672a55be4014b}{i2c\-Write()} and \hyperlink{a00025_aa681ec1b6413dd7009a6aaf0df2cbac1}{i2c\-Read()} to operate correctly.
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{a00023}{Enable\-Ctrl.\-h} 
+
+\hyperlink{a00058}{Tmp.\-h} 
 \end{DoxySeeAlso}
 
 
-\subsection{Variable Documentation}
-\hypertarget{a00025_a8a02650c6afb411447157faf0e90a7b2}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}}
-\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-A}}\label{a00025_a8a02650c6afb411447157faf0e90a7b2}
-Channel 0 P\-W\-M terminal pointer. \hypertarget{a00025_a23767edc2ebfabc9336684185a4f2d84}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}}
-\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty1\-B}}\label{a00025_a23767edc2ebfabc9336684185a4f2d84}
-Channel 1 P\-W\-M terminal pointers. \hypertarget{a00025_acc76d5ffc745e63de05baa242bb3d16f}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}}
-\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-A}}\label{a00025_acc76d5ffc745e63de05baa242bb3d16f}
-Channel 2 P\-W\-M terminal pointer. \hypertarget{a00025_a3215b15b28994e0840d64200f09cbfb0}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}}
-\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty2\-B}}\label{a00025_a3215b15b28994e0840d64200f09cbfb0}
-Channel 3 P\-W\-M terminal pointer. \hypertarget{a00025_a86962b3c7a5a851d9ddce3301a9db727}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}}
-\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-A}}\label{a00025_a86962b3c7a5a851d9ddce3301a9db727}
-Interboost P\-W\-M terminal pointer. \hypertarget{a00025_a9550c95286e784256c9f12906ff5a407}{\index{Pwm.\-h@{Pwm.\-h}!P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}}
-\index{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B@{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}!Pwm.h@{Pwm.\-h}}
-\subsubsection[{P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32$\ast$ P\-W\-M\-D\-R\-V\-\_\-2ch\-\_\-\-Up\-Cnt\-\_\-\-Duty3\-B}}\label{a00025_a9550c95286e784256c9f12906ff5a407}
-A\-C stage P\-W\-M terminal pointer. 
+\subsection{Macro Definition Documentation}
+\hypertarget{a00025_adf7bc6e4d458e0b13f0ad26570f04528}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-A\-R\-D\-Y\-\_\-\-I\-S\-R\-C@{I2\-C\-\_\-\-A\-R\-D\-Y\-\_\-\-I\-S\-R\-C}}
+\index{I2\-C\-\_\-\-A\-R\-D\-Y\-\_\-\-I\-S\-R\-C@{I2\-C\-\_\-\-A\-R\-D\-Y\-\_\-\-I\-S\-R\-C}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-A\-R\-D\-Y\-\_\-\-I\-S\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-A\-R\-D\-Y\-\_\-\-I\-S\-R\-C~0x0003}}\label{a00025_adf7bc6e4d458e0b13f0ad26570f04528}
+I2\-C Interrupt Sources Register access ready condition I2\-C interrupt source. \hypertarget{a00025_a8e07057d8bd0732259c8b4aba0ccf747}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-L\-\_\-\-B\-I\-T@{I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-L\-\_\-\-B\-I\-T}}
+\index{I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-L\-\_\-\-B\-I\-T@{I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-L\-\_\-\-B\-I\-T}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-L\-\_\-\-B\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-L\-\_\-\-B\-I\-T~0x0001}}\label{a00025_a8e07057d8bd0732259c8b4aba0ccf747}
+I2\-C Status Clear Bits Arbitration lost status clear bit. \hypertarget{a00025_a4496263a3b781866a48a6b7e8fcc1543}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-R\-D\-Y\-\_\-\-B\-I\-T@{I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-R\-D\-Y\-\_\-\-B\-I\-T}}
+\index{I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-R\-D\-Y\-\_\-\-B\-I\-T@{I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-R\-D\-Y\-\_\-\-B\-I\-T}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-R\-D\-Y\-\_\-\-B\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-C\-L\-R\-\_\-\-A\-R\-D\-Y\-\_\-\-B\-I\-T~0x0004}}\label{a00025_a4496263a3b781866a48a6b7e8fcc1543}
+Register access ready status clear bit. \hypertarget{a00025_ac28843bc51cce0ce461810ff06c1dddc}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-C\-L\-R\-\_\-\-N\-A\-C\-K\-\_\-\-B\-I\-T@{I2\-C\-\_\-\-C\-L\-R\-\_\-\-N\-A\-C\-K\-\_\-\-B\-I\-T}}
+\index{I2\-C\-\_\-\-C\-L\-R\-\_\-\-N\-A\-C\-K\-\_\-\-B\-I\-T@{I2\-C\-\_\-\-C\-L\-R\-\_\-\-N\-A\-C\-K\-\_\-\-B\-I\-T}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-C\-L\-R\-\_\-\-N\-A\-C\-K\-\_\-\-B\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-C\-L\-R\-\_\-\-N\-A\-C\-K\-\_\-\-B\-I\-T~0x0002}}\label{a00025_ac28843bc51cce0ce461810ff06c1dddc}
+N\-A\-C\-K status clear bit. \hypertarget{a00025_a10317717bb3efb7ede2a49999fd161ba}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-C\-L\-R\-\_\-\-R\-R\-D\-Y\-\_\-\-B\-I\-T@{I2\-C\-\_\-\-C\-L\-R\-\_\-\-R\-R\-D\-Y\-\_\-\-B\-I\-T}}
+\index{I2\-C\-\_\-\-C\-L\-R\-\_\-\-R\-R\-D\-Y\-\_\-\-B\-I\-T@{I2\-C\-\_\-\-C\-L\-R\-\_\-\-R\-R\-D\-Y\-\_\-\-B\-I\-T}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-C\-L\-R\-\_\-\-R\-R\-D\-Y\-\_\-\-B\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-C\-L\-R\-\_\-\-R\-R\-D\-Y\-\_\-\-B\-I\-T~0x0008}}\label{a00025_a10317717bb3efb7ede2a49999fd161ba}
+Receive data ready status clear bit. \hypertarget{a00025_aeb930d2f95f82d333b27b02f9586c3cd}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-C\-L\-R\-\_\-\-S\-C\-D\-\_\-\-B\-I\-T@{I2\-C\-\_\-\-C\-L\-R\-\_\-\-S\-C\-D\-\_\-\-B\-I\-T}}
+\index{I2\-C\-\_\-\-C\-L\-R\-\_\-\-S\-C\-D\-\_\-\-B\-I\-T@{I2\-C\-\_\-\-C\-L\-R\-\_\-\-S\-C\-D\-\_\-\-B\-I\-T}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-C\-L\-R\-\_\-\-S\-C\-D\-\_\-\-B\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-C\-L\-R\-\_\-\-S\-C\-D\-\_\-\-B\-I\-T~0x0020}}\label{a00025_aeb930d2f95f82d333b27b02f9586c3cd}
+Stop detected status clear bit. \hypertarget{a00025_a0889ccb6e4a98d6d8a0bf7c009c818e2}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}}
+\index{I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E~0x04}}\label{a00025_a0889ccb6e4a98d6d8a0bf7c009c818e2}
+Maximum I2\-C message buffer size in bytes, including slave register pointer bytes. \hypertarget{a00025_ae429af928d46f8186343fb3eb550dc92}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-M\-A\-X\-\_\-\-P\-T\-R\-\_\-\-S\-I\-Z\-E@{I2\-C\-\_\-\-M\-A\-X\-\_\-\-P\-T\-R\-\_\-\-S\-I\-Z\-E}}
+\index{I2\-C\-\_\-\-M\-A\-X\-\_\-\-P\-T\-R\-\_\-\-S\-I\-Z\-E@{I2\-C\-\_\-\-M\-A\-X\-\_\-\-P\-T\-R\-\_\-\-S\-I\-Z\-E}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-M\-A\-X\-\_\-\-P\-T\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-M\-A\-X\-\_\-\-P\-T\-R\-\_\-\-S\-I\-Z\-E~0x02}}\label{a00025_ae429af928d46f8186343fb3eb550dc92}
+Maximum number of slave register pointer bytes. \hypertarget{a00025_ad7ff7f3ddb5fb35b633d558b376cf329}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-I\-N\-A\-C\-T\-I\-V\-E@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-I\-N\-A\-C\-T\-I\-V\-E}}
+\index{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-I\-N\-A\-C\-T\-I\-V\-E@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-I\-N\-A\-C\-T\-I\-V\-E}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-I\-N\-A\-C\-T\-I\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-I\-N\-A\-C\-T\-I\-V\-E~0x0000}}\label{a00025_ad7ff7f3ddb5fb35b633d558b376cf329}
+I2\-C Message States Inactive I2\-C message state. \hypertarget{a00025_a9bd9503fa86f5b4d52aeb21be008064a}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-A\-D\-\_\-\-B\-U\-S\-Y@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-A\-D\-\_\-\-B\-U\-S\-Y}}
+\index{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-A\-D\-\_\-\-B\-U\-S\-Y@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-A\-D\-\_\-\-B\-U\-S\-Y}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-A\-D\-\_\-\-B\-U\-S\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-A\-D\-\_\-\-B\-U\-S\-Y~0x0023}}\label{a00025_a9bd9503fa86f5b4d52aeb21be008064a}
+State indicating the I2\-C is busy with a read. \hypertarget{a00025_adf5a3e5950b5af97d3ec2e40b96c2251}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-S\-T\-A\-R\-T@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-S\-T\-A\-R\-T}}
+\index{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-S\-T\-A\-R\-T@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-S\-T\-A\-R\-T}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-S\-T\-A\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-R\-E\-S\-T\-A\-R\-T~0x0022}}\label{a00025_adf5a3e5950b5af97d3ec2e40b96c2251}
+Transmit a master read with a restart. \hypertarget{a00025_a6b46589e75a5bfdc3c57b0bc30cc8671}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P}}
+\index{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P~0x0020}}\label{a00025_a6b46589e75a5bfdc3c57b0bc30cc8671}
+Transmit a write with no stop. \hypertarget{a00025_adbe18b39fde045ed6d51eaa7e17b78e0}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P\-\_\-\-B\-U\-S\-Y@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P\-\_\-\-B\-U\-S\-Y}}
+\index{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P\-\_\-\-B\-U\-S\-Y@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P\-\_\-\-B\-U\-S\-Y}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P\-\_\-\-B\-U\-S\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-N\-O\-S\-T\-O\-P\-\_\-\-B\-U\-S\-Y~0x0021}}\label{a00025_adbe18b39fde045ed6d51eaa7e17b78e0}
+State indicating the I2\-C is busy with a write with no stop. \hypertarget{a00025_a56f7eeab5c8dbbe042a10d1f8ac1ad55}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-W\-I\-T\-H\-S\-T\-O\-P@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-W\-I\-T\-H\-S\-T\-O\-P}}
+\index{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-W\-I\-T\-H\-S\-T\-O\-P@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-W\-I\-T\-H\-S\-T\-O\-P}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-W\-I\-T\-H\-S\-T\-O\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-S\-E\-N\-D\-\_\-\-W\-I\-T\-H\-S\-T\-O\-P~0x0010}}\label{a00025_a56f7eeab5c8dbbe042a10d1f8ac1ad55}
+Transmit a write with stop I2\-C message state. \hypertarget{a00025_a36809495e97c0e8033246b227f9716be}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-W\-R\-I\-T\-E\-\_\-\-B\-U\-S\-Y@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-W\-R\-I\-T\-E\-\_\-\-B\-U\-S\-Y}}
+\index{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-W\-R\-I\-T\-E\-\_\-\-B\-U\-S\-Y@{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-W\-R\-I\-T\-E\-\_\-\-B\-U\-S\-Y}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-W\-R\-I\-T\-E\-\_\-\-B\-U\-S\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-M\-S\-G\-S\-T\-A\-T\-\_\-\-W\-R\-I\-T\-E\-\_\-\-B\-U\-S\-Y~0x0011}}\label{a00025_a36809495e97c0e8033246b227f9716be}
+State indicating the I2\-C is busy with a write with a stop. \hypertarget{a00025_aa26238e86d534cda62318e98e1655654}{\index{I2c.\-h@{I2c.\-h}!I2\-C\-\_\-\-S\-C\-D\-\_\-\-I\-S\-R\-C@{I2\-C\-\_\-\-S\-C\-D\-\_\-\-I\-S\-R\-C}}
+\index{I2\-C\-\_\-\-S\-C\-D\-\_\-\-I\-S\-R\-C@{I2\-C\-\_\-\-S\-C\-D\-\_\-\-I\-S\-R\-C}!I2c.h@{I2c.\-h}}
+\subsubsection[{I2\-C\-\_\-\-S\-C\-D\-\_\-\-I\-S\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-C\-D\-\_\-\-I\-S\-R\-C~0x0006}}\label{a00025_aa26238e86d534cda62318e98e1655654}
+Stop detected condition I2\-C interrupt source. 
+
+\subsection{Function Documentation}
+\hypertarget{a00025_a9e3198d675e7b65c3652bb5c887a7a64}{\index{I2c.\-h@{I2c.\-h}!i2c\-Pop\-Msg@{i2c\-Pop\-Msg}}
+\index{i2c\-Pop\-Msg@{i2c\-Pop\-Msg}!I2c.h@{I2c.\-h}}
+\subsubsection[{i2c\-Pop\-Msg}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\-Pop\-Msg (
+\begin{DoxyParamCaption}
+\item[{{\bf i2c\-Msg} $\ast$}]{msg, }
+\item[{Uint16}]{msg\-Status, }
+\item[{Uint16}]{slave\-Addr, }
+\item[{Uint16}]{num\-Data\-Bytes, }
+\item[{Uint16}]{num\-Slave\-Ptr\-Bytes, }
+\item[{Uint16}]{slave\-Ptr\-Addr\-Hi, }
+\item[{Uint16}]{slave\-Ptr\-Addr\-Lo}
+\end{DoxyParamCaption}
+)}}\label{a00025_a9e3198d675e7b65c3652bb5c887a7a64}
+This function can be used to validate and populate the specified settings and values into the specified I2\-C message structure. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em msg} & The I2\-C message structure. \\
+\hline
+\mbox{\tt in}  & {\em msg\-Status} & The initial I2\-C message status. \\
+\hline
+\mbox{\tt in}  & {\em slave\-Addr} & The slave address. \\
+\hline
+\mbox{\tt in}  & {\em num\-Data\-Bytes} & The number, if any, of data bytes, above any slave register pointer bytes, in the message. \\
+\hline
+\mbox{\tt in}  & {\em num\-Slave\-Ptr\-Bytes} & The number, if any, of slave register pointer bytes. \\
+\hline
+\mbox{\tt in}  & {\em slave\-Ptr\-Addr\-Hi} & The slave register pointer high byte. If only one byte, or none, (as indicated by num\-Slave\-Ptrbytes) is to be used leave this at zero. \\
+\hline
+\mbox{\tt in}  & {\em slave\-Ptr\-Addr\-Lo} & The slave register pointer low byte. If no pointer bytes (as indicated by num\-Slave\-Ptrbytes) are used leave this at zero. \\
+\hline
+\end{DoxyParams}
+\hypertarget{a00025_aa681ec1b6413dd7009a6aaf0df2cbac1}{\index{I2c.\-h@{I2c.\-h}!i2c\-Read@{i2c\-Read}}
+\index{i2c\-Read@{i2c\-Read}!I2c.h@{I2c.\-h}}
+\subsubsection[{i2c\-Read}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Read (
+\begin{DoxyParamCaption}
+\item[{{\bf i2c\-Msg} $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}\label{a00025_aa681ec1b6413dd7009a6aaf0df2cbac1}
+Starts an I2\-C-\/\-A read using the settings specified. Read bytes are saved to the buffer msg.\-msg\-Buffer\mbox{[}\mbox{]}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & The I2\-C message struct. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00025_a3813bb8cae6159f7df2672a55be4014b}{\index{I2c.\-h@{I2c.\-h}!i2c\-Write@{i2c\-Write}}
+\index{i2c\-Write@{i2c\-Write}!I2c.h@{I2c.\-h}}
+\subsubsection[{i2c\-Write}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Write (
+\begin{DoxyParamCaption}
+\item[{{\bf i2c\-Msg} $\ast$}]{msg}
+\end{DoxyParamCaption}
+)}}\label{a00025_a3813bb8cae6159f7df2672a55be4014b}
+Starts an I2\-C-\/\-A write using the settings and values specified. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & The I2\-C message structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error Status. 
+\end{DoxyReturn}
+\hypertarget{a00025_abcb138d5ddee570bf37734dde6ee291e}{\index{I2c.\-h@{I2c.\-h}!init\-I2c@{init\-I2c}}
+\index{init\-I2c@{init\-I2c}!I2c.h@{I2c.\-h}}
+\subsubsection[{init\-I2c}]{\setlength{\rightskip}{0pt plus 5cm}void init\-I2c (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00025_abcb138d5ddee570bf37734dde6ee291e}
+Initialises the I2\-C-\/\-A peripheral and relevant interrupts. \begin{DoxyWarning}{Warning}
+This function will clear any values already in the I2\-C peripheral registers. 
+
+This function M\-U\-S\-T be called before any other public I2\-C function. 
+\end{DoxyWarning}

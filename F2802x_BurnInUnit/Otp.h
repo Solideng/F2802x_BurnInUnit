@@ -141,8 +141,8 @@ extern Uint16 checkExtOtp (extSelect ext);
 extern Uint16 getExtOtpState (extSelect ext);
 
 /** Clears the OTP state for the specified external sensor.
- * @param[in]	load	Specifies the sensor for which the OTP state is to be cleared.
- * @return				Error status.
+ * @param[in]	ext	Specifies the external sensor for which the OTP state is to be cleared.
+ * @return			Error status.
  */
 extern Uint16 clearExtOtp (extSelect ext);
 

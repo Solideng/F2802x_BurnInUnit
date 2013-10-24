@@ -1,7 +1,26 @@
 var searchData=
 [
-  ['load_5f0',['LOAD_0',['../a00021.html#a007a209cd2e2b935be1f69218652edc1',1,'MacroNets.h']]],
-  ['load_5f1',['LOAD_1',['../a00021.html#a363f09c63f2ecb9086b47d72a3f3f57d',1,'MacroNets.h']]],
-  ['load_5f2',['LOAD_2',['../a00021.html#af7c1e96216e7b48160e5a03afe8ac807',1,'MacroNets.h']]],
-  ['load_5f3',['LOAD_3',['../a00021.html#a2c862ec4115c4a016b61800609f236a7',1,'MacroNets.h']]]
+  ['load1_5focp_5ftrip',['LOAD1_OCP_TRIP',['../a00030.html#a4ec4aa0e60bea1a3e34167b2571a65de',1,'Ocp.h']]],
+  ['load1_5fopp_5ftrip',['LOAD1_OPP_TRIP',['../a00032.html#afe8a1619d93171d3cc6de1547cb65982',1,'Opp.h']]],
+  ['load1_5fotp_5ftrip',['LOAD1_OTP_TRIP',['../a00034.html#a720054d07475f46293498641ca147dec',1,'Otp.h']]],
+  ['load1_5fovp_5ftrip',['LOAD1_OVP_TRIP',['../a00036.html#a818e48bd3796e85aff1e441d395d420e',1,'Ovp.h']]],
+  ['load2_5focp_5ftrip',['LOAD2_OCP_TRIP',['../a00030.html#af45ed9a707fb208c436f4f9cfd0adfec',1,'Ocp.h']]],
+  ['load2_5fopp_5ftrip',['LOAD2_OPP_TRIP',['../a00032.html#a2f2ad16c48f8bfdb51272ac7c001b005',1,'Opp.h']]],
+  ['load2_5fotp_5ftrip',['LOAD2_OTP_TRIP',['../a00034.html#a6a57d6c23509cd22be3a64fc25867f08',1,'Otp.h']]],
+  ['load2_5fovp_5ftrip',['LOAD2_OVP_TRIP',['../a00036.html#a06deb869d76201f8fa804f155a6d0204',1,'Ovp.h']]],
+  ['load3_5focp_5ftrip',['LOAD3_OCP_TRIP',['../a00030.html#a94b1ce836bab1ddbaf5a153cf84f42b7',1,'Ocp.h']]],
+  ['load3_5fopp_5ftrip',['LOAD3_OPP_TRIP',['../a00032.html#afb895ec8b4e74e28a73708371b75cdb7',1,'Opp.h']]],
+  ['load3_5fotp_5ftrip',['LOAD3_OTP_TRIP',['../a00034.html#a38b67fb04c7a94aea1d7a6cd71dcbdfb',1,'Otp.h']]],
+  ['load3_5fovp_5ftrip',['LOAD3_OVP_TRIP',['../a00036.html#a48d28ba735dc28df3ba0c96ca99c3ba0',1,'Ovp.h']]],
+  ['load4_5focp_5ftrip',['LOAD4_OCP_TRIP',['../a00030.html#a271333484c12cc2d424b2870bbd2ea77',1,'Ocp.h']]],
+  ['load4_5fopp_5ftrip',['LOAD4_OPP_TRIP',['../a00032.html#afb8941d83fb2ddbdf96fdf7ac8f5d259',1,'Opp.h']]],
+  ['load4_5fotp_5ftrip',['LOAD4_OTP_TRIP',['../a00034.html#a11dc13a3236e2a227537278ccd45390d',1,'Otp.h']]],
+  ['load4_5fovp_5ftrip',['LOAD4_OVP_TRIP',['../a00036.html#a77c2bd0f4f1081fadf180ae92c5b0b79',1,'Ovp.h']]],
+  ['load_5f0',['LOAD_0',['../a00027.html#a007a209cd2e2b935be1f69218652edc1',1,'MacroNets.h']]],
+  ['load_5f1',['LOAD_1',['../a00027.html#a363f09c63f2ecb9086b47d72a3f3f57d',1,'MacroNets.h']]],
+  ['load_5f2',['LOAD_2',['../a00027.html#af7c1e96216e7b48160e5a03afe8ac807',1,'MacroNets.h']]],
+  ['load_5f3',['LOAD_3',['../a00027.html#a2c862ec4115c4a016b61800609f236a7',1,'MacroNets.h']]],
+  ['load_5fidclvl_5fmax',['LOAD_IDCLVL_MAX',['../a00043.html#a1dd2b3b31e620e021371603376c6980f',1,'Settings.h']]],
+  ['load_5fpwrlvl_5ffix',['LOAD_PWRLVL_FIX',['../a00043.html#aea1e2f7c212899b68d0cb6f4fcd1683d',1,'Settings.h']]],
+  ['load_5fvdclvl_5ffix',['LOAD_VDCLVL_FIX',['../a00043.html#ac460f1e706fdf51002f5dfc15c8eb5c9',1,'Settings.h']]]
 ];

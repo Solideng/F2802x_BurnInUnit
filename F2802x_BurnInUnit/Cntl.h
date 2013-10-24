@@ -82,7 +82,7 @@ extern void initCoefs (void);
  * @param[in]	value	Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][].
  * @return				Error status.
  */
-extern Uint16 setLoadICoef (loadStage chnl, cfType coef, float32 value);
+extern Uint16 setLoadICoef (loadStage load, cfType coef, float32 value);
 
 /** Queries the specified IIR filter control law coefficient for a specified load's current control.
  * @param[in]	load	Specifies the load on which the setting is to be queried [0, NUM_CHNLS).

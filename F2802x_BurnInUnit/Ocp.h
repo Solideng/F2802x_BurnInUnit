@@ -95,7 +95,7 @@ extern Uint16 clearDcMidOcp (void);
 extern Uint16 setAcOcpLevel (float32 pkLevel);
 
 /** Queries the over current protection level for the AC stage.
- * @param[out]	dcLevel	Pointer to location at which to place the query result (amps).
+ * @param[out]	pkLevel	Pointer to location at which to place the query result (amps).
  * @return				Error status.
  */
 extern Uint16 getAcOcpLevel (float32 * pkLevel);

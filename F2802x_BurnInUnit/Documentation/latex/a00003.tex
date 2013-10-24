@@ -1,5 +1,5 @@
-\hypertarget{a00003}{\section{channel\-Parameters Struct Reference}
-\label{a00003}\index{channel\-Parameters@{channel\-Parameters}}
+\hypertarget{a00003}{\section{ac\-Stage\-Nets Struct Reference}
+\label{a00003}\index{ac\-Stage\-Nets@{ac\-Stage\-Nets}}
 }
 
 
@@ -8,114 +8,39 @@
 \subsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-volatile int32 \hyperlink{a00003_a8e3dbb10da7b72b7b4fe6c200fbb495c}{ref\-Net}
+volatile int32 \hyperlink{a00003_a60c47bf62f481657a9548acf5115bdcc}{v\-Ref\-Net}
 \item 
-volatile int32 \hyperlink{a00003_ad4f53b220d97af172b01f1a6d57a9635}{i\-Fdbk\-Net}
+volatile int32 \hyperlink{a00003_a2fa47f230edc315908ef3c7594572d40}{v\-Fdbk\-Net}
 \item 
-volatile int32 \hyperlink{a00003_a5b3f0afc0e3ef0bc0726ee695570e787}{v\-Fdbk\-Net}
+volatile int32 \hyperlink{a00003_a4e528cf0beafdcc7ab51f05980c719b3}{i\-Fdbk\-Net}
 \item 
-volatile int32 \hyperlink{a00003_ae9a6e93b8f7d8554dd06269339167215}{out\-Net}
+volatile int32 \hyperlink{a00003_aef9fb780c943a15cfcf991e330f13d26}{i\-Ref\-Net}
 \item 
-int32 \hyperlink{a00003_a95bd86963045f10f75c656956a09858c}{ocp}
-\item 
-int32 \hyperlink{a00003_aefb9a7e765e361d08e0ae0bbc352e244}{ovp}
-\item 
-int32 \hyperlink{a00003_a2d9b0f07810affea40c8502613b8984e}{target}
-\item 
-int32 \hyperlink{a00003_a09eb121ecb75a652f7689869d1685a30}{slew\-Rate}
-\item 
-int16 \hyperlink{a00003_a9df39dee6c165c882bb04e26b17e3e25}{otp}
-\item 
-int16 \hyperlink{a00003_ab4b8dda9d3ab4395a3fde8bc0e403212}{i\-Max\-Rms}
-\item 
-int16 \hyperlink{a00003_a12f6946f5b0ee1235d7edcb6a22a4518}{i\-Min\-Rms}
-\item 
-int16 \hyperlink{a00003_a21e56dc9f903bbea9c980648a8ffc097}{v\-Max\-Rms}
-\item 
-int16 \hyperlink{a00003_af6a4d30899a436a77b24b99baa2852f6}{v\-Min\-Rms}
-\item 
-int16 \hyperlink{a00003_a022031c9e8a34b37c6cd05d8d7934a13}{i\-Scale}
-\item 
-int16 \hyperlink{a00003_a7bdcae99eedfaaa8bfda6088cec1c08d}{v\-Scale}
-\item 
-int16 \hyperlink{a00003_a7dd5ddd959b3f3344721e729e51f0db5}{v\-Gain\-Lmt}
-\item 
-\hyperlink{a00021_acd90d47e6937efc4183ab0d18f787575}{op\-Type} \hyperlink{a00003_a25d490fa4d7487c8e2e21c1400a6b99b}{op\-Mode}
-\item 
-\hyperlink{a00021_a5cd368998e9721e657fd7bc6d413807a}{ctl\-Type} \hyperlink{a00003_ab31dab8e873272dd15641943b20e56a5}{ctl\-Mode}
-\item 
-Uint16 \hyperlink{a00003_a817bac18060f842dca3867eeb7e2d06c}{ac\-Frequency}
-\item 
-Uint16 \hyperlink{a00003_af99576e00746544eab1d4e88d12f39b4}{ch\-Enable}
+volatile int32 \hyperlink{a00003_a4d5d9d0263738ce9262cdbd4db0e404b}{i\-Filt\-Out\-Net}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-A structure used to represent the collection of settings pertaining to a particular channel or stage. Note that D\-P\-Lib C\-N\-T\-L coefficient structures are handled separately to reduce complexity as D\-P\-Lib expects them to be arranged in a certain manner in memory. 
+A structure that contains the nets used in the A\-C stage. 
 
 \subsection{Field Documentation}
-\hypertarget{a00003_a817bac18060f842dca3867eeb7e2d06c}{\index{channel\-Parameters@{channel\-Parameters}!ac\-Frequency@{ac\-Frequency}}
-\index{ac\-Frequency@{ac\-Frequency}!channelParameters@{channel\-Parameters}}
-\subsubsection[{ac\-Frequency}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 channel\-Parameters\-::ac\-Frequency}}\label{a00003_a817bac18060f842dca3867eeb7e2d06c}
-Sine signal generator frequency setting (Hz). \hypertarget{a00003_af99576e00746544eab1d4e88d12f39b4}{\index{channel\-Parameters@{channel\-Parameters}!ch\-Enable@{ch\-Enable}}
-\index{ch\-Enable@{ch\-Enable}!channelParameters@{channel\-Parameters}}
-\subsubsection[{ch\-Enable}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 channel\-Parameters\-::ch\-Enable}}\label{a00003_af99576e00746544eab1d4e88d12f39b4}
-Channel enable status \{F\-A\-L\-S\-E, T\-R\-U\-E\}. \hypertarget{a00003_ab31dab8e873272dd15641943b20e56a5}{\index{channel\-Parameters@{channel\-Parameters}!ctl\-Mode@{ctl\-Mode}}
-\index{ctl\-Mode@{ctl\-Mode}!channelParameters@{channel\-Parameters}}
-\subsubsection[{ctl\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ctl\-Type} channel\-Parameters\-::ctl\-Mode}}\label{a00003_ab31dab8e873272dd15641943b20e56a5}
-Control mode setting \{i\-Ctrl, v\-Ctrl\}. \hypertarget{a00003_ad4f53b220d97af172b01f1a6d57a9635}{\index{channel\-Parameters@{channel\-Parameters}!i\-Fdbk\-Net@{i\-Fdbk\-Net}}
-\index{i\-Fdbk\-Net@{i\-Fdbk\-Net}!channelParameters@{channel\-Parameters}}
-\subsubsection[{i\-Fdbk\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 channel\-Parameters\-::i\-Fdbk\-Net}}\label{a00003_ad4f53b220d97af172b01f1a6d57a9635}
-Current feednack net (I\-Q24). \hypertarget{a00003_ab4b8dda9d3ab4395a3fde8bc0e403212}{\index{channel\-Parameters@{channel\-Parameters}!i\-Max\-Rms@{i\-Max\-Rms}}
-\index{i\-Max\-Rms@{i\-Max\-Rms}!channelParameters@{channel\-Parameters}}
-\subsubsection[{i\-Max\-Rms}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::i\-Max\-Rms}}\label{a00003_ab4b8dda9d3ab4395a3fde8bc0e403212}
-Maximum R\-M\-S current setting limit (S\-Q10). \hypertarget{a00003_a12f6946f5b0ee1235d7edcb6a22a4518}{\index{channel\-Parameters@{channel\-Parameters}!i\-Min\-Rms@{i\-Min\-Rms}}
-\index{i\-Min\-Rms@{i\-Min\-Rms}!channelParameters@{channel\-Parameters}}
-\subsubsection[{i\-Min\-Rms}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::i\-Min\-Rms}}\label{a00003_a12f6946f5b0ee1235d7edcb6a22a4518}
-Minimum R\-M\-S current setting limit (S\-Q10). \hypertarget{a00003_a022031c9e8a34b37c6cd05d8d7934a13}{\index{channel\-Parameters@{channel\-Parameters}!i\-Scale@{i\-Scale}}
-\index{i\-Scale@{i\-Scale}!channelParameters@{channel\-Parameters}}
-\subsubsection[{i\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::i\-Scale}}\label{a00003_a022031c9e8a34b37c6cd05d8d7934a13}
-Current scaling setting in volts-\/per-\/amp for scaling between a voltage level measured by an A\-D\-C to a real current value (S\-Q14). \hypertarget{a00003_a95bd86963045f10f75c656956a09858c}{\index{channel\-Parameters@{channel\-Parameters}!ocp@{ocp}}
-\index{ocp@{ocp}!channelParameters@{channel\-Parameters}}
-\subsubsection[{ocp}]{\setlength{\rightskip}{0pt plus 5cm}int32 channel\-Parameters\-::ocp}}\label{a00003_a95bd86963045f10f75c656956a09858c}
-Normalised O\-C\-P limit (I\-Q24). \hypertarget{a00003_a25d490fa4d7487c8e2e21c1400a6b99b}{\index{channel\-Parameters@{channel\-Parameters}!op\-Mode@{op\-Mode}}
-\index{op\-Mode@{op\-Mode}!channelParameters@{channel\-Parameters}}
-\subsubsection[{op\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf op\-Type} channel\-Parameters\-::op\-Mode}}\label{a00003_a25d490fa4d7487c8e2e21c1400a6b99b}
-Output mode setting \{dc, ac\}. \hypertarget{a00003_a9df39dee6c165c882bb04e26b17e3e25}{\index{channel\-Parameters@{channel\-Parameters}!otp@{otp}}
-\index{otp@{otp}!channelParameters@{channel\-Parameters}}
-\subsubsection[{otp}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::otp}}\label{a00003_a9df39dee6c165c882bb04e26b17e3e25}
-O\-T\-P limit in $ ^\circ$ C (S\-Q7). \hypertarget{a00003_ae9a6e93b8f7d8554dd06269339167215}{\index{channel\-Parameters@{channel\-Parameters}!out\-Net@{out\-Net}}
-\index{out\-Net@{out\-Net}!channelParameters@{channel\-Parameters}}
-\subsubsection[{out\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 channel\-Parameters\-::out\-Net}}\label{a00003_ae9a6e93b8f7d8554dd06269339167215}
-I\-I\-R filter control law output net (I\-Q24). \hypertarget{a00003_aefb9a7e765e361d08e0ae0bbc352e244}{\index{channel\-Parameters@{channel\-Parameters}!ovp@{ovp}}
-\index{ovp@{ovp}!channelParameters@{channel\-Parameters}}
-\subsubsection[{ovp}]{\setlength{\rightskip}{0pt plus 5cm}int32 channel\-Parameters\-::ovp}}\label{a00003_aefb9a7e765e361d08e0ae0bbc352e244}
-Normalised O\-V\-P limit (I\-Q24). \hypertarget{a00003_a8e3dbb10da7b72b7b4fe6c200fbb495c}{\index{channel\-Parameters@{channel\-Parameters}!ref\-Net@{ref\-Net}}
-\index{ref\-Net@{ref\-Net}!channelParameters@{channel\-Parameters}}
-\subsubsection[{ref\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 channel\-Parameters\-::ref\-Net}}\label{a00003_a8e3dbb10da7b72b7b4fe6c200fbb495c}
-Net for C\-N\-T\-L reference (I\-Q24). \hypertarget{a00003_a09eb121ecb75a652f7689869d1685a30}{\index{channel\-Parameters@{channel\-Parameters}!slew\-Rate@{slew\-Rate}}
-\index{slew\-Rate@{slew\-Rate}!channelParameters@{channel\-Parameters}}
-\subsubsection[{slew\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}int32 channel\-Parameters\-::slew\-Rate}}\label{a00003_a09eb121ecb75a652f7689869d1685a30}
-I\-I\-R filter control law reference slew rate (I\-Q24). \hypertarget{a00003_a2d9b0f07810affea40c8502613b8984e}{\index{channel\-Parameters@{channel\-Parameters}!target@{target}}
-\index{target@{target}!channelParameters@{channel\-Parameters}}
-\subsubsection[{target}]{\setlength{\rightskip}{0pt plus 5cm}int32 channel\-Parameters\-::target}}\label{a00003_a2d9b0f07810affea40c8502613b8984e}
-I\-I\-R filter control law reference slew target (I\-Q24). \hypertarget{a00003_a5b3f0afc0e3ef0bc0726ee695570e787}{\index{channel\-Parameters@{channel\-Parameters}!v\-Fdbk\-Net@{v\-Fdbk\-Net}}
-\index{v\-Fdbk\-Net@{v\-Fdbk\-Net}!channelParameters@{channel\-Parameters}}
-\subsubsection[{v\-Fdbk\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 channel\-Parameters\-::v\-Fdbk\-Net}}\label{a00003_a5b3f0afc0e3ef0bc0726ee695570e787}
-Voltage feedback net (I\-Q24). \hypertarget{a00003_a7dd5ddd959b3f3344721e729e51f0db5}{\index{channel\-Parameters@{channel\-Parameters}!v\-Gain\-Lmt@{v\-Gain\-Lmt}}
-\index{v\-Gain\-Lmt@{v\-Gain\-Lmt}!channelParameters@{channel\-Parameters}}
-\subsubsection[{v\-Gain\-Lmt}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::v\-Gain\-Lmt}}\label{a00003_a7dd5ddd959b3f3344721e729e51f0db5}
-Sine signal generator voltage gain limit (S\-Q14). \hypertarget{a00003_a21e56dc9f903bbea9c980648a8ffc097}{\index{channel\-Parameters@{channel\-Parameters}!v\-Max\-Rms@{v\-Max\-Rms}}
-\index{v\-Max\-Rms@{v\-Max\-Rms}!channelParameters@{channel\-Parameters}}
-\subsubsection[{v\-Max\-Rms}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::v\-Max\-Rms}}\label{a00003_a21e56dc9f903bbea9c980648a8ffc097}
-Maximum R\-M\-S voltage setting limit (S\-Q10). \hypertarget{a00003_af6a4d30899a436a77b24b99baa2852f6}{\index{channel\-Parameters@{channel\-Parameters}!v\-Min\-Rms@{v\-Min\-Rms}}
-\index{v\-Min\-Rms@{v\-Min\-Rms}!channelParameters@{channel\-Parameters}}
-\subsubsection[{v\-Min\-Rms}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::v\-Min\-Rms}}\label{a00003_af6a4d30899a436a77b24b99baa2852f6}
-Minimum R\-M\-S voltage setting limit (S\-Q10). \hypertarget{a00003_a7bdcae99eedfaaa8bfda6088cec1c08d}{\index{channel\-Parameters@{channel\-Parameters}!v\-Scale@{v\-Scale}}
-\index{v\-Scale@{v\-Scale}!channelParameters@{channel\-Parameters}}
-\subsubsection[{v\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}int16 channel\-Parameters\-::v\-Scale}}\label{a00003_a7bdcae99eedfaaa8bfda6088cec1c08d}
-Voltage scaling setting in volts-\/per-\/volts for scaling between a voltage level measured by an A\-D\-C to a real voltage value (S\-Q14). 
+\hypertarget{a00003_a4e528cf0beafdcc7ab51f05980c719b3}{\index{ac\-Stage\-Nets@{ac\-Stage\-Nets}!i\-Fdbk\-Net@{i\-Fdbk\-Net}}
+\index{i\-Fdbk\-Net@{i\-Fdbk\-Net}!acStageNets@{ac\-Stage\-Nets}}
+\subsubsection[{i\-Fdbk\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 ac\-Stage\-Nets\-::i\-Fdbk\-Net}}\label{a00003_a4e528cf0beafdcc7ab51f05980c719b3}
+Current feedback net (I\-Q24). \hypertarget{a00003_a4d5d9d0263738ce9262cdbd4db0e404b}{\index{ac\-Stage\-Nets@{ac\-Stage\-Nets}!i\-Filt\-Out\-Net@{i\-Filt\-Out\-Net}}
+\index{i\-Filt\-Out\-Net@{i\-Filt\-Out\-Net}!acStageNets@{ac\-Stage\-Nets}}
+\subsubsection[{i\-Filt\-Out\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 ac\-Stage\-Nets\-::i\-Filt\-Out\-Net}}\label{a00003_a4d5d9d0263738ce9262cdbd4db0e404b}
+Current I\-I\-R filter control law output net (I\-Q24). \hypertarget{a00003_aef9fb780c943a15cfcf991e330f13d26}{\index{ac\-Stage\-Nets@{ac\-Stage\-Nets}!i\-Ref\-Net@{i\-Ref\-Net}}
+\index{i\-Ref\-Net@{i\-Ref\-Net}!acStageNets@{ac\-Stage\-Nets}}
+\subsubsection[{i\-Ref\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 ac\-Stage\-Nets\-::i\-Ref\-Net}}\label{a00003_aef9fb780c943a15cfcf991e330f13d26}
+I\-I\-R filter control law current reference net (I\-Q24). \hypertarget{a00003_a2fa47f230edc315908ef3c7594572d40}{\index{ac\-Stage\-Nets@{ac\-Stage\-Nets}!v\-Fdbk\-Net@{v\-Fdbk\-Net}}
+\index{v\-Fdbk\-Net@{v\-Fdbk\-Net}!acStageNets@{ac\-Stage\-Nets}}
+\subsubsection[{v\-Fdbk\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 ac\-Stage\-Nets\-::v\-Fdbk\-Net}}\label{a00003_a2fa47f230edc315908ef3c7594572d40}
+Voltage feedback net (I\-Q24). \hypertarget{a00003_a60c47bf62f481657a9548acf5115bdcc}{\index{ac\-Stage\-Nets@{ac\-Stage\-Nets}!v\-Ref\-Net@{v\-Ref\-Net}}
+\index{v\-Ref\-Net@{v\-Ref\-Net}!acStageNets@{ac\-Stage\-Nets}}
+\subsubsection[{v\-Ref\-Net}]{\setlength{\rightskip}{0pt plus 5cm}volatile int32 ac\-Stage\-Nets\-::v\-Ref\-Net}}\label{a00003_a60c47bf62f481657a9548acf5115bdcc}
+I\-I\-R filter control law voltage reference net (I\-Q24). 
 
 The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{a00021}{Macro\-Nets.\-h}\end{DoxyCompactItemize}
+\hyperlink{a00027}{Macro\-Nets.\-h}\end{DoxyCompactItemize}

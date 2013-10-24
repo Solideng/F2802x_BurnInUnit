@@ -1,36 +1,296 @@
-\hypertarget{a00030}{\section{S\-C\-P\-I\-\_\-specific\-Cmds.\-h File Reference}
-\label{a00030}\index{S\-C\-P\-I\-\_\-specific\-Cmds.\-h@{S\-C\-P\-I\-\_\-specific\-Cmds.\-h}}
+\hypertarget{a00030}{\section{Ocp.\-h File Reference}
+\label{a00030}\index{Ocp.\-h@{Ocp.\-h}}
 }
+
+
+Over-\/current protection functions.  
+
+
 This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=190pt]{a00054}
+\includegraphics[width=144pt]{a00067}
 \end{center}
 \end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00030_a4ec4aa0e60bea1a3e34167b2571a65de}{L\-O\-A\-D1\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}~1
+\item 
+\#define \hyperlink{a00030_af45ed9a707fb208c436f4f9cfd0adfec}{L\-O\-A\-D2\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}~2
+\item 
+\#define \hyperlink{a00030_a94b1ce836bab1ddbaf5a153cf84f42b7}{L\-O\-A\-D3\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}~4
+\item 
+\#define \hyperlink{a00030_a271333484c12cc2d424b2870bbd2ea77}{L\-O\-A\-D4\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}~8
+\item 
+\#define \hyperlink{a00030_ad4ef44d1890a81d34d453203c204384a}{D\-C\-M\-I\-D\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}~16
+\item 
+\#define \hyperlink{a00030_a79277b6c4861afbef292e26f4360b224}{D\-C\-H\-V\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}~32
+\item 
+\#define \hyperlink{a00030_a53e3b040fd854d92e865a4e59f1630a2}{A\-C\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}~64
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Uint16 \hyperlink{a00030_a5da4bbec3c1f5d83678a06f574cf664a}{set\-Load\-Ocp\-Level} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 dc\-Level)
+\item 
+Uint16 \hyperlink{a00030_a3c056a05cc718b13f07af5e2421b2813}{get\-Load\-Ocp\-Level} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 $\ast$dc\-Level)
+\item 
+Uint16 \hyperlink{a00030_a59c9eb4cd335a46e4c33651a26ecbf10}{check\-Load\-Ocp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
+\item 
+Uint16 \hyperlink{a00030_a89c27fb6ed80f4487598a23987aef528}{get\-Load\-Ocp\-State} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
+\item 
+Uint16 \hyperlink{a00030_a21a8a91440da87204edb7e67d3fde578}{clear\-Load\-Ocp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
+\item 
+Uint16 \hyperlink{a00030_a2688d88502221ff2a5f79091a708408e}{set\-Dc\-Mid\-Ocp\-Level} (float32 dc\-Level)
+\item 
+Uint16 \hyperlink{a00030_ae7d51f03d13dea383fd543b1c8f19e49}{get\-Dc\-Mid\-Ocp\-Level} (float32 $\ast$dc\-Level)
+\item 
+Uint16 \hyperlink{a00030_acdbe7d23734fc6f4fbc3cc7ebe8ffb51}{check\-Dc\-Mid\-Ocp} (void)
+\item 
+Uint16 \hyperlink{a00030_a2144c56f3ede583b197273a88bd53801}{get\-Dc\-Mid\-Ocp\-State} (void)
+\item 
+Uint16 \hyperlink{a00030_a8f57a6183f616d09458d9cd3dfd84766}{clear\-Dc\-Mid\-Ocp} (void)
+\item 
+Uint16 \hyperlink{a00030_a4433a05d2924b2a5cc659ab8e8c8ff8a}{set\-Ac\-Ocp\-Level} (float32 pk\-Level)
+\item 
+Uint16 \hyperlink{a00030_a7273f23cc84891cc7cda8d3081c6b946}{get\-Ac\-Ocp\-Level} (float32 $\ast$pk\-Level)
+\item 
+Uint16 \hyperlink{a00030_aecbc5bcbe9cc0babef4d0c742ac82170}{trip\-Ac\-Ocp} (void)
+\item 
+Uint16 \hyperlink{a00030_ad496df3ce8212c5a991e62c8a44ff060}{get\-Ac\-Ocp\-State} (void)
+\item 
+Uint16 \hyperlink{a00030_ad2757e72816f7a5c6a6a70760e9012a8}{clear\-Ac\-Ocp} (void)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-This file includes the functions for registering the application specific commands and the related callback functions
+Over-\/current protection functions. These functions require that the relevant relevant measurement scales be set before use. 
 
-These commands and their associated callback functions can be edited to suit the application in use, though they should follow the guidelines and conventions laid out in I\-E\-E\-E 488.\-2-\/1992 and S\-C\-P\-I-\/1999
+\subsection{Macro Definition Documentation}
+\hypertarget{a00030_a53e3b040fd854d92e865a4e59f1630a2}{\index{Ocp.\-h@{Ocp.\-h}!A\-C\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{A\-C\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}}
+\index{A\-C\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{A\-C\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{A\-C\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P~64}}\label{a00030_a53e3b040fd854d92e865a4e59f1630a2}
+O\-C\-P flag register A\-C bit. \hypertarget{a00030_a79277b6c4861afbef292e26f4360b224}{\index{Ocp.\-h@{Ocp.\-h}!D\-C\-H\-V\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{D\-C\-H\-V\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}}
+\index{D\-C\-H\-V\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{D\-C\-H\-V\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{D\-C\-H\-V\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-H\-V\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P~32}}\label{a00030_a79277b6c4861afbef292e26f4360b224}
+O\-C\-P flag register D\-C H\-V bit. \hypertarget{a00030_ad4ef44d1890a81d34d453203c204384a}{\index{Ocp.\-h@{Ocp.\-h}!D\-C\-M\-I\-D\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{D\-C\-M\-I\-D\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}}
+\index{D\-C\-M\-I\-D\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{D\-C\-M\-I\-D\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{D\-C\-M\-I\-D\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-M\-I\-D\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P~16}}\label{a00030_ad4ef44d1890a81d34d453203c204384a}
+O\-C\-P flag register D\-C M\-I\-D bit. \hypertarget{a00030_a4ec4aa0e60bea1a3e34167b2571a65de}{\index{Ocp.\-h@{Ocp.\-h}!L\-O\-A\-D1\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D1\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D1\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D1\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{L\-O\-A\-D1\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D1\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P~1}}\label{a00030_a4ec4aa0e60bea1a3e34167b2571a65de}
+O\-C\-P flag register load 1 bit. \hypertarget{a00030_af45ed9a707fb208c436f4f9cfd0adfec}{\index{Ocp.\-h@{Ocp.\-h}!L\-O\-A\-D2\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D2\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D2\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D2\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{L\-O\-A\-D2\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D2\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P~2}}\label{a00030_af45ed9a707fb208c436f4f9cfd0adfec}
+O\-C\-P flag register load 2 bit. \hypertarget{a00030_a94b1ce836bab1ddbaf5a153cf84f42b7}{\index{Ocp.\-h@{Ocp.\-h}!L\-O\-A\-D3\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D3\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D3\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D3\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{L\-O\-A\-D3\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D3\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P~4}}\label{a00030_a94b1ce836bab1ddbaf5a153cf84f42b7}
+O\-C\-P flag register load 3 bit. \hypertarget{a00030_a271333484c12cc2d424b2870bbd2ea77}{\index{Ocp.\-h@{Ocp.\-h}!L\-O\-A\-D4\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D4\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D4\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D4\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{L\-O\-A\-D4\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D4\-\_\-\-O\-C\-P\-\_\-\-T\-R\-I\-P~8}}\label{a00030_a271333484c12cc2d424b2870bbd2ea77}
+O\-C\-P flag register load 4 bit. 
 
-Please follow the information in the parser documentation and the file S\-C\-P\-I\-\_\-specific\-Cmds.\-c on how to add or change message headers, commands and parameters
-
-To register a new command device specific tree node, add a register\-Child() call to the function register\-Specific\-Commands() with the form \char`\"{}err += register\-Child(\-C\-H\-I\-L\-D\-\_\-\-L\-O\-N\-G\-\_\-\-N\-A\-M\-E, P\-A\-R\-E\-N\-T\-\_\-\-S\-H\-O\-R\-T\-\_\-\-N\-A\-M\-E,
-\-B\-O\-O\-L\-\_\-\-I\-S\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-O\-N\-L\-Y, B\-O\-O\-L\-\_\-\-I\-S\-\_\-\-Q\-U\-E\-R\-Y, C\-A\-L\-L\-B\-A\-C\-K\-\_\-\-H\-A\-N\-D\-L\-E);\char`\"{}, where\-:
-\begin{DoxyItemize}
-\item C\-H\-I\-L\-D\-\_\-\-L\-O\-N\-G\-\_\-\-N\-A\-M\-E is the long form of the name of the child node to be registered.
-\item P\-A\-R\-E\-N\-T\-\_\-\-S\-H\-O\-R\-T\-\_\-\-N\-A\-M\-E is the short form of the name of the parent of the child node to be registered. This must be an already existing node.
-\item B\-O\-O\-L\-\_\-\-I\-S\-\_\-\-H\-E\-A\-D\-E\-R\-\_\-\-O\-N\-L\-Y is a boolean value that indicates if the node being registered is a header only (i.\-e. is not a command) or not.
-\item B\-O\-O\-L\-\_\-\-I\-S\-\_\-\-Q\-U\-E\-R\-Y is a boolean value that indicates if the node being registered my be queried or not.
-\item C\-A\-L\-L\-B\-A\-C\-K\-\_\-\-H\-A\-N\-D\-L\-E is a pointer to the function to be associated with this child if it is a command, or N\-U\-L\-L if it is a header only.
-\end{DoxyItemize}
-
-For further information on the operation of register\-Child() please see the function description.
-
-All string literals M\-U\-S\-T be in upper case and enclosed in quotation marks.
-
-Node long and short names must conform to the standard as outlined by S\-C\-P\-I-\/99 in 6.\-2.\-1
-
-All tree nodes are children of at least \char`\"{}\-R\-O\-O\-T\char`\"{}. Changes to the number of node registered should be reflected by the user in the number defined for T\-R\-E\-E\-\_\-\-C\-H\-I\-L\-D\-\_\-\-L\-I\-M\-I\-T in scpi.\-h 
+\subsection{Function Documentation}
+\hypertarget{a00030_acdbe7d23734fc6f4fbc3cc7ebe8ffb51}{\index{Ocp.\-h@{Ocp.\-h}!check\-Dc\-Mid\-Ocp@{check\-Dc\-Mid\-Ocp}}
+\index{check\-Dc\-Mid\-Ocp@{check\-Dc\-Mid\-Ocp}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{check\-Dc\-Mid\-Ocp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 check\-Dc\-Mid\-Ocp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00030_acdbe7d23734fc6f4fbc3cc7ebe8ffb51}
+Checks the current reading of the D\-C stage against the D\-C O\-C\-P limit. Raises the D\-C O\-C\-P flag if the reading is above the limit. \begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00030_a59c9eb4cd335a46e4c33651a26ecbf10}{\index{Ocp.\-h@{Ocp.\-h}!check\-Load\-Ocp@{check\-Load\-Ocp}}
+\index{check\-Load\-Ocp@{check\-Load\-Ocp}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{check\-Load\-Ocp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 check\-Load\-Ocp (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load}
+\end{DoxyParamCaption}
+)}}\label{a00030_a59c9eb4cd335a46e4c33651a26ecbf10}
+Checks the current reading of the specified load against the load O\-C\-P limit. Raises the load O\-C\-P flag if the reading is above the limit. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load on which the reading is to be tested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00030_ad2757e72816f7a5c6a6a70760e9012a8}{\index{Ocp.\-h@{Ocp.\-h}!clear\-Ac\-Ocp@{clear\-Ac\-Ocp}}
+\index{clear\-Ac\-Ocp@{clear\-Ac\-Ocp}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{clear\-Ac\-Ocp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Ac\-Ocp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00030_ad2757e72816f7a5c6a6a70760e9012a8}
+Clears the A\-C stage O\-C\-P state. \begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00030_a8f57a6183f616d09458d9cd3dfd84766}{\index{Ocp.\-h@{Ocp.\-h}!clear\-Dc\-Mid\-Ocp@{clear\-Dc\-Mid\-Ocp}}
+\index{clear\-Dc\-Mid\-Ocp@{clear\-Dc\-Mid\-Ocp}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{clear\-Dc\-Mid\-Ocp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Dc\-Mid\-Ocp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00030_a8f57a6183f616d09458d9cd3dfd84766}
+Clears the D\-C stage O\-C\-P state. \begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00030_a21a8a91440da87204edb7e67d3fde578}{\index{Ocp.\-h@{Ocp.\-h}!clear\-Load\-Ocp@{clear\-Load\-Ocp}}
+\index{clear\-Load\-Ocp@{clear\-Load\-Ocp}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{clear\-Load\-Ocp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Load\-Ocp (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load}
+\end{DoxyParamCaption}
+)}}\label{a00030_a21a8a91440da87204edb7e67d3fde578}
+Clears the O\-C\-P state for the specified load. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load for which the O\-C\-P state is to be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00030_a7273f23cc84891cc7cda8d3081c6b946}{\index{Ocp.\-h@{Ocp.\-h}!get\-Ac\-Ocp\-Level@{get\-Ac\-Ocp\-Level}}
+\index{get\-Ac\-Ocp\-Level@{get\-Ac\-Ocp\-Level}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{get\-Ac\-Ocp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ac\-Ocp\-Level (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$}]{pk\-Level}
+\end{DoxyParamCaption}
+)}}\label{a00030_a7273f23cc84891cc7cda8d3081c6b946}
+Queries the over current protection level for the A\-C stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pk\-Level} & Pointer to location at which to place the query result (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00030_ad496df3ce8212c5a991e62c8a44ff060}{\index{Ocp.\-h@{Ocp.\-h}!get\-Ac\-Ocp\-State@{get\-Ac\-Ocp\-State}}
+\index{get\-Ac\-Ocp\-State@{get\-Ac\-Ocp\-State}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{get\-Ac\-Ocp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ac\-Ocp\-State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00030_ad496df3ce8212c5a991e62c8a44ff060}
+Queries the state of the A\-C O\-C\-P flag. \begin{DoxyReturn}{Returns}
+True if O\-C\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00030_ae7d51f03d13dea383fd543b1c8f19e49}{\index{Ocp.\-h@{Ocp.\-h}!get\-Dc\-Mid\-Ocp\-Level@{get\-Dc\-Mid\-Ocp\-Level}}
+\index{get\-Dc\-Mid\-Ocp\-Level@{get\-Dc\-Mid\-Ocp\-Level}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{get\-Dc\-Mid\-Ocp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Mid\-Ocp\-Level (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$}]{dc\-Level}
+\end{DoxyParamCaption}
+)}}\label{a00030_ae7d51f03d13dea383fd543b1c8f19e49}
+Queries the over current protection level for the D\-C stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em dc\-Level} & Pointer to location at which to place the query result (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00030_a2144c56f3ede583b197273a88bd53801}{\index{Ocp.\-h@{Ocp.\-h}!get\-Dc\-Mid\-Ocp\-State@{get\-Dc\-Mid\-Ocp\-State}}
+\index{get\-Dc\-Mid\-Ocp\-State@{get\-Dc\-Mid\-Ocp\-State}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{get\-Dc\-Mid\-Ocp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Mid\-Ocp\-State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00030_a2144c56f3ede583b197273a88bd53801}
+Queries the state of the D\-C O\-C\-P flag. \begin{DoxyReturn}{Returns}
+True if O\-C\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00030_a3c056a05cc718b13f07af5e2421b2813}{\index{Ocp.\-h@{Ocp.\-h}!get\-Load\-Ocp\-Level@{get\-Load\-Ocp\-Level}}
+\index{get\-Load\-Ocp\-Level@{get\-Load\-Ocp\-Level}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{get\-Load\-Ocp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Ocp\-Level (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load, }
+\item[{float32 $\ast$}]{dc\-Level}
+\end{DoxyParamCaption}
+)}}\label{a00030_a3c056a05cc718b13f07af5e2421b2813}
+Queries the over current protection level for the specified load. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load on which the setting is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em dc\-Level} & Pointer to location at which to place the query result (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00030_a89c27fb6ed80f4487598a23987aef528}{\index{Ocp.\-h@{Ocp.\-h}!get\-Load\-Ocp\-State@{get\-Load\-Ocp\-State}}
+\index{get\-Load\-Ocp\-State@{get\-Load\-Ocp\-State}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{get\-Load\-Ocp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Ocp\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load}
+\end{DoxyParamCaption}
+)}}\label{a00030_a89c27fb6ed80f4487598a23987aef528}
+Queries the state of the O\-C\-P flag for the specified load. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load on which to check the flag. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if O\-C\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00030_a4433a05d2924b2a5cc659ab8e8c8ff8a}{\index{Ocp.\-h@{Ocp.\-h}!set\-Ac\-Ocp\-Level@{set\-Ac\-Ocp\-Level}}
+\index{set\-Ac\-Ocp\-Level@{set\-Ac\-Ocp\-Level}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{set\-Ac\-Ocp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Ac\-Ocp\-Level (
+\begin{DoxyParamCaption}
+\item[{float32}]{pk\-Level}
+\end{DoxyParamCaption}
+)}}\label{a00030_a4433a05d2924b2a5cc659ab8e8c8ff8a}
+Sets the over current protection limit for the A\-C stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pk\-Level} & Specifies the peak value to be applied (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00030_a2688d88502221ff2a5f79091a708408e}{\index{Ocp.\-h@{Ocp.\-h}!set\-Dc\-Mid\-Ocp\-Level@{set\-Dc\-Mid\-Ocp\-Level}}
+\index{set\-Dc\-Mid\-Ocp\-Level@{set\-Dc\-Mid\-Ocp\-Level}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{set\-Dc\-Mid\-Ocp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Dc\-Mid\-Ocp\-Level (
+\begin{DoxyParamCaption}
+\item[{float32}]{dc\-Level}
+\end{DoxyParamCaption}
+)}}\label{a00030_a2688d88502221ff2a5f79091a708408e}
+Sets the over current protection limit for the D\-C stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dc\-Level} & Specifies the D\-C value to be applied (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00030_a5da4bbec3c1f5d83678a06f574cf664a}{\index{Ocp.\-h@{Ocp.\-h}!set\-Load\-Ocp\-Level@{set\-Load\-Ocp\-Level}}
+\index{set\-Load\-Ocp\-Level@{set\-Load\-Ocp\-Level}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{set\-Load\-Ocp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Load\-Ocp\-Level (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load, }
+\item[{float32}]{dc\-Level}
+\end{DoxyParamCaption}
+)}}\label{a00030_a5da4bbec3c1f5d83678a06f574cf664a}
+$<$ O\-C\-P flag register. Bits are set to indicate an O\-C\-P condition has been found. Sets the over current protection level for the specified load. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load the setting is to be applied to. \\
+\hline
+\mbox{\tt in}  & {\em dc\-Level} & Specifies the D\-C value to be applied (amps). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00030_aecbc5bcbe9cc0babef4d0c742ac82170}{\index{Ocp.\-h@{Ocp.\-h}!trip\-Ac\-Ocp@{trip\-Ac\-Ocp}}
+\index{trip\-Ac\-Ocp@{trip\-Ac\-Ocp}!Ocp.h@{Ocp.\-h}}
+\subsubsection[{trip\-Ac\-Ocp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 trip\-Ac\-Ocp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00030_aecbc5bcbe9cc0babef4d0c742ac82170}
+Trips the A\-C O\-C\-P. This provides an O\-C\-P function for the trip zone I\-S\-R to call when the A\-C comparator is triggered. \begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}

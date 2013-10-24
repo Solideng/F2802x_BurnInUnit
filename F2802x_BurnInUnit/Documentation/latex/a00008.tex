@@ -1,171 +1,76 @@
-\hypertarget{a00008}{\section{Bst\-En.\-h File Reference}
-\label{a00008}\index{Bst\-En.\-h@{Bst\-En.\-h}}
+\hypertarget{a00008}{\section{load\-Stage\-Settings Struct Reference}
+\label{a00008}\index{load\-Stage\-Settings@{load\-Stage\-Settings}}
 }
 
 
-Functions for enabling and disabling the boost converter stages via I2\-C.  
+{\ttfamily \#include $<$Macro\-Nets.\-h$>$}
 
-
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=144pt]{a00045}
-\end{center}
-\end{figure}
-\subsection*{Macros}
+\subsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\#define \hyperlink{a00008_ad615a329bea187ce779cf9930ba8a6fa}{I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}~0x20
+int32 \hyperlink{a00008_a8dae50a66a5a7802c4176406bf67eb26}{slew\-Rate}
 \item 
-\#define \hyperlink{a00008_a36c134b088cc2e64e0a5e14e8f90fe38}{I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R}~0x00
+int32 \hyperlink{a00008_acc0f896ac1d2a998d480739a13461b19}{slew\-Target}
 \item 
-\#define \hyperlink{a00008_a04633cd2ea7fd0b332e1edf066f674c4}{I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R}~0x01
+int32 \hyperlink{a00008_a0a633f2c0725de044d2eded7d751dd09}{ocp\-Level}
 \item 
-\#define \hyperlink{a00008_aa68be5a6ed28fb146600b4fd2d11fafd}{I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R}~0x02
+int32 \hyperlink{a00008_a0f9add3cfd5cacd7ee9473c224b49968}{ovp\-Level}
 \item 
-\#define \hyperlink{a00008_a687e15212e8d4b49c12159dce73eeeab}{I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R}~0x03
+int32 \hyperlink{a00008_a85ba8c2f7216bf3517190d9c9c429d63}{opp\-Level}
 \item 
-\#define \hyperlink{a00008_a90945d9544eebc892154f1e0443b1407}{I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R}~0x04
+int32 \hyperlink{a00008_aa6747ff53a28e2d70f455cbd63ff640a}{otp\-Level}
 \item 
-\#define \hyperlink{a00008_af44ed2bf93808aeb932ce9944a942b75}{I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R}~0x05
+int16 \hyperlink{a00008_a8e5919538d441c401e9cb53d50d0bdff}{i\-Max}
 \item 
-\#define \hyperlink{a00008_a91e588d697383f94de2bf7f11d9ecb4b}{I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R}~0x06
+int16 \hyperlink{a00008_a13979ea63b60199c61b1872c03b0a51d}{v\-Max}
 \item 
-\#define \hyperlink{a00008_a32cac2ad5af58a2562540ec8fc205dd1}{I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R}~0x07
+int16 \hyperlink{a00008_ad9dd47136ae5953dff220a935d0aaa45}{i\-Scale}
 \item 
-\#define \hyperlink{a00008_ac0afd8503a8584599cc81f3d9b0a04dc}{I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R}~0x08
+int16 \hyperlink{a00008_ad0a53855bdd49163d6556bcef037b7e0}{v\-Scale}
 \item 
-\#define \hyperlink{a00008_af2d85152c5775a221f107d6de547bca1}{I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R}~0x09
-\item 
-\#define \hyperlink{a00008_ab26864d7372ac11db9c1996842a3cf56}{I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R}~0x0\-A
-\item 
-\#define \hyperlink{a00008_ac36a77a8d07d8025000e3e748cea40dd}{B\-S\-T\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}~0x04
-\item 
-\#define \hyperlink{a00008_a5b329f52cf0129bf56d1b16eb706dee4}{I\-O\-E\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}~\hyperlink{a00008_ac36a77a8d07d8025000e3e748cea40dd}{B\-S\-T\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}
-\end{DoxyCompactItemize}
-\subsection*{Functions}
-\begin{DoxyCompactItemize}
-\item 
-Uint16 \hyperlink{a00008_aa6cb02a7aacce8671212b21ed6e39863}{bc\-Init} (void)
-\item 
-Uint16 \hyperlink{a00008_af10c5e095b6142ee37930042bd1da708}{bc\-Enable} (Uint16 chnl)
-\item 
-Uint16 \hyperlink{a00008_a3df6954c93c9089cdc750fff4b89da3e}{bc\-Disable} (Uint16 chnl)
+Uint16 \hyperlink{a00008_af9332d3c3009b081949115a9fdfbcea4}{enable}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Functions for enabling and disabling the boost converter stages via I2\-C. The converters are controlled via an external I/\-O expander (M\-C\-P23008) that is connected to the I2\-C bus at address 0100x-\/x-\/x where 'x-\/x-\/x' is dependent upon the configuration of resistors R60 -\/ 61 \& R70 -\/ R74.
+A structure that contains the settings that pertain to a single load stage. 
 
-After \hyperlink{a00008_aa6cb02a7aacce8671212b21ed6e39863}{bc\-Init()} all converters default to disabled.
+\subsection{Field Documentation}
+\hypertarget{a00008_af9332d3c3009b081949115a9fdfbcea4}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!enable@{enable}}
+\index{enable@{enable}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{enable}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 load\-Stage\-Settings\-::enable}}\label{a00008_af9332d3c3009b081949115a9fdfbcea4}
+Channel enable status \{F\-A\-L\-S\-E, T\-R\-U\-E\}. \hypertarget{a00008_a8e5919538d441c401e9cb53d50d0bdff}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!i\-Max@{i\-Max}}
+\index{i\-Max@{i\-Max}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{i\-Max}]{\setlength{\rightskip}{0pt plus 5cm}int16 load\-Stage\-Settings\-::i\-Max}}\label{a00008_a8e5919538d441c401e9cb53d50d0bdff}
+Maximum D\-C current setting limit (S\-Q10). \hypertarget{a00008_ad9dd47136ae5953dff220a935d0aaa45}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!i\-Scale@{i\-Scale}}
+\index{i\-Scale@{i\-Scale}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{i\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}int16 load\-Stage\-Settings\-::i\-Scale}}\label{a00008_ad9dd47136ae5953dff220a935d0aaa45}
+Current scaling setting in volts-\/per-\/amp for scaling between a voltage level measured by an A\-D\-C to a real current value (S\-Q14). \hypertarget{a00008_a0a633f2c0725de044d2eded7d751dd09}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!ocp\-Level@{ocp\-Level}}
+\index{ocp\-Level@{ocp\-Level}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{ocp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int32 load\-Stage\-Settings\-::ocp\-Level}}\label{a00008_a0a633f2c0725de044d2eded7d751dd09}
+Normalised O\-C\-P limit (I\-Q24). \hypertarget{a00008_a85ba8c2f7216bf3517190d9c9c429d63}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!opp\-Level@{opp\-Level}}
+\index{opp\-Level@{opp\-Level}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{opp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int32 load\-Stage\-Settings\-::opp\-Level}}\label{a00008_a85ba8c2f7216bf3517190d9c9c429d63}
+Normalised O\-P\-P limit (I\-Q22). \hypertarget{a00008_aa6747ff53a28e2d70f455cbd63ff640a}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!otp\-Level@{otp\-Level}}
+\index{otp\-Level@{otp\-Level}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{otp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int32 load\-Stage\-Settings\-::otp\-Level}}\label{a00008_aa6747ff53a28e2d70f455cbd63ff640a}
+O\-T\-P limit in $ ^\circ$ C (S\-Q7). \hypertarget{a00008_a0f9add3cfd5cacd7ee9473c224b49968}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!ovp\-Level@{ovp\-Level}}
+\index{ovp\-Level@{ovp\-Level}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{ovp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int32 load\-Stage\-Settings\-::ovp\-Level}}\label{a00008_a0f9add3cfd5cacd7ee9473c224b49968}
+Normalised O\-V\-P limit (I\-Q24). \hypertarget{a00008_a8dae50a66a5a7802c4176406bf67eb26}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!slew\-Rate@{slew\-Rate}}
+\index{slew\-Rate@{slew\-Rate}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{slew\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}int32 load\-Stage\-Settings\-::slew\-Rate}}\label{a00008_a8dae50a66a5a7802c4176406bf67eb26}
+I\-I\-R filter control law reference slew rate (I\-Q24). \hypertarget{a00008_acc0f896ac1d2a998d480739a13461b19}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!slew\-Target@{slew\-Target}}
+\index{slew\-Target@{slew\-Target}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{slew\-Target}]{\setlength{\rightskip}{0pt plus 5cm}int32 load\-Stage\-Settings\-::slew\-Target}}\label{a00008_acc0f896ac1d2a998d480739a13461b19}
+I\-I\-R filter control law reference slew target (I\-Q24). \hypertarget{a00008_a13979ea63b60199c61b1872c03b0a51d}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!v\-Max@{v\-Max}}
+\index{v\-Max@{v\-Max}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{v\-Max}]{\setlength{\rightskip}{0pt plus 5cm}int16 load\-Stage\-Settings\-::v\-Max}}\label{a00008_a13979ea63b60199c61b1872c03b0a51d}
+Maximum D\-C voltage setting limit (S\-Q10). \hypertarget{a00008_ad0a53855bdd49163d6556bcef037b7e0}{\index{load\-Stage\-Settings@{load\-Stage\-Settings}!v\-Scale@{v\-Scale}}
+\index{v\-Scale@{v\-Scale}!loadStageSettings@{load\-Stage\-Settings}}
+\subsubsection[{v\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}int16 load\-Stage\-Settings\-::v\-Scale}}\label{a00008_ad0a53855bdd49163d6556bcef037b7e0}
+Voltage scaling setting in volts-\/per-\/volts for scaling between a voltage level measured by an A\-D\-C to a real voltage value (S\-Q14). 
 
-\begin{DoxyWarning}{Warning}
-Before any converter control functions can be used the I2\-C peripheral M\-U\-S\-T be initialised and E\-I\-T\-H\-E\-R \hyperlink{a00008_aa6cb02a7aacce8671212b21ed6e39863}{bc\-Init()} or \hyperlink{a00017_a3506b5e25346351ce292e2ad256607cc}{fc\-Init()} M\-U\-S\-T be run -\/ \hyperlink{a00008_aa6cb02a7aacce8671212b21ed6e39863}{bc\-Init()} will require the interrupts to be enabled globally.
-\end{DoxyWarning}
-\begin{DoxySeeAlso}{See Also}
-\hyperlink{a00019_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()} 
-
-\hyperlink{a00017_a3506b5e25346351ce292e2ad256607cc}{fc\-Init()} 
-\end{DoxySeeAlso}
-
-
-\subsection{Macro Definition Documentation}
-\hypertarget{a00008_ac36a77a8d07d8025000e3e748cea40dd}{\index{Bst\-En.\-h@{Bst\-En.\-h}!B\-S\-T\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L@{B\-S\-T\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}}
-\index{B\-S\-T\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L@{B\-S\-T\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{B\-S\-T\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-S\-T\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L~0x04}}\label{a00008_ac36a77a8d07d8025000e3e748cea40dd}
-Number of boost converter channels. \hypertarget{a00008_a687e15212e8d4b49c12159dce73eeeab}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-D\-E\-F\-V\-A\-L\-\_\-\-A\-D\-D\-R~0x03}}\label{a00008_a687e15212e8d4b49c12159dce73eeeab}
-M\-C\-P23008 I/\-O expander default value register address. \hypertarget{a00008_aa68be5a6ed28fb146600b4fd2d11fafd}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-G\-P\-I\-N\-T\-E\-N\-\_\-\-A\-D\-D\-R~0x02}}\label{a00008_aa68be5a6ed28fb146600b4fd2d11fafd}
-M\-C\-P23008 I/\-O expander interrupt on change enable register address. \hypertarget{a00008_af2d85152c5775a221f107d6de547bca1}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-G\-P\-I\-O\-\_\-\-A\-D\-D\-R~0x09}}\label{a00008_af2d85152c5775a221f107d6de547bca1}
-M\-C\-P23008 I/\-O expander G\-P\-I\-O port register address. \hypertarget{a00008_a91e588d697383f94de2bf7f11d9ecb4b}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-G\-P\-P\-U\-\_\-\-A\-D\-D\-R~0x06}}\label{a00008_a91e588d697383f94de2bf7f11d9ecb4b}
-M\-C\-P23008 I/\-O expander pull-\/up resistor configuration register address. \hypertarget{a00008_ad615a329bea187ce779cf9930ba8a6fa}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R~0x20}}\label{a00008_ad615a329bea187ce779cf9930ba8a6fa}
-M\-C\-P23008 I/\-O expander I2\-C address (slave, 32d, 8-\/bit I/\-O expander). \hypertarget{a00008_ac0afd8503a8584599cc81f3d9b0a04dc}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-N\-T\-C\-A\-P\-\_\-\-A\-D\-D\-R~0x08}}\label{a00008_ac0afd8503a8584599cc81f3d9b0a04dc}
-M\-C\-P23008 I/\-O expander interrupt capture register address. \hypertarget{a00008_a90945d9544eebc892154f1e0443b1407}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-N\-T\-C\-O\-N\-\_\-\-A\-D\-D\-R~0x04}}\label{a00008_a90945d9544eebc892154f1e0443b1407}
-M\-C\-P23008 I/\-O expander interrupt on change control register address. \hypertarget{a00008_a32cac2ad5af58a2562540ec8fc205dd1}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-N\-T\-F\-\_\-\-A\-D\-D\-R~0x07}}\label{a00008_a32cac2ad5af58a2562540ec8fc205dd1}
-M\-C\-P23008 I/\-O expander interrupt flag register address. \hypertarget{a00008_af44ed2bf93808aeb932ce9944a942b75}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-O\-C\-O\-N\-\_\-\-A\-D\-D\-R~0x05}}\label{a00008_af44ed2bf93808aeb932ce9944a942b75}
-M\-C\-P23008 I/\-O expander configuration register address. \hypertarget{a00008_a36c134b088cc2e64e0a5e14e8f90fe38}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-O\-D\-I\-R\-\_\-\-A\-D\-D\-R~0x00}}\label{a00008_a36c134b088cc2e64e0a5e14e8f90fe38}
-M\-C\-P23008 I/\-O expander I/\-O direction register address. \hypertarget{a00008_a04633cd2ea7fd0b332e1edf066f674c4}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-I\-P\-O\-L\-\_\-\-A\-D\-D\-R~0x01}}\label{a00008_a04633cd2ea7fd0b332e1edf066f674c4}
-M\-C\-P23008 I/\-O expander input polarity register address. \hypertarget{a00008_a5b329f52cf0129bf56d1b16eb706dee4}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L@{I\-O\-E\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}}
-\index{I\-O\-E\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L@{I\-O\-E\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L~{\bf B\-S\-T\-\_\-\-N\-U\-M\-\_\-\-C\-H\-N\-L}}}\label{a00008_a5b329f52cf0129bf56d1b16eb706dee4}
-Total number of M\-C\-P I/\-O expander channels. \hypertarget{a00008_ab26864d7372ac11db9c1996842a3cf56}{\index{Bst\-En.\-h@{Bst\-En.\-h}!I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R}}
-\index{I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R@{I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-O\-E\-\_\-\-O\-L\-A\-T\-\_\-\-A\-D\-D\-R~0x0\-A}}\label{a00008_ab26864d7372ac11db9c1996842a3cf56}
-M\-C\-P23008 I/\-O expander output latch register address. 
-
-\subsection{Function Documentation}
-\hypertarget{a00008_a3df6954c93c9089cdc750fff4b89da3e}{\index{Bst\-En.\-h@{Bst\-En.\-h}!bc\-Disable@{bc\-Disable}}
-\index{bc\-Disable@{bc\-Disable}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{bc\-Disable}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 bc\-Disable (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{chnl}
-\end{DoxyParamCaption}
-)}}\label{a00008_a3df6954c93c9089cdc750fff4b89da3e}
-Disables the specified channel's boost converter. The I2\-C peripheral and the boost converter enable controller interface M\-U\-S\-T be initialised before this function is used. \begin{DoxySeeAlso}{See Also}
-\hyperlink{a00019_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()} 
-
-\hyperlink{a00008_aa6cb02a7aacce8671212b21ed6e39863}{bc\-Init()} 
-\end{DoxySeeAlso}
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em chnl} & Specifies the channel boost that is to be disabled. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00008_af10c5e095b6142ee37930042bd1da708}{\index{Bst\-En.\-h@{Bst\-En.\-h}!bc\-Enable@{bc\-Enable}}
-\index{bc\-Enable@{bc\-Enable}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{bc\-Enable}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 bc\-Enable (
-\begin{DoxyParamCaption}
-\item[{Uint16}]{chnl}
-\end{DoxyParamCaption}
-)}}\label{a00008_af10c5e095b6142ee37930042bd1da708}
-Enables the specified channel's boost converter. The I2\-C peripheral and the boost converter enable controller interface M\-U\-S\-T be initialised before this function is used. \begin{DoxySeeAlso}{See Also}
-\hyperlink{a00019_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()} 
-
-\hyperlink{a00008_aa6cb02a7aacce8671212b21ed6e39863}{bc\-Init()} 
-\end{DoxySeeAlso}
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em chnl} & Specifies the channel boost that is to be enabled. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
-\hypertarget{a00008_aa6cb02a7aacce8671212b21ed6e39863}{\index{Bst\-En.\-h@{Bst\-En.\-h}!bc\-Init@{bc\-Init}}
-\index{bc\-Init@{bc\-Init}!BstEn.h@{Bst\-En.\-h}}
-\subsubsection[{bc\-Init}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 bc\-Init (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}}\label{a00008_aa6cb02a7aacce8671212b21ed6e39863}
-Initialises the boost converter enable control interface. The I2\-C peripheral M\-U\-S\-T be initialised before this function is used. \begin{DoxySeeAlso}{See Also}
-\hyperlink{a00019_a1e0a81a1ad1fd7710ca189236e3e5476}{i2c\-Init()} 
-\end{DoxySeeAlso}
-\begin{DoxyReturn}{Returns}
-Error status. 
-\end{DoxyReturn}
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{a00027}{Macro\-Nets.\-h}\end{DoxyCompactItemize}

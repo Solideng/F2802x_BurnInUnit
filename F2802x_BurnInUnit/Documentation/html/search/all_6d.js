@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['macronets_2eh',['MacroNets.h',['../a00021.html',1,'']]],
-  ['mnconnectnets',['mnConnectNets',['../a00021.html#a06d36d85b8d9d27cfc6674244ef1e603',1,'MacroNets.c']]],
-  ['mnrunall',['mnRunAll',['../a00021.html#a1e41564c4405fd553d1fed9cb2dbdda5',1,'MacroNets.c']]],
-  ['mnsetupchannels',['mnSetupChannels',['../a00021.html#ab787ed8809b8f3c22f698937c4f06fd7',1,'MacroNets.c']]],
-  ['mnstopall',['mnStopAll',['../a00021.html#ab9e9d895e2dd716625fbd464e944071c',1,'MacroNets.c']]],
-  ['msgbuffer',['msgBuffer',['../a00004.html#ab84c3b898d635ae3698728f948dce69e',1,'i2cMsg']]],
-  ['msgstatus',['msgStatus',['../a00004.html#aaf82cb35284e62dcfea972e7c320917a',1,'i2cMsg']]]
+  ['macronets_2eh',['MacroNets.h',['../a00027.html',1,'']]],
+  ['midovplevel',['midOvpLevel',['../a00010.html#a40270e88484faa165e3e73f45c08326a',1,'xfmrStageSettings']]],
+  ['midvmax',['midVMax',['../a00010.html#a251fa7af71c610bf2b193afde33e1338',1,'xfmrStageSettings']]],
+  ['midvscale',['midVScale',['../a00010.html#a44cb584d774e345422c57cc155b65d0c',1,'xfmrStageSettings']]],
+  ['midvsnsnet',['midVSnsNet',['../a00009.html#a6cf2860aba64beca1c5471fcc7432c07',1,'xfmrStageNets']]],
+  ['mode',['mode',['../a00004.html#a3cb6e49a13279ff6c21dfdb9ee7f2f83',1,'acStageSettings']]],
+  ['msgbuffer',['msgBuffer',['../a00006.html#ab84c3b898d635ae3698728f948dce69e',1,'i2cMsg']]],
+  ['msgstatus',['msgStatus',['../a00006.html#aaf82cb35284e62dcfea972e7c320917a',1,'i2cMsg']]]
 ];

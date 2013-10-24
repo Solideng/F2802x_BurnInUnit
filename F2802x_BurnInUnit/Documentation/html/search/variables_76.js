@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['vfdbknet',['vFdbkNet',['../a00003.html#a5b3f0afc0e3ef0bc0726ee695570e787',1,'channelParameters']]],
-  ['vgainlmt',['vGainLmt',['../a00003.html#a7dd5ddd959b3f3344721e729e51f0db5',1,'channelParameters']]],
-  ['vmaxrms',['vMaxRms',['../a00003.html#a21e56dc9f903bbea9c980648a8ffc097',1,'channelParameters']]],
-  ['vminrms',['vMinRms',['../a00003.html#af6a4d30899a436a77b24b99baa2852f6',1,'channelParameters']]],
-  ['vscale',['vScale',['../a00003.html#a7bdcae99eedfaaa8bfda6088cec1c08d',1,'channelParameters']]]
+  ['vfdbknet',['vFdbkNet',['../a00007.html#ac2c84f99c821ff9022e6792f338155f5',1,'loadStageNets::vFdbkNet()'],['../a00003.html#a2fa47f230edc315908ef3c7594572d40',1,'acStageNets::vFdbkNet()']]],
+  ['vgainlmt',['vGainLmt',['../a00004.html#ae3baa80fd1636154afd892c7362ca82c',1,'acStageSettings']]],
+  ['vmax',['vMax',['../a00008.html#a13979ea63b60199c61b1872c03b0a51d',1,'loadStageSettings']]],
+  ['vmaxrms',['vMaxRms',['../a00004.html#ada3ef104bd8a8b682745bff081ec5ad7',1,'acStageSettings']]],
+  ['vrefnet',['vRefNet',['../a00003.html#a60c47bf62f481657a9548acf5115bdcc',1,'acStageNets']]],
+  ['vscale',['vScale',['../a00008.html#ad0a53855bdd49163d6556bcef037b7e0',1,'loadStageSettings::vScale()'],['../a00004.html#ad5f818e5589d223d11291bce3a7b3089',1,'acStageSettings::vScale()']]]
 ];

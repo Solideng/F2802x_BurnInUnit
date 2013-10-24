@@ -1,9 +1,19 @@
 var searchData=
 [
-  ['ac_5fi_5fcntl',['AC_I_CNTL',['../a00021.html#ab875424e7a295e6a0eae1605b3285adb',1,'MacroNets.h']]],
-  ['ac_5fstage',['AC_STAGE',['../a00021.html#a3fc4318ae73eae35339f616047300b0f',1,'MacroNets.h']]],
-  ['adc_5fi2c_5faddr',['ADC_I2C_ADDR',['../a00042.html#a5fd3aabe18504a5314a5d0e71e3bc495',1,'Tmp.h']]],
-  ['adc_5fnum_5fchnl',['ADC_NUM_CHNL',['../a00042.html#a448e8a52be570dfe9fdddb2045039534',1,'Tmp.h']]],
-  ['adc_5fstps',['ADC_STPS',['../a00042.html#a9be6401f8c9339711816bec5ca55dd88',1,'Tmp.h']]],
-  ['adc_5fvref',['ADC_VREF',['../a00042.html#a5a03d0b939a8dda552c9fe3319a82485',1,'Tmp.h']]]
+  ['ac_5firmslvl_5fmax',['AC_IRMSLVL_MAX',['../a00043.html#a2b577413184eb560f2f652b11deeba87',1,'Settings.h']]],
+  ['ac_5focp_5ftrip',['AC_OCP_TRIP',['../a00030.html#a53e3b040fd854d92e865a4e59f1630a2',1,'Ocp.h']]],
+  ['ac_5fopp_5ftrip',['AC_OPP_TRIP',['../a00032.html#adf494b474f7ddb554f7d6095fa5bf387',1,'Opp.h']]],
+  ['ac_5fotp_5ftrip',['AC_OTP_TRIP',['../a00034.html#a339a1358cf8dfd3ea7a81342bb32d399',1,'Otp.h']]],
+  ['ac_5fovp_5ftrip',['AC_OVP_TRIP',['../a00036.html#abf1557b371e135706243aebb018260cc',1,'Ovp.h']]],
+  ['ac_5fpwrlvl_5ffix',['AC_PWRLVL_FIX',['../a00043.html#aa5433ef3bc07259bf870e6e5e115c693',1,'Settings.h']]],
+  ['ac_5fstage',['AC_STAGE',['../a00027.html#a3fc4318ae73eae35339f616047300b0f',1,'MacroNets.h']]],
+  ['ac_5fvrmslvl_5fmax',['AC_VRMSLVL_MAX',['../a00043.html#afb09d50c3567117fe1f679ab1924d4ec',1,'Settings.h']]],
+  ['adc_5fi2c_5faddr',['ADC_I2C_ADDR',['../a00058.html#a5fd3aabe18504a5314a5d0e71e3bc495',1,'Tmp.h']]],
+  ['adc_5fi2c_5fbase_5faddr',['ADC_I2C_BASE_ADDR',['../a00058.html#a6c0e4f915b6ac0c3af9a27d604f1f7b1',1,'Tmp.h']]],
+  ['adc_5fnum_5fchnl',['ADC_NUM_CHNL',['../a00058.html#a448e8a52be570dfe9fdddb2045039534',1,'Tmp.h']]],
+  ['adc_5fstps',['ADC_STPS',['../a00058.html#a9be6401f8c9339711816bec5ca55dd88',1,'Tmp.h']]],
+  ['adc_5fsw3a_5fstate',['ADC_SW3A_STATE',['../a00058.html#ac80e67c94bf6570094bba2248b9586f3',1,'Tmp.h']]],
+  ['adc_5fsw3b_5fstate',['ADC_SW3B_STATE',['../a00058.html#a63e298aff78f6afee6ebffa60c1de62a',1,'Tmp.h']]],
+  ['adc_5fvref',['ADC_VREF',['../a00058.html#a5a03d0b939a8dda552c9fe3319a82485',1,'Tmp.h']]],
+  ['all_5fdisabled_5fword',['ALL_DISABLED_WORD',['../a00023.html#a79846f375935e81b3781b88b40405d38',1,'EnableCtrl.h']]]
 ];

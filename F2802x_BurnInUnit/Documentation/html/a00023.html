@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>F2802x Burn In Unit: PhaseCtrl.h File Reference</title>
+<title>F2802x Burn In Unit: EnableCtrl.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,43 +88,417 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">PhaseCtrl.h File Reference</div>  </div>
+<div class="title">EnableCtrl.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Signal generator phase (ACFBPHASE) control function.  
+<p>Functions for enabling and disabling circuit sections via I2C.  
 <a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00050.png" border="0" usemap="#_phase_ctrl_8hdep" alt=""/></div>
-<map name="_phase_ctrl_8hdep" id="_phase_ctrl_8hdep">
-<area shape="rect" id="node2" href="a00011.html" title="Common include file for the project. " alt="" coords="8,80,93,107"/></map>
+<div class="center"><img src="a00064.png" border="0" usemap="#_enable_ctrl_8hdep" alt=""/></div>
+<map name="_enable_ctrl_8hdep" id="_enable_ctrl_8hdep">
+<area shape="rect" id="node2" href="a00015.html" title="Common include file for the project. " alt="" coords="9,80,95,107"/></map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a0cfe7137edc026282b36312077954701"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a0cfe7137edc026282b36312077954701">IOE_SW4A_STATE</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:a0cfe7137edc026282b36312077954701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5704aece7ac84dbd34e918fc0c60108d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a5704aece7ac84dbd34e918fc0c60108d">IOE_SW4B_STATE</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:a5704aece7ac84dbd34e918fc0c60108d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab848e49bf7c4ea73e4ef05f26b3c60e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ab848e49bf7c4ea73e4ef05f26b3c60e8">IOE_I2C_BASE_ADDR</a>&#160;&#160;&#160;0x20</td></tr>
+<tr class="separator:ab848e49bf7c4ea73e4ef05f26b3c60e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36c134b088cc2e64e0a5e14e8f90fe38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a36c134b088cc2e64e0a5e14e8f90fe38">IOE_IODIR_ADDR</a>&#160;&#160;&#160;0x00</td></tr>
+<tr class="separator:a36c134b088cc2e64e0a5e14e8f90fe38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04633cd2ea7fd0b332e1edf066f674c4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a04633cd2ea7fd0b332e1edf066f674c4">IOE_IPOL_ADDR</a>&#160;&#160;&#160;0x01</td></tr>
+<tr class="separator:a04633cd2ea7fd0b332e1edf066f674c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa68be5a6ed28fb146600b4fd2d11fafd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#aa68be5a6ed28fb146600b4fd2d11fafd">IOE_GPINTEN_ADDR</a>&#160;&#160;&#160;0x02</td></tr>
+<tr class="separator:aa68be5a6ed28fb146600b4fd2d11fafd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a687e15212e8d4b49c12159dce73eeeab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a687e15212e8d4b49c12159dce73eeeab">IOE_DEFVAL_ADDR</a>&#160;&#160;&#160;0x03</td></tr>
+<tr class="separator:a687e15212e8d4b49c12159dce73eeeab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90945d9544eebc892154f1e0443b1407"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a90945d9544eebc892154f1e0443b1407">IOE_INTCON_ADDR</a>&#160;&#160;&#160;0x04</td></tr>
+<tr class="separator:a90945d9544eebc892154f1e0443b1407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af44ed2bf93808aeb932ce9944a942b75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#af44ed2bf93808aeb932ce9944a942b75">IOE_IOCON_ADDR</a>&#160;&#160;&#160;0x05</td></tr>
+<tr class="separator:af44ed2bf93808aeb932ce9944a942b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91e588d697383f94de2bf7f11d9ecb4b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a91e588d697383f94de2bf7f11d9ecb4b">IOE_GPPU_ADDR</a>&#160;&#160;&#160;0x06</td></tr>
+<tr class="separator:a91e588d697383f94de2bf7f11d9ecb4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32cac2ad5af58a2562540ec8fc205dd1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a32cac2ad5af58a2562540ec8fc205dd1">IOE_INTF_ADDR</a>&#160;&#160;&#160;0x07</td></tr>
+<tr class="separator:a32cac2ad5af58a2562540ec8fc205dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0afd8503a8584599cc81f3d9b0a04dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ac0afd8503a8584599cc81f3d9b0a04dc">IOE_INTCAP_ADDR</a>&#160;&#160;&#160;0x08</td></tr>
+<tr class="separator:ac0afd8503a8584599cc81f3d9b0a04dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2d85152c5775a221f107d6de547bca1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#af2d85152c5775a221f107d6de547bca1">IOE_GPIO_ADDR</a>&#160;&#160;&#160;0x09</td></tr>
+<tr class="separator:af2d85152c5775a221f107d6de547bca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab26864d7372ac11db9c1996842a3cf56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ab26864d7372ac11db9c1996842a3cf56">IOE_OLAT_ADDR</a>&#160;&#160;&#160;0x0A</td></tr>
+<tr class="separator:ab26864d7372ac11db9c1996842a3cf56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ad928de8e88a9285e391d1c7b4a57c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a0ad928de8e88a9285e391d1c7b4a57c1">IOE_MAX_CHNL</a>&#160;&#160;&#160;0x08</td></tr>
+<tr class="separator:a0ad928de8e88a9285e391d1c7b4a57c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad615a329bea187ce779cf9930ba8a6fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ad615a329bea187ce779cf9930ba8a6fa">IOE_I2C_ADDR</a>&#160;&#160;&#160;(<a class="el" href="a00023.html#ab848e49bf7c4ea73e4ef05f26b3c60e8">IOE_I2C_BASE_ADDR</a> | (<a class="el" href="a00023.html#a0cfe7137edc026282b36312077954701">IOE_SW4A_STATE</a> &lt;&lt; 2)) | (<a class="el" href="a00023.html#a5704aece7ac84dbd34e918fc0c60108d">IOE_SW4B_STATE</a> &lt;&lt; 3)</td></tr>
+<tr class="separator:ad615a329bea187ce779cf9930ba8a6fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79846f375935e81b3781b88b40405d38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a79846f375935e81b3781b88b40405d38">ALL_DISABLED_WORD</a></td></tr>
+<tr class="separator:a79846f375935e81b3781b88b40405d38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a5d2cb2e2fccefcdcb2e72e9e88b94223"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00023.html#a693dd7ac614cd1a7f8bfd7440f34ed6f">ecSection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a5d2cb2e2fccefcdcb2e72e9e88b94223">circuitSection</a></td></tr>
+<tr class="separator:a5d2cb2e2fccefcdcb2e72e9e88b94223"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a693dd7ac614cd1a7f8bfd7440f34ed6f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a693dd7ac614cd1a7f8bfd7440f34ed6f">ecSection</a> </td></tr>
+<tr class="separator:a693dd7ac614cd1a7f8bfd7440f34ed6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2aab767cee769a114c9e2ab25771e447"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a2aab767cee769a114c9e2ab25771e447">pcUpdate</a> (void)</td></tr>
-<tr class="separator:a2aab767cee769a114c9e2ab25771e447"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ac286d0874ebba5141e36971f4a7f106e"><td class="memItemLeft" align="right" valign="top">volatile int32 *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ac286d0874ebba5141e36971f4a7f106e">PHASE_CTRL_In</a></td></tr>
-<tr class="separator:ac286d0874ebba5141e36971f4a7f106e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6fd4f744738c8b2733ef36d92fb7313"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#ae6fd4f744738c8b2733ef36d92fb7313">initEnableControl</a> (void)</td></tr>
+<tr class="separator:ae6fd4f744738c8b2733ef36d92fb7313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e7f2b9153314c4652c5e0a1d2977133"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a7e7f2b9153314c4652c5e0a1d2977133">resetEnableControl</a> (void)</td></tr>
+<tr class="separator:a7e7f2b9153314c4652c5e0a1d2977133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f4a447d1fbeba7920434b60e33b521e"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a5f4a447d1fbeba7920434b60e33b521e">enableCircuit</a> (<a class="el" href="a00023.html#a5d2cb2e2fccefcdcb2e72e9e88b94223">circuitSection</a> section)</td></tr>
+<tr class="separator:a5f4a447d1fbeba7920434b60e33b521e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a606ff8e8b51f82c70ced419dad90f993"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a606ff8e8b51f82c70ced419dad90f993">disableCircuit</a> (<a class="el" href="a00023.html#a5d2cb2e2fccefcdcb2e72e9e88b94223">circuitSection</a> section)</td></tr>
+<tr class="separator:a606ff8e8b51f82c70ced419dad90f993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Signal generator phase (ACFBPHASE) control function. </p>
-<dl class="section warning"><dt>Warning</dt><dd>This file is included by the file ISR.asm and thus any dependencies this file has should also be included there (e.g. PeripheralHeaderIncludes.h). </dd></dl>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a2aab767cee769a114c9e2ab25771e447"></a>
+<div class="textblock"><p>Functions for enabling and disabling circuit sections via I2C. </p>
+<p>Circuit sections are controlled via an external I/O expander (MCP23008) that is connected to the I2C bus at address 0100xx0 where 'xx' is determined by the state of switch 4 (SW4) on the Ctrl PCB, which the user should record in the macros IOE_SW4A_STATE and IOE_SW4B_STATE.</p>
+<p>After initialisation or reset all sections default to disabled.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Before any enable control functions can be used the I2C peripheral MUST be initialised, followed by enable control initialisation, both of which will require global interrupts to be enabled.</dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="a00025.html#abcb138d5ddee570bf37734dde6ee291e">initI2c()</a></dd></dl>
+<table class="doxtable">
+<tr>
+<th align="center">ADS7830 Ch #</th><th align="center">Signal </th><th align="center">Enable bit# </th><th align="center">Enable state  </th></tr>
+<tr>
+<td align="center">GP0 </td><td align="center">CHAN1EN </td><td align="center">0 </td><td align="center">1 </td></tr>
+<tr>
+<td align="center">GP1 </td><td align="center">CHAN2EN </td><td align="center">1 </td><td align="center">1 </td></tr>
+<tr>
+<td align="center">GP2 </td><td align="center">CHAN3EN </td><td align="center">2 </td><td align="center">1 </td></tr>
+<tr>
+<td align="center">GP3 </td><td align="center">CHAN4EN </td><td align="center">3 </td><td align="center">1 </td></tr>
+<tr>
+<td align="center">GP4 </td><td align="center">HVENABLE </td><td align="center">4 </td><td align="center">0 </td></tr>
+<tr>
+<td align="center">GP5 </td><td align="center">ACENABLE </td><td align="center">5 </td><td align="center">1 </td></tr>
+<tr>
+<td align="center">GP6 </td><td align="center">PSUENBLE </td><td align="center">6 </td><td align="center">1 </td></tr>
+<tr>
+<td align="center">GP7 </td><td align="center">EXTFANEN </td><td align="center">7 </td><td align="center">1 </td></tr>
+</table>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a79846f375935e81b3781b88b40405d38"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void pcUpdate </td>
+          <td class="memname">#define ALL_DISABLED_WORD</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">(~(0 | (CHAN1_EN_STATE &lt;&lt; chan1) | (CHAN2_EN_STATE &lt;&lt; chan2) | (CHAN3_EN_STATE &lt;&lt; chan3) \</div>
+<div class="line">                               | (CHAN4_EN_STATE &lt;&lt; chan4) | (XFMR_EN_STATE &lt;&lt; xfmrCct) | (AC_EN_STATE &lt;&lt; acCct) \</div>
+<div class="line">                               | (PSU_EN_STATE &lt;&lt; psu) | (EXTFAN_EN_STATE &lt;&lt; fan))) &amp; 0x00FF</div>
+</div><!-- fragment --><p>Uses the defined states to create a definition for the case where all circuits are disabled </p>
+
+</div>
+</div>
+<a class="anchor" id="a687e15212e8d4b49c12159dce73eeeab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_DEFVAL_ADDR&#160;&#160;&#160;0x03</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander default value register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa68be5a6ed28fb146600b4fd2d11fafd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_GPINTEN_ADDR&#160;&#160;&#160;0x02</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander interrupt on change enable register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="af2d85152c5775a221f107d6de547bca1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_GPIO_ADDR&#160;&#160;&#160;0x09</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander GPIO port register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="a91e588d697383f94de2bf7f11d9ecb4b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_GPPU_ADDR&#160;&#160;&#160;0x06</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander pull-up resistor configuration register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad615a329bea187ce779cf9930ba8a6fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_I2C_ADDR&#160;&#160;&#160;(<a class="el" href="a00023.html#ab848e49bf7c4ea73e4ef05f26b3c60e8">IOE_I2C_BASE_ADDR</a> | (<a class="el" href="a00023.html#a0cfe7137edc026282b36312077954701">IOE_SW4A_STATE</a> &lt;&lt; 2)) | (<a class="el" href="a00023.html#a5704aece7ac84dbd34e918fc0c60108d">IOE_SW4B_STATE</a> &lt;&lt; 3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander complete I2C address. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab848e49bf7c4ea73e4ef05f26b3c60e8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_I2C_BASE_ADDR&#160;&#160;&#160;0x20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander base I2C address. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac0afd8503a8584599cc81f3d9b0a04dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_INTCAP_ADDR&#160;&#160;&#160;0x08</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander interrupt capture register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="a90945d9544eebc892154f1e0443b1407"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_INTCON_ADDR&#160;&#160;&#160;0x04</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander interrupt on change control register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="a32cac2ad5af58a2562540ec8fc205dd1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_INTF_ADDR&#160;&#160;&#160;0x07</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander interrupt flag register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="af44ed2bf93808aeb932ce9944a942b75"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_IOCON_ADDR&#160;&#160;&#160;0x05</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander configuration register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="a36c134b088cc2e64e0a5e14e8f90fe38"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_IODIR_ADDR&#160;&#160;&#160;0x00</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander I/O direction register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="a04633cd2ea7fd0b332e1edf066f674c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_IPOL_ADDR&#160;&#160;&#160;0x01</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander input polarity register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0ad928de8e88a9285e391d1c7b4a57c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_MAX_CHNL&#160;&#160;&#160;0x08</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander number of channels (0 - 7). </p>
+
+</div>
+</div>
+<a class="anchor" id="ab26864d7372ac11db9c1996842a3cf56"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_OLAT_ADDR&#160;&#160;&#160;0x0A</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>MCP23008 I/O expander output latch register address. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0cfe7137edc026282b36312077954701"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_SW4A_STATE&#160;&#160;&#160;0x00</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The state of switch 4a; ON = 0x01, OFF = 0x00. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5704aece7ac84dbd34e918fc0c60108d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IOE_SW4B_STATE&#160;&#160;&#160;0x00</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The state of switch 4b; ON = 0x01, OFF = 0x00. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a5d2cb2e2fccefcdcb2e72e9e88b94223"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00023.html#a693dd7ac614cd1a7f8bfd7440f34ed6f">ecSection</a> <a class="el" href="a00023.html#a5d2cb2e2fccefcdcb2e72e9e88b94223">circuitSection</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type that allow specification of an enable control circuit section. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a693dd7ac614cd1a7f8bfd7440f34ed6f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00023.html#a693dd7ac614cd1a7f8bfd7440f34ed6f">ecSection</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The possible enable control circuit section selections. Also defines bit order. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a606ff8e8b51f82c70ced419dad90f993"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 disableCircuit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00023.html#a5d2cb2e2fccefcdcb2e72e9e88b94223">circuitSection</a>&#160;</td>
+          <td class="paramname"><em>section</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disables the specified circuit section enable signal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">section</td><td>Specifies the circuit section that is to be disabled. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a5f4a447d1fbeba7920434b60e33b521e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 enableCircuit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00023.html#a5d2cb2e2fccefcdcb2e72e9e88b94223">circuitSection</a>&#160;</td>
+          <td class="paramname"><em>section</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enables the specified circuit section enable signal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">section</td><td>Specifies the circuit section that is to be enabled. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae6fd4f744738c8b2733ef36d92fb7313"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 initEnableControl </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname">)</td><td></td>
@@ -132,27 +506,32 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Updates GPIO19 based on state of *PHASE_CTRL_In terminal. Expects 0 (GPIO19 set) or non-zero (GPIO19 cleared). This is generally called by the DPL_ISR.asm </p>
+<p>Initialises the enable control interface. The I2C peripheral MUST be initialised before this function is used. </p>
+<dl class="section see"><dt>See Also</dt><dd>i2cInit() </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="ac286d0874ebba5141e36971f4a7f106e"></a>
+<a class="anchor" id="a7e7f2b9153314c4652c5e0a1d2977133"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile int32* PHASE_CTRL_In</td>
+          <td class="memname">void resetEnableControl </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Phase control module signal input terminal. </p>
+<p>Resets and reinitialises the MCP23008 I/O Expander device. </p>
 
 </div>
 </div>
 </div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Wed Aug 14 2013
+Thu Oct 24 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

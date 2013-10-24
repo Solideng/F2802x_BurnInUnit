@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>F2802x Burn In Unit: Sci.h File Reference</title>
+<title>F2802x Burn In Unit: MacroNets.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,140 +88,408 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">Sci.h File Reference</div>  </div>
+<div class="title">MacroNets.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>SCI communications functions.  
+<p>DPLib macro net and value control functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00052.png" border="0" usemap="#_sci_8hdep" alt=""/></div>
-<map name="_sci_8hdep" id="_sci_8hdep">
-<area shape="rect" id="node2" href="a00011.html" title="Common include file for the project. " alt="" coords="5,80,91,107"/></map>
+<div class="center"><img src="a00066.png" border="0" usemap="#_macro_nets_8hdep" alt=""/></div>
+<map name="_macro_nets_8hdep" id="_macro_nets_8hdep">
+<area shape="rect" id="node2" href="a00015.html" title="Common include file for the project. " alt="" coords="11,80,96,107"/></map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00005.html">extDeviceSettings</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00007.html">loadStageNets</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00008.html">loadStageSettings</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00009.html">xfmrStageNets</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00010.html">xfmrStageSettings</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00003.html">acStageNets</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html">acStageSettings</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a0e4c420431b12616b61e9f3a28f07e4d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a0e4c420431b12616b61e9f3a28f07e4d">SCIBAUD_MIN</a>&#160;&#160;&#160;29</td></tr>
-<tr class="separator:a0e4c420431b12616b61e9f3a28f07e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5733933fffc18dbcb8bc9404e80bc493"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a5733933fffc18dbcb8bc9404e80bc493">SCIFFRX_INT_LVL</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a5733933fffc18dbcb8bc9404e80bc493"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5340c9de55b8e5c65ef801d2dcabffd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a5340c9de55b8e5c65ef801d2dcabffd7">SCIFFTX_INT_LVL</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a5340c9de55b8e5c65ef801d2dcabffd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0368b1c16e194a32bf4ce09eb937930"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#af0368b1c16e194a32bf4ce09eb937930">SCIFFTX_FILL_LVL</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:af0368b1c16e194a32bf4ce09eb937930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a007a209cd2e2b935be1f69218652edc1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a007a209cd2e2b935be1f69218652edc1">LOAD_0</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a007a209cd2e2b935be1f69218652edc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a363f09c63f2ecb9086b47d72a3f3f57d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a363f09c63f2ecb9086b47d72a3f3f57d">LOAD_1</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a363f09c63f2ecb9086b47d72a3f3f57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7c1e96216e7b48160e5a03afe8ac807"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#af7c1e96216e7b48160e5a03afe8ac807">LOAD_2</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:af7c1e96216e7b48160e5a03afe8ac807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c862ec4115c4a016b61800609f236a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a2c862ec4115c4a016b61800609f236a7">LOAD_3</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a2c862ec4115c4a016b61800609f236a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a873d529c32530ec23fbf76318011aeee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a873d529c32530ec23fbf76318011aeee">XFMR_STAGE</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a873d529c32530ec23fbf76318011aeee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fc4318ae73eae35339f616047300b0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a3fc4318ae73eae35339f616047300b0f">AC_STAGE</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a3fc4318ae73eae35339f616047300b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae72b26dfe821ff1cfeb352b6b54e5cbb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#ae72b26dfe821ff1cfeb352b6b54e5cbb">EXT_1</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:ae72b26dfe821ff1cfeb352b6b54e5cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a461d83d7d883765da6f6b257a7a4c385"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a461d83d7d883765da6f6b257a7a4c385">EXT_2</a>&#160;&#160;&#160;7</td></tr>
+<tr class="separator:a461d83d7d883765da6f6b257a7a4c385"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a70b24a6c60fcd622c699e09219a34da0"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a70b24a6c60fcd622c699e09219a34da0">extSelect</a></td></tr>
+<tr class="separator:a70b24a6c60fcd622c699e09219a34da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0c9d277e59731716a1973e29ea96246"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00005.html">extDeviceSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#aa0c9d277e59731716a1973e29ea96246">extDeviceSettings</a></td></tr>
+<tr class="separator:aa0c9d277e59731716a1973e29ea96246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7950a62c78fd817e8115e55c0f4bb44"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#af7950a62c78fd817e8115e55c0f4bb44">loadStage</a></td></tr>
+<tr class="separator:af7950a62c78fd817e8115e55c0f4bb44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae981f2f918bbbfae4517a68d60ffb45"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00007.html">loadStageNets</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#aae981f2f918bbbfae4517a68d60ffb45">loadStageNets</a></td></tr>
+<tr class="separator:aae981f2f918bbbfae4517a68d60ffb45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ea7275d3010efb32f35ffe237401ff"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00008.html">loadStageSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a23ea7275d3010efb32f35ffe237401ff">loadStageSettings</a></td></tr>
+<tr class="separator:a23ea7275d3010efb32f35ffe237401ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a583225b973f6b7cb16edbff4d3dadeab"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00009.html">xfmrStageNets</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a583225b973f6b7cb16edbff4d3dadeab">xfmrStageNets</a></td></tr>
+<tr class="separator:a583225b973f6b7cb16edbff4d3dadeab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13cb1eb6c11d220d249e98a5250235a"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00010.html">xfmrStageSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#ab13cb1eb6c11d220d249e98a5250235a">xfmrStageSettings</a></td></tr>
+<tr class="separator:ab13cb1eb6c11d220d249e98a5250235a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e395a646881dbb659b7fdaff0f80be0"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00003.html">acStageNets</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a8e395a646881dbb659b7fdaff0f80be0">acStageNets</a></td></tr>
+<tr class="separator:a8e395a646881dbb659b7fdaff0f80be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32c7a835db0120b8a119548c2a0337d5"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00004.html">acStageSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a32c7a835db0120b8a119548c2a0337d5">acStageSettings</a></td></tr>
+<tr class="separator:a32c7a835db0120b8a119548c2a0337d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a258413561252a6c94af200747272a9f3"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a> { <a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3a6b8e8e9bb4b53b3fc029110541623a3c">ext1</a> = 0, 
+<a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3a6b3e8213ce7722257795b7a3ffb915fc">ext2</a> = 1
+ }</td></tr>
+<tr class="separator:a258413561252a6c94af200747272a9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2820f1e18d921d2f1e97d53404b9fbae"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> { <a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbaeae319629172a300013df8b0149c386f96">load1</a> = 0, 
+<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbaea690fc43c88b8671aff6aed61a8a2f9c6">load2</a> = 1, 
+<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbaea861124cff343ddc4d2cc20dfe3ee7fa2">load3</a> = 2, 
+<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbaea94258908ecc1dedac8f08e7baf1156fc">load4</a> = 3
+ }</td></tr>
+<tr class="separator:a2820f1e18d921d2f1e97d53404b9fbae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1f05b9c5226c73b67c1d6c3bf7f80b52"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a1f05b9c5226c73b67c1d6c3bf7f80b52">sciInit</a> (Uint32 baud)</td></tr>
-<tr class="separator:a1f05b9c5226c73b67c1d6c3bf7f80b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a941bdbf3e64ac5f4492a7f7c5936b445"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a941bdbf3e64ac5f4492a7f7c5936b445">sciTx</a> (void)</td></tr>
-<tr class="separator:a941bdbf3e64ac5f4492a7f7c5936b445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae5a77eff5aae0f7aead915fe68328b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a0ae5a77eff5aae0f7aead915fe68328b">setupNets</a> (slaveMode mode)</td></tr>
+<tr class="separator:a0ae5a77eff5aae0f7aead915fe68328b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a776854c00eb8a571abbfb27130ba4849"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a776854c00eb8a571abbfb27130ba4849">stopAll</a> (void)</td></tr>
+<tr class="separator:a776854c00eb8a571abbfb27130ba4849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24dce601551d1d81b127711d2f4aabdd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a24dce601551d1d81b127711d2f4aabdd">runAll</a> (void)</td></tr>
+<tr class="separator:a24dce601551d1d81b127711d2f4aabdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af6530cd8f296ed6bf84f4ce75ea4c9ad"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#af6530cd8f296ed6bf84f4ce75ea4c9ad">stopAllFlag</a></td></tr>
+<tr class="separator:af6530cd8f296ed6bf84f4ce75ea4c9ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65fcb0c0a483e3bc3433b17227fa29ac"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a65fcb0c0a483e3bc3433b17227fa29ac">enableAllFlag</a></td></tr>
+<tr class="separator:a65fcb0c0a483e3bc3433b17227fa29ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8092749f4706406bb47ec950573ebed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00005.html">extDeviceSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#ab8092749f4706406bb47ec950573ebed">extSettings</a></td></tr>
+<tr class="separator:ab8092749f4706406bb47ec950573ebed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a6ae344146684f87fe8ca400640dced"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00007.html">loadStageNets</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#a0a6ae344146684f87fe8ca400640dced">loadNets</a> [numberOfLoads]</td></tr>
+<tr class="separator:a0a6ae344146684f87fe8ca400640dced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0d5fe43ffb1c0edbb3d22409a8f346"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00008.html">loadStageSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#acb0d5fe43ffb1c0edbb3d22409a8f346">loadSettings</a> [numberOfLoads]</td></tr>
+<tr class="separator:acb0d5fe43ffb1c0edbb3d22409a8f346"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec1d3b8f844d1d31ce7e703e50209432"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00009.html">xfmrStageNets</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#aec1d3b8f844d1d31ce7e703e50209432">xfmrNets</a></td></tr>
+<tr class="separator:aec1d3b8f844d1d31ce7e703e50209432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8977a3c81ebfcd1b5dbe7fb49e9f832"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00010.html">xfmrStageSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#ab8977a3c81ebfcd1b5dbe7fb49e9f832">xfmrSettings</a></td></tr>
+<tr class="separator:ab8977a3c81ebfcd1b5dbe7fb49e9f832"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab73a0aedbde1954d7bf8091e07e4675c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00003.html">acStageNets</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#ab73a0aedbde1954d7bf8091e07e4675c">acNets</a></td></tr>
+<tr class="separator:ab73a0aedbde1954d7bf8091e07e4675c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee11a0ac36813aa41597f992e943cd17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00004.html">acStageSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00027.html#aee11a0ac36813aa41597f992e943cd17">acSettings</a></td></tr>
+<tr class="separator:aee11a0ac36813aa41597f992e943cd17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>SCI communications functions. </p>
-<dl class="section user"><dt></dt><dd>On the TI C2000 LaunchPad XL: <table class="doxtable">
-<tr>
-<th align="center">Function</th><th align="center">GPIO </th><th align="center">PCB Pin  </th></tr>
-<tr>
-<td align="center">SCI_RX </td><td align="center">GPIO28</td><td align="center">J1-3 </td></tr>
-<tr>
-<td align="center">SCI_TX </td><td align="center">GPIO29</td><td align="center">J1-4 </td></tr>
-</table>
-</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>On the TI C2000 LaunchPad XL the switch 4 (S4) should be in the OFF position to communicate with devices other than the on-board USB controller. </dd></dl>
+<div class="textblock"><p>DPLib macro net and value control functions. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a0e4c420431b12616b61e9f3a28f07e4d"></a>
+<a class="anchor" id="a3fc4318ae73eae35339f616047300b0f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SCIBAUD_MIN&#160;&#160;&#160;29</td>
+          <td class="memname">#define AC_STAGE&#160;&#160;&#160;5</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Minimum allowable value of SCI Baud. </p>
+<p>The index position for AC stage settings. </p>
 
 </div>
 </div>
-<a class="anchor" id="a5733933fffc18dbcb8bc9404e80bc493"></a>
+<a class="anchor" id="ae72b26dfe821ff1cfeb352b6b54e5cbb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SCIFFRX_INT_LVL&#160;&#160;&#160;1</td>
+          <td class="memname">#define EXT_1&#160;&#160;&#160;6</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Interrupt level for receiving FIFO. </p>
+<p>External temperature 1 channel reference. </p>
 
 </div>
 </div>
-<a class="anchor" id="af0368b1c16e194a32bf4ce09eb937930"></a>
+<a class="anchor" id="a461d83d7d883765da6f6b257a7a4c385"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SCIFFTX_FILL_LVL&#160;&#160;&#160;4</td>
+          <td class="memname">#define EXT_2&#160;&#160;&#160;7</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Fill level for transmission FIFO. </p>
+<p>External temperature 2 channel reference. </p>
 
 </div>
 </div>
-<a class="anchor" id="a5340c9de55b8e5c65ef801d2dcabffd7"></a>
+<a class="anchor" id="a007a209cd2e2b935be1f69218652edc1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SCIFFTX_INT_LVL&#160;&#160;&#160;0</td>
+          <td class="memname">#define LOAD_0&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Interrupt level for transmission FIFO. </p>
+<p>The index position for Load 0 settings. </p>
+
+</div>
+</div>
+<a class="anchor" id="a363f09c63f2ecb9086b47d72a3f3f57d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOAD_1&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The index position for Load 1 settings. </p>
+
+</div>
+</div>
+<a class="anchor" id="af7c1e96216e7b48160e5a03afe8ac807"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOAD_2&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The index position for Load 2 settings. </p>
+
+</div>
+</div>
+<a class="anchor" id="a2c862ec4115c4a016b61800609f236a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOAD_3&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The index position for Load 3 settings. </p>
+
+</div>
+</div>
+<a class="anchor" id="a873d529c32530ec23fbf76318011aeee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define XFMR_STAGE&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The index position for transformer stage settings. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a class="anchor" id="a8e395a646881dbb659b7fdaff0f80be0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00003.html">acStageNets</a> <a class="el" href="a00003.html">acStageNets</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type to allow use of the AC stage nets structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="a32c7a835db0120b8a119548c2a0337d5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00004.html">acStageSettings</a> <a class="el" href="a00004.html">acStageSettings</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type to allow use of the AC stage settings structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa0c9d277e59731716a1973e29ea96246"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00005.html">extDeviceSettings</a> <a class="el" href="a00005.html">extDeviceSettings</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type to allow use of the external device settings structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="a70b24a6c60fcd622c699e09219a34da0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a> <a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type that allow specification of an external sensor. </p>
+
+</div>
+</div>
+<a class="anchor" id="af7950a62c78fd817e8115e55c0f4bb44"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> <a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type that allow specification of a load. </p>
+
+</div>
+</div>
+<a class="anchor" id="aae981f2f918bbbfae4517a68d60ffb45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00007.html">loadStageNets</a> <a class="el" href="a00007.html">loadStageNets</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type to allow use of the load stage nets structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="a23ea7275d3010efb32f35ffe237401ff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00008.html">loadStageSettings</a> <a class="el" href="a00008.html">loadStageSettings</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type to allow use of the load stage settings structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="a583225b973f6b7cb16edbff4d3dadeab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00009.html">xfmrStageNets</a> <a class="el" href="a00009.html">xfmrStageNets</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type to allow use of the transformer stage nets structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab13cb1eb6c11d220d249e98a5250235a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00010.html">xfmrStageSettings</a> <a class="el" href="a00010.html">xfmrStageSettings</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A type to allow use of the AC stage settings structure. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a class="anchor" id="a258413561252a6c94af200747272a9f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The possible external sensor selections. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a258413561252a6c94af200747272a9f3a6b8e8e9bb4b53b3fc029110541623a3c"></a>ext1</em>&nbsp;</td><td class="fielddoc">
+<p>External sensor 1. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a258413561252a6c94af200747272a9f3a6b3e8213ce7722257795b7a3ffb915fc"></a>ext2</em>&nbsp;</td><td class="fielddoc">
+<p>External sensor 2. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a class="anchor" id="a2820f1e18d921d2f1e97d53404b9fbae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The possible load stage selections. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a2820f1e18d921d2f1e97d53404b9fbaeae319629172a300013df8b0149c386f96"></a>load1</em>&nbsp;</td><td class="fielddoc">
+<p>Load 1. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2820f1e18d921d2f1e97d53404b9fbaea690fc43c88b8671aff6aed61a8a2f9c6"></a>load2</em>&nbsp;</td><td class="fielddoc">
+<p>Load 2. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2820f1e18d921d2f1e97d53404b9fbaea861124cff343ddc4d2cc20dfe3ee7fa2"></a>load3</em>&nbsp;</td><td class="fielddoc">
+<p>Load 3. </p>
+</td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a2820f1e18d921d2f1e97d53404b9fbaea94258908ecc1dedac8f08e7baf1156fc"></a>load4</em>&nbsp;</td><td class="fielddoc">
+<p>Load 4. </p>
+</td></tr>
+</table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a1f05b9c5226c73b67c1d6c3bf7f80b52"></a>
+<a class="anchor" id="a24dce601551d1d81b127711d2f4aabdd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 sciInit </td>
-          <td>(</td>
-          <td class="paramtype">Uint32&#160;</td>
-          <td class="paramname"><em>baud</em>)</td><td></td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Initialises the SCI(A) peripheral and relate interrupts. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">baud</td><td>The baud rate that the SCI should use minimum value is set by SCIBAUD_MIN. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>This function MUST be called before any other SCI(A) function. </dd>
-<dd>
-This function will clear any values placed in the associated SCI(A) registers prior to calling. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a941bdbf3e64ac5f4492a7f7c5936b445"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void sciTx </td>
+          <td class="memname">void runAll </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname">)</td><td></td>
@@ -229,13 +497,174 @@ This function will clear any values placed in the associated SCI(A) registers pr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Transmits whatever data is on the SCPI output queue. </p>
+<p>Enables all IIR filter control law reference inputs. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0ae5a77eff5aae0f7aead915fe68328b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setupNets </td>
+          <td>(</td>
+          <td class="paramtype">slaveMode&#160;</td>
+          <td class="paramname"><em>mode</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialises macro settings and nets. IIR control law coefficients are handled outside of this function. </p>
+<dl class="section warning"><dt>Warning</dt><dd>This MUST be called after DPL_INIT() </dd>
+<dd>
+This MUST be called after pwmMacroConfig() </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Selects the test unit mode to allow correct macro net connection. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a776854c00eb8a571abbfb27130ba4849"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stopAll </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disables all circuit sections, zeroes all IIR references and flags each stage as disabled. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a class="anchor" id="ab73a0aedbde1954d7bf8091e07e4675c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00003.html">acStageNets</a> acNets</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A global instance of the AC nets structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="aee11a0ac36813aa41597f992e943cd17"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00004.html">acStageSettings</a> acSettings</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A global instance of the AC settings structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="a65fcb0c0a483e3bc3433b17227fa29ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 enableAllFlag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enable-all condition flag that allows status communication between the state machine tasks. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab8092749f4706406bb47ec950573ebed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00005.html">extDeviceSettings</a> extSettings</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A global instance of the external device settings structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0a6ae344146684f87fe8ca400640dced"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00007.html">loadStageNets</a> loadNets[numberOfLoads]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A global array instance of the load nets structure that collects the nets for all 4 loads. </p>
+
+</div>
+</div>
+<a class="anchor" id="acb0d5fe43ffb1c0edbb3d22409a8f346"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00008.html">loadStageSettings</a> loadSettings[numberOfLoads]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A global array instance of the load settings structure that collects the settings for all 4 loads. </p>
+
+</div>
+</div>
+<a class="anchor" id="af6530cd8f296ed6bf84f4ce75ea4c9ad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 stopAllFlag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stop-all condition flag that allows status communication between the state machine tasks. </p>
+
+</div>
+</div>
+<a class="anchor" id="aec1d3b8f844d1d31ce7e703e50209432"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00009.html">xfmrStageNets</a> xfmrNets</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A global instance of the transformer nets structure. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab8977a3c81ebfcd1b5dbe7fb49e9f832"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00010.html">xfmrStageSettings</a> xfmrSettings</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A global instance of the transformer settings structure. </p>
 
 </div>
 </div>
 </div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Wed Aug 14 2013
+Thu Oct 24 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

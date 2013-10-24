@@ -1,45 +1,292 @@
-\hypertarget{a00036}{\section{State\-Machine.\-h File Reference}
-\label{a00036}\index{State\-Machine.\-h@{State\-Machine.\-h}}
+\hypertarget{a00036}{\section{Ovp.\-h File Reference}
+\label{a00036}\index{Ovp.\-h@{Ovp.\-h}}
 }
 
 
-State machine functions.  
+Over-\/voltage protection functions.  
 
 
 This graph shows which files directly or indirectly include this file\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=164pt]{a00056}
+\includegraphics[width=144pt]{a00070}
 \end{center}
 \end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00036_a818e48bd3796e85aff1e441d395d420e}{L\-O\-A\-D1\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}~1
+\item 
+\#define \hyperlink{a00036_a06deb869d76201f8fa804f155a6d0204}{L\-O\-A\-D2\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}~2
+\item 
+\#define \hyperlink{a00036_a48d28ba735dc28df3ba0c96ca99c3ba0}{L\-O\-A\-D3\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}~4
+\item 
+\#define \hyperlink{a00036_a77c2bd0f4f1081fadf180ae92c5b0b79}{L\-O\-A\-D4\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}~8
+\item 
+\#define \hyperlink{a00036_a454809e1e9a6314875f8f833bd924bfb}{D\-C\-M\-I\-D\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}~16
+\item 
+\#define \hyperlink{a00036_a87d04fee238f7921a66521910b42244e}{D\-C\-H\-V\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}~32
+\item 
+\#define \hyperlink{a00036_abf1557b371e135706243aebb018260cc}{A\-C\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}~64
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{a00036_a8c307b607d4931ec1214de3592c93df4}{sm\-Init} (void)
-\end{DoxyCompactItemize}
-\subsection*{Variables}
-\begin{DoxyCompactItemize}
+Uint16 \hyperlink{a00036_aff7629dfd95df8d951d2655a469e4f0b}{check\-Load\-Ovp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
 \item 
-void($\ast$ \hyperlink{a00036_af1d16f7a57d6ced065765dcbb355fcde}{Alpha\-\_\-\-State\-\_\-\-Ptr} )(void)
+Uint16 \hyperlink{a00036_afef3389418ef30049023606f8ee1e63a}{get\-Load\-Ovp\-State} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
+\item 
+Uint16 \hyperlink{a00036_a90b85f0cd911b4628b2713072a755884}{clear\-Load\-Ovp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
+\item 
+Uint16 \hyperlink{a00036_ae23e841cb8641e0253b5a8aa96ef2f2e}{trip\-Dc\-Mid\-Ovp} (void)
+\item 
+Uint16 \hyperlink{a00036_af1c17192cdfb57ea80342583e1f25594}{get\-Dc\-Mid\-Ovp\-State} (void)
+\item 
+Uint16 \hyperlink{a00036_a04846ddb31daf651daeea01e6949a633}{clear\-Dc\-Mid\-Ovp} (void)
+\item 
+Uint16 \hyperlink{a00036_a5e4e700d4759e7f0a6289796773f8e2b}{set\-Dc\-Hv\-Ovp\-Level} (float32 dc\-Level)
+\item 
+Uint16 \hyperlink{a00036_a1311d68beecad9f6ffa0cf03993b6793}{get\-Dc\-Hv\-Ovp\-Level} (float32 $\ast$dc\-Level)
+\item 
+Uint16 \hyperlink{a00036_a88172749798c193b8081da2d6f03673e}{check\-Dc\-Hv\-Ovp} (void)
+\item 
+Uint16 \hyperlink{a00036_abca9d133fd7de92546ad0a332119e921}{get\-Dc\-Hv\-Ovp\-State} (void)
+\item 
+Uint16 \hyperlink{a00036_a466dac1e76240f74d4d50a5f2d026fdd}{clear\-Dc\-Hv\-Ovp} (void)
+\item 
+Uint16 \hyperlink{a00036_a93b0c8c63f03b67ac81ef674232ccfd0}{set\-Ac\-Ovp\-Level} (float32 pk\-Level)
+\item 
+Uint16 \hyperlink{a00036_a74d933fe7f4604bdd0a52086d6edd817}{get\-Ac\-Ovp\-Level} (float32 $\ast$pk\-Level)
+\item 
+Uint16 \hyperlink{a00036_aaca3e8b9f1e75b6ec31e5270c62cdd9a}{check\-Ac\-Ovp} (void)
+\item 
+Uint16 \hyperlink{a00036_a6b51e17f10032455c6984b20353d82b9}{get\-Ac\-Ovp\-State} (void)
+\item 
+Uint16 \hyperlink{a00036_a8b53919933a6e29ab7d5e3a0fccf0823}{clear\-Ac\-Ovp} (void)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-State machine functions. 
+Over-\/voltage protection functions. These functions require that the relevant relevant measurement scales be set before use. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{a00036_abf1557b371e135706243aebb018260cc}{\index{Ovp.\-h@{Ovp.\-h}!A\-C\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{A\-C\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}}
+\index{A\-C\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{A\-C\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{A\-C\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P~64}}\label{a00036_abf1557b371e135706243aebb018260cc}
+O\-V\-P flag register A\-C bit. \hypertarget{a00036_a87d04fee238f7921a66521910b42244e}{\index{Ovp.\-h@{Ovp.\-h}!D\-C\-H\-V\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{D\-C\-H\-V\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}}
+\index{D\-C\-H\-V\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{D\-C\-H\-V\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{D\-C\-H\-V\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-H\-V\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P~32}}\label{a00036_a87d04fee238f7921a66521910b42244e}
+O\-V\-P flag register D\-C H\-V bit. \hypertarget{a00036_a454809e1e9a6314875f8f833bd924bfb}{\index{Ovp.\-h@{Ovp.\-h}!D\-C\-M\-I\-D\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{D\-C\-M\-I\-D\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}}
+\index{D\-C\-M\-I\-D\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{D\-C\-M\-I\-D\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{D\-C\-M\-I\-D\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-C\-M\-I\-D\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P~16}}\label{a00036_a454809e1e9a6314875f8f833bd924bfb}
+O\-V\-P flag register D\-C M\-I\-D bit. \hypertarget{a00036_a818e48bd3796e85aff1e441d395d420e}{\index{Ovp.\-h@{Ovp.\-h}!L\-O\-A\-D1\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D1\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D1\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D1\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{L\-O\-A\-D1\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D1\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P~1}}\label{a00036_a818e48bd3796e85aff1e441d395d420e}
+O\-V\-P flag register load 1 bit. \hypertarget{a00036_a06deb869d76201f8fa804f155a6d0204}{\index{Ovp.\-h@{Ovp.\-h}!L\-O\-A\-D2\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D2\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D2\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D2\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{L\-O\-A\-D2\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D2\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P~2}}\label{a00036_a06deb869d76201f8fa804f155a6d0204}
+O\-V\-P flag register load 2 bit. \hypertarget{a00036_a48d28ba735dc28df3ba0c96ca99c3ba0}{\index{Ovp.\-h@{Ovp.\-h}!L\-O\-A\-D3\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D3\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D3\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D3\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{L\-O\-A\-D3\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D3\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P~4}}\label{a00036_a48d28ba735dc28df3ba0c96ca99c3ba0}
+O\-V\-P flag register load 3 bit. \hypertarget{a00036_a77c2bd0f4f1081fadf180ae92c5b0b79}{\index{Ovp.\-h@{Ovp.\-h}!L\-O\-A\-D4\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D4\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}}
+\index{L\-O\-A\-D4\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P@{L\-O\-A\-D4\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{L\-O\-A\-D4\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-A\-D4\-\_\-\-O\-V\-P\-\_\-\-T\-R\-I\-P~8}}\label{a00036_a77c2bd0f4f1081fadf180ae92c5b0b79}
+O\-V\-P flag register load 4 bit. 
 
 \subsection{Function Documentation}
-\hypertarget{a00036_a8c307b607d4931ec1214de3592c93df4}{\index{State\-Machine.\-h@{State\-Machine.\-h}!sm\-Init@{sm\-Init}}
-\index{sm\-Init@{sm\-Init}!StateMachine.h@{State\-Machine.\-h}}
-\subsubsection[{sm\-Init}]{\setlength{\rightskip}{0pt plus 5cm}void sm\-Init (
+\hypertarget{a00036_aaca3e8b9f1e75b6ec31e5270c62cdd9a}{\index{Ovp.\-h@{Ovp.\-h}!check\-Ac\-Ovp@{check\-Ac\-Ovp}}
+\index{check\-Ac\-Ovp@{check\-Ac\-Ovp}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{check\-Ac\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 check\-Ac\-Ovp (
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
-)}}\label{a00036_a8c307b607d4931ec1214de3592c93df4}
-Sets up the state machine (incl. timers) ready for use. 
-
-\subsection{Variable Documentation}
-\hypertarget{a00036_af1d16f7a57d6ced065765dcbb355fcde}{\index{State\-Machine.\-h@{State\-Machine.\-h}!Alpha\-\_\-\-State\-\_\-\-Ptr@{Alpha\-\_\-\-State\-\_\-\-Ptr}}
-\index{Alpha\-\_\-\-State\-\_\-\-Ptr@{Alpha\-\_\-\-State\-\_\-\-Ptr}!StateMachine.h@{State\-Machine.\-h}}
-\subsubsection[{Alpha\-\_\-\-State\-\_\-\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Alpha\-\_\-\-State\-\_\-\-Ptr)(void)}}\label{a00036_af1d16f7a57d6ced065765dcbb355fcde}
-Runs the next iteration of the state machine. Should be called from the main super-\/loop. 
+)}}\label{a00036_aaca3e8b9f1e75b6ec31e5270c62cdd9a}
+Checks the voltage reading of the A\-C stage against the A\-C O\-V\-P limit. Raises the A\-C O\-V\-P flag if the reading is above the limit. \begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00036_a88172749798c193b8081da2d6f03673e}{\index{Ovp.\-h@{Ovp.\-h}!check\-Dc\-Hv\-Ovp@{check\-Dc\-Hv\-Ovp}}
+\index{check\-Dc\-Hv\-Ovp@{check\-Dc\-Hv\-Ovp}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{check\-Dc\-Hv\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 check\-Dc\-Hv\-Ovp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00036_a88172749798c193b8081da2d6f03673e}
+Checks the voltage reading of the D\-C H\-V stage against the D\-C H\-V O\-V\-P limit. Raises the D\-C H\-V O\-V\-P flag if the reading is above the limit. \begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00036_aff7629dfd95df8d951d2655a469e4f0b}{\index{Ovp.\-h@{Ovp.\-h}!check\-Load\-Ovp@{check\-Load\-Ovp}}
+\index{check\-Load\-Ovp@{check\-Load\-Ovp}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{check\-Load\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 check\-Load\-Ovp (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load}
+\end{DoxyParamCaption}
+)}}\label{a00036_aff7629dfd95df8d951d2655a469e4f0b}
+$<$ O\-V\-P flag register. Bits are set to indicate an O\-V\-P condition has been found. Checks the voltage reading of the specified load against the load O\-V\-P limit. Raises the load O\-V\-P flag if the reading is above the limit. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load on which the reading is to be tested. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}
+\hypertarget{a00036_a8b53919933a6e29ab7d5e3a0fccf0823}{\index{Ovp.\-h@{Ovp.\-h}!clear\-Ac\-Ovp@{clear\-Ac\-Ovp}}
+\index{clear\-Ac\-Ovp@{clear\-Ac\-Ovp}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{clear\-Ac\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Ac\-Ovp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00036_a8b53919933a6e29ab7d5e3a0fccf0823}
+Clears the A\-C stage O\-V\-P state. \begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00036_a466dac1e76240f74d4d50a5f2d026fdd}{\index{Ovp.\-h@{Ovp.\-h}!clear\-Dc\-Hv\-Ovp@{clear\-Dc\-Hv\-Ovp}}
+\index{clear\-Dc\-Hv\-Ovp@{clear\-Dc\-Hv\-Ovp}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{clear\-Dc\-Hv\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Dc\-Hv\-Ovp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00036_a466dac1e76240f74d4d50a5f2d026fdd}
+Clears the D\-C H\-V stage O\-V\-P state. \begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00036_a04846ddb31daf651daeea01e6949a633}{\index{Ovp.\-h@{Ovp.\-h}!clear\-Dc\-Mid\-Ovp@{clear\-Dc\-Mid\-Ovp}}
+\index{clear\-Dc\-Mid\-Ovp@{clear\-Dc\-Mid\-Ovp}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{clear\-Dc\-Mid\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Dc\-Mid\-Ovp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00036_a04846ddb31daf651daeea01e6949a633}
+Clears the D\-C Mid stage O\-V\-P state. \begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00036_a90b85f0cd911b4628b2713072a755884}{\index{Ovp.\-h@{Ovp.\-h}!clear\-Load\-Ovp@{clear\-Load\-Ovp}}
+\index{clear\-Load\-Ovp@{clear\-Load\-Ovp}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{clear\-Load\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 clear\-Load\-Ovp (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load}
+\end{DoxyParamCaption}
+)}}\label{a00036_a90b85f0cd911b4628b2713072a755884}
+Clears the O\-V\-P state for the specified load. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load for which the O\-V\-P state is to be cleared. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00036_a74d933fe7f4604bdd0a52086d6edd817}{\index{Ovp.\-h@{Ovp.\-h}!get\-Ac\-Ovp\-Level@{get\-Ac\-Ovp\-Level}}
+\index{get\-Ac\-Ovp\-Level@{get\-Ac\-Ovp\-Level}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{get\-Ac\-Ovp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ac\-Ovp\-Level (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$}]{pk\-Level}
+\end{DoxyParamCaption}
+)}}\label{a00036_a74d933fe7f4604bdd0a52086d6edd817}
+Queries the over voltage protection level for the A\-C stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em pk\-Level} & Pointer to location at which to place the query result (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00036_a6b51e17f10032455c6984b20353d82b9}{\index{Ovp.\-h@{Ovp.\-h}!get\-Ac\-Ovp\-State@{get\-Ac\-Ovp\-State}}
+\index{get\-Ac\-Ovp\-State@{get\-Ac\-Ovp\-State}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{get\-Ac\-Ovp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ac\-Ovp\-State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00036_a6b51e17f10032455c6984b20353d82b9}
+Queries the state of the A\-C O\-V\-P flag. \begin{DoxyReturn}{Returns}
+True if O\-V\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00036_a1311d68beecad9f6ffa0cf03993b6793}{\index{Ovp.\-h@{Ovp.\-h}!get\-Dc\-Hv\-Ovp\-Level@{get\-Dc\-Hv\-Ovp\-Level}}
+\index{get\-Dc\-Hv\-Ovp\-Level@{get\-Dc\-Hv\-Ovp\-Level}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{get\-Dc\-Hv\-Ovp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Hv\-Ovp\-Level (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$}]{dc\-Level}
+\end{DoxyParamCaption}
+)}}\label{a00036_a1311d68beecad9f6ffa0cf03993b6793}
+Queries the over voltage protection level for the D\-C H\-V stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em dc\-Level} & Pointer to location at which to place the query result (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00036_abca9d133fd7de92546ad0a332119e921}{\index{Ovp.\-h@{Ovp.\-h}!get\-Dc\-Hv\-Ovp\-State@{get\-Dc\-Hv\-Ovp\-State}}
+\index{get\-Dc\-Hv\-Ovp\-State@{get\-Dc\-Hv\-Ovp\-State}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{get\-Dc\-Hv\-Ovp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Hv\-Ovp\-State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00036_abca9d133fd7de92546ad0a332119e921}
+Queries the state of the D\-C H\-V O\-V\-P flag. \begin{DoxyReturn}{Returns}
+True if O\-V\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00036_af1c17192cdfb57ea80342583e1f25594}{\index{Ovp.\-h@{Ovp.\-h}!get\-Dc\-Mid\-Ovp\-State@{get\-Dc\-Mid\-Ovp\-State}}
+\index{get\-Dc\-Mid\-Ovp\-State@{get\-Dc\-Mid\-Ovp\-State}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{get\-Dc\-Mid\-Ovp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Mid\-Ovp\-State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00036_af1c17192cdfb57ea80342583e1f25594}
+Queries the state of the D\-C Mid O\-V\-P flag. \begin{DoxyReturn}{Returns}
+True if O\-V\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00036_afef3389418ef30049023606f8ee1e63a}{\index{Ovp.\-h@{Ovp.\-h}!get\-Load\-Ovp\-State@{get\-Load\-Ovp\-State}}
+\index{get\-Load\-Ovp\-State@{get\-Load\-Ovp\-State}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{get\-Load\-Ovp\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Ovp\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf load\-Stage}}]{load}
+\end{DoxyParamCaption}
+)}}\label{a00036_afef3389418ef30049023606f8ee1e63a}
+Queries the state of the O\-V\-P flag for the specified load. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em load} & Specifies the load on which to check the flag. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if O\-V\-P flag has been raised. 
+\end{DoxyReturn}
+\hypertarget{a00036_a93b0c8c63f03b67ac81ef674232ccfd0}{\index{Ovp.\-h@{Ovp.\-h}!set\-Ac\-Ovp\-Level@{set\-Ac\-Ovp\-Level}}
+\index{set\-Ac\-Ovp\-Level@{set\-Ac\-Ovp\-Level}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{set\-Ac\-Ovp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Ac\-Ovp\-Level (
+\begin{DoxyParamCaption}
+\item[{float32}]{pk\-Level}
+\end{DoxyParamCaption}
+)}}\label{a00036_a93b0c8c63f03b67ac81ef674232ccfd0}
+Sets the over voltage protection limit for the A\-C stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pk\-Level} & Specifies the peak value to be applied (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00036_a5e4e700d4759e7f0a6289796773f8e2b}{\index{Ovp.\-h@{Ovp.\-h}!set\-Dc\-Hv\-Ovp\-Level@{set\-Dc\-Hv\-Ovp\-Level}}
+\index{set\-Dc\-Hv\-Ovp\-Level@{set\-Dc\-Hv\-Ovp\-Level}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{set\-Dc\-Hv\-Ovp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Dc\-Hv\-Ovp\-Level (
+\begin{DoxyParamCaption}
+\item[{float32}]{dc\-Level}
+\end{DoxyParamCaption}
+)}}\label{a00036_a5e4e700d4759e7f0a6289796773f8e2b}
+Sets the over voltage protection limit for the D\-C H\-V stage. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dc\-Level} & Specifies the D\-C value to be applied (volts). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00036_ae23e841cb8641e0253b5a8aa96ef2f2e}{\index{Ovp.\-h@{Ovp.\-h}!trip\-Dc\-Mid\-Ovp@{trip\-Dc\-Mid\-Ovp}}
+\index{trip\-Dc\-Mid\-Ovp@{trip\-Dc\-Mid\-Ovp}!Ovp.h@{Ovp.\-h}}
+\subsubsection[{trip\-Dc\-Mid\-Ovp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 trip\-Dc\-Mid\-Ovp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00036_ae23e841cb8641e0253b5a8aa96ef2f2e}
+Trips the D\-C Mid O\-V\-P. This provides an O\-V\-P function for the trip zone I\-S\-R to call when the D\-C comparator is triggered. \begin{DoxyReturn}{Returns}
+Error status 
+\end{DoxyReturn}

@@ -1,6 +1,28 @@
 var searchData=
 [
-  ['cntlgetcoef',['cntlGetCoef',['../a00010.html#abc7c9f468b60d7348e835e6473a34b23',1,'Cntl.c']]],
-  ['cntlsetcoef',['cntlSetCoef',['../a00010.html#a1b0f822cb4344a66c433d36c8eee2be3',1,'Cntl.c']]],
-  ['cntlupdatecoefs',['cntlUpdateCoefs',['../a00010.html#ac82b19f3b880ae3bbed395b3194d709e',1,'Cntl.c']]]
+  ['checkacopp',['checkAcOpp',['../a00032.html#aaaf0cea838afd7187715dc2a84e644f3',1,'Opp.c']]],
+  ['checkacotp',['checkAcOtp',['../a00034.html#aa88957137245403b79608032a773d6fe',1,'Otp.c']]],
+  ['checkacovp',['checkAcOvp',['../a00036.html#aaca3e8b9f1e75b6ec31e5270c62cdd9a',1,'Ovp.c']]],
+  ['checkdchvovp',['checkDcHvOvp',['../a00036.html#a88172749798c193b8081da2d6f03673e',1,'Ovp.c']]],
+  ['checkdcmidocp',['checkDcMidOcp',['../a00030.html#acdbe7d23734fc6f4fbc3cc7ebe8ffb51',1,'Ocp.c']]],
+  ['checkdcotp',['checkDcOtp',['../a00034.html#a66c1d5f4705adf4b8947c6760d6c3e88',1,'Otp.c']]],
+  ['checkextotp',['checkExtOtp',['../a00034.html#a3bf6ccb465aa4c60464dece3f4bb2dcc',1,'Otp.c']]],
+  ['checkloadocp',['checkLoadOcp',['../a00030.html#a59c9eb4cd335a46e4c33651a26ecbf10',1,'Ocp.c']]],
+  ['checkloadopp',['checkLoadOpp',['../a00032.html#ad66082246819b4aa7758cb791de55ca2',1,'Opp.c']]],
+  ['checkloadotp',['checkLoadOtp',['../a00034.html#ac41af2b33ac4b5ac6552ed797a71b25d',1,'Otp.c']]],
+  ['checkloadovp',['checkLoadOvp',['../a00036.html#aff7629dfd95df8d951d2655a469e4f0b',1,'Ovp.c']]],
+  ['clearacocp',['clearAcOcp',['../a00030.html#ad2757e72816f7a5c6a6a70760e9012a8',1,'Ocp.c']]],
+  ['clearacopp',['clearAcOpp',['../a00032.html#af4e230aa537a2cc7cb6daa364fabaca9',1,'Opp.c']]],
+  ['clearacotp',['clearAcOtp',['../a00034.html#ad65b5cbf773b35ebd01a88885a8f7ece',1,'Otp.c']]],
+  ['clearacovp',['clearAcOvp',['../a00036.html#a8b53919933a6e29ab7d5e3a0fccf0823',1,'Ovp.c']]],
+  ['cleardchvovp',['clearDcHvOvp',['../a00036.html#a466dac1e76240f74d4d50a5f2d026fdd',1,'Ovp.c']]],
+  ['cleardcmidocp',['clearDcMidOcp',['../a00030.html#a8f57a6183f616d09458d9cd3dfd84766',1,'Ocp.c']]],
+  ['cleardcmidovp',['clearDcMidOvp',['../a00036.html#a04846ddb31daf651daeea01e6949a633',1,'Ovp.c']]],
+  ['cleardcotp',['clearDcOtp',['../a00034.html#a1058c22a8c169984c8c615fec65064a4',1,'Otp.c']]],
+  ['clearextotp',['clearExtOtp',['../a00034.html#a6444030799cca288f6ac6925a6b4171a',1,'Otp.c']]],
+  ['clearloadocp',['clearLoadOcp',['../a00030.html#a21a8a91440da87204edb7e67d3fde578',1,'Ocp.c']]],
+  ['clearloadopp',['clearLoadOpp',['../a00032.html#a16c41a7ea9c7037ab8721ea914269e71',1,'Opp.c']]],
+  ['clearloadotp',['clearLoadOtp',['../a00034.html#a8c4197a002661d8a8fc0ee4367c98caa',1,'Otp.c']]],
+  ['clearloadovp',['clearLoadOvp',['../a00036.html#a90b85f0cd911b4628b2713072a755884',1,'Ovp.c']]],
+  ['cntlsetacicoef',['cntlSetAcICoef',['../a00014.html#a46a68710ce9ede60c43503c65300a585',1,'Cntl.h']]]
 ];

@@ -1,56 +1,86 @@
-\hypertarget{a00004}{\section{i2c\-Msg Struct Reference}
-\label{a00004}\index{i2c\-Msg@{i2c\-Msg}}
+\hypertarget{a00004}{\section{ac\-Stage\-Settings Struct Reference}
+\label{a00004}\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}}
 }
 
 
-{\ttfamily \#include $<$I2c.\-h$>$}
+{\ttfamily \#include $<$Macro\-Nets.\-h$>$}
 
 \subsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-volatile Uint16 \hyperlink{a00004_aaf82cb35284e62dcfea972e7c320917a}{msg\-Status}
+int32 \hyperlink{a00004_a79680d88a9281cf5f6705881261b65db}{gain\-Rate}
 \item 
-Uint16 \hyperlink{a00004_a971e2b542d6947e6f047591a4eb4886c}{slave\-Address}
+int32 \hyperlink{a00004_af2ee8eeee892bf7f43e53bffdfa9993b}{gain\-Target}
 \item 
-Uint16 \hyperlink{a00004_a3f10764462075eb1d9bdb1bf9f65e752}{num\-Of\-Bytes}
+int32 \hyperlink{a00004_a96fd85bb29c3f2ce0515eedbc353cd9f}{ocp\-Level}
 \item 
-Uint16 \hyperlink{a00004_af19843f447431559239db792b5166cc0}{num\-Slave\-Ptr\-Bytes}
+int32 \hyperlink{a00004_a8b5f24f22b2b5c641cb4b81d27a13ff7}{ovp\-Level}
 \item 
-Uint16 \hyperlink{a00004_a9769c9a3e4db1eb01cfe7e5566647c04}{slave\-Ptr\-Addr\-High}
+int32 \hyperlink{a00004_a650064b66038e3805f5bd42459d01bb4}{otp\-Level}
 \item 
-Uint16 \hyperlink{a00004_a18a2503e16f41da3481d2dd6530327ff}{slave\-Ptr\-Addr\-Low}
+int16 \hyperlink{a00004_a9a07b0fd154720204a362df5217d2079}{i\-Max\-Rms}
 \item 
-Uint16 \hyperlink{a00004_ab84c3b898d635ae3698728f948dce69e}{msg\-Buffer} \mbox{[}\hyperlink{a00019_a0889ccb6e4a98d6d8a0bf7c009c818e2}{I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}\mbox{]}
+int16 \hyperlink{a00004_ada3ef104bd8a8b682745bff081ec5ad7}{v\-Max\-Rms}
+\item 
+int16 \hyperlink{a00004_ade324e2ab9ea9a6d3620cf7028cc4c1d}{i\-Scale}
+\item 
+int16 \hyperlink{a00004_ad5f818e5589d223d11291bce3a7b3089}{v\-Scale}
+\item 
+int16 \hyperlink{a00004_ae3baa80fd1636154afd892c7362ca82c}{v\-Gain\-Lmt}
+\item 
+slave\-Mode \hyperlink{a00004_a3cb6e49a13279ff6c21dfdb9ee7f2f83}{mode}
+\item 
+Uint16 \hyperlink{a00004_a87713ff5f537563733a303ba762fdeb5}{ac\-Frequency}
+\item 
+Uint16 \hyperlink{a00004_a77d8744d531e699816cfcff31ccb6360}{enable}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-The structure used to contain all settings and values relevant to a particular I2\-C message. 
+A structure that contains the settings that pertain to the A\-C stage. 
 
 \subsection{Field Documentation}
-\hypertarget{a00004_ab84c3b898d635ae3698728f948dce69e}{\index{i2c\-Msg@{i2c\-Msg}!msg\-Buffer@{msg\-Buffer}}
-\index{msg\-Buffer@{msg\-Buffer}!i2cMsg@{i2c\-Msg}}
-\subsubsection[{msg\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::msg\-Buffer\mbox{[}{\bf I2\-C\-\_\-\-M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}\mbox{]}}}\label{a00004_ab84c3b898d635ae3698728f948dce69e}
-A buffer array for message data. The maximum buffer size, M\-A\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E, is 4 due to the F\-I\-F\-O's size. \hypertarget{a00004_aaf82cb35284e62dcfea972e7c320917a}{\index{i2c\-Msg@{i2c\-Msg}!msg\-Status@{msg\-Status}}
-\index{msg\-Status@{msg\-Status}!i2cMsg@{i2c\-Msg}}
-\subsubsection[{msg\-Status}]{\setlength{\rightskip}{0pt plus 5cm}volatile Uint16 i2c\-Msg\-::msg\-Status}}\label{a00004_aaf82cb35284e62dcfea972e7c320917a}
-Indicates which state the message is in. \hypertarget{a00004_a3f10764462075eb1d9bdb1bf9f65e752}{\index{i2c\-Msg@{i2c\-Msg}!num\-Of\-Bytes@{num\-Of\-Bytes}}
-\index{num\-Of\-Bytes@{num\-Of\-Bytes}!i2cMsg@{i2c\-Msg}}
-\subsubsection[{num\-Of\-Bytes}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::num\-Of\-Bytes}}\label{a00004_a3f10764462075eb1d9bdb1bf9f65e752}
-The number of valid bytes in (or to be put in msg\-Buffer). \hypertarget{a00004_af19843f447431559239db792b5166cc0}{\index{i2c\-Msg@{i2c\-Msg}!num\-Slave\-Ptr\-Bytes@{num\-Slave\-Ptr\-Bytes}}
-\index{num\-Slave\-Ptr\-Bytes@{num\-Slave\-Ptr\-Bytes}!i2cMsg@{i2c\-Msg}}
-\subsubsection[{num\-Slave\-Ptr\-Bytes}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::num\-Slave\-Ptr\-Bytes}}\label{a00004_af19843f447431559239db792b5166cc0}
-The number of slave register pointer address bytes. \hypertarget{a00004_a971e2b542d6947e6f047591a4eb4886c}{\index{i2c\-Msg@{i2c\-Msg}!slave\-Address@{slave\-Address}}
-\index{slave\-Address@{slave\-Address}!i2cMsg@{i2c\-Msg}}
-\subsubsection[{slave\-Address}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::slave\-Address}}\label{a00004_a971e2b542d6947e6f047591a4eb4886c}
-The slave device I2\-C address this message is intended for. \hypertarget{a00004_a9769c9a3e4db1eb01cfe7e5566647c04}{\index{i2c\-Msg@{i2c\-Msg}!slave\-Ptr\-Addr\-High@{slave\-Ptr\-Addr\-High}}
-\index{slave\-Ptr\-Addr\-High@{slave\-Ptr\-Addr\-High}!i2cMsg@{i2c\-Msg}}
-\subsubsection[{slave\-Ptr\-Addr\-High}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::slave\-Ptr\-Addr\-High}}\label{a00004_a9769c9a3e4db1eb01cfe7e5566647c04}
-The slave register pointer high byte. \hypertarget{a00004_a18a2503e16f41da3481d2dd6530327ff}{\index{i2c\-Msg@{i2c\-Msg}!slave\-Ptr\-Addr\-Low@{slave\-Ptr\-Addr\-Low}}
-\index{slave\-Ptr\-Addr\-Low@{slave\-Ptr\-Addr\-Low}!i2cMsg@{i2c\-Msg}}
-\subsubsection[{slave\-Ptr\-Addr\-Low}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 i2c\-Msg\-::slave\-Ptr\-Addr\-Low}}\label{a00004_a18a2503e16f41da3481d2dd6530327ff}
-The slave register pointer low byte. 
+\hypertarget{a00004_a87713ff5f537563733a303ba762fdeb5}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!ac\-Frequency@{ac\-Frequency}}
+\index{ac\-Frequency@{ac\-Frequency}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{ac\-Frequency}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 ac\-Stage\-Settings\-::ac\-Frequency}}\label{a00004_a87713ff5f537563733a303ba762fdeb5}
+Sine signal generator frequency setting (Hz). \hypertarget{a00004_a77d8744d531e699816cfcff31ccb6360}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!enable@{enable}}
+\index{enable@{enable}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{enable}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 ac\-Stage\-Settings\-::enable}}\label{a00004_a77d8744d531e699816cfcff31ccb6360}
+Channel enable status \{F\-A\-L\-S\-E, T\-R\-U\-E\}. \hypertarget{a00004_a79680d88a9281cf5f6705881261b65db}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!gain\-Rate@{gain\-Rate}}
+\index{gain\-Rate@{gain\-Rate}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{gain\-Rate}]{\setlength{\rightskip}{0pt plus 5cm}int32 ac\-Stage\-Settings\-::gain\-Rate}}\label{a00004_a79680d88a9281cf5f6705881261b65db}
+Reference sine gain rate (I\-Q24). \hypertarget{a00004_af2ee8eeee892bf7f43e53bffdfa9993b}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!gain\-Target@{gain\-Target}}
+\index{gain\-Target@{gain\-Target}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{gain\-Target}]{\setlength{\rightskip}{0pt plus 5cm}int32 ac\-Stage\-Settings\-::gain\-Target}}\label{a00004_af2ee8eeee892bf7f43e53bffdfa9993b}
+Reference sine gain target (I\-Q24). \hypertarget{a00004_a9a07b0fd154720204a362df5217d2079}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!i\-Max\-Rms@{i\-Max\-Rms}}
+\index{i\-Max\-Rms@{i\-Max\-Rms}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{i\-Max\-Rms}]{\setlength{\rightskip}{0pt plus 5cm}int16 ac\-Stage\-Settings\-::i\-Max\-Rms}}\label{a00004_a9a07b0fd154720204a362df5217d2079}
+Maximum R\-M\-S current setting limit (S\-Q10). \hypertarget{a00004_ade324e2ab9ea9a6d3620cf7028cc4c1d}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!i\-Scale@{i\-Scale}}
+\index{i\-Scale@{i\-Scale}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{i\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}int16 ac\-Stage\-Settings\-::i\-Scale}}\label{a00004_ade324e2ab9ea9a6d3620cf7028cc4c1d}
+Current scaling setting in volts-\/per-\/amp for scaling between a voltage level measured by an A\-D\-C to a real current value (S\-Q14). \hypertarget{a00004_a3cb6e49a13279ff6c21dfdb9ee7f2f83}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!mode@{mode}}
+\index{mode@{mode}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}slave\-Mode ac\-Stage\-Settings\-::mode}}\label{a00004_a3cb6e49a13279ff6c21dfdb9ee7f2f83}
+Master or slave mode select. \hypertarget{a00004_a96fd85bb29c3f2ce0515eedbc353cd9f}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!ocp\-Level@{ocp\-Level}}
+\index{ocp\-Level@{ocp\-Level}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{ocp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int32 ac\-Stage\-Settings\-::ocp\-Level}}\label{a00004_a96fd85bb29c3f2ce0515eedbc353cd9f}
+Normalised O\-C\-P limit (I\-Q24). \hypertarget{a00004_a650064b66038e3805f5bd42459d01bb4}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!otp\-Level@{otp\-Level}}
+\index{otp\-Level@{otp\-Level}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{otp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int32 ac\-Stage\-Settings\-::otp\-Level}}\label{a00004_a650064b66038e3805f5bd42459d01bb4}
+O\-T\-P limit in $ ^\circ$ C (S\-Q7). \hypertarget{a00004_a8b5f24f22b2b5c641cb4b81d27a13ff7}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!ovp\-Level@{ovp\-Level}}
+\index{ovp\-Level@{ovp\-Level}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{ovp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}int32 ac\-Stage\-Settings\-::ovp\-Level}}\label{a00004_a8b5f24f22b2b5c641cb4b81d27a13ff7}
+Normalised O\-V\-P limit (I\-Q24). \hypertarget{a00004_ae3baa80fd1636154afd892c7362ca82c}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!v\-Gain\-Lmt@{v\-Gain\-Lmt}}
+\index{v\-Gain\-Lmt@{v\-Gain\-Lmt}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{v\-Gain\-Lmt}]{\setlength{\rightskip}{0pt plus 5cm}int16 ac\-Stage\-Settings\-::v\-Gain\-Lmt}}\label{a00004_ae3baa80fd1636154afd892c7362ca82c}
+Sine signal generator voltage gain limit (S\-Q14). \hypertarget{a00004_ada3ef104bd8a8b682745bff081ec5ad7}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!v\-Max\-Rms@{v\-Max\-Rms}}
+\index{v\-Max\-Rms@{v\-Max\-Rms}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{v\-Max\-Rms}]{\setlength{\rightskip}{0pt plus 5cm}int16 ac\-Stage\-Settings\-::v\-Max\-Rms}}\label{a00004_ada3ef104bd8a8b682745bff081ec5ad7}
+Maximum R\-M\-S voltage setting limit (S\-Q10). \hypertarget{a00004_ad5f818e5589d223d11291bce3a7b3089}{\index{ac\-Stage\-Settings@{ac\-Stage\-Settings}!v\-Scale@{v\-Scale}}
+\index{v\-Scale@{v\-Scale}!acStageSettings@{ac\-Stage\-Settings}}
+\subsubsection[{v\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}int16 ac\-Stage\-Settings\-::v\-Scale}}\label{a00004_ad5f818e5589d223d11291bce3a7b3089}
+Voltage scaling setting in volts-\/per-\/volts for scaling between a voltage level measured by an A\-D\-C to a real voltage value (S\-Q14). 
 
 The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{a00019}{I2c.\-h}\end{DoxyCompactItemize}
+\hyperlink{a00027}{Macro\-Nets.\-h}\end{DoxyCompactItemize}

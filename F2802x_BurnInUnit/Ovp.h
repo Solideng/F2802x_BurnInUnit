@@ -108,7 +108,7 @@ extern Uint16 clearDcHvOvp (void);
 extern Uint16 setAcOvpLevel (float32 pkLevel);
 
 /** Queries the over voltage protection level for the AC stage.
- * @param[out]	dcLevel	Pointer to location at which to place the query result (volts).
+ * @param[out]	pkLevel	Pointer to location at which to place the query result (volts).
  * @return				Error status.
  */
 extern Uint16 getAcOvpLevel (float32 *pkLevel);

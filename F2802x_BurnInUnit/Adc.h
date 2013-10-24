@@ -33,16 +33,16 @@ extern void initAdc (void);
 
 /*============== Load n ==============*/
 /** Queries the most recent current reading from the specified load's associated ADC.
- * @param[in]	load	Specifies the load on which the reading is to be queried.
- * @param[out]	iDest	Address of the memory location at which to place the query result (amps).
- * @return				Error status.
+ * @param[in]	load		Specifies the load on which the reading is to be queried.
+ * @param[out]	dcCurrent	Address of the memory location at which to place the query result (amps).
+ * @return					Error status.
  */
 extern Uint16 getLoadCurrent (loadStage load, float32 * dcCurrent);
 
 /** Queries the most recent voltage reading from the specified load's associated ADC.
- * @param[in]	load	Specifies the load on which the reading is to be queried.
- * @param[out]	vDest	Address of the memory location at which to place the query result (volts).
- * @return				Error status.
+ * @param[in]	load		Specifies the load on which the reading is to be queried.
+ * @param[out]	dcVoltage	Address of the memory location at which to place the query result (volts).
+ * @return					Error status.
  */
 extern Uint16 getLoadVoltage (loadStage load, float32 * dcVoltage);
 

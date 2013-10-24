@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>F2802x Burn In Unit: SlewControl.h File Reference</title>
+<title>F2802x Burn In Unit: Otp.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,336 +88,214 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">SlewControl.h File Reference</div>  </div>
+<div class="title">Otp.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Slew control functions.  
+<p>Over-temperature protection functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00056.png" border="0" usemap="#_slew_control_8hdep" alt=""/></div>
-<map name="_slew_control_8hdep" id="_slew_control_8hdep">
-<area shape="rect" id="node2" href="a00011.html" title="Common include file for the project. " alt="" coords="13,80,99,107"/></map>
+<div class="center"><img src="a00069.png" border="0" usemap="#_otp_8hdep" alt=""/></div>
+<map name="_otp_8hdep" id="_otp_8hdep">
+<area shape="rect" id="node2" href="a00015.html" title="Common include file for the project. " alt="" coords="5,80,91,107"/></map>
 </div>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a720054d07475f46293498641ca147dec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a720054d07475f46293498641ca147dec">LOAD1_OTP_TRIP</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a720054d07475f46293498641ca147dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a57d6c23509cd22be3a64fc25867f08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a6a57d6c23509cd22be3a64fc25867f08">LOAD2_OTP_TRIP</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a6a57d6c23509cd22be3a64fc25867f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38b67fb04c7a94aea1d7a6cd71dcbdfb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a38b67fb04c7a94aea1d7a6cd71dcbdfb">LOAD3_OTP_TRIP</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a38b67fb04c7a94aea1d7a6cd71dcbdfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11dc13a3236e2a227537278ccd45390d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a11dc13a3236e2a227537278ccd45390d">LOAD4_OTP_TRIP</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a11dc13a3236e2a227537278ccd45390d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabece239f4e25bd4b48f0535ff667c46"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#aabece239f4e25bd4b48f0535ff667c46">DC_OTP_TRIP</a>&#160;&#160;&#160;16</td></tr>
+<tr class="separator:aabece239f4e25bd4b48f0535ff667c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab40204e9c76cfcc0d9f892050440e2e9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#ab40204e9c76cfcc0d9f892050440e2e9">RSRVD_OTP_TRIP</a>&#160;&#160;&#160;32</td></tr>
+<tr class="separator:ab40204e9c76cfcc0d9f892050440e2e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339a1358cf8dfd3ea7a81342bb32d399"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a339a1358cf8dfd3ea7a81342bb32d399">AC_OTP_TRIP</a>&#160;&#160;&#160;64</td></tr>
+<tr class="separator:a339a1358cf8dfd3ea7a81342bb32d399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91ac28ba381b421811645935e398c8c4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a91ac28ba381b421811645935e398c8c4">EXT1_OTP_TRIP</a>&#160;&#160;&#160;128</td></tr>
+<tr class="separator:a91ac28ba381b421811645935e398c8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb47b2c45d5513cb21e25ae252a7bec1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#acb47b2c45d5513cb21e25ae252a7bec1">EXT2_OTP_TRIP</a>&#160;&#160;&#160;256</td></tr>
+<tr class="separator:acb47b2c45d5513cb21e25ae252a7bec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8f8f2b1ef59b7fa90122e5609e24cd06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a8f8f2b1ef59b7fa90122e5609e24cd06">scSlewUpdate</a> (void)</td></tr>
-<tr class="separator:a8f8f2b1ef59b7fa90122e5609e24cd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd4f1d77c353f333438ae688a9bcc8fe"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#acd4f1d77c353f333438ae688a9bcc8fe">scSetTarget</a> (Uint16 chnl, float32 trgt)</td></tr>
-<tr class="separator:acd4f1d77c353f333438ae688a9bcc8fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91e197a77f8f6c05dc478431164114a4"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a91e197a77f8f6c05dc478431164114a4">scSetStep</a> (Uint16 chnl, float32 stp)</td></tr>
-<tr class="separator:a91e197a77f8f6c05dc478431164114a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92578a062af02eb967ca2dfbd68b00cf"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a92578a062af02eb967ca2dfbd68b00cf">scSetState</a> (Uint16 chnl, Uint16 stt)</td></tr>
-<tr class="separator:a92578a062af02eb967ca2dfbd68b00cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e7d07e1a6d9b1e40b1b39d97df638b9"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a1e7d07e1a6d9b1e40b1b39d97df638b9">scSetTargetAll</a> (float32 trgt)</td></tr>
-<tr class="separator:a1e7d07e1a6d9b1e40b1b39d97df638b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dbe145695a65570ebc1ff5588e08a18"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a2dbe145695a65570ebc1ff5588e08a18">scSetStepAll</a> (float32 stp)</td></tr>
-<tr class="separator:a2dbe145695a65570ebc1ff5588e08a18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4b016a1a10639dfeca7af4f750d8c75"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#af4b016a1a10639dfeca7af4f750d8c75">scSetStateAll</a> (Uint16 stt)</td></tr>
-<tr class="separator:af4b016a1a10639dfeca7af4f750d8c75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab83b8f320a4bf9e8ea1a251fec458032"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#ab83b8f320a4bf9e8ea1a251fec458032">scGetTarget</a> (Uint16 chnl, float32 *trgtDest)</td></tr>
-<tr class="separator:ab83b8f320a4bf9e8ea1a251fec458032"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adac64f58de9a029d849e0df2962bad16"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#adac64f58de9a029d849e0df2962bad16">scGetStep</a> (Uint16 chnl, float32 *stpDest)</td></tr>
-<tr class="separator:adac64f58de9a029d849e0df2962bad16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77a235d70df3aff6a742ff375bd45119"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a77a235d70df3aff6a742ff375bd45119">scGetState</a> (Uint16 chnl, Uint16 *sttDest)</td></tr>
-<tr class="separator:a77a235d70df3aff6a742ff375bd45119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af106c65ecd7a27b0af61e108d09e330f"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#af106c65ecd7a27b0af61e108d09e330f">setLoadOtp</a> (<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> load, float32 level)</td></tr>
+<tr class="separator:af106c65ecd7a27b0af61e108d09e330f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f019d8375281a322e2b136f367d9f73"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a0f019d8375281a322e2b136f367d9f73">getLoadOtp</a> (<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> load, float32 *level)</td></tr>
+<tr class="separator:a0f019d8375281a322e2b136f367d9f73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac41af2b33ac4b5ac6552ed797a71b25d"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#ac41af2b33ac4b5ac6552ed797a71b25d">checkLoadOtp</a> (<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> load)</td></tr>
+<tr class="separator:ac41af2b33ac4b5ac6552ed797a71b25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac26e4a57e49a8a0dbb58aa993a26e6c3"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#ac26e4a57e49a8a0dbb58aa993a26e6c3">getLoadOtpState</a> (<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> load)</td></tr>
+<tr class="separator:ac26e4a57e49a8a0dbb58aa993a26e6c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c4197a002661d8a8fc0ee4367c98caa"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a8c4197a002661d8a8fc0ee4367c98caa">clearLoadOtp</a> (<a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a> load)</td></tr>
+<tr class="separator:a8c4197a002661d8a8fc0ee4367c98caa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99d17f52bec6b23581f05149a21b8d7a"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a99d17f52bec6b23581f05149a21b8d7a">setDcOtp</a> (float32 level)</td></tr>
+<tr class="separator:a99d17f52bec6b23581f05149a21b8d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade095cc31020c7d4afeebe83ca8e52ea"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#ade095cc31020c7d4afeebe83ca8e52ea">getDcOtp</a> (float32 *level)</td></tr>
+<tr class="separator:ade095cc31020c7d4afeebe83ca8e52ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66c1d5f4705adf4b8947c6760d6c3e88"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a66c1d5f4705adf4b8947c6760d6c3e88">checkDcOtp</a> (void)</td></tr>
+<tr class="separator:a66c1d5f4705adf4b8947c6760d6c3e88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f738c9c764f982075747c4561937580"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a8f738c9c764f982075747c4561937580">getDcOtpState</a> (void)</td></tr>
+<tr class="separator:a8f738c9c764f982075747c4561937580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1058c22a8c169984c8c615fec65064a4"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a1058c22a8c169984c8c615fec65064a4">clearDcOtp</a> (void)</td></tr>
+<tr class="separator:a1058c22a8c169984c8c615fec65064a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15a820aa2efc9b533c12b1a444f031fb"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a15a820aa2efc9b533c12b1a444f031fb">setAcOtp</a> (float32 level)</td></tr>
+<tr class="separator:a15a820aa2efc9b533c12b1a444f031fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab590c612ea9a7827859e0c100623e338"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#ab590c612ea9a7827859e0c100623e338">getAcOtp</a> (float32 *level)</td></tr>
+<tr class="separator:ab590c612ea9a7827859e0c100623e338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa88957137245403b79608032a773d6fe"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#aa88957137245403b79608032a773d6fe">checkAcOtp</a> (void)</td></tr>
+<tr class="separator:aa88957137245403b79608032a773d6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17dc5aa8abd3776b8bea4283e69cfb93"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a17dc5aa8abd3776b8bea4283e69cfb93">getAcOtpState</a> (void)</td></tr>
+<tr class="separator:a17dc5aa8abd3776b8bea4283e69cfb93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad65b5cbf773b35ebd01a88885a8f7ece"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#ad65b5cbf773b35ebd01a88885a8f7ece">clearAcOtp</a> (void)</td></tr>
+<tr class="separator:ad65b5cbf773b35ebd01a88885a8f7ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6790a4babfd805b692a2410d6920fc13"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a6790a4babfd805b692a2410d6920fc13">setExtOtp</a> (<a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a> ext, float32 level)</td></tr>
+<tr class="separator:a6790a4babfd805b692a2410d6920fc13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e177278b2eba8404cda5240902c9cf8"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a3e177278b2eba8404cda5240902c9cf8">getExtOtp</a> (<a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a> ext, float32 *level)</td></tr>
+<tr class="separator:a3e177278b2eba8404cda5240902c9cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf6ccb465aa4c60464dece3f4bb2dcc"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a3bf6ccb465aa4c60464dece3f4bb2dcc">checkExtOtp</a> (<a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a> ext)</td></tr>
+<tr class="separator:a3bf6ccb465aa4c60464dece3f4bb2dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b40fa3df1da35063225d79c83e85a0c"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a4b40fa3df1da35063225d79c83e85a0c">getExtOtpState</a> (<a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a> ext)</td></tr>
+<tr class="separator:a4b40fa3df1da35063225d79c83e85a0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6444030799cca288f6ac6925a6b4171a"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00034.html#a6444030799cca288f6ac6925a6b4171a">clearExtOtp</a> (<a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a> ext)</td></tr>
+<tr class="separator:a6444030799cca288f6ac6925a6b4171a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Slew control functions. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a77a235d70df3aff6a742ff375bd45119"></a>
+<div class="textblock"><p>Over-temperature protection functions. </p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a339a1358cf8dfd3ea7a81342bb32d399"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 scGetState </td>
-          <td>(</td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>chnl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Uint16 *&#160;</td>
-          <td class="paramname"><em>sttDest</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define AC_OTP_TRIP&#160;&#160;&#160;64</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Queries the current reference net enable state for the specified channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">chnl</td><td>Specifies the channel the setting is to be read from. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sttDest</td><td>Address of the memory location at which to place the query result (0:OFF | non-zero:ON). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+<p>OTP flag register AC bit. </p>
 
 </div>
 </div>
-<a class="anchor" id="adac64f58de9a029d849e0df2962bad16"></a>
+<a class="anchor" id="aabece239f4e25bd4b48f0535ff667c46"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 scGetStep </td>
-          <td>(</td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>chnl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float32 *&#160;</td>
-          <td class="paramname"><em>stpDest</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define DC_OTP_TRIP&#160;&#160;&#160;16</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Queries the current slew step size of the specified channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">chnl</td><td>Specifies the channel the setting is to be read from. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">stpDest</td><td>Address of the memory location at which to place the query result (amps or volts). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+<p>OTP flag register DC bit. </p>
 
 </div>
 </div>
-<a class="anchor" id="ab83b8f320a4bf9e8ea1a251fec458032"></a>
+<a class="anchor" id="a91ac28ba381b421811645935e398c8c4"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 scGetTarget </td>
-          <td>(</td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>chnl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float32 *&#160;</td>
-          <td class="paramname"><em>trgtDest</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define EXT1_OTP_TRIP&#160;&#160;&#160;128</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Queries the current slew target setting for the specified channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">chnl</td><td>Specifies the channel the setting is to be read from. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">trgtDest</td><td>Address of the memory location at which to place the query result (amps or volts). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+<p>OTP flag register external 1 bit. </p>
 
 </div>
 </div>
-<a class="anchor" id="a92578a062af02eb967ca2dfbd68b00cf"></a>
+<a class="anchor" id="acb47b2c45d5513cb21e25ae252a7bec1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 scSetState </td>
-          <td>(</td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>chnl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>stt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define EXT2_OTP_TRIP&#160;&#160;&#160;256</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the reference net enable state for the specified channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">chnl</td><td>Specifies the channel the setting is to be applied to. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">stt</td><td>Specifies the reference net state to be applied (0:OFF | non-zero:ON). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error Status. </dd></dl>
+<p>OTP flag register external 2 bit. </p>
 
 </div>
 </div>
-<a class="anchor" id="af4b016a1a10639dfeca7af4f750d8c75"></a>
+<a class="anchor" id="a720054d07475f46293498641ca147dec"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 scSetStateAll </td>
-          <td>(</td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>stt</em>)</td><td></td>
-          <td></td>
+          <td class="memname">#define LOAD1_OTP_TRIP&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets all channels' reference net enable state. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">stt</td><td>Specifies the refernce net state to be applied (0:OFF | non-zero:ON). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+<p>OTP flag register load 1 bit. </p>
 
 </div>
 </div>
-<a class="anchor" id="a91e197a77f8f6c05dc478431164114a4"></a>
+<a class="anchor" id="a6a57d6c23509cd22be3a64fc25867f08"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 scSetStep </td>
-          <td>(</td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>chnl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float32&#160;</td>
-          <td class="paramname"><em>stp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define LOAD2_OTP_TRIP&#160;&#160;&#160;2</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the slew step size for the specified channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">chnl</td><td>Specifies the channel the setting is to be applied to. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">stp</td><td>Specifies the value of the slew step size to be applied (amps or volts). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+<p>OTP flag register load 2 bit. </p>
 
 </div>
 </div>
-<a class="anchor" id="a2dbe145695a65570ebc1ff5588e08a18"></a>
+<a class="anchor" id="a38b67fb04c7a94aea1d7a6cd71dcbdfb"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 scSetStepAll </td>
-          <td>(</td>
-          <td class="paramtype">float32&#160;</td>
-          <td class="paramname"><em>stp</em>)</td><td></td>
-          <td></td>
+          <td class="memname">#define LOAD3_OTP_TRIP&#160;&#160;&#160;4</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets all channels' slew step size. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">stp</td><td>Specifies the value of the slew step size to be applied (amps or volts). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+<p>OTP flag register load 3 bit. </p>
 
 </div>
 </div>
-<a class="anchor" id="acd4f1d77c353f333438ae688a9bcc8fe"></a>
+<a class="anchor" id="a11dc13a3236e2a227537278ccd45390d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 scSetTarget </td>
-          <td>(</td>
-          <td class="paramtype">Uint16&#160;</td>
-          <td class="paramname"><em>chnl</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float32&#160;</td>
-          <td class="paramname"><em>trgt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">#define LOAD4_OTP_TRIP&#160;&#160;&#160;8</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the slew target for the specified channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">chnl</td><td>Specifies the channel the setting is to be applied to. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trgt</td><td>Specifies the value of the slew target to be applied (amps or volts). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+<p>OTP flag register load 4 bit. </p>
 
 </div>
 </div>
-<a class="anchor" id="a1e7d07e1a6d9b1e40b1b39d97df638b9"></a>
+<a class="anchor" id="ab40204e9c76cfcc0d9f892050440e2e9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 scSetTargetAll </td>
-          <td>(</td>
-          <td class="paramtype">float32&#160;</td>
-          <td class="paramname"><em>trgt</em>)</td><td></td>
-          <td></td>
+          <td class="memname">#define RSRVD_OTP_TRIP&#160;&#160;&#160;32</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets all channels' slew target </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">trgt</td><td>Specifies the value of the slew target to be applied (amps or volts). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+<p>Reserved bit. </p>
 
 </div>
 </div>
-<a class="anchor" id="a8f8f2b1ef59b7fa90122e5609e24cd06"></a>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="aa88957137245403b79608032a773d6fe"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void scSlewUpdate </td>
+          <td class="memname">Uint16 checkAcOtp </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname">)</td><td></td>
@@ -425,13 +303,484 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Advances the slew ramps for all relevant channels. Does not apply to channels that use sine references </p>
+<p>Checks the temperature reading of the AC stage against the AC OTP limit. Raises the AC OTP flag if the reading is above the limit. </p>
+<dl class="section return"><dt>Returns</dt><dd>Error status </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a66c1d5f4705adf4b8947c6760d6c3e88"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 checkDcOtp </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks the temperature reading of the DC stage against the DC OTP limit. Raises the DC OTP flag if the reading is above the limit. </p>
+<dl class="section return"><dt>Returns</dt><dd>Error status </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3bf6ccb465aa4c60464dece3f4bb2dcc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 checkExtOtp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a>&#160;</td>
+          <td class="paramname"><em>ext</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks the temperature reading of the specified external sensor against the sensor OTP limit. Raises the load OTP flag if the reading is above the limit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ext</td><td>Specifies the sensor on which the setting is to be queried. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac41af2b33ac4b5ac6552ed797a71b25d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 checkLoadOtp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a>&#160;</td>
+          <td class="paramname"><em>load</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks the temperature reading of the specified load against the load OTP limit. Raises the load OTP flag if the reading is above the limit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">load</td><td>Specifies the load on which the reading is to be tested. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad65b5cbf773b35ebd01a88885a8f7ece"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 clearAcOtp </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Clears the AC stage OTP state. </p>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1058c22a8c169984c8c615fec65064a4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 clearDcOtp </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Clears the DC stage OTP state. </p>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6444030799cca288f6ac6925a6b4171a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 clearExtOtp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a>&#160;</td>
+          <td class="paramname"><em>ext</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Clears the OTP state for the specified external sensor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ext</td><td>Specifies the external sensor for which the OTP state is to be cleared. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8c4197a002661d8a8fc0ee4367c98caa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 clearLoadOtp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a>&#160;</td>
+          <td class="paramname"><em>load</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Clears the OTP state for the specified load. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">load</td><td>Specifies the load for which the OTP state is to be cleared. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab590c612ea9a7827859e0c100623e338"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getAcOtp </td>
+          <td>(</td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>level</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the over temperature protection level for the AC stage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">level</td><td>Pointer to location at which to place the query result ( \( ^\circ\) C). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a17dc5aa8abd3776b8bea4283e69cfb93"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getAcOtpState </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the state of the AC OTP flag. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if OTP flag has been raised. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ade095cc31020c7d4afeebe83ca8e52ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getDcOtp </td>
+          <td>(</td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>level</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the over current protection level for the DC stage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">level</td><td>Pointer to location at which to place the query result ( \( ^\circ\) C). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8f738c9c764f982075747c4561937580"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getDcOtpState </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname">)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the state of the DC OTP flag. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if OTP flag has been raised. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3e177278b2eba8404cda5240902c9cf8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getExtOtp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a>&#160;</td>
+          <td class="paramname"><em>ext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the over temperature protection level for the specified external sensor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ext</td><td>Specifies the external sensor on which the setting is to be queried. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">level</td><td>Pointer to location at which to place the query result ( \( ^\circ\) C). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4b40fa3df1da35063225d79c83e85a0c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getExtOtpState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a>&#160;</td>
+          <td class="paramname"><em>ext</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the state of the OTP flag for the specified external sensor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ext</td><td>Specifies the sensor on which to check the flag. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if OTP flag has been raised. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0f019d8375281a322e2b136f367d9f73"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getLoadOtp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a>&#160;</td>
+          <td class="paramname"><em>load</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32 *&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the over temperature protection level for the specified load. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">load</td><td>Specifies the load on which the setting is to be queried. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">level</td><td>Pointer to location at which to place the query result ( \( ^\circ\) C). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac26e4a57e49a8a0dbb58aa993a26e6c3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getLoadOtpState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a>&#160;</td>
+          <td class="paramname"><em>load</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Queries the state of the OTP flag for the specified load. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">load</td><td>Specifies the load on which to check the flag. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if OTP flag has been raised. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a15a820aa2efc9b533c12b1a444f031fb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 setAcOtp </td>
+          <td>(</td>
+          <td class="paramtype">float32&#160;</td>
+          <td class="paramname"><em>level</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the over current protection limit for the AC stage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Specifies the value to be applied ( \( ^\circ\) C). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a99d17f52bec6b23581f05149a21b8d7a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 setDcOtp </td>
+          <td>(</td>
+          <td class="paramtype">float32&#160;</td>
+          <td class="paramname"><em>level</em>)</td><td></td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the over temperature protection limit for the DC stage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Specifies the value to be applied ( \( ^\circ\) C). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a6790a4babfd805b692a2410d6920fc13"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 setExtOtp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a258413561252a6c94af200747272a9f3">extSelect</a>&#160;</td>
+          <td class="paramname"><em>ext</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the over temperature protection level for the specified external sensor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ext</td><td>Specifies the sensor the setting is to be applied to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Specifies the value to be applied ( \( ^\circ\) C). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="af106c65ecd7a27b0af61e108d09e330f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 setLoadOtp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00027.html#a2820f1e18d921d2f1e97d53404b9fbae">loadStage</a>&#160;</td>
+          <td class="paramname"><em>load</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float32&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt; OTP flag register. Bits are set to indicate an OTP condition has been found. Sets the over temperature protection level for the specified load. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">load</td><td>Specifies the load the setting is to be applied to. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">level</td><td>Specifies the value to be applied ( \( ^\circ\) C). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Wed Aug 14 2013
+Thu Oct 24 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

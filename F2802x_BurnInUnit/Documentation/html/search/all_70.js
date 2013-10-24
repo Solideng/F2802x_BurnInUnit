@@ -1,21 +1,14 @@
 var searchData=
 [
-  ['pcupdate',['pcUpdate',['../a00024.html#a2aab767cee769a114c9e2ab25771e447',1,'PhaseCtrl.c']]],
-  ['period',['PERIOD',['../a00026.html#af281425e62298bac2df0fbe8690a4844',1,'Pwm.h']]],
-  ['phase_5fctrl_5fin',['PHASE_CTRL_In',['../a00024.html#ac286d0874ebba5141e36971f4a7f106e',1,'PhaseCtrl.c']]],
-  ['phasectrl_2eh',['PhaseCtrl.h',['../a00024.html',1,'']]],
-  ['pwm_2eh',['Pwm.h',['../a00026.html',1,'']]],
-  ['pwmdpltriginit',['pwmDPLTrigInit',['../a00026.html#adfbaf2bb56a0c9fe6f54826499cb57de',1,'Pwm.c']]],
-  ['pwmdrv_5f2ch_5fupcnt_5fduty1a',['PWMDRV_2ch_UpCnt_Duty1A',['../a00026.html#a8a02650c6afb411447157faf0e90a7b2',1,'Pwm.h']]],
-  ['pwmdrv_5f2ch_5fupcnt_5fduty1b',['PWMDRV_2ch_UpCnt_Duty1B',['../a00026.html#a23767edc2ebfabc9336684185a4f2d84',1,'Pwm.h']]],
-  ['pwmdrv_5f2ch_5fupcnt_5fduty2a',['PWMDRV_2ch_UpCnt_Duty2A',['../a00026.html#acc76d5ffc745e63de05baa242bb3d16f',1,'Pwm.h']]],
-  ['pwmdrv_5f2ch_5fupcnt_5fduty2b',['PWMDRV_2ch_UpCnt_Duty2B',['../a00026.html#a3215b15b28994e0840d64200f09cbfb0',1,'Pwm.h']]],
-  ['pwmdrv_5f2ch_5fupcnt_5fduty3a',['PWMDRV_2ch_UpCnt_Duty3A',['../a00026.html#a86962b3c7a5a851d9ddce3301a9db727',1,'Pwm.h']]],
-  ['pwmdrv_5f2ch_5fupcnt_5fduty3b',['PWMDRV_2ch_UpCnt_Duty3B',['../a00026.html#a9550c95286e784256c9f12906ff5a407',1,'Pwm.h']]],
-  ['pwmgetfreq',['pwmGetFreq',['../a00026.html#a79f203a5167440096f2ba270813b6db2',1,'Pwm.c']]],
-  ['pwmmacroconfigure',['pwmMacroConfigure',['../a00026.html#acc68120fcdfa36145370c31a61eb23a7',1,'Pwm.c']]],
-  ['pwmrsttz',['pwmRstTz',['../a00026.html#a94a47896496e094f8ab54c1cb46da2e1',1,'Pwm.c']]],
-  ['pwmsetfreq',['pwmSetFreq',['../a00026.html#af82e2c1ff72afc3de42eb172ca925956',1,'Pwm.c']]],
-  ['pwmsocconfigure',['pwmSocConfigure',['../a00026.html#a358d8706acd0faf4e1cc705129be6548',1,'Pwm.c']]],
-  ['pwmtzconfigure',['pwmTzConfigure',['../a00026.html#aced17503c602f9e71a2d101e956cce23',1,'Pwm.c']]]
+  ['pwm_2eh',['Pwm.h',['../a00038.html',1,'']]],
+  ['pwm_5f1_5fprd',['PWM_1_PRD',['../a00038.html#a4d7cfbafe2831b32ac69043fe2a51d1f',1,'Pwm.h']]],
+  ['pwm_5f2_5fprd',['PWM_2_PRD',['../a00038.html#a446b4ce74c284aad70100e3f7fecffa0',1,'Pwm.h']]],
+  ['pwm_5f3_5fprd',['PWM_3_PRD',['../a00038.html#a11feddb81d3d7f2f6e001b77685a1f60',1,'Pwm.h']]],
+  ['pwmdrv_5f2ch_5fupcnt_5fduty1a',['PWMDRV_2ch_UpCnt_Duty1A',['../a00038.html#a8a02650c6afb411447157faf0e90a7b2',1,'Pwm.h']]],
+  ['pwmdrv_5f2ch_5fupcnt_5fduty1b',['PWMDRV_2ch_UpCnt_Duty1B',['../a00038.html#a23767edc2ebfabc9336684185a4f2d84',1,'Pwm.h']]],
+  ['pwmdrv_5f2ch_5fupcnt_5fduty2a',['PWMDRV_2ch_UpCnt_Duty2A',['../a00038.html#acc76d5ffc745e63de05baa242bb3d16f',1,'Pwm.h']]],
+  ['pwmdrv_5f2ch_5fupcnt_5fduty2b',['PWMDRV_2ch_UpCnt_Duty2B',['../a00038.html#a3215b15b28994e0840d64200f09cbfb0',1,'Pwm.h']]],
+  ['pwmdrv_5f2ch_5fupcnt_5fduty3a',['PWMDRV_2ch_UpCnt_Duty3A',['../a00038.html#a86962b3c7a5a851d9ddce3301a9db727',1,'Pwm.h']]],
+  ['pwmdrv_5f2ch_5fupcnt_5fduty3b',['PWMDRV_2ch_UpCnt_Duty3B',['../a00038.html#a9550c95286e784256c9f12906ff5a407',1,'Pwm.h']]],
+  ['pwmdutynet',['pwmDutyNet',['../a00009.html#a0c842e8cc854cd6665110f4ade15514f',1,'xfmrStageNets']]]
 ];

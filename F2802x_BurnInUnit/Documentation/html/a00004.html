@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.4"/>
-<title>F2802x Burn In Unit: i2cMsg Struct Reference</title>
+<title>F2802x Burn In Unit: acStageSettings Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,129 +91,219 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">i2cMsg Struct Reference</div>  </div>
+<div class="title">acStageSettings Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;I2c.h&gt;</code></p>
+<p><code>#include &lt;MacroNets.h&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:aaf82cb35284e62dcfea972e7c320917a"><td class="memItemLeft" align="right" valign="top">volatile Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#aaf82cb35284e62dcfea972e7c320917a">msgStatus</a></td></tr>
-<tr class="separator:aaf82cb35284e62dcfea972e7c320917a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a971e2b542d6947e6f047591a4eb4886c"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a971e2b542d6947e6f047591a4eb4886c">slaveAddress</a></td></tr>
-<tr class="separator:a971e2b542d6947e6f047591a4eb4886c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f10764462075eb1d9bdb1bf9f65e752"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a3f10764462075eb1d9bdb1bf9f65e752">numOfBytes</a></td></tr>
-<tr class="separator:a3f10764462075eb1d9bdb1bf9f65e752"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af19843f447431559239db792b5166cc0"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#af19843f447431559239db792b5166cc0">numSlavePtrBytes</a></td></tr>
-<tr class="separator:af19843f447431559239db792b5166cc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9769c9a3e4db1eb01cfe7e5566647c04"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a9769c9a3e4db1eb01cfe7e5566647c04">slavePtrAddrHigh</a></td></tr>
-<tr class="separator:a9769c9a3e4db1eb01cfe7e5566647c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18a2503e16f41da3481d2dd6530327ff"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a18a2503e16f41da3481d2dd6530327ff">slavePtrAddrLow</a></td></tr>
-<tr class="separator:a18a2503e16f41da3481d2dd6530327ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab84c3b898d635ae3698728f948dce69e"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#ab84c3b898d635ae3698728f948dce69e">msgBuffer</a> [<a class="el" href="a00019.html#a0889ccb6e4a98d6d8a0bf7c009c818e2">I2C_MAX_BUFFER_SIZE</a>]</td></tr>
-<tr class="separator:ab84c3b898d635ae3698728f948dce69e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79680d88a9281cf5f6705881261b65db"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a79680d88a9281cf5f6705881261b65db">gainRate</a></td></tr>
+<tr class="separator:a79680d88a9281cf5f6705881261b65db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ee8eeee892bf7f43e53bffdfa9993b"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#af2ee8eeee892bf7f43e53bffdfa9993b">gainTarget</a></td></tr>
+<tr class="separator:af2ee8eeee892bf7f43e53bffdfa9993b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96fd85bb29c3f2ce0515eedbc353cd9f"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a96fd85bb29c3f2ce0515eedbc353cd9f">ocpLevel</a></td></tr>
+<tr class="separator:a96fd85bb29c3f2ce0515eedbc353cd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b5f24f22b2b5c641cb4b81d27a13ff7"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a8b5f24f22b2b5c641cb4b81d27a13ff7">ovpLevel</a></td></tr>
+<tr class="separator:a8b5f24f22b2b5c641cb4b81d27a13ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a650064b66038e3805f5bd42459d01bb4"><td class="memItemLeft" align="right" valign="top">int32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a650064b66038e3805f5bd42459d01bb4">otpLevel</a></td></tr>
+<tr class="separator:a650064b66038e3805f5bd42459d01bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a07b0fd154720204a362df5217d2079"><td class="memItemLeft" align="right" valign="top">int16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a9a07b0fd154720204a362df5217d2079">iMaxRms</a></td></tr>
+<tr class="separator:a9a07b0fd154720204a362df5217d2079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada3ef104bd8a8b682745bff081ec5ad7"><td class="memItemLeft" align="right" valign="top">int16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#ada3ef104bd8a8b682745bff081ec5ad7">vMaxRms</a></td></tr>
+<tr class="separator:ada3ef104bd8a8b682745bff081ec5ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade324e2ab9ea9a6d3620cf7028cc4c1d"><td class="memItemLeft" align="right" valign="top">int16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#ade324e2ab9ea9a6d3620cf7028cc4c1d">iScale</a></td></tr>
+<tr class="separator:ade324e2ab9ea9a6d3620cf7028cc4c1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5f818e5589d223d11291bce3a7b3089"><td class="memItemLeft" align="right" valign="top">int16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#ad5f818e5589d223d11291bce3a7b3089">vScale</a></td></tr>
+<tr class="separator:ad5f818e5589d223d11291bce3a7b3089"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3baa80fd1636154afd892c7362ca82c"><td class="memItemLeft" align="right" valign="top">int16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#ae3baa80fd1636154afd892c7362ca82c">vGainLmt</a></td></tr>
+<tr class="separator:ae3baa80fd1636154afd892c7362ca82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cb6e49a13279ff6c21dfdb9ee7f2f83"><td class="memItemLeft" align="right" valign="top">slaveMode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a3cb6e49a13279ff6c21dfdb9ee7f2f83">mode</a></td></tr>
+<tr class="separator:a3cb6e49a13279ff6c21dfdb9ee7f2f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87713ff5f537563733a303ba762fdeb5"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a87713ff5f537563733a303ba762fdeb5">acFrequency</a></td></tr>
+<tr class="separator:a87713ff5f537563733a303ba762fdeb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77d8744d531e699816cfcff31ccb6360"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html#a77d8744d531e699816cfcff31ccb6360">enable</a></td></tr>
+<tr class="separator:a77d8744d531e699816cfcff31ccb6360"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The structure used to contain all settings and values relevant to a particular I2C message. </p>
+<div class="textblock"><p>A structure that contains the settings that pertain to the AC stage. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="ab84c3b898d635ae3698728f948dce69e"></a>
+<a class="anchor" id="a87713ff5f537563733a303ba762fdeb5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 i2cMsg::msgBuffer[<a class="el" href="a00019.html#a0889ccb6e4a98d6d8a0bf7c009c818e2">I2C_MAX_BUFFER_SIZE</a>]</td>
+          <td class="memname">Uint16 acStageSettings::acFrequency</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A buffer array for message data. The maximum buffer size, MAX_BUFFER_SIZE, is 4 due to the FIFO's size. </p>
+<p>Sine signal generator frequency setting (Hz). </p>
 
 </div>
 </div>
-<a class="anchor" id="aaf82cb35284e62dcfea972e7c320917a"></a>
+<a class="anchor" id="a77d8744d531e699816cfcff31ccb6360"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile Uint16 i2cMsg::msgStatus</td>
+          <td class="memname">Uint16 acStageSettings::enable</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Indicates which state the message is in. </p>
+<p>Channel enable status {FALSE, TRUE}. </p>
 
 </div>
 </div>
-<a class="anchor" id="a3f10764462075eb1d9bdb1bf9f65e752"></a>
+<a class="anchor" id="a79680d88a9281cf5f6705881261b65db"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 i2cMsg::numOfBytes</td>
+          <td class="memname">int32 acStageSettings::gainRate</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The number of valid bytes in (or to be put in msgBuffer). </p>
+<p>Reference sine gain rate (IQ24). </p>
 
 </div>
 </div>
-<a class="anchor" id="af19843f447431559239db792b5166cc0"></a>
+<a class="anchor" id="af2ee8eeee892bf7f43e53bffdfa9993b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 i2cMsg::numSlavePtrBytes</td>
+          <td class="memname">int32 acStageSettings::gainTarget</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The number of slave register pointer address bytes. </p>
+<p>Reference sine gain target (IQ24). </p>
 
 </div>
 </div>
-<a class="anchor" id="a971e2b542d6947e6f047591a4eb4886c"></a>
+<a class="anchor" id="a9a07b0fd154720204a362df5217d2079"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 i2cMsg::slaveAddress</td>
+          <td class="memname">int16 acStageSettings::iMaxRms</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The slave device I2C address this message is intended for. </p>
+<p>Maximum RMS current setting limit (SQ10). </p>
 
 </div>
 </div>
-<a class="anchor" id="a9769c9a3e4db1eb01cfe7e5566647c04"></a>
+<a class="anchor" id="ade324e2ab9ea9a6d3620cf7028cc4c1d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 i2cMsg::slavePtrAddrHigh</td>
+          <td class="memname">int16 acStageSettings::iScale</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The slave register pointer high byte. </p>
+<p>Current scaling setting in volts-per-amp for scaling between a voltage level measured by an ADC to a real current value (SQ14). </p>
 
 </div>
 </div>
-<a class="anchor" id="a18a2503e16f41da3481d2dd6530327ff"></a>
+<a class="anchor" id="a3cb6e49a13279ff6c21dfdb9ee7f2f83"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint16 i2cMsg::slavePtrAddrLow</td>
+          <td class="memname">slaveMode acStageSettings::mode</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The slave register pointer low byte. </p>
+<p>Master or slave mode select. </p>
+
+</div>
+</div>
+<a class="anchor" id="a96fd85bb29c3f2ce0515eedbc353cd9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32 acStageSettings::ocpLevel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Normalised OCP limit (IQ24). </p>
+
+</div>
+</div>
+<a class="anchor" id="a650064b66038e3805f5bd42459d01bb4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32 acStageSettings::otpLevel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>OTP limit in \( ^\circ\) C (SQ7). </p>
+
+</div>
+</div>
+<a class="anchor" id="a8b5f24f22b2b5c641cb4b81d27a13ff7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32 acStageSettings::ovpLevel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Normalised OVP limit (IQ24). </p>
+
+</div>
+</div>
+<a class="anchor" id="ae3baa80fd1636154afd892c7362ca82c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16 acStageSettings::vGainLmt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sine signal generator voltage gain limit (SQ14). </p>
+
+</div>
+</div>
+<a class="anchor" id="ada3ef104bd8a8b682745bff081ec5ad7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16 acStageSettings::vMaxRms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum RMS voltage setting limit (SQ10). </p>
+
+</div>
+</div>
+<a class="anchor" id="ad5f818e5589d223d11291bce3a7b3089"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16 acStageSettings::vScale</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Voltage scaling setting in volts-per-volts for scaling between a voltage level measured by an ADC to a real voltage value (SQ14). </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00019.html">I2c.h</a></li>
+<li><a class="el" href="a00027.html">MacroNets.h</a></li>
 </ul>
 </div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Thu Sep 19 2013
+Thu Oct 24 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
