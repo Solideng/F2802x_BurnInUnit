@@ -2,6 +2,8 @@
 
 Uint16 nSel = 0;
 
+// TODO: Need a command to "begin burn" separate enables are not sufficient as they don't provide the correct sequencing - see runAll()
+
 Uint16 registerDeviceCommands (void) {
 	/* String literals MUST be all upper case */
 	Uint16 err = 0;
