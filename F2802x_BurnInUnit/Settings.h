@@ -55,7 +55,7 @@
 #define AC_V_R2				4.3f	/**< Scaling voltage divider R2 resistor value for AC voltage ADC. */
 
 // TODO: Remove NUM_CHNLS. Use numberOfLoads etc in specificCmds.
-#define NUM_CHNLS 	6		/**< Total number of IIR filter control law macros used (doesn't include VMID semi-channel). */
+//#define NUM_CHNLS 	6		/**< Total number of IIR filter control law macros used (doesn't include VMID semi-channel). */
 
 #define LOAD_IDCLVL_MAX 	35		/**< The maximum allowable value, in amps, for the load current levels. */
 #define LOAD_VDCLVL_FIX 	60		/**< The fixed maximum value, in volts, for the load voltage levels. */
