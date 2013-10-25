@@ -135,16 +135,18 @@ Uint16 getSineState (Uint16 *state) {
 	return 0;
 }
 
+Uint16 setSineRmsTarget (float32 rmsTarget) {
+	return 0;
+}
+
 Uint16 setSineGainTarget (float32 target) {
-	/* Sets the gain
+	/* Sets the gain target
 	 * 0.0 - 1.0
 	 */
-	float32 uprLmt = 0.0;
-	uprLmt = _IQ14toF((int32)acSettings.vGainLmt);
-	if ((target <= 0) || (target > uprLmt))	/* Check gain is between 0-1 */
+	float32 uprLmt = _IQ14toF((int32)acSettings.vGainLmt);
+	if ((target <= 0) || (target > uprLmt))	/* Check gain is between 0 and the gain limit */
 		return VALUE_OOB;
-	target = target * 16777216;				/* Convert to Q24 and round */
-	acSettings.gainTarget = (int32) target;	/* Cast and set */
+	acSettings.gainTarget = _IQ24(target);	/* Convert to Q24 and set */
 	return 0;
 }
 
@@ -153,6 +155,21 @@ Uint16 getSineGainTarget (float32 *target) {
 	return 0;
 }
 
+Uint16 setSineGainStep (float32 step) {
+	/* Sets the gain step
+	 * 0.0 - 1.0
+	 */
+	float32 uprLmt = _IQ14toF((int32)acSettings.vGainLmt);
+	if ((step <= 0) || (step > uprLmt))	/* Check step is between 0 and the gain limit */
+		return VALUE_OOB;
+	acSettings.gainRate = _IQ24(step);	/* Convert to IQ24 and set */
+	return 0;
+}
+
+Uint16 getSineGainStep (float32 *step) {
+	*step = _IQ24toF(acSettings.gainRate);
+	return 0;
+}
 
 //Uint16 sgSetFreq (Uint16 frq) {
 //	/* Sets the frequency of the SIN signal

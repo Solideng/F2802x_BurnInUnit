@@ -15,6 +15,8 @@
  *
  */
 
+// TODO: Add setSineGainStep();
+
 #ifndef SINEGEN_H_
 #define SINEGEN_H_
 
@@ -73,7 +75,7 @@ extern void updateSineSignal (void);
 extern Uint16 setSineState (Uint16 state);
 
 /** Queries the current state of the generator output.
- * @param[out]	state	Address of the memory location at which to place the query result  {1:ON | 0:OFF}.
+ * @param[out]	state	Pointer to location at which to place the query result  {1:ON | 0:OFF}.
  * @return				Error status.
  */
 extern Uint16 getSineState (Uint16 *state);
@@ -85,11 +87,22 @@ extern Uint16 getSineState (Uint16 *state);
 extern Uint16 setSineGainTarget (float32 target);
 
 /** Queries the current target gain setting.
- * @param[out] target	Address of the memory location at which to place the query result.
+ * @param[out] 	target	Pointer to location at which to place the query result.
  * @return				Error status.
  */
 extern Uint16 getSineGainTarget (float32 *target);
 
+/** Sets the gain step of the sine signal.
+ * @param[in]	step	Specifies the value of the gain step to be applied.
+ * @return				Error status.
+ */
+extern Uint16 setSineGainStep (float32 step);
+
+/** Queries the current gain step setting.
+ * @param[out]	step	Pointer to location at which to place the query result.
+ * @return				Error status.
+ */
+extern Uint16 getSineGainStep (float32 *step);
 
 /* Enables or disables the rectification of the generator output
  * @param[in]	rfy	Rectification enable state {1:ON | 0:OFF}.
