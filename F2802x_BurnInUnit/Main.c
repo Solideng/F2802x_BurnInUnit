@@ -84,6 +84,22 @@ void main (void) {
 
 	initI2c();				/* Initialise the I2C control to external devices */
 
+		/* Enable Peripheral, global interrupts and higher priority real-time debug events
+		 * This block with enabled interrupts allows things, like the enable control, to be
+		 * initialised before code that starts output, such as initPwm(), are initialised.
+		 */
+	EINT;   				/* Enable global interrupt INTM */
+	ERTM;   				/* Enable global real-time interrupt DBGM */
+	initTemperature();		/* Initialise the temperature sensing. Uses I2C */
+							/* Initialise the external boost converter enable control
+							 * - makes sure everything is disabled. Uses I2C
+							 */
+	initEnableControl();
+		/* Disable interrupts again */
+	DRTM;					/* Disable global real-time interrupt DBGM */
+	DINT;					/* Disable global interrupt INTM */
+
+		/* Initialises SPI, SCI and SCPI with different configurations depending on the unit's slave mode */
 	if (slaveModeStatus == singleUnit) {
 		EALLOW;				/* Disable clock to SPI-A peripheral */
 		SysCtrlRegs.PCLKCR0.bit.SPIAENCLK = 1;
@@ -111,30 +127,60 @@ void main (void) {
 	}
 
 	initStateMachine();		/* Initialise device state machine and timers */
-
-							/* Setup macros and the hardware they use */
+		/* Setup macros and the hardware they use */
 	initPwm();				/* Initialise PWM macros */
 	initAdc();				/* Initialise the ADCs macros */
 	initSine(slaveModeStatus);	/* Initialise the sine generator macro */
 	initCoefs();			/* Initialise the IIR control loop coefficient values */
 	initDcComparator();		/* Initialise the comparators */
 	initAcComparator();
-	initTripZone();			/* Initialise trip zone (for comparator outputs) */
-
 	DPL_Init();				/* Initialise the used macros with the DPL ASM ISR */
 	setupNets(slaveModeStatus);	/* Setup macro nets and settings according to the unit mode */
-
-							/* Enable Peripheral, global Ints and higher priority real-time debug events: */
+		/* Enable Peripheral, global Ints and higher priority real-time debug events: */
 	EINT;   				/* Enable Global interrupt INTM */
 	ERTM;   				/* Enable Global real-time interrupt DBGM */
 
-							/* Initialise items that required interrupts to initialise - e.g. items on I2C */
-	initTemperature();		/* Initialise the temperature sensing */
-	initEnableControl();	/* Initialise the external boost converter enable control */
+	#ifdef DEBUG
+		//=============== TEST CODE ===============
+		// Setup load channels' targets, slew rates, OCP levels and OTP levels.
+		// Coefficients are left as default.
+		setLoadSlewTarget(load1, 0.0);
+		setLoadSlewStep(load1, 0.001);
+		setLoadOcpLevel(load1, 1.0);
+		setLoadOtpLevel(load1, 100.0);
 
-	//=============== TEST CODE ===============
-	enableCircuit(xfmrCct);
-	//============= END TEST CODE =============
+		setLoadSlewTarget(load2, 0.0);
+		setLoadSlewStep(load2, 0.001);
+		setLoadOcpLevel(load2, 1.0);
+		setLoadOtpLevel(load2, 100.0);
+
+		setLoadSlewTarget(load3, 0.0);
+		setLoadSlewStep(load3, 0.001);
+		setLoadOcpLevel(load3, 1.0);
+		setLoadOtpLevel(load3, 100.0);
+
+		setLoadSlewTarget(load4, 0.0);
+		setLoadSlewStep(load4, 0.001);
+		setLoadOcpLevel(load4, 1.0);
+		setLoadOtpLevel(load4, 100.0);
+
+		// Setup xfmr stage OCP, OVP and OTP levels.
+		setDcMidOcpLevel(1.0);
+		setDcHvOvpLevel(1.0);
+		setDcOtpLevel(100.0);
+
+		// Setup AC stage gain target, gain rate, OCP level, OVP level and OTP level.
+		// Coefficients are left as default.
+		setSineGainTarget(0.99);
+		//setSineGainStep(0.001);
+		setAcOcpLevel(1.0);
+		setAcOvpLevel(1.0);
+		setAcOtpLevel(100.0);
+
+		// Enable all stages in sequence
+		runAll();
+		//============= END TEST CODE =============
+	#endif
 
 	for(;;)					/* BACKGROUND (BG) LOOP */
 	{
