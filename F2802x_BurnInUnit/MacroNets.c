@@ -33,8 +33,8 @@ static void initSettings (void) {
 		loadSettings[i].slewTarget = 0;			/* 0 Q24 */
 		loadSettings[i].ocpLevel   = 587202560;	/* 35A variable Q24 */
 		loadSettings[i].otpLevel   = 19200;		/* 150 degree C Q7 */
-		loadSettings[i].iScale     = 2048;		/* 0.125f amps-per-volt Q14 */
-		loadSettings[i].vScale     = 32767;		/* 1.0f volts-per-volt Q14 */
+		loadSettings[i].iScale     = _SQ14(LOAD_I_SCALE);/* Q14 */
+		loadSettings[i].vScale     = _SQ14(LOAD_V_R2 / (LOAD_V_R1 + LOAD_V_R2));
 		loadSettings[i].enable     = FALSE;		/* Disabled */
 	}
 
@@ -45,11 +45,11 @@ static void initSettings (void) {
 	acSettings.otpLevel   = 19200;		/* 150 degree C Q7 */
 	acSettings.iMaxRms    = 15360;		/* 15 amps (RMS) Q10 SQ10 */
 	acSettings.vMaxRms    = 15360;		/* 15 volts (RMS) Q10 */ //TODO Test setting << need actual
-	acSettings.iScale     = 2048;		/* 0.125f amps-per-volt Q14 */
+	acSettings.iScale     = _SQ14(LOAD_I_SCALE);/* Q14 */
 	acSettings.vScale     = 32767;		/* 1.0f volts-per-volt Q14 */
 	acSettings.enable     = FALSE;		/* FALSE | TRUE */
 	acSettings.mode       = masterUnit;	/* master | slave */
-	acSettings.vScale     = _SQ14(VAC_R2 / (VAC_R1 + VAC_R2 + VAC_R2));
+	acSettings.vScale     = _SQ14(AC_V_R2 / (AC_V_R1 + AC_V_R2 + AC_V_R2));
 	acSettings.vGainLmt   = _SQ14(0.9);	/* 0.9 gain limit Q14 */
 
 	xfmrSettings.ocpLevel 	 = 16777216;	/* Maximum Q24 */
@@ -57,11 +57,11 @@ static void initSettings (void) {
 	xfmrSettings.hvOvpLevel  = 16777216;	/* Maximum Q24 */
 	xfmrSettings.otpLevel 	 = 19200;		/* 150 degree C Q7*/
 	xfmrSettings.iMax	 	 = 15360;		/* 15 Amps RMS Q10 */
-	xfmrSettings.iScale 	 = 0;			/* Q14 */
+	xfmrSettings.iScale 	 = _SQ14(MID_I_SCALE);	/* Q14 */
 	xfmrSettings.midVMax	 = 15360;		/* 15 Amps RMS Q10 */
-	xfmrSettings.midVScale 	 = _SQ14(VMID_R2 / (VMID_R1 + VMID_R2));
+	xfmrSettings.midVScale 	 = _SQ14(MID_V_R2 / (MID_V_R1 + MID_V_R2));
 	xfmrSettings.hvVMax  	 = 15360;		/* 15 Amps Q10 */
-	xfmrSettings.hvVScale 	 = _SQ14(1.0);	// TODO: Need actual value
+	xfmrSettings.hvVScale 	 = _SQ14(HV_V_R2 / (HV_V_R1 + HV_V_R2));
 	xfmrSettings.enable 	 = FALSE;		/* Disabled */
 
 	extSettings.ext1OtpLevel = 19200;	/* 150 degree C Q7 */

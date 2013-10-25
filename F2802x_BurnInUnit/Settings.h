@@ -36,10 +36,23 @@
  * System Settings
  *============================================================*/
 
-#define VMID_R1				540.0	/**< Scaling voltage divider R1 resistor value for VMID ADC. */
-#define VMID_R2				4.3		/**< Scaling voltage divider R2 resistor value for VMID ADC. */
-#define VAC_R1 				540.0	/**< Scaling voltage divider R1 resistor value for VAC ADC. */
-#define VAC_R2 				4.3		/**< Scaling voltage divider R2 resistor value for VAC ADC. */
+#define VSSA 				0l		/**< System VLOWREF (millivolts). */
+#define VDDA 				3300l	/**< System VMAXREF (millivolts). */
+
+#define LOAD_I_SCALE		0.125f	/**< Scaling factor for load current ADC. */ // TODO: Get correct value!!
+#define LOAD_V_R1 			18.0f	/**< Scaling voltage divider R1 resistor value for load voltage ADC. */
+#define LOAD_V_R2 			1.0f	/**< Scaling voltage divider R2 resistor value for load voltage ADC. */
+
+#define HV_V_R1 			540.0f	/**< Scaling voltage divider R1 resistor value for HV voltage ADC. */
+#define HV_V_R2 			4.3f	/**< Scaling voltage divider R2 resistor value for HV voltage ADC. */
+
+#define MID_I_SCALE 		1.0f	/**< Scaling factor for MID current ADC. */ // TODO: Get correct value!!
+#define MID_V_R1			540.0f	/**< Scaling voltage divider R1 resistor value for MID voltage ADC. */
+#define MID_V_R2			4.3f	/**< Scaling voltage divider R2 resistor value for MID voltage ADC. */
+
+#define AC_I_SCALE 			1.0f	/**< Scaling factor for AC current ADC. */ // TODO: Get correct value!!
+#define AC_V_R1				540.0f	/**< Scaling voltage divider R1 resistor value for AC voltage ADC. */
+#define AC_V_R2				4.3f	/**< Scaling voltage divider R2 resistor value for AC voltage ADC. */
 
 // TODO: Remove NUM_CHNLS. Use numberOfLoads etc in specificCmds.
 #define NUM_CHNLS 	6		/**< Total number of IIR filter control law macros used (doesn't include VMID semi-channel). */
@@ -61,9 +74,6 @@
 
 #define SQRT_2				1.41429	/**< Sqrt(2) constant used for RMS calculations. */
 #define RECP_SQRT_2			0.70711	/**< 1/sqrt(2) constant used for RMS calculations. */
-
-#define VSSA 				0l		/**< System VLOWREF (millivolts). */
-#define VDDA 				3300l	/**< System VMAXREF (millivolts). */
 
 // TODO: Not used??
 //#define	uSec100				6000	/**< 100us - System define. */

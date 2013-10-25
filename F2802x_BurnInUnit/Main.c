@@ -77,10 +77,10 @@ void main (void) {
 	#ifdef FLASH
 							/* Copy time critical code and Flash setup code to RAM */
 		MemCopy(&RamfuncsLoadStart, &RamfuncsLoadEnd, &RamfuncsRunStart);
-		InitFlash();		/* Call the flash wrapper init function */
+		InitFlash();		/* Initialise the flash wrapper function */
 	#endif
 
-	detectSlaveMode();		/* Detect if the unit is master, single or single */
+	detectSlaveMode();		/* Detect if the unit is master, slave or single */
 
 	initI2c();				/* Initialise the I2C control to external devices */
 
