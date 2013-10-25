@@ -10,7 +10,7 @@
 Uint16 otpFlagRegister;
 
 /*============== Load n ==============*/
-Uint16 setLoadOtp (loadStage load, float32 level){
+Uint16 setLoadOtpLevel (loadStage load, float32 level){
 	if (load >= numberOfLoads)					/* Check channel is valid */
 		return CHANNEL_OOB;
 	if ((level < TMP_OTP_MIN) || (level > TMP_OTP_MAX))
@@ -19,7 +19,7 @@ Uint16 setLoadOtp (loadStage load, float32 level){
 	return 0;
 }
 
-Uint16 getLoadOtp (loadStage load, float32 *level){
+Uint16 getLoadOtpLevel (loadStage load, float32 *level){
 	if (load >= numberOfLoads)	/* Check channel is valid */
 		return CHANNEL_OOB;
 								/* Convert from SQ7 and save data to destination */
@@ -62,14 +62,14 @@ Uint16 clearLoadOtp (loadStage load){
 }
 
 /*================ DC ===============*/
-Uint16 setDcOtp (float32 level){
+Uint16 setDcOtpLevel (float32 level){
 	if ((level < TMP_OTP_MIN) || (level > TMP_OTP_MAX))
 		return VALUE_OOB;				/* Check temperature is valid */
 	xfmrSettings.otpLevel = _SQ7(level);/* Convert to SQ7 and Set OTP */
 	return 0;
 }
 
-Uint16 getDcOtp (float32 *level){
+Uint16 getDcOtpLevel (float32 *level){
 	*level = ((float32) xfmrSettings.otpLevel) * (1.0 / 128);	/* Convert from SQ7 and save data to destination */
 	return 0;
 }
@@ -105,14 +105,14 @@ Uint16 clearDcOtp (void){
 }
 
 /*================ AC ================*/
-Uint16 setAcOtp (float32 level){
+Uint16 setAcOtpLevel (float32 level){
 	if ((level < TMP_OTP_MIN) || (level > TMP_OTP_MAX))
 		return VALUE_OOB;					/* Check temperature is valid */
 	acSettings.otpLevel = _SQ7(level);/* Convert to SQ7 and Set OTP */
 	return 0;
 }
 
-Uint16 getAcOtp (float32 *level){
+Uint16 getAcOtpLevel (float32 *level){
 	*level = ((float32) acSettings.otpLevel) * (1.0 / 128);	/* Convert from SQ7 and save data to destination */
 	return 0;
 }
@@ -148,7 +148,7 @@ Uint16 clearAcOtp (void){
 }
 
 /*================ Ext ===============*/
-Uint16 setExtOtp (extSelect ext, float32 level){
+Uint16 setExtOtpLevel (extSelect ext, float32 level){
 	if (ext >= numberOfExts)	/* Check channel is valid */
 		return CHANNEL_OOB;
 	if ((level < TMP_OTP_MIN) || (level > TMP_OTP_MAX))
@@ -160,7 +160,7 @@ Uint16 setExtOtp (extSelect ext, float32 level){
 	return 0;
 }
 
-Uint16 getExtOtp (extSelect ext, float32 *level){
+Uint16 getExtOtpLevel (extSelect ext, float32 *level){
 	if (ext >= numberOfExts)	/* Check channel is valid */
 		return CHANNEL_OOB;
 

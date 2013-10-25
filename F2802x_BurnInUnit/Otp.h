@@ -26,14 +26,14 @@ extern Uint16 otpFlagRegister;	/** < OTP flag register. Bits are set to indicate
  * @param[in]	level	Specifies the value to be applied (@f$ ^\circ@f$ C).
  * @return				Error status.
  */
-extern Uint16 setLoadOtp (loadStage load, float32 level);
+extern Uint16 setLoadOtpLevel (loadStage load, float32 level);
 
 /** Queries the over temperature protection level for the specified load.
  * @param[in]	load	Specifies the load on which the setting is to be queried.
  * @param[out]	level	Pointer to location at which to place the query result (@f$ ^\circ@f$ C).
  * @return				Error status.
  */
-extern Uint16 getLoadOtp (loadStage load, float32 *level);
+extern Uint16 getLoadOtpLevel (loadStage load, float32 *level);
 
 /** Checks the temperature reading of the specified load against the load OTP limit.
  * Raises the load OTP flag if the reading is above the limit.
@@ -59,13 +59,13 @@ extern Uint16 clearLoadOtp (loadStage load);
  * @param[in]	level	Specifies the value to be applied (@f$ ^\circ@f$ C).
  * @return				Error status.
  */
-extern Uint16 setDcOtp (float32 level);
+extern Uint16 setDcOtpLevel (float32 level);
 
 /** Queries the over current protection level for the DC stage.
  * @param[out]	level	Pointer to location at which to place the query result (@f$ ^\circ@f$ C).
  * @return				Error status.
  */
-extern Uint16 getDcOtp (float32 *level);
+extern Uint16 getDcOtpLevel (float32 *level);
 
 /** Checks the temperature reading of the DC stage against the DC OTP limit.
  * Raises the DC OTP flag if the reading is above the limit.
@@ -88,13 +88,13 @@ extern Uint16 clearDcOtp (void);
  * @param[in]	level	Specifies the value to be applied (@f$ ^\circ@f$ C).
  * @return				Error status.
  */
-extern Uint16 setAcOtp (float32 level);
+extern Uint16 setAcOtpLevel (float32 level);
 
 /** Queries the over temperature protection level for the AC stage.
  * @param[out]	level	Pointer to location at which to place the query result (@f$ ^\circ@f$ C).
  * @return				Error status.
  */
-extern Uint16 getAcOtp (float32 *level);
+extern Uint16 getAcOtpLevel (float32 *level);
 
 /** Checks the temperature reading of the AC stage against the AC OTP limit.
  * Raises the AC OTP flag if the reading is above the limit.
@@ -118,14 +118,14 @@ extern Uint16 clearAcOtp (void);
  * @param[in]	level	Specifies the value to be applied (@f$ ^\circ@f$ C).
  * @return				Error status.
  */
-extern Uint16 setExtOtp (extSelect ext, float32 level);
+extern Uint16 setExtOtpLevel (extSelect ext, float32 level);
 
 /** Queries the over temperature protection level for the specified external sensor.
  * @param[in]	ext		Specifies the external sensor on which the setting is to be queried.
  * @param[out]	level	Pointer to location at which to place the query result (@f$ ^\circ@f$ C).
  * @return				Error status.
  */
-extern Uint16 getExtOtp (extSelect ext, float32 *level);
+extern Uint16 getExtOtpLevel (extSelect ext, float32 *level);
 
 /** Checks the temperature reading of the specified external sensor against the sensor OTP limit.
  * Raises the load OTP flag if the reading is above the limit.
