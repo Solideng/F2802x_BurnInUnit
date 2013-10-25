@@ -30,26 +30,26 @@ void updateLoadSlew (void) {
 	}
 }
 
-Uint16 setLoadSlewTarget (loadStage load, float32 trgt) {
+Uint16 setLoadSlewTarget (loadStage load, float32 target) {
 	/* Changes an enabled channel's target value
 	 * scTarget is expected in amps or volts
 	 */
 	float32 max = 0.0;
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid */
-	if (trgt > LOAD_IDCLVL_MAX)				/* Check target is less than the allowed maximum. */
+	if (target > LOAD_IDCLVL_MAX)			/* Check target is less than the allowed maximum. */
 		return CHANNEL_OOB;
 
 	max = _IQ14toF((int32) loadSettings[load].iScale);
 	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the target maximum with the current scaling */
-	if (trgt > max)							/* Check target is less than maximum allowed by scaling */
+	if (target > max)						/* Check target is less than maximum allowed by scaling */
 		return VALUE_OOB;
 											/* Normalise and save as Q value */
-	loadSettings[load].slewTarget =  _IQ24(trgt * (1.0 / max));
+	loadSettings[load].slewTarget =  _IQ24(target * (1.0 / max));
 	return 0;
 }
 
-Uint16 setLoadSlewStep (loadStage load, float32 stp) {
+Uint16 setLoadSlewStep (loadStage load, float32 step) {
 	/* Changes a load's slew step value
 	 * scStep is expected in amps //or volts
 	 */
@@ -61,10 +61,10 @@ Uint16 setLoadSlewStep (loadStage load, float32 stp) {
 
 	max = _IQ14toF((int32) loadSettings[load].iScale);
 	max = ((VDDA - VSSA) / 1000.0) / max;		/* Calculate the step maximum with the current scaling */
-	if (stp > max)								/* Check step smaller than scale maximum */
+	if (step > max)								/* Check step smaller than scale maximum */
 		return VALUE_OOB;
 
-	qStp = _IQ24(stp * (1.0 / max));			/* Normalise and convert to Q */
+	qStp = _IQ24(step * (1.0 / max));			/* Normalise and convert to Q */
 	if (qStp > loadSettings[load].slewTarget)	/* Check step is smaller than target */
 		return VALUE_OOB;
 
@@ -73,11 +73,11 @@ Uint16 setLoadSlewStep (loadStage load, float32 stp) {
 }
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
-Uint16 setLoadState (loadStage load, Uint16 stt) {
+Uint16 setLoadState (loadStage load, Uint16 state) {
 	/* onOrOff should be zero (OFF) or non-zero (ON) */
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid */
-	loadSettings[load].enable = (stt > 0);
+	loadSettings[load].enable = (state > 0);
 	return 0;
 }
 
@@ -108,17 +108,17 @@ Uint16 setLoadState (loadStage load, Uint16 stt) {
 //}
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
-Uint16 setLoadStateAll (Uint16 stt) {
+Uint16 setLoadStateAll (Uint16 state) {
 	/* onOrOff should be zero (OFF) or non-zero (ON) */
 	Uint16 i = 0;
-	stt = (stt > 0);
+	state = (state > 0);
 	for (i = 0; i < numberOfLoads; i++) {
-		loadSettings[i].enable = stt;
+		loadSettings[i].enable = state;
 	}
 	return 0;
 }
 
-Uint16 getLoadSlewTarget (loadStage load, float32 * trgtDest) {
+Uint16 getLoadSlewTarget (loadStage load, float32 * target) {
 	float32 max = 0.0;
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid */
@@ -126,11 +126,11 @@ Uint16 getLoadSlewTarget (loadStage load, float32 * trgtDest) {
 	max = _IQ14toF((int32) loadSettings[load].iScale);
 	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the target maximum with the current scaling */
 											/* Convert from IQ24 and de-normalise */
-	*trgtDest = (_IQ24toF(loadSettings[load].slewTarget)) * max;
+	*target = (_IQ24toF(loadSettings[load].slewTarget)) * max;
 	return 0;
 }
 
-Uint16 getLoadSlewStep (loadStage load, float32 * stpDest) {
+Uint16 getLoadSlewStep (loadStage load, float32 * step) {
 	float32 max = 0.0;
 	if (load > numberOfLoads)
 		return CHANNEL_OOB;						/* Check channel is valid */
@@ -138,14 +138,14 @@ Uint16 getLoadSlewStep (loadStage load, float32 * stpDest) {
 	max = _IQ14toF((int32) loadSettings[load].iScale);
 	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the step maximum with the current scaling */
 											/* Convert from IQ24 and de-normalise */
-	*stpDest = (_IQ24toF(loadSettings[load].slewRate)) * max;
+	*step = (_IQ24toF(loadSettings[load].slewRate)) * max;
 	return 0;
 }
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
-Uint16 getLoadState (loadStage load, Uint16 * sttDest) {
+Uint16 getLoadState (loadStage load, Uint16 * state) {
 	if (load >= numberOfLoads)		/* Check channel is valid */
 		return CHANNEL_OOB;
-	*sttDest = (loadSettings[load].enable > 0);
+	*state = (loadSettings[load].enable > 0);
 	return 0;
 }
