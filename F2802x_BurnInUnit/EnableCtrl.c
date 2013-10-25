@@ -106,11 +106,11 @@ Uint16 disableCircuit (circuitSection section) {
 
 Uint16 getCurrentState (circuitSection section, Uint16 *state) {
 	Uint16 msk = 0;
-	if (section >= maChan)	/* Ensure section is valid */
+	if (section >= maxchan)	/* Ensure section is valid */
 		return CHANNEL_OOB;
 	msk = 1 << section;		/* Create mask for specified section */
 							/* Check if the section's current state is the same as the
 							 * section's disabled state and return accordingly
 							 */
-	return ((ALL_DISABLED_WORD & msk) == (crntStat & msk)) ? 0 : 1;
+	return ((ALL_DISABLED_WORD & msk) == (crntState & msk)) ? 0 : 1;
 }
