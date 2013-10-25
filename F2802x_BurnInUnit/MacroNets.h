@@ -127,7 +127,7 @@ extern xfmrStageNets xfmrNets;
 /** A structure that contains the settings that pertain to the transformer stage. */
 struct xfmrStageSettings {
 	int32 	ocpLevel;	/**< Normalised OCP limit (IQ24). */
-	int32 	midOvpLevel;/**< Normalised DC mid OVP limit (IQ24). */
+//	int32 	midOvpLevel;/**< Normalised DC mid OVP limit (IQ24). */
 	int32   hvOvpLevel;	/**< Normalised DC HV OVP limit (IQ24). */
 	int32	otpLevel;	/**< OTP limit in @f$ ^\circ@f$ C (SQ7). */
 	int16 	iMax;		/**< Maximum DC current setting limit (SQ10). */

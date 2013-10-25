@@ -38,6 +38,18 @@ static void initSettings (void) {
 		loadSettings[i].enable     = FALSE;		/* Disabled */
 	}
 
+	xfmrSettings.ocpLevel 	 = 16777216;	/* Maximum Q24 */
+	//xfmrSettings.midOvpLevel = 16777216;	/* Maximum Q24 */ //Fixed to 400 Vpk, is that correct?
+	xfmrSettings.hvOvpLevel  = 16777216;	/* Maximum Q24 */
+	xfmrSettings.otpLevel 	 = 19200;		/* 150 degree C Q7*/
+	xfmrSettings.iMax	 	 = 15360;		/* 15 Amps RMS Q10 */
+	xfmrSettings.iScale 	 = _SQ14(MID_I_SCALE);	/* Q14 */
+	xfmrSettings.midVMax	 = 15360;		/* 15 Amps RMS Q10 */
+	xfmrSettings.midVScale 	 = _SQ14(MID_V_R2 / (MID_V_R1 + MID_V_R2));
+	xfmrSettings.hvVMax  	 = 15360;		/* 15 Amps Q10 */
+	xfmrSettings.hvVScale 	 = _SQ14(HV_V_R2 / (HV_V_R1 + HV_V_R2));
+	xfmrSettings.enable 	 = FALSE;		/* Disabled */
+
 	acSettings.gainRate   = 16777;		/* 0.001 Q24 */
 	acSettings.gainTarget = 0;			/* 0 Q24 */
 	acSettings.ocpLevel   = 16777216;	/* Maximum Q24 */
@@ -51,18 +63,6 @@ static void initSettings (void) {
 	acSettings.mode       = masterUnit;	/* master | slave */
 	acSettings.vScale     = _SQ14(AC_V_R2 / (AC_V_R1 + AC_V_R2 + AC_V_R2));
 	acSettings.vGainLmt   = _SQ14(0.9);	/* 0.9 gain limit Q14 */
-
-	xfmrSettings.ocpLevel 	 = 16777216;	/* Maximum Q24 */
-	xfmrSettings.midOvpLevel = 16777216;	/* Maximum Q24 */
-	xfmrSettings.hvOvpLevel  = 16777216;	/* Maximum Q24 */
-	xfmrSettings.otpLevel 	 = 19200;		/* 150 degree C Q7*/
-	xfmrSettings.iMax	 	 = 15360;		/* 15 Amps RMS Q10 */
-	xfmrSettings.iScale 	 = _SQ14(MID_I_SCALE);	/* Q14 */
-	xfmrSettings.midVMax	 = 15360;		/* 15 Amps RMS Q10 */
-	xfmrSettings.midVScale 	 = _SQ14(MID_V_R2 / (MID_V_R1 + MID_V_R2));
-	xfmrSettings.hvVMax  	 = 15360;		/* 15 Amps Q10 */
-	xfmrSettings.hvVScale 	 = _SQ14(HV_V_R2 / (HV_V_R1 + HV_V_R2));
-	xfmrSettings.enable 	 = FALSE;		/* Disabled */
 
 	extSettings.ext1OtpLevel = 19200;	/* 150 degree C Q7 */
 	extSettings.ext2OtpLevel = 19200;	/* 150 degree C Q7 */
