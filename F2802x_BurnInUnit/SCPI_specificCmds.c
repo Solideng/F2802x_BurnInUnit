@@ -86,7 +86,7 @@ Uint16 registerDeviceCommands (void) {
 
 Uint16 calAll (double * parameters, bool isQuery) {
 	// Optional child
-	// TODO write CAL cmd
+	// TODO: write CAL cmd
 	// Full system calibration
 	return 0;
 }
@@ -94,23 +94,30 @@ Uint16 calAll (double * parameters, bool isQuery) {
 Uint16 contIdleInit (double * parameters, bool isQuery) {
 	/* Child. Returns the device to the idle state. */
 	stopAll();
+	if (slaveModeStatus == masterUnit) {
+		// send CONT:ILDE:INIT; cmd to slave
+	}
 	return 0;
 }
 
 Uint16 instCat (double * parameters, bool isQuery) {
 	/* Child. Queries the available selection of logical instruments. */
 	Uint16 i = 0, err = 0, lim = 0;
-	if (slaveModeStatus != masterUnit) {
-		lim = 4;	/* If the unit is a slave or single, there should be 4 loads */
+	if (slaveModeStatus == masterUnit) {
+		// ask slave for numbers
+		// wait for response
+		for (i = 0; i < 4; i++)
+			err += respond(&i, Integer, false);	/* Respond with 0-3 load numbers */
+		// Add slave response string
+	} else if (slaveModeStatus == slaveUnit) {
+		for (i = 4; i < 8; i++)
+			err += respond(&i, Integer, false);	/* Respond with 4-7 load numbers */
 	} else {
-		lim = 8;	/* If the unit is a master there should be 8 loads */
+		for (i = 0; i < 4; i++)
+			err += respond(&i, Integer, false);	/* SingleUnit case. Respond with 0-3 load numbers */
 	}
-	lim--;			/* Decrement by 1 to allow for different last response command */
-	for (i = 0; i < lim; i++)
-		err += respond(&i, Integer, false);	/* Respond with lim numbers of load numbers */
-
 					/* Respond with final load number */
-	err +- respond(&i, Integer, true);
+	err += respond(&i, Integer, true);
 	return err;
 }
 
