@@ -62,7 +62,7 @@ static void initSettings (void) {
 	acSettings.enable     = FALSE;		/* FALSE | TRUE */
 	acSettings.mode       = masterUnit;	/* master | slave */
 	acSettings.vScale     = _SQ14(AC_V_R2 / (AC_V_R1 + AC_V_R2 + AC_V_R2));
-	acSettings.vGainLmt   = _SQ14(0.9);	/* 0.9 gain limit Q14 */
+	acSettings.vGainLmt   = _SQ14(1.0);	/* 1.0 gain limit Q14 */
 
 	extSettings.ext1OtpLevel = 19200;	/* 150 degree C Q7 */
 	extSettings.ext2OtpLevel = 19200;	/* 150 degree C Q7 */

@@ -104,7 +104,7 @@ Uint16 contIdleInit (double * parameters, bool isQuery) {
 
 Uint16 instCat (double * parameters, bool isQuery) {
 	/* Child. Queries the available selection of logical instruments. */
-	Uint16 i = 0, err = 0, lim = 0;
+	Uint16 i = 0, err = 0;
 	if (slaveModeStatus == masterUnit) {
 		// ask slave for numbers
 		// wait for response

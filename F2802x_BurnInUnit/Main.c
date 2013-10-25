@@ -172,7 +172,7 @@ void main (void) {
 		// Setup AC stage gain target, gain rate, OCP level, OVP level and OTP level.
 		// Coefficients are left as default.
 		setSineGainTarget(0.99);
-		//setSineGainStep(0.001);
+		setSineGainStep(0.001);
 		setAcOcpLevel(1.0);
 		setAcOvpLevel(1.0);
 		setAcOtpLevel(100.0);

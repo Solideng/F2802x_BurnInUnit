@@ -1,10 +1,10 @@
 ******************************************************************************
              TMS320C2000 Linker PC v6.1.3                      
 ******************************************************************************
->> Linked Thu Oct 24 13:52:12 2013
+>> Linked Fri Oct 25 13:31:38 2013
 
 OUTPUT FILE NAME:   <F2802x_BurnInUnit.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 003f1005
+ENTRY POINT SYMBOL: "_c_int00"  address: 003f1149
 
 
 MEMORY CONFIGURATION
@@ -15,9 +15,9 @@ PAGE 0:
   BOOT_RSVD             00000000   00000050  00000000  00000050  RWIX
   progRAM               00008000   00000800  00000206  000005fa  RWIX
   OTP                   003d7800   00000400  00000000  00000400  RWIX
-  FLASHD                003f0000   00002000  0000133f  00000cc1  RWIX
-  FLASHC                003f2000   00002000  00001fff  00000001  RWIX
-  FLASHA                003f6000   00001f80  00000414  00001b6c  RWIX
+  FLASHD                003f0000   00002000  000014a6  00000b5a  RWIX
+  FLASHC                003f2000   00002000  00001ffd  00000003  RWIX
+  FLASHA                003f6000   00001f80  00000474  00001b0c  RWIX
   CSM_RSVD              003f7f80   00000076  00000000  00000076  RWIX
   BEGIN                 003f7ff6   00000002  00000002  00000000  RWIX
   CSM_PWL               003f7ff8   00000008  00000000  00000008  RWIX
@@ -76,138 +76,139 @@ ramfuncs   0    003f0000    00000206     RUN ADDR = 00008000
                   003f01e5    0000001d     DevInit_F2802x.obj (ramfuncs)
                   003f0202    00000004     DSP2802x_usDelay.obj (ramfuncs)
 
-.text.1    0    003f0206    00001139     
-                  003f0206    000000d2     EnableCtrl.obj (.text)
-                  003f02d8    000000cd     SineGen.obj (.text)
-                  003f03a5    000000cc     SCPI_buildTree.obj (.text)
-                  003f0471    000000c4     SCPI_inputBuffer.obj (.text)
-                  003f0535    000000c0     I2c.obj (.text)
-                  003f05f5    000000b4     rts2800_ml.lib : log10.obj (.text)
-                  003f06a9    000000af     SCPI_outputQueue.obj (.text)
-                  003f0758    0000009e     rts2800_ml.lib : exp.obj (.text)
-                  003f07f6    0000009b     StateMachine.obj (.text)
-                  003f0891    00000099     Opp.obj (.text)
-                  003f092a    0000008f     Tmp.obj (.text)
-                  003f09b9    0000008d     rts2800_ml.lib : _log.obj (.text)
-                  003f0a46    0000008c     Main.obj (.text)
-                  003f0ad2    00000088     SCPI_serialEmulation.obj (.text)
-                  003f0b5a    00000087     Sci.obj (.text)
-                  003f0be1    00000083     rts2800_ml.lib : fd_mpy.obj (.text)
-                  003f0c64    00000083                    : fs_div.obj (.text)
-                  003f0ce7    00000083                    : pow.obj (.text)
-                  003f0d6a    0000007f     SCPI_parser.obj (.text)
-                  003f0de9    00000078     rts2800_ml.lib : fs_add.obj (.text)
-                  003f0e61    00000061     I2c.obj (.text:retain)
-                  003f0ec2    0000005c     PWM_2ch_UpCnt_Cnf.obj (.text)
-                  003f0f1e    0000005a     rts2800_ml.lib : fs_mpy.obj (.text)
-                  003f0f78    00000048     Spi.obj (.text:retain)
-                  003f0fc0    00000045     Pwm.obj (.text)
-                  003f1005    00000044     rts2800_ml.lib : boot.obj (.text)
-                  003f1049    00000041                    : ldexp.obj (.text)
-                  003f108a    00000038     Sci.obj (.text:retain)
-                  003f10c2    00000037     Comparator.obj (.text:retain)
-                  003f10f9    00000031     rts2800_ml.lib : modf.obj (.text)
-                  003f112a    0000002c     SCPI_execCtrl.obj (.text)
-                  003f1156    00000029     rts2800_ml.lib : fs_tol.obj (.text)
-                  003f117f    00000022                    : i_div.obj (.text)
-                  003f11a1    00000021                    : fd_toi.obj (.text)
-                  003f11c2    0000001f                    : fd_tol.obj (.text)
-                  003f11e1    0000001e     slaveMode.obj (.text)
-                  003f11ff    0000001d     rts2800_ml.lib : fs_tou.obj (.text)
-                  003f121c    0000001c                    : fs_tofd.obj (.text)
-                  003f1238    0000001b     C28x_SGEN_Lib_fixed.lib : sgti1c.obj (.text)
-                  003f1253    0000001a     rts2800_ml.lib : i_tofs.obj (.text)
-                  003f126d    0000001a                    : l_tofs.obj (.text)
-                  003f1287    00000019                    : args_main.obj (.text)
-                  003f12a0    00000019                    : exit.obj (.text)
-                  003f12b9    00000017                    : fs_cmp.obj (.text)
-                  003f12d0    00000014                    : frexp.obj (.text)
-                  003f12e4    00000013                    : ul_tofs.obj (.text)
-                  003f12f7    00000010     Timers.obj (.text)
-                  003f1307    00000010     rts2800_ml.lib : u_tofs.obj (.text)
-                  003f1317    0000000b                    : u_div.obj (.text)
-                  003f1322    00000009                    : _lock.obj (.text)
-                  003f132b    00000008     DSP2802x_CodeStartBranch.obj (.text)
-                  003f1333    00000005     DevInit_F2802x.obj (.text:retain)
-                  003f1338    00000005     rts2800_ml.lib : fs_neg.obj (.text)
-                  003f133d    00000002     SCPI_specificCmds.obj (.text)
+.text.1    0    003f0206    000012a0     
+                  003f0206    000000e1     SCPI_specificCmds.obj (.text)
+                  003f02e7    000000db     BurnInUnit_ISR.obj (.text)
+                  003f03c2    000000db     SCPI_respFmtr.obj (.text)
+                  003f049d    000000cf     SineGen.obj (.text)
+                  003f056c    000000cc     SCPI_buildTree.obj (.text)
+                  003f0638    000000c4     SCPI_inputBuffer.obj (.text)
+                  003f06fc    000000c0     I2c.obj (.text)
+                  003f07bc    000000b4     rts2800_ml.lib : log10.obj (.text)
+                  003f0870    000000af     SCPI_outputQueue.obj (.text)
+                  003f091f    0000009e     rts2800_ml.lib : exp.obj (.text)
+                  003f09bd    0000009b     StateMachine.obj (.text)
+                  003f0a58    00000099     Opp.obj (.text)
+                  003f0af1    0000008f     Tmp.obj (.text)
+                  003f0b80    0000008d     rts2800_ml.lib : _log.obj (.text)
+                  003f0c0d    0000008c     Main.obj (.text)
+                  003f0c99    00000088     SCPI_serialEmulation.obj (.text)
+                  003f0d21    00000087     Sci.obj (.text)
+                  003f0da8    00000083     rts2800_ml.lib : fs_div.obj (.text)
+                  003f0e2b    00000083                    : pow.obj (.text)
+                  003f0eae    0000007f     SCPI_parser.obj (.text)
+                  003f0f2d    00000078     rts2800_ml.lib : fs_add.obj (.text)
+                  003f0fa5    00000061     I2c.obj (.text:retain)
+                  003f1006    0000005c     PWM_2ch_UpCnt_Cnf.obj (.text)
+                  003f1062    0000005a     rts2800_ml.lib : fs_mpy.obj (.text)
+                  003f10bc    00000048     Spi.obj (.text:retain)
+                  003f1104    00000045     Pwm.obj (.text)
+                  003f1149    00000044     rts2800_ml.lib : boot.obj (.text)
+                  003f118d    00000041                    : ldexp.obj (.text)
+                  003f11ce    00000038     Sci.obj (.text:retain)
+                  003f1206    00000037     Comparator.obj (.text:retain)
+                  003f123d    00000031     rts2800_ml.lib : modf.obj (.text)
+                  003f126e    0000002c     SCPI_execCtrl.obj (.text)
+                  003f129a    00000029     rts2800_ml.lib : fs_tol.obj (.text)
+                  003f12c3    00000025                    : fs_toi.obj (.text)
+                  003f12e8    00000022                    : i_div.obj (.text)
+                  003f130a    00000021                    : fd_toi.obj (.text)
+                  003f132b    0000001f                    : fd_tol.obj (.text)
+                  003f134a    0000001e     slaveMode.obj (.text)
+                  003f1368    0000001d     rts2800_ml.lib : fs_tou.obj (.text)
+                  003f1385    0000001c                    : fs_tofd.obj (.text)
+                  003f13a1    0000001b     C28x_SGEN_Lib_fixed.lib : sgti1c.obj (.text)
+                  003f13bc    0000001a     rts2800_ml.lib : i_tofs.obj (.text)
+                  003f13d6    0000001a                    : l_tofs.obj (.text)
+                  003f13f0    00000019                    : args_main.obj (.text)
+                  003f1409    00000019                    : exit.obj (.text)
+                  003f1422    00000017                    : fs_cmp.obj (.text)
+                  003f1439    00000014                    : frexp.obj (.text)
+                  003f144d    00000013                    : ul_tofs.obj (.text)
+                  003f1460    00000010     Timers.obj (.text)
+                  003f1470    00000010     rts2800_ml.lib : u_tofs.obj (.text)
+                  003f1480    0000000b                    : u_div.obj (.text)
+                  003f148b    00000009                    : _lock.obj (.text)
+                  003f1494    00000008     DSP2802x_CodeStartBranch.obj (.text)
+                  003f149c    00000005     DevInit_F2802x.obj (.text:retain)
+                  003f14a1    00000005     rts2800_ml.lib : fs_neg.obj (.text)
 
-.text.2    0    003f2000    00001fff     
+.text.2    0    003f2000    00001ffd     
                   003f2000    000002b1     Cntl.obj (.text)
                   003f22b1    00000291     Otp.obj (.text)
                   003f2542    000001fa     Ocp.obj (.text)
                   003f273c    000001ee     SCPI_msgEPCtrl.obj (.text)
-                  003f292a    000001e9     SCPI_lexer.obj (.text)
-                  003f2b13    000001e5     SCPI_string.obj (.text)
-                  003f2cf8    000001d3     SCPI_status.obj (.text)
-                  003f2ecb    000001bf     ADC_SOC_Cnf.obj (.text)
-                  003f308a    000001a1     Comparator.obj (.text)
-                  003f322b    000001a0     SCPI_commonCmds.obj (.text)
-                  003f33cb    00000195     Ovp.obj (.text)
-                  003f3560    00000185     MacroNets.obj (.text)
-                  003f36e5    0000017e     SCPI_requiredCmds.obj (.text)
-                  003f3863    00000153     rts2800_ml.lib : strtod.obj (.text)
-                  003f39b6    0000013e     SlewControl.obj (.text)
-                  003f3af4    0000013c     DevInit_F2802x.obj (.text)
-                  003f3c30    00000108     Adc.obj (.text)
-                  003f3d38    000000ec     Spi.obj (.text)
-                  003f3e24    000000db     BurnInUnit_ISR.obj (.text)
-                  003f3eff    000000db     SCPI_respFmtr.obj (.text)
-                  003f3fda    00000025     rts2800_ml.lib : fs_toi.obj (.text)
+                  003f292a    000001eb     MacroNets.obj (.text)
+                  003f2b15    000001e9     SCPI_lexer.obj (.text)
+                  003f2cfe    000001e5     SCPI_string.obj (.text)
+                  003f2ee3    000001d3     SCPI_status.obj (.text)
+                  003f30b6    000001bf     ADC_SOC_Cnf.obj (.text)
+                  003f3275    000001a1     Comparator.obj (.text)
+                  003f3416    000001a0     SCPI_commonCmds.obj (.text)
+                  003f35b6    00000195     Ovp.obj (.text)
+                  003f374b    0000017e     SCPI_requiredCmds.obj (.text)
+                  003f38c9    00000153     rts2800_ml.lib : strtod.obj (.text)
+                  003f3a1c    0000013e     SlewControl.obj (.text)
+                  003f3b5a    0000013c     DevInit_F2802x.obj (.text)
+                  003f3c96    00000108     Adc.obj (.text)
+                  003f3d9e    000000f0     EnableCtrl.obj (.text)
+                  003f3e8e    000000ec     Spi.obj (.text)
+                  003f3f7a    00000083     rts2800_ml.lib : fd_mpy.obj (.text)
 
-.econst    0    003f6000    0000028e     
+.econst    0    003f6000    000002ee     
                   003f6000    00000101     rts2800_ml.lib : ctype.obj (.econst:.string:__ctypes_)
                   003f6101    00000001     Sci.obj (.econst)
                   003f6102    0000007e     SCPI_requiredCmds.obj (.econst:.string)
-                  003f6180    0000005b     SCPI_commonCmds.obj (.econst:.string)
-                  003f61db    00000001     Spi.obj (.econst)
-                  003f61dc    0000002f     SCPI_serialEmulation.obj (.econst:.string)
-                  003f620b    00000001     --HOLE-- [fill = 0]
-                  003f620c    00000014     rts2800_ml.lib : strtod.obj (.econst:_digits)
-                  003f6220    00000010     Adc.obj (.econst:_$P$T0$1)
-                  003f6230    00000010     Adc.obj (.econst:_$P$T1$2)
-                  003f6240    00000010     Adc.obj (.econst:_$P$T2$3)
-                  003f6250    0000000c     rts2800_ml.lib : strtod.obj (.econst:_powerof10)
-                  003f625c    00000008     SCPI_lexer.obj (.econst:.string)
-                  003f6264    00000008     Cntl.obj (.econst)
-                  003f626c    00000008     Ocp.obj (.econst)
-                  003f6274    00000008     Ovp.obj (.econst)
-                  003f627c    00000005     SCPI_buildTree.obj (.econst:.string)
-                  003f6281    00000001     --HOLE-- [fill = 0]
-                  003f6282    00000004     SCPI_string.obj (.econst:.string)
-                  003f6286    00000004     Otp.obj (.econst)
-                  003f628a    00000004     SlewControl.obj (.econst)
+                  003f6180    00000060     SCPI_specificCmds.obj (.econst:.string)
+                  003f61e0    0000005b     SCPI_commonCmds.obj (.econst:.string)
+                  003f623b    00000001     Spi.obj (.econst)
+                  003f623c    0000002f     SCPI_serialEmulation.obj (.econst:.string)
+                  003f626b    00000001     --HOLE-- [fill = 0]
+                  003f626c    00000014     rts2800_ml.lib : strtod.obj (.econst:_digits)
+                  003f6280    00000010     Adc.obj (.econst:_$P$T0$1)
+                  003f6290    00000010     Adc.obj (.econst:_$P$T1$2)
+                  003f62a0    00000010     Adc.obj (.econst:_$P$T2$3)
+                  003f62b0    0000000c     rts2800_ml.lib : strtod.obj (.econst:_powerof10)
+                  003f62bc    00000008     SCPI_lexer.obj (.econst:.string)
+                  003f62c4    00000008     Cntl.obj (.econst)
+                  003f62cc    00000008     Ocp.obj (.econst)
+                  003f62d4    00000008     Ovp.obj (.econst)
+                  003f62dc    00000005     SCPI_buildTree.obj (.econst:.string)
+                  003f62e1    00000001     --HOLE-- [fill = 0]
+                  003f62e2    00000004     SCPI_string.obj (.econst:.string)
+                  003f62e6    00000004     Otp.obj (.econst)
+                  003f62ea    00000004     SlewControl.obj (.econst)
 
-.cinit     0    003f628e    0000014a     
-                  003f628e    0000002d     SCPI_string.obj (.cinit)
-                  003f62bb    00000027     Cntl.obj (.cinit)
-                  003f62e2    00000022     SCPI_msgEPCtrl.obj (.cinit)
-                  003f6304    0000001c     SineGen.obj (.cinit)
-                  003f6320    00000011     I2c.obj (.cinit)
-                  003f6331    00000010     SCPI_inputBuffer.obj (.cinit)
-                  003f6341    00000010     SCPI_respFmtr.obj (.cinit)
-                  003f6351    0000000f     SCPI_lexer.obj (.cinit)
-                  003f6360    0000000d     Main.obj (.cinit)
-                  003f636d    0000000c     EnableCtrl.obj (.cinit)
-                  003f6379    0000000c     SCPI_outputQueue.obj (.cinit)
-                  003f6385    0000000c     Tmp.obj (.cinit)
-                  003f6391    0000000a     rts2800_ml.lib : _lock.obj (.cinit)
-                  003f639b    0000000a                    : exit.obj (.cinit)
-                  003f63a5    00000009     SCPI_buildTree.obj (.cinit)
-                  003f63ae    00000008     MacroNets.obj (.cinit)
-                  003f63b6    00000008     SCPI_parser.obj (.cinit)
-                  003f63be    00000004     Ocp.obj (.cinit)
-                  003f63c2    00000004     Opp.obj (.cinit)
-                  003f63c6    00000004     Ovp.obj (.cinit)
-                  003f63ca    00000004     SCPI_specificCmds.obj (.cinit)
-                  003f63ce    00000004     rts2800_ml.lib : errno.obj (.cinit)
-                  003f63d2    00000004     slaveMode.obj (.cinit)
-                  003f63d6    00000002     --HOLE-- [fill = 0]
+.cinit     0    003f62ee    0000014a     
+                  003f62ee    0000002d     SCPI_string.obj (.cinit)
+                  003f631b    00000027     Cntl.obj (.cinit)
+                  003f6342    00000022     SCPI_msgEPCtrl.obj (.cinit)
+                  003f6364    0000001c     SineGen.obj (.cinit)
+                  003f6380    00000011     I2c.obj (.cinit)
+                  003f6391    00000010     SCPI_inputBuffer.obj (.cinit)
+                  003f63a1    00000010     SCPI_respFmtr.obj (.cinit)
+                  003f63b1    0000000f     SCPI_lexer.obj (.cinit)
+                  003f63c0    0000000d     Main.obj (.cinit)
+                  003f63cd    0000000c     EnableCtrl.obj (.cinit)
+                  003f63d9    0000000c     SCPI_outputQueue.obj (.cinit)
+                  003f63e5    0000000c     Tmp.obj (.cinit)
+                  003f63f1    0000000a     rts2800_ml.lib : _lock.obj (.cinit)
+                  003f63fb    0000000a                    : exit.obj (.cinit)
+                  003f6405    00000009     SCPI_buildTree.obj (.cinit)
+                  003f640e    00000008     MacroNets.obj (.cinit)
+                  003f6416    00000008     SCPI_parser.obj (.cinit)
+                  003f641e    00000004     Ocp.obj (.cinit)
+                  003f6422    00000004     Opp.obj (.cinit)
+                  003f6426    00000004     Ovp.obj (.cinit)
+                  003f642a    00000004     SCPI_specificCmds.obj (.cinit)
+                  003f642e    00000004     rts2800_ml.lib : errno.obj (.cinit)
+                  003f6432    00000004     slaveMode.obj (.cinit)
+                  003f6436    00000002     --HOLE-- [fill = 0]
 
-IQmath     0    003f63d8    0000003c     
-                  003f63d8    00000014     IQmath.lib : IQ14toF.obj (IQmath)
-                  003f63ec    00000014                : IQ24toF.obj (IQmath)
-                  003f6400    00000014                : IQ26toF.obj (IQmath)
+IQmath     0    003f6438    0000003c     
+                  003f6438    00000014     IQmath.lib : IQ14toF.obj (IQmath)
+                  003f644c    00000014                : IQ24toF.obj (IQmath)
+                  003f6460    00000014                : IQ26toF.obj (IQmath)
 
 codestart 
 *          0    003f7ff6    00000002     
@@ -436,29 +437,29 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 address    name
 --------   ----
 ffffffff   .text
-003f12a0   C$$EXIT
-003f0be1   FD$$MPY
-003f11a1   FD$$TOI
-003f11c2   FD$$TOL
-003f0dee   FS$$ADD
-003f12b9   FS$$CMP
-003f0c64   FS$$DIV
-003f0f1e   FS$$MPY
-003f1338   FS$$NEG
-003f0de9   FS$$SUB
-003f121c   FS$$TOFD
-003f3fda   FS$$TOI
-003f1156   FS$$TOL
-003f11ff   FS$$TOU
-003f117f   I$$DIV
-003f1190   I$$MOD
-003f1253   I$$TOFS
-003f126d   L$$TOFS
+003f1409   C$$EXIT
+003f3f7a   FD$$MPY
+003f130a   FD$$TOI
+003f132b   FD$$TOL
+003f0f32   FS$$ADD
+003f1422   FS$$CMP
+003f0da8   FS$$DIV
+003f1062   FS$$MPY
+003f14a1   FS$$NEG
+003f0f2d   FS$$SUB
+003f1385   FS$$TOFD
+003f12c3   FS$$TOI
+003f129a   FS$$TOL
+003f1368   FS$$TOU
+003f12e8   I$$DIV
+003f12f9   I$$MOD
+003f13bc   I$$TOFS
+003f13d6   L$$TOFS
 00008800   SINTAB_360
-003f1317   U$$DIV
-003f131c   U$$MOD
-003f1307   U$$TOFS
-003f12e4   UL$$TOFS
+003f1480   U$$DIV
+003f1485   U$$MOD
+003f1470   U$$TOFS
+003f144d   UL$$TOFS
 00008902   _ADCDRV_1ch_Rlt1
 00008914   _ADCDRV_1ch_Rlt10
 00008916   _ADCDRV_1ch_Rlt11
@@ -472,11 +473,11 @@ ffffffff   .text
 0000890e   _ADCDRV_1ch_Rlt7
 00008910   _ADCDRV_1ch_Rlt8
 00008912   _ADCDRV_1ch_Rlt9
-003f2ecb   _ADC_SOC_CNF
+003f30b6   _ADC_SOC_CNF
 00007100   _AdcRegs
 00000b00   _AdcResult
 000089be   _Alpha_State_Ptr
-003f33b3   _CLS
+003f359e   _CLS
 000089c6   _CNTL_2P2Z_Coef1
 000089d8   _CNTL_2P2Z_Coef2
 000089ea   _CNTL_2P2Z_Coef3
@@ -514,42 +515,42 @@ ffffffff   .text
 00000c10   _CpuTimer2Regs
 003f7ff8   _CsmPwl
 00000ae0   _CsmRegs
-003f0b54   _DCL
-003f0b52   _DFC
-003f0aca   _DLOG_BuffInit
+003f0d1b   _DCL
+003f0d19   _DFC
+003f0c91   _DLOG_BuffInit
 00008000   _DPL_ISR
-003f3e24   _DPL_Init
+003f02e7   _DPL_Init
 00008202   _DSP28x_usDelay
 00000880   _DevEmuRegs
-003f3b6f   _DeviceInit
+003f3bd5   _DeviceInit
 00006a00   _ECap1Regs
 00006800   _EPwm1Regs
 00006840   _EPwm2Regs
 00006880   _EPwm3Regs
 000068c0   _EPwm4Regs
-003f3385   _ESE
-003f337b   _ESR
+003f3570   _ESE
+003f3566   _ESR
 00000d01   _EmuBMode
 00000d00   _EmuKey
 00000a80   _FlashRegs
 00000d04   _Flash_CPUScaleFactor
 00000d02   _Flash_CallbackPtr
-003f0b4c   _GET
-003f0b4a   _GTL
+003f0d13   _GET
+003f0d11   _GTL
 00006f80   _GpioCtrlRegs
 00006fc0   _GpioDataRegs
 00006fe0   _GpioIntRegs
-003f0b48   _HFC
+003f0d0f   _HFC
 00007900   _I2caRegs
-003f3338   _IDN
-003f1333   _ISR_ILLEGAL
+003f3523   _IDN
+003f149c   _ISR_ILLEGAL
 000081e5   _InitFlash
-003f0b46   _LLO
-003f3b5e   _MemCopy
+003f0d0d   _LLO
+003f3bc4   _MemCopy
 00007060   _NmiIntruptRegs
-003f3325   _OPC
-003f3b2c   _PLLset
-003f0b44   _POL
+003f3510   _OPC
+003f3b92   _PLLset
+003f0d0b   _POL
 00008a2c   _PWMDRV_2ch_UpCnt_Duty1A
 00008a2e   _PWMDRV_2ch_UpCnt_Duty1B
 00008a32   _PWMDRV_2ch_UpCnt_Duty2A
@@ -559,278 +560,285 @@ ffffffff   .text
 00008a30   _PWMDRV_2ch_UpCnt_Period1
 00008a36   _PWMDRV_2ch_UpCnt_Period2
 00008a3c   _PWMDRV_2ch_UpCnt_Period3
-003f0ec2   _PWM_2ch_UpCnt_CNF
+003f1006   _PWM_2ch_UpCnt_CNF
 003d7fff   _PartIdRegs
-003f3b0d   _PieCntlInit
+003f3b73   _PieCntlInit
 00000ce0   _PieCtrlRegs
 00000d00   _PieVectTable
-003f3afc   _PieVectTableInit
-003f3321   _RST
+003f3b62   _PieVectTableInit
+003f350c   _RST
 003f0206   _RamfuncsLoadEnd
 003f0000   _RamfuncsLoadStart
 00008000   _RamfuncsRunStart
-003f0b42   _SFC
-003f1238   _SGENTI_1_calc
+003f0d09   _SFC
+003f13a1   _SGENTI_1_calc
 00008f7e   _SGENTI_1ch_VOut
-003f32f1   _SRE
-003f0b40   _SRQ
-003f32db   _STB
+003f34dc   _SRE
+003f0d07   _SRQ
+003f34c6   _STB
 00007050   _SciaRegs
 00000581   _ScpiRegs
 00007040   _SpiaRegs
 00007010   _SysCtrlRegs
 00000985   _SysPwrCtrlRegs
-003f32c8   _TST
-003f32c6   _WAI
-003f3af4   _WDogDisable
+003f34b3   _TST
+003f34b1   _WAI
+003f3b5a   _WDogDisable
 00007070   _XIntruptRegs
-003f63d8   __IQ14toF
-003f63ec   __IQ24toF
-003f6400   __IQ26toF
+003f6438   __IQ14toF
+003f644c   __IQ24toF
+003f6460   __IQ26toF
 000003d0   __STACK_END
 00000380   __STACK_SIZE
 00000001   __TI_args_main
 ffffffff   ___binit__
 ffffffff   ___c_args__
-003f628e   ___cinit__
+003f62ee   ___cinit__
 ffffffff   ___etext__
 ffffffff   ___pinit__
 ffffffff   ___text__
-003f1287   __args_main
+003f13f0   __args_main
 00008fbc   __cleanup_ptr
 003f6000   __ctypes_
 00008fbe   __dtors_ptr
 00008fba   __lock
-003f09b9   __log
-003f132a   __nop
-003f1326   __register_lock
-003f1322   __register_unlock
+003f0b80   __log
+003f1493   __nop
+003f148f   __register_lock
+003f148b   __register_unlock
 00000050   __stack
 00008fb8   __unlock
-003f12a0   _abort
+003f1409   _abort
 00008940   _acICoefs
 00008dd0   _acNets
 00008dea   _acSettings
 00008a1a   _acVCoefs
-003f2cd7   _breakString
-003f0448   _buildScpiTree
-003f1005   _c_int00
+003f2ec2   _breakString
+003f060f   _buildScpiTree
+003f1149   _c_int00
+003f02e5   _calAll
 000005c0   _cfLimits
-003f08f2   _checkAcOpp
+003f0ab9   _checkAcOpp
 003f2516   _checkAcOtp
-003f354f   _checkAcOvp
-003f353e   _checkDcHvOvp
+003f373a   _checkAcOvp
+003f3729   _checkDcHvOvp
 003f272b   _checkDcMidOcp
 003f24ea   _checkDcOtp
 003f24a1   _checkExtOtp
 003f2707   _checkLoadOcp
-003f08bd   _checkLoadOpp
+003f0a84   _checkLoadOpp
 003f2467   _checkLoadOtp
-003f351a   _checkLoadOvp
+003f3705   _checkLoadOvp
 003f26f7   _clearAcOcp
-003f08b1   _clearAcOpp
+003f0a78   _clearAcOpp
 003f245b   _clearAcOtp
-003f350e   _clearAcOvp
-003f3502   _clearDcHvOvp
+003f36f9   _clearAcOvp
+003f36ed   _clearDcHvOvp
 003f26eb   _clearDcMidOcp
-003f34f2   _clearDcMidOvp
+003f36dd   _clearDcMidOvp
 003f244f   _clearDcOtp
 003f2440   _clearExtOtp
-003f0471   _clearIBuff
+003f0638   _clearIBuff
 003f26dc   _clearLoadOcp
-003f08a2   _clearLoadOpp
+003f0a69   _clearLoadOpp
 003f2431   _clearLoadOtp
-003f34e3   _clearLoadOvp
-003f06a9   _clearOQueue
-003f2eba   _clearOperCondRegs
-003f2eab   _clearQuesCondRegs
-003f2ea6   _commandError
-003f0751   _dataOnOQueue
-003f0b3e   _ddd
-003f11e1   _detectSlaveMode
-003f2ea1   _deviceError
-003f02ae   _disableCircuit
-003f2bc9   _dtoa
+003f36ce   _clearLoadOvp
+003f0870   _clearOQueue
+003f30a5   _clearOperCondRegs
+003f3096   _clearQuesCondRegs
+003f3091   _commandError
+003f02e1   _contIdleInit
+003f0918   _dataOnOQueue
+003f0d05   _ddd
+003f134a   _detectSlaveMode
+003f308c   _deviceError
+003f3e5b   _disableCircuit
+003f2db4   _dtoa
 00008f70   _ePWM
-00008dc1   _enableAllFlag
-003f027b   _enableCircuit
+00008dc0   _enableAllFlag
+003f3e26   _enableCircuit
 00008fe9   _errno
-003f112f   _execCtrl
-003f2e9c   _executionError
-003f12a2   _exit
-003f0758   _exp
+003f1273   _execCtrl
+003f3087   _executionError
+003f140b   _exit
+003f091f   _exp
 00008dc2   _extSettings
-003f12d0   _frexp
-003f3204   _getAcDac
+003f1439   _frexp
+003f33ef   _getAcDac
 003f228f   _getAcICoef
 003f26b4   _getAcOcpLevel
 003f26ae   _getAcOcpState
-003f089c   _getAcOppState
+003f0a63   _getAcOppState
 003f241d   _getAcOtp
 003f2417   _getAcOtpState
-003f34bb   _getAcOvpLevel
-003f34b5   _getAcOvpState
+003f36a6   _getAcOvpLevel
+003f36a0   _getAcOvpState
 003f226d   _getAcVCoef
-003f348d   _getDcHvOvpLevel
-003f3487   _getDcHvOvpState
-003f3d10   _getDcHvVoltage
-003f3ce8   _getDcMidCurrent
+003f3e13   _getCurrentState
+003f3678   _getDcHvOvpLevel
+003f3672   _getDcHvOvpState
+003f3d76   _getDcHvVoltage
+003f3d4e   _getDcMidCurrent
 003f2684   _getDcMidOcpLevel
 003f267e   _getDcMidOcpState
-003f3481   _getDcMidOvpState
-003f3cc0   _getDcMidVoltage
+003f366c   _getDcMidOvpState
+003f3d26   _getDcMidVoltage
 003f2403   _getDcOtp
 003f23fd   _getDcOtpState
 003f23d6   _getExtOtp
 003f23c7   _getExtOtpState
-003f3c88   _getLoadCurrent
+003f3cee   _getLoadCurrent
 003f224a   _getLoadICoef
 003f264b   _getLoadOcpLevel
 003f2640   _getLoadOcpState
-003f0891   _getLoadOppState
+003f0a58   _getLoadOppState
 003f23ab   _getLoadOtp
 003f23a0   _getLoadOtpState
-003f3476   _getLoadOvpState
-003f3aca   _getLoadSlewStep
-003f3aa0   _getLoadSlewTarget
-003f3a8f   _getLoadState
-003f3c50   _getLoadVoltage
-003f039a   _getSineGainTarget
-003f0391   _getSineState
+003f3661   _getLoadOvpState
+003f3b30   _getLoadSlewStep
+003f3b06   _getLoadSlewTarget
+003f3af5   _getLoadState
+003f3cb6   _getLoadVoltage
+003f0561   _getSineGainTarget
+003f0558   _getSineState
 00008db0   _i2cIsrErr
 00008db4   _i2cMsgBlank
-003f05d6   _i2cPopMsg
-003f055d   _i2cRead
-003f0593   _i2cWrite
-003f31ee   _initAcComparator
-003f3142   _initAcTripzone
-003f3c30   _initAdc
+003f079d   _i2cPopMsg
+003f0724   _i2cRead
+003f075a   _i2cWrite
+003f33d9   _initAcComparator
+003f332d   _initAcTripzone
+003f3c96   _initAdc
 003f21eb   _initCoefs
-003f31af   _initDcComparator
-003f0206   _initEnableControl
-003f0535   _initI2c
-003f0fdd   _initPwm
-003f0374   _initSine
-003f0880   _initStateMachine
-003f098f   _initTemperature
-003f31a8   _initTripZone
-003f2b87   _itoa
-003f1049   _ldexp
-003f2a65   _lexProgramMsg
+003f339a   _initDcComparator
+003f3d9e   _initEnableControl
+003f06fc   _initI2c
+003f1121   _initPwm
+003f053b   _initSine
+003f0a47   _initStateMachine
+003f0b56   _initTemperature
+003f3393   _initTripZone
+003f02b9   _instCat
+003f0290   _instNsel
+003f028e   _instStat
+003f2d72   _itoa
+003f118d   _ldexp
+003f2c50   _lexProgramMsg
 00008980   _loadICoefs
 00008e00   _loadNets
 00008e40   _loadSettings
-003f05f5   _log10
-003f0a46   _main
-003f10f9   _modf
+003f07bc   _log10
+003f0c0d   _main
+003f123d   _modf
 00000404   _msgs
 00008fe8   _nSel
 00008dbe   _ocpFlagRegister
-003f2e97   _operationComplete
+003f3082   _operationComplete
 00008dbf   _oppFlagRegister
 00008f6f   _otpFlagRegister
 00008fe7   _ovpFlagRegister
-003f0dbe   _parseMsgUnit
-003f04ef   _popIBuff
-003f0721   _popOQueue
-003f0ce7   _pow
-003f0491   _pushIBuff
-003f06cd   _pushOQueue
-003f2e92   _queryError
-003f2e80   _readOISumEven
-003f2e6e   _readQISumEven
-003f092a   _readTemperature
-003f03cd   _registerChild
-003f322b   _registerCommonCommands
-003f133d   _registerDeviceCommands
-003f0ad2   _registerEmulationCommands
-003f3793   _registerRequiredCommands
-003f2e69   _requestControl
-003f0268   _resetEnableControl
-003f112a   _resetExecCtrl
-003f0489   _resetIBuff
-003f2949   _resetLexer
-003f06c5   _resetOQueue
-003f0d6a   _resetParser
-003f3fd4   _resetRespFmtr
-003f3f6a   _respFmtr
-003f3eff   _respond
-003f30de   _rstAcTripzone
-003f30c4   _rstDcTripzone
-003f36b0   _runAll
-003f0b79   _sciInit
-003f0b5a   _sciTx
+003f0f02   _parseMsgUnit
+003f06b6   _popIBuff
+003f08e8   _popOQueue
+003f0e2b   _pow
+003f0658   _pushIBuff
+003f0894   _pushOQueue
+003f307d   _queryError
+003f306b   _readOISumEven
+003f3059   _readQISumEven
+003f0af1   _readTemperature
+003f0594   _registerChild
+003f3416   _registerCommonCommands
+003f0206   _registerDeviceCommands
+003f0c99   _registerEmulationCommands
+003f37f9   _registerRequiredCommands
+003f3054   _requestControl
+003f3e00   _resetEnableControl
+003f126e   _resetExecCtrl
+003f0650   _resetIBuff
+003f2b34   _resetLexer
+003f088c   _resetOQueue
+003f0eae   _resetParser
+003f0497   _resetRespFmtr
+003f042d   _respFmtr
+003f03c2   _respond
+003f32c9   _rstAcTripzone
+003f32af   _rstDcTripzone
+003f2a93   _runAll
+003f0d40   _sciInit
+003f0d21   _sciTx
 003f2792   _scpi
 003f273c   _scpiChangeIOTx
 003f2761   _scpiInit
 003f2745   _scpiReset
 003f277a   _scpiTest
-003f308a   _setAcDac
+003f3275   _setAcDac
 003f218c   _setAcICoef
 003f25e8   _setAcOcpLevel
 003f2370   _setAcOtp
-003f3421   _setAcOvpLevel
+003f360c   _setAcOvpLevel
 003f20f6   _setAcVCoef
-003f33d3   _setDcHvOvpLevel
+003f35be   _setDcHvOvpLevel
 003f2594   _setDcMidOcpLevel
 003f2340   _setDcOtp
 003f22ef   _setExtOtp
 003f204d   _setLoadICoef
 003f254a   _setLoadOcpLevel
 003f22b1   _setLoadOtp
-003f3a48   _setLoadSlewStep
-003f39f9   _setLoadSlewTarget
-003f39e7   _setLoadState
-003f39d8   _setLoadStateAll
-003f2e26   _setOISumBit
-003f2de3   _setQISumBit
-003f0348   _setSineGainTarget
-003f033f   _setSineState
-003f3640   _setupNets
-003f03a5   _shortenName
+003f3aae   _setLoadSlewStep
+003f3a5f   _setLoadSlewTarget
+003f3a4d   _setLoadState
+003f3a3e   _setLoadStateAll
+003f3011   _setOISumBit
+003f2fce   _setQISumBit
+003f050f   _setSineGainTarget
+003f050d   _setSineRmsTarget
+003f0504   _setSineState
+003f2a23   _setupNets
+003f056c   _shortenName
 00008932   _sigGen
 00008fea   _slaveModeStatus
-003f3d81   _spiInit
-003f3d38   _spiTx
-003f378a   _statOperCond
-003f375c   _statOperEnab
-003f374b   _statOperEven
-003f3745   _statPres
-003f373c   _statQuesCond
-003f370e   _statQuesEnab
-003f36fd   _statQuesEven
-003f3560   _stopAll
-00008dc0   _stopAllFlag
-003f2b7e   _strcat
-003f2b13   _strchr
-003f2b6a   _strcmp
-003f2b64   _strcpy
-003f2b2c   _strcspn
-003f2b1d   _strspn
-003f3863   _strtod
-003f2b5c   _strtok
-003f2b3b   _strtok_r
-003f36f3   _systErrNext
-003f36e5   _systVers
-003f12f7   _timersSetupReal
+003f3ed7   _spiInit
+003f3e8e   _spiTx
+003f37f0   _statOperCond
+003f37c2   _statOperEnab
+003f37b1   _statOperEven
+003f37ab   _statPres
+003f37a2   _statQuesCond
+003f3774   _statQuesEnab
+003f3763   _statQuesEven
+003f292a   _stopAll
+00008dc1   _stopAllFlag
+003f2d69   _strcat
+003f2cfe   _strchr
+003f2d55   _strcmp
+003f2d4f   _strcpy
+003f2d17   _strcspn
+003f2d08   _strspn
+003f38c9   _strtod
+003f2d47   _strtok
+003f2d26   _strtok_r
+003f3759   _systErrNext
+003f374b   _systVers
+003f1460   _timersSetupReal
 00008a80   _tree
 003f2542   _tripAcOcp
-003f33cb   _tripDcMidOvp
-003f2d45   _updateESB
-003f39b6   _updateLoadSlew
-003f2d53   _updateMAV
-003f2ddb   _updateMSS
-003f2d35   _updateOPER
-003f2cf8   _updateOperReg
-003f2d94   _updateQUES
-003f2d65   _updateQuesReg
-003f2da4   _updateSTB
-003f0318   _updateSineGain
-003f02d8   _updateSineSignal
+003f35b6   _tripDcMidOvp
+003f2f30   _updateESB
+003f3a1c   _updateLoadSlew
+003f2f3e   _updateMAV
+003f2fc6   _updateMSS
+003f2f20   _updateOPER
+003f2ee3   _updateOperReg
+003f2f7f   _updateQUES
+003f2f50   _updateQuesReg
+003f2f8f   _updateSTB
+003f04dd   _updateSineGain
+003f049d   _updateSineSignal
 00008dc8   _xfmrNets
 00008dda   _xfmrSettings
 ffffffff   binit
-003f628e   cinit
+003f62ee   cinit
 003f7ff6   code_start
 ffffffff   etext
 ffffffff   pinit
@@ -945,8 +953,8 @@ address    name
 00008db4   _i2cMsgBlank
 00008dbe   _ocpFlagRegister
 00008dbf   _oppFlagRegister
-00008dc0   _stopAllFlag
-00008dc1   _enableAllFlag
+00008dc0   _enableAllFlag
+00008dc1   _stopAllFlag
 00008dc2   _extSettings
 00008dc8   _xfmrNets
 00008dd0   _acNets
@@ -968,103 +976,109 @@ address    name
 003d7fff   _PartIdRegs
 003f0000   _RamfuncsLoadStart
 003f0206   _RamfuncsLoadEnd
-003f0206   _initEnableControl
-003f0268   _resetEnableControl
-003f027b   _enableCircuit
-003f02ae   _disableCircuit
-003f02d8   _updateSineSignal
-003f0318   _updateSineGain
-003f033f   _setSineState
-003f0348   _setSineGainTarget
-003f0374   _initSine
-003f0391   _getSineState
-003f039a   _getSineGainTarget
-003f03a5   _shortenName
-003f03cd   _registerChild
-003f0448   _buildScpiTree
-003f0471   _clearIBuff
-003f0489   _resetIBuff
-003f0491   _pushIBuff
-003f04ef   _popIBuff
-003f0535   _initI2c
-003f055d   _i2cRead
-003f0593   _i2cWrite
-003f05d6   _i2cPopMsg
-003f05f5   _log10
-003f06a9   _clearOQueue
-003f06c5   _resetOQueue
-003f06cd   _pushOQueue
-003f0721   _popOQueue
-003f0751   _dataOnOQueue
-003f0758   _exp
-003f0880   _initStateMachine
-003f0891   _getLoadOppState
-003f089c   _getAcOppState
-003f08a2   _clearLoadOpp
-003f08b1   _clearAcOpp
-003f08bd   _checkLoadOpp
-003f08f2   _checkAcOpp
-003f092a   _readTemperature
-003f098f   _initTemperature
-003f09b9   __log
-003f0a46   _main
-003f0aca   _DLOG_BuffInit
-003f0ad2   _registerEmulationCommands
-003f0b3e   _ddd
-003f0b40   _SRQ
-003f0b42   _SFC
-003f0b44   _POL
-003f0b46   _LLO
-003f0b48   _HFC
-003f0b4a   _GTL
-003f0b4c   _GET
-003f0b52   _DFC
-003f0b54   _DCL
-003f0b5a   _sciTx
-003f0b79   _sciInit
-003f0be1   FD$$MPY
-003f0c64   FS$$DIV
-003f0ce7   _pow
-003f0d6a   _resetParser
-003f0dbe   _parseMsgUnit
-003f0de9   FS$$SUB
-003f0dee   FS$$ADD
-003f0ec2   _PWM_2ch_UpCnt_CNF
-003f0f1e   FS$$MPY
-003f0fdd   _initPwm
-003f1005   _c_int00
-003f1049   _ldexp
-003f10f9   _modf
-003f112a   _resetExecCtrl
-003f112f   _execCtrl
-003f1156   FS$$TOL
-003f117f   I$$DIV
-003f1190   I$$MOD
-003f11a1   FD$$TOI
-003f11c2   FD$$TOL
-003f11e1   _detectSlaveMode
-003f11ff   FS$$TOU
-003f121c   FS$$TOFD
-003f1238   _SGENTI_1_calc
-003f1253   I$$TOFS
-003f126d   L$$TOFS
-003f1287   __args_main
-003f12a0   C$$EXIT
-003f12a0   _abort
-003f12a2   _exit
-003f12b9   FS$$CMP
-003f12d0   _frexp
-003f12e4   UL$$TOFS
-003f12f7   _timersSetupReal
-003f1307   U$$TOFS
-003f1317   U$$DIV
-003f131c   U$$MOD
-003f1322   __register_unlock
-003f1326   __register_lock
-003f132a   __nop
-003f1333   _ISR_ILLEGAL
-003f1338   FS$$NEG
-003f133d   _registerDeviceCommands
+003f0206   _registerDeviceCommands
+003f028e   _instStat
+003f0290   _instNsel
+003f02b9   _instCat
+003f02e1   _contIdleInit
+003f02e5   _calAll
+003f02e7   _DPL_Init
+003f03c2   _respond
+003f042d   _respFmtr
+003f0497   _resetRespFmtr
+003f049d   _updateSineSignal
+003f04dd   _updateSineGain
+003f0504   _setSineState
+003f050d   _setSineRmsTarget
+003f050f   _setSineGainTarget
+003f053b   _initSine
+003f0558   _getSineState
+003f0561   _getSineGainTarget
+003f056c   _shortenName
+003f0594   _registerChild
+003f060f   _buildScpiTree
+003f0638   _clearIBuff
+003f0650   _resetIBuff
+003f0658   _pushIBuff
+003f06b6   _popIBuff
+003f06fc   _initI2c
+003f0724   _i2cRead
+003f075a   _i2cWrite
+003f079d   _i2cPopMsg
+003f07bc   _log10
+003f0870   _clearOQueue
+003f088c   _resetOQueue
+003f0894   _pushOQueue
+003f08e8   _popOQueue
+003f0918   _dataOnOQueue
+003f091f   _exp
+003f0a47   _initStateMachine
+003f0a58   _getLoadOppState
+003f0a63   _getAcOppState
+003f0a69   _clearLoadOpp
+003f0a78   _clearAcOpp
+003f0a84   _checkLoadOpp
+003f0ab9   _checkAcOpp
+003f0af1   _readTemperature
+003f0b56   _initTemperature
+003f0b80   __log
+003f0c0d   _main
+003f0c91   _DLOG_BuffInit
+003f0c99   _registerEmulationCommands
+003f0d05   _ddd
+003f0d07   _SRQ
+003f0d09   _SFC
+003f0d0b   _POL
+003f0d0d   _LLO
+003f0d0f   _HFC
+003f0d11   _GTL
+003f0d13   _GET
+003f0d19   _DFC
+003f0d1b   _DCL
+003f0d21   _sciTx
+003f0d40   _sciInit
+003f0da8   FS$$DIV
+003f0e2b   _pow
+003f0eae   _resetParser
+003f0f02   _parseMsgUnit
+003f0f2d   FS$$SUB
+003f0f32   FS$$ADD
+003f1006   _PWM_2ch_UpCnt_CNF
+003f1062   FS$$MPY
+003f1121   _initPwm
+003f1149   _c_int00
+003f118d   _ldexp
+003f123d   _modf
+003f126e   _resetExecCtrl
+003f1273   _execCtrl
+003f129a   FS$$TOL
+003f12c3   FS$$TOI
+003f12e8   I$$DIV
+003f12f9   I$$MOD
+003f130a   FD$$TOI
+003f132b   FD$$TOL
+003f134a   _detectSlaveMode
+003f1368   FS$$TOU
+003f1385   FS$$TOFD
+003f13a1   _SGENTI_1_calc
+003f13bc   I$$TOFS
+003f13d6   L$$TOFS
+003f13f0   __args_main
+003f1409   C$$EXIT
+003f1409   _abort
+003f140b   _exit
+003f1422   FS$$CMP
+003f1439   _frexp
+003f144d   UL$$TOFS
+003f1460   _timersSetupReal
+003f1470   U$$TOFS
+003f1480   U$$DIV
+003f1485   U$$MOD
+003f148b   __register_unlock
+003f148f   __register_lock
+003f1493   __nop
+003f149c   _ISR_ILLEGAL
+003f14a1   FS$$NEG
 003f204d   _setLoadICoef
 003f20f6   _setAcVCoef
 003f218c   _setAcICoef
@@ -1112,122 +1126,123 @@ address    name
 003f2761   _scpiInit
 003f277a   _scpiTest
 003f2792   _scpi
-003f2949   _resetLexer
-003f2a65   _lexProgramMsg
-003f2b13   _strchr
-003f2b1d   _strspn
-003f2b2c   _strcspn
-003f2b3b   _strtok_r
-003f2b5c   _strtok
-003f2b64   _strcpy
-003f2b6a   _strcmp
-003f2b7e   _strcat
-003f2b87   _itoa
-003f2bc9   _dtoa
-003f2cd7   _breakString
-003f2cf8   _updateOperReg
-003f2d35   _updateOPER
-003f2d45   _updateESB
-003f2d53   _updateMAV
-003f2d65   _updateQuesReg
-003f2d94   _updateQUES
-003f2da4   _updateSTB
-003f2ddb   _updateMSS
-003f2de3   _setQISumBit
-003f2e26   _setOISumBit
-003f2e69   _requestControl
-003f2e6e   _readQISumEven
-003f2e80   _readOISumEven
-003f2e92   _queryError
-003f2e97   _operationComplete
-003f2e9c   _executionError
-003f2ea1   _deviceError
-003f2ea6   _commandError
-003f2eab   _clearQuesCondRegs
-003f2eba   _clearOperCondRegs
-003f2ecb   _ADC_SOC_CNF
-003f308a   _setAcDac
-003f30c4   _rstDcTripzone
-003f30de   _rstAcTripzone
-003f3142   _initAcTripzone
-003f31a8   _initTripZone
-003f31af   _initDcComparator
-003f31ee   _initAcComparator
-003f3204   _getAcDac
-003f322b   _registerCommonCommands
-003f32c6   _WAI
-003f32c8   _TST
-003f32db   _STB
-003f32f1   _SRE
-003f3321   _RST
-003f3325   _OPC
-003f3338   _IDN
-003f337b   _ESR
-003f3385   _ESE
-003f33b3   _CLS
-003f33cb   _tripDcMidOvp
-003f33d3   _setDcHvOvpLevel
-003f3421   _setAcOvpLevel
-003f3476   _getLoadOvpState
-003f3481   _getDcMidOvpState
-003f3487   _getDcHvOvpState
-003f348d   _getDcHvOvpLevel
-003f34b5   _getAcOvpState
-003f34bb   _getAcOvpLevel
-003f34e3   _clearLoadOvp
-003f34f2   _clearDcMidOvp
-003f3502   _clearDcHvOvp
-003f350e   _clearAcOvp
-003f351a   _checkLoadOvp
-003f353e   _checkDcHvOvp
-003f354f   _checkAcOvp
-003f3560   _stopAll
-003f3640   _setupNets
-003f36b0   _runAll
-003f36e5   _systVers
-003f36f3   _systErrNext
-003f36fd   _statQuesEven
-003f370e   _statQuesEnab
-003f373c   _statQuesCond
-003f3745   _statPres
-003f374b   _statOperEven
-003f375c   _statOperEnab
-003f378a   _statOperCond
-003f3793   _registerRequiredCommands
-003f3863   _strtod
-003f39b6   _updateLoadSlew
-003f39d8   _setLoadStateAll
-003f39e7   _setLoadState
-003f39f9   _setLoadSlewTarget
-003f3a48   _setLoadSlewStep
-003f3a8f   _getLoadState
-003f3aa0   _getLoadSlewTarget
-003f3aca   _getLoadSlewStep
-003f3af4   _WDogDisable
-003f3afc   _PieVectTableInit
-003f3b0d   _PieCntlInit
-003f3b2c   _PLLset
-003f3b5e   _MemCopy
-003f3b6f   _DeviceInit
-003f3c30   _initAdc
-003f3c50   _getLoadVoltage
-003f3c88   _getLoadCurrent
-003f3cc0   _getDcMidVoltage
-003f3ce8   _getDcMidCurrent
-003f3d10   _getDcHvVoltage
-003f3d38   _spiTx
-003f3d81   _spiInit
-003f3e24   _DPL_Init
-003f3eff   _respond
-003f3f6a   _respFmtr
-003f3fd4   _resetRespFmtr
-003f3fda   FS$$TOI
+003f292a   _stopAll
+003f2a23   _setupNets
+003f2a93   _runAll
+003f2b34   _resetLexer
+003f2c50   _lexProgramMsg
+003f2cfe   _strchr
+003f2d08   _strspn
+003f2d17   _strcspn
+003f2d26   _strtok_r
+003f2d47   _strtok
+003f2d4f   _strcpy
+003f2d55   _strcmp
+003f2d69   _strcat
+003f2d72   _itoa
+003f2db4   _dtoa
+003f2ec2   _breakString
+003f2ee3   _updateOperReg
+003f2f20   _updateOPER
+003f2f30   _updateESB
+003f2f3e   _updateMAV
+003f2f50   _updateQuesReg
+003f2f7f   _updateQUES
+003f2f8f   _updateSTB
+003f2fc6   _updateMSS
+003f2fce   _setQISumBit
+003f3011   _setOISumBit
+003f3054   _requestControl
+003f3059   _readQISumEven
+003f306b   _readOISumEven
+003f307d   _queryError
+003f3082   _operationComplete
+003f3087   _executionError
+003f308c   _deviceError
+003f3091   _commandError
+003f3096   _clearQuesCondRegs
+003f30a5   _clearOperCondRegs
+003f30b6   _ADC_SOC_CNF
+003f3275   _setAcDac
+003f32af   _rstDcTripzone
+003f32c9   _rstAcTripzone
+003f332d   _initAcTripzone
+003f3393   _initTripZone
+003f339a   _initDcComparator
+003f33d9   _initAcComparator
+003f33ef   _getAcDac
+003f3416   _registerCommonCommands
+003f34b1   _WAI
+003f34b3   _TST
+003f34c6   _STB
+003f34dc   _SRE
+003f350c   _RST
+003f3510   _OPC
+003f3523   _IDN
+003f3566   _ESR
+003f3570   _ESE
+003f359e   _CLS
+003f35b6   _tripDcMidOvp
+003f35be   _setDcHvOvpLevel
+003f360c   _setAcOvpLevel
+003f3661   _getLoadOvpState
+003f366c   _getDcMidOvpState
+003f3672   _getDcHvOvpState
+003f3678   _getDcHvOvpLevel
+003f36a0   _getAcOvpState
+003f36a6   _getAcOvpLevel
+003f36ce   _clearLoadOvp
+003f36dd   _clearDcMidOvp
+003f36ed   _clearDcHvOvp
+003f36f9   _clearAcOvp
+003f3705   _checkLoadOvp
+003f3729   _checkDcHvOvp
+003f373a   _checkAcOvp
+003f374b   _systVers
+003f3759   _systErrNext
+003f3763   _statQuesEven
+003f3774   _statQuesEnab
+003f37a2   _statQuesCond
+003f37ab   _statPres
+003f37b1   _statOperEven
+003f37c2   _statOperEnab
+003f37f0   _statOperCond
+003f37f9   _registerRequiredCommands
+003f38c9   _strtod
+003f3a1c   _updateLoadSlew
+003f3a3e   _setLoadStateAll
+003f3a4d   _setLoadState
+003f3a5f   _setLoadSlewTarget
+003f3aae   _setLoadSlewStep
+003f3af5   _getLoadState
+003f3b06   _getLoadSlewTarget
+003f3b30   _getLoadSlewStep
+003f3b5a   _WDogDisable
+003f3b62   _PieVectTableInit
+003f3b73   _PieCntlInit
+003f3b92   _PLLset
+003f3bc4   _MemCopy
+003f3bd5   _DeviceInit
+003f3c96   _initAdc
+003f3cb6   _getLoadVoltage
+003f3cee   _getLoadCurrent
+003f3d26   _getDcMidVoltage
+003f3d4e   _getDcMidCurrent
+003f3d76   _getDcHvVoltage
+003f3d9e   _initEnableControl
+003f3e00   _resetEnableControl
+003f3e13   _getCurrentState
+003f3e26   _enableCircuit
+003f3e5b   _disableCircuit
+003f3e8e   _spiTx
+003f3ed7   _spiInit
+003f3f7a   FD$$MPY
 003f6000   __ctypes_
-003f628e   ___cinit__
-003f628e   cinit
-003f63d8   __IQ14toF
-003f63ec   __IQ24toF
-003f6400   __IQ26toF
+003f62ee   ___cinit__
+003f62ee   cinit
+003f6438   __IQ14toF
+003f644c   __IQ24toF
+003f6460   __IQ26toF
 003f7ff6   code_start
 003f7ff8   _CsmPwl
 ffffffff   .text
@@ -1240,4 +1255,4 @@ ffffffff   binit
 ffffffff   etext
 ffffffff   pinit
 
-[399 symbols]
+[406 symbols]
