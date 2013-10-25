@@ -68,7 +68,7 @@ void resetEnableControl (void) {
 
 Uint16 enableCircuit(circuitSection section) {
 	Uint16 err = 0, msk = 1;
-	if (section >= maxchan)	/* Ensure channel is valid */
+	if (section >= maxchan)	/* Ensure section is valid */
 		return CHANNEL_OOB;
 							/* Enable the related bit in the current GPIO state */
 	if (ALL_DISABLED_WORD & (1 << section))
@@ -87,8 +87,8 @@ Uint16 enableCircuit(circuitSection section) {
 
 Uint16 disableCircuit (circuitSection section) {
 	Uint16 err = 0, msk = 1;
-	if (section >= maxchan)	/* Ensure channel is valid */
-			return CHANNEL_OOB;
+	if (section >= maxchan)	/* Ensure section is valid */
+		return CHANNEL_OOB;
 							/* Disable the related bit in the current GPIO state */
 	if (ALL_DISABLED_WORD & (1 << section))
 		msk = crntState | (msk << section);
@@ -102,4 +102,15 @@ Uint16 disableCircuit (circuitSection section) {
 		return err;
 	crntState = msk;		/* Update the current GPIO state record */
 	return 0;
+}
+
+Uint16 getCurrentState (circuitSection section, Uint16 *state) {
+	Uint16 msk = 0;
+	if (section >= maChan)	/* Ensure section is valid */
+		return CHANNEL_OOB;
+	msk = 1 << section;		/* Create mask for specified section */
+							/* Check if the section's current state is the same as the
+							 * section's disabled state and return accordingly
+							 */
+	return ((ALL_DISABLED_WORD & msk) == (crntStat & msk)) ? 0 : 1;
 }

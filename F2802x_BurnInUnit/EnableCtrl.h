@@ -112,4 +112,11 @@ extern Uint16 enableCircuit (circuitSection section);
  */
 extern Uint16 disableCircuit (circuitSection section);
 
+/** Gets the current state of the specified circuit section.
+ * @param[in]	section	Specifies the circuit section for which the state is to be queried.
+ * @param[out]	state	Pointer to location at which to replace query result (Disabled = 0, enabled = !0).
+ * @return				Error status.
+ */
+extern Uint16 getCurrentState (circuitSection section, Uint16 *state);
+
 #endif /* ENABLECTRL_H_ */
