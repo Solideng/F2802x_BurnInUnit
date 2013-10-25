@@ -66,14 +66,14 @@
 /*============= GLOBAL FUNCTIONS ==============*/
 extern Uint16 registerDeviceCommands (void);
 /*=========== CALIBRATION SUBSYSTEM ===========*/
-//extern Uint16 calAll (double * parameters, bool isQuery);
-///*============= CONTROL SUBSYSTEM =============*/
-//extern Uint16 contIdleInit (double * parameters, bool isQuery);
-///*=========== INSTRUMENT SUBSYSTEM ============*/
-//extern Uint16 instCat (double * parameters, bool isQuery);
-//extern Uint16 instNsel (double * parameters, bool isQuery);
-//extern Uint16 instStat (double * parameters, bool isQuery);
-///*============== INPUT SUBSYSTEM ==============*/
+extern Uint16 calAll (double * parameters, bool isQuery);
+/*============= CONTROL SUBSYSTEM =============*/
+extern Uint16 contIdleInit (double * parameters, bool isQuery);
+/*=========== INSTRUMENT SUBSYSTEM ============*/
+extern Uint16 instCat (double * parameters, bool isQuery);
+extern Uint16 instNsel (double * parameters, bool isQuery);
+extern Uint16 instStat (double * parameters, bool isQuery);
+/*============== INPUT SUBSYSTEM ==============*/
 //extern Uint16 outpStat (double * parameters, bool isQuery);
 ///*============= OUTPUT SUBSYSTEM ==============*/
 //extern Uint16 inpStat (double * parameters, bool isQuery);

@@ -5,18 +5,18 @@ Uint16 nSel = 0;
 Uint16 registerDeviceCommands (void) {
 	/* String literals MUST be all upper case */
 	Uint16 err = 0;
-//	err += registerChild ("CALIBRATION", "ROOT", false, false, pNone, &calAll);			/* Header with optional child. */
-//	err += registerChild ("ALL", "CAL", false, false, pNone, &calAll);					/* Optional child. */
-//
-//	err += registerChild ("CONTROL", "ROOT", true, false, pNone, NULL);					/* Header only. */
-//	err += registerChild ("IDLE", "CONT", false, false, pNone, &contIdleInit);			/* Header with optional child. */
-//	err += registerChild ("INITIATE", "IDLE", false, false, pNone, &contIdleInit);		/* Optional child. */
-//
-//	err += registerChild ("INSTRUMENT", "ROOT", false, true, pNumber, &instNsel);		/* Header with optional child. */
-//	err += registerChild ("CATALOG", "INST", true, true, pNone, &instCat);				/* Child, query only */
-//	err += registerChild ("NSELECT", "INST", false, true, pNumber, &instNsel);			/* Optional child. */
-//	err += registerChild ("STATE", "INST", false, true, pBool, &instStat);				/* child. */
-//
+	err += registerChild ("CALIBRATION", "ROOT", false, false, pNone, &calAll);			/* Header with optional child. */
+	err += registerChild ("ALL", "CAL", false, false, pNone, &calAll);					/* Optional child. */
+
+	err += registerChild ("CONTROL", "ROOT", true, false, pNone, NULL);					/* Header only. */
+	err += registerChild ("IDLE", "CONT", false, false, pNone, &contIdleInit);			/* Header with optional child. */
+	err += registerChild ("INITIATE", "IDLE", false, false, pNone, &contIdleInit);		/* Optional child. */
+
+	err += registerChild ("INSTRUMENT", "ROOT", false, true, pNumber, &instNsel);		/* Header with optional child. */
+	err += registerChild ("CATALOG", "INST", true, true, pNone, &instCat);				/* Child, query only */
+	err += registerChild ("NSELECT", "INST", false, true, pNumber, &instNsel);			/* Optional child. */
+	err += registerChild ("STATE", "INST", false, true, pBool, &instStat);				/* child. */
+
 //	err += registerChild ("OUTPUT", "ROOT", false, true, pBool, &outpStat);				/* Header with optional child. */
 //	err += registerChild ("STATE", "OUTP", false, true, pBool, &outpStat);				/* Optional child. */
 //
@@ -84,53 +84,56 @@ Uint16 registerDeviceCommands (void) {
 	return err;
 }
 
-//Uint16 calAll (double * parameters, bool isQuery) {
-//	// Optional child
-//	// TODO write CAL cmd
-//	// Full system calibration
-//	return 0;
-//}
-//
-//Uint16 contIdleInit (double * parameters, bool isQuery) {
-//	// Child
-//	// TODO write IDLE cmd
-//	// Returns the device to the idle state.
-//	return 0;
-//}
-//
-//Uint16 instCat (double * parameters, bool isQuery) {
-//	/* Child. Queries the available selection of logical instruments. */
-//	Uint16 err = 0;
-//	Uint16 i = 0;
-//	for (i = 0; i < NUM_CHNLS; i++) {
-//		 if (i != (NUM_CHNLS - 1))
-//			 err += respond(&i, Integer, false);
-//		 else
-//			 err += respond(&i, Integer, true);
-//	}
-//	return err;
-//}
-//
-//Uint16 instNsel (double * parameters, bool isQuery) {
-//	/* Optional child. Sets or queries the currently selected logical instrument. */
-//	if (isQuery) {
-//		return respond (&nSel, Integer, true);
-//	}
-//
-//	if ((*parameters > 0) && (*parameters < NUM_CHNLS)) {
-//		nSel = *parameters;
-//		return 0;
-//	}
-//	return 1;
-//}
-//
-//Uint16 instStat (double * parameters, bool isQuery) {
-//	// Child
-//	// TODO write cmd
-//	// Turns the selected logical instrument on or off.
-//	return 0;
-//}
-//
+Uint16 calAll (double * parameters, bool isQuery) {
+	// Optional child
+	// TODO write CAL cmd
+	// Full system calibration
+	return 0;
+}
+
+Uint16 contIdleInit (double * parameters, bool isQuery) {
+	/* Child. Returns the device to the idle state. */
+	stopAll();
+	return 0;
+}
+
+Uint16 instCat (double * parameters, bool isQuery) {
+	/* Child. Queries the available selection of logical instruments. */
+	Uint16 i = 0, err = 0, lim = 0;
+	if (slaveModeStatus != masterUnit) {
+		lim = 4;	/* If the unit is a slave or single, there should be 4 loads */
+	} else {
+		lim = 8;	/* If the unit is a master there should be 8 loads */
+	}
+	lim--;			/* Decrement by 1 to allow for different last response command */
+	for (i = 0; i < lim; i++)
+		err += respond(&i, Integer, false);	/* Respond with lim numbers of load numbers */
+
+					/* Respond with final load number */
+	err +- respond(&i, Integer, true);
+	return err;
+}
+
+Uint16 instNsel (double * parameters, bool isQuery) {
+	/* Optional child. Sets or queries the currently selected logical instrument. */
+	if (isQuery) {
+		return respond (&nSel, Integer, true);
+	}
+
+	if ((*parameters > 0) && (*parameters < NUM_CHNLS)) {
+		nSel = *parameters;
+		return 0;
+	}
+	return 1;
+}
+
+Uint16 instStat (double * parameters, bool isQuery) {
+	// Child
+	// TODO write cmd
+	// Turns the selected logical instrument on or off.
+	return 0;
+}
+
 //Uint16 outpStat (double * parameters, bool isQuery) {
 //	// Optional child
 //	// TODO write cmd - outpStat
