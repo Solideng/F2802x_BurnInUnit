@@ -16,10 +16,10 @@
 //  to detect if slave mode is removed (changed back to master).
 
 static interrupt void spiTxFifoIsr (void);
-static interrupt void spiRxFifoIsr (void);
-static interrupt void startSpiRxFifoIsr (void);
-static interrupt void doNothingIsr (void);
-static void disableXInt2 (void);
+static interrupt void spiRxFifoIsr_Slave (void);
+static interrupt void startSpiRxFifoIsr_Master (void);
+//static interrupt void doNothingIsr (void);
+//static void disableXInt2 (void);
 
 // TODO change sciEchoEnable to be a SCPI register bit
 static Uint16 spiEchoEnable = 0;		/* Sets the SPI to echo any input instead of doing anything else with it. */
@@ -54,48 +54,42 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 	SpiaRegs.SPIFFTX.all = 0x4060 | SPI_FFTX_INTLVL;
 									/* Set Rx FIFO. Clear overflow, FIFO in reset, clear any interrupt, enable
 									 * interrupt and add interrupt level.
-									 */
+									  */
 	SpiaRegs.SPIFFRX.all = 0x4040 | SPI_FFRX_INTLVL;
 	SpiaRegs.SPIFFCT.all = 0x00;	/* Set 0 TxFIFO delay. */
 	SpiaRegs.SPIPRI.all = 0x00;		/* Set free-run and 4-wire mode. */
 
-	EALLOW;
-	PieVectTable.SPIRXINTA = &spiRxFifoIsr;
-	PieVectTable.SPITXINTA = &spiTxFifoIsr;
-	EDIS;
-
-	PieCtrlRegs.PIECTRL.bit.ENPIE = 1;	/* Enable the PIE block. */
-	PieCtrlRegs.PIEIER6.bit.INTx1 = 1;	/* PIE Group 6, INT1. */
-	PieCtrlRegs.PIEIER6.bit.INTx2 = 1;	/* PIE Group 6, INT2. */
 
 	if (mode == spiMaster) {
 		EALLOW;
-									/* Set GPIO6 as input. */
-		GpioCtrlRegs.GPADIR.bit.GPIO6 = 0;
-									/* Enable pull up for slave SRQ (GPIO6) signal. */
-		GpioCtrlRegs.GPAPUD.bit.GPIO6 = 1;
-									/* Select GPIO6 as external interrupt 2. */
-		GpioIntRegs.GPIOXINT2SEL.all = 0x06;
-									/* Map interrupts to ISR functions. */
-		PieVectTable.XINT2 = &startSpiRxFifoIsr;
+		GpioCtrlRegs.GPADIR.bit.GPIO6 	= 0;	/* Set GPIO6 as input */
+		GpioCtrlRegs.GPAPUD.bit.GPIO6 	= 1;	/* Enable pull up for GPIO6 */
+		GpioIntRegs.GPIOXINT2SEL.all 	= 0x06;	/* Select GPIO6 as external interrupt 2 */
+
+		PieVectTable.SPIRXINTA = &spiRxFifoIsr_Master;	/* Set ISR for SPI Rx interrupt */
+		PieVectTable.SPITXINTA = &spiTxFifoIsr_Master;	/* Set ISR for SPI Tx interrupt */
+		PieVectTable.XINT2 = &startSpiRxFifoIsr_Master;	/* Set ISR for XINT2 (Slave SRQ) */
 		EDIS;
-									/* Set external interrupt 2 as falling edge activated. */
-		XIntruptRegs.XINT2CR.bit.POLARITY = (Uint16) fallingEdge;
-									/* Enable external interrupt 2. */
-		XIntruptRegs.XINT2CR.bit.ENABLE = 1;
-									/* PIE Group 1, INT5. */
-		PieCtrlRegs.PIEIER1.bit.INTx5 = 1;
-		IER |= M_INT1;				/* Enable INT 1 group in IER. */
+
+		XIntruptRegs.XINT2CR.bit.POLARITY = (Uint16) fallingEdge;	/* Set external interrupt 2 as falling edge activated */
+		XIntruptRegs.XINT2CR.bit.Enable = 1;	/* Enable external interrupt 2. */
+
+		PieCtrlRegs.PIECTRL.bit.ENPIE  = 1;	/* Enable the PIE block */
+		PieCtrlRegs.PIEIER1.bit.INTx5  = 1;	/* Enable PIE group 1, INT 5, XINT2 */
+		IER  |= M_INT1;	/* Enable group 1 in IER */
 	} else {
-		disableXInt2();				/* Disable external interrupt 2. */
 		EALLOW;
-									/* Set GPIO6 as output. */
-		GpioCtrlRegs.GPADIR.bit.GPIO6 = 1;
-									/* Set GPIO6 output HIGH initially. */
-		GpioDataRegs.GPASET.bit.GPIO6 = 1;
+		GpioCtrlRegs.GPADIR.bit.GPIO6 	= 1;	/* Set GPIO6 as output */
+		GpioDataRegs.GPASET.bit.GPIO6 	= 1;	/* Set GPIO6 to output HIGH initially */
+
+		PieVectTable.SPIRXINTA = &spiRxFifoIsr_Slave;	/* Set ISR for SPI Rx interrupt */
+		PieVectTable.SPITXINTA = &spiTxFifoIsr_Slave;	/* Set ISR for SPI Tx interrupt */
 		EDIS;
+		PieCtrlRegs.PIECTRL.bit.ENPIE  = 1;	/* Enable the PIE block */
 	}
-	IER |= M_INT6;						/* Enable INT 6 group in IER. */
+	PieCtrlRegs.PIEIER6.bit.INTx1  = 1;	/* Enable PIE group 6, INT 1, SPIRXINTA */
+	PieCtrlRegs.PIEIER6.bit.INTx2  = 1;	/* Enable PIE group 6, INT 2, SPITXINTA */
+	IER  |= M_INT6;	/* Enable group 6 in IER */
 
 	/* Relinquish SPI and FIFOs from reset. */
 	SpiaRegs.SPIFFRX.bit.RXFIFORESET = 1;
@@ -105,32 +99,52 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 	return 0;
 }
 
-static void disableXInt2(void) {
-	/* Disable previously setup or enabled interrupt on external interrupt 2. */
-	/* DISCARDS ANY PENDING INTERRUPTS */
-	DINT;									/* Disable global interrupts (INTM = 1). */
-	EALLOW;									/* Set EALLOW. */
-	PieVectTable.XINT2 = &doNothingIsr;		/* Map interrupt to empty ISR. */
-	XIntruptRegs.XINT2CR.bit.ENABLE = 0;	/* Disable external interrupt 2. */
-	EINT;									/* Enable global interrupts (INTM = 0). */
-	DELAY_US(2);							/* Allow time for any pending interrupt to be serviced
-											 *  by the doNothingIsr.
-											 */
-	DINT;									/* Disable global interrupts (INTM = 1). */
-	PieVectTable.XINT2 = &startSpiRxFifoIsr;/* Map interrupt back to correct ISR. */
-	EDIS;									/* Clear EALLOW. */
-	PieCtrlRegs.PIEIER1.bit.INTx5 = 0;		/* Disable in PIE Group 1, INT5. */
-	PieCtrlRegs.PIEIFR1.bit.INTx5 = 0;		/* Ensure interrupt flag is clear. */
-	PieCtrlRegs.PIEACK.bit.ACK1 = 1;		/* Clear the PIE ACK for this group. */
-	EINT;									/* Enable global interrupts (INTM = 0). */
+//static void disableXInt2(void) {
+//	/* Disable previously setup or enabled interrupt on external interrupt 2. */
+//	/* DISCARDS ANY PENDING INTERRUPTS */
+//	DINT;									/* Disable global interrupts (INTM = 1). */
+//	EALLOW;									/* Set EALLOW. */
+//	PieVectTable.XINT2 = &doNothingIsr;		/* Map interrupt to empty ISR. */
+//	XIntruptRegs.XINT2CR.bit.ENABLE = 0;	/* Disable external interrupt 2. */
+//	EINT;									/* Enable global interrupts (INTM = 0). */
+//	DELAY_US(2);							/* Allow time for any pending interrupt to be serviced
+//											 *  by the doNothingIsr.
+//											 */
+//	DINT;									/* Disable global interrupts (INTM = 1). */
+//	PieVectTable.XINT2 = &startSpiRxFifoIsr_Master;/* Map interrupt back to correct ISR. */
+//	EDIS;									/* Clear EALLOW. */
+//	PieCtrlRegs.PIEIER1.bit.INTx5 = 0;		/* Disable in PIE Group 1, INT5. */
+//	PieCtrlRegs.PIEIFR1.bit.INTx5 = 0;		/* Ensure interrupt flag is clear. */
+//	PieCtrlRegs.PIEACK.bit.ACK1 = 1;		/* Clear the PIE ACK for this group. */
+//	EINT;									/* Enable global interrupts (INTM = 0). */
+//}
+//
+//static interrupt void doNothingIsr (void) {
+//	/* Used to sink spurious interrupts when disabling an interrupt. */
+//	return;
+//}
+
+void spiTx_Master (Uint16 length, char * message) {
+	Uint16 popResult = 0;
+	SpiaRegs.SPICTL.bit.TALK = 1;	/* Enable talk */
+
+	// as this is the first time Tx-ing for this message...
+	// find message length in SCPI OQueue
+	// put length into fisrt byte in spiaRegs.SPITXBUF
+
+	while ((SpiaRegs.SPIFFTX.bit.TXFFST < SPI_FFTX_FILLLVL) && (popResult == 0)) {
+											/* Set BRQ as if the FIFO takes more than one byte the pop will
+											 * be called without first running the response state code */
+		msgs.flag.brq = 1;
+		popResult = popOQueue(&dataByte);	/* Pop a data byte from the SCPI output queue */
+		if (!popResult)						/* Check the pop completed correctly */
+			SpiaRegs.SPITXBUF = ((Uint16) dataByte) << 8;	/* Add data byte to FIFO buffer */
+	}
+	SpiaRegs.SPIFFTX.bit.TXFFINTCLR = 1;	/* Clear SPIA FIFO Tx interrupt flag */
 }
 
-static interrupt void doNothingIsr (void) {
-	/* Used to sink spurious interrupts when disabling an interrupt. */
-	return;
-}
-
-void spiTx(void) {
+void spiTx_Slave(void) {
+	// TODO:....
 	/* Pop data from the SCPI output queue and start transmitting it. */
 	Uint16 popResult = 0;
 	char dataByte = 0;
@@ -149,19 +163,21 @@ void spiTx(void) {
 }
 
 static interrupt void spiTxFifoIsr (void) {
+	// TODO:...
 	/* SPI interrupt (SPITXINTA) indicating the SPI is ready to accept more data. */
 	SpiaRegs.SPICTL.bit.TALK = 0;		/* Disable talk. */
 	PieCtrlRegs.PIEACK.bit.ACK6 = 1;	/* Acknowledge interrupt in PIE. */
 }
 
-static interrupt void startSpiRxFifoIsr (void) {
-
+static interrupt void startSpiRxFifoIsr_Master (void) {
+	// TODO:...
 	// TODO: .... check e2e.ti for how to start SPI 'read'
 	// TALK bit?
 	PieCtrlRegs.PIEACK.bit.ACK1 = 1;	/* Acknowledge interrupt in PIE. */
 }
 
-static interrupt void spiRxFifoIsr (void) {
+static interrupt void spiRxFifoIsr_Slave (void) {
+	// TODO: ...
 	/* SPI interrupt (SPIRXINTA) indicating the SPI has received some data. */
     Uint16 pushResult = 0;
     char buf[2] = {0};
