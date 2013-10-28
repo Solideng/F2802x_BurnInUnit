@@ -1,8 +1,28 @@
-/*
- * slaveMode.h
+/**
+ * @file slaveMode.h
  *
- *  Created on: 3 Oct 2013
- *      Author: Toby
+ * @brief Functions and variables used in detection of the mode of the unit.
+ *
+ * These functions determine the mode of the burn in unit and should be run
+ * after system start up. The detection is managed using GPIO6 and GPIO7.
+ * A unit may be in one of four modes: a single unit, a master unit, a slave
+ * unit or alternatively a unit may be in the undetected mode which is the
+ * initial mode of a unit upon startup.
+ *
+ * @warning For the mode to be correctly detected the two units should be
+ * connected while powered off, then the slave unit should be powered on first,
+ * followed by powering on the master unit second. Once detected at startup,
+ * any further changes to the connected mode will not be detected and thus
+ * the detected mode reported will not reflect such changes to the connection
+ * mode of the unit. To change the connection mode of a unit, it, and any
+ * slave or master unit must be powered off again.
+ *
+ * Also note that, as mentioned, the mode detection algorithm uses GPIO6.
+ * However the during initialisation and use of the SPI peripheral GPIO6 is
+ * used as a slave service request line. Thus even if the unit mode is not
+ * used in conjunction with the SPI functions they should still only be used
+ * after the slave mode has been detected.
+ *
  */
 
 #ifndef SLAVEMODE_H_
@@ -19,6 +39,7 @@
 // MAYBE THE MASTER TO SLAVE SPECIFIC FUNCTIONS COULD ALL BE MANAGED BY ONE OR TWO WRAPPER FUNCTIONS THT SIMPLY HANDLE THE CMD
 //  PASS-THROUGH AND RESPONSE??
 
+/** The possible unit modes */
 enum slaveMode {
 	slaveUnit = 0,
 	masterUnit = 1,
@@ -26,10 +47,19 @@ enum slaveMode {
 	undetected = 10
 };
 
+/** A type to allow specification of the unit mode */
 typedef enum slaveMode slaveMode;
 
-extern slaveMode slaveModeStatus;
+extern slaveMode slaveModeStatus;	/**< A global variable that holds the detected mode of the unit, allowing the mode to be queried. */
 
+/** Detects the unit mode.
+ * This should only be run once, at startup, to allow the
+ * mode to be provided to any other function initialisations
+ * that may rely on it.
+ * @return	The detected slave mode. If the mode has already been
+ * 			detected the state will be available by referencing
+ * 			the slaveModeStatus variable instead.
+ */
 extern slaveMode detectSlaveMode (void);
 
 #endif /* SLAVEMODE_H_ */
