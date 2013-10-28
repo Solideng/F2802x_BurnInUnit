@@ -3,6 +3,11 @@
  *
  * @brief Serial peripheral interface communications functions.
  *
+ * As a master GPIO6 is setup as external interrupt 2 for the
+ * slave service request line, set as active low.
+ * As a master GPIO6 is setup as an active low output.
+ *
+ *
  * @warning
  * The following bridge tracks should be cut on the TI
  * C2000 LaunchPad XL PCB before SPI (or I2C) may be used:
