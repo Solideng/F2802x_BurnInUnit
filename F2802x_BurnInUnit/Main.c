@@ -82,7 +82,7 @@ void main (void) {
 
 	detectSlaveMode();		/* Detect if the unit is master, slave or single */
 
-	initI2c();				/* Initialise the I2C control to external devices */
+	initI2c();				/* Initialise the I2C control to external devices (ADC, I/O expander) */
 
 		/* Enable Peripheral, global interrupts and higher priority real-time debug events
 		 * This block with enabled interrupts allows things, like the enable control, to be
@@ -91,7 +91,7 @@ void main (void) {
 	EINT;   				/* Enable global interrupt INTM */
 	ERTM;   				/* Enable global real-time interrupt DBGM */
 	initTemperature();		/* Initialise the temperature sensing. Uses I2C */
-							/* Initialise the external boost converter enable control
+							/* Initialise the external circuit enable control
 							 * - makes sure everything is disabled. Uses I2C
 							 */
 	initEnableControl();
