@@ -56,6 +56,14 @@ extern slaveMode slaveModeStatus;	/**< A global variable that holds the detected
  * This should only be run once, at startup, to allow the
  * mode to be provided to any other function initialisations
  * that may rely on it.
+ *
+ * When a slave unit is powered on the state of GPIO7 is read.
+ * If the reading is LOW, this indicates that the unit is a slave
+ * and subsequently GPIO6 is set HIGH.
+ * If the GPIO7 reading indicated that the unit is a master unit
+ * the state of GPIO6 is then read and if it is LOW it determines
+ * that the unit is a single unit.
+ *
  * @return	The detected slave mode. If the mode has already been
  * 			detected the state will be available by referencing
  * 			the slaveModeStatus variable instead.
