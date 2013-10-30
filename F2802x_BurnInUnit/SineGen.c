@@ -136,6 +136,15 @@ Uint16 getSineState (Uint16 *state) {
 }
 
 Uint16 setSineRmsTarget (float32 rmsTarget) {
+	/* Changes the sine gain target based on an RMS voltage value */
+	float32 max = 0.0;
+	int32 trgt = _IQ24(rmsTarget);
+
+	if (trgt > acSettings.vMaxRms)	/* Check target is less within limits */
+		return VALUE_OOB;
+
+
+
 	return 0;
 }
 
