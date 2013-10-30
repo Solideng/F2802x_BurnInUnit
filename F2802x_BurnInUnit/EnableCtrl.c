@@ -82,6 +82,27 @@ Uint16 enableCircuit(circuitSection section) {
 	if (err)
 		return err;
 	crntState = msk;		/* Update the current GPIO state record */
+
+	if (section <= chan4)	/* Set the settings enable value to allow macros to output and slews to ramp */
+		loadSettings[section].enable = TRUE;
+	else {
+		switch (section) {
+			case xfmrCct:
+				xfmrSettings.enable = TRUE;
+				break;
+			case acCct:
+				acSettings.enable = TRUE;
+				break;
+			case psu:
+				extSettings.extPsuEnable = TRUE;
+				break;
+			case fan:
+				extSettings.extFanEnable = TRUE;
+				break;
+			default:
+				return CHANNEL_OOB;
+		}
+	}
 	return 0;
 }
 
@@ -101,6 +122,27 @@ Uint16 disableCircuit (circuitSection section) {
 	if (err)
 		return err;
 	crntState = msk;		/* Update the current GPIO state record */
+
+	if (section <= chan4)	/* Clear the settings enable value to prevent macro output and slew ramping */
+			loadSettings[section].enable = FALSE;
+	else {
+		switch (section) {
+			case xfmrCct:
+				xfmrSettings.enable = FALSE;
+				break;
+			case acCct:
+				acSettings.enable = FALSE;
+				break;
+			case psu:
+				extSettings.extPsuEnable = FALSE;
+				break;
+			case fan:
+				extSettings.extFanEnable = FALSE;
+				break;
+			default:
+				return CHANNEL_OOB;
+		}
+	}
 	return 0;
 }
 
