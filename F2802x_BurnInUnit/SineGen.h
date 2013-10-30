@@ -23,7 +23,7 @@
 #define SIN_DFLT_RCTFY	TRUE	/**< Initial rectification setting [TRUE | FALSE). */
 #define SIN_DFLT_OFST	0		/**< Initial offset setting [-0.5, +0.5], IQ15. */
 #define SIN_DFLT_PHSE	0		/**< Initial initial phase setting [0, 360), IQ16. */
-#define SIN_DFLT_GAIN	0.9		/**< Initial gain setting [0.0, 1.0]. */
+#define SIN_DFLT_GAIN	0.0		/**< Initial gain setting [0.0, 1.0]. */
 #define SIN_DFLT_F 		50.0	/**< Initial frequency setting (hertz). */
 #define SIN_DFLT_F_MAX 	1000u	/**< Initial maximum frequency setting (hertz). */
 
