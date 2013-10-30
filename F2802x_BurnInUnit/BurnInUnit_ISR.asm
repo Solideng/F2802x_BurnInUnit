@@ -189,47 +189,50 @@ _DPL_ISR:	;(13 cycles to get to here from ISR trigger)
 		CMP		@tsPtr, #2	; Compare the data pointed to by 'tsPtr' to '2'	; 1 CYC :
 		B		TS2, EQ		; Branch to TS2 if the CMP was equal	; 7 CYC :
 TS1:
+		; DO LOOPS FOR LOADS 1-4. CALLED EVERY SECOND TIME. PWMCLK/6
 		INC		@tsPtr		; Increment the data pointed to by 'tsPtr' (from TS1 to TS2)	; 1 CYC :
-		ADCDRV_1ch 1		; Run these macros...
-		CNTL_2P2Z 1
-		ADCDRV_1ch 2
-		CNTL_2P2Z 2
-		PWMDRV_2ch_UpCnt 1			; EPWM1AB
+							; Run these macros...
+		ADCDRV_1ch 1		; LOAD 1 ISNS
+		CNTL_2P2Z 1			; LOAD 1 ICNTL
+		ADCDRV_1ch 2		; LOAD 2 ISNS
+		CNTL_2P2Z 2			; LOAD 2 ICNTL
+		PWMDRV_2ch_UpCnt 1	; EPWM1AB - LOAD 1 & LOAD 2 PWM OUT
 
-		ADCDRV_1ch 3
-		CNTL_2P2Z 3
-		ADCDRV_1ch 4
-		CNTL_2P2Z 4
-		PWMDRV_2ch_UpCnt 2			; EPWM2AB
+		ADCDRV_1ch 3		; LOAD 3 ISNS
+		CNTL_2P2Z 3			; LOAD 3 ICNTL
+		ADCDRV_1ch 4		; LOAD 4 ISNS
+		CNTL_2P2Z 4			; LOAD 4 ICNTL
+		PWMDRV_2ch_UpCnt 2	; EPWM2AB - LOAD 3 & LOAD 4 PWM OUT
 		LB 		TS_END		; Long branch to TS_END	; 4 CYC :
 TS2:
-		ADCDRV_1ch 5		; Run these macros...
-		CNTL_2P2Z 5
-;		CNTL_3P3Z 1
-		MOVW DP, #sgntPtr
-		CMP @sgntPtr, #1
-		B SGNTSKP, EQ
-		MOV @sgntPtr, #0
-		LCR _updateSineSignal
+		;DO LOOPS FOR XFMR & AC STAGE. CALLED EVERY SECOND TIME. PWMCLK/6
+							; Run these macros...
+		ADCDRV_1ch 5		; XFMR ISNS
+							; Sine gen runs at PWMCLK/12
+		MOVW DP, #sgntPtr	; Load the data page pointer with the page that contains 'sgntPtr'
+		CMP @sgntPtr, #1	; Compare the data pointed to by 'sgntPtr' to '1'
+		B SGNTSKP, EQ		; Branch to SGNTSKP if the CMP was equal so as to skip the following two instructions
+		MOV @sgntPtr, #0	; Set 'sgntPtr' to '0'
+		LCR _updateSineSignal	; Run the function 'updateSineSignal()'
 
 SGNTSKP:
-		ADCDRV_1ch 6
-;		CNTL_2P2Z 6
-		CNTL_3P3Z 1
-		PWMDRV_2ch_UpCnt 3			; EPWM3AB
-		ADCDRV_1ch 7
-		ADCDRV_1ch 8
+		ADCDRV_1ch 6		; AC ISNS
+		CNTL_2P2Z 5			; AC ICNTL
+		CNTL_3P3Z 1			; AC VCNTL
+		PWMDRV_2ch_UpCnt 3	; EPWM3AB - XFMR AND AC STAGE PWM OUT
+		ADCDRV_1ch 7		; LOAD 1 VSNS
+		ADCDRV_1ch 8		; LOAD 2 VSNS
 
 		MOVW	DP, #tsPtr	; Load the data page pointer with the page that contains 'tsPtr'		; 1 CYC :
 		MOV 	@tsPtr,#1	; Move 1 into 'tsPtr' (change from TS2 to TS1)	; 1 CYC :
-		MOVW DP, #sgntPtr
-		INC @sgntPtr
+		MOVW DP, #sgntPtr	; Load the data page pointer with the page that contains 'sgntPtr'		; 1 CYC :
+		MOV @sgntPtr, #1	; Move 1 into 'sgntPtr'
 TS_END:	
-		ADCDRV_1ch 9		; Run these macros...
-		ADCDRV_1ch 10
-		ADCDRV_1ch 11
-		ADCDRV_1ch 12
-		ADCDRV_1ch 13
+		ADCDRV_1ch 9		; LOAD 3 VSNS
+		ADCDRV_1ch 10		; LOAD 4 VSNS
+		ADCDRV_1ch 11		; HV VSNS
+		ADCDRV_1ch 12		; AC V SNS
+		ADCDRV_1ch 13		; MID V SNS
 	.endif
 	;---------------------------------------------------------
 	.if(INCR_BUILD = 3) ; Closed-Loop PID
@@ -241,9 +244,9 @@ EXIT_ISR
 ;===================================
 ; Interrupt management before exit
 	MOVW 	DP,#_EPwm1Regs.ETCLR		; Load the data page pointer with the page that contains ETCLR				; 1 CYC :
-	MOV 	@_EPwm1Regs.ETCLR,#0x01			; Clear EPWM1 Int flag	; Move 1 into the address pointed to by ETCLR	; 1 CYC :
+	MOV 	@_EPwm1Regs.ETCLR,#0x01		; Clear EPWM1 Int flag	; Move 1 into the address pointed to by ETCLR	; 1 CYC :
 	MOVW 	DP,#_PieCtrlRegs.PIEACK		; Load the data page pointer with tthe page that contains PIEACK value		; 1 CYC :
-	MOV 	@_PieCtrlRegs.PIEACK, #0x4		; Acknowledge PIE interrupt Group 3	; Move 4 into the address pointed to by PIEACK	; 1 CYC :
+	MOV 	@_PieCtrlRegs.PIEACK, #0x4	; Acknowledge PIE interrupt Group 3	; Move 4 into the address pointed to by PIEACK	; 1 CYC :
 
 ; Restore context & return
 	POP XT					; Pop multiplicand reg	; 1 CYC :
