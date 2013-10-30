@@ -42,17 +42,21 @@
 #define LOAD_I_SCALE		0.125f	/**< Scaling factor for load current ADC. */ // TODO: Get correct value!!
 #define LOAD_V_R1 			18.0f	/**< Scaling voltage divider R1 resistor value for load voltage ADC. */
 #define LOAD_V_R2 			1.0f	/**< Scaling voltage divider R2 resistor value for load voltage ADC. */
+#define LOAD_V_SCALE 		LOAD_V_R2 / (LOAD_V_R1 + LOAD_V_R2)
 
 #define HV_V_R1 			540.0f	/**< Scaling voltage divider R1 resistor value for HV voltage ADC. */
 #define HV_V_R2 			4.3f	/**< Scaling voltage divider R2 resistor value for HV voltage ADC. */
+#define HV_V_SCALE 			HV_V_R2 / (HV_V_R1 + HV_V_R2)
 
 #define MID_I_SCALE 		1.0f	/**< Scaling factor for MID current ADC. */ // TODO: Get correct value!!
 #define MID_V_R1			540.0f	/**< Scaling voltage divider R1 resistor value for MID voltage ADC. */
 #define MID_V_R2			4.3f	/**< Scaling voltage divider R2 resistor value for MID voltage ADC. */
+#define MID_V_SCALE 		MID_V_R2 / (MID_V_R1 + MID_V_R2)
 
 #define AC_I_SCALE 			1.0f	/**< Scaling factor for AC current ADC. */ // TODO: Get correct value!!
 #define AC_V_R1				540.0f	/**< Scaling voltage divider R1 resistor value for AC voltage ADC. */
 #define AC_V_R2				4.3f	/**< Scaling voltage divider R2 resistor value for AC voltage ADC. */
+#define AC_V_SCALE 			AC_V_R2 / (AC_V_R1 + AC_V_R2 + AC_V_R2)
 
 // TODO: Remove NUM_CHNLS. Use numberOfLoads etc in specificCmds.
 //#define NUM_CHNLS 	6		/**< Total number of IIR filter control law macros used (doesn't include VMID semi-channel). */
