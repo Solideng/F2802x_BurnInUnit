@@ -125,14 +125,14 @@ Uint16 instCat (double * parameters, bool isQuery) {
 
 Uint16 instNsel (double * parameters, bool isQuery) {
 	/* Optional child. Sets or queries the currently selected logical instrument. */
-	if (isQuery) {
-		return respond (&nSel, Integer, true);
-	}
-
-	if ((*parameters > 0) && (*parameters < NUM_CHNLS)) {
-		nSel = *parameters;
-		return 0;
-	}
+//	if (isQuery) {
+//		return respond (&nSel, Integer, true);
+//	}
+//
+//	if ((*parameters > 0) && (*parameters < NUM_CHNLS)) {
+//		nSel = *parameters;
+//		return 0;
+//	}
 	return 1;
 }
 
