@@ -46,7 +46,7 @@ static void initSettings (void) {
 	xfmrSettings.iScale 	 = _SQ14(MID_I_SCALE);	/* Q14 */
 	xfmrSettings.midVMax	 = 15360;		/* 15 Amps RMS Q10 */
 	xfmrSettings.midVScale 	 = _SQ14(MID_V_R2 / (MID_V_R1 + MID_V_R2));
-	xfmrSettings.hvVMax  	 = 15360;		/* 15 Amps Q10 */
+	xfmrSettings.hvVMax  	 = 15360;		/* 15 Volts Q10 */
 	xfmrSettings.hvVScale 	 = _SQ14(HV_V_R2 / (HV_V_R1 + HV_V_R2));
 	xfmrSettings.enable 	 = FALSE;		/* Disabled */
 
@@ -62,7 +62,7 @@ static void initSettings (void) {
 	acSettings.enable     = FALSE;		/* FALSE | TRUE */
 	acSettings.mode       = masterUnit;	/* master | slave */
 	acSettings.vScale     = _SQ14(AC_V_R2 / (AC_V_R1 + AC_V_R2 + AC_V_R2));
-	acSettings.vGainLmt   = _SQ14(1.0);	/* 1.0 gain limit Q14 */
+	acSettings.vGainLmt   = _SQ14(0.99);	/* 1.0 gain limit Q14 */
 
 	extSettings.ext1OtpLevel = 19200;	/* 150 degree C Q7 */
 	extSettings.ext2OtpLevel = 19200;	/* 150 degree C Q7 */
@@ -136,15 +136,15 @@ static void connectXfmrNets (void) {
 
 static void connectAcNets (slaveMode mode) {
 	#ifndef DUAL_CNTL_AC
-		ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;	/* AC I Sns */
 		ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;	/* AC V Sns */
 		SGENTI_1ch_VOut  = &acNets.vRefNet;		/* Sine gen out */
-		CNTL_3P3Z_Ref2 	 = &acNets.vRefNet;		/* VCNTL reference */
-		CNTL_3P3Z_Fdbk2  = &acNets.vFdbkNet;	/* VCNTL feedback */
-		CNTL_3P3Z_Out2   = &acNets.iRefNet;		/* VCNTL out */
-		CNTL_3P3Z_Coef2  = &acVCoefs.b3;		/* VCNTL coefficients */
+		CNTL_3P3Z_Ref1 	 = &acNets.vRefNet;		/* VCNTL reference */
+		CNTL_3P3Z_Fdbk1  = &acNets.vFdbkNet;	/* VCNTL feedback */
+		CNTL_3P3Z_Out1   = &acNets.iRefNet;		/* VCNTL out */
+		CNTL_3P3Z_Coef1  = &acVCoefs.b3;		/* VCNTL coefficients */
+		ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;	/* AC I Sns */
 		#ifndef AC_STAGE_OPEN
-			PWMDRV_2ch_UpCnt_Duty3B = &acNets.vFiltOutNet;/* AC F B PWM */
+			PWMDRV_2ch_UpCnt_Duty3B = &acNets.iRefNet;/* AC F B PWM */
 		#else
 			PWMDRV_2ch_UpCnt_Duty3B = &acNets.vRefNet;
 		#endif
