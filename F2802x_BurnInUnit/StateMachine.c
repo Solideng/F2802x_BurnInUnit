@@ -6,6 +6,11 @@
  */
 #include "Common.h"
 
+#ifdef DEBUG
+	circuitSection enableSection = maxchan; /* Set to 0-7 for one state machine iteration to enable a section, set >= maxchan for no action  */
+	circuitSection disableSection = maxchan; /* Set to 0-7 for one state machine iteration to disable a section, set >= maxchan for no action */
+#endif
+
 /*================ LOCAL VARS =================*/
 static void (*A_Task_Ptr)(void);	/* State pointer A branch */
 static void (*B_Task_Ptr)(void);	/* State pointer B branch */
@@ -133,10 +138,13 @@ void loopCSync(void) {
 
 void loopCTask1 (void) {
 	/* Spare task */
+
+	/* Allows circuit enable state to be changed in watch window during debug */
 	#ifdef DEBUG
-
-
-
+		if (enableSection < maxchan)
+			enableCircuit(enableSection);
+		if (disableSection < maxchan)
+			disableCircuit(disableSection);
 	#endif
 	C_Task_Ptr = &loopCTask2;			/* Set pointer to next C task */
 }
