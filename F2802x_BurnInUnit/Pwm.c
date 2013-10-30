@@ -10,7 +10,7 @@ static void pwmMacroConfigure (void) {
 	/* Configure each of the PWM macros to be used */
 	PWM_2ch_UpCnt_CNF(1, PWM_1_PRD, 1, 0);
 	PWM_2ch_UpCnt_CNF(2, PWM_2_PRD, 0, 2);
- 	PWM_2ch_UpCnt_CNF(3, PWM_3_PRD, 1, 0);
+ 	PWM_2ch_UpCnt_CNF(3, PWM_3_PRD, 0, 2);
 }
 
 static void pwmSocConfigure (void) {

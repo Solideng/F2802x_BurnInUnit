@@ -9,8 +9,9 @@
 #define PWM_H_
 
 /*================== MACROS ===================*/
-#define PWM_1_PRD 	600	/**< Defines the period setting for PWM1. 60MHz / 600 = 100kHz. */
-#define PWM_2_PRD 	600	/**< Defines the period setting for PWM1. 60MHz / 600 = 100kHz. */
+/* E.G. 60MHz / 600prd = 100kHz. */
+#define PWM_1_PRD 	462	/**< Defines the period setting for PWM1. 60MHz / 462 = 130kHz. */
+#define PWM_2_PRD 	462	/**< Defines the period setting for PWM1. 60MHz / 462 = 130kHz. */
 #define PWM_3_PRD 	462	/**< Defines the period setting for PWM1. 60MHz / 462 ~ 130kHz. */
 
 /*============= TERMINAL POINTERS =============*/
