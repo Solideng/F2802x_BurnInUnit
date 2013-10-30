@@ -26,7 +26,6 @@ EnableCtrl.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/limits.h
 EnableCtrl.obj: ../SQMath.h
 EnableCtrl.obj: C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include/DPlib.h
 EnableCtrl.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
-EnableCtrl.obj: ../StateMachine.h
 EnableCtrl.obj: ../I2c.h
 EnableCtrl.obj: ../Sci.h
 EnableCtrl.obj: ../Spi.h
@@ -44,6 +43,7 @@ EnableCtrl.obj: ../SlewControl.h
 EnableCtrl.obj: ../SineGen.h
 EnableCtrl.obj: ../tmp.h
 EnableCtrl.obj: ../EnableCtrl.h
+EnableCtrl.obj: ../StateMachine.h
 EnableCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
 EnableCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h
 EnableCtrl.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h
@@ -83,7 +83,6 @@ C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/limits.h:
 ../SQMath.h: 
 C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include/DPlib.h: 
 c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h: 
-../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
 ../Spi.h: 
@@ -101,6 +100,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../SineGen.h: 
 ../tmp.h: 
 ../EnableCtrl.h: 
+../StateMachine.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h: 

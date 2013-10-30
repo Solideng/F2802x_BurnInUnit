@@ -26,7 +26,6 @@ Pwm.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/limits.h
 Pwm.obj: ../SQMath.h
 Pwm.obj: C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include/DPlib.h
 Pwm.obj: c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h
-Pwm.obj: ../StateMachine.h
 Pwm.obj: ../I2c.h
 Pwm.obj: ../Sci.h
 Pwm.obj: ../Spi.h
@@ -44,6 +43,7 @@ Pwm.obj: ../SlewControl.h
 Pwm.obj: ../SineGen.h
 Pwm.obj: ../tmp.h
 Pwm.obj: ../EnableCtrl.h
+Pwm.obj: ../StateMachine.h
 Pwm.obj: ../../../SCPI_Build/SCPI_Build/scpi/scpi.h
 Pwm.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h
 Pwm.obj: ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h
@@ -83,7 +83,6 @@ C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/limits.h:
 ../SQMath.h: 
 C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include/DPlib.h: 
 c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h: 
-../StateMachine.h: 
 ../I2c.h: 
 ../Sci.h: 
 ../Spi.h: 
@@ -101,6 +100,7 @@ c:/ti/controlSUITE/libs/dsp/SGEN/v101/include/sgen.h:
 ../SineGen.h: 
 ../tmp.h: 
 ../EnableCtrl.h: 
+../StateMachine.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/scpi.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_deviceTypes.h: 
 ../../../SCPI_Build/SCPI_Build/scpi/SCPI_config.h: 
