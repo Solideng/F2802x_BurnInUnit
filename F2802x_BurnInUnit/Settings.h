@@ -32,10 +32,6 @@
 
 //#define DUAL_CNTL_AC	/**< Uses the dual CNTL AC control instead of single VCtrl. Cannot be used if PID is still in use. */
 
-#ifdef DEBUG
-	circuitSection enableSection = 10; /* Set to 0-7 for one state machine iteration to enable a section, set >7 for no action  */
-	circuitSection disableSection = 10; /* Set to 0-7 for one state machine iteration to disable a section, set >7 for no action */
-#endif
 /*==============================================================
  * System Settings
  *============================================================*/
