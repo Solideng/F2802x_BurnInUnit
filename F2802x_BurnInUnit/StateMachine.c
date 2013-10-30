@@ -52,26 +52,26 @@ void loopASync (void) {
 void loopATask1 (void) {
 	/* Over-current protection, all channel On/Off control */
 	/* Check for over-current */
-	checkLoadOcp(load1);
-	checkLoadOcp(load2);
-	checkLoadOcp(load3);
-	checkLoadOcp(load4);
+//	checkLoadOcp(load1);	//TODO: Commented out for test usage.
+//	checkLoadOcp(load2);
+//	checkLoadOcp(load3);
+//	checkLoadOcp(load4);
 	checkDcMidOcp();
 
 	/* Check for over-voltage */
-	checkLoadOvp(load1);
-	checkLoadOvp(load2);
-	checkLoadOvp(load3);
-	checkLoadOvp(load4);
+//	checkLoadOvp(load1);
+//	checkLoadOvp(load2);
+//	checkLoadOvp(load3);
+//	checkLoadOvp(load4);
 	checkDcHvOvp();
 	if (slaveModeStatus != slaveUnit)
 		checkAcOvp();
 
 	/* Check for over-power */
-	checkLoadOpp(load1);
-	checkLoadOpp(load2);
-	checkLoadOpp(load3);
-	checkLoadOpp(load4);
+//	checkLoadOpp(load1);
+//	checkLoadOpp(load2);
+//	checkLoadOpp(load3);
+//	checkLoadOpp(load4);
 	checkAcOpp();
 
 	A_Task_Ptr = &loopATask2;		/* Set pointer to next A task */
@@ -80,12 +80,12 @@ void loopATask1 (void) {
 void loopATask2 (void) {
 	/* OTP, slew and gain update */
 	/* Check for over-temperature */
-//	checkLoadOtp(load1);
+//	checkLoadOtp(load1);	//TODO: Commented out for test usage.
 //	checkLoadOtp(load2);
 //	checkLoadOtp(load3);
 //	checkLoadOtp(load4);
 	checkDcOtp();
-//	checkAcOtp();
+	checkAcOtp();
 //	checkExtOtp(ext1);
 //	checkExtOtp(ext2);
 
@@ -133,6 +133,11 @@ void loopCSync(void) {
 
 void loopCTask1 (void) {
 	/* Spare task */
+	#ifdef DEBUG
+
+
+
+	#endif
 	C_Task_Ptr = &loopCTask2;			/* Set pointer to next C task */
 }
 
