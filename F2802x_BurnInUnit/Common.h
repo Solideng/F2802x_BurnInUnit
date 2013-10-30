@@ -21,8 +21,6 @@
 #include "DPlib.h"
 #include "sgen.h"
 /* Application includes */
-/* State machine */
-#include "StateMachine.h"
 /* Communications */
 #include "I2c.h"
 #include "Sci.h"
@@ -43,6 +41,8 @@
 #include "SineGen.h"
 #include "tmp.h"
 #include "EnableCtrl.h"
+/* State machine */
+#include "StateMachine.h"
 
 #include "../../SCPI_Build/SCPI_Build/scpi/scpi.h"
 #include "SCPI_specificCmds.h"
