@@ -32,7 +32,7 @@ void updateLoadSlew (void) {
 
 Uint16 setLoadSlewTarget (loadStage load, float32 target) {
 	/* Changes an enabled channel's target value
-	 * scTarget is expected in amps or volts
+	 * target is expected in amps
 	 */
 	float32 max = 0.0;
 	if (load >= numberOfLoads)
@@ -51,7 +51,7 @@ Uint16 setLoadSlewTarget (loadStage load, float32 target) {
 
 Uint16 setLoadSlewStep (loadStage load, float32 step) {
 	/* Changes a load's slew step value
-	 * scStep is expected in amps //or volts
+	 * step is expected in amps
 	 */
 	float32 max = 0.0;
 	int32 qStp = 0;
@@ -74,7 +74,7 @@ Uint16 setLoadSlewStep (loadStage load, float32 step) {
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
 Uint16 setLoadState (loadStage load, Uint16 state) {
-	/* onOrOff should be zero (OFF) or non-zero (ON) */
+	/* state should be zero (OFF) or non-zero (ON) */
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid */
 	loadSettings[load].enable = (state > 0);
@@ -109,7 +109,7 @@ Uint16 setLoadState (loadStage load, Uint16 state) {
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
 Uint16 setLoadStateAll (Uint16 state) {
-	/* onOrOff should be zero (OFF) or non-zero (ON) */
+	/* state should be zero (OFF) or non-zero (ON) */
 	Uint16 i = 0;
 	state = (state > 0);
 	for (i = 0; i < numberOfLoads; i++) {
