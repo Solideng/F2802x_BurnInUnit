@@ -34,7 +34,7 @@ static void initSettings (void) {
 		loadSettings[i].ocpLevel   = 587202560;	/* 35A variable Q24 */
 		loadSettings[i].otpLevel   = 19200;		/* 150 degree C Q7 */
 		loadSettings[i].iScale     = _SQ14(LOAD_I_SCALE);/* Q14 */
-		loadSettings[i].vScale     = _SQ14(LOAD_V_R2 / (LOAD_V_R1 + LOAD_V_R2));
+		loadSettings[i].vScale     = _SQ14(LOAD_V_SCALE);
 		loadSettings[i].enable     = FALSE;		/* Disabled */
 	}
 
@@ -45,9 +45,9 @@ static void initSettings (void) {
 	xfmrSettings.iMax	 	 = 15360;		/* 15 Amps RMS Q10 */
 	xfmrSettings.iScale 	 = _SQ14(MID_I_SCALE);	/* Q14 */
 	xfmrSettings.midVMax	 = 15360;		/* 15 Amps RMS Q10 */
-	xfmrSettings.midVScale 	 = _SQ14(MID_V_R2 / (MID_V_R1 + MID_V_R2));
+	xfmrSettings.midVScale 	 = _SQ14(MID_V_SCALE);
 	xfmrSettings.hvVMax  	 = 15360;		/* 15 Volts Q10 */
-	xfmrSettings.hvVScale 	 = _SQ14(HV_V_R2 / (HV_V_R1 + HV_V_R2));
+	xfmrSettings.hvVScale 	 = _SQ14(HV_V_SCALE);
 	xfmrSettings.enable 	 = FALSE;		/* Disabled */
 
 	acSettings.gainRate   = 16777;		/* 0.001 Q24 */
@@ -61,7 +61,7 @@ static void initSettings (void) {
 	acSettings.vScale     = 32767;		/* 1.0f volts-per-volt Q14 */
 	acSettings.enable     = FALSE;		/* FALSE | TRUE */
 	acSettings.mode       = masterUnit;	/* master | slave */
-	acSettings.vScale     = _SQ14(AC_V_R2 / (AC_V_R1 + AC_V_R2 + AC_V_R2));
+	acSettings.vScale     = _SQ14(AC_V_SCALE);
 	acSettings.vGainLmt   = _SQ14(0.99);	/* 1.0 gain limit Q14 */
 
 	extSettings.ext1OtpLevel = 19200;	/* 150 degree C Q7 */
