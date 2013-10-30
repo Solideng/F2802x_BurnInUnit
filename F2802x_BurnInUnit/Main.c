@@ -24,7 +24,18 @@
  *============================================================================*/
 
 /* R2 H/W Issues:
- *  - XFMR PCB - 12VIN not connected to 12V track.
+ *  - 2x4 header cables should be ~50mm longer
+ *  - CTRL PCB - U8 & U10 incorrect footprint.
+ *  - CTRL PCB - J14 incorrect footprint for locating pegs.
+ *  - CTRL PCB - J10, J11, J12, J13, J15, J16 placed to close together
+ *  - CTRL PCB - C23 changed from 1nF to 10nF for noise reduction.
+ *  - XFMR PCB - 12VIN not connected to 12V track - Added mod wire.
+ *  - AC PCB - SGND not connected to PGND - Added mod wire.
+ *  - AC PCB - Gain setting resistor needed on U2 - Added.
+ *  - AC PCB - R19 & R20 changed from 0R to 100R.
+ *  - AC PCB - C27 added with 100nF.
+ *  - AC PCB - Added diodes D1, D2, D3, D4, D5 & D6 to improve OFF switching.
+ *
  */
 
 /*
@@ -110,7 +121,7 @@ void main (void) {
 
 	} else if (slaveModeStatus == masterUnit) {
 		sciInit(9600);		/* Initialise SCI with 9600 baud and SPI as master */
-		spiInit(spiMaster, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
+		//spiInit(spiMaster, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
 							/* Initialise SCPI with SCI I/O */
 		scpiInit(&registerDeviceCommands, &sciTx);
 	} else if (slaveModeStatus == slaveUnit) {
@@ -118,9 +129,9 @@ void main (void) {
 		SysCtrlRegs.PCLKCR0.bit.SCIAENCLK = 0;
 		EDIS;
 							/* Initialise SPI as slave */
-		spiInit(spiSlave, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
+		//spiInit(spiSlave, SPI_DFLT_BAUD, disabled, (transPol)SPI_DFLT_CPOL, (spiCPha)SPI_DFLT_CPHA);
 							/* Initialise SCPI with SPI I/O */
-		scpiInit(&registerDeviceCommands, &spiTx);
+		//scpiInit(&registerDeviceCommands, &spiTx);
 	} else {
 		/* Unit type has somehow not been determined */
 		// TODO: Put an error in SCPI error queue.
@@ -146,39 +157,42 @@ void main (void) {
 		// Coefficients are left as default.
 		setLoadSlewTarget(load1, 0.0);
 		setLoadSlewStep(load1, 0.001);
-		setLoadOcpLevel(load1, 1.0);
+		setLoadOcpLevel(load1, 30.0);
 		setLoadOtpLevel(load1, 100.0);
 
 		setLoadSlewTarget(load2, 0.0);
 		setLoadSlewStep(load2, 0.001);
-		setLoadOcpLevel(load2, 1.0);
+		setLoadOcpLevel(load2, 30.0);
 		setLoadOtpLevel(load2, 100.0);
 
 		setLoadSlewTarget(load3, 0.0);
 		setLoadSlewStep(load3, 0.001);
-		setLoadOcpLevel(load3, 1.0);
+		setLoadOcpLevel(load3, 30.0);
 		setLoadOtpLevel(load3, 100.0);
 
 		setLoadSlewTarget(load4, 0.0);
 		setLoadSlewStep(load4, 0.001);
-		setLoadOcpLevel(load4, 1.0);
+		setLoadOcpLevel(load4, 30.0);
 		setLoadOtpLevel(load4, 100.0);
 
 		// Setup xfmr stage OCP, OVP and OTP levels.
-		setDcMidOcpLevel(1.0);
-		setDcHvOvpLevel(1.0);
+		setDcMidOcpLevel(15.0);
+//		setDcHvOvpLevel(15.0);	// TODO: Max limit needs correct value.
 		setDcOtpLevel(100.0);
 
 		// Setup AC stage gain target, gain rate, OCP level, OVP level and OTP level.
 		// Coefficients are left as default.
-		setSineGainTarget(0.99);
+		setSineGainTarget(0.04);
 		setSineGainStep(0.001);
-		setAcOcpLevel(1.0);
-		setAcOvpLevel(1.0);
-		setAcOtpLevel(100.0);
+//		setAcOcpLevel(15.0);	// TODO: Max limit needs correct value.
+//		setAcOvpLevel(15.0);	// TODO: Max limit needs correct value.
+		setAcOtpLevel(60.0);
 
+		enableCircuit(xfmrCct);
+		enableCircuit(acCct);
+		acSettings.enable = 1;
 		// Enable all stages in sequence
-		runAll();
+//		runAll();
 		//============= END TEST CODE =============
 	#endif
 
