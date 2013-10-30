@@ -26,12 +26,16 @@
 
 #define DEBUG			/**< Includes and makes functions and variables public that are used only for debugging purposes. */
 
-//#define LOG_SIN		/**< Logs the sine wave VOut and SignOut data into data-log buffers for debug graphing. */
+#define LOG_SIN		/**< Logs the sine wave VOut and SignOut data into data-log buffers for debug graphing. */
 
 //#define VTIMERS		/**< Enables virtual timer code for use */
 
-#define DUAL_CNTL_AC	/**< Uses the dual CNTL AC control instead of single VCtrl. Cannot be used if PID is still in use. */
+//#define DUAL_CNTL_AC	/**< Uses the dual CNTL AC control instead of single VCtrl. Cannot be used if PID is still in use. */
 
+#ifdef DEBUG
+	circuitSection enableSection = 10; /* Set to 0-7 for one state machine iteration to enable a section, set >7 for no action  */
+	circuitSection disableSection = 10; /* Set to 0-7 for one state machine iteration to disable a section, set >7 for no action */
+#endif
 /*==============================================================
  * System Settings
  *============================================================*/
