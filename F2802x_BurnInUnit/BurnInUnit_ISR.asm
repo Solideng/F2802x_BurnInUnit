@@ -232,7 +232,7 @@ SGNTSKP:
 		MOVW	DP, #tsPtr	; Load the data page pointer with the page that contains 'tsPtr'		; 1 CYC :
 		MOV 	@tsPtr,#1	; Move 1 into 'tsPtr' (change from TS2 to TS1)	; 1 CYC :
 		MOVW DP, #sgntPtr	; Load the data page pointer with the page that contains 'sgntPtr'		; 1 CYC :
-		MOV @sgntPtr, #1	; Move 1 into 'sgntPtr'
+		INC 	@sgntPtr	; Increment 'sgntPtr'
 TS_END:	
 		ADCDRV_1ch 7		; LOAD 1 VSNS
 		ADCDRV_1ch 8		; LOAD 2 VSNS
