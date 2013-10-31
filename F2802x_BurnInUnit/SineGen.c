@@ -23,7 +23,7 @@ volatile int32 *SGENTI_1ch_VOut = 0;	/* Voltage signal output terminal*/
 	volatile int16 sine_sign[LOG_SIZE] = {0};
 #endif
 
-static Uint16 usePhaseOut = TRUE;			/* Saves whether to use AC PHASE OUT */
+static Uint16 usePhaseOut = FALSE;			/* Saves whether to use AC PHASE OUT */
 static Uint16 rectifyMode = SIN_DFLT_RCTFY;	/* Selects whether signal is recitified or not */
 static Uint16 fMax = SIN_DFLT_F_MAX;		/* Sets the fMax value */
 
@@ -137,7 +137,8 @@ Uint16 getSineState (Uint16 *state) {
 
 Uint16 setSineRmsTarget (float32 rmsTarget) {
 	/* Changes the sine gain target based on an RMS voltage value */
-	float32 maxPk = 0.0, maxRms = 0.0;
+	float32 maxPk = 0.0;
+	volatile float32 maxRms = 0.0;
 //	int32 trgt = _IQ24(rmsTarget);
 //
 //	if ((trgt <= 0) || (trgt > acSettings.vMaxRms))	/* Check target is within fixed limits */

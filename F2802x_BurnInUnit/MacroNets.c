@@ -6,6 +6,9 @@
  */
 #include "Common.h"
 
+long testVCtrlDcValue = 398508;
+//long testICtrlDcValue = 0;
+
 Uint16	stopAllFlag = 0;	// TODO May be moved to SCPI device specific regs
 Uint16	enableAllFlag = 0;
 
@@ -151,9 +154,9 @@ static void connectAcNets (slaveMode mode) {
 		#endif
 		ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;	/* AC I Sns */
 		#ifndef AC_STAGE_OPEN
-			PWMDRV_2ch_UpCnt_Duty3B = &acNets.iRefNet;/* AC F B PWM */
+			PWMDRV_2ch_UpCnt_Duty3B = &acNets.iRefNet;/* VLOOP OUT -> AC PWM */
 		#else
-			PWMDRV_2ch_UpCnt_Duty3B = &acNets.vRefNet;
+			PWMDRV_2ch_UpCnt_Duty3B = &acNets.vRefNet; /* SINGEN OUT -> AC PWM */
 		#endif
 	#else
 		if (mode != slaveUnit) {
@@ -165,19 +168,22 @@ static void connectAcNets (slaveMode mode) {
 				CNTL_3P3Z_Out1   = &acNets.iRefNet;	/* VCNTL out/CNTLI in */
 				CNTL_3P3Z_Coef1  = &acVCoefs.b3;	/* VCNTL coefficients */
 			#else
-				CNTL_2P2Z_Ref6   = &acNets.vRefNet;	/* VCNTL reference */
+				/* VOLTAGE CONTROL LOOP SETUP */
+				//CNTL_2P2Z_Ref6   = &acNets.vRefNet;	/* VCNTL reference = SIN GEN OUT*/
+				CNTL_2P2Z_Ref6   = &testVCtrlDcValue;	/* VCNTL reference = DC VOLT/421 IQ24*/
 				CNTL_2P2Z_Fdbk6  = &acNets.vFdbkNet;/* VCNTL feedback */
 				CNTL_2P2Z_Out6   = &acNets.iRefNet;	/* VCNTL out/CNTLI in */
-				CNTL_2P2Z_Coef6  = &acVCoefs.b3;	/* VCNTL coefficients */
+				CNTL_2P2Z_Coef6  = &acVCoefs.b2;	/* VCNTL coefficients */
 			#endif
 		} else {
 			ADCDRV_1ch_Rlt12 = &acNets.iRefNet;	/* AC Ext I Sns */
 		}
-
+		/* CURRENT CONTROL LOOP SETUP */
 		ADCDRV_1ch_Rlt6 = &acNets.iFdbkNet;		/* AC I Sns */
 		CNTL_2P2Z_Ref5  = &acNets.iRefNet;		/* ICNTL reference */
+		//CNTL_2P2Z_Ref5  = &testICtrlDcValue;	/* ICNTL reference = DC CURRENT IQ24 */
 		CNTL_2P2Z_Fdbk5 = &acNets.iFdbkNet;		/* ICNTL feedback */
-		CNTL_2P2Z_Out5  = &acNets.iFiltOutNet;	/* ICNTL out */
+		CNTL_2P2Z_Out5  = &acNets.iFiltOutNet;	/* ICNTL out -> PWM */
 		CNTL_2P2Z_Coef5 = &acICoefs.b2;			/* ICNTL coefficients */
 		PWMDRV_2ch_UpCnt_Duty3B = &acNets.iFiltOutNet;/* AC F B PWM */
 	#endif

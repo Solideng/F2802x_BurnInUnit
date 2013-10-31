@@ -141,11 +141,12 @@ void main (void) {
 		/* Setup macros and the hardware they use */
 	initPwm();				/* Initialise PWM macros */
 	initAdc();				/* Initialise the ADCs macros */
-	initSine(slaveModeStatus);	/* Initialise the sine generator macro */
-	initCoefs();			/* Initialise the IIR control loop coefficient values */
+	//initSine(slaveModeStatus);	/* Initialise the sine generator macro */
+	initSine(FALSE);
 	initDcComparator();		/* Initialise the comparators */
 	initAcComparator();
 	DPL_Init();				/* Initialise the used macros with the DPL ASM ISR */
+	initCoefs();			/* Initialise the IIR control loop coefficient values */
 	setupNets(slaveModeStatus);	/* Setup macro nets and settings according to the unit mode */
 		/* Enable Peripheral, global Ints and higher priority real-time debug events: */
 	EINT;   				/* Enable Global interrupt INTM */
@@ -153,6 +154,7 @@ void main (void) {
 
 	#ifdef DEBUG
 		//=============== TEST CODE ===============
+		setSineRmsTarget(10.0);
 		// Setup load channels' targets, slew rates, OCP levels and OTP levels.
 		// Coefficients are left as default.
 		setLoadSlewTarget(load1, 0.0);
@@ -182,7 +184,7 @@ void main (void) {
 
 		// Setup AC stage gain target, gain rate, OCP level, OVP level and OTP level.
 		// Coefficients are left as default.
-		setSineGainTarget(0.04);
+//		setSineGainTarget(0.04);
 		setSineGainStep(0.001);
 //		setAcOcpLevel(15.0);	// TODO: Max limit needs correct value.
 //		setAcOvpLevel(15.0);	// TODO: Max limit needs correct value.

@@ -214,12 +214,14 @@ TS2:
 		ADCDRV_1ch 5		; XFMR ISNS
 							; Sine gen runs at PWMCLK/12
 		MOVW DP, #sgntPtr	; Load the data page pointer with the page that contains 'sgntPtr'
-		CMP @sgntPtr, #1	; Compare the data pointed to by 'sgntPtr' to '1'
+		CMP @sgntPtr, #2	; Compare the data pointed to by 'sgntPtr' to '2'
 		B SGNTSKP, EQ		; Branch to SGNTSKP if the CMP was equal so as to skip the following two instructions
 		MOV @sgntPtr, #0	; Set 'sgntPtr' to '0'
 		LCR _updateSineSignal	; Run the function 'updateSineSignal()'
 
 SGNTSKP:
+		MOV DP, #sgntPtr
+		MOV @sgntPtr, #0
 		ADCDRV_1ch 6		; AC ISNS
 		CNTL_2P2Z 5			; AC ICNTL
 		.if $defined(AC_V_3P3Z)

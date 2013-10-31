@@ -30,7 +30,7 @@
 
 //#define VTIMERS		/**< Enables virtual timer code for use */
 
-//#define DUAL_CNTL_AC	/**< Uses the dual CNTL AC control instead of single VCtrl. Cannot be used if PID is still in use. */
+#define DUAL_CNTL_AC	/**< Uses the dual CNTL AC control instead of single VCtrl. Cannot be used if PID is still in use. */
 
 //#define AC_V_3P3Z		/**< Sets the AC Voltage loop to use a 3P3Z IIR Cntl loop instead of the default 2P2Z. */
 
@@ -55,7 +55,7 @@
 #define MID_V_R2			4.3f	/**< Scaling voltage divider R2 resistor value for MID voltage ADC. */
 #define MID_V_SCALE 		MID_V_R2 / (MID_V_R1 + MID_V_R2)
 
-#define AC_I_SCALE 			1.0f	/**< Scaling factor for AC current ADC. */ // TODO: Get correct value!!
+#define AC_I_SCALE 			0.25f	/**< Scaling factor for AC current ADC. volts/amp */
 #define AC_V_R1				540.0f	/**< Scaling voltage divider R1 resistor value for AC voltage ADC. */
 #define AC_V_R2				4.3f	/**< Scaling voltage divider R2 resistor value for AC voltage ADC. */
 #define AC_V_SCALE 			AC_V_R2 / (AC_V_R1 + AC_V_R2 + AC_V_R2)
