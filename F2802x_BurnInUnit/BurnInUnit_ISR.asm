@@ -39,7 +39,9 @@
 		; Include asm files for the Power Library Macro's being used by the system
 		.include "ADCDRV_1ch.asm"
 		.include "CNTL_2P2Z.asm"
-		.include "CNTL_3P3Z.asm"
+		.if $defined(AC_V_3P3Z)
+			.include "CNTL_3P3Z.asm"
+		.endif
 		.include "PWMDRV_2ch_UpCnt.asm"
 
 ;**********************************************************************************
@@ -57,7 +59,7 @@
 ZeroNet	.usect "ZeroNet_Section",2,1,1	; output terminal 1
 		; time slice counter variable
 tsPtr	.usect "ISR_Section",1,1,1
-
+		; sine gen update skip variable
 sgntPtr	.usect "ISR_Section",1,1,1
 
 				.text
@@ -73,25 +75,25 @@ _DPL_Init:
 
 	;---------------------------------------------------------
 	.if(INCR_BUILD = 1) ; Open-Loop
-		ADCDRV_1ch_INIT 1
-		ADCDRV_1ch_INIT 2
-		PWMDRV_2ch_UpCnt_INIT 1		; EPWM1AB
+		ADCDRV_1ch_INIT 1		; LOAD 1 ISNS
+		ADCDRV_1ch_INIT 2		; LOAD 2 ISNS
+		PWMDRV_2ch_UpCnt_INIT 1	; EPWM1AB - LOAD 2 & LOAD 2 PWM OUT
 
-		ADCDRV_1ch_INIT 3
-		ADCDRV_1ch_INIT 4
-		PWMDRV_2ch_UpCnt_INIT 2		; EPWM2AB
+		ADCDRV_1ch_INIT 3		; LOAD 3 ISNS
+		ADCDRV_1ch_INIT 4		; LOAD 4 ISNS
+		PWMDRV_2ch_UpCnt_INIT 2	; EPWM2AB - LOAD 3 & LOAD 4 PWM OUT
 
-		ADCDRV_1ch_INIT 5
-		ADCDRV_1ch_INIT 6
-		PWMDRV_2ch_UpCnt_INIT 3		; EPWM3
+		ADCDRV_1ch_INIT 5		; XFMR ISNS
+		ADCDRV_1ch_INIT 6		; AC ISNS
+		PWMDRV_2ch_UpCnt_INIT 3	; EPWM3 - XFMR & AC STAGE PWM OUT
 
-		ADCDRV_1ch_INIT 7
-		ADCDRV_1ch_INIT 8
-		ADCDRV_1ch_INIT 9
-		ADCDRV_1ch_INIT 10
-		ADCDRV_1ch_INIT 11
-		ADCDRV_1ch_INIT 12
-		ADCDRV_1ch_INIT 13
+		ADCDRV_1ch_INIT 7		; LOAD 1 VSNS
+		ADCDRV_1ch_INIT 8		; LOAD 2 VSNS
+		ADCDRV_1ch_INIT 9		; LOAD 3 VSNS
+		ADCDRV_1ch_INIT 10		; LOAD 4 VSNS
+		ADCDRV_1ch_INIT 11		; HV VSNS
+		ADCDRV_1ch_INIT 12		; AC VSNS
+		ADCDRV_1ch_INIT 13		; MID VSNS
 
 	.endif
 	;---------------------------------------------------------
@@ -102,33 +104,35 @@ _DPL_Init:
 		MOVW 	DP, #sgntPtr
 		MOV 	@sgntPtr, #1
 
-		ADCDRV_1ch_INIT 1
-		CNTL_2P2Z_INIT 1
-		ADCDRV_1ch_INIT 2
-		CNTL_2P2Z_INIT 2
-		PWMDRV_2ch_UpCnt_INIT 1			; EPWM1AB
+		ADCDRV_1ch_INIT 1		; LOAD 1 ISNS
+		CNTL_2P2Z_INIT 1		; LOAD 1 ICNTL
+		ADCDRV_1ch_INIT 2		; LOAD 2 ISNS
+		CNTL_2P2Z_INIT 2		; LOAD 2 ICNTL
+		PWMDRV_2ch_UpCnt_INIT 1	; EPWM1AB - LOAD 1 & LOAD 2 PWM OUT
 
-		ADCDRV_1ch_INIT 3
-		CNTL_2P2Z_INIT 3
-		ADCDRV_1ch_INIT 4
-		CNTL_2P2Z_INIT 4
-		PWMDRV_2ch_UpCnt_INIT 2			; EPWM2AB
+		ADCDRV_1ch_INIT 3		; LOAD 3 ISNS
+		CNTL_2P2Z_INIT 3		; LOAD 3 ICNTL
+		ADCDRV_1ch_INIT 4		; LOAD 4 ISNS
+		CNTL_2P2Z_INIT 4		; LOAD 4 ICNTL
+		PWMDRV_2ch_UpCnt_INIT 2	; EPWM2AB - LOAD 3 & LOAD 4 PWM OUT
 
-		ADCDRV_1ch_INIT 5
-		CNTL_2P2Z_INIT 5
-;		CNTL_3P3Z_INIT 1
-		ADCDRV_1ch_INIT 6
-;		CNTL_2P2Z_INIT 6
-		CNTL_3P3Z_INIT 1
-		PWMDRV_2ch_UpCnt_INIT 3			; EPWM3AB
+		ADCDRV_1ch_INIT 5		; XFMR ISNS
+		ADCDRV_1ch_INIT 6		; AC ISNS
+		CNTL_2P2Z_INIT 5		; AC ICNTL
+		.if $defined(AC_V_3P3Z)
+			CNTL_3P3Z_INIT 1	; AC VCNTL
+		.else
+			CNTL_2P2Z_INIT 6	; AC VCNTL
+		.endif
+		PWMDRV_2ch_UpCnt_INIT 3	; EPWM3AB - XMFR & AC STAGE PWM OUT
 
-		ADCDRV_1ch_INIT 7
-		ADCDRV_1ch_INIT 8
-		ADCDRV_1ch_INIT 9
-		ADCDRV_1ch_INIT 10
-		ADCDRV_1ch_INIT 11
-		ADCDRV_1ch_INIT 12
-		ADCDRV_1ch_INIT 13
+		ADCDRV_1ch_INIT 7		; LOAD 1 VSNS
+		ADCDRV_1ch_INIT 8		; LOAD 2 VSNS
+		ADCDRV_1ch_INIT 9		; LOAD 3 VSNS
+		ADCDRV_1ch_INIT 10		; LOAD 4 VSNS
+		ADCDRV_1ch_INIT 11		; HV VSNS
+		ADCDRV_1ch_INIT 12		; AC VSNS
+		ADCDRV_1ch_INIT 13		; MID VSNS
 	.endif
 	;---------------------------------------------------------
 	.if(INCR_BUILD = 3) ; Closed-Loop PID
@@ -163,25 +167,25 @@ _DPL_ISR:	;(13 cycles to get to here from ISR trigger)
 
 	;---------------------------------------------------------
 	.if(INCR_BUILD = 1) ; Open-Loop
-		ADCDRV_1ch 1
-		ADCDRV_1ch 2
-		PWMDRV_2ch_UpCnt 1			; EPWM1AB
+		ADCDRV_1ch 1		; LOAD 1 ISNS
+		ADCDRV_1ch 2		; LOAD 2 ISNS
+		PWMDRV_2ch_UpCnt 1	; EPWM1AB - LOAD 1 & LOAD 2 PWM OUT
 
-		ADCDRV_1ch 3
-		ADCDRV_1ch 4
-		PWMDRV_2ch_UpCnt 2			; EPWM2AB
+		ADCDRV_1ch 3		; LOAD 3 ISNS
+		ADCDRV_1ch 4		; LOAD 4 ISNS
+		PWMDRV_2ch_UpCnt 2	; EPWM2AB - LOAD 3 & LOAD 4 PWM OUT
 
-		ADCDRV_1ch 5
-		ADCDRV_1ch 6
-		PWMDRV_2ch_UpCnt 3			; EPWM3AB
+		ADCDRV_1ch 5		; XFMR ISNS
+		ADCDRV_1ch 6		; AC ISNS
+		PWMDRV_2ch_UpCnt 3	; EPWM3AB - XFMR & AC STAGE PWM OUT
 
-		ADCDRV_1ch 7
-		ADCDRV_1ch 8
-		ADCDRV_1ch 9
-		ADCDRV_1ch 10
-		ADCDRV_1ch 11
-		ADCDRV_1ch 12
-		ADCDRV_1ch 13
+		ADCDRV_1ch 7		; LOAD 1 VSNS
+		ADCDRV_1ch 8		; LOAD 2 VSNS
+		ADCDRV_1ch 9		; LOAD 3 VSNS
+		ADCDRV_1ch 10		; LOAD 4 VSNS
+		ADCDRV_1ch 11		; HV VSNS
+		ADCDRV_1ch 12		; AC VSNS
+		ADCDRV_1ch 13		; MID VSNS
 	.endif
 	;---------------------------------------------------------
 	.if(INCR_BUILD = 2) ; Closed-Loop 2P2Z
@@ -218,21 +222,25 @@ TS2:
 SGNTSKP:
 		ADCDRV_1ch 6		; AC ISNS
 		CNTL_2P2Z 5			; AC ICNTL
-		CNTL_3P3Z 1			; AC VCNTL
+		.if $defined(AC_V_3P3Z)
+			CNTL_3P3Z 1		; AC VCNTL
+		.else
+			CNTL_2P2Z 6		; AC VCTNL
+		.endif
 		PWMDRV_2ch_UpCnt 3	; EPWM3AB - XFMR AND AC STAGE PWM OUT
-		ADCDRV_1ch 7		; LOAD 1 VSNS
-		ADCDRV_1ch 8		; LOAD 2 VSNS
 
 		MOVW	DP, #tsPtr	; Load the data page pointer with the page that contains 'tsPtr'		; 1 CYC :
 		MOV 	@tsPtr,#1	; Move 1 into 'tsPtr' (change from TS2 to TS1)	; 1 CYC :
 		MOVW DP, #sgntPtr	; Load the data page pointer with the page that contains 'sgntPtr'		; 1 CYC :
 		MOV @sgntPtr, #1	; Move 1 into 'sgntPtr'
 TS_END:	
+		ADCDRV_1ch 7		; LOAD 1 VSNS
+		ADCDRV_1ch 8		; LOAD 2 VSNS
 		ADCDRV_1ch 9		; LOAD 3 VSNS
 		ADCDRV_1ch 10		; LOAD 4 VSNS
 		ADCDRV_1ch 11		; HV VSNS
-		ADCDRV_1ch 12		; AC V SNS
-		ADCDRV_1ch 13		; MID V SNS
+		ADCDRV_1ch 12		; AC VSNS
+		ADCDRV_1ch 13		; MID VSNS
 	.endif
 	;---------------------------------------------------------
 	.if(INCR_BUILD = 3) ; Closed-Loop PID

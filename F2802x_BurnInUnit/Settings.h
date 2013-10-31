@@ -32,6 +32,8 @@
 
 //#define DUAL_CNTL_AC	/**< Uses the dual CNTL AC control instead of single VCtrl. Cannot be used if PID is still in use. */
 
+//#define AC_V_3P3Z		/**< Sets the AC Voltage loop to use a 3P3Z IIR Cntl loop instead of the default 2P2Z. */
+
 /*==============================================================
  * System Settings
  *============================================================*/

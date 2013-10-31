@@ -130,12 +130,12 @@ SECTIONS
 	CNTL_2P2Z_Section			: > dataRAM				PAGE = 1
 	CNTL_2P2Z_InternalData		: > dataRAM				PAGE = 1
 	CNTL_2P2Z_Coef				: > dataRAM				PAGE = 1
-	
-	/* CNTL_3P3Z section */
-	CNTL_3P3Z_Section			: > dataRAM				PAGE = 1
-	CNTL_3P3Z_InternalData		: > dataRAM				PAGE = 1
-	CNTL_3P3Z_Coef				: > dataRAM				PAGE = 1
-	
+	#ifdef AC_V_3P3Z
+		/* CNTL_3P3Z section */
+		CNTL_3P3Z_Section			: > dataRAM				PAGE = 1
+		CNTL_3P3Z_InternalData		: > dataRAM				PAGE = 1
+		CNTL_3P3Z_Coef				: > dataRAM				PAGE = 1
+	#endif
 	/* PWMDRV_1ch driver section */
 //	PWMDRV_1ch_Section			: > dataRAM				PAGE = 1
 	

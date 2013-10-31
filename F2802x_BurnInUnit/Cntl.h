@@ -9,15 +9,46 @@
 
 //#define SATMAX_MAX 0.9f	/**< The maximum allowable value for the IIR filter control law's maximum saturation. */
 
-#define INIT_SMIN	0			/* IQ24 0.0 */
-#define INIT_SMAX	15099494	/* IQ24 0.9 */
-#define INIT_B0		241969836	/* IQ26 3.60563154 */
-#define INIT_B1		81334398	/* IQ26 1.21197699 */
-#define INIT_A1		0			/* IQ26 0.0 */
-#define INIT_B2 	-160635437	/* IQ26 -2.39365455 */
-#define INIT_A2		67108864	/* IQ26 1.0 */
-#define INIT_B3		0			/* IQ26 0.0 */
-#define INIT_A3		0			/* IQ26 0.0 */
+//#define INIT_SMIN	0			/* IQ24 0.0 */
+//#define INIT_SMAX	15099494	/* IQ24 0.9 */
+//#define INIT_B0		241969836	/* IQ26 3.60563154 */
+//#define INIT_B1		81334398	/* IQ26 1.21197699 */
+//#define INIT_A1		0			/* IQ26 0.0 */
+//#define INIT_B2 	-160635437	/* IQ26 -2.39365455 */
+//#define INIT_A2		67108864	/* IQ26 1.0 */
+//#define INIT_B3		0			/* IQ26 0.0 */
+//#define INIT_A3		0			/* IQ26 0.0 */
+
+#define DFLT_LOAD_SMIN	0			/* IQ24 0.0 */
+#define DFLT_LOAD_SMAX	15099494	/* IQ24 0.9 */
+#define DFLT_LOAD_B0	241969836	/* IQ26 3.60563154 */
+#define DFLT_LOAD_B1	81334398	/* IQ26 1.21197699 */
+#define DFLT_LOAD_A1	0			/* IQ26 0.0 */
+#define DFLT_LOAD_B2 	-160635437	/* IQ26 -2.39365455 */
+#define DFLT_LOAD_A2	67108864	/* IQ26 1.0 */
+#define DFLT_LOAD_B3	0			/* IQ26 0.0 */
+#define DFLT_LOAD_A3	0			/* IQ26 0.0 */
+
+#define DFLT_AC_ISMIN 	0			/* IQ24 0 */
+#define DFLT_AC_ISMAX 	15099494	/* IQ24 0.9 */
+#define DFLT_AC_IB0		56780809	/* IQ26 0.8461 */
+#define DFLT_AC_IB1		6194148 	/* IQ26 0.0923 */
+#define DFLT_AC_IB2		-500586661	/* IQ26 -0.7538 */
+#define DFLT_AC_IA1		0			/* IQ26 0 */
+#define DFLT_AC_IA2		67108864	/* IQ26 1 */
+
+#define DFLT_AC_VSMIN 	0			/* IQ24 0 */
+#define DFLT_AC_VSMAX 	15099494	/* IQ24 0.9 */
+#define DFLT_AC_VB0		23743116	/* IQ26 0.3538 */
+#define DFLT_AC_VB1		20642686 	/* IQ26 0.3076 */
+#define DFLT_AC_VB2		-3093718	/* IQ26 -0.0461 */
+#define DFLT_AC_VA1		0			/* IQ26 0 */
+#define DFLT_AC_VA2		67108864	/* IQ26 1 */
+
+#ifdef AC_V_3P3Z
+	#define DFLT_AC_VB3 	0	/* IQ26 0 */
+	#define DFLT_AC_VB3 	0	/* IQ26 0 */
+#endif
 
 /** CNTL Coefficient references */
 enum coefNum {
@@ -29,16 +60,22 @@ enum coefNum {
 	cA1,		/**< A1 coefficient reference. */
 	cB2,		/**< B2 coefficient reference. */
 	cA2,		/**< A2 coefficient reference. */
+#ifdef AC_V_3P3Z
 	cB3,		/**< B3 coefficient reference. */
 	cA3,		/**< A3 coefficient reference. */
+#endif
 	numCoefs
 };
 /** A type that allows a reference to a CNTL coefficient. */
 typedef enum coefNum cfType;
 
-extern struct CNTL_2P2Z_CoefStruct loadICoefs [numberOfLoads];	/**< Array of structures that hold the load 2-pole 2-zero IIR filter control law coefficient currently in use. */
-extern struct CNTL_2P2Z_CoefStruct acICoefs;	/**< Structure that holds the AC I 2-pole 2-zero IIR filter control law coefficient currently in use. */
-extern struct CNTL_3P3Z_CoefStruct acVCoefs;	/**< Structure that holds the AC V 2-pole 2-zero IIR filter control law coefficient currently in use. */
+extern struct CNTL_2P2Z_CoefStruct loadICoefs [numberOfLoads];	/**< Array of structures that hold the load 2-pole 2-zero IIR filter control law coefficients currently in use. */
+extern struct CNTL_2P2Z_CoefStruct acICoefs;	/**< Structure that holds the AC I 2-pole 2-zero IIR filter control law coefficients currently in use. */
+#ifdef AC_V_3P3Z
+	extern struct CNTL_3P3Z_CoefStruct acVCoefs;	/**< Structure that holds the AC V 3-pole 3-zero IIR filter control law coefficients currently in use. */
+#else
+	extern struct CNTL_2P2Z_CoefStruct acVCoefs;	/**< Structure that holds the AC V 2-pole 2-zero IIR filter control law coefficients currently in use. */
+#endif
 
 extern volatile int32 *CNTL_2P2Z_Coef1;	/**< Load 1 IIR filter control law coefficient terminal pointer. */
 extern volatile int32 *CNTL_2P2Z_Coef2;	/**< Load 2 IIR filter control law coefficient terminal pointer. */
@@ -65,10 +102,17 @@ extern volatile int32 *CNTL_2P2Z_Fdbk5;	/**< AC stage I IIR filter control law f
 extern volatile int32 *CNTL_2P2Z_Out5;	/**< AC stage I IIR filter control law output terminal pointer. */
 extern volatile int32 *CNTL_2P2Z_Ref5;	/**< AC stage I IIR filter control law reference terminal pointer. */
 
-extern volatile int32 *CNTL_3P3Z_Coef1;	/**< AC stage V IIR filter control law coefficient terminal pointer. */
-extern volatile int32 *CNTL_3P3Z_Fdbk1;	/**< AC stage V IIR filter control law feedback terminal pointer. */
-extern volatile int32 *CNTL_3P3Z_Out1;	/**< AC stage V IIR filter control law output terminal pointer. */
-extern volatile int32 *CNTL_3P3Z_Ref1;	/**< AC stage V IIR filter control law reference terminal pointer. */
+#ifdef AC_V_3P3Z
+	extern volatile int32 *CNTL_3P3Z_Coef1;	/**< AC stage V IIR filter control law coefficient terminal pointer. */
+	extern volatile int32 *CNTL_3P3Z_Fdbk1;	/**< AC stage V IIR filter control law feedback terminal pointer. */
+	extern volatile int32 *CNTL_3P3Z_Out1;	/**< AC stage V IIR filter control law output terminal pointer. */
+	extern volatile int32 *CNTL_3P3Z_Ref1;	/**< AC stage V IIR filter control law reference terminal pointer. */
+#else
+	extern volatile int32 *CNTL_2P2Z_Coef6;	/**< AC stage V IIR filter control law coefficient terminal pointer. */
+	extern volatile int32 *CNTL_2P2Z_Fdbk6;	/**< AC stage V IIR filter control law feedback terminal pointer. */
+	extern volatile int32 *CNTL_2P2Z_Out6;	/**< AC stage V IIR filter control law output terminal pointer. */
+	extern volatile int32 *CNTL_2P2Z_Ref6;	/**< AC stage V IIR filter control law reference terminal pointer. */
+#endif
 
 /** Initialises all IIR filter control law coefficients.
  * @warning This function must be called before the control macros are used.

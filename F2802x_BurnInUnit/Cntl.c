@@ -14,12 +14,24 @@ struct CNTL_2P2Z_CoefStruct loadICoefs [load4 + 1];
 #pragma DATA_SECTION(loadICoefs, "CNTL_2P2Z_Coef")
 struct CNTL_2P2Z_CoefStruct acICoefs;
 #pragma DATA_SECTION(acICoefs, "CNTL_2P2Z_Coef");
-struct CNTL_3P3Z_CoefStruct acVCoefs;
-#pragma DATA_SECTION(acVCoefs, "CNTL_3P3Z_Coef")
 
+#ifdef AC_V_3P3Z
+	struct CNTL_3P3Z_CoefStruct acVCoefs;
+	#pragma DATA_SECTION(acVCoefs, "CNTL_3P3Z_Coef")
+#else
+	struct CNTL_2P2Z_CoefStruct acVCoefs;
+	#pragma DATA_SECTION(acVCoefs, "CNTL_2P2z_Coef")
+#endif
+
+#ifdef AC_V_3P3Z
 							/*	 min, max, B0,  B1,  A1,  B2,  A2,  B3,  A3	 */
 float32 cfLimits[2][cA3 + 1] = {{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},	/* Coefficient minimums. */
 								{1.0, 0.9, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0}};	/* Coefficient maximums. */
+#else
+							/*	 min, max, B0,  B1,  A1,  B2,  A2  */
+float32 cfLimits[2][numCoefs] = {{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},	/* Coefficient minimums. */
+								{1.0, 0.9, 1.0, 1.0, 1.0, 1.0, 1.0}};	/* Coefficient maximums. */
+#endif
 
 extern void initCoefs (void) {
 	/* Initialises all coefficients.
@@ -27,32 +39,34 @@ extern void initCoefs (void) {
 	 */
 	Uint16 i = 0;
 	for (i = 0; i < numberOfLoads; i++) {
-		loadICoefs[i].min 	= INIT_SMIN;
-		loadICoefs[i].max 	= INIT_SMAX;
-		loadICoefs[i].b0 	= INIT_B0;
-		loadICoefs[i].b1 	= INIT_B1;
-		loadICoefs[i].a1 	= INIT_A1;
-		loadICoefs[i].b2 	= INIT_B2;
-		loadICoefs[i].a2 	= INIT_A2;
+		loadICoefs[i].min 	= DFLT_LOAD_SMIN;
+		loadICoefs[i].max 	= DFLT_LOAD_SMAX;
+		loadICoefs[i].b0 	= DFLT_LOAD_B0;
+		loadICoefs[i].b1 	= DFLT_LOAD_B1;
+		loadICoefs[i].a1 	= DFLT_LOAD_A1;
+		loadICoefs[i].b2 	= DFLT_LOAD_B2;
+		loadICoefs[i].a2 	= DFLT_LOAD_A2;
 	}
 
-	acICoefs.min 	= INIT_SMIN;
-	acICoefs.max 	= INIT_SMAX;
-	acICoefs.b0 	= INIT_B0;
-	acICoefs.b1 	= INIT_B1;
-	acICoefs.a1 	= INIT_A1;
-	acICoefs.b2 	= INIT_B2;
-	acICoefs.a2 	= INIT_A2;
+	acICoefs.min 	= DFLT_AC_ISMIN;
+	acICoefs.max 	= DFLT_AC_ISMAX;
+	acICoefs.b0 	= DFLT_AC_IB0;
+	acICoefs.b1 	= DFLT_AC_IB1;
+	acICoefs.a1 	= DFLT_AC_IA1;
+	acICoefs.b2 	= DFLT_AC_IB2;
+	acICoefs.a2 	= DFLT_AC_IA2;
 
-	acVCoefs.min 	= INIT_SMIN;
-	acVCoefs.max 	= INIT_SMAX;
-	acVCoefs.b0 	= INIT_B0;
-	acVCoefs.b1 	= INIT_B1;
-	acVCoefs.a1 	= INIT_A1;
-	acVCoefs.b2 	= INIT_B2;
-	acVCoefs.a2 	= INIT_A2;
-	acVCoefs.b3 	= INIT_B3;
-	acVCoefs.a3 	= INIT_A3;
+	acVCoefs.min 	= DFLT_AC_VSMIN;
+	acVCoefs.max 	= DFLT_AC_VSMAX;
+	acVCoefs.b0 	= DFLT_AC_VB0;
+	acVCoefs.b1 	= DFLT_AC_VB1;
+	acVCoefs.a1 	= DFLT_AC_VA1;
+	acVCoefs.b2 	= DFLT_AC_VB2;
+	acVCoefs.a2 	= DFLT_AC_VA2;
+#ifdef AC_V_3P3Z
+	acVCoefs.b3 	= DFLT_AC_VB3;
+	acVCoefs.a3 	= DFLT_AC_VA3;
+#endif
 }
 
 /*============== Load n ==============*/
@@ -67,22 +81,22 @@ static Uint16 getLoadICoefAddress(loadStage load, cfType coef, int32 *address) {
 			*address = (int32) &loadICoefs[load].min;
 			break;
 		case cMax:
-			*address = (int32) loadICoefs[load].max;
+			*address = (int32) &loadICoefs[load].max;
 			break;
 		case cB0:
-			*address = (int32) loadICoefs[load].b0;
+			*address = (int32) &loadICoefs[load].b0;
 			break;
 		case cB1:
-			*address = (int32) loadICoefs[load].b1;
+			*address = (int32) &loadICoefs[load].b1;
 			break;
 		case cA1:
-			*address = (int32) loadICoefs[load].a1;
+			*address = (int32) &loadICoefs[load].a1;
 			break;
 		case cB2:
-			*address = (int32) loadICoefs[load].b2;
+			*address = (int32) &loadICoefs[load].b2;
 			break;
 		case cA2:
-			*address = (int32) loadICoefs[load].a2;
+			*address = (int32) &loadICoefs[load].a2;
 			break;
 		default:
 			return CHANNEL_OOB;
@@ -131,25 +145,25 @@ static Uint16 getAcICoefAddress (cfType coef, int32 *address) {
 	/* Gets the address for the specified coefficient for the AC current control */
 	switch (coef) {
 		case cMin:
-			*address = (int32) acICoefs.min;
+			*address = (int32) &acICoefs.min;
 			break;
 		case cMax:
-			*address = (int32) acICoefs.max;
+			*address = (int32) &acICoefs.max;
 			break;
 		case cB0:
-			*address = (int32) acICoefs.b0;
+			*address = (int32) &acICoefs.b0;
 			break;
 		case cB1:
-			*address = (int32) acICoefs.b1;
+			*address = (int32) &acICoefs.b1;
 			break;
 		case cA1:
-			*address = (int32) acICoefs.a1;
+			*address = (int32) &acICoefs.a1;
 			break;
 		case cB2:
-			*address = (int32) acICoefs.b2;
+			*address = (int32) &acICoefs.b2;
 			break;
 		case cA2:
-			*address = (int32) acICoefs.a2;
+			*address = (int32) &acICoefs.a2;
 			break;
 		default:
 			return CHANNEL_OOB;
@@ -198,32 +212,34 @@ static Uint16 getAcVCoefAddress (cfType coef, int32 *address) {
 	/* Gets the address for the specified coefficient for the AC voltage control */
 	switch (coef) {
 		case cMin:
-			*address = (int32) acVCoefs.min;
+			*address = (int32) &acVCoefs.min;
 			break;
 		case cMax:
-			*address = (int32) acVCoefs.max;
+			*address = (int32) &acVCoefs.max;
 			break;
 		case cB0:
-			*address = (int32) acVCoefs.b0;
+			*address = (int32) &acVCoefs.b0;
 			break;
 		case cB1:
-			*address = (int32) acVCoefs.b1;
+			*address = (int32) &acVCoefs.b1;
 			break;
 		case cA1:
-			*address = (int32) acVCoefs.a1;
+			*address = (int32) &acVCoefs.a1;
 			break;
 		case cB2:
-			*address = (int32) acVCoefs.b2;
+			*address = (int32) &acVCoefs.b2;
 			break;
 		case cA2:
-			*address = (int32) acVCoefs.a2;
+			*address = (int32) &acVCoefs.a2;
 			break;
-		case cB3:
-			*address = (int32) acVCoefs.b3;
-			break;
-		case cA3:
-			*address = (int32) acVCoefs.a3;
-			break;
+		#ifdef AC_V_3P3Z
+			case cB3:
+				*address = (int32) &acVCoefs.b3;
+				break;
+			case cA3:
+				*address = (int32) &acVCoefs.a3;
+				break;
+		#endif
 		default:
 			return CHANNEL_OOB;
 	}
@@ -234,7 +250,7 @@ Uint16 setAcVCoef (cfType coef, float32 value) {
 	/* Sets the specified coefficient for the AC stage voltage control */
 	Uint16 err = 0;
 	int32 cfAddr = 0;
-	if (coef > cA3)							/* Check the coefficient specifier is valid */
+	if (coef >= numCoefs)							/* Check the coefficient specifier is valid */
 		return CHANNEL_OOB;
 											/* Check the new value is within the coefficient boundaries */
 	if ((value < cfLimits[cMin][coef]) || (value > cfLimits[cMax][coef]))
@@ -254,7 +270,7 @@ Uint16 getAcVCoef (cfType coef, float32 *value) {
 	/* Gets the specified coefficient for the AC stage voltage control */
 	Uint16 err = 0;
 	int32 cfAddr = 0;
-	if (coef > cA3)							/* Check the coefficient specifier is valid */
+	if (coef >= numCoefs)							/* Check the coefficient specifier is valid */
 		return CHANNEL_OOB;
 	err = getAcVCoefAddress(coef, &cfAddr);	/* Get the address of the specified coefficient */
 	if (err)								/* Check that the address was found without error */

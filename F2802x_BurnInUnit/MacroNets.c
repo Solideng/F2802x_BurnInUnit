@@ -138,10 +138,17 @@ static void connectAcNets (slaveMode mode) {
 	#ifndef DUAL_CNTL_AC
 		ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;	/* AC V Sns */
 		SGENTI_1ch_VOut  = &acNets.vRefNet;		/* Sine gen out */
-		CNTL_3P3Z_Ref1 	 = &acNets.vRefNet;		/* VCNTL reference */
-		CNTL_3P3Z_Fdbk1  = &acNets.vFdbkNet;	/* VCNTL feedback */
-		CNTL_3P3Z_Out1   = &acNets.iRefNet;		/* VCNTL out */
-		CNTL_3P3Z_Coef1  = &acVCoefs.b3;		/* VCNTL coefficients */
+		#ifdef AC_V_3P3Z
+			CNTL_3P3Z_Ref1 	 = &acNets.vRefNet;		/* VCNTL reference */
+			CNTL_3P3Z_Fdbk1  = &acNets.vFdbkNet;	/* VCNTL feedback */
+			CNTL_3P3Z_Out1   = &acNets.iRefNet;		/* VCNTL out */
+			CNTL_3P3Z_Coef1  = &acVCoefs.b3;		/* VCNTL coefficients */
+		#else
+			CNTL_2P2Z_Ref6 	 = &acNets.vRefNet;		/* VCNTL reference */
+			CNTL_2P2Z_Fdbk6  = &acNets.vFdbkNet;	/* VCNTL feedback */
+			CNTL_2P2Z_Out6   = &acNets.iRefNet;		/* VCNTL out */
+			CNTL_2P2Z_Coef6  = &acVCoefs.b2;		/* VCNTL coefficients */
+		#endif
 		ADCDRV_1ch_Rlt6  = &acNets.iFdbkNet;	/* AC I Sns */
 		#ifndef AC_STAGE_OPEN
 			PWMDRV_2ch_UpCnt_Duty3B = &acNets.iRefNet;/* AC F B PWM */
@@ -152,11 +159,17 @@ static void connectAcNets (slaveMode mode) {
 		if (mode != slaveUnit) {
 			ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;/* AC V Sns */
 			SGENTI_1ch_VOut  = &acNets.vRefNet;	/* Sine gen out */
-
-			CNTL_3P3Z_Ref1   = &acNets.vRefNet;	/* VCNTL reference */
-			CNTL_3P3Z_Fdbk1  = &acNets.vFdbkNet;/* VCNTL feedback */
-			CNTL_3P3Z_Out1   = &acNets.iRefNet;	/* VCNTL out/CNTLI in */
-			CNTL_3P3Z_Coef1  = &acVCoefs.b3;	/* VCNTL coefficients */
+			#ifdef AC_V_3P3Z
+				CNTL_3P3Z_Ref1   = &acNets.vRefNet;	/* VCNTL reference */
+				CNTL_3P3Z_Fdbk1  = &acNets.vFdbkNet;/* VCNTL feedback */
+				CNTL_3P3Z_Out1   = &acNets.iRefNet;	/* VCNTL out/CNTLI in */
+				CNTL_3P3Z_Coef1  = &acVCoefs.b3;	/* VCNTL coefficients */
+			#else
+				CNTL_2P2Z_Ref6   = &acNets.vRefNet;	/* VCNTL reference */
+				CNTL_2P2Z_Fdbk6  = &acNets.vFdbkNet;/* VCNTL feedback */
+				CNTL_2P2Z_Out6   = &acNets.iRefNet;	/* VCNTL out/CNTLI in */
+				CNTL_2P2Z_Coef6  = &acVCoefs.b3;	/* VCNTL coefficients */
+			#endif
 		} else {
 			ADCDRV_1ch_Rlt12 = &acNets.iRefNet;	/* AC Ext I Sns */
 		}
