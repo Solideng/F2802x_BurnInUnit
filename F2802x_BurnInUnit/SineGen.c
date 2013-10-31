@@ -137,14 +137,20 @@ Uint16 getSineState (Uint16 *state) {
 
 Uint16 setSineRmsTarget (float32 rmsTarget) {
 	/* Changes the sine gain target based on an RMS voltage value */
-	float32 max = 0.0;
-	int32 trgt = _IQ24(rmsTarget);
+	float32 maxPk = 0.0, maxRms = 0.0;
+//	int32 trgt = _IQ24(rmsTarget);
+//
+//	if ((trgt <= 0) || (trgt > acSettings.vMaxRms))	/* Check target is within fixed limits */
+//		return VALUE_OOB;
 
-	if (trgt > acSettings.vMaxRms)	/* Check target is less within limits */
+	maxPk = _IQ14toF((int32) acSettings.vScale);	/* convert vScale to float */
+	maxPk = ((VDDA - VSSA) / 1000.0) / maxPk;	/* Use vScale and system voltage to calculate maximum allowable peak value */
+	maxRms = maxPk * RECP_SQRT_2;	/* convert peak maximum to RMS maximum */
+
+	if (rmsTarget > maxRms)	/* Check target is within scale limit */
 		return VALUE_OOB;
 
-
-
+	setSineGainTarget(rmsTarget / maxRms);	/* Normalise target to gain value and set gain */
 	return 0;
 }
 

@@ -80,6 +80,12 @@ extern Uint16 setSineState (Uint16 state);
  */
 extern Uint16 getSineState (Uint16 *state);
 
+/** Sets the target RMS voltage of the signal.
+ * @param[in] 	rmsTarget	RMS voltage target value.
+ * @return					Error status.
+ */
+extern Uint16 setSineRmsTarget (float32 rmsTarget);
+
 /** Sets the target gain of the signal.
  * @param[in]	target	Gain target value [0.0, 1.0).
  * @return				Error status.
