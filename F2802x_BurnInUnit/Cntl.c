@@ -20,7 +20,7 @@ struct CNTL_2P2Z_CoefStruct acICoefs;
 	#pragma DATA_SECTION(acVCoefs, "CNTL_3P3Z_Coef")
 #else
 	struct CNTL_2P2Z_CoefStruct acVCoefs;
-	#pragma DATA_SECTION(acVCoefs, "CNTL_2P2z_Coef")
+	#pragma DATA_SECTION(acVCoefs, "CNTL_2P2Z_Coef")
 #endif
 
 #ifdef AC_V_3P3Z
