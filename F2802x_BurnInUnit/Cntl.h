@@ -30,10 +30,10 @@
 #define DFLT_LOAD_A3	0			/* IQ26 0.0 */
 
 #define DFLT_AC_ISMIN 	0			/* IQ24 0 */
-#define DFLT_AC_ISMAX 	16777216	/* IQ24 0.9 */
-#define DFLT_AC_IB0		56780809	/* IQ26 0.8461 */
-#define DFLT_AC_IB1		6194148 	/* IQ26 0.0923 */
-#define DFLT_AC_IB2		-50586661	/* IQ26 -0.7538 */
+#define DFLT_AC_ISMAX 	15099494	/* IQ24 0.9 */
+#define DFLT_AC_IB0		34581200	/* IQ26 0.5153 */
+#define DFLT_AC_IB1		15482015 	/* IQ26 0.2307 */
+#define DFLT_AC_IB2		-19099182	/* IQ26 -0.2846 */
 #define DFLT_AC_IA1		0			/* IQ26 0 */
 #define DFLT_AC_IA2		67108864	/* IQ26 1 */
 
