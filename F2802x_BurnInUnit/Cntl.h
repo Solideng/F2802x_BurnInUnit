@@ -37,11 +37,11 @@
 #define DFLT_AC_IA1		0			/* IQ26 0 */
 #define DFLT_AC_IA2		67108864	/* IQ26 1 */
 
-#define DFLT_AC_VSMIN 	-16777216	/* IQ24 0 */
-#define DFLT_AC_VSMAX 	16777216	/* IQ24 0.9 */
-#define DFLT_AC_VB0		23743116	/* IQ26 0.3538 */
-#define DFLT_AC_VB1		20642686 	/* IQ26 0.3076 */
-#define DFLT_AC_VB2		-3093718	/* IQ26 -0.0461 */
+#define DFLT_AC_VSMIN 	-2130706432	/* IQ24 -127 */
+#define DFLT_AC_VSMAX 	2130706432	/* IQ24 127 */
+#define DFLT_AC_VB0		77423496	/* IQ26 1.1537 */
+#define DFLT_AC_VB1		24870544 	/* IQ26 0.3706 */
+#define DFLT_AC_VB2		-56780812	/* IQ26 -0.8461 */
 #define DFLT_AC_VA1		0			/* IQ26 0 */
 #define DFLT_AC_VA2		67108864	/* IQ26 1 */
 
