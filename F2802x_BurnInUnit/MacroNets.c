@@ -6,8 +6,8 @@
  */
 #include "Common.h"
 
-long testVCtrlDcValue = 398508;
-//long testICtrlDcValue = 0;
+long testVCtrlDcValue = 398508; // 10 volts
+long testICtrlDcValue = 641855; // 0.5 amps
 
 Uint16	stopAllFlag = 0;	// TODO May be moved to SCPI device specific regs
 Uint16	enableAllFlag = 0;
@@ -60,7 +60,7 @@ static void initSettings (void) {
 	acSettings.otpLevel   = 19200;		/* 150 degree C Q7 */
 	acSettings.iMaxRms    = 15360;		/* 15 amps (RMS) Q10 SQ10 */
 	acSettings.vMaxRms    = 15360;		/* 15 volts (RMS) Q10 */ //TODO Test setting << need actual
-	acSettings.iScale     = _SQ14(LOAD_I_SCALE);/* Q14 */
+	acSettings.iScale     = _SQ14(AC_I_SCALE);/* Q14 */
 	acSettings.vScale     = 32767;		/* 1.0f volts-per-volt Q14 */
 	acSettings.enable     = FALSE;		/* FALSE | TRUE */
 	acSettings.mode       = masterUnit;	/* master | slave */
@@ -139,14 +139,17 @@ static void connectXfmrNets (void) {
 
 static void connectAcNets (slaveMode mode) {
 	#ifndef DUAL_CNTL_AC
+		/* AC STAGE SETUP WITHOUT CURRENT CONTROL STAGE */
 		ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;	/* AC V Sns */
 		SGENTI_1ch_VOut  = &acNets.vRefNet;		/* Sine gen out */
 		#ifdef AC_V_3P3Z
+			/* 3P3Z VOLTAGE CONTROL LOOP SETUP */
 			CNTL_3P3Z_Ref1 	 = &acNets.vRefNet;		/* VCNTL reference */
 			CNTL_3P3Z_Fdbk1  = &acNets.vFdbkNet;	/* VCNTL feedback */
 			CNTL_3P3Z_Out1   = &acNets.iRefNet;		/* VCNTL out */
 			CNTL_3P3Z_Coef1  = &acVCoefs.b3;		/* VCNTL coefficients */
 		#else
+			/* 2P2Z VOLTAGE CONTROL LOOP SETUP */
 			CNTL_2P2Z_Ref6 	 = &acNets.vRefNet;		/* VCNTL reference */
 			CNTL_2P2Z_Fdbk6  = &acNets.vFdbkNet;	/* VCNTL feedback */
 			CNTL_2P2Z_Out6   = &acNets.iRefNet;		/* VCNTL out */
@@ -159,18 +162,20 @@ static void connectAcNets (slaveMode mode) {
 			PWMDRV_2ch_UpCnt_Duty3B = &acNets.vRefNet; /* SINGEN OUT -> AC PWM */
 		#endif
 	#else
+		/* AC STAGE SETUP WITH CURRENT CONTROL STAGE */
 		if (mode != slaveUnit) {
 			ADCDRV_1ch_Rlt12 = &acNets.vFdbkNet;/* AC V Sns */
 			SGENTI_1ch_VOut  = &acNets.vRefNet;	/* Sine gen out */
 			#ifdef AC_V_3P3Z
+				/* 3P3Z VOLTAGE CONTROL LOOP SETUP */
 				CNTL_3P3Z_Ref1   = &acNets.vRefNet;	/* VCNTL reference */
 				CNTL_3P3Z_Fdbk1  = &acNets.vFdbkNet;/* VCNTL feedback */
 				CNTL_3P3Z_Out1   = &acNets.iRefNet;	/* VCNTL out/CNTLI in */
 				CNTL_3P3Z_Coef1  = &acVCoefs.b3;	/* VCNTL coefficients */
 			#else
-				/* VOLTAGE CONTROL LOOP SETUP */
-				//CNTL_2P2Z_Ref6   = &acNets.vRefNet;	/* VCNTL reference = SIN GEN OUT*/
-				CNTL_2P2Z_Ref6   = &testVCtrlDcValue;	/* VCNTL reference = DC VOLT/421 IQ24*/
+				/* 2P2Z VOLTAGE CONTROL LOOP SETUP */
+				CNTL_2P2Z_Ref6   = &acNets.vRefNet;	/* VCNTL reference = SIN GEN OUT*/
+				//CNTL_2P2Z_Ref6   = &testVCtrlDcValue;	/* VCNTL reference = DC VOLT/421 IQ24*/
 				CNTL_2P2Z_Fdbk6  = &acNets.vFdbkNet;/* VCNTL feedback */
 				CNTL_2P2Z_Out6   = &acNets.iRefNet;	/* VCNTL out/CNTLI in */
 				CNTL_2P2Z_Coef6  = &acVCoefs.b2;	/* VCNTL coefficients */
