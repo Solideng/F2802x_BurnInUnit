@@ -20,19 +20,24 @@
 #ifndef SINEGEN_H_
 #define SINEGEN_H_
 
-#define SIN_DFLT_RCTFY	TRUE	/**< Initial rectification setting [TRUE | FALSE). */
-#define SIN_DFLT_OFST	0		/**< Initial offset setting [-0.5, +0.5], IQ15. */
-#define SIN_DFLT_PHSE	0		/**< Initial initial phase setting [0, 360), IQ16. */
+#define SIN_F_ISR 		60000000.0f/PWM_1_PRD
+#define SIN_F_ISR_DVSR 	6
+#define SIN_F_SPL 		((SIN_F_ISR)/SIN_F_ISR_DVSR)
+
+#define SIN_F_MAX 		200u	/**< Maximum frequency setting (hertz). */
+#define SIN_F_REQ 		50.0	/**< Required frequency setting (hertz). */
+
+#define SIN_OFST		0		/**< Offset setting [-0.5, +0.5], IQ15. */
+#define SIN_PHSE		0		/**< Initial phase setting [0, 360), IQ16. */
 #define SIN_DFLT_GAIN	0.0		/**< Initial gain setting [0.0, 1.0]. */
-#define SIN_DFLT_F 		50.0	/**< Initial frequency setting (hertz). */
-#define SIN_DFLT_F_MAX 	1000u	/**< Initial maximum frequency setting (hertz). */
+#define SIN_DFLT_RCTFY	TRUE	/**< Initial rectification setting [TRUE | FALSE). */
 
 #define SIN_CHANNEL	AC_STAGE 	/**< Defines which channel enable controls the generator output. */
-#define SIN_F_SPL 	8250u		/**< Signal sampling frequency, i.e. the frequency that sgen.calc()
- 	 	 	 	 	 	 	 	 * is called at.
-								 * This is dependent on ISR frequency, currently 1/4 of f_ISR,
-								 * full ISR speed is 33,000Hz.
-								 */
+//#define SIN_F_SPL 	21666u		/**< Signal sampling frequency, i.e. the frequency that sgen.calc()
+// 	 	 	 	 	 	 	 	 * is called at.
+//								 * This is dependent on ISR frequency, currently 1/4 of f_ISR,
+//								 * full ISR speed is 33,000Hz.
+//								 */
 
 extern volatile int32 *SGENTI_1ch_VOut;	/**< Voltage output terminal. */
 

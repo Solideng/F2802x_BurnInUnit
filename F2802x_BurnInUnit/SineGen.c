@@ -23,20 +23,18 @@ volatile int32 *SGENTI_1ch_VOut = 0;	/* Voltage signal output terminal*/
 	volatile int16 sine_sign[LOG_SIZE] = {0};
 #endif
 
-static Uint16 usePhaseOut = FALSE;			/* Saves whether to use AC PHASE OUT */
+static Uint16 usePhaseOut = TRUE;			/* Saves whether to use AC PHASE OUT */
 static Uint16 rectifyMode = SIN_DFLT_RCTFY;	/* Selects whether signal is recitified or not */
-static Uint16 fMax = SIN_DFLT_F_MAX;		/* Sets the fMax value */
+//static Uint16 fMax = SIN_F_MAX;		/* Sets the fMax value */
 
 void initSine (Uint16 enablePhaseOut) {
 	/* Set signal generator default values
 	 * These values can be altered by changing
 	 *  the values #define'd in SineGen.h
 	 */
-	fMax = SIN_DFLT_F_MAX;
-	rectifyMode = SIN_DFLT_RCTFY;
-
-	sigGen.offset = SIN_DFLT_OFST;		/* DC offset, Uint16 Q15 */
-	sigGen.alpha = SIN_DFLT_PHSE; 		/* Alpha = [phase / (2 x pi)] x 2^16, Uint16, Q16 */
+	volatile float test = 0;
+	sigGen.offset = SIN_OFST;		/* DC offset, Uint16 Q15 */
+	sigGen.alpha = SIN_PHSE; 		/* Alpha = [phase / (2 x pi)] x 2^16, Uint16, Q16 */
 	//sigGen.alpha = (Uint16) (((SIN_DFLT_PHSE / 360.0) * 65536) + 0.5);
 
 	sigGen.gain = _IQ15(SIN_DFLT_GAIN);	/* Gain, 0x7fff is full gain of 1, int16 Q15 */
@@ -47,13 +45,13 @@ void initSine (Uint16 enablePhaseOut) {
 										 * hence step_max should be above 100 for good resolution
 										 * Uint16 Q0
 										 */
-	sigGen.step_max = (Uint16)(((fMax * 65536.0) / SIN_F_SPL) + 0.5);
+	sigGen.step_max = (Uint16)(((SIN_F_MAX * 65536.0) / SIN_F_SPL) + 0.5);
 
 										/* Freq = (f_req / f_max) x 2^15
 										 *  	= (50Hz / 1kHz) x 32768 = 1638
 										 * Uint16 Q15
 										 */
-	sigGen.freq = (Uint16)((SIN_DFLT_F / SIN_DFLT_F_MAX) * 32768) + 0.5;
+	sigGen.freq = (Uint16)((SIN_F_REQ / SIN_F_MAX) * 32768) + 0.5;
 
 	if (!enablePhaseOut) {				/* Change AC PHASE OUT to an input */
 		GpioCtrlRegs.GPADIR.bit.GPIO19 = 0;
