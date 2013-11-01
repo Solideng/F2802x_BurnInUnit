@@ -41,23 +41,27 @@
 #define VSSA 				0l		/**< System VLOWREF (millivolts). */
 #define VDDA 				3300l	/**< System VMAXREF (millivolts). */
 
-#define LOAD_I_SCALE		0.125f	/**< Scaling factor for load current ADC. */ // TODO: Get correct value!!
-#define LOAD_V_R1 			18.0f	/**< Scaling voltage divider R1 resistor value for load voltage ADC. */
-#define LOAD_V_R2 			1.0f	/**< Scaling voltage divider R2 resistor value for load voltage ADC. */
+#define LOAD_I_RSNS 		0.0025f	// TODO: Implement I Scale based on H/W RSNS and shunt monitor gain values for all I scales?? AC Calc may be a bit different...
+#define LOAD_I_GAIN 		100.0f
+//#define LOAD_I_SCALE 		(LOAD_I_RSNS * LOAD_I_GAIN)
+
+#define LOAD_I_SCALE		0.25f	/**< Scaling factor for load current ADC. */
+#define LOAD_V_R1 			18.0f	/**< Scaling voltage divider R1 resistor value for load voltage ADC. kOhms. */
+#define LOAD_V_R2 			1.0f	/**< Scaling voltage divider R2 resistor value for load voltage ADC. kOhms. */
 #define LOAD_V_SCALE 		LOAD_V_R2 / (LOAD_V_R1 + LOAD_V_R2)
 
-#define HV_V_R1 			540.0f	/**< Scaling voltage divider R1 resistor value for HV voltage ADC. */
-#define HV_V_R2 			4.3f	/**< Scaling voltage divider R2 resistor value for HV voltage ADC. */
+#define HV_V_R1 			540.0f	/**< Scaling voltage divider R1 resistor value for HV voltage ADC. kOhms. */
+#define HV_V_R2 			4.3f	/**< Scaling voltage divider R2 resistor value for HV voltage ADC. kOhms. */
 #define HV_V_SCALE 			HV_V_R2 / (HV_V_R1 + HV_V_R2)
 
-#define MID_I_SCALE 		1.0f	/**< Scaling factor for MID current ADC. */ // TODO: Get correct value!!
-#define MID_V_R1			540.0f	/**< Scaling voltage divider R1 resistor value for MID voltage ADC. */
-#define MID_V_R2			4.3f	/**< Scaling voltage divider R2 resistor value for MID voltage ADC. */
+#define MID_I_SCALE 		0.25f	/**< Scaling factor for MID current ADC. Volts/amp. */
+#define MID_V_R1			18.0f	/**< Scaling voltage divider R1 resistor value for MID voltage ADC. kOhms. */
+#define MID_V_R2			1.0f	/**< Scaling voltage divider R2 resistor value for MID voltage ADC. kOhms. */
 #define MID_V_SCALE 		MID_V_R2 / (MID_V_R1 + MID_V_R2)
 
-#define AC_I_SCALE 			0.25f	/**< Scaling factor for AC current ADC. volts/amp */
-#define AC_V_R1				540.0f	/**< Scaling voltage divider R1 resistor value for AC voltage ADC. */
-#define AC_V_R2				4.3f	/**< Scaling voltage divider R2 resistor value for AC voltage ADC. */
+#define AC_I_SCALE 			0.25f	/**< Scaling factor for AC current ADC. Volts/amp. */
+#define AC_V_R1				540.0f	/**< Scaling voltage divider R1 resistor value for AC voltage ADC. kOhms. */
+#define AC_V_R2				4.3f	/**< Scaling voltage divider R2 resistor value for AC voltage ADC. kOhms. */
 #define AC_V_SCALE 			AC_V_R2 / (AC_V_R1 + AC_V_R2 + AC_V_R2)
 
 // TODO: Remove NUM_CHNLS. Use numberOfLoads etc in specificCmds.
