@@ -63,12 +63,8 @@ void initSine (Uint16 enablePhaseOut) {
 
 void updateSineGain (void) {
 	int32 targetPoint = 0, error = 0, ref = 0;
-
-	if (!acSettings.enable) {
-		targetPoint = 0;					/* Set target to 0 if channel disabled */
-	} else {								/*  else use the currently set target */
-		targetPoint = acSettings.gainTarget;
-	}
+	/* Set target to 0 if channel disabled else use the currently set target */
+	targetPoint = (acSettings.enable) ? acSettings.gainTarget : 0;
 
 	ref = _IQ15toIQ(sigGen.gain);
 

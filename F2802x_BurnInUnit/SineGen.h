@@ -20,8 +20,9 @@
 #ifndef SINEGEN_H_
 #define SINEGEN_H_
 
-#define SIN_F_ISR 		60000000.0f/PWM_1_PRD
-#define SIN_F_ISR_DVSR 	6
+#define SIN_F_ISR 		60000000.0f/PWM_1_PRD	/**< Sampling frequency. I.e. the frequency at which the DPL ISR task runs. */
+#define SIN_F_ISR_DVSR 	6		/**< Sampling frequency divisor. E.g. F_ISR = 130kHz, but the DPL ISR only runs on every
+									 third trigger plus there are two alternating tasks so, 3 x 2 = 6 */
 #define SIN_F_SPL 		((SIN_F_ISR)/SIN_F_ISR_DVSR)
 
 #define SIN_F_MAX 		200u	/**< Maximum frequency setting (hertz). */
@@ -33,11 +34,6 @@
 #define SIN_DFLT_RCTFY	TRUE	/**< Initial rectification setting [TRUE | FALSE). */
 
 #define SIN_CHANNEL	AC_STAGE 	/**< Defines which channel enable controls the generator output. */
-//#define SIN_F_SPL 	21666u		/**< Signal sampling frequency, i.e. the frequency that sgen.calc()
-// 	 	 	 	 	 	 	 	 * is called at.
-//								 * This is dependent on ISR frequency, currently 1/4 of f_ISR,
-//								 * full ISR speed is 33,000Hz.
-//								 */
 
 extern volatile int32 *SGENTI_1ch_VOut;	/**< Voltage output terminal. */
 
@@ -49,7 +45,7 @@ extern volatile int32 *SGENTI_1ch_VOut;	/**< Voltage output terminal. */
 #endif
 
 #ifdef DEBUG
-	extern SGENTI_1 sigGen;		/* Makes struct available to watch during debug. */
+	extern SGENTI_1 sigGen;		/* Makes structure available to watch during debug. */
 #endif
 
 /** Sets the initial generator values and disables the output.
