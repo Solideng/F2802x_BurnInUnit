@@ -29,12 +29,14 @@
  *  - CTRL PCB - J14 incorrect footprint for locating pegs.
  *  - CTRL PCB - J10, J11, J12, J13, J15, J16 placed to close together
  *  - CTRL PCB - C23 changed from 1nF to 10nF for noise reduction.
+ *  - CTRL PCB - Added 1k pullups to I2C SCK & SDA
  *  - XFMR PCB - 12VIN not connected to 12V track - Added mod wire.
  *  - AC PCB - SGND not connected to PGND - Added mod wire.
- *  - AC PCB - Gain setting resistor needed on U2 - Added.
+ *  - AC PCB - Gain setting resistor needed on U2 - Added 100R & 10k for gain ~100.
  *  - AC PCB - R19 & R20 changed from 0R to 100R.
  *  - AC PCB - C27 added with 100nF.
  *  - AC PCB - Added diodes D1, D2, D3, D4, D5 & D6 to improve OFF switching.
+ *  - AC PCB - VSns track (ACVSNS net) has lots of noise due to routing under low side switches
  *
  */
 
@@ -141,8 +143,7 @@ void main (void) {
 		/* Setup macros and the hardware they use */
 	initPwm();				/* Initialise PWM macros */
 	initAdc();				/* Initialise the ADCs macros */
-	//initSine(slaveModeStatus);	/* Initialise the sine generator macro */
-	initSine(FALSE);
+	initSine(slaveModeStatus);	/* Initialise the sine generator macro */
 	initDcComparator();		/* Initialise the comparators */
 	initAcComparator();
 	DPL_Init();				/* Initialise the used macros with the DPL ASM ISR */
