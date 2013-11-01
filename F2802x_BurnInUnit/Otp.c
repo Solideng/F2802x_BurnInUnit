@@ -7,7 +7,7 @@
 
 #include "Common.h"
 
-Uint16 otpFlagRegister;
+Uint16 otpFlagRegister = 0;
 
 /*============== Load n ==============*/
 Uint16 setLoadOtpLevel (loadStage load, float32 level){
