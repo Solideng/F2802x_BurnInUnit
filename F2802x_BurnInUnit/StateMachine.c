@@ -107,7 +107,7 @@ void loopBTask1 (void) {
 	//	checkLoadOtp(load2);
 	//	checkLoadOtp(load3);
 	//	checkLoadOtp(load4);
-	//	checkDcOtp();
+		checkDcOtp();
 		checkAcOtp();
 	//	checkExtOtp(ext1);
 	//	checkExtOtp(ext2);
