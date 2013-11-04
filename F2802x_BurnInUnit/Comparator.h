@@ -14,6 +14,10 @@
 #ifndef COMPARATOR_H_
 #define COMPARATOR_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** Configures PWM trip zones for use.
  * Requires the comparator and DAC to be configured
  * @sa adc.h
@@ -68,5 +72,9 @@ extern Uint16 getAcDac (float32 *level);
 
 /** Resets the AC trip zone after an AC comparator event. */
 extern void rstAcTripzone (void);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* COMPARATOR_H_ */

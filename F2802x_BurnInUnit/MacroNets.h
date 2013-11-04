@@ -7,6 +7,10 @@
 #ifndef MACRONETS_H_
 #define MACRONETS_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define LOAD_0		0	/**< The index position for Load 0 settings. */
 #define LOAD_1		1	/**< The index position for Load 1 settings. */
 #define LOAD_2		2	/**< The index position for Load 2 settings. */
@@ -182,5 +186,9 @@ typedef struct acStageSettings acStageSettings;
 
 /** A global instance of the AC settings structure. */
 extern acStageSettings acSettings;
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* MACRONETS_H_ */

@@ -38,6 +38,10 @@
 #ifndef I2C_H_
 #define I2C_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*================== MACROS ===================*/
 #define I2C_MAX_BUFFER_SIZE		0x04	/**< Maximum I2C message buffer size in bytes, including slave register pointer bytes. */
 #define I2C_MAX_PTR_SIZE 		0x02	/**< Maximum number of slave register pointer bytes. */
@@ -117,5 +121,9 @@ extern Uint16 i2cWrite (i2cMsg *msg);
  * @return			Error status.
  */
 extern Uint16 i2cRead (i2cMsg *msg);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* I2C_H_ */

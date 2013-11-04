@@ -8,6 +8,10 @@
 #ifndef ADC_H_
 #define ADC_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern volatile int32 *ADCDRV_1ch_Rlt1;	/**< Channel 0 current sense ADC terminal pointer. */
 extern volatile int32 *ADCDRV_1ch_Rlt2;	/**< Channel 1 current sense ADC terminal pointer. */
 extern volatile int32 *ADCDRV_1ch_Rlt3;	/**< Channel 2 current sense ADC terminal pointer. */
@@ -71,5 +75,9 @@ extern Uint16 getDcHvVoltage (float32 * dcVoltage);
 
 /*========= SYMBOLS DEFINED BY DP LIB =========*/
 extern void ADC_SOC_CNF(int16 ChSel[], int16 Trigsel[], int16 ACQPS[], int16 IntChSel, int16 mode);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* ADC_H_ */

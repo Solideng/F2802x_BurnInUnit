@@ -12,6 +12,10 @@
 #ifndef OPP_H_
 #define OPP_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define LOAD1_OPP_TRIP 	1	/**< OPP flag register load 1 bit. */
 #define LOAD2_OPP_TRIP 	2	/**< OPP flag register load 2 bit. */
 #define LOAD3_OPP_TRIP 	4	/**< OPP flag register load 3 bit. */
@@ -58,5 +62,9 @@ extern Uint16 getAcOppState (void);
  * @return				Error status.
  */
 extern Uint16 clearAcOpp (void);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* OPP_H_ */

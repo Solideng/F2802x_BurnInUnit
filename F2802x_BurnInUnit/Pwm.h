@@ -8,6 +8,10 @@
 #ifndef PWM_H_
 #define PWM_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*================== MACROS ===================*/
 /* E.G. 60MHz / 600prd = 100kHz. */
 #define PWM_1_PRD 	462	/**< Defines the period setting for PWM1. 60MHz / 462 = 130kHz. */
@@ -56,5 +60,9 @@ extern void PWM_2ch_UpCnt_CNF(int16 n, int16 period, int16 mode, int16 phase);
  * Located in the assembly file BurnInUnit_ISR.asm
  */
 extern interrupt void DPL_ISR(void);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* PWM_H_ */

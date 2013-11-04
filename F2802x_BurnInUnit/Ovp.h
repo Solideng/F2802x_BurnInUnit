@@ -12,6 +12,10 @@
 #ifndef OVP_H_
 #define OVP_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define LOAD1_OVP_TRIP 	1	/**< OVP flag register load 1 bit. */
 #define LOAD2_OVP_TRIP 	2	/**< OVP flag register load 2 bit. */
 #define LOAD3_OVP_TRIP 	4	/**< OVP flag register load 3 bit. */
@@ -128,5 +132,9 @@ extern Uint16 getAcOvpState (void);
  * @return				Error status.
  */
 extern Uint16 clearAcOvp (void);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* OVP_H_ */

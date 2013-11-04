@@ -8,6 +8,10 @@
 #ifndef SLEWCONTROL_H_
 #define SLEWCONTROL_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*============= GLOBAL FUNCTIONS ==============*/
 /** Advances the slew ramps for all loads. */
 extern void updateLoadSlew (void);
@@ -72,5 +76,8 @@ extern Uint16 getLoadSlewStep (loadStage load, float32 * step);
  */
 extern Uint16 getLoadState (loadStage load, Uint16 * state);
 
-#endif /* SLEWCONTROL_H_ */
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
+#endif /* SLEWCONTROL_H_ */

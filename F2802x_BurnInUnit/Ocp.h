@@ -12,6 +12,10 @@
 #ifndef OCP_H_
 #define OCP_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define LOAD1_OCP_TRIP 	1	/**< OCP flag register load 1 bit. */
 #define LOAD2_OCP_TRIP 	2	/**< OCP flag register load 2 bit. */
 #define LOAD3_OCP_TRIP 	4	/**< OCP flag register load 3 bit. */
@@ -115,5 +119,9 @@ extern Uint16 getAcOcpState (void);
  * @return				Error status.
  */
 extern Uint16 clearAcOcp (void);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* OCP_H_ */

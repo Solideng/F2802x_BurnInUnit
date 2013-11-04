@@ -28,6 +28,10 @@
 #ifndef SLAVEMODE_H_
 #define SLAVEMODE_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // TODO:...
 // IF SLAVE SCPI CTRL SHOULD CHANGE INST NUMBERS... EG FROM 5-8 to 1-4
 // IF MASTER WITH SLAVE, ALL SCPI DEVICE FUNCTIONS (COMMON, REQUIRED, SPECIFIC) WILL NEED TO CALL MASTER TO SLAVE SPECIFIC FUNCTIONS
@@ -69,5 +73,9 @@ extern slaveMode slaveModeStatus;	/**< A global variable that holds the detected
  * 			the slaveModeStatus variable instead.
  */
 extern slaveMode detectSlaveMode (void);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* SLAVEMODE_H_ */

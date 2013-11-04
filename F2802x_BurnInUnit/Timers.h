@@ -12,6 +12,10 @@
 #ifndef TIMERS_H_
 #define TIMERS_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*============= GLOBAL FUNCTIONS ==============*/
 #ifdef VTIMERS
 	extern int16 VTimer0[4];	/**< First set of virtual timers. */
@@ -31,5 +35,9 @@
  * @sa smInit()
  */
 extern void timersSetupReal (void);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* TIMERS_H_ */

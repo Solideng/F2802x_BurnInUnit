@@ -10,6 +10,10 @@
 #ifndef COMMON_H_
 #define COMMON_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Core device definitions and functions */
 #include "Settings.h"
 #include "PeripheralHeaderIncludes.h"
@@ -63,5 +67,9 @@ void DSP28x_usDelay(Uint32 Count);	/* ASM micro second delay called by DELAY_US(
 #define DELAY_US(A)  DSP28x_usDelay(((((long double) A * 1000.0L) / (long double)CPU_RATE) - 9.0L) / 5.0L)
 /*============================================================================
  *===========================================================================*/
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* F2802X_BURNINUNIT_COMMON_H_ */

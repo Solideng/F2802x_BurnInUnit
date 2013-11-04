@@ -7,6 +7,10 @@
 #ifndef CNTL_H_
 #define CNTL_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //#define SATMAX_MAX 0.9f	/**< The maximum allowable value for the IIR filter control law's maximum saturation. */
 
 //#define INIT_SMIN	0			/* IQ24 0.0 */
@@ -166,5 +170,9 @@ extern Uint16 setAcVCoef (cfType coef, float32 value);
  * @return				Error status.
  */
 extern Uint16 getAcVCoef (cfType coef, float32 *value);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* CNTL_H_ */

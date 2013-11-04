@@ -20,6 +20,10 @@
 #ifndef SCI_H_
 #define SCI_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*================== MACROS ===================*/
 #define SCIBAUD_MIN			29	/**< Minimum allowable value of SCI Baud. */
 #define SCIFFRX_INT_LVL		1	/**< Interrupt level for receiving FIFO. */
@@ -38,5 +42,9 @@ extern Uint16 sciInit(Uint32 baud);
 
 /** Transmits whatever data is on the SCPI output queue if SCI has been selected as the external communications type. */
 extern void sciTx (void);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* SCI_H_*/

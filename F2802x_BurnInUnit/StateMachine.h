@@ -5,8 +5,12 @@
  *
  */
 
-#ifndef F2802X_BURNINUNIT_STATEMACHINE_H_
-#define F2802X_BURNINUNIT_STATEMACHINE_H_
+#ifndef STATEMACHINE_H_
+#define STATEMACHINE_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #ifdef DEBUG
 	extern circuitSection enableSection; /* Set to 0-7 for one state machine iteration to enable a section, set >7 for no action  */
@@ -22,4 +26,8 @@ extern void initStateMachine(void);
  */
 extern void (*Alpha_State_Ptr)(void);
 
-#endif /* F2802X_BURNINUNIT_STATEMACHINE_H_ */
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
+
+#endif /* STATEMACHINE_H_ */

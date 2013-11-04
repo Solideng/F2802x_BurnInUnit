@@ -14,6 +14,10 @@
 #ifndef _PROJSETTINGS_H
 #define _PROJSETTINGS_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*==============================================================
  * Build options
  *============================================================*/
@@ -107,5 +111,9 @@
 #define I2C_BUS_BUSY		0x23	/**< I2C bus already busy error code. */
 #define I2C_INVALID_ISRC	0x24	/**< Invalid I2C interrupt source error code. */
 /**@}*/
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif

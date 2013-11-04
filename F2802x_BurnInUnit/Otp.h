@@ -8,6 +8,10 @@
 #ifndef OTP_H_
 #define OTP_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define LOAD1_OTP_TRIP 	1	/**< OTP flag register load 1 bit. */
 #define LOAD2_OTP_TRIP 	2	/**< OTP flag register load 2 bit. */
 #define LOAD3_OTP_TRIP 	4	/**< OTP flag register load 3 bit. */
@@ -145,5 +149,9 @@ extern Uint16 getExtOtpState (extSelect ext);
  * @return			Error status.
  */
 extern Uint16 clearExtOtp (extSelect ext);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* OTP_H_ */

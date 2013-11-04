@@ -36,6 +36,10 @@
 #ifndef TMP_H_
 #define TMP_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifndef I2C_H_
 	#error "The temperature sense interface requires the file I2c.h to be included"
 #endif
@@ -80,5 +84,9 @@ extern Uint16 initTemperature (void);
  * @return				Error status.
  */
 extern Uint16 readTemperature (Uint16 chnl, float32 *tmpDest);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* TMP_H_ */

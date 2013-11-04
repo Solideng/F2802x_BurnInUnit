@@ -20,6 +20,10 @@
 #ifndef SINEGEN_H_
 #define SINEGEN_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define SIN_F_ISR 		60000000.0f/PWM_1_PRD	/**< Sampling frequency. I.e. the frequency at which the DPL ISR task runs. */
 #define SIN_F_ISR_DVSR 	6		/**< Sampling frequency divisor. E.g. F_ISR = 130kHz, but the DPL ISR only runs on every
 									 third trigger plus there are two alternating tasks so, 3 x 2 = 6 */
@@ -183,5 +187,9 @@ extern Uint16 getSineGainStep (float32 *step);
  * @return				Error status.
  */
 //extern Uint16 sgGetResolution (float32 *rslDest);
+
+#ifdef __cplusplus
+}
+#endif /* extern "C" */
 
 #endif /* SINEGEN_H_ */
