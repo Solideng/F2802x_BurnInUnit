@@ -60,7 +60,7 @@ ZeroNet	.usect "ZeroNet_Section",2,1,1	; output terminal 1
 		; time slice counter variable
 tsPtr	.usect "ISR_Section",1,1,1
 		; sine gen update skip variable
-sgntPtr	.usect "ISR_Section",1,1,1
+;sgntPtr	.usect "ISR_Section",1,1,1
 
 				.text
 ;---------------------------------------------------------
@@ -101,8 +101,8 @@ _DPL_Init:
 		; Initialize the time slicer
 		MOVW	DP, #tsPtr
 		MOV 	@tsPtr,#1	
-		MOVW 	DP, #sgntPtr
-		MOV 	@sgntPtr, #1
+		;MOVW 	DP, #sgntPtr
+		;MOV 	@sgntPtr, #1
 
 		ADCDRV_1ch_INIT 1		; LOAD 1 ISNS
 		CNTL_2P2Z_INIT 1		; LOAD 1 ICNTL
@@ -213,15 +213,15 @@ TS2:
 							; Run these macros...
 		ADCDRV_1ch 5		; XFMR ISNS
 							; Sine gen runs at PWMCLK/12
-		MOVW DP, #sgntPtr	; Load the data page pointer with the page that contains 'sgntPtr'
-		CMP @sgntPtr, #2	; Compare the data pointed to by 'sgntPtr' to '2'
-		B SGNTSKP, EQ		; Branch to SGNTSKP if the CMP was equal so as to skip the following two instructions
-		MOV @sgntPtr, #0	; Set 'sgntPtr' to '0'
+		;MOVW DP, #sgntPtr	; Load the data page pointer with the page that contains 'sgntPtr'
+		;CMP @sgntPtr, #2	; Compare the data pointed to by 'sgntPtr' to '2'
+		;B SGNTSKP, EQ		; Branch to SGNTSKP if the CMP was equal so as to skip the following two instructions
+		;MOV @sgntPtr, #0	; Set 'sgntPtr' to '0'
 		LCR _updateSineSignal	; Run the function 'updateSineSignal()'
 
-SGNTSKP:
-		MOV DP, #sgntPtr
-		MOV @sgntPtr, #0
+;SGNTSKP:
+		;MOV DP, #sgntPtr
+		;MOV @sgntPtr, #0
 		ADCDRV_1ch 6		; AC ISNS
 		CNTL_2P2Z 5			; AC ICNTL
 		.if $defined(AC_V_3P3Z)
@@ -233,8 +233,8 @@ SGNTSKP:
 
 		MOVW	DP, #tsPtr	; Load the data page pointer with the page that contains 'tsPtr'		; 1 CYC :
 		MOV 	@tsPtr,#1	; Move 1 into 'tsPtr' (change from TS2 to TS1)	; 1 CYC :
-		MOVW DP, #sgntPtr	; Load the data page pointer with the page that contains 'sgntPtr'		; 1 CYC :
-		INC 	@sgntPtr	; Increment 'sgntPtr'
+		;MOVW DP, #sgntPtr	; Load the data page pointer with the page that contains 'sgntPtr'		; 1 CYC :
+		;INC 	@sgntPtr	; Increment 'sgntPtr'
 TS_END:	
 		ADCDRV_1ch 7		; LOAD 1 VSNS
 		ADCDRV_1ch 8		; LOAD 2 VSNS
