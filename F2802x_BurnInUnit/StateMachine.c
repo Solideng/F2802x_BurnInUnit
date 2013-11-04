@@ -55,20 +55,27 @@ void loopASync (void) {
 }
 
 void loopATask1 (void) {
-	/* Over-current protection, all channel On/Off control */
 	/* Check for over-current */
 //	checkLoadOcp(load1);	//TODO: Commented out for test usage.
 //	checkLoadOcp(load2);
 //	checkLoadOcp(load3);
 //	checkLoadOcp(load4);
-	checkDcMidOcp();
+//	checkDcMidOcp();
 
+	/* Slew and gain update */
+	updateLoadSlew();		/* Step the slew values for load channels */
+	updateSineGain();		/*  and for AC stage */
+
+	A_Task_Ptr = &loopATask2;		/* Set pointer to next A task */
+}
+
+void loopATask2 (void) {
 	/* Check for over-voltage */
 //	checkLoadOvp(load1);
 //	checkLoadOvp(load2);
 //	checkLoadOvp(load3);
 //	checkLoadOvp(load4);
-	checkDcHvOvp();
+//	checkDcHvOvp();
 	if (slaveModeStatus != slaveUnit)
 		checkAcOvp();
 
@@ -78,24 +85,6 @@ void loopATask1 (void) {
 //	checkLoadOpp(load3);
 //	checkLoadOpp(load4);
 	checkAcOpp();
-
-	A_Task_Ptr = &loopATask2;		/* Set pointer to next A task */
-}
-
-void loopATask2 (void) {
-	/* OTP, slew and gain update */
-	/* Check for over-temperature */
-//	checkLoadOtp(load1);	//TODO: Commented out for test usage.
-//	checkLoadOtp(load2);
-//	checkLoadOtp(load3);
-//	checkLoadOtp(load4);
-//	checkDcOtp();
-	checkAcOtp();
-//	checkExtOtp(ext1);
-//	checkExtOtp(ext2);
-
-	updateLoadSlew();		/* Step the slew values for load channels */
-	updateSineGain();		/*  and for AC stage */
 
 	A_Task_Ptr = &loopATask1;		/* Set pointer to next A task */
 }
@@ -113,14 +102,23 @@ void loopBSync (void) {
 }
 
 void loopBTask1 (void) {
-	/* Current dash-board measurements */
-	#ifdef DEBUG_ADC
-		adcGui();
-	#endif
+	/* Check for over-temperature */
+	//	checkLoadOtp(load1);	//TODO: Commented out for test usage.
+	//	checkLoadOtp(load2);
+	//	checkLoadOtp(load3);
+	//	checkLoadOtp(load4);
+	//	checkDcOtp();
+		checkAcOtp();
+	//	checkExtOtp(ext1);
+	//	checkExtOtp(ext2);
 	B_Task_Ptr = &loopBTask2;		/* Set pointer to next B task */
 }
 
 void loopBTask2 (void) {
+	/* Current dash-board measurements */
+	#ifdef DEBUG_ADC
+		adcGui();
+	#endif
 	B_Task_Ptr = &loopBTask1;		/* Set pointer to next B task */
 }
 
