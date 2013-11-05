@@ -43,7 +43,7 @@ extern volatile int32 *SGENTI_1ch_VOut;	/**< Voltage output terminal. */
 
 
 #ifdef LOG_SIN
-	#define LOG_SIZE 100		/* Arrays for logging data during debug. */
+	#define LOG_SIZE 200		/* Arrays for logging data during debug. */
 	extern volatile int16 sine_abs[LOG_SIZE];
 	extern volatile int16 sine_sign[LOG_SIZE];
 #endif
@@ -72,6 +72,12 @@ extern void updateSineGain (void);
  * This is called by the DP_LIB asm ISR.
  */
 extern void updateSineSignal (void);
+
+/** Enables the use of the AC phase output signal on GPIO12. */
+extern void enableSinePhaseOut (void);
+
+/** Disables the use of the AC phase output signal on GPIO12. */
+extern void disableSinePhaseOut (void);
 
 /** Enables or disables the output of the generator onto the connected net
  * @param[in]	state	Output enable state {1:ON | 0:OFF}.

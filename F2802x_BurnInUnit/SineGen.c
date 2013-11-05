@@ -84,9 +84,6 @@ void updateSineSignal (void) {
 	#ifdef LOG_SIN
 		static Uint16 i = 0;
 		static Uint16 j = 0;
-
-		if (i >= LOG_SIZE)		/* If i (static) has reached the log limit, go back to the start of the log arrays */
-			i = 0;
 	#endif
 
 	if(!acSettings.enable) {	/* If channel disabled output all zeroes */
@@ -107,9 +104,12 @@ void updateSineSignal (void) {
 	else
 		*SGENTI_1ch_VOut = _IQ15toIQ(sigGen.out);
 
-	#ifdef LOG_SIN				/* Save the sign value to the sign log array */
-		sine_sign[i] = (sigGen.out > 0);
-		sine_abs[i] = (int16)(*SGENTI_1ch_VOut >> 9);
+	#ifdef LOG_SIN
+		if (i >= LOG_SIZE)	/* If i (static) has reached the log limit, go back to the start of the log arrays */
+			i = 0;
+		sine_sign[i] = (sigGen.out > 0); /* Save the sign value to the sign log array */
+		//sine_abs[i] = (int16)(*SGENTI_1ch_VOut >> 9);
+		sine_abs[i] = (int16) acNets.iRefNet;
 		if (j == 0) { 			/* Only save every other sample */
 			i++;
 			j++;
@@ -117,6 +117,14 @@ void updateSineSignal (void) {
 			j = 0;
 		}
 	#endif
+}
+
+void enableSinePhaseOut (void) {
+	usePhaseOut = TRUE;
+}
+
+void disableSinePhaseOut (void) {
+	usePhaseOut = FALSE;
 }
 
 Uint16 setSineState (Uint16 state) {
