@@ -21,10 +21,10 @@
  *
  * |ADS7830 Ch #| Signal 	| Enable bit#   | Enable state	|
  * |:----------:|:---------:|:-------------:|:-------------:|
- * | GP0 		| CHAN1EN	| 0				| 1				|
- * | GP1 		| CHAN2EN	| 1				| 1				|
- * | GP2 		| CHAN3EN	| 2				| 1				|
- * | GP3 		| CHAN4EN	| 3				| 1				|
+ * | GP0 		| CHAN1EN	| 0				| 0				|
+ * | GP1 		| CHAN2EN	| 1				| 0				|
+ * | GP2 		| CHAN3EN	| 2				| 0				|
+ * | GP3 		| CHAN4EN	| 3				| 0				|
  * | GP4 		| HVENABLE	| 4				| 0				|
  * | GP5 		| ACENABLE	| 5				| 1				|
  * | GP6 		| PSUENBLE	| 6				| 1				|
@@ -77,10 +77,10 @@ enum ecSection {
 /**  A type that allow specification of an enable control circuit section. */
 typedef enum ecSection circuitSection;
 
-#define CHAN1_EN_STATE 	0x01	/** The state required to disable the channel 1 circuit. */
-#define CHAN2_EN_STATE 	0x01	/** The state required to disable the channel 2 circuit. */
-#define CHAN3_EN_STATE 	0x01	/** The state required to disable the channel 3 circuit. */
-#define CHAN4_EN_STATE 	0x01	/** The state required to disable the channel 4 circuit. */
+#define CHAN1_EN_STATE 	0x00	/** The state required to disable the channel 1 circuit. */
+#define CHAN2_EN_STATE 	0x00	/** The state required to disable the channel 2 circuit. */
+#define CHAN3_EN_STATE 	0x00	/** The state required to disable the channel 3 circuit. */
+#define CHAN4_EN_STATE 	0x00	/** The state required to disable the channel 4 circuit. */
 #define XFMR_EN_STATE 	0x00	/** The state required to disable the transformer circuit. */
 #define AC_EN_STATE 	0x01	/** The state required to disable the AC circuit. */
 #define PSU_EN_STATE 	0x01	/** The state required to disable the PSU circuit. */
