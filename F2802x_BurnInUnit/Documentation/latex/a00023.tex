@@ -70,6 +70,8 @@ void \hyperlink{a00023_a7e7f2b9153314c4652c5e0a1d2977133}{reset\-Enable\-Control
 Uint16 \hyperlink{a00023_a5f4a447d1fbeba7920434b60e33b521e}{enable\-Circuit} (\hyperlink{a00023_a5d2cb2e2fccefcdcb2e72e9e88b94223}{circuit\-Section} section)
 \item 
 Uint16 \hyperlink{a00023_a606ff8e8b51f82c70ced419dad90f993}{disable\-Circuit} (\hyperlink{a00023_a5d2cb2e2fccefcdcb2e72e9e88b94223}{circuit\-Section} section)
+\item 
+Uint16 \hyperlink{a00023_a82da7573b42f3476655e4e7fc7cb4440}{get\-Current\-State} (\hyperlink{a00023_a5d2cb2e2fccefcdcb2e72e9e88b94223}{circuit\-Section} section, Uint16 $\ast$state)
 \end{DoxyCompactItemize}
 
 
@@ -197,6 +199,24 @@ Error status.
 Enables the specified circuit section enable signal. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em section} & Specifies the circuit section that is to be enabled. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00023_a82da7573b42f3476655e4e7fc7cb4440}{\index{Enable\-Ctrl.\-h@{Enable\-Ctrl.\-h}!get\-Current\-State@{get\-Current\-State}}
+\index{get\-Current\-State@{get\-Current\-State}!EnableCtrl.h@{Enable\-Ctrl.\-h}}
+\subsubsection[{get\-Current\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Current\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf circuit\-Section}}]{section, }
+\item[{Uint16 $\ast$}]{state}
+\end{DoxyParamCaption}
+)}}\label{a00023_a82da7573b42f3476655e4e7fc7cb4440}
+Gets the current state of the specified circuit section. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em section} & Specifies the circuit section for which the state is to be queried. \\
+\hline
+\mbox{\tt out}  & {\em state} & Pointer to location at which to replace query result (Disabled = 0, enabled = !0). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

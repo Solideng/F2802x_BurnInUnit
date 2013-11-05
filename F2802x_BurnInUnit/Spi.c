@@ -7,14 +7,6 @@
 
 #include "Common.h"
 
-// xint on gpio7 to detect if slave or master mode
-// master if HIGH, slave if LOW
-// mode may be selected before or after startup/reset
-//  maybe have the int falling edge activated,
-//  but also run a check on startup for preset mode level
-//  could also have the ISR change the int settings to rising edge
-//  to detect if slave mode is removed (changed back to master).
-
 static interrupt void spiTxFifoIsr_Master (void);
 static interrupt void spiRxFifoIsr_Master (void);
 static interrupt void startSpiRxFifoIsr_Master (void);

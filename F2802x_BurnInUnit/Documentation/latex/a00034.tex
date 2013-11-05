@@ -37,9 +37,9 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-Uint16 \hyperlink{a00034_af106c65ecd7a27b0af61e108d09e330f}{set\-Load\-Otp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 level)
+Uint16 \hyperlink{a00034_a183ec3e5405ccc50e6eb0225961002ae}{set\-Load\-Otp\-Level} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 level)
 \item 
-Uint16 \hyperlink{a00034_a0f019d8375281a322e2b136f367d9f73}{get\-Load\-Otp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 $\ast$level)
+Uint16 \hyperlink{a00034_af6ac027036f79748cb87a6c1a4f96690}{get\-Load\-Otp\-Level} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 $\ast$level)
 \item 
 Uint16 \hyperlink{a00034_ac41af2b33ac4b5ac6552ed797a71b25d}{check\-Load\-Otp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
 \item 
@@ -47,9 +47,9 @@ Uint16 \hyperlink{a00034_ac26e4a57e49a8a0dbb58aa993a26e6c3}{get\-Load\-Otp\-Stat
 \item 
 Uint16 \hyperlink{a00034_a8c4197a002661d8a8fc0ee4367c98caa}{clear\-Load\-Otp} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load)
 \item 
-Uint16 \hyperlink{a00034_a99d17f52bec6b23581f05149a21b8d7a}{set\-Dc\-Otp} (float32 level)
+Uint16 \hyperlink{a00034_a2472472c83fe665b8c83183b3ebbba98}{set\-Dc\-Otp\-Level} (float32 level)
 \item 
-Uint16 \hyperlink{a00034_ade095cc31020c7d4afeebe83ca8e52ea}{get\-Dc\-Otp} (float32 $\ast$level)
+Uint16 \hyperlink{a00034_a23c366b0fbd363414e4eda561decbc45}{get\-Dc\-Otp\-Level} (float32 $\ast$level)
 \item 
 Uint16 \hyperlink{a00034_a66c1d5f4705adf4b8947c6760d6c3e88}{check\-Dc\-Otp} (void)
 \item 
@@ -57,9 +57,9 @@ Uint16 \hyperlink{a00034_a8f738c9c764f982075747c4561937580}{get\-Dc\-Otp\-State}
 \item 
 Uint16 \hyperlink{a00034_a1058c22a8c169984c8c615fec65064a4}{clear\-Dc\-Otp} (void)
 \item 
-Uint16 \hyperlink{a00034_a15a820aa2efc9b533c12b1a444f031fb}{set\-Ac\-Otp} (float32 level)
+Uint16 \hyperlink{a00034_a75a858b6b94340fcb610e7e10e956609}{set\-Ac\-Otp\-Level} (float32 level)
 \item 
-Uint16 \hyperlink{a00034_ab590c612ea9a7827859e0c100623e338}{get\-Ac\-Otp} (float32 $\ast$level)
+Uint16 \hyperlink{a00034_a22c179ecb9315b6f4ee1e1d7041f9d69}{get\-Ac\-Otp\-Level} (float32 $\ast$level)
 \item 
 Uint16 \hyperlink{a00034_aa88957137245403b79608032a773d6fe}{check\-Ac\-Otp} (void)
 \item 
@@ -67,9 +67,9 @@ Uint16 \hyperlink{a00034_a17dc5aa8abd3776b8bea4283e69cfb93}{get\-Ac\-Otp\-State}
 \item 
 Uint16 \hyperlink{a00034_ad65b5cbf773b35ebd01a88885a8f7ece}{clear\-Ac\-Otp} (void)
 \item 
-Uint16 \hyperlink{a00034_a6790a4babfd805b692a2410d6920fc13}{set\-Ext\-Otp} (\hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} ext, float32 level)
+Uint16 \hyperlink{a00034_a401769d2159032dba89f9826c5c32253}{set\-Ext\-Otp\-Level} (\hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} ext, float32 level)
 \item 
-Uint16 \hyperlink{a00034_a3e177278b2eba8404cda5240902c9cf8}{get\-Ext\-Otp} (\hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} ext, float32 $\ast$level)
+Uint16 \hyperlink{a00034_a989c9cce522e15da5a37a3f6843161e1}{get\-Ext\-Otp\-Level} (\hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} ext, float32 $\ast$level)
 \item 
 Uint16 \hyperlink{a00034_a3bf6ccb465aa4c60464dece3f4bb2dcc}{check\-Ext\-Otp} (\hyperlink{a00027_a258413561252a6c94af200747272a9f3}{ext\-Select} ext)
 \item 
@@ -213,13 +213,13 @@ Clears the O\-T\-P state for the specified load.
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-\hypertarget{a00034_ab590c612ea9a7827859e0c100623e338}{\index{Otp.\-h@{Otp.\-h}!get\-Ac\-Otp@{get\-Ac\-Otp}}
-\index{get\-Ac\-Otp@{get\-Ac\-Otp}!Otp.h@{Otp.\-h}}
-\subsubsection[{get\-Ac\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ac\-Otp (
+\hypertarget{a00034_a22c179ecb9315b6f4ee1e1d7041f9d69}{\index{Otp.\-h@{Otp.\-h}!get\-Ac\-Otp\-Level@{get\-Ac\-Otp\-Level}}
+\index{get\-Ac\-Otp\-Level@{get\-Ac\-Otp\-Level}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Ac\-Otp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ac\-Otp\-Level (
 \begin{DoxyParamCaption}
 \item[{float32 $\ast$}]{level}
 \end{DoxyParamCaption}
-)}}\label{a00034_ab590c612ea9a7827859e0c100623e338}
+)}}\label{a00034_a22c179ecb9315b6f4ee1e1d7041f9d69}
 Queries the over temperature protection level for the A\-C stage. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt out}  & {\em level} & Pointer to location at which to place the query result ( $ ^\circ$ C). \\
@@ -238,13 +238,13 @@ Error status.
 Queries the state of the A\-C O\-T\-P flag. \begin{DoxyReturn}{Returns}
 True if O\-T\-P flag has been raised. 
 \end{DoxyReturn}
-\hypertarget{a00034_ade095cc31020c7d4afeebe83ca8e52ea}{\index{Otp.\-h@{Otp.\-h}!get\-Dc\-Otp@{get\-Dc\-Otp}}
-\index{get\-Dc\-Otp@{get\-Dc\-Otp}!Otp.h@{Otp.\-h}}
-\subsubsection[{get\-Dc\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Otp (
+\hypertarget{a00034_a23c366b0fbd363414e4eda561decbc45}{\index{Otp.\-h@{Otp.\-h}!get\-Dc\-Otp\-Level@{get\-Dc\-Otp\-Level}}
+\index{get\-Dc\-Otp\-Level@{get\-Dc\-Otp\-Level}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Dc\-Otp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Dc\-Otp\-Level (
 \begin{DoxyParamCaption}
 \item[{float32 $\ast$}]{level}
 \end{DoxyParamCaption}
-)}}\label{a00034_ade095cc31020c7d4afeebe83ca8e52ea}
+)}}\label{a00034_a23c366b0fbd363414e4eda561decbc45}
 Queries the over current protection level for the D\-C stage. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt out}  & {\em level} & Pointer to location at which to place the query result ( $ ^\circ$ C). \\
@@ -263,14 +263,14 @@ Error status.
 Queries the state of the D\-C O\-T\-P flag. \begin{DoxyReturn}{Returns}
 True if O\-T\-P flag has been raised. 
 \end{DoxyReturn}
-\hypertarget{a00034_a3e177278b2eba8404cda5240902c9cf8}{\index{Otp.\-h@{Otp.\-h}!get\-Ext\-Otp@{get\-Ext\-Otp}}
-\index{get\-Ext\-Otp@{get\-Ext\-Otp}!Otp.h@{Otp.\-h}}
-\subsubsection[{get\-Ext\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ext\-Otp (
+\hypertarget{a00034_a989c9cce522e15da5a37a3f6843161e1}{\index{Otp.\-h@{Otp.\-h}!get\-Ext\-Otp\-Level@{get\-Ext\-Otp\-Level}}
+\index{get\-Ext\-Otp\-Level@{get\-Ext\-Otp\-Level}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Ext\-Otp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Ext\-Otp\-Level (
 \begin{DoxyParamCaption}
 \item[{{\bf ext\-Select}}]{ext, }
 \item[{float32 $\ast$}]{level}
 \end{DoxyParamCaption}
-)}}\label{a00034_a3e177278b2eba8404cda5240902c9cf8}
+)}}\label{a00034_a989c9cce522e15da5a37a3f6843161e1}
 Queries the over temperature protection level for the specified external sensor. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em ext} & Specifies the external sensor on which the setting is to be queried. \\
@@ -296,14 +296,14 @@ Queries the state of the O\-T\-P flag for the specified external sensor.
 \begin{DoxyReturn}{Returns}
 True if O\-T\-P flag has been raised. 
 \end{DoxyReturn}
-\hypertarget{a00034_a0f019d8375281a322e2b136f367d9f73}{\index{Otp.\-h@{Otp.\-h}!get\-Load\-Otp@{get\-Load\-Otp}}
-\index{get\-Load\-Otp@{get\-Load\-Otp}!Otp.h@{Otp.\-h}}
-\subsubsection[{get\-Load\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Otp (
+\hypertarget{a00034_af6ac027036f79748cb87a6c1a4f96690}{\index{Otp.\-h@{Otp.\-h}!get\-Load\-Otp\-Level@{get\-Load\-Otp\-Level}}
+\index{get\-Load\-Otp\-Level@{get\-Load\-Otp\-Level}!Otp.h@{Otp.\-h}}
+\subsubsection[{get\-Load\-Otp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Otp\-Level (
 \begin{DoxyParamCaption}
 \item[{{\bf load\-Stage}}]{load, }
 \item[{float32 $\ast$}]{level}
 \end{DoxyParamCaption}
-)}}\label{a00034_a0f019d8375281a322e2b136f367d9f73}
+)}}\label{a00034_af6ac027036f79748cb87a6c1a4f96690}
 Queries the over temperature protection level for the specified load. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em load} & Specifies the load on which the setting is to be queried. \\
@@ -329,13 +329,13 @@ Queries the state of the O\-T\-P flag for the specified load.
 \begin{DoxyReturn}{Returns}
 True if O\-T\-P flag has been raised. 
 \end{DoxyReturn}
-\hypertarget{a00034_a15a820aa2efc9b533c12b1a444f031fb}{\index{Otp.\-h@{Otp.\-h}!set\-Ac\-Otp@{set\-Ac\-Otp}}
-\index{set\-Ac\-Otp@{set\-Ac\-Otp}!Otp.h@{Otp.\-h}}
-\subsubsection[{set\-Ac\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Ac\-Otp (
+\hypertarget{a00034_a75a858b6b94340fcb610e7e10e956609}{\index{Otp.\-h@{Otp.\-h}!set\-Ac\-Otp\-Level@{set\-Ac\-Otp\-Level}}
+\index{set\-Ac\-Otp\-Level@{set\-Ac\-Otp\-Level}!Otp.h@{Otp.\-h}}
+\subsubsection[{set\-Ac\-Otp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Ac\-Otp\-Level (
 \begin{DoxyParamCaption}
 \item[{float32}]{level}
 \end{DoxyParamCaption}
-)}}\label{a00034_a15a820aa2efc9b533c12b1a444f031fb}
+)}}\label{a00034_a75a858b6b94340fcb610e7e10e956609}
 Sets the over current protection limit for the A\-C stage. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em level} & Specifies the value to be applied ( $ ^\circ$ C). \\
@@ -344,13 +344,13 @@ Sets the over current protection limit for the A\-C stage.
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-\hypertarget{a00034_a99d17f52bec6b23581f05149a21b8d7a}{\index{Otp.\-h@{Otp.\-h}!set\-Dc\-Otp@{set\-Dc\-Otp}}
-\index{set\-Dc\-Otp@{set\-Dc\-Otp}!Otp.h@{Otp.\-h}}
-\subsubsection[{set\-Dc\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Dc\-Otp (
+\hypertarget{a00034_a2472472c83fe665b8c83183b3ebbba98}{\index{Otp.\-h@{Otp.\-h}!set\-Dc\-Otp\-Level@{set\-Dc\-Otp\-Level}}
+\index{set\-Dc\-Otp\-Level@{set\-Dc\-Otp\-Level}!Otp.h@{Otp.\-h}}
+\subsubsection[{set\-Dc\-Otp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Dc\-Otp\-Level (
 \begin{DoxyParamCaption}
 \item[{float32}]{level}
 \end{DoxyParamCaption}
-)}}\label{a00034_a99d17f52bec6b23581f05149a21b8d7a}
+)}}\label{a00034_a2472472c83fe665b8c83183b3ebbba98}
 Sets the over temperature protection limit for the D\-C stage. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em level} & Specifies the value to be applied ( $ ^\circ$ C). \\
@@ -359,14 +359,14 @@ Sets the over temperature protection limit for the D\-C stage.
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-\hypertarget{a00034_a6790a4babfd805b692a2410d6920fc13}{\index{Otp.\-h@{Otp.\-h}!set\-Ext\-Otp@{set\-Ext\-Otp}}
-\index{set\-Ext\-Otp@{set\-Ext\-Otp}!Otp.h@{Otp.\-h}}
-\subsubsection[{set\-Ext\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Ext\-Otp (
+\hypertarget{a00034_a401769d2159032dba89f9826c5c32253}{\index{Otp.\-h@{Otp.\-h}!set\-Ext\-Otp\-Level@{set\-Ext\-Otp\-Level}}
+\index{set\-Ext\-Otp\-Level@{set\-Ext\-Otp\-Level}!Otp.h@{Otp.\-h}}
+\subsubsection[{set\-Ext\-Otp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Ext\-Otp\-Level (
 \begin{DoxyParamCaption}
 \item[{{\bf ext\-Select}}]{ext, }
 \item[{float32}]{level}
 \end{DoxyParamCaption}
-)}}\label{a00034_a6790a4babfd805b692a2410d6920fc13}
+)}}\label{a00034_a401769d2159032dba89f9826c5c32253}
 Sets the over temperature protection level for the specified external sensor. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em ext} & Specifies the sensor the setting is to be applied to. \\
@@ -377,14 +377,14 @@ Sets the over temperature protection level for the specified external sensor.
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-\hypertarget{a00034_af106c65ecd7a27b0af61e108d09e330f}{\index{Otp.\-h@{Otp.\-h}!set\-Load\-Otp@{set\-Load\-Otp}}
-\index{set\-Load\-Otp@{set\-Load\-Otp}!Otp.h@{Otp.\-h}}
-\subsubsection[{set\-Load\-Otp}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Load\-Otp (
+\hypertarget{a00034_a183ec3e5405ccc50e6eb0225961002ae}{\index{Otp.\-h@{Otp.\-h}!set\-Load\-Otp\-Level@{set\-Load\-Otp\-Level}}
+\index{set\-Load\-Otp\-Level@{set\-Load\-Otp\-Level}!Otp.h@{Otp.\-h}}
+\subsubsection[{set\-Load\-Otp\-Level}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Load\-Otp\-Level (
 \begin{DoxyParamCaption}
 \item[{{\bf load\-Stage}}]{load, }
 \item[{float32}]{level}
 \end{DoxyParamCaption}
-)}}\label{a00034_af106c65ecd7a27b0af61e108d09e330f}
+)}}\label{a00034_a183ec3e5405ccc50e6eb0225961002ae}
 $<$ O\-T\-P flag register. Bits are set to indicate an O\-T\-P condition has been found. Sets the over temperature protection level for the specified load. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em load} & Specifies the load the setting is to be applied to. \\

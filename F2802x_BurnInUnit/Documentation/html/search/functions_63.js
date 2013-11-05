@@ -23,6 +23,5 @@ var searchData=
   ['clearloadocp',['clearLoadOcp',['../a00030.html#a21a8a91440da87204edb7e67d3fde578',1,'Ocp.c']]],
   ['clearloadopp',['clearLoadOpp',['../a00032.html#a16c41a7ea9c7037ab8721ea914269e71',1,'Opp.c']]],
   ['clearloadotp',['clearLoadOtp',['../a00034.html#a8c4197a002661d8a8fc0ee4367c98caa',1,'Otp.c']]],
-  ['clearloadovp',['clearLoadOvp',['../a00036.html#a90b85f0cd911b4628b2713072a755884',1,'Ovp.c']]],
-  ['cntlsetacicoef',['cntlSetAcICoef',['../a00014.html#a46a68710ce9ede60c43503c65300a585',1,'Cntl.h']]]
+  ['clearloadovp',['clearLoadOvp',['../a00036.html#a90b85f0cd911b4628b2713072a755884',1,'Ovp.c']]]
 ];

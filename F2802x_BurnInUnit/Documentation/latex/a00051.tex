@@ -6,11 +6,12 @@
 Serial peripheral interface communications functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=144pt]{a00077}
+\includegraphics[width=144pt]{a00078}
 \end{center}
 \end{figure}
 \subsection*{Macros}
@@ -60,7 +61,9 @@ void \hyperlink{a00051_a2a410bb43bd6e77aa27484add35a009d}{spi\-Tx} (void)
 
 
 \subsection{Detailed Description}
-Serial peripheral interface communications functions. \begin{DoxyWarning}{Warning}
+Serial peripheral interface communications functions. As a master G\-P\-I\-O6 is setup as external interrupt 2 for the slave service request line, set as active low. As a master G\-P\-I\-O6 is setup as an active low output.
+
+\begin{DoxyWarning}{Warning}
 The following bridge tracks should be cut on the T\-I C2000 Launch\-Pad X\-L P\-C\-B before S\-P\-I (or I2\-C) may be used\-: \begin{TabularC}{3}
 \hline
 \rowcolor{lightgray}\PBS\centering {\bf Bridge to Cut }&\PBS\centering {\bf G\-P\-I\-O }&\PBS\centering {\bf P\-C\-B Pin  }\\\cline{1-3}

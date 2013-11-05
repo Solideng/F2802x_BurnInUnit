@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['ac_5fi_5fscale',['AC_I_SCALE',['../a00043.html#a4489e85463a26954a958cd3d36732bd3',1,'Settings.h']]],
   ['ac_5firmslvl_5fmax',['AC_IRMSLVL_MAX',['../a00043.html#a2b577413184eb560f2f652b11deeba87',1,'Settings.h']]],
   ['ac_5focp_5ftrip',['AC_OCP_TRIP',['../a00030.html#a53e3b040fd854d92e865a4e59f1630a2',1,'Ocp.h']]],
   ['ac_5fopp_5ftrip',['AC_OPP_TRIP',['../a00032.html#adf494b474f7ddb554f7d6095fa5bf387',1,'Opp.h']]],
@@ -7,6 +8,8 @@ var searchData=
   ['ac_5fovp_5ftrip',['AC_OVP_TRIP',['../a00036.html#abf1557b371e135706243aebb018260cc',1,'Ovp.h']]],
   ['ac_5fpwrlvl_5ffix',['AC_PWRLVL_FIX',['../a00043.html#aa5433ef3bc07259bf870e6e5e115c693',1,'Settings.h']]],
   ['ac_5fstage',['AC_STAGE',['../a00027.html#a3fc4318ae73eae35339f616047300b0f',1,'MacroNets.h']]],
+  ['ac_5fv_5fr1',['AC_V_R1',['../a00043.html#aae95393f182e274eceae9089a10720f7',1,'Settings.h']]],
+  ['ac_5fv_5fr2',['AC_V_R2',['../a00043.html#a34b8eef04869757d7d21a1e858ba98e7',1,'Settings.h']]],
   ['ac_5fvrmslvl_5fmax',['AC_VRMSLVL_MAX',['../a00043.html#afb09d50c3567117fe1f679ab1924d4ec',1,'Settings.h']]],
   ['adc_5fi2c_5faddr',['ADC_I2C_ADDR',['../a00058.html#a5fd3aabe18504a5314a5d0e71e3bc495',1,'Tmp.h']]],
   ['adc_5fi2c_5fbase_5faddr',['ADC_I2C_BASE_ADDR',['../a00058.html#a6c0e4f915b6ac0c3af9a27d604f1f7b1',1,'Tmp.h']]],

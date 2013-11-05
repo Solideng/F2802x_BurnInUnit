@@ -6,11 +6,12 @@
 Slew control functions.  
 
 
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=156pt]{a00076}
+\includegraphics[width=156pt]{a00077}
 \end{center}
 \end{figure}
 \subsection*{Functions}
@@ -18,19 +19,19 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \item 
 void \hyperlink{a00049_a781fe23cb47009003e6d7b8343a377fa}{update\-Load\-Slew} (void)
 \item 
-Uint16 \hyperlink{a00049_ad63e5af40eafbdbee44b0d9ba262938e}{set\-Load\-Slew\-Target} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 trgt)
+Uint16 \hyperlink{a00049_af91ad2be323d5d0c10e6127418690811}{set\-Load\-Slew\-Target} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 target)
 \item 
-Uint16 \hyperlink{a00049_a41068edf467083d665415325d740597d}{set\-Load\-Slew\-Step} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 stp)
+Uint16 \hyperlink{a00049_ae38c51e6a504a6fd7a77edb6a3a06656}{set\-Load\-Slew\-Step} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 step)
 \item 
-Uint16 \hyperlink{a00049_aaed01ad584fe8b8abc60a331a4a4d93f}{set\-Load\-State} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, Uint16 stt)
+Uint16 \hyperlink{a00049_a567e736b557aa3dd69472d13f96ea006}{set\-Load\-State} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, Uint16 state)
 \item 
-Uint16 \hyperlink{a00049_a10a32f13494f2c512b842f1d8c8dce5e}{sc\-Set\-Load\-State\-All} (Uint16 stt)
+Uint16 \hyperlink{a00049_a68d48d3f3c783662c131f2407f9e8792}{sc\-Set\-Load\-State\-All} (Uint16 state)
 \item 
-Uint16 \hyperlink{a00049_a68b8d72a4fb538eb9fc48ef7f4da6b3e}{get\-Load\-Slew\-Target} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 $\ast$trgt\-Dest)
+Uint16 \hyperlink{a00049_a90d0ebd5af992cd41a3fd3878e3d9b5a}{get\-Load\-Slew\-Target} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 $\ast$target)
 \item 
-Uint16 \hyperlink{a00049_afb54a11e7330f5138fefae6f817d5f19}{get\-Load\-Slew\-Step} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 $\ast$stp\-Dest)
+Uint16 \hyperlink{a00049_a33909c7bbfa64f91ef2257ecc97a8d7b}{get\-Load\-Slew\-Step} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, float32 $\ast$step)
 \item 
-Uint16 \hyperlink{a00049_a7acfc910c5e8faeb7b227684019d2060}{get\-Load\-State} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, Uint16 $\ast$stt\-Dest)
+Uint16 \hyperlink{a00049_af470a5cd45bfe44d75f6a314c45c256c}{get\-Load\-State} (\hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} load, Uint16 $\ast$state)
 \end{DoxyCompactItemize}
 
 
@@ -38,124 +39,124 @@ Uint16 \hyperlink{a00049_a7acfc910c5e8faeb7b227684019d2060}{get\-Load\-State} (\
 Slew control functions. 
 
 \subsection{Function Documentation}
-\hypertarget{a00049_afb54a11e7330f5138fefae6f817d5f19}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!get\-Load\-Slew\-Step@{get\-Load\-Slew\-Step}}
+\hypertarget{a00049_a33909c7bbfa64f91ef2257ecc97a8d7b}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!get\-Load\-Slew\-Step@{get\-Load\-Slew\-Step}}
 \index{get\-Load\-Slew\-Step@{get\-Load\-Slew\-Step}!SlewControl.h@{Slew\-Control.\-h}}
 \subsubsection[{get\-Load\-Slew\-Step}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Slew\-Step (
 \begin{DoxyParamCaption}
 \item[{{\bf load\-Stage}}]{load, }
-\item[{float32 $\ast$}]{stp\-Dest}
+\item[{float32 $\ast$}]{step}
 \end{DoxyParamCaption}
-)}}\label{a00049_afb54a11e7330f5138fefae6f817d5f19}
+)}}\label{a00049_a33909c7bbfa64f91ef2257ecc97a8d7b}
 Queries the current slew step size of the specified channel. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em load} & Specifies the load the setting is to be read from. \\
 \hline
-\mbox{\tt out}  & {\em stp\-Dest} & Address of the memory location at which to place the query result (amps or volts). \\
+\mbox{\tt out}  & {\em step} & Pointer to location at which to place the query result (amps). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-\hypertarget{a00049_a68b8d72a4fb538eb9fc48ef7f4da6b3e}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!get\-Load\-Slew\-Target@{get\-Load\-Slew\-Target}}
+\hypertarget{a00049_a90d0ebd5af992cd41a3fd3878e3d9b5a}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!get\-Load\-Slew\-Target@{get\-Load\-Slew\-Target}}
 \index{get\-Load\-Slew\-Target@{get\-Load\-Slew\-Target}!SlewControl.h@{Slew\-Control.\-h}}
 \subsubsection[{get\-Load\-Slew\-Target}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-Slew\-Target (
 \begin{DoxyParamCaption}
 \item[{{\bf load\-Stage}}]{load, }
-\item[{float32 $\ast$}]{trgt\-Dest}
+\item[{float32 $\ast$}]{target}
 \end{DoxyParamCaption}
-)}}\label{a00049_a68b8d72a4fb538eb9fc48ef7f4da6b3e}
+)}}\label{a00049_a90d0ebd5af992cd41a3fd3878e3d9b5a}
 Queries the current slew target setting for the specified channel. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em load} & Specifies the load the setting is to be read from. \\
 \hline
-\mbox{\tt out}  & {\em trgt\-Dest} & Address of the memory location at which to place the query result (amps or volts). \\
+\mbox{\tt out}  & {\em target} & Pointer to location at which to place the query result (amps). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-\hypertarget{a00049_a7acfc910c5e8faeb7b227684019d2060}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!get\-Load\-State@{get\-Load\-State}}
+\hypertarget{a00049_af470a5cd45bfe44d75f6a314c45c256c}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!get\-Load\-State@{get\-Load\-State}}
 \index{get\-Load\-State@{get\-Load\-State}!SlewControl.h@{Slew\-Control.\-h}}
 \subsubsection[{get\-Load\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Load\-State (
 \begin{DoxyParamCaption}
 \item[{{\bf load\-Stage}}]{load, }
-\item[{Uint16 $\ast$}]{stt\-Dest}
+\item[{Uint16 $\ast$}]{state}
 \end{DoxyParamCaption}
-)}}\label{a00049_a7acfc910c5e8faeb7b227684019d2060}
+)}}\label{a00049_af470a5cd45bfe44d75f6a314c45c256c}
 Queries the current reference net enable state for the specified channel. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em load} & Specifies the load the setting is to be read from. \\
 \hline
-\mbox{\tt out}  & {\em stt\-Dest} & Address of the memory location at which to place the query result (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
+\mbox{\tt out}  & {\em state} & Pointer to location at which to place the query result (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-\hypertarget{a00049_a10a32f13494f2c512b842f1d8c8dce5e}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Load\-State\-All@{sc\-Set\-Load\-State\-All}}
+\hypertarget{a00049_a68d48d3f3c783662c131f2407f9e8792}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!sc\-Set\-Load\-State\-All@{sc\-Set\-Load\-State\-All}}
 \index{sc\-Set\-Load\-State\-All@{sc\-Set\-Load\-State\-All}!SlewControl.h@{Slew\-Control.\-h}}
 \subsubsection[{sc\-Set\-Load\-State\-All}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 sc\-Set\-Load\-State\-All (
 \begin{DoxyParamCaption}
-\item[{Uint16}]{stt}
+\item[{Uint16}]{state}
 \end{DoxyParamCaption}
-)}}\label{a00049_a10a32f13494f2c512b842f1d8c8dce5e}
+)}}\label{a00049_a68d48d3f3c783662c131f2407f9e8792}
 Sets all channels' reference net enable state. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em stt} & Specifies the refernce net state to be applied (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
+\mbox{\tt in}  & {\em state} & Specifies the refernce net state to be applied (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-\hypertarget{a00049_a41068edf467083d665415325d740597d}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!set\-Load\-Slew\-Step@{set\-Load\-Slew\-Step}}
+\hypertarget{a00049_ae38c51e6a504a6fd7a77edb6a3a06656}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!set\-Load\-Slew\-Step@{set\-Load\-Slew\-Step}}
 \index{set\-Load\-Slew\-Step@{set\-Load\-Slew\-Step}!SlewControl.h@{Slew\-Control.\-h}}
 \subsubsection[{set\-Load\-Slew\-Step}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Load\-Slew\-Step (
 \begin{DoxyParamCaption}
 \item[{{\bf load\-Stage}}]{load, }
-\item[{float32}]{stp}
+\item[{float32}]{step}
 \end{DoxyParamCaption}
-)}}\label{a00049_a41068edf467083d665415325d740597d}
+)}}\label{a00049_ae38c51e6a504a6fd7a77edb6a3a06656}
 Sets the slew step size for the specified load. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em load} & Specifies the load the setting is to be applied to. \\
 \hline
-\mbox{\tt in}  & {\em stp} & Specifies the value of the slew step size to be applied (amps or volts). \\
+\mbox{\tt in}  & {\em step} & Specifies the value of the slew step size to be applied (amps). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-\hypertarget{a00049_ad63e5af40eafbdbee44b0d9ba262938e}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!set\-Load\-Slew\-Target@{set\-Load\-Slew\-Target}}
+\hypertarget{a00049_af91ad2be323d5d0c10e6127418690811}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!set\-Load\-Slew\-Target@{set\-Load\-Slew\-Target}}
 \index{set\-Load\-Slew\-Target@{set\-Load\-Slew\-Target}!SlewControl.h@{Slew\-Control.\-h}}
 \subsubsection[{set\-Load\-Slew\-Target}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Load\-Slew\-Target (
 \begin{DoxyParamCaption}
 \item[{{\bf load\-Stage}}]{load, }
-\item[{float32}]{trgt}
+\item[{float32}]{target}
 \end{DoxyParamCaption}
-)}}\label{a00049_ad63e5af40eafbdbee44b0d9ba262938e}
+)}}\label{a00049_af91ad2be323d5d0c10e6127418690811}
 Sets the slew target for the specified load. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em load} & Specifies the load the setting is to be applied to. \\
 \hline
-\mbox{\tt in}  & {\em trgt} & Specifies the value of the slew target to be applied (amps or volts). \\
+\mbox{\tt in}  & {\em target} & Specifies the value of the slew target to be applied (amps). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Error status. 
 \end{DoxyReturn}
-\hypertarget{a00049_aaed01ad584fe8b8abc60a331a4a4d93f}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!set\-Load\-State@{set\-Load\-State}}
+\hypertarget{a00049_a567e736b557aa3dd69472d13f96ea006}{\index{Slew\-Control.\-h@{Slew\-Control.\-h}!set\-Load\-State@{set\-Load\-State}}
 \index{set\-Load\-State@{set\-Load\-State}!SlewControl.h@{Slew\-Control.\-h}}
 \subsubsection[{set\-Load\-State}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Load\-State (
 \begin{DoxyParamCaption}
 \item[{{\bf load\-Stage}}]{load, }
-\item[{Uint16}]{stt}
+\item[{Uint16}]{state}
 \end{DoxyParamCaption}
-)}}\label{a00049_aaed01ad584fe8b8abc60a331a4a4d93f}
+)}}\label{a00049_a567e736b557aa3dd69472d13f96ea006}
 Sets the reference net enable state for the specified load. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em load} & Specifies the load the setting is to be applied to. \\
 \hline
-\mbox{\tt in}  & {\em stt} & Specifies the reference net state to be applied (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
+\mbox{\tt in}  & {\em state} & Specifies the reference net state to be applied (0\-:O\-F\-F $|$ non-\/zero\-:O\-N). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

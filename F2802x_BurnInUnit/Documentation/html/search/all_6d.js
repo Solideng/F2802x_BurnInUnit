@@ -1,7 +1,9 @@
 var searchData=
 [
   ['macronets_2eh',['MacroNets.h',['../a00027.html',1,'']]],
-  ['midovplevel',['midOvpLevel',['../a00010.html#a40270e88484faa165e3e73f45c08326a',1,'xfmrStageSettings']]],
+  ['mid_5fi_5fscale',['MID_I_SCALE',['../a00043.html#a01632f54fd9c0f7d53a0e5c3fdc7c6e2',1,'Settings.h']]],
+  ['mid_5fv_5fr1',['MID_V_R1',['../a00043.html#a08a0080c0df15f8f1aff560c95563e65',1,'Settings.h']]],
+  ['mid_5fv_5fr2',['MID_V_R2',['../a00043.html#a176ea315a270ecc6a601c5b0ce7203b5',1,'Settings.h']]],
   ['midvmax',['midVMax',['../a00010.html#a251fa7af71c610bf2b193afde33e1338',1,'xfmrStageSettings']]],
   ['midvscale',['midVScale',['../a00010.html#a44cb584d774e345422c57cc155b65d0c',1,'xfmrStageSettings']]],
   ['midvsnsnet',['midVSnsNet',['../a00009.html#a6cf2860aba64beca1c5471fcc7432c07',1,'xfmrStageNets']]],

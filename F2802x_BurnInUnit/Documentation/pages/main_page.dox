@@ -54,7 +54,7 @@ illustrated by the following figure.
 
 \section dpctrl Digital Power Control
 The control of the power, voltage and current is managed using control loop logic, normally one loop for each stage (Transformer, 
-AC, each of the four loads).
+AC and each of the four loads).
 These control loops are formed from a set of macros and helper functions.
 
 Each of these macros acts as a block of functionality, much like a black-box electronic component, 
@@ -86,27 +86,28 @@ converter, CHANn PWM.
 
 Another macro retrieves a value from a second ADC that represents the voltage level across the load input, CHANn V<sub>SNS</sub>. 
 A task in one of the sequential iteration threads compares this value to the user-set allowable voltage limit, the OVP limit. 
-If the value is above this limit the control loop output is disabled and an over-current protection alert is raised.
+If the value is above this limit the control loop output is disabled and an over-voltage protection alert is raised.
   
 @image html boost_load_loop.png "Macro view of control loop for single boost load"
 @image latex boost_load_loop.eps "Macro view of control loop for single boost load" width=10cm
 
-\subsection ibctrl Inter-Boost Control
-The following figure shows a diagram that illustrates the macro and net view of the control loop for the inter-boost, or "middle",
-boost converter stage.
-The loop depicted is voltage controlled. 
-It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the level of the voltage across 
-the stage output, DC HV V<sub>SNS</sub>.
-This value is used as the feedback into a 3-pole 3-zero filter macro where it is compared to the user-set reference value and 
-the output value is varied up or down, using the filter coefficents, as needed to move towards matching the reference.
-This output value is then used by another macro to set the duty of the ePWM peripheral that controls the switching of the 
-converter, INTBST PWM.
+\subsection xfmrctrl Transformer Control
+The following figure shows a diagram that illustrates the macro and net view of the control for the transformer boost converter stage.
+The stage uses a fixed PWM frequency and duty cycle.
+ 
+An on-board analogue comparator compares the value of DC MID V<sub>SNS</sub> against the user-set allowable voltage limit, the OVP limit.
+If the value is above this limit the comparator output sets the related trip-zone, quickly disabling the output in 
+software and hardware.
+
+A macro is used to retrieve a reading from an ADC peripheral to obtain a value that indicates the level of the voltage across the 
+stage output, DC HV V<sub>SNS</sub>. 
+This value is used by a task in one of the sequential iteration threads to compare to the user-set allowable voltage limit, the OVP limit.
+If the value is above this limit the output is disabled and an over-voltage protection alert is raised.
 
 Another macro retrieves a value from a second ADC that represents the current level at the low side of the input, 
-DC MID I<sub>SNS</sub>.
-An on-board analogue comparator compares this value against the user-set allowable current limit, the OCP limit.
-If the value is above this limit the comparator output sets the related trip-zone, quickly disabling the control loop output in 
-software and hardware, HV EN.
+DC MID I<sub>SNS</sub>. 
+This value is used by a task in one of the sequential iteration threads to compare to the user-set allowable voltage limit, the OCP limit.
+If the value is above this limit the output is disabled and an over-current protection alert is raised.
 
 @image html boost_xfmr_loop.png "Macro view of control loop for inter-boost"
 @image latex boost_xfmr_loop.eps "Macro view of control loop for inter-boost" width=10cm

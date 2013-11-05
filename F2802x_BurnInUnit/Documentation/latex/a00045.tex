@@ -16,21 +16,23 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
+\#define \hyperlink{a00045_af54d156f326804e0c3d80e0b709d3406}{S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R}~60000000.\-0f/\-P\-W\-M\-\_\-1\-\_\-\-P\-R\-D
+\item 
+\#define \hyperlink{a00045_ae3860ce29591dbf34c90a5cdce35ad86}{S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R\-\_\-\-D\-V\-S\-R}~6
+\item 
+\#define \hyperlink{a00045_a67755e274de5a3185ae6ce437a5f6e7d}{S\-I\-N\-\_\-\-F\-\_\-\-M\-A\-X}~200u
+\item 
+\#define \hyperlink{a00045_a58bd24055692a8794616ff2bc5c84d51}{S\-I\-N\-\_\-\-F\-\_\-\-R\-E\-Q}~50.\-0
+\item 
+\#define \hyperlink{a00045_a992c375a2083a58aa46c0600fea7df64}{S\-I\-N\-\_\-\-O\-F\-S\-T}~0
+\item 
+\#define \hyperlink{a00045_abd714e85d6aa6a48b8d84a41b43074c2}{S\-I\-N\-\_\-\-P\-H\-S\-E}~0
+\item 
+\#define \hyperlink{a00045_aa63a6918009b4e4381e359cee2f05eef}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N}~0.\-0
+\item 
 \#define \hyperlink{a00045_afc105af9d8f851266d0b8e8ffe57931a}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y}~T\-R\-U\-E
 \item 
-\#define \hyperlink{a00045_a9c042423a04dc371b1c79ecc1f16e813}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-O\-F\-S\-T}~0
-\item 
-\#define \hyperlink{a00045_ae88ab3e38bc960b4c0e15f9712d25f72}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-P\-H\-S\-E}~0
-\item 
-\#define \hyperlink{a00045_aa63a6918009b4e4381e359cee2f05eef}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N}~0.\-9
-\item 
-\#define \hyperlink{a00045_aa1d98c477c6de604fc6ca986f2d83238}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F}~50.\-0
-\item 
-\#define \hyperlink{a00045_a1640e33dcd5a970b4a9731ec68125bd6}{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F\-\_\-\-M\-A\-X}~1000u
-\item 
 \#define \hyperlink{a00045_a71b6211a4d077af219d7e503f17114d1}{S\-I\-N\-\_\-\-C\-H\-A\-N\-N\-E\-L}~\hyperlink{a00027_a3fc4318ae73eae35339f616047300b0f}{A\-C\-\_\-\-S\-T\-A\-G\-E}
-\item 
-\#define \hyperlink{a00045_a8d1689d7437a3410059f1f377ec63ebd}{S\-I\-N\-\_\-\-F\-\_\-\-S\-P\-L}~8250u
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -41,13 +43,23 @@ void \hyperlink{a00045_a5cd2ce3a0a44bf15cce989d0ec28483c}{update\-Sine\-Gain} (v
 \item 
 void \hyperlink{a00045_a15cc3f7f606ea48016c591c798a55f15}{update\-Sine\-Signal} (void)
 \item 
+void \hyperlink{a00045_ab3922b82823a89211338cee98117369c}{enable\-Sine\-Phase\-Out} (void)
+\item 
+void \hyperlink{a00045_af1add0fec8d10afcd40956d01d01cfa7}{disable\-Sine\-Phase\-Out} (void)
+\item 
 Uint16 \hyperlink{a00045_a70155ca3a5315917719d943e645e53d6}{set\-Sine\-State} (Uint16 state)
 \item 
 Uint16 \hyperlink{a00045_a63e4f7727c81ef635e50879433bc03b9}{get\-Sine\-State} (Uint16 $\ast$state)
 \item 
+Uint16 \hyperlink{a00045_a2604c70758904f640d943151c13ddb9b}{set\-Sine\-Rms\-Target} (float32 rms\-Target)
+\item 
 Uint16 \hyperlink{a00045_ab40939821b2aba026ef55cf4ec9c12dd}{set\-Sine\-Gain\-Target} (float32 target)
 \item 
 Uint16 \hyperlink{a00045_a713b866aa5b5636f85d1a1f5f06b4ed3}{get\-Sine\-Gain\-Target} (float32 $\ast$target)
+\item 
+Uint16 \hyperlink{a00045_ae25f691d4da06e89110ade79a0a4d93b}{set\-Sine\-Gain\-Step} (float32 step)
+\item 
+Uint16 \hyperlink{a00045_a5ab11b6c0a463f9791e61647c89f5ebe}{get\-Sine\-Gain\-Step} (float32 $\ast$step)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -68,30 +80,62 @@ This file is included by the file I\-S\-R.\-asm.
 \hypertarget{a00045_a71b6211a4d077af219d7e503f17114d1}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-C\-H\-A\-N\-N\-E\-L@{S\-I\-N\-\_\-\-C\-H\-A\-N\-N\-E\-L}}
 \index{S\-I\-N\-\_\-\-C\-H\-A\-N\-N\-E\-L@{S\-I\-N\-\_\-\-C\-H\-A\-N\-N\-E\-L}!SineGen.h@{Sine\-Gen.\-h}}
 \subsubsection[{S\-I\-N\-\_\-\-C\-H\-A\-N\-N\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-C\-H\-A\-N\-N\-E\-L~{\bf A\-C\-\_\-\-S\-T\-A\-G\-E}}}\label{a00045_a71b6211a4d077af219d7e503f17114d1}
-Defines which channel enable controls the generator output. \hypertarget{a00045_aa1d98c477c6de604fc6ca986f2d83238}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F}}
-\index{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F}!SineGen.h@{Sine\-Gen.\-h}}
-\subsubsection[{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F~50.\-0}}\label{a00045_aa1d98c477c6de604fc6ca986f2d83238}
-Initial frequency setting (hertz). \hypertarget{a00045_a1640e33dcd5a970b4a9731ec68125bd6}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F\-\_\-\-M\-A\-X@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F\-\_\-\-M\-A\-X}}
-\index{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F\-\_\-\-M\-A\-X@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F\-\_\-\-M\-A\-X}!SineGen.h@{Sine\-Gen.\-h}}
-\subsubsection[{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-F\-\_\-\-M\-A\-X~1000u}}\label{a00045_a1640e33dcd5a970b4a9731ec68125bd6}
-Initial maximum frequency setting (hertz). \hypertarget{a00045_aa63a6918009b4e4381e359cee2f05eef}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N}}
+Defines which channel enable controls the generator output. \hypertarget{a00045_aa63a6918009b4e4381e359cee2f05eef}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N}}
 \index{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N}!SineGen.h@{Sine\-Gen.\-h}}
-\subsubsection[{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N~0.\-9}}\label{a00045_aa63a6918009b4e4381e359cee2f05eef}
-Initial gain setting \mbox{[}0.\-0, 1.\-0\mbox{]}. \hypertarget{a00045_a9c042423a04dc371b1c79ecc1f16e813}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-O\-F\-S\-T@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-O\-F\-S\-T}}
-\index{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-O\-F\-S\-T@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-O\-F\-S\-T}!SineGen.h@{Sine\-Gen.\-h}}
-\subsubsection[{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-O\-F\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-O\-F\-S\-T~0}}\label{a00045_a9c042423a04dc371b1c79ecc1f16e813}
-Initial offset setting \mbox{[}-\/0.\-5, +0.5\mbox{]}, I\-Q15. \hypertarget{a00045_ae88ab3e38bc960b4c0e15f9712d25f72}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-P\-H\-S\-E@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-P\-H\-S\-E}}
-\index{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-P\-H\-S\-E@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-P\-H\-S\-E}!SineGen.h@{Sine\-Gen.\-h}}
-\subsubsection[{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-P\-H\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-P\-H\-S\-E~0}}\label{a00045_ae88ab3e38bc960b4c0e15f9712d25f72}
-Initial initial phase setting \mbox{[}0, 360), I\-Q16. \hypertarget{a00045_afc105af9d8f851266d0b8e8ffe57931a}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y}}
+\subsubsection[{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-G\-A\-I\-N~0.\-0}}\label{a00045_aa63a6918009b4e4381e359cee2f05eef}
+Initial gain setting \mbox{[}0.\-0, 1.\-0\mbox{]}. \hypertarget{a00045_afc105af9d8f851266d0b8e8ffe57931a}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y}}
 \index{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y@{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y}!SineGen.h@{Sine\-Gen.\-h}}
 \subsubsection[{S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-D\-F\-L\-T\-\_\-\-R\-C\-T\-F\-Y~T\-R\-U\-E}}\label{a00045_afc105af9d8f851266d0b8e8ffe57931a}
-Initial rectification setting \mbox{[}T\-R\-U\-E $|$ F\-A\-L\-S\-E). \hypertarget{a00045_a8d1689d7437a3410059f1f377ec63ebd}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-F\-\_\-\-S\-P\-L@{S\-I\-N\-\_\-\-F\-\_\-\-S\-P\-L}}
-\index{S\-I\-N\-\_\-\-F\-\_\-\-S\-P\-L@{S\-I\-N\-\_\-\-F\-\_\-\-S\-P\-L}!SineGen.h@{Sine\-Gen.\-h}}
-\subsubsection[{S\-I\-N\-\_\-\-F\-\_\-\-S\-P\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-F\-\_\-\-S\-P\-L~8250u}}\label{a00045_a8d1689d7437a3410059f1f377ec63ebd}
-Signal sampling frequency, i.\-e. the frequency that sgen.\-calc() is called at. This is dependent on I\-S\-R frequency, currently 1/4 of f\-\_\-\-I\-S\-R, full I\-S\-R speed is 33,000\-Hz. 
+Initial rectification setting \mbox{[}T\-R\-U\-E $|$ F\-A\-L\-S\-E). \hypertarget{a00045_af54d156f326804e0c3d80e0b709d3406}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R@{S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R}}
+\index{S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R@{S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R~60000000.\-0f/\-P\-W\-M\-\_\-1\-\_\-\-P\-R\-D}}\label{a00045_af54d156f326804e0c3d80e0b709d3406}
+Sampling frequency. I.\-e. the frequency at which the D\-P\-L I\-S\-R task runs. \hypertarget{a00045_ae3860ce29591dbf34c90a5cdce35ad86}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R\-\_\-\-D\-V\-S\-R@{S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R\-\_\-\-D\-V\-S\-R}}
+\index{S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R\-\_\-\-D\-V\-S\-R@{S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R\-\_\-\-D\-V\-S\-R}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R\-\_\-\-D\-V\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-F\-\_\-\-I\-S\-R\-\_\-\-D\-V\-S\-R~6}}\label{a00045_ae3860ce29591dbf34c90a5cdce35ad86}
+Sampling frequency divisor. E.\-g. F\-\_\-\-I\-S\-R = 130k\-Hz, but the D\-P\-L I\-S\-R only runs on every third trigger plus there are two alternating tasks so, 3 x 2 = 6 \hypertarget{a00045_a67755e274de5a3185ae6ce437a5f6e7d}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-F\-\_\-\-M\-A\-X@{S\-I\-N\-\_\-\-F\-\_\-\-M\-A\-X}}
+\index{S\-I\-N\-\_\-\-F\-\_\-\-M\-A\-X@{S\-I\-N\-\_\-\-F\-\_\-\-M\-A\-X}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{S\-I\-N\-\_\-\-F\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-F\-\_\-\-M\-A\-X~200u}}\label{a00045_a67755e274de5a3185ae6ce437a5f6e7d}
+Maximum frequency setting (hertz). \hypertarget{a00045_a58bd24055692a8794616ff2bc5c84d51}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-F\-\_\-\-R\-E\-Q@{S\-I\-N\-\_\-\-F\-\_\-\-R\-E\-Q}}
+\index{S\-I\-N\-\_\-\-F\-\_\-\-R\-E\-Q@{S\-I\-N\-\_\-\-F\-\_\-\-R\-E\-Q}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{S\-I\-N\-\_\-\-F\-\_\-\-R\-E\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-F\-\_\-\-R\-E\-Q~50.\-0}}\label{a00045_a58bd24055692a8794616ff2bc5c84d51}
+Required frequency setting (hertz). \hypertarget{a00045_a992c375a2083a58aa46c0600fea7df64}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-O\-F\-S\-T@{S\-I\-N\-\_\-\-O\-F\-S\-T}}
+\index{S\-I\-N\-\_\-\-O\-F\-S\-T@{S\-I\-N\-\_\-\-O\-F\-S\-T}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{S\-I\-N\-\_\-\-O\-F\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-O\-F\-S\-T~0}}\label{a00045_a992c375a2083a58aa46c0600fea7df64}
+Offset setting \mbox{[}-\/0.\-5, +0.5\mbox{]}, I\-Q15. \hypertarget{a00045_abd714e85d6aa6a48b8d84a41b43074c2}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!S\-I\-N\-\_\-\-P\-H\-S\-E@{S\-I\-N\-\_\-\-P\-H\-S\-E}}
+\index{S\-I\-N\-\_\-\-P\-H\-S\-E@{S\-I\-N\-\_\-\-P\-H\-S\-E}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{S\-I\-N\-\_\-\-P\-H\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-I\-N\-\_\-\-P\-H\-S\-E~0}}\label{a00045_abd714e85d6aa6a48b8d84a41b43074c2}
+Initial phase setting \mbox{[}0, 360), I\-Q16. 
 
 \subsection{Function Documentation}
+\hypertarget{a00045_af1add0fec8d10afcd40956d01d01cfa7}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!disable\-Sine\-Phase\-Out@{disable\-Sine\-Phase\-Out}}
+\index{disable\-Sine\-Phase\-Out@{disable\-Sine\-Phase\-Out}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{disable\-Sine\-Phase\-Out}]{\setlength{\rightskip}{0pt plus 5cm}void disable\-Sine\-Phase\-Out (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00045_af1add0fec8d10afcd40956d01d01cfa7}
+Disables the use of the A\-C phase output signal on G\-P\-I\-O12. \hypertarget{a00045_ab3922b82823a89211338cee98117369c}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!enable\-Sine\-Phase\-Out@{enable\-Sine\-Phase\-Out}}
+\index{enable\-Sine\-Phase\-Out@{enable\-Sine\-Phase\-Out}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{enable\-Sine\-Phase\-Out}]{\setlength{\rightskip}{0pt plus 5cm}void enable\-Sine\-Phase\-Out (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00045_ab3922b82823a89211338cee98117369c}
+Enables the use of the A\-C phase output signal on G\-P\-I\-O12. \hypertarget{a00045_a5ab11b6c0a463f9791e61647c89f5ebe}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!get\-Sine\-Gain\-Step@{get\-Sine\-Gain\-Step}}
+\index{get\-Sine\-Gain\-Step@{get\-Sine\-Gain\-Step}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{get\-Sine\-Gain\-Step}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Sine\-Gain\-Step (
+\begin{DoxyParamCaption}
+\item[{float32 $\ast$}]{step}
+\end{DoxyParamCaption}
+)}}\label{a00045_a5ab11b6c0a463f9791e61647c89f5ebe}
+Queries the current gain step setting. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em step} & Pointer to location at which to place the query result. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
 \hypertarget{a00045_a713b866aa5b5636f85d1a1f5f06b4ed3}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!get\-Sine\-Gain\-Target@{get\-Sine\-Gain\-Target}}
 \index{get\-Sine\-Gain\-Target@{get\-Sine\-Gain\-Target}!SineGen.h@{Sine\-Gen.\-h}}
 \subsubsection[{get\-Sine\-Gain\-Target}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 get\-Sine\-Gain\-Target (
@@ -101,7 +145,7 @@ Signal sampling frequency, i.\-e. the frequency that sgen.\-calc() is called at.
 )}}\label{a00045_a713b866aa5b5636f85d1a1f5f06b4ed3}
 Queries the current target gain setting. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em target} & Address of the memory location at which to place the query result. \\
+\mbox{\tt out}  & {\em target} & Pointer to location at which to place the query result. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -116,7 +160,7 @@ Error status.
 )}}\label{a00045_a63e4f7727c81ef635e50879433bc03b9}
 Queries the current state of the generator output. 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em state} & Address of the memory location at which to place the query result \{1\-:O\-N $|$ 0\-:O\-F\-F\}. \\
+\mbox{\tt out}  & {\em state} & Pointer to location at which to place the query result \{1\-:O\-N $|$ 0\-:O\-F\-F\}. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -134,6 +178,21 @@ Sets the initial generator values and disables the output. This function M\-U\-S
 \mbox{\tt in}  & {\em enable\-Phase\-Out} & Determines if the A\-C phase signal is enabled as an output or disabled and switched to an input. \\
 \hline
 \end{DoxyParams}
+\hypertarget{a00045_ae25f691d4da06e89110ade79a0a4d93b}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!set\-Sine\-Gain\-Step@{set\-Sine\-Gain\-Step}}
+\index{set\-Sine\-Gain\-Step@{set\-Sine\-Gain\-Step}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{set\-Sine\-Gain\-Step}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Sine\-Gain\-Step (
+\begin{DoxyParamCaption}
+\item[{float32}]{step}
+\end{DoxyParamCaption}
+)}}\label{a00045_ae25f691d4da06e89110ade79a0a4d93b}
+Sets the gain step of the sine signal. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em step} & Specifies the value of the gain step to be applied. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
 \hypertarget{a00045_ab40939821b2aba026ef55cf4ec9c12dd}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!set\-Sine\-Gain\-Target@{set\-Sine\-Gain\-Target}}
 \index{set\-Sine\-Gain\-Target@{set\-Sine\-Gain\-Target}!SineGen.h@{Sine\-Gen.\-h}}
 \subsubsection[{set\-Sine\-Gain\-Target}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Sine\-Gain\-Target (
@@ -144,6 +203,21 @@ Sets the initial generator values and disables the output. This function M\-U\-S
 Sets the target gain of the signal. 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em target} & Gain target value \mbox{[}0.\-0, 1.\-0). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00045_a2604c70758904f640d943151c13ddb9b}{\index{Sine\-Gen.\-h@{Sine\-Gen.\-h}!set\-Sine\-Rms\-Target@{set\-Sine\-Rms\-Target}}
+\index{set\-Sine\-Rms\-Target@{set\-Sine\-Rms\-Target}!SineGen.h@{Sine\-Gen.\-h}}
+\subsubsection[{set\-Sine\-Rms\-Target}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 set\-Sine\-Rms\-Target (
+\begin{DoxyParamCaption}
+\item[{float32}]{rms\-Target}
+\end{DoxyParamCaption}
+)}}\label{a00045_a2604c70758904f640d943151c13ddb9b}
+Sets the target R\-M\-S voltage of the signal. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em rms\-Target} & R\-M\-S voltage target value. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}

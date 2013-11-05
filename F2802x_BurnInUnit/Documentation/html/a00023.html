@@ -164,6 +164,8 @@ Functions</h2></td></tr>
 <tr class="separator:a5f4a447d1fbeba7920434b60e33b521e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a606ff8e8b51f82c70ced419dad90f993"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a606ff8e8b51f82c70ced419dad90f993">disableCircuit</a> (<a class="el" href="a00023.html#a5d2cb2e2fccefcdcb2e72e9e88b94223">circuitSection</a> section)</td></tr>
 <tr class="separator:a606ff8e8b51f82c70ced419dad90f993"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82da7573b42f3476655e4e7fc7cb4440"><td class="memItemLeft" align="right" valign="top">Uint16&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html#a82da7573b42f3476655e4e7fc7cb4440">getCurrentState</a> (<a class="el" href="a00023.html#a5d2cb2e2fccefcdcb2e72e9e88b94223">circuitSection</a> section, Uint16 *state)</td></tr>
+<tr class="separator:a82da7573b42f3476655e4e7fc7cb4440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions for enabling and disabling circuit sections via I2C. </p>
@@ -493,6 +495,41 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a82da7573b42f3476655e4e7fc7cb4440"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint16 getCurrentState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00023.html#a5d2cb2e2fccefcdcb2e72e9e88b94223">circuitSection</a>&#160;</td>
+          <td class="paramname"><em>section</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint16 *&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets the current state of the specified circuit section. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">section</td><td>Specifies the circuit section for which the state is to be queried. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">state</td><td>Pointer to location at which to replace query result (Disabled = 0, enabled = !0). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error status. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ae6fd4f744738c8b2733ef36d92fb7313"></a>
 <div class="memitem">
 <div class="memproto">
@@ -531,7 +568,7 @@ Functions</h2></td></tr>
 </div>
 </div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Thu Oct 24 2013
+Tue Nov 5 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

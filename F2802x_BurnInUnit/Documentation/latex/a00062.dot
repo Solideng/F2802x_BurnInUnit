@@ -10,13 +10,13 @@ digraph "Common.h"
   Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
   Node4 [label="DSP2802x_EPWM_defines.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
-  Node5 [label="IQMathLib.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node5 [label="slaveMode.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00047.html",tooltip="Functions and variables used in detection of the mode of the unit. "];
   Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
-  Node6 [label="DPlib.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 [label="IQMathLib.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
-  Node7 [label="sgen.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node7 [label="DPlib.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
-  Node8 [label="StateMachine.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00054.html",tooltip="State machine functions. "];
+  Node8 [label="sgen.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
   Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
   Node9 [label="I2c.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00025.html",tooltip="Inter-integrated circuit communications functions. "];
   Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
@@ -52,7 +52,9 @@ digraph "Common.h"
   Node1 -> Node25 [color="midnightblue",fontsize="10",style="solid"];
   Node25 [label="EnableCtrl.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00023.html",tooltip="Functions for enabling and disabling circuit sections via I2C. "];
   Node1 -> Node26 [color="midnightblue",fontsize="10",style="solid"];
-  Node26 [label="../../SCPI_Build/SCPI\l_Build/scpi/scpi.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node26 [label="StateMachine.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00054.html",tooltip="State machine functions. "];
   Node1 -> Node27 [color="midnightblue",fontsize="10",style="solid"];
-  Node27 [label="SCPI_specificCmds.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00042.html"];
+  Node27 [label="../../SCPI_Build/SCPI\l_Build/scpi/scpi.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node28 [color="midnightblue",fontsize="10",style="solid"];
+  Node28 [label="SCPI_specificCmds.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$a00042.html"];
 }

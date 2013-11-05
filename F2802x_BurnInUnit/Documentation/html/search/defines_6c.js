@@ -20,7 +20,11 @@ var searchData=
   ['load_5f1',['LOAD_1',['../a00027.html#a363f09c63f2ecb9086b47d72a3f3f57d',1,'MacroNets.h']]],
   ['load_5f2',['LOAD_2',['../a00027.html#af7c1e96216e7b48160e5a03afe8ac807',1,'MacroNets.h']]],
   ['load_5f3',['LOAD_3',['../a00027.html#a2c862ec4115c4a016b61800609f236a7',1,'MacroNets.h']]],
+  ['load_5fi_5fscale',['LOAD_I_SCALE',['../a00043.html#a0055f791c5646ebc3cacb7a9cf759792',1,'Settings.h']]],
   ['load_5fidclvl_5fmax',['LOAD_IDCLVL_MAX',['../a00043.html#a1dd2b3b31e620e021371603376c6980f',1,'Settings.h']]],
   ['load_5fpwrlvl_5ffix',['LOAD_PWRLVL_FIX',['../a00043.html#aea1e2f7c212899b68d0cb6f4fcd1683d',1,'Settings.h']]],
-  ['load_5fvdclvl_5ffix',['LOAD_VDCLVL_FIX',['../a00043.html#ac460f1e706fdf51002f5dfc15c8eb5c9',1,'Settings.h']]]
+  ['load_5fv_5fr1',['LOAD_V_R1',['../a00043.html#a6e7bff785f71de22636e4e4fdc5c39d7',1,'Settings.h']]],
+  ['load_5fv_5fr2',['LOAD_V_R2',['../a00043.html#a4717dea7b1bd4cf2cfcd40ad8a8b2637',1,'Settings.h']]],
+  ['load_5fvdclvl_5ffix',['LOAD_VDCLVL_FIX',['../a00043.html#ac460f1e706fdf51002f5dfc15c8eb5c9',1,'Settings.h']]],
+  ['log_5fsin',['LOG_SIN',['../a00043.html#a95a028761977fbb3ad254501f0d9bf22',1,'Settings.h']]]
 ];

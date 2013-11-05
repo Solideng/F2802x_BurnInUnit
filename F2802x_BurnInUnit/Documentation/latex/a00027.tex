@@ -86,11 +86,11 @@ enum \hyperlink{a00027_a2820f1e18d921d2f1e97d53404b9fbae}{load\-Stage} \{ \hyper
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{a00027_a0ae5a77eff5aae0f7aead915fe68328b}{setup\-Nets} (slave\-Mode mode)
+void \hyperlink{a00027_a0ae5a77eff5aae0f7aead915fe68328b}{setup\-Nets} (\hyperlink{a00047_aca06f1f459e3a5a5af6da9c575e60754}{slave\-Mode} mode)
 \item 
 void \hyperlink{a00027_a776854c00eb8a571abbfb27130ba4849}{stop\-All} (void)
 \item 
-void \hyperlink{a00027_a24dce601551d1d81b127711d2f4aabdd}{run\-All} (void)
+Uint16 \hyperlink{a00027_a3202c296892a1630de55722be3e52c41}{run\-All} (void)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -207,18 +207,21 @@ The possible load stage selections. \begin{Desc}
 
 
 \subsection{Function Documentation}
-\hypertarget{a00027_a24dce601551d1d81b127711d2f4aabdd}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!run\-All@{run\-All}}
+\hypertarget{a00027_a3202c296892a1630de55722be3e52c41}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!run\-All@{run\-All}}
 \index{run\-All@{run\-All}!MacroNets.h@{Macro\-Nets.\-h}}
-\subsubsection[{run\-All}]{\setlength{\rightskip}{0pt plus 5cm}void run\-All (
+\subsubsection[{run\-All}]{\setlength{\rightskip}{0pt plus 5cm}Uint16 run\-All (
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
-)}}\label{a00027_a24dce601551d1d81b127711d2f4aabdd}
-Enables all I\-I\-R filter control law reference inputs. \hypertarget{a00027_a0ae5a77eff5aae0f7aead915fe68328b}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!setup\-Nets@{setup\-Nets}}
+)}}\label{a00027_a3202c296892a1630de55722be3e52c41}
+Enables all I\-I\-R filter control law reference inputs. \begin{DoxyReturn}{Returns}
+Error status. 
+\end{DoxyReturn}
+\hypertarget{a00027_a0ae5a77eff5aae0f7aead915fe68328b}{\index{Macro\-Nets.\-h@{Macro\-Nets.\-h}!setup\-Nets@{setup\-Nets}}
 \index{setup\-Nets@{setup\-Nets}!MacroNets.h@{Macro\-Nets.\-h}}
 \subsubsection[{setup\-Nets}]{\setlength{\rightskip}{0pt plus 5cm}void setup\-Nets (
 \begin{DoxyParamCaption}
-\item[{slave\-Mode}]{mode}
+\item[{{\bf slave\-Mode}}]{mode}
 \end{DoxyParamCaption}
 )}}\label{a00027_a0ae5a77eff5aae0f7aead915fe68328b}
 Initialises macro settings and nets. I\-I\-R control law coefficients are handled outside of this function. \begin{DoxyWarning}{Warning}

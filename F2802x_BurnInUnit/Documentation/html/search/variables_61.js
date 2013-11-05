@@ -4,7 +4,7 @@ var searchData=
   ['acicoefs',['acICoefs',['../a00014.html#a05ea1ba581ea8bf1eb5c44f15534d31c',1,'Cntl.c']]],
   ['acnets',['acNets',['../a00027.html#ab73a0aedbde1954d7bf8091e07e4675c',1,'MacroNets.c']]],
   ['acsettings',['acSettings',['../a00027.html#aee11a0ac36813aa41597f992e943cd17',1,'MacroNets.c']]],
-  ['acvcoefs',['acVCoefs',['../a00014.html#a1b7cdba3e3e2fb71309dd78c6c1cd4cc',1,'Cntl.c']]],
+  ['acvcoefs',['acVCoefs',['../a00014.html#a07dbef418ea85cb169ebfc52e9571d68',1,'Cntl.c']]],
   ['adcdrv_5f1ch_5frlt1',['ADCDRV_1ch_Rlt1',['../a00012.html#a42ca9720519e1d0cb7ded4f56da083ba',1,'Adc.h']]],
   ['adcdrv_5f1ch_5frlt10',['ADCDRV_1ch_Rlt10',['../a00012.html#ad1b851523cd317f0910f2db4220f32da',1,'Adc.h']]],
   ['adcdrv_5f1ch_5frlt11',['ADCDRV_1ch_Rlt11',['../a00012.html#ad4435404e2f432a8c3a449dd23cda8f0',1,'Adc.h']]],

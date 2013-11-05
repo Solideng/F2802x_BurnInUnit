@@ -5,6 +5,7 @@ var searchData=
   ['enableallflag',['enableAllFlag',['../a00027.html#a65fcb0c0a483e3bc3433b17227fa29ac',1,'MacroNets.c']]],
   ['enablecircuit',['enableCircuit',['../a00023.html#a5f4a447d1fbeba7920434b60e33b521e',1,'EnableCtrl.c']]],
   ['enablectrl_2eh',['EnableCtrl.h',['../a00023.html',1,'']]],
+  ['enablesinephaseout',['enableSinePhaseOut',['../a00045.html#ab3922b82823a89211338cee98117369c',1,'SineGen.c']]],
   ['ext1',['ext1',['../a00027.html#a258413561252a6c94af200747272a9f3a6b8e8e9bb4b53b3fc029110541623a3c',1,'MacroNets.h']]],
   ['ext1_5fotp_5ftrip',['EXT1_OTP_TRIP',['../a00034.html#a91ac28ba381b421811645935e398c8c4',1,'Otp.h']]],
   ['ext1otplevel',['ext1OtpLevel',['../a00005.html#a7cf62224e015e717460215641dc3e93e',1,'extDeviceSettings']]],

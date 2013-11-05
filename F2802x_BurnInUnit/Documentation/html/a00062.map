@@ -1,22 +1,23 @@
 <map id="Common.h" name="Common.h">
 <area shape="rect" id="node2" href="$a00043.html" title="Major build definitions and settings for the project. " alt="" coords="5,88,85,115"/>
-<area shape="rect" id="node8" href="$a00054.html" title="State machine functions. " alt="" coords="822,88,935,115"/>
-<area shape="rect" id="node9" href="$a00025.html" title="Inter&#45;integrated circuit communications functions. " alt="" coords="960,88,1011,115"/>
-<area shape="rect" id="node10" href="$a00040.html" title="Serial communications interface functions. " alt="" coords="1035,88,1087,115"/>
-<area shape="rect" id="node11" href="$a00051.html" title="Serial peripheral interface communications functions. " alt="" coords="1111,88,1163,115"/>
-<area shape="rect" id="node12" href="$a00027.html" title="DPLib macro net and value control functions. " alt="" coords="1188,88,1284,115"/>
-<area shape="rect" id="node13" href="$a00056.html" title="Real and virtual timer functions. " alt="" coords="1308,88,1380,115"/>
-<area shape="rect" id="node14" href="$a00012.html" title="ADC functions. " alt="" coords="1404,88,1460,115"/>
-<area shape="rect" id="node15" href="$a00017.html" title="Comparator, DAC and trip zone functions. " alt="" coords="1485,88,1584,115"/>
-<area shape="rect" id="node16" href="$a00038.html" title="PWM and related functions. " alt="" coords="1609,88,1671,115"/>
-<area shape="rect" id="node17" href="$a00014.html" title="DPLib CNTL Macro related helper functions. " alt="" coords="1696,88,1752,115"/>
-<area shape="rect" id="node18" href="$a00030.html" title="Over&#45;current protection functions. " alt="" coords="1777,88,1833,115"/>
-<area shape="rect" id="node19" href="$a00036.html" title="Over&#45;voltage protection functions. " alt="" coords="1858,88,1912,115"/>
-<area shape="rect" id="node20" href="$a00032.html" title="Over&#45;power protection functions. " alt="" coords="1937,88,1993,115"/>
-<area shape="rect" id="node21" href="$a00034.html" title="Over&#45;temperature protection functions. " alt="" coords="2018,88,2072,115"/>
-<area shape="rect" id="node22" href="$a00049.html" title="Slew control functions. " alt="" coords="2097,88,2199,115"/>
-<area shape="rect" id="node23" href="$a00045.html" title="Signal generator functions. " alt="" coords="2224,88,2307,115"/>
-<area shape="rect" id="node24" href="$a00058.html" title="Temperature sensor functions. " alt="" coords="2331,88,2385,115"/>
-<area shape="rect" id="node25" href="$a00023.html" title="Functions for enabling and disabling circuit sections via I2C. " alt="" coords="2411,88,2504,115"/>
-<area shape="rect" id="node27" href="$a00042.html" title="SCPI_specificCmds.h" alt="" coords="2699,88,2847,115"/>
+<area shape="rect" id="node5" href="$a00047.html" title="Functions and variables used in detection of the mode of the unit. " alt="" coords="531,88,625,115"/>
+<area shape="rect" id="node9" href="$a00025.html" title="Inter&#45;integrated circuit communications functions. " alt="" coords="940,88,991,115"/>
+<area shape="rect" id="node10" href="$a00040.html" title="Serial communications interface functions. " alt="" coords="1015,88,1067,115"/>
+<area shape="rect" id="node11" href="$a00051.html" title="Serial peripheral interface communications functions. " alt="" coords="1091,88,1143,115"/>
+<area shape="rect" id="node12" href="$a00027.html" title="DPLib macro net and value control functions. " alt="" coords="1168,88,1264,115"/>
+<area shape="rect" id="node13" href="$a00056.html" title="Real and virtual timer functions. " alt="" coords="1288,88,1360,115"/>
+<area shape="rect" id="node14" href="$a00012.html" title="ADC functions. " alt="" coords="1384,88,1440,115"/>
+<area shape="rect" id="node15" href="$a00017.html" title="Comparator, DAC and trip zone functions. " alt="" coords="1465,88,1564,115"/>
+<area shape="rect" id="node16" href="$a00038.html" title="PWM and related functions. " alt="" coords="1589,88,1651,115"/>
+<area shape="rect" id="node17" href="$a00014.html" title="DPLib CNTL Macro related helper functions. " alt="" coords="1676,88,1732,115"/>
+<area shape="rect" id="node18" href="$a00030.html" title="Over&#45;current protection functions. " alt="" coords="1757,88,1813,115"/>
+<area shape="rect" id="node19" href="$a00036.html" title="Over&#45;voltage protection functions. " alt="" coords="1838,88,1892,115"/>
+<area shape="rect" id="node20" href="$a00032.html" title="Over&#45;power protection functions. " alt="" coords="1917,88,1973,115"/>
+<area shape="rect" id="node21" href="$a00034.html" title="Over&#45;temperature protection functions. " alt="" coords="1998,88,2052,115"/>
+<area shape="rect" id="node22" href="$a00049.html" title="Slew control functions. " alt="" coords="2077,88,2179,115"/>
+<area shape="rect" id="node23" href="$a00045.html" title="Signal generator functions. " alt="" coords="2204,88,2287,115"/>
+<area shape="rect" id="node24" href="$a00058.html" title="Temperature sensor functions. " alt="" coords="2311,88,2365,115"/>
+<area shape="rect" id="node25" href="$a00023.html" title="Functions for enabling and disabling circuit sections via I2C. " alt="" coords="2391,88,2484,115"/>
+<area shape="rect" id="node26" href="$a00054.html" title="State machine functions. " alt="" coords="2509,88,2621,115"/>
+<area shape="rect" id="node28" href="$a00042.html" title="SCPI_specificCmds.h" alt="" coords="2818,88,2965,115"/>
 </map>

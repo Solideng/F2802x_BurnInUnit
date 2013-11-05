@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['midovplevel',['midOvpLevel',['../a00010.html#a40270e88484faa165e3e73f45c08326a',1,'xfmrStageSettings']]],
   ['midvmax',['midVMax',['../a00010.html#a251fa7af71c610bf2b193afde33e1338',1,'xfmrStageSettings']]],
   ['midvscale',['midVScale',['../a00010.html#a44cb584d774e345422c57cc155b65d0c',1,'xfmrStageSettings']]],
   ['midvsnsnet',['midVSnsNet',['../a00009.html#a6cf2860aba64beca1c5471fcc7432c07',1,'xfmrStageNets']]],
