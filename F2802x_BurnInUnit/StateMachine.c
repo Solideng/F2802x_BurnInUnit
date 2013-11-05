@@ -64,7 +64,7 @@ void loopATask1 (void) {
 
 	/* Slew and gain update */
 	updateLoadSlew();		/* Step the slew values for load channels */
-	updateSineGain();		/*  and for AC stage */
+//	updateSineGain();		/*  and for AC stage */
 
 	A_Task_Ptr = &loopATask2;		/* Set pointer to next A task */
 }
@@ -76,15 +76,15 @@ void loopATask2 (void) {
 //	checkLoadOvp(load3);
 //	checkLoadOvp(load4);
 //	checkDcHvOvp();
-	if (slaveModeStatus != slaveUnit)
-		checkAcOvp();
+//	if (slaveModeStatus != slaveUnit)
+//		checkAcOvp();
 
 	/* Check for over-power */
 //	checkLoadOpp(load1);
 //	checkLoadOpp(load2);
 //	checkLoadOpp(load3);
 //	checkLoadOpp(load4);
-	checkAcOpp();
+//	checkAcOpp();
 
 	A_Task_Ptr = &loopATask1;		/* Set pointer to next A task */
 }
@@ -103,12 +103,12 @@ void loopBSync (void) {
 
 void loopBTask1 (void) {
 	/* Check for over-temperature */
-	//	checkLoadOtp(load1);	//TODO: Commented out for test usage.
-	//	checkLoadOtp(load2);
+		checkLoadOtp(load1);	//TODO: Commented out for test usage.
+		checkLoadOtp(load2);
 	//	checkLoadOtp(load3);
 	//	checkLoadOtp(load4);
 		checkDcOtp();
-		checkAcOtp();
+	//	checkAcOtp();
 	//	checkExtOtp(ext1);
 	//	checkExtOtp(ext2);
 	B_Task_Ptr = &loopBTask2;		/* Set pointer to next B task */
