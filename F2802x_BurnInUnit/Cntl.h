@@ -146,7 +146,7 @@ extern Uint16 getLoadICoef (loadStage load, cfType coef, float32 *value);
  * @param[in]	val		Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][].
  * @return				Error status.
  */
-extern Uint16 cntlSetAcICoef (cfType coef, float32 val);
+extern Uint16 setAcICoef (cfType coef, float32 val);
 
 /** Queries the specified IIR filter control law coefficient for the AC current control.
  * @param[in]	coef	Specifies the coefficient to be queried [cMin, cA3).
