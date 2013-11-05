@@ -6,8 +6,6 @@
  */
 #include "Common.h"
 
-long testVCtrlDcValue = 199254; // 5 volts //398508; // 10 volts
-long testICtrlDcValue = 641855; // 0.5 amps
 long testAcPwmFixed = 8388608; // 50% fixed duty cycle
 
 Uint16	stopAllFlag = 0;	// TODO May be moved to SCPI device specific regs
@@ -24,8 +22,6 @@ extDeviceSettings 	extSettings;				/* External device settings */
 #if (INCR_BUILD == 1)
 	volatile int32 duty[NUM_CHNLS] = {0};	/* Open-loop duty setting for use in watch window */
 #endif
-
-static volatile int32 sgenSignNet = 0;		/* Net for sine generator sign output NET */
 
 #ifdef DEBUG
 	float32 debugSettings[3] = {0.0, 0.0, 0.0};
@@ -94,7 +90,6 @@ static void initSettings (void) {
 	}
 
 	xfmrSettings.ocpLevel 	 = 16777216;	/* Maximum Q24 */
-	//xfmrSettings.midOvpLevel = 16777216;	/* Maximum Q24 */ //Fixed to 400 Vpk, is that correct?
 	xfmrSettings.hvOvpLevel  = 16777216;	/* Maximum Q24 */
 	xfmrSettings.otpLevel 	 = 19200;		/* 150 degree C Q7*/
 	xfmrSettings.iMax	 	 = 15360;		/* 15 Amps RMS Q10 */
@@ -240,8 +235,8 @@ static void connectAcNets (slaveMode mode) {
 		CNTL_2P2Z_Fdbk5 = &acNets.iFdbkNet;		/* ICNTL feedback */
 		CNTL_2P2Z_Out5  = &acNets.iFiltOutNet;	/* ICNTL out -> PWM */
 		CNTL_2P2Z_Coef5 = &acICoefs.b2;			/* ICNTL coefficients */
-		//PWMDRV_2ch_UpCnt_Duty3B = &acNets.iFiltOutNet;/* AC F B PWM */
-		PWMDRV_2ch_UpCnt_Duty3B = &testAcPwmFixed;/* AC F B PWM */
+		PWMDRV_2ch_UpCnt_Duty3B = &acNets.iFiltOutNet;/* AC F B PWM */
+		//PWMDRV_2ch_UpCnt_Duty3B = &testAcPwmFixed;/* AC F B PWM */
 	#endif
 }
 

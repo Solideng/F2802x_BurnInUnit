@@ -110,7 +110,7 @@ struct loadStageSettings {
 	int32 	slewTarget;	/**< IIR filter control law reference slew target (IQ24). */
 	int32 	ocpLevel;	/**< Normalised OCP limit (IQ24). */
 	int32 	ovpLevel;	/**< Normalised OVP limit (IQ24). */
-	int32 	oppLevel;	/**< Normalised OPP limit (IQ22). */
+	int32 	oppLevel;	/**< Normalised OPP limit (IQ24). */
 	int32 	otpLevel;	/**< OTP limit in @f$ ^\circ@f$ C (SQ7). */
 	int16 	iMax;		/**< Maximum DC current setting limit (SQ10). */
 	int16 	vMax;		/**< Maximum DC voltage setting limit (SQ10). */
