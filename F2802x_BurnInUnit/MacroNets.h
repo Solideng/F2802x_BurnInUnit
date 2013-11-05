@@ -14,11 +14,10 @@ extern "C" {
 #ifdef DEBUG
 	#define AC 0.0f
 	#define DC 1.0f
-	extern float32 debugSettings[4];	/* Index 0: AC or DC Voltage mode for the AC stage. 0 = AC, 1=DC.
+	extern float32 debugSettings[3];	/* Index 0: AC or DC Voltage mode for the AC stage. 0 = AC, 1=DC.
 	 	 	 	 	 	 	 	 	 	 * Index 1: Voltage value, RMS if AC mode or fixed peak if DC mode.
 	 	 	 	 	 	 	 	 	 	 * 			Sign of value indicates state of phase signal when DC mode is enabled.
 	 	 	 	 	 	 	 	 	 	 * Index 2: I_limit value to set AC V Coeff max value with.
-	 	 	 	 	 	 	 	 	 	 * Index 3: Used by system to track previous voltage mode.
 	 	 	 	 	 	 	 	 	 	 */
 	extern void updateDebugSettings (void);
 #endif

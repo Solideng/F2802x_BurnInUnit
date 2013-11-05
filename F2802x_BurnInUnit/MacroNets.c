@@ -28,14 +28,15 @@ extDeviceSettings 	extSettings;				/* External device settings */
 static volatile int32 sgenSignNet = 0;		/* Net for sine generator sign output NET */
 
 #ifdef DEBUG
-	float32 debugSettings[4] = {0.0, 0.0, 0.0, 0.0};
+	float32 debugSettings[3] = {0.0, 0.0, 0.0};
 	int32 dumpNet;
 
 	void updateDebugSettings (void) {
+		static float crntVMode = AC;
 		float32 iMax = 0, temp = 0;
 
 		// Set net connection
-		if (debugSettings[0] != debugSettings[3]) {	/* Check user setting against current setting record to see if any change is required */
+		if (debugSettings[0] != crntVMode) {	/* Check user setting against current setting record to see if any change is required */
 			if (debugSettings[0] == AC) {	/* Check if mode setting is AC */
 				enableSinePhaseOut();		/* Enable the AC phase signal output */
 				SGENTI_1ch_VOut  = &acNets.vRefNet;	/* Connect the sine gen output to the AC voltage control reference net. */
@@ -44,7 +45,7 @@ static volatile int32 sgenSignNet = 0;		/* Net for sine generator sign output NE
 				acNets.vRefNet = 0;			/* Zero the reference net */
 				disableSinePhaseOut();		/* Disable the AC phase signal output */
 			}
-			debugSettings[3] = debugSettings[0];/* Update current setting record */
+			crntVMode = debugSettings[0];	/* Update current setting record */
 		}
 
 		// Set reference value
@@ -236,7 +237,6 @@ static void connectAcNets (slaveMode mode) {
 		/* CURRENT CONTROL LOOP SETUP */
 		ADCDRV_1ch_Rlt6 = &acNets.iFdbkNet;		/* AC I Sns */
 		CNTL_2P2Z_Ref5  = &acNets.iRefNet;		/* ICNTL reference */
-		//CNTL_2P2Z_Ref5  = &testICtrlDcValue;	/* ICNTL reference = DC CURRENT IQ24 */
 		CNTL_2P2Z_Fdbk5 = &acNets.iFdbkNet;		/* ICNTL feedback */
 		CNTL_2P2Z_Out5  = &acNets.iFiltOutNet;	/* ICNTL out -> PWM */
 		CNTL_2P2Z_Coef5 = &acICoefs.b2;			/* ICNTL coefficients */
