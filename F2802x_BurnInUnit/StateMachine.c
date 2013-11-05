@@ -137,12 +137,14 @@ void loopCSync(void) {
 void loopCTask1 (void) {
 	/* Spare task */
 
-	/* Allows circuit enable state to be changed in watch window during debug */
 	#ifdef DEBUG
+		/* Allows circuit enable state to be changed in watch window during debug */
 		if (enableSection < maxchan)
 			enableCircuit(enableSection);
 		if (disableSection < maxchan)
 			disableCircuit(disableSection);
+		/* Allows AC stage settings to be changed in watch window during debug */
+		updateDebugSettings();
 	#endif
 	C_Task_Ptr = &loopCTask2;			/* Set pointer to next C task */
 }
