@@ -6,8 +6,9 @@
  */
 #include "Common.h"
 
-long testVCtrlDcValue = 398508; // 10 volts
+long testVCtrlDcValue = 199254; // 5 volts //398508; // 10 volts
 long testICtrlDcValue = 641855; // 0.5 amps
+long testAcPwmFixed = 8388608; // 50% fixed duty cycle
 
 Uint16	stopAllFlag = 0;	// TODO May be moved to SCPI device specific regs
 Uint16	enableAllFlag = 0;
@@ -26,6 +27,56 @@ extDeviceSettings 	extSettings;				/* External device settings */
 
 static volatile int32 sgenSignNet = 0;		/* Net for sine generator sign output NET */
 
+#ifdef DEBUG
+	float32 debugSettings[4] = {0.0, 0.0, 0.0, 0.0};
+	int32 dumpNet;
+
+	void updateDebugSettings (void) {
+		float32 iMax = 0, temp = 0;
+
+		// Set net connection
+		if (debugSettings[0] != debugSettings[3]) {	/* Check user setting against current setting record to see if any change is required */
+			if (debugSettings[0] == AC) {	/* Check if mode setting is AC */
+				enableSinePhaseOut();		/* Enable the AC phase signal output */
+				SGENTI_1ch_VOut  = &acNets.vRefNet;	/* Connect the sine gen output to the AC voltage control reference net. */
+			} else {	// DC
+				SGENTI_1ch_VOut  = &dumpNet;/* Disconnect sine gen from AC voltage control reference net. */
+				acNets.vRefNet = 0;			/* Zero the reference net */
+				disableSinePhaseOut();		/* Disable the AC phase signal output */
+			}
+			debugSettings[3] = debugSettings[0];/* Update current setting record */
+		}
+
+		// Set reference value
+		if (debugSettings[0] == AC) {			/* Check if mode setting is AC */
+			setSineRmsTarget(debugSettings[1]);	/* Set the sine gen gain via RMS value */
+		} else {	// DC
+			if (debugSettings[1] < 0)		/* Check if voltage value is negative */
+				temp = -debugSettings[1];	/* Remove sign from voltage value to calculate absolute level */
+			else
+				temp = debugSettings[1];
+			acNets.vRefNet = _IQ24(temp * (1 / 421.0));	/* Scale and set the net to the absolute value - VCNTL reference = DC VOLT/421 IQ24 */
+		}
+
+		// Set phase sign
+		if (debugSettings[0] != AC) {		/* Check if mode is DC */
+			if (debugSettings[1] < 0) 		/* Set AC Phase signal (GPIO12) dependent upon sign of voltage setting value */
+				GpioDataRegs.GPASET.bit.GPIO12 = 1;
+			else
+				GpioDataRegs.GPACLEAR.bit.GPIO12 = 1;
+		}
+
+		// Set AC coefficient saturation maximum value
+		if (debugSettings[0] != AC) {
+			/* Scale I_limit setting value */
+			iMax = _IQ14toF((int32) acSettings.iScale);		/* Convert scale from SQ to float */
+			iMax = ((VDDA - VSSA) * 0.001) * (1.0 / iMax); 	/* Calculate maximum I */
+			temp = (debugSettings[2] / iMax);				/* Normalise */
+			//setAcICoef(cMin, temp);						/* Set AC MIN coefficient */
+			setAcICoef(cMax, temp);							/* Set AC MAX coefficient */
+		}
+	}
+#endif
 
 static void initSettings (void) {
 	/* Initialise all settings structures with default values */
@@ -175,7 +226,6 @@ static void connectAcNets (slaveMode mode) {
 			#else
 				/* 2P2Z VOLTAGE CONTROL LOOP SETUP */
 				CNTL_2P2Z_Ref6   = &acNets.vRefNet;	/* VCNTL reference = SIN GEN OUT*/
-				//CNTL_2P2Z_Ref6   = &testVCtrlDcValue;	/* VCNTL reference = DC VOLT/421 IQ24*/
 				CNTL_2P2Z_Fdbk6  = &acNets.vFdbkNet;/* VCNTL feedback */
 				CNTL_2P2Z_Out6   = &acNets.iRefNet;	/* VCNTL out/CNTLI in */
 				CNTL_2P2Z_Coef6  = &acVCoefs.b2;	/* VCNTL coefficients */
@@ -190,7 +240,8 @@ static void connectAcNets (slaveMode mode) {
 		CNTL_2P2Z_Fdbk5 = &acNets.iFdbkNet;		/* ICNTL feedback */
 		CNTL_2P2Z_Out5  = &acNets.iFiltOutNet;	/* ICNTL out -> PWM */
 		CNTL_2P2Z_Coef5 = &acICoefs.b2;			/* ICNTL coefficients */
-		PWMDRV_2ch_UpCnt_Duty3B = &acNets.iFiltOutNet;/* AC F B PWM */
+		//PWMDRV_2ch_UpCnt_Duty3B = &acNets.iFiltOutNet;/* AC F B PWM */
+		PWMDRV_2ch_UpCnt_Duty3B = &testAcPwmFixed;/* AC F B PWM */
 	#endif
 }
 
