@@ -31,13 +31,15 @@
  *  - CTRL PCB - C23 changed from 1nF to 10nF for noise reduction.
  *  - CTRL PCB - Added 1k pullups to I2C SCK & SDA
  *  - XFMR PCB - 12VIN not connected to 12V track - Added mod wire.
+ *  - XFMR PCB - SGND not connected to PWR GND - Added mod wire.
  *  - AC PCB - SGND not connected to PGND - Added mod wire.
  *  - AC PCB - Gain setting resistor needed on U2 - Added 100R & 10k for gain ~100.
  *  - AC PCB - R19 & R20 changed from 0R to 100R.
  *  - AC PCB - C27 added with 100nF.
  *  - AC PCB - Added diodes D1, D2, D3, D4, D5 & D6 to improve OFF switching.
  *  - AC PCB - VSns track (ACVSNS net) has lots of noise due to routing under low side switches
- *
+ *  - IP PCB - J4-1 & J4-2 reversed - Requires new layout - Adjusted screws & added mod cable.
+ *  - IP PCB - SGND & PWR GND not connected - Relied on connection through XFMR PCB GND.
  */
 
 /*
@@ -81,6 +83,13 @@ void MemCopy();
 	void InitFlash();
 #endif
 // TODO PWM Current isolation circuit may require a calibration functionality - dependent upon circuit design
+
+/*=====TEST VARS=====*/
+#ifdef DEBUG
+	float32 chan1Target = 1.0;
+	float32 chan2Target = 1.0;
+#endif
+/*===================*/
 
 /* VARIABLE DECLARATIONS */
 extern Uint16 *RamfuncsLoadStart, *RamfuncsLoadEnd, *RamfuncsRunStart; /* Used for running BackGround in flash, and ISR in RAM */
@@ -155,45 +164,47 @@ void main (void) {
 
 	#ifdef DEBUG
 		//=============== TEST CODE ===============
-		setSineRmsTarget(10.0);
+//		setSineRmsTarget(10.0);
 		// Setup load channels' targets, slew rates, OCP levels and OTP levels.
 		// Coefficients are left as default.
-		setLoadSlewTarget(load1, 0.0);
+		setLoadSlewTarget(load1, 1.0);
 		setLoadSlewStep(load1, 0.001);
 		setLoadOcpLevel(load1, 30.0);
 		setLoadOtpLevel(load1, 100.0);
 
-		setLoadSlewTarget(load2, 0.0);
+		setLoadSlewTarget(load2, 1.0);
 		setLoadSlewStep(load2, 0.001);
 		setLoadOcpLevel(load2, 30.0);
 		setLoadOtpLevel(load2, 100.0);
 
-		setLoadSlewTarget(load3, 0.0);
-		setLoadSlewStep(load3, 0.001);
-		setLoadOcpLevel(load3, 30.0);
-		setLoadOtpLevel(load3, 100.0);
-
-		setLoadSlewTarget(load4, 0.0);
-		setLoadSlewStep(load4, 0.001);
-		setLoadOcpLevel(load4, 30.0);
-		setLoadOtpLevel(load4, 100.0);
+//		setLoadSlewTarget(load3, 1.0);
+//		setLoadSlewStep(load3, 0.001);
+//		setLoadOcpLevel(load3, 30.0);
+//		setLoadOtpLevel(load3, 100.0);
+//
+//		setLoadSlewTarget(load4, 1.0);
+//		setLoadSlewStep(load4, 0.001);
+//		setLoadOcpLevel(load4, 30.0);
+//		setLoadOtpLevel(load4, 100.0);
 
 		// Setup xfmr stage OCP, OVP and OTP levels.
-		setDcMidOcpLevel(15.0);
+//		setDcMidOcpLevel(15.0);
 //		setDcHvOvpLevel(15.0);	// TODO: Max limit needs correct value.
 		setDcOtpLevel(100.0);
 
 		// Setup AC stage gain target, gain rate, OCP level, OVP level and OTP level.
 		// Coefficients are left as default.
 //		setSineGainTarget(0.04);
-		setSineGainStep(0.001);
+//		setSineGainStep(0.001);
 //		setAcOcpLevel(15.0);	// TODO: Max limit needs correct value.
 //		setAcOvpLevel(15.0);	// TODO: Max limit needs correct value.
 		setAcOtpLevel(60.0);
 
+
 		enableCircuit(xfmrCct);
-		enableCircuit(acCct);
-		acSettings.enable = 1;
+		enableCircuit(chan1);
+		enableCircuit(chan2);
+//		enableCircuit(acCct);
 		// Enable all stages in sequence
 //		runAll();
 		//============= END TEST CODE =============
