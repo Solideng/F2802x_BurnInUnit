@@ -6,6 +6,7 @@
  */
 
 #include "Common.h"
+#include <stdint.h>
 
 static interrupt void spiTxFifoIsr_Master (void);
 static interrupt void spiRxFifoIsr_Master (void);
@@ -16,26 +17,26 @@ static interrupt void spiRxFifoIsr_Slave (void);
 //static interrupt void doNothingIsr (void);
 //static void disableXInt2 (void);
 
-static Uint16 txMsgLen = 0;
-static Uint16 txMsgPos = 0;
-static Uint16 rxMsgPos = 0;
+static uint16_t txMsgLen = 0;
+static uint16_t txMsgPos = 0;
+static uint16_t rxMsgPos = 0;
 static char * txMsgLoc = 0;
 static char * rxMsgLoc = 0;
 
 // TODO change sciEchoEnable to be a SCPI register bit
-static Uint16 spiEchoEnable = 0;		/* Sets the SPI to echo any input instead of doing anything else with it. */
+static uint16_t spiEchoEnable = 0;		/* Sets the SPI to echo any input instead of doing anything else with it. */
 
-Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCPha cPha) {
+uint16_t spiInit(spiMode mode, uint32_t baud, spiLpbk loopback, transPol cPol, spiCPha cPha) {
 	// TODO: Enable TALK??
 	float32 spiBrr = (float32)baud;
-	Uint16 temp = 7;				/* Init the config control reg (SPICCR) value. Reset on, 8-bit char length */
-	temp |= ((Uint16) cPol) << 6;	/* Add the clock polarity setting to the SPICCR value. */
-	temp |= ((Uint16) loopback) << 4;/* Add the loop-back setting to the SPICCR value. */
+	uint16_t temp = 7;				/* Init the config control reg (SPICCR) value. Reset on, 8-bit char length */
+	temp |= ((uint16_t) cPol) << 6;	/* Add the clock polarity setting to the SPICCR value. */
+	temp |= ((uint16_t) loopback) << 4;/* Add the loop-back setting to the SPICCR value. */
 	SpiaRegs.SPICCR.all = temp;		/* Save the SPICCR value to the register. */
 
 	temp = 0x03;					/* Init the operation control reg (SPICTL) value. Enable SPI interrupts and TALK. */
-	temp |= ((Uint16) cPha) << 3;	/* Add the clock phase setting to the SPICTL value. */
-	temp |= ((Uint16) mode) << 2;	/* Add the mode setting to the SPICTL value. */
+	temp |= ((uint16_t) cPha) << 3;	/* Add the clock phase setting to the SPICTL value. */
+	temp |= ((uint16_t) mode) << 2;	/* Add the mode setting to the SPICTL value. */
 	SpiaRegs.SPICTL.all = temp;		/* Save the SPICTL value to the register. */
 
 									/* Use the requested baud rate and LSPCLK frequency to calculate the
@@ -47,7 +48,7 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 	if ((spiBrr < 4) || (spiBrr > 127))	/* Ensure SPIBRR value is within bounds */
 			return VALUE_OOB;
 
-	SpiaRegs.SPIBRR = (Uint16) spiBrr;	/* Save the |SPIBRR| value to the register. */
+	SpiaRegs.SPIBRR = (uint16_t) spiBrr;	/* Save the |SPIBRR| value to the register. */
 
 									/* Set Tx FIFO. Reset channels, FIFOs enabled, FIFO in reset, clear any
 									 * interrupt, enable interrupt and add interrupt level.
@@ -71,7 +72,7 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 		PieVectTable.XINT2 = &startSpiRxFifoIsr_Master;	/* Set ISR for XINT2 (Slave SRQ) */
 		EDIS;
 
-		XIntruptRegs.XINT2CR.bit.POLARITY = (Uint16) fallingEdge;	/* Set external interrupt 2 as falling edge activated */
+		XIntruptRegs.XINT2CR.bit.POLARITY = (uint16_t) fallingEdge;	/* Set external interrupt 2 as falling edge activated */
 		XIntruptRegs.XINT2CR.bit.ENABLE = 1;	/* Enable external interrupt 2. */
 
 		PieCtrlRegs.PIECTRL.bit.ENPIE  = 1;	/* Enable the PIE block */
@@ -130,14 +131,14 @@ Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCP
 //	return;
 //}
 
-void spiTx_Master (Uint16 length, char * txMessage, char * rxMessage) {
+void spiTx_Master (uint16_t length, char * txMessage, char * rxMessage) {
 	txMsgLoc = txMessage;
 	rxMsgLoc = rxMessage;
 	txMsgLen = length;
 	txMsgPos = 0;
 										/* Fill FIFO */
 	while ((SpiaRegs.SPIFFTX.bit.TXFFST < SPI_FFTX_FILLVL) && (txMsgPos < length))
-		SpiaRegs.SPITXBUF = ((Uint16) txMsgLoc[txMsgPos++]) << 8;
+		SpiaRegs.SPITXBUF = ((uint16_t) txMsgLoc[txMsgPos++]) << 8;
 
 	SpiaRegs.SPIFFTX.bit.TXFFINTCLR = 1;/* Make sure the SPIA FIFO Tx interrupt flag is clear */
 	PieCtrlRegs.PIEACK.bit.ACK6 = 1;	/* Make sure PIE interrupt flag is clear */
@@ -148,7 +149,7 @@ static interrupt void spiTxFifoIsr_Master (void) {
 		if (txMsgPos < txMsgLen) {
 												/* Fill FIFO */
 			while ((SpiaRegs.SPIFFTX.bit.TXFFST < SPI_FFTX_FILLVL) && (txMsgPos < txMsgLen))
-				SpiaRegs.SPITXBUF = ((Uint16) txMsgLoc[txMsgPos++]) << 8;
+				SpiaRegs.SPITXBUF = ((uint16_t) txMsgLoc[txMsgPos++]) << 8;
 			SpiaRegs.SPIFFTX.bit.TXFFINTCLR = 1;/* Clear SPIA FIFO Tx interrupt flag */
 		}
 	} else {
@@ -166,7 +167,7 @@ static interrupt void startSpiRxFifoIsr_Master (void) {
 }
 
 static interrupt void spiRxFifoIsr_Master (void) {
-	Uint16 pushResult = 0;
+	uint16_t pushResult = 0;
 	while ((SpiaRegs.SPIFFRX.bit.RXFFST > 0) && (pushResult == 0)) {
 		rxMsgLoc[rxMsgPos] = (char) SpiaRegs.SPIRXBUF;
 		if (rxMsgLoc[rxMsgPos] == END_MSG_TERM)
@@ -182,7 +183,7 @@ static interrupt void spiRxFifoIsr_Master (void) {
 }
 
 void spiTx_Slave (void) {
-	Uint16 popResult = 0;
+	uint16_t popResult = 0;
 	char dataByte = 0;
 							/* Fill the FIFO until it is full or the SCPI output queue is empty */
 	while ((SpiaRegs.SPIFFTX.bit.TXFFST < SPI_FFTX_FILLVL) && (popResult == 0)) {
@@ -191,7 +192,7 @@ void spiTx_Slave (void) {
 							 */
 		popResult = popOQueue(&dataByte);	/* Pop a byte from the SCPI output queue */
 		if (popResult == 0)					/* Check the pop ran OK */
-			SpiaRegs.SPITXBUF = ((Uint16) dataByte) << 8;	/* Left-align the byte and place on the SPI Tx FIFO buffer */
+			SpiaRegs.SPITXBUF = ((uint16_t) dataByte) << 8;	/* Left-align the byte and place on the SPI Tx FIFO buffer */
 	}
 	SpiaRegs.SPIFFTX.bit.TXFFINTCLR = 1;	/* Clear SPIA FIFO transmit interrupt flag */
 	GpioDataRegs.GPACLEAR.bit.GPIO6 = 1;	/* Activate the SRQ line to the master */
@@ -206,7 +207,7 @@ static interrupt void spiTxFifoIsr_Slave (void) {
 }
 
 static interrupt void spiRxFifoIsr_Slave (void) {
-	Uint16 pushResult = 0;
+	uint16_t pushResult = 0;
 	char buf[2] = {0};					/* pushIBuff requires a string input */
 	if (GpioDataRegs.GPADAT.bit.GPIO6) {/* Check SRQ is not activated as otherwise the received data is just dummy data */
 		if (!spiEchoEnable) {			/* Check that SPI is not set to echo */
@@ -238,7 +239,7 @@ void oldSpiRxIsr (void) {
 	// TODO: ...
 	// Rx needs to know to ignore dummy data from master during a slave transmit -- could ignore Rx data if SRQ is activated?
 	/* SPI interrupt (SPIRXINTA) indicating the SPI has received some data. */
-    Uint16 pushResult = 0;
+    uint16_t pushResult = 0;
     char buf[2] = {0};
 
     if (!spiEchoEnable) {				/* Check that SPI is not set to echo. */
