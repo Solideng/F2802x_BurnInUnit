@@ -8,11 +8,12 @@
 #include "Common.h"
 
 static interrupt void spiTxFifoIsr_Master (void);
-static interrupt void spiRxFifoIsr_Master (void);
 static interrupt void startSpiRxFifoIsr_Master (void);
-static interrupt void spiTxFifoIsr_Slave (void);
+static interrupt void spiRxFifoIsr_Master (void);
 
+static interrupt void spiTxFifoIsr_Slave (void);
 static interrupt void spiRxFifoIsr_Slave (void);
+
 //static interrupt void doNothingIsr (void);
 //static void disableXInt2 (void);
 
@@ -27,7 +28,7 @@ static uint16_t spiEchoEnable = 0;		/* Sets the SPI to echo any input instead of
 
 uint16_t spiInit(spiMode mode, uint32_t baud, spiLpbk loopback, transPol cPol, spiCPha cPha) {
 	// TODO: Enable TALK??
-	float32 spiBrr = (float32)baud;
+	float spiBrr = (float)baud;
 	uint16_t temp = 7;				/* Init the config control reg (SPICCR) value. Reset on, 8-bit char length */
 	temp |= ((uint16_t) cPol) << 6;	/* Add the clock polarity setting to the SPICCR value. */
 	temp |= ((uint16_t) loopback) << 4;/* Add the loop-back setting to the SPICCR value. */
@@ -42,7 +43,7 @@ uint16_t spiInit(spiMode mode, uint32_t baud, spiLpbk loopback, transPol cPol, s
 									 * SPI bit rate control value.
 									 * Baud rate = (LSPCLK / [SPIBRR + 1]).
 									 */
-	spiBrr = (LOSPCLK_FREQ_SET / baud) - 1;
+	spiBrr = (LOSPCLK_FREQ_SET / spiBrr) - 1;
 
 	if ((spiBrr < 4) || (spiBrr > 127))	/* Ensure SPIBRR value is within bounds */
 			return VALUE_OOB;
@@ -131,6 +132,7 @@ uint16_t spiInit(spiMode mode, uint32_t baud, spiLpbk loopback, transPol cPol, s
 //}
 
 void spiTx_Master (uint16_t length, char * txMessage, char * rxMessage) {
+	/* Begins an SPI transmission by a master unit to a slave unit */
 	txMsgLoc = txMessage;
 	rxMsgLoc = rxMessage;
 	txMsgLen = length;
@@ -141,10 +143,13 @@ void spiTx_Master (uint16_t length, char * txMessage, char * rxMessage) {
 
 	SpiaRegs.SPIFFTX.bit.TXFFINTCLR = 1;/* Make sure the SPIA FIFO Tx interrupt flag is clear */
 	PieCtrlRegs.PIEACK.bit.ACK6 = 1;	/* Make sure PIE interrupt flag is clear */
+
+	// TODO: If response required wait for it to be completed here...
 }
 
 static interrupt void spiTxFifoIsr_Master (void) {
-	if (GpioDataRegs.GPADAT.bit.GPIO6 == 0) {
+	/* Continues on SPI transition by a master unit to a slave unit */
+	if (GpioDataRegs.GPADAT.bit.GPIO6 == 0) { /* Check if SRQ is active */
 		if (txMsgPos < txMsgLen) {
 												/* Fill FIFO */
 			while ((SpiaRegs.SPIFFTX.bit.TXFFST < SPI_FFTX_FILLVL) && (txMsgPos < txMsgLen))
@@ -152,36 +157,47 @@ static interrupt void spiTxFifoIsr_Master (void) {
 			SpiaRegs.SPIFFTX.bit.TXFFINTCLR = 1;/* Clear SPIA FIFO Tx interrupt flag */
 		}
 	} else {
-		// TODO: place some dummy data on the Tx buffer - how much?? 1 byte? or does Rx ISR handle this?
+		/* If the master is reading it needs to transmit a dummy byte for each byte it wants to receive */
+
+		// TODO: check here if last received byte was end of message?
+		// If it was EOM then SRQ would be inactive??? then if would have run instead of else...
+
+		SpiaRegs.SPITXBUF = 0;	/* Place a dummy byte in the Tx buffer */
 		SpiaRegs.SPIFFTX.bit.TXFFINTCLR = 1;/* Clear SPIA FIFO Tx interrupt flag */
 	}
 	PieCtrlRegs.PIEACK.bit.ACK6 = 1;		/* Acknowledge interrupt in PIE */
 }
 
 static interrupt void startSpiRxFifoIsr_Master (void) {
+	/* Begins a master unit reading from a slave unit (When SRQ has been activated) */
 	rxMsgPos = 0;
-	// TODO:...
+
+	// TODO:...Master function to start a read from a slave
+
 	if (GpioDataRegs.GPADAT.bit.GPIO6)
 	PieCtrlRegs.PIEACK.bit.ACK1 = 1;	/* Acknowledge interrupt in PIE */
 }
 
 static interrupt void spiRxFifoIsr_Master (void) {
+	/* Continues a master unit reading from a slave unit */
 	uint16_t pushResult = 0;
+							/* Check if there is more data in the Rx FIFO and the previous data was not the end of the message */
 	while ((SpiaRegs.SPIFFRX.bit.RXFFST > 0) && (pushResult == 0)) {
-		rxMsgLoc[rxMsgPos] = (char) SpiaRegs.SPIRXBUF;
-		if (rxMsgLoc[rxMsgPos] == END_MSG_TERM)
-			pushResult = 1;
+		rxMsgLoc[rxMsgPos] = (char) SpiaRegs.SPIRXBUF;	/* Move byte from the Rx FIFO to the response location */
+		if (rxMsgLoc[rxMsgPos] == END_MSG_TERM)	/* Check if the byte indicates the end of the message */
+			pushResult = 1;	/* Indicate that it is the end of the message */
 		else
-			rxMsgPos++;
+			rxMsgPos++;	/* Move to the next position on the response location */
 	}
-	if (pushResult == 0) {
+	if (pushResult == 0) {	/* Check if an end of message was not detected */
 		if (GpioDataRegs.GPADAT.bit.GPIO6 == 0)		/* Check if the SRQ is still active */
-			while (SpiaRegs.SPIFFTX.bit.TXFFST < SPI_FFTX_FILLVL)
+			while (SpiaRegs.SPIFFTX.bit.TXFFST < SPI_FFTX_FILLVL) /* Check there is space in the Tx FIFO */
 				SpiaRegs.SPITXBUF = END_MSG_TERM;	/* Fill the Tx FIFO with dummy data */
 	}
 }
 
 void spiTx_Slave (void) {
+	/* Begins an SPI transmission by a slave unit to a master unit */
 	uint16_t popResult = 0;
 	char dataByte = 0;
 							/* Fill the FIFO until it is full or the SCPI output queue is empty */
@@ -198,7 +214,9 @@ void spiTx_Slave (void) {
 }
 
 static interrupt void spiTxFifoIsr_Slave (void) {
-	// TODO:...
+	/* Continues an SPI transmission by a slave unit to a master unit */
+
+	// TODO:... Slave function to place next data in Tx buf or make SRQ inactive if EOM
 	/* SPI interrupt (SPITXINTA) indicating the SPI is ready to accept more data */
 
 	SpiaRegs.SPICTL.bit.TALK = 0;		/* Disable talk */
@@ -206,6 +224,7 @@ static interrupt void spiTxFifoIsr_Slave (void) {
 }
 
 static interrupt void spiRxFifoIsr_Slave (void) {
+	/* Reads data sent by a master unit for a slave unit */
 	uint16_t pushResult = 0;
 	char buf[2] = {0};					/* pushIBuff requires a string input */
 	if (GpioDataRegs.GPADAT.bit.GPIO6) {/* Check SRQ is not activated as otherwise the received data is just dummy data */
