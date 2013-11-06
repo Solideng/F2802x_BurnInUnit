@@ -12,9 +12,9 @@
 static interrupt void i2c_isr(void);
 
 static i2cMsg *currentMsgPtr;					/* Used in interrupts */
-//Uint16 PassCount;
-//Uint16 FailCount;
-Uint16 i2cIsrErr = 0;			// TODO Make SCPI reg status bit - nothing else done with it
+//uint16_t PassCount;
+//uint16_t FailCount;
+uint16_t i2cIsrErr = 0;			// TODO Make SCPI reg status bit - nothing else done with it
 
 i2cMsg i2cMsgBlank = {	I2C_MSGSTAT_INACTIVE,	/* Message status */
 						0,						/* Slave device I2C address */
@@ -29,12 +29,12 @@ i2cMsg i2cMsgBlank = {	I2C_MSGSTAT_INACTIVE,	/* Message status */
 					};
 
 
-void i2cPopMsg(i2cMsg *msg, Uint16 msgStatus, Uint16 slaveAddr, Uint16 numDataBytes, Uint16 numSlavePtrBytes, Uint16 slavePtrAddrHi, Uint16 slavePtrAddrLo) {
+void i2cPopMsg(i2cMsg *msg, uint16_t msgStatus, uint16_t slaveAddr, uint16_t numDataBytes, uint16_t numSlavePtrBytes, uint16_t slavePtrAddrHi, uint16_t slavePtrAddrLo) {
 	/* Populate the passed msg struct with the passed arguments
 	 *  Saves having to set individual struct members one by
 	 *  one in calling function for each communication
 	 */
-	Uint16 x;
+	uint16_t x;
 	while (currentMsgPtr->msgStatus != I2C_MSGSTAT_INACTIVE) {} /* Check previous message has finished */
 	msg->msgStatus = msgStatus;
 	msg->slaveAddress = slaveAddr;
@@ -60,7 +60,7 @@ void i2cPopMsg(i2cMsg *msg, Uint16 msgStatus, Uint16 slaveAddr, Uint16 numDataBy
 
 void initI2c(void) {
 	/* Initialize I2C peripheral and interrupts */
-	Uint16 address = 0;
+	uint16_t address = 0;
 	currentMsgPtr = &i2cMsgBlank;		/* Set initial values for I2C message */
 	I2caRegs.I2CSAR = address;			/* Slave address */
 	I2caRegs.I2CPSC.all = 0x05;			/* Prescalar - Module clock must be 7-12 MHz */
@@ -81,9 +81,9 @@ void initI2c(void) {
 	IER |= M_INT8;						/* Enable CPU interrupt 8 */
 }
 
-Uint16 i2cRead (i2cMsg *msg) {
+uint16_t i2cRead (i2cMsg *msg) {
 	/* Start an I2C read */
-	Uint16 i;
+	uint16_t i;
 
 	for (i = 0; i < (I2C_MAX_BUFFER_SIZE); i++)	/* Make sure received data buffer is fully empty */
 			msg->msgBuffer[i] = 0x0000;
@@ -111,9 +111,9 @@ Uint16 i2cRead (i2cMsg *msg) {
 	return 0;
 }
 
-Uint16 i2cWrite (i2cMsg *msg) {
+uint16_t i2cWrite (i2cMsg *msg) {
 	/* start an I2C write */
-	Uint16 i;
+	uint16_t i;
 
 	while (currentMsgPtr->msgStatus != I2C_MSGSTAT_INACTIVE) {} /* Check previous message has finished */
 	if (msg->msgStatus != I2C_MSGSTAT_SEND_WITHSTOP) {
@@ -147,7 +147,7 @@ Uint16 i2cWrite (i2cMsg *msg) {
 }
 
 static interrupt void i2c_isr (void) {
-	Uint16 intSource, i;
+	uint16_t intSource, i;
 
 	intSource = I2caRegs.I2CISRC.all;	/* Get interrupt source */
 

@@ -94,7 +94,7 @@ typedef enum spiCPha spiCPha;
  * @warning This function will clear any values already in the SPI peripheral registers.
  * @warning This function MUST be called before any other public SPI function.
  */
-extern Uint16 spiInit(spiMode mode, Uint32 baud, spiLpbk loopback, transPol cPol, spiCPha cPha);
+extern uint16_t spiInit(spiMode mode, uint32_t baud, spiLpbk loopback, transPol cPol, spiCPha cPha);
 
 /** Transmits whatever data is on the SCPI output queue if SPI has been selected as the external communications type. */
 extern void spiTx (void);

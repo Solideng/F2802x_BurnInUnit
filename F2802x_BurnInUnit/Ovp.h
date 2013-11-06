@@ -24,7 +24,7 @@ extern "C" {
 #define DCHV_OVP_TRIP 	32	/**< OVP flag register DC HV bit. */
 #define AC_OVP_TRIP 	64	/**< OVP flag register AC bit. */
 
-extern Uint16 ovpFlagRegister;	/** < OVP flag register. Bits are set to indicate an OVP condition has been found. */
+extern uint16_t ovpFlagRegister;	/** < OVP flag register. Bits are set to indicate an OVP condition has been found. */
 
 /*============== Load n ==============*/
 /** Checks the voltage reading of the specified load against the load OVP limit.
@@ -32,19 +32,19 @@ extern Uint16 ovpFlagRegister;	/** < OVP flag register. Bits are set to indicate
  * @param[in]	load	Specifies the load on which the reading is to be tested.
  * @return 				Error status
  */
-extern Uint16 checkLoadOvp (loadStage load);
+extern uint16_t checkLoadOvp (loadStage load);
 
 /** Queries the state of the OVP flag for the specified load.
  * @param[in]	load	Specifies the load on which to check the flag.
  * @return				True if OVP flag has been raised.
  */
-extern Uint16 getLoadOvpState (loadStage load);
+extern uint16_t getLoadOvpState (loadStage load);
 
 /** Clears the OVP state for the specified load.
  * @param[in]	load	Specifies the load for which the OVP state is to be cleared.
  * @return				Error status.
  */
-extern Uint16 clearLoadOvp (loadStage load);
+extern uint16_t clearLoadOvp (loadStage load);
 
 /*============== DC Mid ==============*/
 //** Sets the over voltage protection limit for the DC Mid stage.
@@ -63,75 +63,75 @@ extern Uint16 clearLoadOvp (loadStage load);
  * This provides an OVP function for the trip zone ISR to call when the DC comparator is triggered.
  * @return 				Error status
  */
-extern Uint16 tripDcMidOvp (void);
+extern uint16_t tripDcMidOvp (void);
 
 /** Queries the state of the DC Mid OVP flag.
  * @return	True if OVP flag has been raised.
  */
-extern Uint16 getDcMidOvpState (void);
+extern uint16_t getDcMidOvpState (void);
 
 /** Clears the DC Mid stage OVP state.
  * @return				Error status.
  */
-extern Uint16 clearDcMidOvp (void);
+extern uint16_t clearDcMidOvp (void);
 
 /*=============== DC HV ==============*/
 /** Sets the over voltage protection limit for the DC HV stage.
  * @param[in]	dcLevel	Specifies the DC value to be applied (volts).
  * @return				Error status.
  */
-extern Uint16 setDcHvOvpLevel (float32 dcLevel);
+extern uint16_t setDcHvOvpLevel (float dcLevel);
 
 /** Queries the over voltage protection level for the DC HV stage.
  * @param[out]	dcLevel	Pointer to location at which to place the query result (volts).
  * @return				Error status.
  */
-extern Uint16 getDcHvOvpLevel (float32 *dcLevel);
+extern uint16_t getDcHvOvpLevel (float *dcLevel);
 
 /** Checks the voltage reading of the DC HV stage against the DC HV OVP limit.
  * Raises the DC HV OVP flag if the reading is above the limit.
  * @return 				Error status
  */
-extern Uint16 checkDcHvOvp (void);
+extern uint16_t checkDcHvOvp (void);
 
 /** Queries the state of the DC HV OVP flag.
  * @return	True if OVP flag has been raised.
  */
-extern Uint16 getDcHvOvpState (void);
+extern uint16_t getDcHvOvpState (void);
 
 /** Clears the DC HV stage OVP state.
  * @return				Error status.
  */
-extern Uint16 clearDcHvOvp (void);
+extern uint16_t clearDcHvOvp (void);
 
 /*================ AC ================*/
 /** Sets the over voltage protection limit for the AC stage.
  * @param[in]	pkLevel	Specifies the peak value to be applied (volts).
  * @return				Error status.
  */
-extern Uint16 setAcOvpLevel (float32 pkLevel);
+extern uint16_t setAcOvpLevel (float pkLevel);
 
 /** Queries the over voltage protection level for the AC stage.
  * @param[out]	pkLevel	Pointer to location at which to place the query result (volts).
  * @return				Error status.
  */
-extern Uint16 getAcOvpLevel (float32 *pkLevel);
+extern uint16_t getAcOvpLevel (float *pkLevel);
 
 /** Checks the voltage reading of the AC stage against the AC OVP limit.
  * Raises the AC OVP flag if the reading is above the limit.
  * @return 				Error status
  */
-extern Uint16 checkAcOvp (void);
+extern uint16_t checkAcOvp (void);
 
 /** Queries the state of the AC OVP flag.
  * @return	True if OVP flag has been raised.
  */
-extern Uint16 getAcOvpState (void);
+extern uint16_t getAcOvpState (void);
 
 /** Clears the AC stage OVP state.
  * @return				Error status.
  */
-extern Uint16 clearAcOvp (void);
+extern uint16_t clearAcOvp (void);
 
 #ifdef __cplusplus
 }

@@ -19,12 +19,12 @@ extern "C" {
 #define PWM_3_PRD 	462	/**< Defines the period setting for PWM1. 60MHz / 462 ~ 130kHz. */
 
 /*============= TERMINAL POINTERS =============*/
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty1A;	/**< Channel 0 PWM terminal pointer. */
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty1B;	/**< Channel 1 PWM terminal pointers. */
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty2A;	/**< Channel 2 PWM terminal pointer. */
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty2B;	/**< Channel 3 PWM terminal pointer. */
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty3A;	/**< Interboost PWM terminal pointer. */
-extern volatile int32 *PWMDRV_2ch_UpCnt_Duty3B;	/**< AC stage PWM terminal pointer. */
+extern volatile int32_t *PWMDRV_2ch_UpCnt_Duty1A;	/**< Channel 0 PWM terminal pointer. */
+extern volatile int32_t *PWMDRV_2ch_UpCnt_Duty1B;	/**< Channel 1 PWM terminal pointers. */
+extern volatile int32_t *PWMDRV_2ch_UpCnt_Duty2A;	/**< Channel 2 PWM terminal pointer. */
+extern volatile int32_t *PWMDRV_2ch_UpCnt_Duty2B;	/**< Channel 3 PWM terminal pointer. */
+extern volatile int32_t *PWMDRV_2ch_UpCnt_Duty3A;	/**< Interboost PWM terminal pointer. */
+extern volatile int32_t *PWMDRV_2ch_UpCnt_Duty3B;	/**< AC stage PWM terminal pointer. */
 
 /*============= GLOBAL FUNCTIONS ==============*/
 

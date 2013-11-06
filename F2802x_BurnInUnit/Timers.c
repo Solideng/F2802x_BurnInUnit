@@ -7,12 +7,12 @@
 #include "Common.h"
 
 #ifdef VTIMERS
-	int16 VTimer0[4] = {0};
-	int16 VTimer1[4] = {0};
-	int16 VTimer2[4] = {0};
+	int16_t VTimer0[4] = {0};
+	int16_t VTimer1[4] = {0};
+	int16_t VTimer2[4] = {0};
 
 	void timersSetupVirtual (void) {
-		Uint16 i = 0;
+		uint16_t i = 0;
 		for (i = 0; i < 4; i++) {
 			VTimer0[i]=0;		// Virtual Timers slaved off CPU Timer 0 (A events)
 			VTimer1[i]=0; 		// Virtual Timers slaved off CPU Timer 1 (B events)

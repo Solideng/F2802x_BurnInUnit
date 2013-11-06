@@ -8,8 +8,8 @@
 
 long testAcPwmFixed = 8388608; // 50% fixed duty cycle
 
-Uint16	stopAllFlag = 0;	// TODO May be moved to SCPI device specific regs
-Uint16	enableAllFlag = 0;
+uint16_t	stopAllFlag = 0;	// TODO May be moved to SCPI device specific regs
+uint16_t	enableAllFlag = 0;
 
 loadStageNets 		loadNets[numberOfLoads];	/* Load nets */
 xfmrStageNets		xfmrNets;					/* Transformer stage nets */
@@ -20,16 +20,16 @@ acStageSettings 	acSettings;					/* AC stage settings */
 extDeviceSettings 	extSettings;				/* External device settings */
 
 #if (INCR_BUILD == 1)
-	volatile int32 duty[NUM_CHNLS] = {0};	/* Open-loop duty setting for use in watch window */
+	volatile int32_t duty[NUM_CHNLS] = {0};	/* Open-loop duty setting for use in watch window */
 #endif
 
 #ifdef DEBUG
-	float32 debugSettings[3] = {0.0, 0.0, 0.0};
-	int32 dumpNet;
+	float debugSettings[3] = {0.0, 0.0, 0.0};
+	int32_t dumpNet;
 
 	void updateDebugSettings (void) {
 		static float crntVMode = AC;
-		float32 iMax = 0, temp = 0;
+		float iMax = 0, temp = 0;
 
 		// Set net connection
 		if (debugSettings[0] != crntVMode) {	/* Check user setting against current setting record to see if any change is required */
@@ -78,7 +78,7 @@ extDeviceSettings 	extSettings;				/* External device settings */
 static void initSettings (void) {
 	/* Initialise all settings structures with default values */
 	/* FOR SOME REASON THIS *MUST* BE CALLED *AFTER* pwmMacroConfig(), NOT BEFORE */
-	Uint16 i = 0;
+	uint16_t i = 0;
 	for (i = 0; i < numberOfLoads; i++) {
 		loadSettings[i].slewRate   = 16777;		/* 0.001 Q24 */
 		loadSettings[i].slewTarget = 0;			/* 0 Q24 */
@@ -122,7 +122,7 @@ static void initSettings (void) {
 
 static void initNets (void) {
 	/* Clears all nets. */
-	Uint16 i = 0;
+	uint16_t i = 0;
 	for (i = 0; i < numberOfLoads; i++) {
 		loadNets[i].iFdbkNet 	= 0;	/* Q24 (IQ24: -128 - +128) */
 		loadNets[i].vFdbkNet 	= 0;	/* Q24 */
@@ -285,7 +285,7 @@ void setupNets (slaveMode mode) {
 }
 
 void stopAll (void) {
-	Uint16 i = 0;
+	uint16_t i = 0;
 	resetEnableControl();	/* Disable all stages */ //TODO: OR DOES THIS NEED TO BE ORDERED??
 	disableCircuit(chan1);
 	disableCircuit(chan2);
@@ -310,8 +310,8 @@ void stopAll (void) {
 	stopAllFlag = 0;
 }
 
-Uint16 runAll (void) {
-	Uint16 i = 0;
+uint16_t runAll (void) {
+	uint16_t i = 0;
 	float32 meas = 0;
 
 	// TODO: Can move disable section to stopALL() in place off resetEnableControl() then just call stopAll() ??

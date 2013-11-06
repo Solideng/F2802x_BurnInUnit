@@ -18,9 +18,9 @@ extern "C" {
 
 /*============= GLOBAL FUNCTIONS ==============*/
 #ifdef VTIMERS
-	extern int16 VTimer0[4];	/**< First set of virtual timers. */
-	extern int16 VTimer1[4];	/**< Second set of virtual timers. */
-	extern int16 VTimer2[4];	/**< Third set of virtual timers. */
+	extern int16_t VTimer0[4];	/**< First set of virtual timers. */
+	extern int16_t VTimer1[4];	/**< Second set of virtual timers. */
+	extern int16_t VTimer2[4];	/**< Third set of virtual timers. */
 
 	/** Sets up the virtual timers for use in the state machine.
 	 * This should be called as part of the state machine initialisation

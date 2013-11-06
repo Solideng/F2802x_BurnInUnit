@@ -24,7 +24,7 @@ extern "C" {
 #define DCHV_OPP_TRIP 	32	/**< OPP flag register DC HV bit. */
 #define AC_OPP_TRIP 	64	/**< OPP flag register AC bit. */
 
-extern Uint16 oppFlagRegister;	/** < OPP flag register. Bits are set to indicate an OPP condition has been found. */
+extern uint16_t oppFlagRegister;	/** < OPP flag register. Bits are set to indicate an OPP condition has been found. */
 
 /*============== Load n ==============*/
 /** Checks the power reading of the specified load against the load OPP limit.
@@ -32,36 +32,36 @@ extern Uint16 oppFlagRegister;	/** < OPP flag register. Bits are set to indicate
  * @param[in]	load	Specifies the load on which the reading is to be tested.
  * @return 				Error status
  */
-extern Uint16 checkLoadOpp (loadStage load);
+extern uint16_t checkLoadOpp (loadStage load);
 
 /** Queries the state of the OPP flag for the specified load.
  * @param[in]	load	Specifies the load on which to check the flag.
  * @return				True if OPP flag has been raised.
  */
-extern Uint16 getLoadOppState (loadStage load);
+extern uint16_t getLoadOppState (loadStage load);
 
 /** Clears the OPP state for the specified load.
  * @param[in]	load	Specifies the load for which the OPP state is to be cleared.
  * @return				Error status.
  */
-extern Uint16 clearLoadOpp (loadStage load);
+extern uint16_t clearLoadOpp (loadStage load);
 
 /*================ AC ================*/
 /** Checks the current reading of the AC stage against the AC OPP limit.
  * Raises the AC OPP flag if the reading is above the limit.
  * @return 				Error status
  */
-extern Uint16 checkAcOpp (void);
+extern uint16_t checkAcOpp (void);
 
 /** Queries the state of the AC OPP flag.
  * @return	True if OPP flag has been raised.
  */
-extern Uint16 getAcOppState (void);
+extern uint16_t getAcOppState (void);
 
 /** Clears the AC stage OPP state.
  * @return				Error status.
  */
-extern Uint16 clearAcOpp (void);
+extern uint16_t clearAcOpp (void);
 
 #ifdef __cplusplus
 }

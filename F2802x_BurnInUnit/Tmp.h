@@ -76,14 +76,14 @@ extern "C" {
  * @sa i2cInit().
  * @return				Error status.
  */
-extern Uint16 initTemperature (void);
+extern uint16_t initTemperature (void);
 
 /** Queries the current temperature on the specified ADC channel.
  * @param[in]	chnl	Specifies the channel the temperature is to be read from.
  * @param[out]	tmpDest	Address of the memory location at which to place the query result (@f$ ^\circ@f$ C).
  * @return				Error status.
  */
-extern Uint16 readTemperature (Uint16 chnl, float32 *tmpDest);
+extern uint16_t readTemperature (uint16_t chnl, float *tmpDest);
 
 #ifdef __cplusplus
 }

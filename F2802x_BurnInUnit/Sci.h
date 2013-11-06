@@ -38,7 +38,7 @@ extern "C" {
  * @warning This function will clear any values already in the SCI peripheral registers.
  * @warning This function MUST be called before any other SCI function.
  */
-extern Uint16 sciInit(Uint32 baud);
+extern uint16_t sciInit(uint32_t baud);
 
 /** Transmits whatever data is on the SCPI output queue if SCI has been selected as the external communications type. */
 extern void sciTx (void);

@@ -44,8 +44,8 @@ extern volatile int32 *SGENTI_1ch_VOut;	/**< Voltage output terminal. */
 
 #ifdef LOG_SIN
 	#define LOG_SIZE 200		/* Arrays for logging data during debug. */
-	extern volatile int16 sine_abs[LOG_SIZE];
-	extern volatile int16 sine_sign[LOG_SIZE];
+	extern volatile int16_t sine_abs[LOG_SIZE];
+	extern volatile int16_t sine_sign[LOG_SIZE];
 #endif
 
 #ifdef DEBUG
@@ -58,7 +58,7 @@ extern volatile int32 *SGENTI_1ch_VOut;	/**< Voltage output terminal. */
  * @param[in]	enablePhaseOut	Determines if the AC phase signal is enabled
  * 								as an output or disabled and switched to an input.
  */
-extern void initSine (Uint16 enablePhaseOut);
+extern void initSine (uint16_t enablePhaseOut);
 
 /** Updates the gain value to create a slow-start ramp.
  * This should be called at the same time and similarly to
@@ -83,43 +83,43 @@ extern void disableSinePhaseOut (void);
  * @param[in]	state	Output enable state {1:ON | 0:OFF}.
  * @return				Error status.
  */
-extern Uint16 setSineState (Uint16 state);
+extern uint16_t setSineState (uint16_t state);
 
 /** Queries the current state of the generator output.
  * @param[out]	state	Pointer to location at which to place the query result  {1:ON | 0:OFF}.
  * @return				Error status.
  */
-extern Uint16 getSineState (Uint16 *state);
+extern uint16_t getSineState (uint16_t *state);
 
 /** Sets the target RMS voltage of the signal.
  * @param[in] 	rmsTarget	RMS voltage target value.
  * @return					Error status.
  */
-extern Uint16 setSineRmsTarget (float32 rmsTarget);
+extern uint16_t setSineRmsTarget (float rmsTarget);
 
 /** Sets the target gain of the signal.
  * @param[in]	target	Gain target value [0.0, 1.0).
  * @return				Error status.
  */
-extern Uint16 setSineGainTarget (float32 target);
+extern uint16_t setSineGainTarget (float target);
 
 /** Queries the current target gain setting.
  * @param[out] 	target	Pointer to location at which to place the query result.
  * @return				Error status.
  */
-extern Uint16 getSineGainTarget (float32 *target);
+extern uint16_t getSineGainTarget (float *target);
 
 /** Sets the gain step of the sine signal.
  * @param[in]	step	Specifies the value of the gain step to be applied.
  * @return				Error status.
  */
-extern Uint16 setSineGainStep (float32 step);
+extern uint16_t setSineGainStep (float step);
 
 /** Queries the current gain step setting.
  * @param[out]	step	Pointer to location at which to place the query result.
  * @return				Error status.
  */
-extern Uint16 getSineGainStep (float32 *step);
+extern uint16_t getSineGainStep (float *step);
 
 /* Enables or disables the rectification of the generator output
  * @param[in]	rfy	Rectification enable state {1:ON | 0:OFF}.

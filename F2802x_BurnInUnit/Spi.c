@@ -6,7 +6,6 @@
  */
 
 #include "Common.h"
-#include <stdint.h>
 
 static interrupt void spiTxFifoIsr_Master (void);
 static interrupt void spiRxFifoIsr_Master (void);

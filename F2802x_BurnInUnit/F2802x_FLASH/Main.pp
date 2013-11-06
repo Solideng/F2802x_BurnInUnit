@@ -2,6 +2,7 @@
 
 Main.obj: ../Main.c
 Main.obj: ../Common.h
+Main.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdint.h
 Main.obj: ../Settings.h
 Main.obj: C:/ti/controlSUITE/development_kits/~SupportFiles/F2802x_headers/PeripheralHeaderIncludes.h
 Main.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_Adc.h
@@ -60,6 +61,7 @@ Main.obj: C:/ti/controlSUITE/libs/app_libs/digital_power/f2802x_v3.1/include/DPl
 
 ../Main.c: 
 ../Common.h: 
+C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdint.h: 
 ../Settings.h: 
 C:/ti/controlSUITE/development_kits/~SupportFiles/F2802x_headers/PeripheralHeaderIncludes.h: 
 C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_Adc.h: 

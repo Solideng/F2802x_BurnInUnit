@@ -61,14 +61,14 @@ extern void initAcComparator (void);
  * @param[in]	level	Specifies the value of the level setting to be applied (amps).
  * @return				Error status.
  */
-extern Uint16 setAcDac (float32 level);
+extern uint16_t setAcDac (float level);
 
 /** Queries the output level setting of the DAC on the inverting input of the DC comparator.
  * iScale MUST be set before use.
  * @param[out]	level	Pointer to location at which to place the query result (amps).
  * @return				Error status.
  */
-extern Uint16 getAcDac (float32 *level);
+extern uint16_t getAcDac (float *level);
 
 /** Resets the AC trip zone after an AC comparator event. */
 extern void rstAcTripzone (void);

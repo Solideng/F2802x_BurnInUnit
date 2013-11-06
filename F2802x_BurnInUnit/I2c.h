@@ -78,13 +78,13 @@ extern "C" {
 /*=============== GLOBAL VARS =================*/
 /** The structure used to contain all settings and values relevant to a particular I2C message. */
 typedef struct {
-	volatile Uint16 msgStatus;		/**< Indicates which state the message is in. */
-	Uint16 slaveAddress;			/**< The slave device I2C address this message is intended for. */
-	Uint16 numOfBytes;				/**< The number of valid bytes in (or to be put in msgBuffer). */
-	Uint16 numSlavePtrBytes;		/**< The number of slave register pointer address bytes. */
-	Uint16 slavePtrAddrHigh;		/**< The slave register pointer high byte. */
-	Uint16 slavePtrAddrLow;			/**< The slave register pointer low byte. */
-	Uint16 msgBuffer[I2C_MAX_BUFFER_SIZE];	/**< A buffer array for message data. The maximum buffer size, MAX_BUFFER_SIZE, is 4 due to the FIFO's size. */
+	volatile uint16_t msgStatus;		/**< Indicates which state the message is in. */
+	uint16_t slaveAddress;			/**< The slave device I2C address this message is intended for. */
+	uint16_t numOfBytes;				/**< The number of valid bytes in (or to be put in msgBuffer). */
+	uint16_t numSlavePtrBytes;		/**< The number of slave register pointer address bytes. */
+	uint16_t slavePtrAddrHigh;		/**< The slave register pointer high byte. */
+	uint16_t slavePtrAddrLow;			/**< The slave register pointer low byte. */
+	uint16_t msgBuffer[I2C_MAX_BUFFER_SIZE];	/**< A buffer array for message data. The maximum buffer size, MAX_BUFFER_SIZE, is 4 due to the FIFO's size. */
 } i2cMsg;
 
 /*============= GLOBAL FUNCTIONS ==============*/
@@ -107,20 +107,20 @@ extern void initI2c (void);
  * @param[in]	slavePtrAddrLo		The slave register pointer low byte. If no pointer bytes (as indicated by
  * 									numSlavePtrbytes) are used leave this at zero.
  */
-extern void i2cPopMsg (i2cMsg *msg, Uint16 msgStatus, Uint16 slaveAddr, Uint16 numDataBytes, Uint16 numSlavePtrBytes, Uint16 slavePtrAddrHi, Uint16 slavePtrAddrLo);
+extern void i2cPopMsg (i2cMsg *msg, uint16_t msgStatus, uint16_t slaveAddr, uint16_t numDataBytes, uint16_t numSlavePtrBytes, uint16_t slavePtrAddrHi, uint16_t slavePtrAddrLo);
 
 /** Starts an I2C-A write using the settings and values	specified.
  * @param[in]	msg	The I2C message structure.
  * @return			Error Status.
  */
-extern Uint16 i2cWrite (i2cMsg *msg);
+extern uint16_t i2cWrite (i2cMsg *msg);
 
 /** Starts an I2C-A read using the settings specified.
  * Read bytes are saved to the buffer msg.msgBuffer[].
  * @param[in]	msg	The I2C message struct.
  * @return			Error status.
  */
-extern Uint16 i2cRead (i2cMsg *msg);
+extern uint16_t i2cRead (i2cMsg *msg);
 
 #ifdef __cplusplus
 }

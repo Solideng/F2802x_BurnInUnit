@@ -95,7 +95,7 @@ typedef enum ecSection circuitSection;
  * @sa i2cInit()
  * @return				Error status.
  */
-extern Uint16 initEnableControl (void);
+extern uint16_t initEnableControl (void);
 
 /** Resets and reinitialises the MCP23008 I/O Expander device. */
 extern void resetEnableControl (void);
@@ -104,19 +104,19 @@ extern void resetEnableControl (void);
  * @param[in]	section	Specifies the circuit section that is to be enabled.
  * @return				Error status.
  */
-extern Uint16 enableCircuit (circuitSection section);
+extern uint16_t enableCircuit (circuitSection section);
 
 /** Disables the specified circuit section enable signal.
  * @param[in]	section	Specifies the circuit section that is to be disabled.
  * @return				Error status.
  */
-extern Uint16 disableCircuit (circuitSection section);
+extern uint16_t disableCircuit (circuitSection section);
 
 /** Gets the current state of the specified circuit section.
  * @param[in]	section	Specifies the circuit section for which the state is to be queried.
  * @param[out]	state	Pointer to location at which to replace query result (Disabled = 0, enabled = !0).
  * @return				Error status.
  */
-extern Uint16 getCurrentState (circuitSection section, Uint16 *state);
+extern uint16_t getCurrentState (circuitSection section, uint16_t *state);
 
 #endif /* ENABLECTRL_H_ */

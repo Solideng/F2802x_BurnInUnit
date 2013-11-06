@@ -7,10 +7,10 @@
 
 #include "Common.h"
 
-Uint16 otpFlagRegister = 0;
+uint16_t otpFlagRegister = 0;
 
 /*============== Load n ==============*/
-Uint16 setLoadOtpLevel (loadStage load, float32 level){
+uint16_t setLoadOtpLevel (loadStage load, float level){
 	if (load >= numberOfLoads)					/* Check channel is valid */
 		return CHANNEL_OOB;
 	if ((level < TMP_OTP_MIN) || (level > TMP_OTP_MAX))
@@ -19,20 +19,20 @@ Uint16 setLoadOtpLevel (loadStage load, float32 level){
 	return 0;
 }
 
-Uint16 getLoadOtpLevel (loadStage load, float32 *level){
+uint16_t getLoadOtpLevel (loadStage load, float *level){
 	if (load >= numberOfLoads)	/* Check channel is valid */
 		return CHANNEL_OOB;
 								/* Convert from SQ7 and save data to destination */
-	*level = ((float32)loadSettings[load].otpLevel) * (1.0 / 128);
+	*level = ((float)loadSettings[load].otpLevel) * (1.0 / 128);
 	return 0;
 }
 
-Uint16 checkLoadOtp (loadStage load){
+uint16_t checkLoadOtp (loadStage load){
 	/* Read the specified load's temperature and compare
 	 * the reading to the OTP level
 	 */
-	Uint16 err = 0, sqTmp;
-	float32 tmp = 0;
+	uint16_t err = 0, sqTmp;
+	float tmp = 0;
 	if (load >= numberOfLoads)	/* Check channel is valid */
 		return CHANNEL_OOB;
 
@@ -49,11 +49,11 @@ Uint16 checkLoadOtp (loadStage load){
 	return 0;	/* If we've made it this far then there were no errors */
 }
 
-Uint16 getLoadOtpState (loadStage load){
+uint16_t getLoadOtpState (loadStage load){
 	return (load < numberOfLoads) ? ((otpFlagRegister & (1 << load)) > 0) : CHANNEL_OOB;
 }
 
-Uint16 clearLoadOtp (loadStage load){
+uint16_t clearLoadOtp (loadStage load){
 	otpFlagRegister &= (~(1 << load));
 	if (otpFlagRegister)
 		return OTP_TRIP;
@@ -62,24 +62,24 @@ Uint16 clearLoadOtp (loadStage load){
 }
 
 /*================ DC ===============*/
-Uint16 setDcOtpLevel (float32 level){
+uint16_t setDcOtpLevel (float level){
 	if ((level < TMP_OTP_MIN) || (level > TMP_OTP_MAX))
 		return VALUE_OOB;				/* Check temperature is valid */
 	xfmrSettings.otpLevel = _SQ7(level);/* Convert to SQ7 and Set OTP */
 	return 0;
 }
 
-Uint16 getDcOtpLevel (float32 *level){
-	*level = ((float32) xfmrSettings.otpLevel) * (1.0 / 128);	/* Convert from SQ7 and save data to destination */
+uint16_t getDcOtpLevel (float *level){
+	*level = ((float) xfmrSettings.otpLevel) * (1.0 / 128);	/* Convert from SQ7 and save data to destination */
 	return 0;
 }
 
-Uint16 checkDcOtp (void){
+uint16_t checkDcOtp (void){
 	/* Read the DC stage's temperature and compare
 	 * the reading to the OTP level
 	 */
-	Uint16 err = 0, sqTmp;
-	float32 tmp = 0;
+	uint16_t err = 0, sqTmp;
+	float tmp = 0;
 
 	err = readTemperature(XFMR_STAGE, &tmp);/* Read temperature of the DC stage */
 	if (err)						/* Check the read finished without error */
@@ -94,9 +94,9 @@ Uint16 checkDcOtp (void){
 	return 0;	/* If we've made it this far then there were no errors */
 }
 
-Uint16 getDcOtpState (void){return ((otpFlagRegister & DC_OTP_TRIP) > 0);}
+uint16_t getDcOtpState (void){return ((otpFlagRegister & DC_OTP_TRIP) > 0);}
 
-Uint16 clearDcOtp (void){
+uint16_t clearDcOtp (void){
 	otpFlagRegister &= (~DC_OTP_TRIP);
 	if (otpFlagRegister)
 		return OTP_TRIP;
@@ -105,24 +105,24 @@ Uint16 clearDcOtp (void){
 }
 
 /*================ AC ================*/
-Uint16 setAcOtpLevel (float32 level){
+uint16_t setAcOtpLevel (float level){
 	if ((level < TMP_OTP_MIN) || (level > TMP_OTP_MAX))
 		return VALUE_OOB;					/* Check temperature is valid */
 	acSettings.otpLevel = _SQ7(level);/* Convert to SQ7 and Set OTP */
 	return 0;
 }
 
-Uint16 getAcOtpLevel (float32 *level){
-	*level = ((float32) acSettings.otpLevel) * (1.0 / 128);	/* Convert from SQ7 and save data to destination */
+uint16_t getAcOtpLevel (float *level){
+	*level = ((float) acSettings.otpLevel) * (1.0 / 128);	/* Convert from SQ7 and save data to destination */
 	return 0;
 }
 
-Uint16 checkAcOtp (void){
+uint16_t checkAcOtp (void){
 	/* Read the AC stage's temperature and compare
 	 * the reading to the OTP level
 	 */
-	Uint16 err = 0, sqTmp;
-	float32 tmp = 0;
+	uint16_t err = 0, sqTmp;
+	float tmp = 0;
 
 	err = readTemperature(AC_STAGE, &tmp);	/* Read temperature of the AC stage */
 	if (err)						/* Check the read finished without error */
@@ -137,9 +137,9 @@ Uint16 checkAcOtp (void){
 	return 0;	/* If we've made it this far then there were no errors */
 }
 
-Uint16 getAcOtpState (void){return ((otpFlagRegister & DC_OTP_TRIP) > 0);}
+uint16_t getAcOtpState (void){return ((otpFlagRegister & DC_OTP_TRIP) > 0);}
 
-Uint16 clearAcOtp (void){
+uint16_t clearAcOtp (void){
 	otpFlagRegister &= (~AC_OTP_TRIP);
 	if (otpFlagRegister)
 		return OTP_TRIP;
@@ -148,7 +148,7 @@ Uint16 clearAcOtp (void){
 }
 
 /*================ Ext ===============*/
-Uint16 setExtOtpLevel (extSelect ext, float32 level){
+uint16_t setExtOtpLevel (extSelect ext, float level){
 	if (ext >= numberOfExts)	/* Check channel is valid */
 		return CHANNEL_OOB;
 	if ((level < TMP_OTP_MIN) || (level > TMP_OTP_MAX))
@@ -160,23 +160,23 @@ Uint16 setExtOtpLevel (extSelect ext, float32 level){
 	return 0;
 }
 
-Uint16 getExtOtpLevel (extSelect ext, float32 *level){
+uint16_t getExtOtpLevel (extSelect ext, float *level){
 	if (ext >= numberOfExts)	/* Check channel is valid */
 		return CHANNEL_OOB;
 
 	if (ext == ext1)			/* Convert from SQ7 and save data to destination */
-		*level = ((float32)extSettings.ext1OtpLevel) * (1.0 / 128);
+		*level = ((float)extSettings.ext1OtpLevel) * (1.0 / 128);
 	else
-		*level = ((float32)extSettings.ext2OtpLevel) * (1.0 / 128);
+		*level = ((float)extSettings.ext2OtpLevel) * (1.0 / 128);
 	return 0;
 }
 
-Uint16 checkExtOtp (extSelect ext){
+uint16_t checkExtOtp (extSelect ext){
 	/* Read the DC stage's temperature and compare
 	 * the reading to the OTP level
 	 */
-	Uint16 err = 0, sqTmp;
-	float32 tmp = 0;
+	uint16_t err = 0, sqTmp;
+	float tmp = 0;
 
 	if (ext >= numberOfExts)		/* Check ext selection is valid */
 		return CHANNEL_OOB;
@@ -199,13 +199,13 @@ Uint16 checkExtOtp (extSelect ext){
 	return 0;	/* If we've made it this far then there were no errors */
 }
 
-Uint16 getExtOtpState (extSelect ext){
+uint16_t getExtOtpState (extSelect ext){
 	if (ext >= numberOfExts)
 		return CHANNEL_OOB;
 	return ((otpFlagRegister & (EXT1_OTP_TRIP << ext)) > 0);
 }
 
-Uint16 clearExtOtp (extSelect ext){
+uint16_t clearExtOtp (extSelect ext){
 	otpFlagRegister &= (~(EXT1_OTP_TRIP << ext));
 	if (otpFlagRegister)
 		return OTP_TRIP;

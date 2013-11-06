@@ -11,8 +11,8 @@ void updateLoadSlew (void) {
 	 *  given slew rate until it reaches the given target
 	 * Derivation shown in attached Excel Spreadsheet
 	 */
-	int32 targetPoint = 0, error = 0;
-	Uint16 i = 0;
+	int32_t targetPoint = 0, error = 0;
+	uint16_t i = 0;
 
 	for (i = 0; i < numberOfLoads; i++) {		/* Loop through each load */
 		if (!loadSettings[i].enable)			/* If the channel is disabled set the targetPoint to zero */
@@ -30,11 +30,11 @@ void updateLoadSlew (void) {
 	}
 }
 
-Uint16 setLoadSlewTarget (loadStage load, float32 target) {
+uint16_t setLoadSlewTarget (loadStage load, float target) {
 	/* Changes an enabled channel's target value
 	 * target is expected in amps
 	 */
-	float32 max = 0.0;
+	float max = 0.0;
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid */
 	if (target > LOAD_IDCLVL_MAX)			/* Check target is less than the allowed maximum. */
@@ -49,17 +49,17 @@ Uint16 setLoadSlewTarget (loadStage load, float32 target) {
 	return 0;
 }
 
-Uint16 setLoadSlewStep (loadStage load, float32 step) {
+uint16_t setLoadSlewStep (loadStage load, float step) {
 	/* Changes a load's slew step value
 	 * step is expected in amps
 	 */
-	float32 max = 0.0;
-	int32 qStp = 0;
+	float max = 0.0;
+	int32_t qStp = 0;
 
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;						/* Check channel is valid */
 
-	max = _IQ14toF((int32) loadSettings[load].iScale);
+	max = _IQ14toF((int32_t) loadSettings[load].iScale);
 	max = ((VDDA - VSSA) / 1000.0) / max;		/* Calculate the step maximum with the current scaling */
 	if (step > max)								/* Check step smaller than scale maximum */
 		return VALUE_OOB;
@@ -73,7 +73,7 @@ Uint16 setLoadSlewStep (loadStage load, float32 step) {
 }
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
-Uint16 setLoadState (loadStage load, Uint16 state) {
+uint16_t setLoadState (loadStage load, uint16_t state) {
 	/* state should be zero (OFF) or non-zero (ON) */
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid */
@@ -108,9 +108,9 @@ Uint16 setLoadState (loadStage load, Uint16 state) {
 //}
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
-Uint16 setLoadStateAll (Uint16 state) {
+uint16_t setLoadStateAll (uint16_t state) {
 	/* state should be zero (OFF) or non-zero (ON) */
-	Uint16 i = 0;
+	uint16_t i = 0;
 	state = (state > 0);
 	for (i = 0; i < numberOfLoads; i++) {
 		loadSettings[i].enable = state;
@@ -118,24 +118,24 @@ Uint16 setLoadStateAll (Uint16 state) {
 	return 0;
 }
 
-Uint16 getLoadSlewTarget (loadStage load, float32 * target) {
-	float32 max = 0.0;
+uint16_t getLoadSlewTarget (loadStage load, float * target) {
+	float max = 0.0;
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;					/* Check channel is valid */
 
-	max = _IQ14toF((int32) loadSettings[load].iScale);
+	max = _IQ14toF((int32_t) loadSettings[load].iScale);
 	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the target maximum with the current scaling */
 											/* Convert from IQ24 and de-normalise */
 	*target = (_IQ24toF(loadSettings[load].slewTarget)) * max;
 	return 0;
 }
 
-Uint16 getLoadSlewStep (loadStage load, float32 * step) {
-	float32 max = 0.0;
+uint16_t getLoadSlewStep (loadStage load, float * step) {
+	float max = 0.0;
 	if (load > numberOfLoads)
 		return CHANNEL_OOB;						/* Check channel is valid */
 
-	max = _IQ14toF((int32) loadSettings[load].iScale);
+	max = _IQ14toF((int32_t) loadSettings[load].iScale);
 	max = ((VDDA - VSSA) / 1000.0) / max;	/* Calculate the step maximum with the current scaling */
 											/* Convert from IQ24 and de-normalise */
 	*step = (_IQ24toF(loadSettings[load].slewRate)) * max;
@@ -143,7 +143,7 @@ Uint16 getLoadSlewStep (loadStage load, float32 * step) {
 }
 
 // TODO: SHOULD NOT BE IN SLEW CONTROL...
-Uint16 getLoadState (loadStage load, Uint16 * state) {
+uint16_t getLoadState (loadStage load, uint16_t * state) {
 	if (load >= numberOfLoads)		/* Check channel is valid */
 		return CHANNEL_OOB;
 	*state = (loadSettings[load].enable > 0);

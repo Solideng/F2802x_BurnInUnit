@@ -17,9 +17,9 @@ void initAdc(void) {
 }
 
 /*============== Load n ==============*/
-Uint16 getLoadCurrent (loadStage load, float32 * dcCurrent) {
+uint16_t getLoadCurrent (loadStage load, float * dcCurrent) {
 	/* Reads the load current ADC reading. */
-	float32 iMax = 0;
+	float iMax = 0;
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;
 	if (loadSettings[load].iScale == 0)
@@ -31,9 +31,9 @@ Uint16 getLoadCurrent (loadStage load, float32 * dcCurrent) {
 	return 0;
 }
 
-Uint16 getLoadVoltage (loadStage load, float32 * dcVoltage) {
+uint16_t getLoadVoltage (loadStage load, float * dcVoltage) {
 	/* Reads the load voltage ADC reading. */
-	float32 vMax = 0;
+	float vMax = 0;
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;
 	if (loadSettings[load].vScale == 0)
@@ -46,9 +46,9 @@ Uint16 getLoadVoltage (loadStage load, float32 * dcVoltage) {
 }
 
 /*============== DC Mid ==============*/
-Uint16 getDcMidCurrent (float32 * dcCurrent) {
+uint16_t getDcMidCurrent (float * dcCurrent) {
 	/* Reads the DC Mid current ADC reading. */
-	float32 iMax = 0;
+	float iMax = 0;
 	if (xfmrSettings.iScale == 0)
 		return VALUE_OOB;
 								/* Calculate maximum current */
@@ -58,9 +58,9 @@ Uint16 getDcMidCurrent (float32 * dcCurrent) {
 	return 0;
 }
 
-Uint16 getDcMidVoltage (float32 * dcVoltage) {
+uint16_t getDcMidVoltage (float * dcVoltage) {
 	/* Reads the DC Mid voltage ADC reading. */
-	float32 vMax = 0;
+	float vMax = 0;
 	if (xfmrSettings.midVScale == 0)
 		return VALUE_OOB;
 								/* Calculate maximum voltage */
@@ -71,9 +71,9 @@ Uint16 getDcMidVoltage (float32 * dcVoltage) {
 }
 
 /*=============== DC HV ==============*/
-Uint16 getDcHvVoltage (float32 * dcVoltage) {
+uint16_t getDcHvVoltage (float * dcVoltage) {
 	/* Reads the DC HV voltage ADC reading. */
-	float32 vMax = 0;
+	float vMax = 0;
 	if (xfmrSettings.hvVScale == 0)
 		return VALUE_OOB;
 								/* Calculate maximum voltage */

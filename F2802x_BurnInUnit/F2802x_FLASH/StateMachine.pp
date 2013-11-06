@@ -2,6 +2,7 @@
 
 StateMachine.obj: ../StateMachine.c
 StateMachine.obj: ../Common.h
+StateMachine.obj: C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdint.h
 StateMachine.obj: ../Settings.h
 StateMachine.obj: C:/ti/controlSUITE/development_kits/~SupportFiles/F2802x_headers/PeripheralHeaderIncludes.h
 StateMachine.obj: C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_Adc.h
@@ -59,6 +60,7 @@ StateMachine.obj: ../SCPI_specificCmds.h
 
 ../StateMachine.c: 
 ../Common.h: 
+C:/ti/ccsv5/tools/compiler/c2000_6.1.3/include/stdint.h: 
 ../Settings.h: 
 C:/ti/controlSUITE/development_kits/~SupportFiles/F2802x_headers/PeripheralHeaderIncludes.h: 
 C:/ti/controlSUITE/device_support/f2802x/v128/DSP2802x_headers/include/DSP2802x_Adc.h: 

@@ -8,7 +8,7 @@
 
 // N.B. DACs do not currently ramp.
 
-static Uint16 setDcDac (float32 level);
+static uint16_t setDcDac (float level);
 
 void initDcComparator (void) {
 	/* Initialises the DC comparator (COMP 2) using an internal DAC at the inverting input.
@@ -29,7 +29,7 @@ void initDcComparator (void) {
 	setDcDac (DCMID_VDCLVL_FIX);	/* Set the DC DAC to the fixed OVP_V_MID_PK value*/
 }
 
-static Uint16 setDcDac (float32 level) {
+static uint16_t setDcDac (float level) {
 	/* Sets the parameters of the DAC for the DC comparator (COMP 2).
 	 * level argument is expected in volts.
 	 * - midVScale SHOULD BE SET BEFORE USE -
@@ -39,16 +39,16 @@ static Uint16 setDcDac (float32 level) {
 		return VALUE_OOB;
 												/* DACLVL = (level * scale * 1023) / 3.3 */
 	level *= (1.0 / ((VDDA - VSSA) * 0.001));	/* level / 3v3 */
-	level *= (float32) (xfmrSettings.midVScale >> 4);/* level * scale * 1023 */
+	level *= (float) (xfmrSettings.midVScale >> 4);/* level * scale * 1023 */
 
 	if (level > 1023.0)	/* Check the scaled level is within the upper DAC boundary */
 		return VALUE_OOB;
 						/* Round and cast the level into COMP 2 DAC VAL */
-	Comp2Regs.DACVAL.all = (Uint16)(level + 0.5);
+	Comp2Regs.DACVAL.all = (uint16_t)(level + 0.5);
 	return 0;
 }
 
-//Uint16 getDcDac (float32 * level) {
+//Uint16 getDcDac (float * level) {
 //															/* Get the raw data from COMP 1 DAC VAL * 3v3 */
 //	float32 dacLvl = Comp2Regs.DACVAL.all * ((VDDA - VSSA) * 0.001);
 //	*level = dacLvl * (1.0 / (xfmrSettings.midVScale >> 4));/* level / (scale * 1023) */
@@ -73,7 +73,7 @@ void initAcComparator (void) {
 	EDIS;
 }
 
-Uint16 setAcDac (float32 level) {
+uint16_t setAcDac (float level) {
 	/* Sets the parameters of the DAC for the AC comparator (COMP 1).
 	 * level argument is expected in amps.
 	 * - iScale SHOULD BE SET BEFORE USE -
@@ -83,24 +83,24 @@ Uint16 setAcDac (float32 level) {
 		return VALUE_OOB;
 												/* DACLVL = (level * scale * 1023) / 3.3 */
 	level *= (1.0 / ((VDDA - VSSA) * 0.001));	/* level / 3 */
-	level *= (float32) (acSettings.vScale >> 4);/* level * scale * 1023 */
+	level *= (float) (acSettings.vScale >> 4);/* level * scale * 1023 */
 
 	if (level > 1023.0)	/* Check the scaled level is within the upper DAC boundary */
 		return VALUE_OOB;
 						/* Round and cast the level into COMP 1 DAC VAL */
-	Comp1Regs.DACVAL.all = (Uint16)(level + 0.5);
+	Comp1Regs.DACVAL.all = (uint16_t)(level + 0.5);
 	return 0;
 }
 
-Uint16 getAcDac (float32 * level) {
+uint16_t getAcDac (float * level) {
 														/* Get the raw data from COMP 1 DAC VAL * 3v3 */
-	float32 dacLvl = Comp1Regs.DACVAL.all * ((VDDA - VSSA) * 0.001);
+	float dacLvl = Comp1Regs.DACVAL.all * ((VDDA - VSSA) * 0.001);
 	*level = dacLvl * (1.0 / (acSettings.vScale >> 4));	/* level / (scale * 1023) */
 	return 0;
 }
 
 static interrupt void tripzone_ISR (void) {
-	Uint16 i = 0;
+	uint16_t i = 0;
 	stopAll();		/* Stop all channels */
 					/* Check flags to see which COMP/SNS caused the interrupt */
 	if ((EPwm3Regs.TZFLG.bit.DCAEVT1 == 1) || (EPwm3Regs.TZFLG.bit.DCBEVT1 == 1)) {
@@ -120,7 +120,7 @@ static interrupt void tripzone_ISR (void) {
 }
 
 static void initDcTripzone (void) {
-	Uint16 i = 0;
+	uint16_t i = 0;
 	EALLOW;
 	for (i = 1; i <= 3; i++) {
 			/* Digital compare trip select */
@@ -143,7 +143,7 @@ static void initDcTripzone (void) {
 }
 
 void initAcTripzone (void) {
-	Uint16 i = 0;
+	uint16_t i = 0;
 	EALLOW;
 	for (i = 1; i <= 3; i++) {
 			/* Digital compare trip select */
@@ -201,7 +201,7 @@ void initTripZone (void) {
 //}
 
 void rstDcTripzone (void) {
-	Uint16 i;
+	uint16_t i;
 	EALLOW;
 	for (i = 1; i <= 3; i++) {
 		(*ePWM[i]).TZCLR.bit.DCAEVT2 = 1;	/* Clear event trip flags */
@@ -212,7 +212,7 @@ void rstDcTripzone (void) {
 }
 
 void rstAcTripzone (void) {
-	Uint16 i;
+	uint16_t i;
 	EALLOW;
 	for (i = 1; i <= 3; i++) {
 		(*ePWM[i]).TZCLR.bit.DCAEVT1 = 1;	/* Clear event trip flags */

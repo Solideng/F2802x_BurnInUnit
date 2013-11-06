@@ -6,15 +6,15 @@
  */
 #include "Common.h"
 
-Uint16 ovpFlagRegister = 0;
+uint16_t ovpFlagRegister = 0;
 
 /*============== Load n ==============*/
-Uint16 checkLoadOvp (loadStage load) {
+uint16_t checkLoadOvp (loadStage load) {
 	/* Load over-voltage protection
 	 *  - vScale AND ovpLevel SHOULD BE SET BEFORE USE -
 	 */
-	Uint16 err = 0;
-	float32 vMeas = 0;
+	uint16_t err = 0;
+	float vMeas = 0;
 					/* Read voltage */
 	err = getLoadVoltage(load, &vMeas);
 	if (err)		/* Check reading completed OK */
@@ -28,11 +28,11 @@ Uint16 checkLoadOvp (loadStage load) {
 	return 0;
 }
 
-Uint16 getLoadOvpState (loadStage load) {
+uint16_t getLoadOvpState (loadStage load) {
 	return (load < numberOfLoads) ? ((ovpFlagRegister & (1 << load)) > 0) : CHANNEL_OOB;
 }
 
-Uint16 clearLoadOvp (loadStage load) {
+uint16_t clearLoadOvp (loadStage load) {
 	ovpFlagRegister &= (~(1 << load));
 	if (ovpFlagRegister)
 		return OVP_TRIP;
@@ -80,15 +80,15 @@ Uint16 clearLoadOvp (loadStage load) {
 //	return 0;
 //}
 
-Uint16 tripDcMidOvp (void) {
+uint16_t tripDcMidOvp (void) {
 	stopAll();
 	ovpFlagRegister |= DCMID_OVP_TRIP;
 	return OVP_TRIP;
 }
 
-Uint16 getDcMidOvpState (void) {return ((ovpFlagRegister & DCMID_OVP_TRIP) > 0);}
+uint16_t getDcMidOvpState (void) {return ((ovpFlagRegister & DCMID_OVP_TRIP) > 0);}
 
-Uint16 clearDcMidOvp (void) {
+uint16_t clearDcMidOvp (void) {
 	ovpFlagRegister &= (~DCMID_OVP_TRIP);
 	rstDcTripzone();
 	if (ovpFlagRegister)
@@ -98,30 +98,30 @@ Uint16 clearDcMidOvp (void) {
 }
 
 /*=============== DC HV ==============*/
-Uint16 setDcHvOvpLevel (float32 dcLevel) {
+uint16_t setDcHvOvpLevel (float dcLevel) {
 	/* Sets OVP value for the DC HV VSns
 	 * level is expected in volts
 	 */
-	float32 vMax = 0;
-	int32 vSt = 0;
+	float vMax = 0;
+	int32_t vSt = 0;
 
 	//vSt = _IQ10(dcLevel * RECP_SQRT_2);			/* Convert setting to RMS Q10 and check result is in range */
 	vSt = _IQ10(dcLevel);	/* Convert setting to Q10 and check result is in range */
 	if ((vSt <= 0) && (vSt > xfmrSettings.hvVMax))
 		return VALUE_OOB;
 
-	vMax = _IQ14toF((int32) xfmrSettings.hvVScale);	/* Convert scale from SQ to float */
+	vMax = _IQ14toF((int32_t) xfmrSettings.hvVScale);/* Convert scale from SQ to float */
 	vMax = ((VDDA - VSSA) * 0.001) * (1.0 / vMax);	/* Calculate maximum V */
 	xfmrSettings.hvOvpLevel = _IQ24(dcLevel / vMax);/* Normalise */
 	return 0;
 }
 
-Uint16 getDcHvOvpLevel (float32 * dcLevel) {
+uint16_t getDcHvOvpLevel (float * dcLevel) {
 	/* Returns current OVP limit for the DC HV VSns,
 	 *  based on actual OVP and vScale
 	 *  - vScale SHOULD BE SET BEFORE USE -
 	 */
-	float32 vMax = 0;
+	float vMax = 0;
 	if (xfmrSettings.hvVScale == 0)	/* Check vScale is set, to avoid div-by-0 exception */
 		return VALUE_OOB;
 
@@ -130,7 +130,7 @@ Uint16 getDcHvOvpLevel (float32 * dcLevel) {
 	return 0;
 }
 
-Uint16 checkDcHvOvp (void) {
+uint16_t checkDcHvOvp (void) {
 	/* DC HV over-voltage protection
 	 *  - vScale AND ovpLevel SHOULD BE SET BEFORE USE -
 	 */
@@ -142,9 +142,9 @@ Uint16 checkDcHvOvp (void) {
 	return 0;
 }
 
-Uint16 getDcHvOvpState (void) {return ((ovpFlagRegister & DCHV_OVP_TRIP) > 0);}
+uint16_t getDcHvOvpState (void) {return ((ovpFlagRegister & DCHV_OVP_TRIP) > 0);}
 
-Uint16 clearDcHvOvp (void) {
+uint16_t clearDcHvOvp (void) {
 	ovpFlagRegister &= (~DCHV_OVP_TRIP);
 	if (ovpFlagRegister)
 		return OVP_TRIP;
@@ -153,30 +153,30 @@ Uint16 clearDcHvOvp (void) {
 }
 
 /*================ AC ================*/
-Uint16 setAcOvpLevel (float32 pkLevel) {
+uint16_t setAcOvpLevel (float pkLevel) {
 	/* Sets the OVP value for the AC VSns
 	 * pkLevel expected in amps
 	 */
-	float32 vPkMax = 0;
-	int32 vStRms = 0;
+	float vPkMax = 0;
+	int32_t vStRms = 0;
 
 	vStRms = _IQ10(pkLevel * RECP_SQRT_2);	/* Convert setting to RMS Q10 and check result is in range */
 	if ((vStRms <= 0) && (vStRms > acSettings.vMaxRms))
 		return VALUE_OOB;
 
-	vPkMax = _IQ14toF((int32) acSettings.vScale);		/* Convert scale from SQ to float */
+	vPkMax = _IQ14toF((int32_t) acSettings.vScale);		/* Convert scale from SQ to float */
 	vPkMax = ((VDDA - VSSA) * 0.001) * (1.0 / vPkMax);	/* Calculate maximum Vpk */
 	acSettings.ovpLevel = _IQ24(pkLevel / vPkMax);		/* Normalise and save */
 	//TODO: Include gain??
 	return 0;
 }
 
-Uint16 getAcOvpLevel (float32 * pkLevel) {
+uint16_t getAcOvpLevel (float * pkLevel) {
 	/* Returns current OVP limit for the AC VSns,
 	 *  based on actual OVP and vScale
 	 *  - vScale SHOULD BE SET BEFORE USE -
 	 */
-	float32 vPkMax = 0;
+	float vPkMax = 0;
 	if (acSettings.vScale == 0)	/* Check vScale is set, to avoid div-by-0 exception */
 		return VALUE_OOB;
 
@@ -185,7 +185,7 @@ Uint16 getAcOvpLevel (float32 * pkLevel) {
 	return 0;
 }
 
-Uint16 checkAcOvp (void)  {
+uint16_t checkAcOvp (void)  {
 	/* AC over-voltage protection
 	 *  - vScale AND ovpLevel SHOULD BE SET BEFORE USE -
 	 */
@@ -197,9 +197,9 @@ Uint16 checkAcOvp (void)  {
 	return 0;
 }
 
-Uint16 getAcOvpState (void) {return ((ovpFlagRegister & AC_OVP_TRIP) > 0);}
+uint16_t getAcOvpState (void) {return ((ovpFlagRegister & AC_OVP_TRIP) > 0);}
 
-Uint16 clearAcOvp (void) {
+uint16_t clearAcOvp (void) {
 	ovpFlagRegister &= (~AC_OVP_TRIP);
 	if (ovpFlagRegister)
 		return OVP_TRIP;

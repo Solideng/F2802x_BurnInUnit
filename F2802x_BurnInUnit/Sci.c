@@ -11,9 +11,9 @@ static interrupt void sciRxIsr(void);
 static interrupt void sciTxIsr(void);
 
 // TODO change sciEchoEnable to be a SCPI register bit
-static Uint16 sciEchoEnable = 0;		/* Sets the SCI to echo any input instead of doing anything else with it. */
+static uint16_t sciEchoEnable = 0;		/* Sets the SCI to echo any input instead of doing anything else with it. */
 
-Uint16 sciInit (Uint32 baud) {
+uint16_t sciInit (uint32_t baud) {
 	/* Initialise the SCI-A module for using FIFOs. */
 	double brr = 0;
 
@@ -34,7 +34,7 @@ Uint16 sciInit (Uint32 baud) {
 
 	brr = baud * 8;						/* Calculate BRR. */
 	brr = (15000000 / brr) - 1;			/* BRR = (LSPCLK / [BAUD x 8]) - 1, where LSPCLK = 15 MHz @ 60 MHz SYSCLK. */
-	baud = (Uint16) (brr + 0.5);		/* Get |BRR|. */
+	baud = (uint16_t) (brr + 0.5);		/* Get |BRR|. */
 										/* Assign |BRR| high and low byte to respective registers. */
 	SciaRegs.SCIHBAUD = (baud & 0xFF00) > 8;
 	SciaRegs.SCILBAUD = (baud & 0xFF);
@@ -62,7 +62,7 @@ Uint16 sciInit (Uint32 baud) {
 
 void sciTx (void) {
 	/* Pop data from the SCPI output queue and start transmitting it. */
-	Uint16 popResult = 0;
+	uint16_t popResult = 0;
 	char dataByte = 0;
 										/* Fill the FIFO until it is full or the SCPI output queue is empty. */
 	while ((SciaRegs.SCIFFTX.bit.TXFFST < SCIFFTX_FILL_LVL) && (popResult == 0)) {
@@ -71,7 +71,7 @@ void sciTx (void) {
 										 */
 		popResult = popOQueue(&dataByte);
 		if (popResult == 0)
-			SciaRegs.SCITXBUF = (Uint16) dataByte;
+			SciaRegs.SCITXBUF = (uint16_t) dataByte;
 	}
 	SciaRegs.SCIFFTX.bit.TXFFINTCLR = 1;/* Clear SCIA FIFO transmit interrupt flag. */
 }
@@ -83,7 +83,7 @@ static interrupt void sciTxIsr(void) {
 
 static interrupt void sciRxIsr (void) {
 	/* SCI interrupt (SCIRXINTA) indicating the SCI has received some data. */
-    Uint16 pushResult = 0;
+    uint16_t pushResult = 0;
     char buf[2] = {0};
 
     if (!sciEchoEnable) {				/* Check that SCI is not set to echo. */

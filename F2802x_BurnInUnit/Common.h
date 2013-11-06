@@ -15,6 +15,7 @@ extern "C" {
 #endif
 
 /* Core device definitions and functions */
+#include <stdint.h>
 #include "Settings.h"
 #include "PeripheralHeaderIncludes.h"
 #include "DSP2802x_EPWM_defines.h"

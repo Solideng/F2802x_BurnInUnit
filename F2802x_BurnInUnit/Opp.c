@@ -6,15 +6,15 @@
  */
 #include "Common.h"
 
-Uint16 oppFlagRegister = 0;
+uint16_t oppFlagRegister = 0;
 
 /*============== Load n ==============*/
-Uint16 checkLoadOpp (loadStage load) {
+uint16_t checkLoadOpp (loadStage load) {
 	/* Load over-power protection
 	 *  - vScale AND iScale SHOULD BE SET BEFORE USE -
 	 */
-	Uint16 err = 0;
-	float32 iLimDyn = 0, iMeas = 0, vMeas = 0;
+	uint16_t err = 0;
+	float iLimDyn = 0, iMeas = 0, vMeas = 0;
 
 	if (load >= numberOfLoads)
 		return CHANNEL_OOB;
@@ -38,11 +38,11 @@ Uint16 checkLoadOpp (loadStage load) {
 	return 0;
 }
 
-Uint16 getLoadOppState (loadStage load) {
+uint16_t getLoadOppState (loadStage load) {
 	return (load < numberOfLoads) ? ((oppFlagRegister & (1 << load)) > 0) : CHANNEL_OOB;
 }
 
-Uint16 clearLoadOpp (loadStage load) {
+uint16_t clearLoadOpp (loadStage load) {
 	oppFlagRegister &= (~(1 << load));
 	if (oppFlagRegister)
 		return OPP_TRIP;
@@ -51,12 +51,12 @@ Uint16 clearLoadOpp (loadStage load) {
 }
 
 /*================ AC ================*/
-Uint16 checkAcOpp (void) {
+uint16_t checkAcOpp (void) {
 	/* AC stage over-power protection
 	 *  - vScale AND iScale SHOULD BE SET BEFORE USE -
 	 */
-	int32 iMeas = 0, vMeas = 0, pMeas = 0;
-	float32 pMeasF;
+	int32_t iMeas = 0, vMeas = 0, pMeas = 0;
+	float pMeasF;
 	// TODO: THESE ARE WRONG! THEY HAVE NOT BEEN UN-NORMALISED!
 	vMeas = _IQmpy(acNets.vFdbkNet, _Q14toIQ(acSettings.vScale));	/* Scale voltage reading (IQ24) */
 	iMeas = _IQmpy(acNets.iFdbkNet, _Q14toIQ(acSettings.iScale));	/* Scale current reading (IQ24) */
@@ -71,11 +71,11 @@ Uint16 checkAcOpp (void) {
 	return 0;
 }
 
-Uint16 getAcOppState (void) {
+uint16_t getAcOppState (void) {
 	return ((oppFlagRegister & AC_OPP_TRIP) > 0);
 }
 
-Uint16 clearAcOpp (void) {
+uint16_t clearAcOpp (void) {
 	oppFlagRegister &= (~AC_OPP_TRIP);	/* Clear flag */
 	if (oppFlagRegister)				/* Check if there are any other OPP flags still raised */
 		return OPP_TRIP;

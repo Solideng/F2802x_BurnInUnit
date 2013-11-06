@@ -19,23 +19,23 @@ volatile int32 *SGENTI_1ch_VOut = 0;	/* Voltage signal output terminal*/
 #endif
 
 #ifdef LOG_SIN
-	volatile int16 sine_abs[LOG_SIZE] = {0};
-	volatile int16 sine_sign[LOG_SIZE] = {0};
+	volatile int16_t sine_abs[LOG_SIZE] = {0};
+	volatile int16_t sine_sign[LOG_SIZE] = {0};
 #endif
 
-static Uint16 usePhaseOut = TRUE;			/* Saves whether to use AC PHASE OUT */
-static Uint16 rectifyMode = SIN_DFLT_RCTFY;	/* Selects whether signal is recitified or not */
-//static Uint16 fMax = SIN_F_MAX;		/* Sets the fMax value */
+static uint16_t usePhaseOut = TRUE;			/* Saves whether to use AC PHASE OUT */
+static uint16_t rectifyMode = SIN_DFLT_RCTFY;	/* Selects whether signal is recitified or not */
+//static uint16_t fMax = SIN_F_MAX;		/* Sets the fMax value */
 
-void initSine (Uint16 enablePhaseOut) {
+void initSine (uint16_t enablePhaseOut) {
 	/* Set signal generator default values
 	 * These values can be altered by changing
 	 *  the values #define'd in SineGen.h
 	 */
 	volatile float test = 0;
-	sigGen.offset = SIN_OFST;		/* DC offset, Uint16 Q15 */
-	sigGen.alpha = SIN_PHSE; 		/* Alpha = [phase / (2 x pi)] x 2^16, Uint16, Q16 */
-	//sigGen.alpha = (Uint16) (((SIN_DFLT_PHSE / 360.0) * 65536) + 0.5);
+	sigGen.offset = SIN_OFST;		/* DC offset, uint16_t Q15 */
+	sigGen.alpha = SIN_PHSE; 		/* Alpha = [phase / (2 x pi)] x 2^16, uint16_t, Q16 */
+	//sigGen.alpha = (uint16_t) (((SIN_DFLT_PHSE / 360.0) * 65536) + 0.5);
 
 	sigGen.gain = _IQ15(SIN_DFLT_GAIN);	/* Gain, 0x7fff is full gain of 1, int16 Q15 */
 
@@ -43,15 +43,15 @@ void initSine (Uint16 enablePhaseOut) {
 										 *  		= (1kHz x 65,536) / 16.5kHz = 3971.9
 										 * Frequency resolution = f_max/step_max,
 										 * hence step_max should be above 100 for good resolution
-										 * Uint16 Q0
+										 * uint16_t Q0
 										 */
-	sigGen.step_max = (Uint16)(((SIN_F_MAX * 65536.0) / SIN_F_SPL) + 0.5);
+	sigGen.step_max = (uint16_t)(((SIN_F_MAX * 65536.0) / SIN_F_SPL) + 0.5);
 
 										/* Freq = (f_req / f_max) x 2^15
 										 *  	= (50Hz / 1kHz) x 32768 = 1638
-										 * Uint16 Q15
+										 * uint16_t Q15
 										 */
-	sigGen.freq = (Uint16)((SIN_F_REQ / SIN_F_MAX) * 32768) + 0.5;
+	sigGen.freq = (uint16_t)((SIN_F_REQ / SIN_F_MAX) * 32768) + 0.5;
 
 	if (!enablePhaseOut) {				/* Change AC PHASE OUT to an input */
 		GpioCtrlRegs.GPADIR.bit.GPIO19 = 0;
@@ -62,7 +62,7 @@ void initSine (Uint16 enablePhaseOut) {
 }
 
 void updateSineGain (void) {
-	int32 targetPoint = 0, error = 0, ref = 0;
+	int32_t targetPoint = 0, error = 0, ref = 0;
 	/* Set target to 0 if channel disabled else use the currently set target */
 	targetPoint = (acSettings.enable) ? acSettings.gainTarget : 0;
 
@@ -76,14 +76,14 @@ void updateSineGain (void) {
 	else									/* Else error is less than or equal to step so set ref = targetPoint */
 		ref = targetPoint;
 
-	sigGen.gain = (Uint16)(ref >> 9);		/* Convert to unsigned Q15 */
+	sigGen.gain = (uint16_t)(ref >> 9);		/* Convert to unsigned Q15 */
 }
 
 void updateSineSignal (void) {
 	/* Generates the next sine wave point using the settings in the sigGen structure */
 	#ifdef LOG_SIN
-		static Uint16 i = 0;
-		static Uint16 j = 0;
+		static uint16_t i = 0;
+		static uint16_t j = 0;
 	#endif
 
 	if(!acSettings.enable) {	/* If channel disabled output all zeroes */
@@ -127,26 +127,26 @@ void disableSinePhaseOut (void) {
 	usePhaseOut = FALSE;
 }
 
-Uint16 setSineState (Uint16 state) {
+uint16_t setSineState (uint16_t state) {
 	acSettings.enable = (state > 0);
 	return 0;
 }
 
-Uint16 getSineState (Uint16 *state) {
+uint16_t getSineState (uint16_t *state) {
 	*state = (acSettings.enable > 0);
 	return 0;
 }
 
-Uint16 setSineRmsTarget (float32 rmsTarget) {
+uint16_t setSineRmsTarget (float rmsTarget) {
 	/* Changes the sine gain target based on an RMS voltage value */
-	float32 maxPk = 0.0;
-	volatile float32 maxRms = 0.0;
-//	int32 trgt = _IQ24(rmsTarget);
+	float maxPk = 0.0;
+	volatile float maxRms = 0.0;
+//	int32_t trgt = _IQ24(rmsTarget);
 //
 //	if ((trgt <= 0) || (trgt > acSettings.vMaxRms))	/* Check target is within fixed limits */
 //		return VALUE_OOB;
 
-	maxPk = _IQ14toF((int32) acSettings.vScale);	/* convert vScale to float */
+	maxPk = _IQ14toF((int32_t) acSettings.vScale);	/* convert vScale to float */
 	maxPk = ((VDDA - VSSA) / 1000.0) / maxPk;	/* Use vScale and system voltage to calculate maximum allowable peak value */
 	maxRms = maxPk * RECP_SQRT_2;	/* convert peak maximum to RMS maximum */
 
@@ -157,7 +157,7 @@ Uint16 setSineRmsTarget (float32 rmsTarget) {
 	return 0;
 }
 
-Uint16 setSineGainTarget (float32 target) {
+uint16_t setSineGainTarget (float target) {
 	/* Sets the gain target
 	 * 0.0 - 1.0
 	 */
@@ -168,23 +168,23 @@ Uint16 setSineGainTarget (float32 target) {
 	return 0;
 }
 
-Uint16 getSineGainTarget (float32 *target) {
+uint16_t getSineGainTarget (float *target) {
 	*target = _IQ24toF(acSettings.gainTarget);
 	return 0;
 }
 
-Uint16 setSineGainStep (float32 step) {
+uint16_t setSineGainStep (float step) {
 	/* Sets the gain step
 	 * 0.0 - 1.0
 	 */
-	float32 uprLmt = _IQ14toF((int32)acSettings.vGainLmt);
+	float uprLmt = _IQ14toF((int32_t)acSettings.vGainLmt);
 	if ((step <= 0) || (step > uprLmt))	/* Check step is between 0 and the gain limit */
 		return VALUE_OOB;
 	acSettings.gainRate = _IQ24(step);	/* Convert to IQ24 and set */
 	return 0;
 }
 
-Uint16 getSineGainStep (float32 *step) {
+uint16_t getSineGainStep (float *step) {
 	*step = _IQ24toF(acSettings.gainRate);
 	return 0;
 }

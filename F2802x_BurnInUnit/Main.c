@@ -86,8 +86,8 @@ void MemCopy();
 
 /*=====TEST VARS=====*/
 #ifdef DEBUG
-	float32 chan1Target = 1.0;
-	float32 chan2Target = 1.0;
+	float chan1Target = 1.0;
+	float chan2Target = 1.0;
 #endif
 /*===================*/
 

@@ -41,34 +41,34 @@ extern void initAdc (void);
  * @param[out]	dcCurrent	Address of the memory location at which to place the query result (amps).
  * @return					Error status.
  */
-extern Uint16 getLoadCurrent (loadStage load, float32 * dcCurrent);
+extern uint16_t getLoadCurrent (loadStage load, float * dcCurrent);
 
 /** Queries the most recent voltage reading from the specified load's associated ADC.
  * @param[in]	load		Specifies the load on which the reading is to be queried.
  * @param[out]	dcVoltage	Address of the memory location at which to place the query result (volts).
  * @return					Error status.
  */
-extern Uint16 getLoadVoltage (loadStage load, float32 * dcVoltage);
+extern uint16_t getLoadVoltage (loadStage load, float * dcVoltage);
 
 /*============== DC Mid ==============*/
 /** Queries the most recent current reading from the DC Mid's associated ADC.
  * @param[out]	dcCurrent	Address of the memory location at which to place the query result (amps).
  * @return					Error status.
  */
-extern Uint16 getDcMidCurrent (float32 * dcCurrent);
+extern uint16_t getDcMidCurrent (float * dcCurrent);
 
 /** Queries the most recent voltage reading from the DC Mid's associated ADC.
  * @param[out]	dcVoltage	Address of the memory location at which to place the query result (volts).
  * @return					Error status.
  */
-extern Uint16 getDcMidVoltage (float32 * dcVoltage);
+extern uint16_t getDcMidVoltage (float * dcVoltage);
 
 /*=============== DC HV ==============*/
 /** Queries the most recent voltage reading from the DC HV's associated ADC.
  * @param[out]	dcVoltage	Address of the memory location at which to place the query result (volts).
  * @return					Error status.
  */
-extern Uint16 getDcHvVoltage (float32 * dcVoltage);
+extern uint16_t getDcHvVoltage (float * dcVoltage);
 
 /*================ AC ================*/
 

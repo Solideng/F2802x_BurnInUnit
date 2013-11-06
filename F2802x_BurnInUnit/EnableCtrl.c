@@ -6,7 +6,7 @@
  */
 #include "Common.h"
 
-static Uint16 crntState;	/* Keeps track of the current state of the I/O Ex GPIO otherwise
+static uint16_t crntState;	/* Keeps track of the current state of the I/O Ex GPIO otherwise
  	 	 	 	 	 	 	 * we would need to read it before every write to the GPIO_ADDR
  	 	 	 	 	 	 	 */
 static i2cMsg i2cMsgOutEC = { I2C_MSGSTAT_INACTIVE, 		/* Message status */
@@ -20,8 +20,8 @@ static i2cMsg i2cMsgOutEC = { I2C_MSGSTAT_INACTIVE, 		/* Message status */
 								0x00						/* Data byte 3 */
 							};
 
-Uint16 initEnableControl (void) {
-	Uint16 err = 0;
+uint16_t initEnableControl (void) {
+	uint16_t err = 0;
 	crntState = 0;							/* Clear current GPIO state record. */
 
 	i2cPopMsg(&i2cMsgOutEC, I2C_MSGSTAT_SEND_WITHSTOP, IOE_I2C_ADDR, 1, 1, 0, IOE_IOCON_ADDR);
@@ -66,8 +66,8 @@ void resetEnableControl (void) {
 	initEnableControl();
 }
 
-Uint16 enableCircuit(circuitSection section) {
-	Uint16 err = 0, msk = 1;
+uint16_t enableCircuit(circuitSection section) {
+	uint16_t err = 0, msk = 1;
 	if (section >= maxchan)	/* Ensure section is valid */
 		return CHANNEL_OOB;
 							/* Enable the related bit in the current GPIO state */
@@ -106,8 +106,8 @@ Uint16 enableCircuit(circuitSection section) {
 	return 0;
 }
 
-Uint16 disableCircuit (circuitSection section) {
-	Uint16 err = 0, msk = 1;
+uint16_t disableCircuit (circuitSection section) {
+	uint16_t err = 0, msk = 1;
 	if (section >= maxchan)	/* Ensure section is valid */
 		return CHANNEL_OOB;
 							/* Disable the related bit in the current GPIO state */
@@ -146,8 +146,8 @@ Uint16 disableCircuit (circuitSection section) {
 	return 0;
 }
 
-Uint16 getCurrentState (circuitSection section, Uint16 *state) {
-	Uint16 msk = 0;
+uint16_t getCurrentState (circuitSection section, uint16_t *state) {
+	uint16_t msk = 0;
 	if (section >= maxchan)	/* Ensure section is valid */
 		return CHANNEL_OOB;
 	msk = 1 << section;		/* Create mask for specified section */

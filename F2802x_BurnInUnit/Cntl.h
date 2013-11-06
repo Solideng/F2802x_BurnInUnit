@@ -81,41 +81,41 @@ extern struct CNTL_2P2Z_CoefStruct acICoefs;	/**< Structure that holds the AC I 
 	extern struct CNTL_2P2Z_CoefStruct acVCoefs;	/**< Structure that holds the AC V 2-pole 2-zero IIR filter control law coefficients currently in use. */
 #endif
 
-extern volatile int32 *CNTL_2P2Z_Coef1;	/**< Load 1 IIR filter control law coefficient terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Coef2;	/**< Load 2 IIR filter control law coefficient terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Coef3;	/**< Load 3 IIR filter control law coefficient terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Coef4;	/**< Load 4 IIR filter control law coefficient terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Coef1;	/**< Load 1 IIR filter control law coefficient terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Coef2;	/**< Load 2 IIR filter control law coefficient terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Coef3;	/**< Load 3 IIR filter control law coefficient terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Coef4;	/**< Load 4 IIR filter control law coefficient terminal pointer. */
 
-extern volatile int32 *CNTL_2P2Z_Fdbk1;	/**< Load 1 IIR filter control law feedback terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Fdbk2;	/**< Load 2 IIR filter control law feedback terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Fdbk3;	/**< Load 3 IIR filter control law feedback terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Fdbk4;	/**< Load 4 IIR filter control law feedback terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Fdbk1;	/**< Load 1 IIR filter control law feedback terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Fdbk2;	/**< Load 2 IIR filter control law feedback terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Fdbk3;	/**< Load 3 IIR filter control law feedback terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Fdbk4;	/**< Load 4 IIR filter control law feedback terminal pointer. */
 
-extern volatile int32 *CNTL_2P2Z_Out1;	/**< Load 1 IIR filter control law output terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Out2;	/**< Load 2 IIR filter control law output terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Out3;	/**< Load 3 IIR filter control law output terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Out4;	/**< Load 4 IIR filter control law output terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Out1;	/**< Load 1 IIR filter control law output terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Out2;	/**< Load 2 IIR filter control law output terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Out3;	/**< Load 3 IIR filter control law output terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Out4;	/**< Load 4 IIR filter control law output terminal pointer. */
 
-extern volatile int32 *CNTL_2P2Z_Ref1;	/**< Load 1 IIR filter control law reference terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Ref2;	/**< Load 2 IIR filter control law reference terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Ref3;	/**< Load 3 IIR filter control law reference terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Ref4;	/**< Load 4 IIR filter control law reference terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Ref1;	/**< Load 1 IIR filter control law reference terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Ref2;	/**< Load 2 IIR filter control law reference terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Ref3;	/**< Load 3 IIR filter control law reference terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Ref4;	/**< Load 4 IIR filter control law reference terminal pointer. */
 
-extern volatile int32 *CNTL_2P2Z_Coef5;	/**< AC stage I IIR filter control law coefficient terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Fdbk5;	/**< AC stage I IIR filter control law feedback terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Out5;	/**< AC stage I IIR filter control law output terminal pointer. */
-extern volatile int32 *CNTL_2P2Z_Ref5;	/**< AC stage I IIR filter control law reference terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Coef5;	/**< AC stage I IIR filter control law coefficient terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Fdbk5;	/**< AC stage I IIR filter control law feedback terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Out5;	/**< AC stage I IIR filter control law output terminal pointer. */
+extern volatile int32_t *CNTL_2P2Z_Ref5;	/**< AC stage I IIR filter control law reference terminal pointer. */
 
 #ifdef AC_V_3P3Z
-	extern volatile int32 *CNTL_3P3Z_Coef1;	/**< AC stage V IIR filter control law coefficient terminal pointer. */
-	extern volatile int32 *CNTL_3P3Z_Fdbk1;	/**< AC stage V IIR filter control law feedback terminal pointer. */
-	extern volatile int32 *CNTL_3P3Z_Out1;	/**< AC stage V IIR filter control law output terminal pointer. */
-	extern volatile int32 *CNTL_3P3Z_Ref1;	/**< AC stage V IIR filter control law reference terminal pointer. */
+	extern volatile int32_t *CNTL_3P3Z_Coef1;	/**< AC stage V IIR filter control law coefficient terminal pointer. */
+	extern volatile int32_t *CNTL_3P3Z_Fdbk1;	/**< AC stage V IIR filter control law feedback terminal pointer. */
+	extern volatile int32_t *CNTL_3P3Z_Out1;	/**< AC stage V IIR filter control law output terminal pointer. */
+	extern volatile int32_t *CNTL_3P3Z_Ref1;	/**< AC stage V IIR filter control law reference terminal pointer. */
 #else
-	extern volatile int32 *CNTL_2P2Z_Coef6;	/**< AC stage V IIR filter control law coefficient terminal pointer. */
-	extern volatile int32 *CNTL_2P2Z_Fdbk6;	/**< AC stage V IIR filter control law feedback terminal pointer. */
-	extern volatile int32 *CNTL_2P2Z_Out6;	/**< AC stage V IIR filter control law output terminal pointer. */
-	extern volatile int32 *CNTL_2P2Z_Ref6;	/**< AC stage V IIR filter control law reference terminal pointer. */
+	extern volatile int32_t *CNTL_2P2Z_Coef6;	/**< AC stage V IIR filter control law coefficient terminal pointer. */
+	extern volatile int32_t *CNTL_2P2Z_Fdbk6;	/**< AC stage V IIR filter control law feedback terminal pointer. */
+	extern volatile int32_t *CNTL_2P2Z_Out6;	/**< AC stage V IIR filter control law output terminal pointer. */
+	extern volatile int32_t *CNTL_2P2Z_Ref6;	/**< AC stage V IIR filter control law reference terminal pointer. */
 #endif
 
 /** Initialises all IIR filter control law coefficients.
@@ -130,7 +130,7 @@ extern void initCoefs (void);
  * @param[in]	value	Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][].
  * @return				Error status.
  */
-extern Uint16 setLoadICoef (loadStage load, cfType coef, float32 value);
+extern uint16_t setLoadICoef (loadStage load, cfType coef, float value);
 
 /** Queries the specified IIR filter control law coefficient for a specified load's current control.
  * @param[in]	load	Specifies the load on which the setting is to be queried [0, NUM_CHNLS).
@@ -138,7 +138,7 @@ extern Uint16 setLoadICoef (loadStage load, cfType coef, float32 value);
  * @param[out]	value	Address of the memory location at which to place the query result.
  * @return				Error status.
  */
-extern Uint16 getLoadICoef (loadStage load, cfType coef, float32 *value);
+extern uint16_t getLoadICoef (loadStage load, cfType coef, float *value);
 
 /*=============== AC I ===============*/
 /** Sets the specified IIR filter control law coefficient for the AC current control.
@@ -146,14 +146,14 @@ extern Uint16 getLoadICoef (loadStage load, cfType coef, float32 *value);
  * @param[in]	val		Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][].
  * @return				Error status.
  */
-extern Uint16 setAcICoef (cfType coef, float32 val);
+extern uint16_t setAcICoef (cfType coef, float val);
 
 /** Queries the specified IIR filter control law coefficient for the AC current control.
  * @param[in]	coef	Specifies the coefficient to be queried [cMin, cA3).
  * @param[out]	value	Address of the memory location at which to place the query result.
  * @return				Error status.
  */
-extern Uint16 getAcICoef (cfType coef, float32 *value);
+extern uint16_t getAcICoef (cfType coef, float *value);
 
 /*=============== AC V ===============*/
 /** Sets the specified IIR filter control law coefficient for the AC voltage control.
@@ -162,14 +162,14 @@ extern Uint16 getAcICoef (cfType coef, float32 *value);
  * @param[in]	value	Specifies the coefficient value to be applied. Should be between the minimum and maximum values for the specific coefficient as defined by cfLmts[][].
  * @return				Error status.
  */
-extern Uint16 setAcVCoef (cfType coef, float32 value);
+extern uint16_t setAcVCoef (cfType coef, float value);
 
 /** Queries the specified IIR filter control law coefficient for the AC voltage control.
  * @param[in]	coef	Specifies the coefficient to be queried [cMin, cA3).
  * @param[out]	value	Address of the memory location at which to place the query result.
  * @return				Error status.
  */
-extern Uint16 getAcVCoef (cfType coef, float32 *value);
+extern uint16_t getAcVCoef (cfType coef, float *value);
 
 #ifdef __cplusplus
 }
