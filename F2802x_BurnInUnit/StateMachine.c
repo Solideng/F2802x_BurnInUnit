@@ -103,7 +103,7 @@ void loopBSync (void) {
 
 void loopBTask1 (void) {
 	/* Check for over-temperature */
-		checkLoadOtp(load1);	//TODO: Commented out for test usage.
+		checkLoadOtp(load1);
 		checkLoadOtp(load2);
 	//	checkLoadOtp(load3);
 	//	checkLoadOtp(load4);
