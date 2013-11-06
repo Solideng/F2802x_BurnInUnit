@@ -112,7 +112,7 @@ Sequential iteration thread state machine</div></div>
 Sequence of thread tasks</div></div>
 <h1><a class="anchor" id="dpctrl"></a>
 Digital Power Control</h1>
-<p>The control of the power, voltage and current is managed using control loop logic, normally one loop for each stage (Transformer, AC, each of the four loads). These control loops are formed from a set of macros and helper functions.</p>
+<p>The control of the power, voltage and current is managed using control loop logic, normally one loop for each stage (Transformer, AC and each of the four loads). These control loops are formed from a set of macros and helper functions.</p>
 <p>Each of these macros acts as a block of functionality, much like a black-box electronic component, allowing their terminals to be wired together in the required order with nets. Once initialised and configured, or connected, correctly the macro blocks are executed, sequentially, by calling the appropriate code from an assembly ISR. In this case, this is what forms the DPL ISR tasks. Each block performs a precisely defined computation and delivers the result to the appropriate net-list variables. Each control loop's net vairables and operation parameter variables are grouped together and stored in a structure (channelParameters), with one such structure for each control loop.</p>
 <p>The basic use of macros that are available within the program can be broken down into three parts:</p>
 <ol type="1">
@@ -123,31 +123,33 @@ Digital Power Control</h1>
 <h2><a class="anchor" id="blctrl"></a>
 Boost Load Control</h2>
 <p>The following figure shows a diagram that illustrates the macro and net view of the control loop for one of the load boost converter stages. The loop depicted is current controlled. It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the level of the current at the low side of the load input, CHANn I<sub>SNS</sub>. This value is used as the feedback into a 2-pole 2-zero filter macro where it is compared to the user-set reference value and the output value is varied up or down, using the filter coefficients, as needed to move it towards matching the reference. This output value is then used by another macro to set the duty of the ePWM peripheral that controls the switching of the converter, CHANn PWM.</p>
-<p>Another macro retrieves a value from a second ADC that represents the voltage level across the load input, CHANn V<sub>SNS</sub>. A task in one of the sequential iteration threads compares this value to the user-set allowable voltage limit, the OVP limit. If the value is above this limit the control loop output is disabled and an over-current protection alert is raised.</p>
+<p>Another macro retrieves a value from a second ADC that represents the voltage level across the load input, CHANn V<sub>SNS</sub>. A task in one of the sequential iteration threads compares this value to the user-set allowable voltage limit, the OVP limit. If the value is above this limit the control loop output is disabled and an over-voltage protection alert is raised.</p>
 <div class="image">
 <img src="boost_load_loop.png" alt="boost_load_loop.png"/>
 <div class="caption">
 Macro view of control loop for single boost load</div></div>
-<h2><a class="anchor" id="ibctrl"></a>
-Inter-Boost Control</h2>
-<p>The following figure shows a diagram that illustrates the macro and net view of the control loop for the inter-boost, or "middle", boost converter stage. The loop depicted is voltage controlled. It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the level of the voltage across the stage output, DC HV V<sub>SNS</sub>. This value is used as the feedback into a 3-pole 3-zero filter macro where it is compared to the user-set reference value and the output value is varied up or down, using the filter coefficents, as needed to move towards matching the reference. This output value is then used by another macro to set the duty of the ePWM peripheral that controls the switching of the converter, INTBST PWM.</p>
-<p>Another macro retrieves a value from a second ADC that represents the current level at the low side of the input, DC MID I<sub>SNS</sub>. An on-board analogue comparator compares this value against the user-set allowable current limit, the OCP limit. If the value is above this limit the comparator output sets the related trip-zone, quickly disabling the control loop output in software and hardware, HV EN.</p>
+<h2><a class="anchor" id="xfmrctrl"></a>
+Transformer Control</h2>
+<p>The following figure shows a diagram that illustrates the macro and net view of the control for the transformer boost converter stage. The stage uses a fixed PWM frequency and duty cycle.</p>
+<p>An on-board analogue comparator compares the value of DC MID V<sub>SNS</sub> against the user-set allowable voltage limit, the OVP limit. If the value is above this limit the comparator output sets the related trip-zone, quickly disabling the output in software and hardware.</p>
+<p>A macro is used to retrieve a reading from an ADC peripheral to obtain a value that indicates the level of the voltage across the stage output, DC HV V<sub>SNS</sub>. This value is used by a task in one of the sequential iteration threads to compare to the user-set allowable voltage limit, the OVP limit. If the value is above this limit the output is disabled and an over-voltage protection alert is raised.</p>
+<p>Another macro retrieves a value from a second ADC that represents the current level at the low side of the input, DC MID I<sub>SNS</sub>. This value is used by a task in one of the sequential iteration threads to compare to the user-set allowable voltage limit, the OCP limit. If the value is above this limit the output is disabled and an over-current protection alert is raised.</p>
 <div class="image">
-<img src="boost_xfmr_loop.png" alt="boost_xfmr_loop.png"/>
+<img src="boost_xfmr_loop_R2.png" alt="boost_xfmr_loop_R2.png"/>
 <div class="caption">
 Macro view of control loop for inter-boost</div></div>
 <h2><a class="anchor" id="acbctrl"></a>
 AC Bridge Control</h2>
-<p>The following figure shows a diagram that illustrates the macro and a net view of the control loop for the AC bridge converter stage. The loop depicted is both voltage <em>and</em> current controlled. It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the voltage level across the stage output, AC V<sub>SNS</sub>. This value is used as the feedback into a 3-pole 3-zero filter macro where it is compared to the generated sine wave reference and the output value is varied up or down, using the filter coefficients, as needed to move towards matching the reference.</p>
-<p>Another macro retrieves a value from a second ADC that represents the current level at the low side of the stage input, AC I<sub>SNS</sub>. This value is used as the feedback into a 2-pole 2-zero filter macro where it is compared to the output of the 3-pole 3-zero filter macro and the output is varied up or down, using the filter coefficents, as needed to move towards matching the reference.</p>
+<p>The following figure shows a diagram that illustrates the macro and net view of the control loop for the AC bridge converter stage. The loop depicted is both voltage <em>and</em> current controlled. It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the voltage level across the stage output, AC V<sub>SNS</sub>. This value is used as the feedback into a 2-pole 2-zero voltage filter macro where it is compared to the generated sine wave reference and the output value is varied up or down, using the filter coefficients, as needed to move towards matching the reference.</p>
+<p>Another macro retrieves a value from a second ADC that represents the current level at the low side of the stage input, AC I<sub>SNS</sub>. This value is used as the feedback into a 2-pole 2-zero current filter macro where it is compared to one of two reference signals, depending on the mode of the unit, and the output is varied up or down, using the filter coefficents, as needed to move towards matching the reference. If the unit is a stand-alone unit or a master unit the reference input is connected to the output of the voltage filter. If the unit is a slave the AC V<sub>SNS</sub> signal is replaced by the external AC I signal from the master and is connected directly to the reference input of the 2-pole 2-zero current filter macro.</p>
 <p>An on board analogue comparator also compares this AC I<sub>SNS</sub> value against the user-set allowable current limit, the OCP limit. If the value is above the limit, the comparator output sets the related trip zone, quickly disabling the control loop output and all other stages output, STOP ALL.</p>
 <div class="image">
-<img src="ac_bridge_loop.png" alt="ac_bridge_loop.png"/>
+<img src="ac_bridge_loop_R2.png" alt="ac_bridge_loop_R2.png"/>
 <div class="caption">
 Macro view of control loop for AC bridge</div></div>
  </div></div><!-- contents -->
 <hr class="footer"/><address class="footer"><small>
-Tue Nov 5 2013
+Wed Nov 6 2013
 <!--
 Generated on Thu Apr 25 2013 10:35:11 for F2802x_BurnInUnit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>

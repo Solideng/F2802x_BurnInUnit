@@ -109,8 +109,8 @@ DC MID I<sub>SNS</sub>.
 This value is used by a task in one of the sequential iteration threads to compare to the user-set allowable voltage limit, the OCP limit.
 If the value is above this limit the output is disabled and an over-current protection alert is raised.
 
-@image html boost_xfmr_loop.png "Macro view of control loop for inter-boost"
-@image latex boost_xfmr_loop.eps "Macro view of control loop for inter-boost" width=10cm
+@image html boost_xfmr_loop_R2.png "Macro view of control loop for inter-boost"
+@image latex boost_xfmr_loop_R2.eps "Macro view of control loop for inter-boost" width=10cm
 
 \subsection acbctrl AC Bridge Control
 The following figure shows a diagram that illustrates the macro and net view of the control loop for the AC bridge converter 
@@ -135,6 +135,6 @@ If the value is above the limit, the comparator output sets the related trip zon
 all other stages output, STOP ALL.
 
 @image html ac_bridge_loop_R2.png "Macro view of control loop for AC bridge"
-@image latex ac_bridge_loop.eps "Macro view of control loop for AC bridge" width=10cm
+@image latex ac_bridge_loop_R2.eps "Macro view of control loop for AC bridge" width=10cm
 
 */

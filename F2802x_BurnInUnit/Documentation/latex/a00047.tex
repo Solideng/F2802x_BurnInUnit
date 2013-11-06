@@ -1,0 +1,79 @@
+\hypertarget{a00047}{\section{slave\-Mode.\-h File Reference}
+\label{a00047}\index{slave\-Mode.\-h@{slave\-Mode.\-h}}
+}
+
+
+Functions and variables used in detection of the mode of the unit.  
+
+
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=150pt]{a00076}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{a00047_aca06f1f459e3a5a5af6da9c575e60754}{slave\-Mode} \hyperlink{a00047_afb2b17d98c0aab4c05960f280d68084d}{slave\-Mode}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{a00047_aca06f1f459e3a5a5af6da9c575e60754}{slave\-Mode} 
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{a00047_aca06f1f459e3a5a5af6da9c575e60754}{slave\-Mode} \hyperlink{a00047_ac6755edae0bbfd8297081fcdc57ec18f}{detect\-Slave\-Mode} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{a00047_aca06f1f459e3a5a5af6da9c575e60754}{slave\-Mode} \hyperlink{a00047_a0fdda7865dd9c0be0eb545cb8234865a}{slave\-Mode\-Status}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions and variables used in detection of the mode of the unit. These functions determine the mode of the burn in unit and should be run after system start up. The detection is managed using G\-P\-I\-O6 and G\-P\-I\-O7. A unit may be in one of four modes\-: a single unit, a master unit, a slave unit or alternatively a unit may be in the undetected mode which is the initial mode of a unit upon startup.
+
+\begin{DoxyWarning}{Warning}
+For the mode to be correctly detected the two units should be connected while powered off, then the slave unit should be powered on first, followed by powering on the master unit second. Once detected at startup, any further changes to the connected mode will not be detected and thus the detected mode reported will not reflect such changes to the connection mode of the unit. To change the connection mode of a unit, it, and any slave or master unit must be powered off again.
+\end{DoxyWarning}
+Also note that, as mentioned, the mode detection algorithm uses G\-P\-I\-O6. However the during initialisation and use of the S\-P\-I peripheral G\-P\-I\-O6 is used as a slave service request line. Thus even if the unit mode is not used in conjunction with the S\-P\-I functions they should still only be used after the slave mode has been detected. 
+
+\subsection{Typedef Documentation}
+\hypertarget{a00047_afb2b17d98c0aab4c05960f280d68084d}{\index{slave\-Mode.\-h@{slave\-Mode.\-h}!slave\-Mode@{slave\-Mode}}
+\index{slave\-Mode@{slave\-Mode}!slaveMode.h@{slave\-Mode.\-h}}
+\subsubsection[{slave\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}typedef enum {\bf slave\-Mode} {\bf slave\-Mode}}}\label{a00047_afb2b17d98c0aab4c05960f280d68084d}
+A type to allow specification of the unit mode 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{a00047_aca06f1f459e3a5a5af6da9c575e60754}{\index{slave\-Mode.\-h@{slave\-Mode.\-h}!slave\-Mode@{slave\-Mode}}
+\index{slave\-Mode@{slave\-Mode}!slaveMode.h@{slave\-Mode.\-h}}
+\subsubsection[{slave\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf slave\-Mode}}}\label{a00047_aca06f1f459e3a5a5af6da9c575e60754}
+The possible unit modes 
+
+\subsection{Function Documentation}
+\hypertarget{a00047_ac6755edae0bbfd8297081fcdc57ec18f}{\index{slave\-Mode.\-h@{slave\-Mode.\-h}!detect\-Slave\-Mode@{detect\-Slave\-Mode}}
+\index{detect\-Slave\-Mode@{detect\-Slave\-Mode}!slaveMode.h@{slave\-Mode.\-h}}
+\subsubsection[{detect\-Slave\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf slave\-Mode} detect\-Slave\-Mode (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{a00047_ac6755edae0bbfd8297081fcdc57ec18f}
+Detects the unit mode. This should only be run once, at startup, to allow the mode to be provided to any other function initialisations that may rely on it.
+
+When a slave unit is powered on the state of G\-P\-I\-O7 is read. If the reading is L\-O\-W, this indicates that the unit is a slave and subsequently G\-P\-I\-O6 is set H\-I\-G\-H. If the G\-P\-I\-O7 reading indicated that the unit is a master unit the state of G\-P\-I\-O6 is then read and if it is L\-O\-W it determines that the unit is a single unit.
+
+\begin{DoxyReturn}{Returns}
+The detected slave mode. If the mode has already been detected the state will be available by referencing the slave\-Mode\-Status variable instead. 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\hypertarget{a00047_a0fdda7865dd9c0be0eb545cb8234865a}{\index{slave\-Mode.\-h@{slave\-Mode.\-h}!slave\-Mode\-Status@{slave\-Mode\-Status}}
+\index{slave\-Mode\-Status@{slave\-Mode\-Status}!slaveMode.h@{slave\-Mode.\-h}}
+\subsubsection[{slave\-Mode\-Status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf slave\-Mode} slave\-Mode\-Status}}\label{a00047_a0fdda7865dd9c0be0eb545cb8234865a}
+A global variable that holds the detected mode of the unit, allowing the mode to be queried. 
