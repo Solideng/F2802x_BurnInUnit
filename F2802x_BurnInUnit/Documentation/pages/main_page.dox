@@ -113,25 +113,28 @@ If the value is above this limit the output is disabled and an over-current prot
 @image latex boost_xfmr_loop.eps "Macro view of control loop for inter-boost" width=10cm
 
 \subsection acbctrl AC Bridge Control
-The following figure shows a diagram that illustrates the macro and a net view of the control loop for the AC bridge converter 
+The following figure shows a diagram that illustrates the macro and net view of the control loop for the AC bridge converter 
 stage.
 The loop depicted is both voltage *and* current controlled.
 It uses a macro to retrieve a reading from an ADC peripheral to obtain a value that indicates the voltage level across the stage 
 output, AC V<sub>SNS</sub>.
-This value is used as the feedback into a 3-pole 3-zero filter macro where it is compared to the generated sine wave reference and
-the output value is varied up or down, using the filter coefficients, as needed to move towards matching the reference.
+This value is used as the feedback into a 2-pole 2-zero voltage filter macro where it is compared to the generated sine wave reference
+and  the output value is varied up or down, using the filter coefficients, as needed to move towards matching the reference.
 
 Another macro retrieves a value from a second ADC that represents the current level at the low side of the stage input,  
 AC I<sub>SNS</sub>.
-This value is used as the feedback into a 2-pole 2-zero filter macro where it is compared to the output of the 3-pole 3-zero 
-filter macro and the output is varied up or down, using the filter coefficents, as needed to move towards matching the reference.
+This value is used as the feedback into a 2-pole 2-zero current filter macro where it is compared to one of two reference signals, 
+depending on the mode of the unit,  and the output is varied up or down, using the filter coefficents, as needed to move towards 
+matching the reference. If the unit is a stand-alone unit or a master unit the reference input is connected to the 
+output of the voltage filter. If the unit is a slave the AC V<sub>SNS</sub> signal is replaced by the external AC I signal from the 
+master and is connected directly to the reference input of the 2-pole 2-zero current filter macro. 
 
 An on board analogue comparator also compares this AC I<sub>SNS</sub> value against the user-set allowable current limit, 
 the OCP limit.
 If the value is above the limit, the comparator output sets the related trip zone, quickly disabling the control loop output and 
 all other stages output, STOP ALL.
 
-@image html ac_bridge_loop.png "Macro view of control loop for AC bridge"
+@image html ac_bridge_loop_R2.png "Macro view of control loop for AC bridge"
 @image latex ac_bridge_loop.eps "Macro view of control loop for AC bridge" width=10cm
 
 */
